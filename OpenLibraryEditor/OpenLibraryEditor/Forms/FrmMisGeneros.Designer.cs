@@ -72,9 +72,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TrvGenerosMGE.BackColor = System.Drawing.Color.Navy;
-            this.TrvGenerosMGE.Location = new System.Drawing.Point(40, 40);
+            this.TrvGenerosMGE.Location = new System.Drawing.Point(0, 0);
             this.TrvGenerosMGE.Name = "TrvGenerosMGE";
-            this.TrvGenerosMGE.Size = new System.Drawing.Size(868, 458);
+            this.TrvGenerosMGE.Size = new System.Drawing.Size(260, 546);
             this.TrvGenerosMGE.TabIndex = 2;
             // 
             // PanNumGenerosMGE

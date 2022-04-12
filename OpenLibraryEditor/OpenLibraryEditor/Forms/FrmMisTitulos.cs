@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenLibraryEditor.DatosLibros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,8 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasTituloMTI_Click(object sender, EventArgs e)
         {
-            FrmTitulos t=new FrmTitulos();
+            Libro l = new Libro();
+            FrmAniadirLibro t=new FrmAniadirLibro(l);
             t.FormBorderStyle = FormBorderStyle.None;
             t.ShowDialog();
         }

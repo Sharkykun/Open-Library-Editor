@@ -56,6 +56,9 @@
     <Reference Include="FontAwesome.Sharp.Pro, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.Pro.5.15.4\lib\net48\FontAwesome.Sharp.Pro.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -75,10 +78,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ControladorIdioma.cs" />
+    <Compile Include="Clases\ControladorImagen.cs" />
     <Compile Include="Clases\MiMessageBox.cs" />
+    <Compile Include="Clases\VentanaWindowsComun.cs" />
     <Compile Include="Controles\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DatosLibros\Biblioteca.cs" />
+    <Compile Include="DatosLibros\Editorial.cs" />
+    <Compile Include="DatosLibros\Etiqueta.cs" />
+    <Compile Include="DatosLibros\Genero.cs" />
+    <Compile Include="DatosLibros\Idioma.cs" />
+    <Compile Include="DatosLibros\Libro.cs" />
+    <Compile Include="DatosLibros\Persona.cs" />
+    <Compile Include="DatosLibros\RelacionSerie.cs" />
+    <Compile Include="DatosLibros\Serie.cs" />
+    <Compile Include="DatosLibros\UsuarioAccion.cs" />
+    <Compile Include="DatosLibros\UsuarioDatos.cs" />
+    <Compile Include="DatosLibros\UsuarioEjecutable.cs" />
     <Compile Include="Forms\FrmAutores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,11 +222,11 @@
     <Compile Include="Forms\FrmTags.Designer.cs">
       <DependentUpon>FrmTags.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmTitulos.cs">
+    <Compile Include="Forms\FrmAniadirLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmTitulos.Designer.cs">
-      <DependentUpon>FrmTitulos.cs</DependentUpon>
+    <Compile Include="Forms\FrmAniadirLibro.Designer.cs">
+      <DependentUpon>FrmAniadirLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="Idiomas\Strings_en_US.Designer.cs">
       <DependentUpon>Strings_en_US.resx</DependentUpon>
@@ -289,8 +306,8 @@
     <EmbeddedResource Include="Forms\FrmTags.resx">
       <DependentUpon>FrmTags.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmTitulos.resx">
-      <DependentUpon>FrmTitulos.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAniadirLibro.resx">
+      <DependentUpon>FrmAniadirLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Idiomas\Strings_en_US.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -181,7 +181,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnAutores_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisAutores());
+            AbrirFormularios(new FrmMiBiblioteca());
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnTitulos_Click(object sender, EventArgs e)
