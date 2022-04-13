@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using FontAwesome.Sharp.Material;
+using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -225,7 +226,9 @@ namespace OpenLibraryEditor.Forms
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            AbrirFormularios(new FrmNuevoLibro());
+            FrmAniadirLibro al = new FrmAniadirLibro(new Libro());
+            al.FormBorderStyle=FormBorderStyle.None;
+            al.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
@@ -268,7 +271,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnEditorialesMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmEditoriales editoriales = new FrmEditoriales();
+            FrmEditoriales editoriales = new FrmEditoriales(false);
             editoriales.FormBorderStyle = FormBorderStyle.None;
             editoriales.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);

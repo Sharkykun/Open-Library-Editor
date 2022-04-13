@@ -270,9 +270,9 @@
             this.LblTituloMisTags.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloMisTags.Location = new System.Drawing.Point(75, 18);
             this.LblTituloMisTags.Name = "LblTituloMisTags";
-            this.LblTituloMisTags.Size = new System.Drawing.Size(118, 32);
+            this.LblTituloMisTags.Size = new System.Drawing.Size(173, 32);
             this.LblTituloMisTags.TabIndex = 10;
-            this.LblTituloMisTags.Text = "Mis Tags";
+            this.LblTituloMisTags.Text = "Mis Etiquetas";
             // 
             // MPcbMisTags
             // 

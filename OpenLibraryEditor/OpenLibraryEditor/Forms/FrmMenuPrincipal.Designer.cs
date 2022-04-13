@@ -324,7 +324,7 @@
             this.MBtnTags.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
             this.MBtnTags.Size = new System.Drawing.Size(249, 45);
             this.MBtnTags.TabIndex = 8;
-            this.MBtnTags.Text = "Tags";
+            this.MBtnTags.Text = "Etiquetas";
             this.MBtnTags.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnTags.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnTags.UseVisualStyleBackColor = false;
@@ -696,8 +696,8 @@
             this.BtnTagsMsb.Name = "BtnTagsMsb";
             this.BtnTagsMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.BtnTagsMsb.Rotation = 0D;
-            this.BtnTagsMsb.Size = new System.Drawing.Size(61, 62);
-            this.BtnTagsMsb.Text = "Tags";
+            this.BtnTagsMsb.Size = new System.Drawing.Size(91, 62);
+            this.BtnTagsMsb.Text = "Etiquetas";
             this.BtnTagsMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnTagsMsb.ButtonClick += new System.EventHandler(this.BtnTagsMsb_ButtonClick);
             // 

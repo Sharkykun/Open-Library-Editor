@@ -32,16 +32,12 @@
             this.MBtnCerrarAutores = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloAutores = new System.Windows.Forms.Label();
             this.PcbLogoAutores = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.KDtpNacimientoAu = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.PcbAutorNA = new System.Windows.Forms.PictureBox();
             this.LblNacimientoAu = new System.Windows.Forms.Label();
-            this.LblNombreAu = new System.Windows.Forms.Label();
+            this.LblNombreNA = new System.Windows.Forms.Label();
             this.KTxtNombreAu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.LblApellidosAu = new System.Windows.Forms.Label();
-            this.KTxtApellidosAu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblAliasAu = new System.Windows.Forms.Label();
             this.KtxtAliasAu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.KDtpDefuncionAu = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.LblDefuncionAu = new System.Windows.Forms.Label();
             this.LblEnlaceAu = new System.Windows.Forms.Label();
             this.KTxtEnlaceAu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -53,10 +49,22 @@
             this.PanBtnAu = new System.Windows.Forms.Panel();
             this.KBtnCancelarAu = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.KBtnAceptarAu = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.KMtxtFecNacimientoNA = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.KMtxtFecMuerteNA = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.LsvAutoresNA = new System.Windows.Forms.ListView();
+            this.ChNombreAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChOcupacionAu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MBtnMasLsvNA = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnMenosLsvNA = new FontAwesome.Sharp.Material.MaterialButton();
+            this.KCmbOcupacionNA = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.MBtnMasOcupacionNA = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnMenosOcupacionNA = new FontAwesome.Sharp.Material.MaterialButton();
+            this.LblOcupacionNA = new System.Windows.Forms.Label();
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAutorNA)).BeginInit();
             this.PanBtnAu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KCmbOcupacionNA)).BeginInit();
             this.SuspendLayout();
             // 
             // PanTituloAutores
@@ -68,7 +76,7 @@
             this.PanTituloAutores.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanTituloAutores.Location = new System.Drawing.Point(0, 0);
             this.PanTituloAutores.Name = "PanTituloAutores";
-            this.PanTituloAutores.Size = new System.Drawing.Size(760, 40);
+            this.PanTituloAutores.Size = new System.Drawing.Size(805, 40);
             this.PanTituloAutores.TabIndex = 1;
             this.PanTituloAutores.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloAutores_MouseDown);
             // 
@@ -83,7 +91,7 @@
             this.MBtnCerrarAutores.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
             this.MBtnCerrarAutores.IconColor = System.Drawing.Color.Gainsboro;
             this.MBtnCerrarAutores.IconSize = 40;
-            this.MBtnCerrarAutores.Location = new System.Drawing.Point(728, 0);
+            this.MBtnCerrarAutores.Location = new System.Drawing.Point(773, 0);
             this.MBtnCerrarAutores.Name = "MBtnCerrarAutores";
             this.MBtnCerrarAutores.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarAutores.Size = new System.Drawing.Size(32, 40);
@@ -113,59 +121,43 @@
             this.PcbLogoAutores.TabIndex = 3;
             this.PcbLogoAutores.TabStop = false;
             // 
-            // pictureBox1
+            // PcbAutorNA
             // 
-            this.pictureBox1.Image = global::OpenLibraryEditor.Properties.Resources.silueta;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 227);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // KDtpNacimientoAu
-            // 
-            this.KDtpNacimientoAu.Location = new System.Drawing.Point(234, 197);
-            this.KDtpNacimientoAu.Name = "KDtpNacimientoAu";
-            this.KDtpNacimientoAu.Size = new System.Drawing.Size(248, 32);
-            this.KDtpNacimientoAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KDtpNacimientoAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KDtpNacimientoAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KDtpNacimientoAu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KDtpNacimientoAu.StateCommon.Border.Rounding = 10;
-            this.KDtpNacimientoAu.StateCommon.Border.Width = 2;
-            this.KDtpNacimientoAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KDtpNacimientoAu.TabIndex = 3;
+            this.PcbAutorNA.Image = global::OpenLibraryEditor.Properties.Resources.silueta;
+            this.PcbAutorNA.Location = new System.Drawing.Point(676, 64);
+            this.PcbAutorNA.Name = "PcbAutorNA";
+            this.PcbAutorNA.Size = new System.Drawing.Size(120, 140);
+            this.PcbAutorNA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbAutorNA.TabIndex = 2;
+            this.PcbAutorNA.TabStop = false;
             // 
             // LblNacimientoAu
             // 
             this.LblNacimientoAu.AutoSize = true;
             this.LblNacimientoAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNacimientoAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblNacimientoAu.Location = new System.Drawing.Point(234, 176);
+            this.LblNacimientoAu.Location = new System.Drawing.Point(251, 187);
             this.LblNacimientoAu.Name = "LblNacimientoAu";
             this.LblNacimientoAu.Size = new System.Drawing.Size(155, 20);
             this.LblNacimientoAu.TabIndex = 81;
             this.LblNacimientoAu.Text = "Fecha de nacimiento";
             // 
-            // LblNombreAu
+            // LblNombreNA
             // 
-            this.LblNombreAu.AutoSize = true;
-            this.LblNombreAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblNombreAu.Location = new System.Drawing.Point(234, 60);
-            this.LblNombreAu.Name = "LblNombreAu";
-            this.LblNombreAu.Size = new System.Drawing.Size(66, 20);
-            this.LblNombreAu.TabIndex = 79;
-            this.LblNombreAu.Text = "Nombre";
+            this.LblNombreNA.AutoSize = true;
+            this.LblNombreNA.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreNA.ForeColor = System.Drawing.Color.Navy;
+            this.LblNombreNA.Location = new System.Drawing.Point(251, 70);
+            this.LblNombreNA.Name = "LblNombreNA";
+            this.LblNombreNA.Size = new System.Drawing.Size(136, 20);
+            this.LblNombreNA.TabIndex = 79;
+            this.LblNombreNA.Text = "Nombre completo";
             // 
             // KTxtNombreAu
             // 
-            this.KTxtNombreAu.Location = new System.Drawing.Point(234, 81);
+            this.KTxtNombreAu.Location = new System.Drawing.Point(420, 64);
             this.KTxtNombreAu.Name = "KTxtNombreAu";
-            this.KTxtNombreAu.Size = new System.Drawing.Size(239, 33);
+            this.KTxtNombreAu.Size = new System.Drawing.Size(235, 33);
             this.KTxtNombreAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KTxtNombreAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KTxtNombreAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -178,40 +170,12 @@
             this.KTxtNombreAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreAu.TabIndex = 0;
             // 
-            // LblApellidosAu
-            // 
-            this.LblApellidosAu.AutoSize = true;
-            this.LblApellidosAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApellidosAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblApellidosAu.Location = new System.Drawing.Point(479, 60);
-            this.LblApellidosAu.Name = "LblApellidosAu";
-            this.LblApellidosAu.Size = new System.Drawing.Size(72, 20);
-            this.LblApellidosAu.TabIndex = 84;
-            this.LblApellidosAu.Text = "Apellidos";
-            // 
-            // KTxtApellidosAu
-            // 
-            this.KTxtApellidosAu.Location = new System.Drawing.Point(479, 81);
-            this.KTxtApellidosAu.Name = "KTxtApellidosAu";
-            this.KTxtApellidosAu.Size = new System.Drawing.Size(257, 33);
-            this.KTxtApellidosAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtApellidosAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtApellidosAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtApellidosAu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtApellidosAu.StateCommon.Border.Rounding = 10;
-            this.KTxtApellidosAu.StateCommon.Border.Width = 2;
-            this.KTxtApellidosAu.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtApellidosAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtApellidosAu.TabIndex = 1;
-            // 
             // LblAliasAu
             // 
             this.LblAliasAu.AutoSize = true;
             this.LblAliasAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblAliasAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblAliasAu.Location = new System.Drawing.Point(234, 118);
+            this.LblAliasAu.Location = new System.Drawing.Point(251, 109);
             this.LblAliasAu.Name = "LblAliasAu";
             this.LblAliasAu.Size = new System.Drawing.Size(42, 20);
             this.LblAliasAu.TabIndex = 86;
@@ -219,9 +183,9 @@
             // 
             // KtxtAliasAu
             // 
-            this.KtxtAliasAu.Location = new System.Drawing.Point(234, 138);
+            this.KtxtAliasAu.Location = new System.Drawing.Point(420, 103);
             this.KtxtAliasAu.Name = "KtxtAliasAu";
-            this.KtxtAliasAu.Size = new System.Drawing.Size(502, 33);
+            this.KtxtAliasAu.Size = new System.Drawing.Size(235, 33);
             this.KtxtAliasAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KtxtAliasAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KtxtAliasAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -234,28 +198,12 @@
             this.KtxtAliasAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KtxtAliasAu.TabIndex = 2;
             // 
-            // KDtpDefuncionAu
-            // 
-            this.KDtpDefuncionAu.Location = new System.Drawing.Point(488, 197);
-            this.KDtpDefuncionAu.Name = "KDtpDefuncionAu";
-            this.KDtpDefuncionAu.Size = new System.Drawing.Size(248, 32);
-            this.KDtpDefuncionAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KDtpDefuncionAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KDtpDefuncionAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KDtpDefuncionAu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KDtpDefuncionAu.StateCommon.Border.Rounding = 10;
-            this.KDtpDefuncionAu.StateCommon.Border.Width = 2;
-            this.KDtpDefuncionAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KDtpDefuncionAu.TabIndex = 4;
-            // 
             // LblDefuncionAu
             // 
             this.LblDefuncionAu.AutoSize = true;
             this.LblDefuncionAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDefuncionAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblDefuncionAu.Location = new System.Drawing.Point(488, 176);
+            this.LblDefuncionAu.Location = new System.Drawing.Point(251, 226);
             this.LblDefuncionAu.Name = "LblDefuncionAu";
             this.LblDefuncionAu.Size = new System.Drawing.Size(147, 20);
             this.LblDefuncionAu.TabIndex = 87;
@@ -266,7 +214,7 @@
             this.LblEnlaceAu.AutoSize = true;
             this.LblEnlaceAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEnlaceAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblEnlaceAu.Location = new System.Drawing.Point(234, 234);
+            this.LblEnlaceAu.Location = new System.Drawing.Point(251, 265);
             this.LblEnlaceAu.Name = "LblEnlaceAu";
             this.LblEnlaceAu.Size = new System.Drawing.Size(155, 20);
             this.LblEnlaceAu.TabIndex = 90;
@@ -274,9 +222,9 @@
             // 
             // KTxtEnlaceAu
             // 
-            this.KTxtEnlaceAu.Location = new System.Drawing.Point(234, 254);
+            this.KTxtEnlaceAu.Location = new System.Drawing.Point(420, 259);
             this.KTxtEnlaceAu.Name = "KTxtEnlaceAu";
-            this.KTxtEnlaceAu.Size = new System.Drawing.Size(502, 33);
+            this.KTxtEnlaceAu.Size = new System.Drawing.Size(369, 33);
             this.KTxtEnlaceAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KTxtEnlaceAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KTxtEnlaceAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -294,7 +242,7 @@
             this.LblComentarioAu.AutoSize = true;
             this.LblComentarioAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblComentarioAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblComentarioAu.Location = new System.Drawing.Point(20, 340);
+            this.LblComentarioAu.Location = new System.Drawing.Point(251, 304);
             this.LblComentarioAu.Name = "LblComentarioAu";
             this.LblComentarioAu.Size = new System.Drawing.Size(91, 20);
             this.LblComentarioAu.TabIndex = 92;
@@ -302,11 +250,11 @@
             // 
             // KTxtComentarioAu
             // 
-            this.KTxtComentarioAu.Location = new System.Drawing.Point(20, 363);
+            this.KTxtComentarioAu.Location = new System.Drawing.Point(420, 298);
             this.KTxtComentarioAu.Multiline = true;
             this.KTxtComentarioAu.Name = "KTxtComentarioAu";
             this.KTxtComentarioAu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.KTxtComentarioAu.Size = new System.Drawing.Size(716, 106);
+            this.KTxtComentarioAu.Size = new System.Drawing.Size(369, 85);
             this.KTxtComentarioAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KTxtComentarioAu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KTxtComentarioAu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -326,7 +274,7 @@
             this.MBtnBorrarImagenAu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MBtnBorrarImagenAu.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
             this.MBtnBorrarImagenAu.IconColor = System.Drawing.Color.Navy;
-            this.MBtnBorrarImagenAu.Location = new System.Drawing.Point(127, 293);
+            this.MBtnBorrarImagenAu.Location = new System.Drawing.Point(743, 210);
             this.MBtnBorrarImagenAu.Name = "MBtnBorrarImagenAu";
             this.MBtnBorrarImagenAu.Size = new System.Drawing.Size(30, 30);
             this.MBtnBorrarImagenAu.TabIndex = 7;
@@ -339,7 +287,7 @@
             this.MBtnAniadirImagenAu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MBtnAniadirImagenAu.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
             this.MBtnAniadirImagenAu.IconColor = System.Drawing.Color.Navy;
-            this.MBtnAniadirImagenAu.Location = new System.Drawing.Point(87, 293);
+            this.MBtnAniadirImagenAu.Location = new System.Drawing.Point(703, 210);
             this.MBtnAniadirImagenAu.Name = "MBtnAniadirImagenAu";
             this.MBtnAniadirImagenAu.Size = new System.Drawing.Size(30, 30);
             this.MBtnAniadirImagenAu.TabIndex = 6;
@@ -355,16 +303,16 @@
             this.PanBtnAu.Controls.Add(this.KBtnCancelarAu);
             this.PanBtnAu.Controls.Add(this.KBtnAceptarAu);
             this.PanBtnAu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanBtnAu.Location = new System.Drawing.Point(0, 504);
+            this.PanBtnAu.Location = new System.Drawing.Point(0, 454);
             this.PanBtnAu.Name = "PanBtnAu";
-            this.PanBtnAu.Size = new System.Drawing.Size(760, 45);
+            this.PanBtnAu.Size = new System.Drawing.Size(805, 45);
             this.PanBtnAu.TabIndex = 97;
             // 
             // KBtnCancelarAu
             // 
             this.KBtnCancelarAu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KBtnCancelarAu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KBtnCancelarAu.Location = new System.Drawing.Point(472, 5);
+            this.KBtnCancelarAu.Location = new System.Drawing.Point(532, 5);
             this.KBtnCancelarAu.Margin = new System.Windows.Forms.Padding(0);
             this.KBtnCancelarAu.Name = "KBtnCancelarAu";
             this.KBtnCancelarAu.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -444,7 +392,7 @@
             // 
             this.KBtnAceptarAu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KBtnAceptarAu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KBtnAceptarAu.Location = new System.Drawing.Point(610, 5);
+            this.KBtnAceptarAu.Location = new System.Drawing.Point(670, 5);
             this.KBtnAceptarAu.Margin = new System.Windows.Forms.Padding(0);
             this.KBtnAceptarAu.Name = "KBtnAceptarAu";
             this.KBtnAceptarAu.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -521,12 +469,174 @@
             this.KBtnAceptarAu.TabIndex = 0;
             this.KBtnAceptarAu.Values.Text = "Aceptar";
             // 
+            // KMtxtFecNacimientoNA
+            // 
+            this.KMtxtFecNacimientoNA.Location = new System.Drawing.Point(420, 181);
+            this.KMtxtFecNacimientoNA.Mask = "00/00/0000";
+            this.KMtxtFecNacimientoNA.Name = "KMtxtFecNacimientoNA";
+            this.KMtxtFecNacimientoNA.Size = new System.Drawing.Size(107, 33);
+            this.KMtxtFecNacimientoNA.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KMtxtFecNacimientoNA.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecNacimientoNA.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecNacimientoNA.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KMtxtFecNacimientoNA.StateCommon.Border.Rounding = 10;
+            this.KMtxtFecNacimientoNA.StateCommon.Border.Width = 2;
+            this.KMtxtFecNacimientoNA.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KMtxtFecNacimientoNA.TabIndex = 98;
+            this.KMtxtFecNacimientoNA.Text = "  /  /";
+            // 
+            // KMtxtFecMuerteNA
+            // 
+            this.KMtxtFecMuerteNA.Location = new System.Drawing.Point(420, 220);
+            this.KMtxtFecMuerteNA.Mask = "00/00/0000";
+            this.KMtxtFecMuerteNA.Name = "KMtxtFecMuerteNA";
+            this.KMtxtFecMuerteNA.Size = new System.Drawing.Size(107, 33);
+            this.KMtxtFecMuerteNA.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KMtxtFecMuerteNA.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecMuerteNA.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecMuerteNA.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KMtxtFecMuerteNA.StateCommon.Border.Rounding = 10;
+            this.KMtxtFecMuerteNA.StateCommon.Border.Width = 2;
+            this.KMtxtFecMuerteNA.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KMtxtFecMuerteNA.TabIndex = 99;
+            this.KMtxtFecMuerteNA.Text = "  /  /";
+            // 
+            // LsvAutoresNA
+            // 
+            this.LsvAutoresNA.BackColor = System.Drawing.Color.Gainsboro;
+            this.LsvAutoresNA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LsvAutoresNA.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ChNombreAutor,
+            this.ChOcupacionAu});
+            this.LsvAutoresNA.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LsvAutoresNA.HideSelection = false;
+            this.LsvAutoresNA.Location = new System.Drawing.Point(12, 70);
+            this.LsvAutoresNA.Name = "LsvAutoresNA";
+            this.LsvAutoresNA.Size = new System.Drawing.Size(221, 313);
+            this.LsvAutoresNA.TabIndex = 131;
+            this.LsvAutoresNA.UseCompatibleStateImageBehavior = false;
+            this.LsvAutoresNA.View = System.Windows.Forms.View.Details;
+            // 
+            // ChNombreAutor
+            // 
+            this.ChNombreAutor.Text = "Nombre";
+            this.ChNombreAutor.Width = 117;
+            // 
+            // ChOcupacionAu
+            // 
+            this.ChOcupacionAu.Text = "Ocupación";
+            this.ChOcupacionAu.Width = 127;
+            // 
+            // MBtnMasLsvNA
+            // 
+            this.MBtnMasLsvNA.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnMasLsvNA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMasLsvNA.FlatAppearance.BorderSize = 0;
+            this.MBtnMasLsvNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasLsvNA.IconChar = FontAwesome.Sharp.MaterialIcons.PlusBox;
+            this.MBtnMasLsvNA.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasLsvNA.IconSize = 65;
+            this.MBtnMasLsvNA.Location = new System.Drawing.Point(12, 389);
+            this.MBtnMasLsvNA.Name = "MBtnMasLsvNA";
+            this.MBtnMasLsvNA.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.MBtnMasLsvNA.Size = new System.Drawing.Size(45, 45);
+            this.MBtnMasLsvNA.TabIndex = 139;
+            this.MBtnMasLsvNA.UseVisualStyleBackColor = false;
+            // 
+            // MBtnMenosLsvNA
+            // 
+            this.MBtnMenosLsvNA.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnMenosLsvNA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMenosLsvNA.FlatAppearance.BorderSize = 0;
+            this.MBtnMenosLsvNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosLsvNA.IconChar = FontAwesome.Sharp.MaterialIcons.MinusBoxOutline;
+            this.MBtnMenosLsvNA.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMenosLsvNA.IconSize = 65;
+            this.MBtnMenosLsvNA.Location = new System.Drawing.Point(69, 389);
+            this.MBtnMenosLsvNA.Name = "MBtnMenosLsvNA";
+            this.MBtnMenosLsvNA.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.MBtnMenosLsvNA.Size = new System.Drawing.Size(45, 45);
+            this.MBtnMenosLsvNA.TabIndex = 140;
+            this.MBtnMenosLsvNA.UseVisualStyleBackColor = false;
+            // 
+            // KCmbOcupacionNA
+            // 
+            this.KCmbOcupacionNA.DropDownWidth = 228;
+            this.KCmbOcupacionNA.Location = new System.Drawing.Point(420, 142);
+            this.KCmbOcupacionNA.Name = "KCmbOcupacionNA";
+            this.KCmbOcupacionNA.Size = new System.Drawing.Size(168, 33);
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Border.Width = 2;
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbOcupacionNA.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbOcupacionNA.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCmbOcupacionNA.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbOcupacionNA.TabIndex = 143;
+            // 
+            // MBtnMasOcupacionNA
+            // 
+            this.MBtnMasOcupacionNA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMasOcupacionNA.FlatAppearance.BorderSize = 0;
+            this.MBtnMasOcupacionNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasOcupacionNA.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
+            this.MBtnMasOcupacionNA.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasOcupacionNA.IconSize = 40;
+            this.MBtnMasOcupacionNA.Location = new System.Drawing.Point(594, 143);
+            this.MBtnMasOcupacionNA.Name = "MBtnMasOcupacionNA";
+            this.MBtnMasOcupacionNA.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMasOcupacionNA.TabIndex = 141;
+            this.MBtnMasOcupacionNA.UseVisualStyleBackColor = true;
+            // 
+            // MBtnMenosOcupacionNA
+            // 
+            this.MBtnMenosOcupacionNA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMenosOcupacionNA.FlatAppearance.BorderSize = 0;
+            this.MBtnMenosOcupacionNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosOcupacionNA.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
+            this.MBtnMenosOcupacionNA.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMenosOcupacionNA.IconSize = 40;
+            this.MBtnMenosOcupacionNA.Location = new System.Drawing.Point(625, 143);
+            this.MBtnMenosOcupacionNA.Name = "MBtnMenosOcupacionNA";
+            this.MBtnMenosOcupacionNA.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMenosOcupacionNA.TabIndex = 142;
+            this.MBtnMenosOcupacionNA.UseVisualStyleBackColor = true;
+            // 
+            // LblOcupacionNA
+            // 
+            this.LblOcupacionNA.AutoSize = true;
+            this.LblOcupacionNA.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblOcupacionNA.ForeColor = System.Drawing.Color.Navy;
+            this.LblOcupacionNA.Location = new System.Drawing.Point(251, 148);
+            this.LblOcupacionNA.Name = "LblOcupacionNA";
+            this.LblOcupacionNA.Size = new System.Drawing.Size(84, 20);
+            this.LblOcupacionNA.TabIndex = 144;
+            this.LblOcupacionNA.Text = "Ocupación";
+            // 
             // FrmAutores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(760, 549);
+            this.ClientSize = new System.Drawing.Size(805, 499);
+            this.Controls.Add(this.LblOcupacionNA);
+            this.Controls.Add(this.KCmbOcupacionNA);
+            this.Controls.Add(this.MBtnMasOcupacionNA);
+            this.Controls.Add(this.MBtnMenosOcupacionNA);
+            this.Controls.Add(this.MBtnMasLsvNA);
+            this.Controls.Add(this.MBtnMenosLsvNA);
+            this.Controls.Add(this.LsvAutoresNA);
+            this.Controls.Add(this.KMtxtFecMuerteNA);
+            this.Controls.Add(this.KMtxtFecNacimientoNA);
             this.Controls.Add(this.PanBtnAu);
             this.Controls.Add(this.MBtnAniadirImagenAu);
             this.Controls.Add(this.MBtnBorrarImagenAu);
@@ -534,17 +644,13 @@
             this.Controls.Add(this.KTxtComentarioAu);
             this.Controls.Add(this.LblEnlaceAu);
             this.Controls.Add(this.KTxtEnlaceAu);
-            this.Controls.Add(this.KDtpDefuncionAu);
             this.Controls.Add(this.LblDefuncionAu);
             this.Controls.Add(this.LblAliasAu);
             this.Controls.Add(this.KtxtAliasAu);
-            this.Controls.Add(this.LblApellidosAu);
-            this.Controls.Add(this.KTxtApellidosAu);
-            this.Controls.Add(this.KDtpNacimientoAu);
             this.Controls.Add(this.LblNacimientoAu);
-            this.Controls.Add(this.LblNombreAu);
+            this.Controls.Add(this.LblNombreNA);
             this.Controls.Add(this.KTxtNombreAu);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PcbAutorNA);
             this.Controls.Add(this.PanTituloAutores);
             this.Name = "FrmAutores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -552,8 +658,9 @@
             this.PanTituloAutores.ResumeLayout(false);
             this.PanTituloAutores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbAutorNA)).EndInit();
             this.PanBtnAu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.KCmbOcupacionNA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,16 +672,12 @@
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarAutores;
         private System.Windows.Forms.Label LblTituloAutores;
         private System.Windows.Forms.PictureBox PcbLogoAutores;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker KDtpNacimientoAu;
+        private System.Windows.Forms.PictureBox PcbAutorNA;
         private System.Windows.Forms.Label LblNacimientoAu;
-        private System.Windows.Forms.Label LblNombreAu;
+        private System.Windows.Forms.Label LblNombreNA;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreAu;
-        private System.Windows.Forms.Label LblApellidosAu;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtApellidosAu;
         private System.Windows.Forms.Label LblAliasAu;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KtxtAliasAu;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker KDtpDefuncionAu;
         private System.Windows.Forms.Label LblDefuncionAu;
         private System.Windows.Forms.Label LblEnlaceAu;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtEnlaceAu;
@@ -586,5 +689,16 @@
         private System.Windows.Forms.Panel PanBtnAu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnCancelarAu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnAceptarAu;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox KMtxtFecNacimientoNA;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox KMtxtFecMuerteNA;
+        private System.Windows.Forms.ListView LsvAutoresNA;
+        private System.Windows.Forms.ColumnHeader ChNombreAutor;
+        private System.Windows.Forms.ColumnHeader ChOcupacionAu;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMasLsvNA;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMenosLsvNA;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbOcupacionNA;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMasOcupacionNA;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMenosOcupacionNA;
+        private System.Windows.Forms.Label LblOcupacionNA;
     }
 }

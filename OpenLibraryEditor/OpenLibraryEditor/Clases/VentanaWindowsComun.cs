@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PruebaKrypton.Common
+namespace OpenLibraryEditor.Clases
 {
     public static class VentanaWindowsComun
     {
