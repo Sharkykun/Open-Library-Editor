@@ -16,6 +16,7 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmEditoriales : Form
     {
+        #region atributos
         private const string NOMBRE_OBJETO = "la editorial";
         private List<Editorial> listaEditorial = UsuarioDatos.listaEditorial;
         private Editorial editorialActual;
@@ -27,11 +28,35 @@ namespace OpenLibraryEditor.Forms
         private Editorial editorialNueva;
 
         public Editorial EditorialNueva { get => editorialNueva; set => editorialNueva = value; }
+        #endregion
         public FrmEditoriales(bool setNew)
         {
             InitializeComponent();
             this.setNew = setNew;
         }
+        private void MBtnCerrarEditoriales_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void KBtnCancelarEd_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void FrmEditoriales_Load(object sender, EventArgs e)
+        {
+            //Cargar editorial
+            foreach (Editorial p in listaEditorial)
+            {
+                AniadirEditorial(p);
+            }
+
+            if (setNew)
+            {
+                MBtnMasLsvNE_Click(null, null);
+                editorialNueva = editorialActual;
+            }
+        }
+        #region metodos propios
         private ListViewItem AniadirEditorial(Editorial editorial)
         {
             var item = LsvEditorialNE.Items.Add(editorial.Nombre);
@@ -66,11 +91,8 @@ namespace OpenLibraryEditor.Forms
                 PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
             }
         }
+        #endregion
 
-        private void MBtnCerrarEditoriales_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         #region mover formulario
         //Para poder mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -84,20 +106,7 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
 
-        private void FrmEditoriales_Load(object sender, EventArgs e)
-        {
-            //Cargar editorial
-            foreach (Editorial p in listaEditorial)
-            {
-                AniadirEditorial(p);
-            }
-
-            if (setNew)
-            {
-                MBtnMasLsvNE_Click(null, null);
-                editorialNueva = editorialActual;
-            }
-        }
+     
 
         private void LsvEditorialNE_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -112,7 +121,7 @@ namespace OpenLibraryEditor.Forms
             //Comprobar selección item
             if (e.IsSelected && LsvEditorialNE.SelectedItems.Count == 1)
             {
-                //groupBox1.Visible = true;
+                PanOpcionesED.Visible = true;
                 itemActual = LsvEditorialNE.SelectedItems[0];
                 editorialActual = (Editorial)itemActual.Tag;
                 KTxtNombreEd.Text = editorialActual.Nombre;
@@ -123,25 +132,10 @@ namespace OpenLibraryEditor.Forms
             else
             {
                 //Ocultar edición cuando no hay selección
-                //groupBox1.Visible = false;
+                PanOpcionesED.Visible = false;
             }
         }
 
-        private void KBtnAceptarEd_Click(object sender, EventArgs e)
-        {
-            //Actualizar etiqueta
-            editorialActual.Nombre = KTxtNombreEd.Text;
-            editorialActual.Comentario = KTxtComentarioEd.Text;
-            if (rutaImagen != editorialActual.Imagen)
-            {
-                editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                    ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
-                rutaImagen = editorialActual.Imagen;
-            }
-
-            //Actualizar listview
-            itemActual.Text = KTxtNombreEd.Text;
-        }
 
         private void MBtnMasLsvNE_Click(object sender, EventArgs e)
         {
@@ -171,5 +165,29 @@ namespace OpenLibraryEditor.Forms
                 CargarImagen(rutaImagen);
             }
         }
+        private void MBtnBorrarImagenEd_Click(object sender, EventArgs e)
+        {
+            PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
+        }
+
+        private void KBtnAceptarEd_Click(object sender, EventArgs e)
+        {
+            if (PanOpcionesED.Visible == true) { 
+                //Actualizar etiqueta
+                editorialActual.Nombre = KTxtNombreEd.Text;
+                editorialActual.Comentario = KTxtComentarioEd.Text;
+                if (rutaImagen != editorialActual.Imagen)
+                {
+                    editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                        ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
+                    rutaImagen = editorialActual.Imagen;
+                }
+
+                //Actualizar listview
+                itemActual.Text = KTxtNombreEd.Text;
+            }
+        }
+
+       
     }
 }

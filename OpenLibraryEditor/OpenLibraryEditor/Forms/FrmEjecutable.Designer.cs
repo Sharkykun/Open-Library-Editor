@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEjecutable));
             this.PanBtnEje = new System.Windows.Forms.Panel();
             this.KBtnCancelarEJ = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.KBtnAceptarEJ = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -40,18 +41,20 @@
             this.LsvEjecutable = new System.Windows.Forms.ListView();
             this.ChNombreEJ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChExtensionEJ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LblNombreEJ = new System.Windows.Forms.Label();
-            this.KTxtNombreEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.LblExtensionEJ = new System.Windows.Forms.Label();
-            this.KTxtExtensionEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.LblRutaEJ = new System.Windows.Forms.Label();
-            this.KTxtRutaEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.PanOpcionesEJ = new System.Windows.Forms.Panel();
+            this.IBtnBuscarRutaEJ = new FontAwesome.Sharp.IconButton();
             this.LblArgumentosEJ = new System.Windows.Forms.Label();
             this.KTxtArgumentosEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.IBtnBuscarRutaEJ = new FontAwesome.Sharp.IconButton();
+            this.LblRutaEJ = new System.Windows.Forms.Label();
+            this.KTxtRutaEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.LblExtensionEJ = new System.Windows.Forms.Label();
+            this.KTxtExtensionEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.LblNombreEJ = new System.Windows.Forms.Label();
+            this.KTxtNombreEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanBtnEje.SuspendLayout();
             this.PanTituloEjecutables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEjecutable)).BeginInit();
+            this.PanOpcionesEJ.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanBtnEje
@@ -144,6 +147,7 @@
             this.KBtnCancelarEJ.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.KBtnCancelarEJ.TabIndex = 1;
             this.KBtnCancelarEJ.Values.Text = "Cancelar";
+            this.KBtnCancelarEJ.Click += new System.EventHandler(this.KBtnCancelarEJ_Click);
             // 
             // KBtnAceptarEJ
             // 
@@ -224,6 +228,7 @@
             this.KBtnAceptarEJ.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.KBtnAceptarEJ.TabIndex = 0;
             this.KBtnAceptarEJ.Values.Text = "Aceptar";
+            this.KBtnAceptarEJ.Click += new System.EventHandler(this.KBtnAceptarEJ_Click);
             // 
             // PanTituloEjecutables
             // 
@@ -255,6 +260,7 @@
             this.MBtnCerrarEjecutable.Size = new System.Drawing.Size(32, 40);
             this.MBtnCerrarEjecutable.TabIndex = 28;
             this.MBtnCerrarEjecutable.UseVisualStyleBackColor = false;
+            this.MBtnCerrarEjecutable.Click += new System.EventHandler(this.MBtnCerrarEjecutable_Click);
             // 
             // LblTituloEjecutable
             // 
@@ -293,6 +299,7 @@
             this.MBtnMasLsvEJ.Size = new System.Drawing.Size(45, 45);
             this.MBtnMasLsvEJ.TabIndex = 142;
             this.MBtnMasLsvEJ.UseVisualStyleBackColor = false;
+            this.MBtnMasLsvEJ.Click += new System.EventHandler(this.MBtnMasLsvEJ_Click);
             // 
             // MBtnMenosLsvEJ
             // 
@@ -309,6 +316,7 @@
             this.MBtnMenosLsvEJ.Size = new System.Drawing.Size(45, 45);
             this.MBtnMenosLsvEJ.TabIndex = 143;
             this.MBtnMenosLsvEJ.UseVisualStyleBackColor = false;
+            this.MBtnMenosLsvEJ.Click += new System.EventHandler(this.MBtnMenosLsvEJ_Click);
             // 
             // LsvEjecutable
             // 
@@ -325,6 +333,7 @@
             this.LsvEjecutable.TabIndex = 141;
             this.LsvEjecutable.UseCompatibleStateImageBehavior = false;
             this.LsvEjecutable.View = System.Windows.Forms.View.Details;
+            this.LsvEjecutable.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvEjecutable_ItemSelectionChanged);
             // 
             // ChNombreEJ
             // 
@@ -336,104 +345,55 @@
             this.ChExtensionEJ.Text = "Extensión";
             this.ChExtensionEJ.Width = 196;
             // 
-            // LblNombreEJ
+            // PanOpcionesEJ
             // 
-            this.LblNombreEJ.AutoSize = true;
-            this.LblNombreEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreEJ.ForeColor = System.Drawing.Color.Navy;
-            this.LblNombreEJ.Location = new System.Drawing.Point(396, 70);
-            this.LblNombreEJ.Name = "LblNombreEJ";
-            this.LblNombreEJ.Size = new System.Drawing.Size(143, 20);
-            this.LblNombreEJ.TabIndex = 140;
-            this.LblNombreEJ.Text = "Nombre ejecutable";
+            this.PanOpcionesEJ.Controls.Add(this.IBtnBuscarRutaEJ);
+            this.PanOpcionesEJ.Controls.Add(this.LblArgumentosEJ);
+            this.PanOpcionesEJ.Controls.Add(this.KTxtArgumentosEJ);
+            this.PanOpcionesEJ.Controls.Add(this.LblRutaEJ);
+            this.PanOpcionesEJ.Controls.Add(this.LblExtensionEJ);
+            this.PanOpcionesEJ.Controls.Add(this.KTxtExtensionEJ);
+            this.PanOpcionesEJ.Controls.Add(this.LblNombreEJ);
+            this.PanOpcionesEJ.Controls.Add(this.KTxtNombreEJ);
+            this.PanOpcionesEJ.Controls.Add(this.KTxtRutaEJ);
+            this.PanOpcionesEJ.Location = new System.Drawing.Point(377, 58);
+            this.PanOpcionesEJ.Name = "PanOpcionesEJ";
+            this.PanOpcionesEJ.Size = new System.Drawing.Size(402, 348);
+            this.PanOpcionesEJ.TabIndex = 151;
+            this.PanOpcionesEJ.Visible = false;
             // 
-            // KTxtNombreEJ
+            // IBtnBuscarRutaEJ
             // 
-            this.KTxtNombreEJ.Location = new System.Drawing.Point(396, 95);
-            this.KTxtNombreEJ.Name = "KTxtNombreEJ";
-            this.KTxtNombreEJ.Size = new System.Drawing.Size(346, 33);
-            this.KTxtNombreEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtNombreEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtNombreEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtNombreEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtNombreEJ.StateCommon.Border.Rounding = 10;
-            this.KTxtNombreEJ.StateCommon.Border.Width = 2;
-            this.KTxtNombreEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtNombreEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreEJ.TabIndex = 139;
-            // 
-            // LblExtensionEJ
-            // 
-            this.LblExtensionEJ.AutoSize = true;
-            this.LblExtensionEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblExtensionEJ.ForeColor = System.Drawing.Color.Navy;
-            this.LblExtensionEJ.Location = new System.Drawing.Point(396, 141);
-            this.LblExtensionEJ.Name = "LblExtensionEJ";
-            this.LblExtensionEJ.Size = new System.Drawing.Size(146, 20);
-            this.LblExtensionEJ.TabIndex = 145;
-            this.LblExtensionEJ.Text = "Extensión asociada";
-            // 
-            // KTxtExtensionEJ
-            // 
-            this.KTxtExtensionEJ.Location = new System.Drawing.Point(396, 166);
-            this.KTxtExtensionEJ.Name = "KTxtExtensionEJ";
-            this.KTxtExtensionEJ.Size = new System.Drawing.Size(346, 33);
-            this.KTxtExtensionEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtExtensionEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtExtensionEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtExtensionEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtExtensionEJ.StateCommon.Border.Rounding = 10;
-            this.KTxtExtensionEJ.StateCommon.Border.Width = 2;
-            this.KTxtExtensionEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtExtensionEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtExtensionEJ.TabIndex = 144;
-            // 
-            // LblRutaEJ
-            // 
-            this.LblRutaEJ.AutoSize = true;
-            this.LblRutaEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRutaEJ.ForeColor = System.Drawing.Color.Navy;
-            this.LblRutaEJ.Location = new System.Drawing.Point(396, 215);
-            this.LblRutaEJ.Name = "LblRutaEJ";
-            this.LblRutaEJ.Size = new System.Drawing.Size(143, 20);
-            this.LblRutaEJ.TabIndex = 147;
-            this.LblRutaEJ.Text = "Ruta del ejecutable";
-            // 
-            // KTxtRutaEJ
-            // 
-            this.KTxtRutaEJ.Location = new System.Drawing.Point(396, 240);
-            this.KTxtRutaEJ.Name = "KTxtRutaEJ";
-            this.KTxtRutaEJ.Size = new System.Drawing.Size(346, 33);
-            this.KTxtRutaEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtRutaEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtRutaEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtRutaEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtRutaEJ.StateCommon.Border.Rounding = 10;
-            this.KTxtRutaEJ.StateCommon.Border.Width = 2;
-            this.KTxtRutaEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtRutaEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtRutaEJ.TabIndex = 146;
+            this.IBtnBuscarRutaEJ.BackColor = System.Drawing.Color.Transparent;
+            this.IBtnBuscarRutaEJ.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IBtnBuscarRutaEJ.FlatAppearance.BorderSize = 0;
+            this.IBtnBuscarRutaEJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IBtnBuscarRutaEJ.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.IBtnBuscarRutaEJ.IconColor = System.Drawing.Color.Navy;
+            this.IBtnBuscarRutaEJ.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IBtnBuscarRutaEJ.IconSize = 25;
+            this.IBtnBuscarRutaEJ.Location = new System.Drawing.Point(340, 189);
+            this.IBtnBuscarRutaEJ.Name = "IBtnBuscarRutaEJ";
+            this.IBtnBuscarRutaEJ.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.IBtnBuscarRutaEJ.Size = new System.Drawing.Size(20, 20);
+            this.IBtnBuscarRutaEJ.TabIndex = 159;
+            this.IBtnBuscarRutaEJ.UseVisualStyleBackColor = false;
+            this.IBtnBuscarRutaEJ.Click += new System.EventHandler(this.IBtnBuscarRutaEJ_Click);
             // 
             // LblArgumentosEJ
             // 
             this.LblArgumentosEJ.AutoSize = true;
             this.LblArgumentosEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblArgumentosEJ.ForeColor = System.Drawing.Color.Navy;
-            this.LblArgumentosEJ.Location = new System.Drawing.Point(396, 290);
+            this.LblArgumentosEJ.Location = new System.Drawing.Point(25, 232);
             this.LblArgumentosEJ.Name = "LblArgumentosEJ";
             this.LblArgumentosEJ.Size = new System.Drawing.Size(92, 20);
-            this.LblArgumentosEJ.TabIndex = 149;
+            this.LblArgumentosEJ.TabIndex = 158;
             this.LblArgumentosEJ.Text = "Argumentos";
             // 
             // KTxtArgumentosEJ
             // 
-            this.KTxtArgumentosEJ.Location = new System.Drawing.Point(396, 315);
+            this.KTxtArgumentosEJ.Location = new System.Drawing.Point(25, 257);
             this.KTxtArgumentosEJ.Name = "KTxtArgumentosEJ";
             this.KTxtArgumentosEJ.Size = new System.Drawing.Size(346, 33);
             this.KTxtArgumentosEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
@@ -446,23 +406,91 @@
             this.KTxtArgumentosEJ.StateCommon.Border.Width = 2;
             this.KTxtArgumentosEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
             this.KTxtArgumentosEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtArgumentosEJ.TabIndex = 148;
+            this.KTxtArgumentosEJ.TabIndex = 157;
             // 
-            // IBtnBuscarRutaEJ
+            // LblRutaEJ
             // 
-            this.IBtnBuscarRutaEJ.BackColor = System.Drawing.Color.Transparent;
-            this.IBtnBuscarRutaEJ.FlatAppearance.BorderSize = 0;
-            this.IBtnBuscarRutaEJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IBtnBuscarRutaEJ.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.IBtnBuscarRutaEJ.IconColor = System.Drawing.Color.Black;
-            this.IBtnBuscarRutaEJ.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnBuscarRutaEJ.IconSize = 25;
-            this.IBtnBuscarRutaEJ.Location = new System.Drawing.Point(711, 245);
-            this.IBtnBuscarRutaEJ.Name = "IBtnBuscarRutaEJ";
-            this.IBtnBuscarRutaEJ.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.IBtnBuscarRutaEJ.Size = new System.Drawing.Size(23, 23);
-            this.IBtnBuscarRutaEJ.TabIndex = 150;
-            this.IBtnBuscarRutaEJ.UseVisualStyleBackColor = false;
+            this.LblRutaEJ.AutoSize = true;
+            this.LblRutaEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRutaEJ.ForeColor = System.Drawing.Color.Navy;
+            this.LblRutaEJ.Location = new System.Drawing.Point(25, 157);
+            this.LblRutaEJ.Name = "LblRutaEJ";
+            this.LblRutaEJ.Size = new System.Drawing.Size(143, 20);
+            this.LblRutaEJ.TabIndex = 156;
+            this.LblRutaEJ.Text = "Ruta del ejecutable";
+            // 
+            // KTxtRutaEJ
+            // 
+            this.KTxtRutaEJ.Location = new System.Drawing.Point(25, 182);
+            this.KTxtRutaEJ.Name = "KTxtRutaEJ";
+            this.KTxtRutaEJ.Size = new System.Drawing.Size(346, 33);
+            this.KTxtRutaEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtRutaEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtRutaEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtRutaEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtRutaEJ.StateCommon.Border.Rounding = 10;
+            this.KTxtRutaEJ.StateCommon.Border.Width = 2;
+            this.KTxtRutaEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtRutaEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtRutaEJ.TabIndex = 155;
+            // 
+            // LblExtensionEJ
+            // 
+            this.LblExtensionEJ.AutoSize = true;
+            this.LblExtensionEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblExtensionEJ.ForeColor = System.Drawing.Color.Navy;
+            this.LblExtensionEJ.Location = new System.Drawing.Point(25, 83);
+            this.LblExtensionEJ.Name = "LblExtensionEJ";
+            this.LblExtensionEJ.Size = new System.Drawing.Size(146, 20);
+            this.LblExtensionEJ.TabIndex = 154;
+            this.LblExtensionEJ.Text = "Extensión asociada";
+            // 
+            // KTxtExtensionEJ
+            // 
+            this.KTxtExtensionEJ.Location = new System.Drawing.Point(25, 108);
+            this.KTxtExtensionEJ.Name = "KTxtExtensionEJ";
+            this.KTxtExtensionEJ.Size = new System.Drawing.Size(346, 33);
+            this.KTxtExtensionEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtExtensionEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtExtensionEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtExtensionEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtExtensionEJ.StateCommon.Border.Rounding = 10;
+            this.KTxtExtensionEJ.StateCommon.Border.Width = 2;
+            this.KTxtExtensionEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtExtensionEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtExtensionEJ.TabIndex = 153;
+            // 
+            // LblNombreEJ
+            // 
+            this.LblNombreEJ.AutoSize = true;
+            this.LblNombreEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreEJ.ForeColor = System.Drawing.Color.Navy;
+            this.LblNombreEJ.Location = new System.Drawing.Point(25, 12);
+            this.LblNombreEJ.Name = "LblNombreEJ";
+            this.LblNombreEJ.Size = new System.Drawing.Size(143, 20);
+            this.LblNombreEJ.TabIndex = 152;
+            this.LblNombreEJ.Text = "Nombre ejecutable";
+            // 
+            // KTxtNombreEJ
+            // 
+            this.KTxtNombreEJ.Location = new System.Drawing.Point(25, 37);
+            this.KTxtNombreEJ.Name = "KTxtNombreEJ";
+            this.KTxtNombreEJ.Size = new System.Drawing.Size(346, 33);
+            this.KTxtNombreEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtNombreEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtNombreEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtNombreEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtNombreEJ.StateCommon.Border.Rounding = 10;
+            this.KTxtNombreEJ.StateCommon.Border.Width = 2;
+            this.KTxtNombreEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtNombreEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtNombreEJ.TabIndex = 151;
             // 
             // FrmEjecutable
             // 
@@ -470,28 +498,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(812, 499);
-            this.Controls.Add(this.IBtnBuscarRutaEJ);
-            this.Controls.Add(this.LblArgumentosEJ);
-            this.Controls.Add(this.KTxtArgumentosEJ);
-            this.Controls.Add(this.LblRutaEJ);
-            this.Controls.Add(this.KTxtRutaEJ);
-            this.Controls.Add(this.LblExtensionEJ);
-            this.Controls.Add(this.KTxtExtensionEJ);
             this.Controls.Add(this.MBtnMasLsvEJ);
             this.Controls.Add(this.MBtnMenosLsvEJ);
             this.Controls.Add(this.LsvEjecutable);
-            this.Controls.Add(this.LblNombreEJ);
-            this.Controls.Add(this.KTxtNombreEJ);
             this.Controls.Add(this.PanBtnEje);
             this.Controls.Add(this.PanTituloEjecutables);
+            this.Controls.Add(this.PanOpcionesEJ);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEjecutable";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEjecutable";
+            this.Load += new System.EventHandler(this.FrmEjecutable_Load);
             this.PanBtnEje.ResumeLayout(false);
             this.PanTituloEjecutables.ResumeLayout(false);
             this.PanTituloEjecutables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEjecutable)).EndInit();
+            this.PanOpcionesEJ.ResumeLayout(false);
+            this.PanOpcionesEJ.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -509,14 +533,15 @@
         private System.Windows.Forms.ListView LsvEjecutable;
         private System.Windows.Forms.ColumnHeader ChNombreEJ;
         private System.Windows.Forms.ColumnHeader ChExtensionEJ;
-        private System.Windows.Forms.Label LblNombreEJ;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreEJ;
-        private System.Windows.Forms.Label LblExtensionEJ;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtExtensionEJ;
-        private System.Windows.Forms.Label LblRutaEJ;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtRutaEJ;
+        private System.Windows.Forms.Panel PanOpcionesEJ;
+        private FontAwesome.Sharp.IconButton IBtnBuscarRutaEJ;
         private System.Windows.Forms.Label LblArgumentosEJ;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtArgumentosEJ;
-        private FontAwesome.Sharp.IconButton IBtnBuscarRutaEJ;
+        private System.Windows.Forms.Label LblRutaEJ;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtRutaEJ;
+        private System.Windows.Forms.Label LblExtensionEJ;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtExtensionEJ;
+        private System.Windows.Forms.Label LblNombreEJ;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreEJ;
     }
 }

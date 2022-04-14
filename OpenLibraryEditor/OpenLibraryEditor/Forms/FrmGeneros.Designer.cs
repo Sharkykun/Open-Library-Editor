@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGeneros));
             this.PanTituloGeneros = new System.Windows.Forms.Panel();
             this.MBtnCerrarGeneros = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloGeneros = new System.Windows.Forms.Label();
@@ -35,24 +36,22 @@
             this.PanBtnGe = new System.Windows.Forms.Panel();
             this.KBtnCancelarGe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.KBtnAceptarGe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.MBtnAniadirImagenGe = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnBorrarImagenGe = new FontAwesome.Sharp.Material.MaterialButton();
-            this.LblComentarioGe = new System.Windows.Forms.Label();
-            this.KTxtComentarioGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.PcbGeneros = new System.Windows.Forms.PictureBox();
-            this.LblNombreGe = new System.Windows.Forms.Label();
-            this.KTxtNombreGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.KCmbGeneroPadreGe = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.LblGeneroPadreGe = new System.Windows.Forms.Label();
             this.LsvGeneroNG = new System.Windows.Forms.ListView();
             this.ChNombreNG = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChGeneroPadreNG = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MBtnMasLsvNG = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosLsvNG = new FontAwesome.Sharp.Material.MaterialButton();
+            this.PanOpcionesGE = new System.Windows.Forms.Panel();
+            this.KCmbGeneroPadreGe = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.LblGeneroPadreGe = new System.Windows.Forms.Label();
+            this.LblNombreGe = new System.Windows.Forms.Label();
+            this.KTxtNombreGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.LblComentarioGe = new System.Windows.Forms.Label();
+            this.KTxtComentarioGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanTituloGeneros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).BeginInit();
             this.PanBtnGe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbGeneros)).BeginInit();
+            this.PanOpcionesGE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbGeneroPadreGe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,6 +199,7 @@
             this.KBtnCancelarGe.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.KBtnCancelarGe.TabIndex = 1;
             this.KBtnCancelarGe.Values.Text = "Cancelar";
+            this.KBtnCancelarGe.Click += new System.EventHandler(this.KBtnCancelarGe_Click);
             // 
             // KBtnAceptarGe
             // 
@@ -280,131 +280,7 @@
             this.KBtnAceptarGe.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.KBtnAceptarGe.TabIndex = 0;
             this.KBtnAceptarGe.Values.Text = "Aceptar";
-            // 
-            // MBtnAniadirImagenGe
-            // 
-            this.MBtnAniadirImagenGe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnAniadirImagenGe.FlatAppearance.BorderSize = 0;
-            this.MBtnAniadirImagenGe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnAniadirImagenGe.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
-            this.MBtnAniadirImagenGe.IconColor = System.Drawing.Color.Navy;
-            this.MBtnAniadirImagenGe.Location = new System.Drawing.Point(647, 317);
-            this.MBtnAniadirImagenGe.Name = "MBtnAniadirImagenGe";
-            this.MBtnAniadirImagenGe.Size = new System.Drawing.Size(30, 30);
-            this.MBtnAniadirImagenGe.TabIndex = 100;
-            this.MBtnAniadirImagenGe.UseVisualStyleBackColor = true;
-            // 
-            // MBtnBorrarImagenGe
-            // 
-            this.MBtnBorrarImagenGe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnBorrarImagenGe.FlatAppearance.BorderSize = 0;
-            this.MBtnBorrarImagenGe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnBorrarImagenGe.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
-            this.MBtnBorrarImagenGe.IconColor = System.Drawing.Color.Navy;
-            this.MBtnBorrarImagenGe.Location = new System.Drawing.Point(687, 317);
-            this.MBtnBorrarImagenGe.Name = "MBtnBorrarImagenGe";
-            this.MBtnBorrarImagenGe.Size = new System.Drawing.Size(30, 30);
-            this.MBtnBorrarImagenGe.TabIndex = 101;
-            this.MBtnBorrarImagenGe.UseVisualStyleBackColor = true;
-            // 
-            // LblComentarioGe
-            // 
-            this.LblComentarioGe.AutoSize = true;
-            this.LblComentarioGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblComentarioGe.ForeColor = System.Drawing.Color.Navy;
-            this.LblComentarioGe.Location = new System.Drawing.Point(282, 191);
-            this.LblComentarioGe.Name = "LblComentarioGe";
-            this.LblComentarioGe.Size = new System.Drawing.Size(91, 20);
-            this.LblComentarioGe.TabIndex = 103;
-            this.LblComentarioGe.Text = "Comentario";
-            // 
-            // KTxtComentarioGe
-            // 
-            this.KTxtComentarioGe.Location = new System.Drawing.Point(282, 214);
-            this.KTxtComentarioGe.Multiline = true;
-            this.KTxtComentarioGe.Name = "KTxtComentarioGe";
-            this.KTxtComentarioGe.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.KTxtComentarioGe.Size = new System.Drawing.Size(268, 169);
-            this.KTxtComentarioGe.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtComentarioGe.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtComentarioGe.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtComentarioGe.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtComentarioGe.StateCommon.Border.Rounding = 10;
-            this.KTxtComentarioGe.StateCommon.Border.Width = 2;
-            this.KTxtComentarioGe.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtComentarioGe.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtComentarioGe.TabIndex = 102;
-            // 
-            // PcbGeneros
-            // 
-            this.PcbGeneros.Image = global::OpenLibraryEditor.Properties.Resources.imagen;
-            this.PcbGeneros.Location = new System.Drawing.Point(584, 70);
-            this.PcbGeneros.Name = "PcbGeneros";
-            this.PcbGeneros.Size = new System.Drawing.Size(190, 240);
-            this.PcbGeneros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbGeneros.TabIndex = 99;
-            this.PcbGeneros.TabStop = false;
-            // 
-            // LblNombreGe
-            // 
-            this.LblNombreGe.AutoSize = true;
-            this.LblNombreGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreGe.ForeColor = System.Drawing.Color.Navy;
-            this.LblNombreGe.Location = new System.Drawing.Point(282, 70);
-            this.LblNombreGe.Name = "LblNombreGe";
-            this.LblNombreGe.Size = new System.Drawing.Size(120, 20);
-            this.LblNombreGe.TabIndex = 105;
-            this.LblNombreGe.Text = "Nombre género";
-            // 
-            // KTxtNombreGe
-            // 
-            this.KTxtNombreGe.Location = new System.Drawing.Point(282, 91);
-            this.KTxtNombreGe.Name = "KTxtNombreGe";
-            this.KTxtNombreGe.Size = new System.Drawing.Size(268, 33);
-            this.KTxtNombreGe.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtNombreGe.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtNombreGe.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtNombreGe.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtNombreGe.StateCommon.Border.Rounding = 10;
-            this.KTxtNombreGe.StateCommon.Border.Width = 2;
-            this.KTxtNombreGe.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtNombreGe.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreGe.TabIndex = 104;
-            // 
-            // KCmbGeneroPadreGe
-            // 
-            this.KCmbGeneroPadreGe.DropDownWidth = 228;
-            this.KCmbGeneroPadreGe.Location = new System.Drawing.Point(282, 152);
-            this.KCmbGeneroPadreGe.Name = "KCmbGeneroPadreGe";
-            this.KCmbGeneroPadreGe.Size = new System.Drawing.Size(268, 33);
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbGeneroPadreGe.TabIndex = 107;
-            // 
-            // LblGeneroPadreGe
-            // 
-            this.LblGeneroPadreGe.AutoSize = true;
-            this.LblGeneroPadreGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGeneroPadreGe.ForeColor = System.Drawing.Color.Navy;
-            this.LblGeneroPadreGe.Location = new System.Drawing.Point(282, 129);
-            this.LblGeneroPadreGe.Name = "LblGeneroPadreGe";
-            this.LblGeneroPadreGe.Size = new System.Drawing.Size(105, 20);
-            this.LblGeneroPadreGe.TabIndex = 106;
-            this.LblGeneroPadreGe.Text = "Género Padre";
+            this.KBtnAceptarGe.Click += new System.EventHandler(this.KBtnAceptarGe_Click);
             // 
             // LsvGeneroNG
             // 
@@ -417,10 +293,11 @@
             this.LsvGeneroNG.HideSelection = false;
             this.LsvGeneroNG.Location = new System.Drawing.Point(25, 70);
             this.LsvGeneroNG.Name = "LsvGeneroNG";
-            this.LsvGeneroNG.Size = new System.Drawing.Size(230, 313);
+            this.LsvGeneroNG.Size = new System.Drawing.Size(283, 313);
             this.LsvGeneroNG.TabIndex = 127;
             this.LsvGeneroNG.UseCompatibleStateImageBehavior = false;
             this.LsvGeneroNG.View = System.Windows.Forms.View.Details;
+            this.LsvGeneroNG.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvGeneroNG_ItemSelectionChanged);
             // 
             // ChNombreNG
             // 
@@ -447,6 +324,7 @@
             this.MBtnMasLsvNG.Size = new System.Drawing.Size(45, 45);
             this.MBtnMasLsvNG.TabIndex = 137;
             this.MBtnMasLsvNG.UseVisualStyleBackColor = false;
+            this.MBtnMasLsvNG.Click += new System.EventHandler(this.MBtnMasLsvNG_Click);
             // 
             // MBtnMenosLsvNG
             // 
@@ -463,6 +341,110 @@
             this.MBtnMenosLsvNG.Size = new System.Drawing.Size(45, 45);
             this.MBtnMenosLsvNG.TabIndex = 138;
             this.MBtnMenosLsvNG.UseVisualStyleBackColor = false;
+            this.MBtnMenosLsvNG.Click += new System.EventHandler(this.MBtnMenosLsvNG_Click);
+            // 
+            // PanOpcionesGE
+            // 
+            this.PanOpcionesGE.Controls.Add(this.KCmbGeneroPadreGe);
+            this.PanOpcionesGE.Controls.Add(this.LblGeneroPadreGe);
+            this.PanOpcionesGE.Controls.Add(this.LblNombreGe);
+            this.PanOpcionesGE.Controls.Add(this.KTxtNombreGe);
+            this.PanOpcionesGE.Controls.Add(this.LblComentarioGe);
+            this.PanOpcionesGE.Controls.Add(this.KTxtComentarioGe);
+            this.PanOpcionesGE.Location = new System.Drawing.Point(351, 60);
+            this.PanOpcionesGE.Name = "PanOpcionesGE";
+            this.PanOpcionesGE.Size = new System.Drawing.Size(407, 354);
+            this.PanOpcionesGE.TabIndex = 139;
+            this.PanOpcionesGE.Visible = false;
+            // 
+            // KCmbGeneroPadreGe
+            // 
+            this.KCmbGeneroPadreGe.DropDownWidth = 228;
+            this.KCmbGeneroPadreGe.Location = new System.Drawing.Point(14, 92);
+            this.KCmbGeneroPadreGe.Name = "KCmbGeneroPadreGe";
+            this.KCmbGeneroPadreGe.Size = new System.Drawing.Size(335, 33);
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Width = 2;
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbGeneroPadreGe.TabIndex = 116;
+            // 
+            // LblGeneroPadreGe
+            // 
+            this.LblGeneroPadreGe.AutoSize = true;
+            this.LblGeneroPadreGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGeneroPadreGe.ForeColor = System.Drawing.Color.Navy;
+            this.LblGeneroPadreGe.Location = new System.Drawing.Point(14, 69);
+            this.LblGeneroPadreGe.Name = "LblGeneroPadreGe";
+            this.LblGeneroPadreGe.Size = new System.Drawing.Size(105, 20);
+            this.LblGeneroPadreGe.TabIndex = 115;
+            this.LblGeneroPadreGe.Text = "Género Padre";
+            // 
+            // LblNombreGe
+            // 
+            this.LblNombreGe.AutoSize = true;
+            this.LblNombreGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreGe.ForeColor = System.Drawing.Color.Navy;
+            this.LblNombreGe.Location = new System.Drawing.Point(14, 10);
+            this.LblNombreGe.Name = "LblNombreGe";
+            this.LblNombreGe.Size = new System.Drawing.Size(120, 20);
+            this.LblNombreGe.TabIndex = 114;
+            this.LblNombreGe.Text = "Nombre género";
+            // 
+            // KTxtNombreGe
+            // 
+            this.KTxtNombreGe.Location = new System.Drawing.Point(14, 31);
+            this.KTxtNombreGe.Name = "KTxtNombreGe";
+            this.KTxtNombreGe.Size = new System.Drawing.Size(335, 33);
+            this.KTxtNombreGe.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtNombreGe.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtNombreGe.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtNombreGe.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtNombreGe.StateCommon.Border.Rounding = 10;
+            this.KTxtNombreGe.StateCommon.Border.Width = 2;
+            this.KTxtNombreGe.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtNombreGe.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtNombreGe.TabIndex = 113;
+            // 
+            // LblComentarioGe
+            // 
+            this.LblComentarioGe.AutoSize = true;
+            this.LblComentarioGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblComentarioGe.ForeColor = System.Drawing.Color.Navy;
+            this.LblComentarioGe.Location = new System.Drawing.Point(14, 165);
+            this.LblComentarioGe.Name = "LblComentarioGe";
+            this.LblComentarioGe.Size = new System.Drawing.Size(91, 20);
+            this.LblComentarioGe.TabIndex = 112;
+            this.LblComentarioGe.Text = "Comentario";
+            // 
+            // KTxtComentarioGe
+            // 
+            this.KTxtComentarioGe.Location = new System.Drawing.Point(14, 188);
+            this.KTxtComentarioGe.Multiline = true;
+            this.KTxtComentarioGe.Name = "KTxtComentarioGe";
+            this.KTxtComentarioGe.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.KTxtComentarioGe.Size = new System.Drawing.Size(335, 135);
+            this.KTxtComentarioGe.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtComentarioGe.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtComentarioGe.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtComentarioGe.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtComentarioGe.StateCommon.Border.Rounding = 10;
+            this.KTxtComentarioGe.StateCommon.Border.Width = 2;
+            this.KTxtComentarioGe.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtComentarioGe.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtComentarioGe.TabIndex = 111;
             // 
             // FrmGeneros
             // 
@@ -473,28 +455,22 @@
             this.Controls.Add(this.MBtnMasLsvNG);
             this.Controls.Add(this.MBtnMenosLsvNG);
             this.Controls.Add(this.LsvGeneroNG);
-            this.Controls.Add(this.KCmbGeneroPadreGe);
-            this.Controls.Add(this.LblGeneroPadreGe);
-            this.Controls.Add(this.LblNombreGe);
-            this.Controls.Add(this.KTxtNombreGe);
-            this.Controls.Add(this.MBtnAniadirImagenGe);
-            this.Controls.Add(this.MBtnBorrarImagenGe);
-            this.Controls.Add(this.LblComentarioGe);
-            this.Controls.Add(this.KTxtComentarioGe);
-            this.Controls.Add(this.PcbGeneros);
             this.Controls.Add(this.PanBtnGe);
             this.Controls.Add(this.PanTituloGeneros);
+            this.Controls.Add(this.PanOpcionesGE);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGeneros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGeneros";
+            this.Load += new System.EventHandler(this.FrmGeneros_Load);
             this.PanTituloGeneros.ResumeLayout(false);
             this.PanTituloGeneros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).EndInit();
             this.PanBtnGe.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PcbGeneros)).EndInit();
+            this.PanOpcionesGE.ResumeLayout(false);
+            this.PanOpcionesGE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbGeneroPadreGe)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -507,19 +483,17 @@
         private System.Windows.Forms.Panel PanBtnGe;
         private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnCancelarGe;
         private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnAceptarGe;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnAniadirImagenGe;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnBorrarImagenGe;
-        private System.Windows.Forms.Label LblComentarioGe;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtComentarioGe;
-        private System.Windows.Forms.PictureBox PcbGeneros;
-        private System.Windows.Forms.Label LblNombreGe;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreGe;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbGeneroPadreGe;
-        private System.Windows.Forms.Label LblGeneroPadreGe;
         private System.Windows.Forms.ListView LsvGeneroNG;
         private System.Windows.Forms.ColumnHeader ChNombreNG;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasLsvNG;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosLsvNG;
         private System.Windows.Forms.ColumnHeader ChGeneroPadreNG;
+        private System.Windows.Forms.Panel PanOpcionesGE;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbGeneroPadreGe;
+        private System.Windows.Forms.Label LblGeneroPadreGe;
+        private System.Windows.Forms.Label LblNombreGe;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreGe;
+        private System.Windows.Forms.Label LblComentarioGe;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtComentarioGe;
     }
 }

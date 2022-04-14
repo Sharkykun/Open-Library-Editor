@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMiBiblioteca));
             this.PanBusquedaMBI = new System.Windows.Forms.Panel();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.KTxtBuscarMBI = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -259,6 +260,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanBusquedaMBI);
             this.Controls.Add(this.PanTituloMiBiblioteca);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMiBiblioteca";
             this.Text = "FrmBiblioteca";
             this.Load += new System.EventHandler(this.FrmMiBiblioteca_Load);

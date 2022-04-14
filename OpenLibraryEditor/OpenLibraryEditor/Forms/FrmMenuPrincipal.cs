@@ -182,7 +182,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnAutores_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMiBiblioteca());
+            AbrirFormularios(new FrmMisAutores());
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnTitulos_Click(object sender, EventArgs e)
@@ -247,7 +247,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnAutoresMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmAutores autores = new FrmAutores();
+            FrmAutores autores = new FrmAutores(true);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -255,7 +255,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnGenerosMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmGeneros generos = new FrmGeneros();
+            FrmGeneros generos = new FrmGeneros(true);
             generos.FormBorderStyle = FormBorderStyle.None;
             generos.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -263,7 +263,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnSeriesMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmSeries series = new FrmSeries();
+            FrmSeries series = new FrmSeries(true);
             series.FormBorderStyle = FormBorderStyle.None;
             series.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -271,7 +271,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnEditorialesMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmEditoriales editoriales = new FrmEditoriales(false);
+            FrmEditoriales editoriales = new FrmEditoriales(true);
             editoriales.FormBorderStyle = FormBorderStyle.None;
             editoriales.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -279,7 +279,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnTagsMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmTags tags = new FrmTags();
+            FrmTags tags = new FrmTags(true);
             tags.FormBorderStyle = FormBorderStyle.None;
             tags.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);

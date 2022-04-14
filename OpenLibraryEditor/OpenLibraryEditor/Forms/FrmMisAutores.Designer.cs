@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMisAutores));
             this.PanTituloMisAutores = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblTituloMisAutores = new System.Windows.Forms.Label();
@@ -300,6 +301,7 @@
             this.Controls.Add(this.PanLsvMAU);
             this.Controls.Add(this.PanBusquedaMAU);
             this.Controls.Add(this.PanTituloMisAutores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMisAutores";
             this.Text = "FrmMisAutores";
             this.PanTituloMisAutores.ResumeLayout(false);

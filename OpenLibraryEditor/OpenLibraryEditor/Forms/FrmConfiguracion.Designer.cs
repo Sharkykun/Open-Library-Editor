@@ -1217,6 +1217,7 @@
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(948, 693);
             this.Controls.Add(this.PanConfiguracion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConfiguracion";
             this.Text = "FrmConfiguracion";
             this.Load += new System.EventHandler(this.FrmConfiguracion_Load);

@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasSerieMSE_Click(object sender, EventArgs e)
         {
-            FrmSeries s=new FrmSeries();
+            FrmSeries s=new FrmSeries(true);
             s.FormBorderStyle = FormBorderStyle.None;
             s.ShowDialog();
         }

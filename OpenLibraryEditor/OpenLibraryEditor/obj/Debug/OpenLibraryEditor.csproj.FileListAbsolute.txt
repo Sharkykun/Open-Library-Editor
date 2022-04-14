@@ -71,7 +71,6 @@ C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLib
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisSeries.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisTags.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisTitulos.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmNuevoLibro.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmRegistro.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmSeries.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.FrmSplashScreen.resources
@@ -106,3 +105,4 @@ C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLib
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarRelacionSerie.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEjecutable.resources
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmModificarLibro.resources

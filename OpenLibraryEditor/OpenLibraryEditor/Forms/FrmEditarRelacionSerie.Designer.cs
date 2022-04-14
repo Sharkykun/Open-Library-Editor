@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarRelacionSerie));
             this.PanBtnReSe = new System.Windows.Forms.Panel();
             this.KBtnCancelarRS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.KBtnAceptarRS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -147,6 +148,7 @@
             this.KBtnCancelarRS.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.KBtnCancelarRS.TabIndex = 1;
             this.KBtnCancelarRS.Values.Text = "Cancelar";
+            this.KBtnCancelarRS.Click += new System.EventHandler(this.KBtnCancelarRS_Click);
             // 
             // KBtnAceptarRS
             // 
@@ -227,6 +229,7 @@
             this.KBtnAceptarRS.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.KBtnAceptarRS.TabIndex = 0;
             this.KBtnAceptarRS.Values.Text = "Aceptar";
+            this.KBtnAceptarRS.Click += new System.EventHandler(this.KBtnAceptarRS_Click);
             // 
             // PanTituloRelacionSerie
             // 
@@ -323,6 +326,7 @@
             this.LsvSeriesRS.TabIndex = 140;
             this.LsvSeriesRS.UseCompatibleStateImageBehavior = false;
             this.LsvSeriesRS.View = System.Windows.Forms.View.Details;
+            this.LsvSeriesRS.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvSeriesRS_ItemSelectionChanged);
             // 
             // ChNombreRS
             // 
@@ -377,6 +381,7 @@
             this.MBtnAniadirImagenRS.Size = new System.Drawing.Size(30, 30);
             this.MBtnAniadirImagenRS.TabIndex = 146;
             this.MBtnAniadirImagenRS.UseVisualStyleBackColor = true;
+            this.MBtnAniadirImagenRS.Click += new System.EventHandler(this.MBtnAniadirImagenRS_Click);
             // 
             // MBtnBorrarImagenRS
             // 
@@ -390,6 +395,7 @@
             this.MBtnBorrarImagenRS.Size = new System.Drawing.Size(30, 30);
             this.MBtnBorrarImagenRS.TabIndex = 147;
             this.MBtnBorrarImagenRS.UseVisualStyleBackColor = true;
+            this.MBtnBorrarImagenRS.Click += new System.EventHandler(this.MBtnBorrarImagenRS_Click);
             // 
             // PcbRS
             // 
@@ -414,6 +420,7 @@
             this.MBtnMasRS.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasRS.TabIndex = 150;
             this.MBtnMasRS.UseVisualStyleBackColor = true;
+            this.MBtnMasRS.Click += new System.EventHandler(this.MBtnMasRS_Click);
             // 
             // MBtnMenosRS
             // 
@@ -428,6 +435,7 @@
             this.MBtnMenosRS.Size = new System.Drawing.Size(30, 30);
             this.MBtnMenosRS.TabIndex = 151;
             this.MBtnMenosRS.UseVisualStyleBackColor = true;
+            this.MBtnMenosRS.Click += new System.EventHandler(this.MBtnMenosRS_Click);
             // 
             // FrmEditarRelacionSerie
             // 
@@ -445,7 +453,9 @@
             this.Controls.Add(this.KGbSerieRS);
             this.Controls.Add(this.PanBtnReSe);
             this.Controls.Add(this.PanTituloRelacionSerie);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditarRelacionSerie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditarRelacionSerie";
             this.PanBtnReSe.ResumeLayout(false);
             this.PanTituloRelacionSerie.ResumeLayout(false);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMisGeneros));
             this.PanTreeMGE = new System.Windows.Forms.Panel();
             this.TrvGenerosMGE = new System.Windows.Forms.TreeView();
             this.PanNumGenerosMGE = new System.Windows.Forms.Panel();
@@ -296,6 +297,7 @@
             this.Controls.Add(this.PanTreeMGE);
             this.Controls.Add(this.PanBusquedaMGE);
             this.Controls.Add(this.PanTituloMisGeneros);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMisGeneros";
             this.Text = "FrmMisGeneros";
             this.PanTreeMGE.ResumeLayout(false);

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.DatosLibros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,12 +16,32 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmSeries : Form
     {
-        public FrmSeries()
+        #region atributos
+        private const string NOMBRE_OBJETO = "la serie";
+        private bool setNew;
+        private Serie serieNueva;
+        private List<Serie> listaSerie = UsuarioDatos.listaSerie;
+        private Serie serieActual;
+        private ListViewItem itemSerieActual;
+        private List<RelacionSerie> listaTempRelacion;
+        private RelacionSerie relacionActual;
+        private ListViewItem itemRelacionActual;
+
+        private string rutaImagen;
+
+        public Serie SerieNueva { get => serieNueva; set => serieNueva = value; }
+        #endregion
+        public FrmSeries(bool setNew)
         {
             InitializeComponent();
+            this.setNew = setNew;
         }
 
         private void MBtnCerrarSeries_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void KBtnCancelarSe_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -35,5 +58,224 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
 
+        #region metodos propios
+        private ListViewItem AniadirSerie(Serie serie)
+        {
+            var item = LsvSeriesNS.Items.Add(serie.Nombre);
+            item.SubItems.Add(serie.Estado);
+            item.Tag = serie;
+            if (serieActual == serie) item.Selected = true;
+            return item;
+        }
+
+        private ListViewItem AniadirRelacion(RelacionSerie relacion)
+        {
+            var item = LsvRelacionSeriesNS.Items.Add(relacion.Serie.Nombre);
+            item.SubItems.Add(relacion.NombreTipoRelacionSerie);
+            item.Tag = relacion;
+            return item;
+        }
+
+        private bool EsObjetoCambiado()
+        {
+            //Comprobar si las relaciones actuales tienen algo cambiado
+            foreach (RelacionSerie relacion in listaTempRelacion)
+            {
+                if (!serieActual.ListaRelacionSerie.Any(p => p.Equals(relacion)))
+                    return true;
+            }
+
+            //Comprobar si serie actual tiene algo cambiado
+            if (KTxtNombreSe.Text == serieActual.Nombre &&
+                KTxtComentarioSe.Text == serieActual.Comentario &&
+                rutaImagen == serieActual.Imagen &&
+                KCmbEstadoSe.Text == serieActual.Estado)
+                return false;
+            else
+                return true;
+        }
+
+        private void CargarImagen(string rutaImagen)
+        {
+            try
+            {
+                PcbSerieNS.Image = Image.FromFile(rutaImagen);
+            }
+            catch (FileNotFoundException)
+            {
+                PcbSerieNS.Image = PcbSerieNS.ErrorImage;
+                //PcbSerieNS.Image = OpenLibraryEditor.Properties.Resources.imagen;
+            }
+            catch (ArgumentException)
+            {
+                //PcbSerieNS.Image = OpenLibraryEditor.Properties.Resources.imagen;
+                PcbSerieNS.Image = PcbSerieNS.ErrorImage;
+            }
+        }
+
+        private FrmEditarRelacionSerie CrearFormularioRelacion(RelacionSerie relacion)
+        {
+            FrmEditarRelacionSerie form = new FrmEditarRelacionSerie(relacion, LsvSeriesNS, serieActual);
+            form.ShowDialog();
+            return form;
+        }
+
+        #endregion
+        private void FrmSeries_Load(object sender, EventArgs e)
+        {
+
+            //Cargar personas
+            foreach (Serie s in listaSerie)
+            {
+                AniadirSerie(s);
+            }
+
+            if (setNew)
+            {
+                MBtnMasLsvNS_Click(null, null);
+                serieNueva = serieActual;
+            }
+        }
+
+        private void LsvSeriesNS_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            //Comparar objetos para preguntar si guardar
+            if (!e.IsSelected && serieActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    KBtnAceptarSe_Click(null, null);
+            }
+
+            //Comprobar selección item
+            if (e.IsSelected && LsvSeriesNS.SelectedItems.Count == 1)
+            {
+                PanOpcionesSE.Visible = true;
+                itemSerieActual = LsvSeriesNS.SelectedItems[0];
+                serieActual = (Serie)itemSerieActual.Tag;
+                KTxtNombreSe.Text = serieActual.Nombre;
+                KTxtComentarioSe.Text = serieActual.Comentario;
+                KCmbEstadoSe.SelectedItem = serieActual.Estado == "" ?
+                    null : serieActual.Estado;
+                rutaImagen = serieActual.Imagen;
+                CargarImagen(rutaImagen);
+
+                //Cargar relaciones para editar
+                LsvRelacionSeriesNS.Items.Clear();
+                listaTempRelacion = new List<RelacionSerie>();
+                foreach (RelacionSerie rel in serieActual.ListaRelacionSerie)
+                    listaTempRelacion.Add(rel.Copy());
+            }
+            else
+            {
+                //Ocultar edición cuando no hay selección
+                PanOpcionesSE.Visible = false;
+            }
+        }
+
+        private void MBtnMasLsvNS_Click(object sender, EventArgs e)
+        {
+            //Aqui salta un error de que no puede ser 0
+            Serie s = new Serie("Nueva Serie", KCmbEstadoSe.Items[0].ToString());
+            listaSerie.Add(s);
+            var item = AniadirSerie(s);
+            item.Selected = true;
+        }
+
+        private void MBtnMenosLsvNS_Click(object sender, EventArgs e)
+        {
+            if (LsvSeriesNS.SelectedItems.Count == 1 &&
+              VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
+            {
+                //Borrar relaciones
+                foreach (RelacionSerie rel in serieActual.ListaRelacionSerie)
+                {
+                    int i = rel.Serie.ListaRelacionSerie.FindIndex(p => p.Serie == serieActual);
+                    rel.Serie.ListaRelacionSerie.RemoveAt(i);
+                }
+
+                //Borrar serie
+                var item = LsvSeriesNS.SelectedItems[0];
+                listaSerie.Remove(serieActual);
+                LsvSeriesNS.Items.Remove(item);
+            }
+        }
+
+        private void MBtnAniadirImagenSe_Click(object sender, EventArgs e)
+        {
+            string s = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_IMAGEN);
+            if (s != "")
+            {
+                rutaImagen = s;
+                CargarImagen(rutaImagen);
+            }
+        }
+
+        private void MBtnBorrarImagenSe_Click(object sender, EventArgs e)
+        {
+            PcbSerieNS.Image = PcbSerieNS.ErrorImage;
+        }
+
+        private void LsvRelacionSeriesNS_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (e.Item != null)
+            {
+                relacionActual = (RelacionSerie)e.Item.Tag;
+            }
+        }
+
+        private void MBtnMasRelacionNS_Click(object sender, EventArgs e)
+        {
+            RelacionSerie relacion = new RelacionSerie();
+            FrmEditarRelacionSerie f = CrearFormularioRelacion(relacion);
+            if (f.EsOk)
+            {
+                listaTempRelacion.Add(relacion);
+                var item = AniadirRelacion(relacion);
+                item.Selected = true;
+            }
+        }
+
+        private void MBtnMenosRelacionNS_Click(object sender, EventArgs e)
+        {
+            if (LsvRelacionSeriesNS.SelectedItems.Count == 1 &&
+               VentanaWindowsComun.MensajeBorrarObjeto("la relación") == DialogResult.Yes)
+            {
+                int i = relacionActual.Serie.ListaRelacionSerie.FindIndex(p => p.Serie == serieActual);
+                relacionActual.Serie.ListaRelacionSerie.RemoveAt(i);
+            }
+        }
+        private void MBtnEditarRS_Click(object sender, EventArgs e)
+        {
+            RelacionSerie relacion = new RelacionSerie();
+            FrmEditarRelacionSerie f = CrearFormularioRelacion(relacion);
+            if (f.EsOk)
+            {
+                relacionActual.Serie = relacion.Serie;
+                relacionActual.NombreTipoRelacionSerie = relacion.NombreTipoRelacionSerie;
+            }
+        }
+        private void KBtnAceptarSe_Click(object sender, EventArgs e)
+        {
+            if (PanOpcionesSE.Visible == true) { 
+                //Actualizar serie
+                serieActual.Nombre = KTxtNombreSe.Text;
+                serieActual.Estado = KCmbEstadoSe.Text;
+                serieActual.Comentario = KTxtComentarioSe.Text;
+                serieActual.ListaRelacionSerie = listaTempRelacion;
+                if (rutaImagen != serieActual.Imagen)
+                {
+                    serieActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                        ControladorImagen.RUTA_SERIE, serieActual.IdSerie.ToString());
+                    rutaImagen = serieActual.Imagen;
+                }
+
+                //Actualizar listview
+                itemSerieActual.Text = KTxtNombreSe.Text;
+                itemSerieActual.SubItems[1].Text = KCmbEstadoSe.Text;
+            }
+        }
+
+      
     }
 }

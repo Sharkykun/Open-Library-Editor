@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAniadirLibro));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.KgbDatosGeneralesNL = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.MBtnMasEtiquetasNL = new FontAwesome.Sharp.Material.MaterialButton();
@@ -39,22 +40,18 @@
             this.MBtnMenosTipoLibroNL = new FontAwesome.Sharp.Material.MaterialButton();
             this.KMtxtInclusionbbddNL = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.KMtxtFecPublicacionNL = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
-            this.KCmbEtiquetaNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblEtiquetasNL = new System.Windows.Forms.Label();
-            this.KCmbSerieNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblSerieNL = new System.Windows.Forms.Label();
             this.LblSinopsisNL = new System.Windows.Forms.Label();
             this.KNudVolumenNL = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.LblVolumenNL = new System.Windows.Forms.Label();
             this.LblMAyores18NL = new System.Windows.Forms.Label();
             this.LblFechaInclusionNL = new System.Windows.Forms.Label();
-            this.KCmbGenerosNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblGenerosNL = new System.Windows.Forms.Label();
             this.KCmbIdiomaOriginalNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblEnlaceNL = new System.Windows.Forms.Label();
             this.KTxtEnlaceNL = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblPublicacionNL = new System.Windows.Forms.Label();
-            this.KCmbPersonasNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblPersonasNL = new System.Windows.Forms.Label();
             this.KCmbIdiomaNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblIdiomaNL = new System.Windows.Forms.Label();
@@ -66,7 +63,6 @@
             this.KNudEdicionNL = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.LblEdicionNL = new System.Windows.Forms.Label();
             this.LblTipoNL = new System.Windows.Forms.Label();
-            this.KCmbEditorialNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblEditorialNL = new System.Windows.Forms.Label();
             this.KCmbTipoNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.KTxtIsbn13 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -84,7 +80,7 @@
             this.KGbImagenesNL = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.PcbImgContraNL = new System.Windows.Forms.PictureBox();
             this.PcbImgPortadaNL = new System.Windows.Forms.PictureBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.IBtnContraportadaNL = new FontAwesome.Sharp.IconButton();
             this.LblImgContraNL = new System.Windows.Forms.Label();
             this.LblImgPortadaNL = new System.Windows.Forms.Label();
             this.IBtnPortadaNL = new FontAwesome.Sharp.IconButton();
@@ -101,7 +97,7 @@
             this.LblFecFinalNL = new System.Windows.Forms.Label();
             this.LblFecComiNL = new System.Windows.Forms.Label();
             this.LblTiempoLecNL = new System.Windows.Forms.Label();
-            this.KNupPuntuacionNL = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.KNudPuntuacionNL = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.LblOcultarNL = new System.Windows.Forms.Label();
             this.LblEstadoLecturaNL = new System.Windows.Forms.Label();
             this.LblVecesLeidoNL = new System.Windows.Forms.Label();
@@ -129,12 +125,16 @@
             this.KTxtFicheroNL = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblFicheroNL = new System.Windows.Forms.Label();
             this.LblEjecutableNL = new System.Windows.Forms.Label();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.IbtnFichero = new FontAwesome.Sharp.IconButton();
             this.KCmbEjecutableNL = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LsvAccionesNL = new System.Windows.Forms.ListView();
             this.ChFicheroNL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChEjecutableNL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CheckedComboPrueba = new OpenLibraryEditor.Controles.CheckedComboBox();
+            this.KCCEtiquetaNL = new OpenLibraryEditor.Controles.CheckedComboBox();
+            this.KCCSerieNL = new OpenLibraryEditor.Controles.CheckedComboBox();
+            this.KCCGenerosNL = new OpenLibraryEditor.Controles.CheckedComboBox();
+            this.KCCPersonasNL = new OpenLibraryEditor.Controles.CheckedComboBox();
+            this.KCCEditorialNL = new OpenLibraryEditor.Controles.CheckedComboBox();
             this.TBtnMayores18NL = new OpenLibraryEditor.Controles.ToggleButton();
             this.TBtnOcultarNL = new OpenLibraryEditor.Controles.ToggleButton();
             this.TBtnFavNL = new OpenLibraryEditor.Controles.ToggleButton();
@@ -142,13 +142,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL.Panel)).BeginInit();
             this.KgbDatosGeneralesNL.Panel.SuspendLayout();
             this.KgbDatosGeneralesNL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbEtiquetaNL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbSerieNL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbGenerosNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbIdiomaOriginalNL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbPersonasNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbIdiomaNL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbEditorialNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KGbImagenesNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KGbImagenesNL.Panel)).BeginInit();
@@ -186,7 +181,11 @@
             this.KGbFicheroEjeNL.Panel.SuspendLayout();
             this.KGbFicheroEjeNL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbEjecutableNL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckedComboPrueba)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCEtiquetaNL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCSerieNL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCGenerosNL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCPersonasNL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCEditorialNL)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -228,7 +227,11 @@
             // 
             // KgbDatosGeneralesNL.Panel
             // 
-            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.CheckedComboPrueba);
+            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCEtiquetaNL);
+            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCSerieNL);
+            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCGenerosNL);
+            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCPersonasNL);
+            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCEditorialNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.MBtnMasEtiquetasNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.MBtnMasSerieNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.MBtnMasGenerosNL);
@@ -237,9 +240,7 @@
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.MBtnMenosTipoLibroNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KMtxtInclusionbbddNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KMtxtFecPublicacionNL);
-            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbEtiquetaNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblEtiquetasNL);
-            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbSerieNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblSerieNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblSinopsisNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KNudVolumenNL);
@@ -247,13 +248,11 @@
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.TBtnMayores18NL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblMAyores18NL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblFechaInclusionNL);
-            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbGenerosNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblGenerosNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbIdiomaOriginalNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblEnlaceNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KTxtEnlaceNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblPublicacionNL);
-            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbPersonasNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblPersonasNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbIdiomaNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblIdiomaNL);
@@ -265,7 +264,6 @@
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KNudEdicionNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblEdicionNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblTipoNL);
-            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbEditorialNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblEditorialNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCmbTipoNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KTxtIsbn13);
@@ -310,6 +308,7 @@
             this.MBtnMasEtiquetasNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasEtiquetasNL.TabIndex = 130;
             this.MBtnMasEtiquetasNL.UseVisualStyleBackColor = false;
+            this.MBtnMasEtiquetasNL.Click += new System.EventHandler(this.MBtnMasEtiquetasNL_Click);
             // 
             // MBtnMasSerieNL
             // 
@@ -325,6 +324,7 @@
             this.MBtnMasSerieNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasSerieNL.TabIndex = 129;
             this.MBtnMasSerieNL.UseVisualStyleBackColor = false;
+            this.MBtnMasSerieNL.Click += new System.EventHandler(this.MBtnMasSerieNL_Click);
             // 
             // MBtnMasGenerosNL
             // 
@@ -340,6 +340,7 @@
             this.MBtnMasGenerosNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasGenerosNL.TabIndex = 128;
             this.MBtnMasGenerosNL.UseVisualStyleBackColor = false;
+            this.MBtnMasGenerosNL.Click += new System.EventHandler(this.MBtnMasGenerosNL_Click);
             // 
             // MBtnMasPersonasNL
             // 
@@ -355,6 +356,7 @@
             this.MBtnMasPersonasNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasPersonasNL.TabIndex = 127;
             this.MBtnMasPersonasNL.UseVisualStyleBackColor = false;
+            this.MBtnMasPersonasNL.Click += new System.EventHandler(this.MBtnMasPersonasNL_Click);
             // 
             // MBtnMasTipoLibroNL
             // 
@@ -370,6 +372,7 @@
             this.MBtnMasTipoLibroNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasTipoLibroNL.TabIndex = 124;
             this.MBtnMasTipoLibroNL.UseVisualStyleBackColor = false;
+            this.MBtnMasTipoLibroNL.Click += new System.EventHandler(this.MBtnMasTipoLibroNL_Click);
             // 
             // MBtnMenosTipoLibroNL
             // 
@@ -385,6 +388,7 @@
             this.MBtnMenosTipoLibroNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMenosTipoLibroNL.TabIndex = 125;
             this.MBtnMenosTipoLibroNL.UseVisualStyleBackColor = false;
+            this.MBtnMenosTipoLibroNL.Click += new System.EventHandler(this.MBtnMenosTipoLibroNL_Click);
             // 
             // KMtxtInclusionbbddNL
             // 
@@ -422,26 +426,6 @@
             this.KMtxtFecPublicacionNL.TabIndex = 92;
             this.KMtxtFecPublicacionNL.Text = "  /  /";
             // 
-            // KCmbEtiquetaNL
-            // 
-            this.KCmbEtiquetaNL.DropDownWidth = 228;
-            this.KCmbEtiquetaNL.Location = new System.Drawing.Point(645, 280);
-            this.KCmbEtiquetaNL.Name = "KCmbEtiquetaNL";
-            this.KCmbEtiquetaNL.Size = new System.Drawing.Size(221, 33);
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEtiquetaNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbEtiquetaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEtiquetaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbEtiquetaNL.TabIndex = 89;
-            // 
             // LblEtiquetasNL
             // 
             this.LblEtiquetasNL.AutoSize = true;
@@ -453,26 +437,6 @@
             this.LblEtiquetasNL.Size = new System.Drawing.Size(73, 20);
             this.LblEtiquetasNL.TabIndex = 88;
             this.LblEtiquetasNL.Text = "Etiquetas";
-            // 
-            // KCmbSerieNL
-            // 
-            this.KCmbSerieNL.DropDownWidth = 228;
-            this.KCmbSerieNL.Location = new System.Drawing.Point(645, 241);
-            this.KCmbSerieNL.Name = "KCmbSerieNL";
-            this.KCmbSerieNL.Size = new System.Drawing.Size(221, 33);
-            this.KCmbSerieNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbSerieNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbSerieNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbSerieNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbSerieNL.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbSerieNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbSerieNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
-            this.KCmbSerieNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbSerieNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbSerieNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbSerieNL.TabIndex = 86;
             // 
             // LblSerieNL
             // 
@@ -552,26 +516,6 @@
             this.LblFechaInclusionNL.TabIndex = 78;
             this.LblFechaInclusionNL.Text = "Inclusión en BBDD";
             // 
-            // KCmbGenerosNL
-            // 
-            this.KCmbGenerosNL.DropDownWidth = 228;
-            this.KCmbGenerosNL.Location = new System.Drawing.Point(645, 201);
-            this.KCmbGenerosNL.Name = "KCmbGenerosNL";
-            this.KCmbGenerosNL.Size = new System.Drawing.Size(221, 33);
-            this.KCmbGenerosNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbGenerosNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbGenerosNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbGenerosNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbGenerosNL.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbGenerosNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbGenerosNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
-            this.KCmbGenerosNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbGenerosNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbGenerosNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbGenerosNL.TabIndex = 75;
-            // 
             // LblGenerosNL
             // 
             this.LblGenerosNL.AutoSize = true;
@@ -644,26 +588,6 @@
             this.LblPublicacionNL.Size = new System.Drawing.Size(136, 20);
             this.LblPublicacionNL.TabIndex = 65;
             this.LblPublicacionNL.Text = "Fecha publicación";
-            // 
-            // KCmbPersonasNL
-            // 
-            this.KCmbPersonasNL.DropDownWidth = 228;
-            this.KCmbPersonasNL.Location = new System.Drawing.Point(645, 161);
-            this.KCmbPersonasNL.Name = "KCmbPersonasNL";
-            this.KCmbPersonasNL.Size = new System.Drawing.Size(221, 33);
-            this.KCmbPersonasNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbPersonasNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbPersonasNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbPersonasNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbPersonasNL.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbPersonasNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbPersonasNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
-            this.KCmbPersonasNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbPersonasNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbPersonasNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbPersonasNL.TabIndex = 61;
             // 
             // LblPersonasNL
             // 
@@ -819,26 +743,6 @@
             this.LblTipoNL.Size = new System.Drawing.Size(98, 20);
             this.LblTipoNL.TabIndex = 38;
             this.LblTipoNL.Text = "Tipo de libro";
-            // 
-            // KCmbEditorialNL
-            // 
-            this.KCmbEditorialNL.DropDownWidth = 228;
-            this.KCmbEditorialNL.Location = new System.Drawing.Point(177, 122);
-            this.KCmbEditorialNL.Name = "KCmbEditorialNL";
-            this.KCmbEditorialNL.Size = new System.Drawing.Size(221, 33);
-            this.KCmbEditorialNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbEditorialNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEditorialNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEditorialNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbEditorialNL.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbEditorialNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbEditorialNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEditorialNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbEditorialNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEditorialNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbEditorialNL.TabIndex = 36;
             // 
             // LblEditorialNL
             // 
@@ -1063,7 +967,7 @@
             // 
             this.KGbImagenesNL.Panel.Controls.Add(this.PcbImgContraNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.PcbImgPortadaNL);
-            this.KGbImagenesNL.Panel.Controls.Add(this.iconButton1);
+            this.KGbImagenesNL.Panel.Controls.Add(this.IBtnContraportadaNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.LblImgContraNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.LblImgPortadaNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.IBtnPortadaNL);
@@ -1090,6 +994,7 @@
             this.PcbImgContraNL.Location = new System.Drawing.Point(550, 105);
             this.PcbImgContraNL.Name = "PcbImgContraNL";
             this.PcbImgContraNL.Size = new System.Drawing.Size(270, 333);
+            this.PcbImgContraNL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbImgContraNL.TabIndex = 47;
             this.PcbImgContraNL.TabStop = false;
             // 
@@ -1100,24 +1005,27 @@
             this.PcbImgPortadaNL.Location = new System.Drawing.Point(140, 105);
             this.PcbImgPortadaNL.Name = "PcbImgPortadaNL";
             this.PcbImgPortadaNL.Size = new System.Drawing.Size(270, 333);
+            this.PcbImgPortadaNL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbImgPortadaNL.TabIndex = 46;
             this.PcbImgPortadaNL.TabStop = false;
             // 
-            // iconButton1
+            // IBtnContraportadaNL
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
-            this.iconButton1.Location = new System.Drawing.Point(750, 72);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(30, 30);
-            this.iconButton1.TabIndex = 44;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.IBtnContraportadaNL.BackColor = System.Drawing.Color.Transparent;
+            this.IBtnContraportadaNL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IBtnContraportadaNL.FlatAppearance.BorderSize = 0;
+            this.IBtnContraportadaNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IBtnContraportadaNL.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.IBtnContraportadaNL.IconColor = System.Drawing.Color.Black;
+            this.IBtnContraportadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IBtnContraportadaNL.IconSize = 35;
+            this.IBtnContraportadaNL.Location = new System.Drawing.Point(750, 72);
+            this.IBtnContraportadaNL.Name = "IBtnContraportadaNL";
+            this.IBtnContraportadaNL.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.IBtnContraportadaNL.Size = new System.Drawing.Size(30, 30);
+            this.IBtnContraportadaNL.TabIndex = 44;
+            this.IBtnContraportadaNL.UseVisualStyleBackColor = false;
+            this.IBtnContraportadaNL.Click += new System.EventHandler(this.IBtnContraportadaNL_Click);
             // 
             // LblImgContraNL
             // 
@@ -1146,6 +1054,7 @@
             // IBtnPortadaNL
             // 
             this.IBtnPortadaNL.BackColor = System.Drawing.Color.Transparent;
+            this.IBtnPortadaNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IBtnPortadaNL.FlatAppearance.BorderSize = 0;
             this.IBtnPortadaNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IBtnPortadaNL.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
@@ -1158,6 +1067,7 @@
             this.IBtnPortadaNL.Size = new System.Drawing.Size(30, 30);
             this.IBtnPortadaNL.TabIndex = 30;
             this.IBtnPortadaNL.UseVisualStyleBackColor = false;
+            this.IBtnPortadaNL.Click += new System.EventHandler(this.IBtnPortadaNL_Click);
             // 
             // KGbDatosUsuarioNL
             // 
@@ -1182,7 +1092,7 @@
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblFecFinalNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblFecComiNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblTiempoLecNL);
-            this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KNupPuntuacionNL);
+            this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KNudPuntuacionNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblOcultarNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblEstadoLecturaNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblVecesLeidoNL);
@@ -1387,22 +1297,22 @@
             this.LblTiempoLecNL.TabIndex = 48;
             this.LblTiempoLecNL.Text = "Tiempo de lectura";
             // 
-            // KNupPuntuacionNL
+            // KNudPuntuacionNL
             // 
-            this.KNupPuntuacionNL.Location = new System.Drawing.Point(177, 5);
-            this.KNupPuntuacionNL.Name = "KNupPuntuacionNL";
-            this.KNupPuntuacionNL.Size = new System.Drawing.Size(179, 33);
-            this.KNupPuntuacionNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNupPuntuacionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNupPuntuacionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNupPuntuacionNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KNudPuntuacionNL.Location = new System.Drawing.Point(177, 5);
+            this.KNudPuntuacionNL.Name = "KNudPuntuacionNL";
+            this.KNudPuntuacionNL.Size = new System.Drawing.Size(179, 33);
+            this.KNudPuntuacionNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KNudPuntuacionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudPuntuacionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudPuntuacionNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KNupPuntuacionNL.StateCommon.Border.Rounding = 10;
-            this.KNupPuntuacionNL.StateCommon.Border.Width = 2;
-            this.KNupPuntuacionNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KNupPuntuacionNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
-            this.KNupPuntuacionNL.TabIndex = 42;
+            this.KNudPuntuacionNL.StateCommon.Border.Rounding = 10;
+            this.KNudPuntuacionNL.StateCommon.Border.Width = 2;
+            this.KNudPuntuacionNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KNudPuntuacionNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.KNudPuntuacionNL.TabIndex = 42;
             // 
             // LblOcultarNL
             // 
@@ -1570,6 +1480,7 @@
             this.BtnGuardarNL.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.BtnGuardarNL.TabIndex = 13;
             this.BtnGuardarNL.Values.Text = "Guardar libro";
+            this.BtnGuardarNL.Click += new System.EventHandler(this.BtnGuardarNL_Click);
             // 
             // PanTituloTitulos
             // 
@@ -1692,7 +1603,7 @@
             this.KPageAcciones});
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KcellTabs.SelectedIndex = 3;
+            this.KcellTabs.SelectedIndex = 0;
             this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.Navy;
             this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.Navy;
             this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.Gainsboro;
@@ -1815,6 +1726,7 @@
             this.MBtnMasLsvAccionesNL.Size = new System.Drawing.Size(45, 45);
             this.MBtnMasLsvAccionesNL.TabIndex = 133;
             this.MBtnMasLsvAccionesNL.UseVisualStyleBackColor = false;
+            this.MBtnMasLsvAccionesNL.Click += new System.EventHandler(this.MBtnMasLsvAccionesNL_Click);
             // 
             // MBtnMenosLsvAccionesNL
             // 
@@ -1831,6 +1743,7 @@
             this.MBtnMenosLsvAccionesNL.Size = new System.Drawing.Size(45, 45);
             this.MBtnMenosLsvAccionesNL.TabIndex = 134;
             this.MBtnMenosLsvAccionesNL.UseVisualStyleBackColor = false;
+            this.MBtnMenosLsvAccionesNL.Click += new System.EventHandler(this.MBtnMenosLsvAccionesNL_Click);
             // 
             // KGbFicheroEjeNL
             // 
@@ -1841,11 +1754,11 @@
             // 
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.MBtnMasEjecutableNL);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.BtnGuardarAccionesNL);
-            this.KGbFicheroEjeNL.Panel.Controls.Add(this.KTxtFicheroNL);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.LblFicheroNL);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.LblEjecutableNL);
-            this.KGbFicheroEjeNL.Panel.Controls.Add(this.iconButton3);
+            this.KGbFicheroEjeNL.Panel.Controls.Add(this.IbtnFichero);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.KCmbEjecutableNL);
+            this.KGbFicheroEjeNL.Panel.Controls.Add(this.KTxtFicheroNL);
             this.KGbFicheroEjeNL.Size = new System.Drawing.Size(463, 236);
             this.KGbFicheroEjeNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KGbFicheroEjeNL.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
@@ -1858,6 +1771,7 @@
             this.KGbFicheroEjeNL.StateCommon.Border.Width = 2;
             this.KGbFicheroEjeNL.TabIndex = 47;
             this.KGbFicheroEjeNL.Values.Heading = "";
+            this.KGbFicheroEjeNL.Visible = false;
             // 
             // MBtnMasEjecutableNL
             // 
@@ -1873,6 +1787,7 @@
             this.MBtnMasEjecutableNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasEjecutableNL.TabIndex = 125;
             this.MBtnMasEjecutableNL.UseVisualStyleBackColor = false;
+            this.MBtnMasEjecutableNL.Click += new System.EventHandler(this.MBtnMasEjecutableNL_Click);
             // 
             // BtnGuardarAccionesNL
             // 
@@ -1954,6 +1869,7 @@
             this.BtnGuardarAccionesNL.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.BtnGuardarAccionesNL.TabIndex = 48;
             this.BtnGuardarAccionesNL.Values.Text = "Guardar";
+            this.BtnGuardarAccionesNL.Click += new System.EventHandler(this.BtnGuardarAccionesNL_Click);
             // 
             // KTxtFicheroNL
             // 
@@ -1996,20 +1912,22 @@
             this.LblEjecutableNL.TabIndex = 40;
             this.LblEjecutableNL.Text = "Ejecutable";
             // 
-            // iconButton3
+            // IbtnFichero
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.iconButton3.IconColor = System.Drawing.Color.Navy;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 25;
-            this.iconButton3.Location = new System.Drawing.Point(350, 40);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(23, 23);
-            this.iconButton3.TabIndex = 43;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.IbtnFichero.BackColor = System.Drawing.Color.Transparent;
+            this.IbtnFichero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IbtnFichero.FlatAppearance.BorderSize = 0;
+            this.IbtnFichero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IbtnFichero.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.IbtnFichero.IconColor = System.Drawing.Color.Navy;
+            this.IbtnFichero.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IbtnFichero.IconSize = 25;
+            this.IbtnFichero.Location = new System.Drawing.Point(379, 42);
+            this.IbtnFichero.Name = "IbtnFichero";
+            this.IbtnFichero.Size = new System.Drawing.Size(20, 20);
+            this.IbtnFichero.TabIndex = 43;
+            this.IbtnFichero.UseVisualStyleBackColor = false;
+            this.IbtnFichero.Click += new System.EventHandler(this.IbtnFichero_Click);
             // 
             // KCmbEjecutableNL
             // 
@@ -2046,6 +1964,7 @@
             this.LsvAccionesNL.TabIndex = 44;
             this.LsvAccionesNL.UseCompatibleStateImageBehavior = false;
             this.LsvAccionesNL.View = System.Windows.Forms.View.Details;
+            this.LsvAccionesNL.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvAccionesNL_ItemSelectionChanged);
             // 
             // ChFicheroNL
             // 
@@ -2057,30 +1976,135 @@
             this.ChEjecutableNL.Text = "Ejecutable";
             this.ChEjecutableNL.Width = 133;
             // 
-            // CheckedComboPrueba
+            // KCCEtiquetaNL
             // 
-            this.CheckedComboPrueba.CheckOnClick = true;
-            this.CheckedComboPrueba.DropDownHeight = 1;
-            this.CheckedComboPrueba.DropDownWidth = 177;
-            this.CheckedComboPrueba.Location = new System.Drawing.Point(312, 171);
-            this.CheckedComboPrueba.Name = "CheckedComboPrueba";
-            this.CheckedComboPrueba.Size = new System.Drawing.Size(149, 33);
-            this.CheckedComboPrueba.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.CheckedComboPrueba.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.CheckedComboPrueba.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.CheckedComboPrueba.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KCCEtiquetaNL.CheckOnClick = true;
+            this.KCCEtiquetaNL.DropDownHeight = 1;
+            this.KCCEtiquetaNL.DropDownWidth = 177;
+            this.KCCEtiquetaNL.Location = new System.Drawing.Point(645, 280);
+            this.KCCEtiquetaNL.Name = "KCCEtiquetaNL";
+            this.KCCEtiquetaNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.CheckedComboPrueba.StateCommon.ComboBox.Border.Rounding = 10;
-            this.CheckedComboPrueba.StateCommon.ComboBox.Border.Width = 2;
-            this.CheckedComboPrueba.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckedComboPrueba.TabIndex = 153;
-            this.CheckedComboPrueba.ValueSeparator = ", ";
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Width = 2;
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCEtiquetaNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCEtiquetaNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
+            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCEtiquetaNL.TabIndex = 157;
+            this.KCCEtiquetaNL.ValueSeparator = ", ";
+            // 
+            // KCCSerieNL
+            // 
+            this.KCCSerieNL.CheckOnClick = true;
+            this.KCCSerieNL.DropDownHeight = 1;
+            this.KCCSerieNL.DropDownWidth = 177;
+            this.KCCSerieNL.Location = new System.Drawing.Point(645, 241);
+            this.KCCSerieNL.Name = "KCCSerieNL";
+            this.KCCSerieNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCSerieNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCSerieNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCSerieNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCSerieNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCCSerieNL.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCCSerieNL.StateCommon.ComboBox.Border.Width = 2;
+            this.KCCSerieNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCSerieNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCSerieNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCSerieNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
+            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCSerieNL.TabIndex = 156;
+            this.KCCSerieNL.ValueSeparator = ", ";
+            // 
+            // KCCGenerosNL
+            // 
+            this.KCCGenerosNL.CheckOnClick = true;
+            this.KCCGenerosNL.DropDownHeight = 1;
+            this.KCCGenerosNL.DropDownWidth = 177;
+            this.KCCGenerosNL.Location = new System.Drawing.Point(645, 201);
+            this.KCCGenerosNL.Name = "KCCGenerosNL";
+            this.KCCGenerosNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCGenerosNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.Width = 2;
+            this.KCCGenerosNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCGenerosNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCGenerosNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCGenerosNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
+            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCGenerosNL.TabIndex = 155;
+            this.KCCGenerosNL.ValueSeparator = ", ";
+            // 
+            // KCCPersonasNL
+            // 
+            this.KCCPersonasNL.CheckOnClick = true;
+            this.KCCPersonasNL.DropDownHeight = 1;
+            this.KCCPersonasNL.DropDownWidth = 177;
+            this.KCCPersonasNL.Location = new System.Drawing.Point(645, 161);
+            this.KCCPersonasNL.Name = "KCCPersonasNL";
+            this.KCCPersonasNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCPersonasNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.Width = 2;
+            this.KCCPersonasNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCPersonasNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCPersonasNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCPersonasNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
+            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCPersonasNL.TabIndex = 154;
+            this.KCCPersonasNL.ValueSeparator = ", ";
+            // 
+            // KCCEditorialNL
+            // 
+            this.KCCEditorialNL.CheckOnClick = true;
+            this.KCCEditorialNL.DropDownHeight = 1;
+            this.KCCEditorialNL.DropDownWidth = 177;
+            this.KCCEditorialNL.Location = new System.Drawing.Point(177, 122);
+            this.KCCEditorialNL.Name = "KCCEditorialNL";
+            this.KCCEditorialNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCEditorialNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.Width = 2;
+            this.KCCEditorialNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCEditorialNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCEditorialNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCCEditorialNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
+            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCEditorialNL.TabIndex = 153;
+            this.KCCEditorialNL.ValueSeparator = ", ";
             // 
             // TBtnMayores18NL
             // 
             this.TBtnMayores18NL.AutoSize = true;
-            this.TBtnMayores18NL.BackColor = System.Drawing.Color.Gainsboro;
+            this.TBtnMayores18NL.BackColor = System.Drawing.Color.Transparent;
             this.TBtnMayores18NL.Location = new System.Drawing.Point(177, 362);
             this.TBtnMayores18NL.MinimumSize = new System.Drawing.Size(45, 22);
             this.TBtnMayores18NL.Name = "TBtnMayores18NL";
@@ -2130,6 +2154,7 @@
             this.Controls.Add(this.KworkSpaceNuevoLibro);
             this.Controls.Add(this.PanTituloTitulos);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAniadirLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTitulos";
@@ -2139,13 +2164,8 @@
             this.KgbDatosGeneralesNL.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL)).EndInit();
             this.KgbDatosGeneralesNL.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbEtiquetaNL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbSerieNL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbGenerosNL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbIdiomaOriginalNL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbPersonasNL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbIdiomaNL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbEditorialNL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoNL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KGbImagenesNL.Panel)).EndInit();
             this.KGbImagenesNL.Panel.ResumeLayout(false);
@@ -2187,7 +2207,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.KGbFicheroEjeNL)).EndInit();
             this.KGbFicheroEjeNL.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.KCmbEjecutableNL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckedComboPrueba)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCEtiquetaNL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCSerieNL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCGenerosNL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCPersonasNL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KCCEditorialNL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2201,16 +2225,13 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtSinopsisNL;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudVolumenNL;
         private System.Windows.Forms.Label LblVolumenNL;
-        private Controles.ToggleButton TBtnMayores18NL;
         private System.Windows.Forms.Label LblMAyores18NL;
         private System.Windows.Forms.Label LblFechaInclusionNL;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbGenerosNL;
         private System.Windows.Forms.Label LblGenerosNL;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbIdiomaOriginalNL;
         private System.Windows.Forms.Label LblEnlaceNL;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtEnlaceNL;
         private System.Windows.Forms.Label LblPublicacionNL;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbPersonasNL;
         private System.Windows.Forms.Label LblPersonasNL;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbIdiomaNL;
         private System.Windows.Forms.Label LblIdiomaNL;
@@ -2222,7 +2243,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudEdicionNL;
         private System.Windows.Forms.Label LblEdicionNL;
         private System.Windows.Forms.Label LblTipoNL;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbEditorialNL;
         private System.Windows.Forms.Label LblEditorialNL;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbTipoNL;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtIsbn13;
@@ -2239,7 +2259,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox KGbImagenesNL;
         private System.Windows.Forms.PictureBox PcbImgContraNL;
         private System.Windows.Forms.PictureBox PcbImgPortadaNL;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton IBtnContraportadaNL;
         private System.Windows.Forms.Label LblImgContraNL;
         private System.Windows.Forms.Label LblImgPortadaNL;
         private FontAwesome.Sharp.IconButton IBtnPortadaNL;
@@ -2255,7 +2275,7 @@
         private System.Windows.Forms.Label LblFecFinalNL;
         private System.Windows.Forms.Label LblFecComiNL;
         private System.Windows.Forms.Label LblTiempoLecNL;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNupPuntuacionNL;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPuntuacionNL;
         private System.Windows.Forms.Label LblOcultarNL;
         private System.Windows.Forms.Label LblEstadoLecturaNL;
         private System.Windows.Forms.Label LblVecesLeidoNL;
@@ -2279,9 +2299,7 @@
         private ComponentFactory.Krypton.Navigator.KryptonPage KPageDatosUsuario;
         private ComponentFactory.Krypton.Navigator.KryptonPage KPageImagenes;
         private ComponentFactory.Krypton.Navigator.KryptonPage KPageAcciones;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbEtiquetaNL;
         private System.Windows.Forms.Label LblEtiquetasNL;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbSerieNL;
         private System.Windows.Forms.Label LblSerieNL;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox KMtxtFecFinalNL;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox KMtxtFecComienzoNL;
@@ -2296,7 +2314,7 @@
         private System.Windows.Forms.Label LblEjecutableNL;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtFicheroNL;
         private System.Windows.Forms.Label LblFicheroNL;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton IbtnFichero;
         private System.Windows.Forms.ListView LsvAccionesNL;
         private System.Windows.Forms.ColumnHeader ChFicheroNL;
         private System.Windows.Forms.ColumnHeader ChEjecutableNL;
@@ -2312,6 +2330,11 @@
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasEjecutableNL;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasLsvAccionesNL;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosLsvAccionesNL;
-        private Controles.CheckedComboBox CheckedComboPrueba;
+        private Controles.CheckedComboBox KCCEditorialNL;
+        private Controles.CheckedComboBox KCCEtiquetaNL;
+        private Controles.CheckedComboBox KCCSerieNL;
+        private Controles.CheckedComboBox KCCGenerosNL;
+        private Controles.CheckedComboBox KCCPersonasNL;
+        private Controles.ToggleButton TBtnMayores18NL;
     }
 }

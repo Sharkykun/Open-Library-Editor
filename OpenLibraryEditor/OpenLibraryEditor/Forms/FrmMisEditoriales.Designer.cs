@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMisEditoriales));
             this.PanLsvMED = new System.Windows.Forms.Panel();
             this.PanNumEditorialesMED = new System.Windows.Forms.Panel();
             this.LblPonerNumEditorialesMED = new System.Windows.Forms.Label();
@@ -301,6 +302,7 @@
             this.Controls.Add(this.PanLsvMED);
             this.Controls.Add(this.PanBusquedaMED);
             this.Controls.Add(this.PanTituloMisEditoriales);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMisEditoriales";
             this.Text = "FrmMisEditoriales";
             this.PanLsvMED.ResumeLayout(false);
