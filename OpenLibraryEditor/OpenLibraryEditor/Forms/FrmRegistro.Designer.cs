@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistro));
             this.PanTitulo = new System.Windows.Forms.Panel();
+            this.MBtnCerrarRegistro = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloFrm = new System.Windows.Forms.Label();
             this.PcbLogoRegistro = new System.Windows.Forms.PictureBox();
             this.PanTexto = new System.Windows.Forms.Panel();
@@ -53,7 +55,7 @@
             this.IpcbOcultarContra1Reg = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtContra1Reg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtContraReg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.MBtnCerrarRegistro = new FontAwesome.Sharp.Material.MaterialButton();
+            this.TTRegistro = new System.Windows.Forms.ToolTip(this.components);
             this.PanTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoRegistro)).BeginInit();
             this.PanTexto.SuspendLayout();
@@ -75,6 +77,24 @@
             this.PanTitulo.Size = new System.Drawing.Size(600, 40);
             this.PanTitulo.TabIndex = 0;
             this.PanTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
+            // 
+            // MBtnCerrarRegistro
+            // 
+            this.MBtnCerrarRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnCerrarRegistro.FlatAppearance.BorderSize = 0;
+            this.MBtnCerrarRegistro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.MBtnCerrarRegistro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.MBtnCerrarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnCerrarRegistro.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
+            this.MBtnCerrarRegistro.IconColor = System.Drawing.Color.Gainsboro;
+            this.MBtnCerrarRegistro.IconSize = 40;
+            this.MBtnCerrarRegistro.Location = new System.Drawing.Point(564, 4);
+            this.MBtnCerrarRegistro.Name = "MBtnCerrarRegistro";
+            this.MBtnCerrarRegistro.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.MBtnCerrarRegistro.Size = new System.Drawing.Size(32, 32);
+            this.MBtnCerrarRegistro.TabIndex = 28;
+            this.MBtnCerrarRegistro.UseVisualStyleBackColor = false;
+            this.MBtnCerrarRegistro.Click += new System.EventHandler(this.MBtnCerrarRegistro_Click);
             // 
             // LblTituloFrm
             // 
@@ -460,24 +480,6 @@
             this.KTxtContraReg.TabIndex = 3;
             this.KTxtContraReg.UseSystemPasswordChar = true;
             // 
-            // MBtnCerrarRegistro
-            // 
-            this.MBtnCerrarRegistro.BackColor = System.Drawing.Color.Transparent;
-            this.MBtnCerrarRegistro.FlatAppearance.BorderSize = 0;
-            this.MBtnCerrarRegistro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.MBtnCerrarRegistro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.MBtnCerrarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnCerrarRegistro.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
-            this.MBtnCerrarRegistro.IconColor = System.Drawing.Color.Gainsboro;
-            this.MBtnCerrarRegistro.IconSize = 40;
-            this.MBtnCerrarRegistro.Location = new System.Drawing.Point(564, 4);
-            this.MBtnCerrarRegistro.Name = "MBtnCerrarRegistro";
-            this.MBtnCerrarRegistro.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.MBtnCerrarRegistro.Size = new System.Drawing.Size(32, 32);
-            this.MBtnCerrarRegistro.TabIndex = 28;
-            this.MBtnCerrarRegistro.UseVisualStyleBackColor = false;
-            this.MBtnCerrarRegistro.Click += new System.EventHandler(this.MBtnCerrarRegistro_Click);
-            // 
             // FrmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,5 +534,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtContraReg;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtContra1Reg;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarRegistro;
+        private System.Windows.Forms.ToolTip TTRegistro;
     }
 }

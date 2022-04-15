@@ -64,7 +64,7 @@
             this.BtnEditorialesMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.BtnTagsMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.PanFormHijos = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PcbLogo = new System.Windows.Forms.PictureBox();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
@@ -74,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AciFotoUsuario)).BeginInit();
             this.ToolStripMain.SuspendLayout();
             this.PanFormHijos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // PanTitulo
@@ -707,21 +707,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanFormHijos.BackColor = System.Drawing.Color.Gainsboro;
-            this.PanFormHijos.Controls.Add(this.pictureBox1);
+            this.PanFormHijos.Controls.Add(this.PcbLogo);
             this.PanFormHijos.Location = new System.Drawing.Point(250, 105);
             this.PanFormHijos.Name = "PanFormHijos";
             this.PanFormHijos.Size = new System.Drawing.Size(948, 693);
             this.PanFormHijos.TabIndex = 4;
             // 
-            // pictureBox1
+            // PcbLogo
             // 
-            this.pictureBox1.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
-            this.pictureBox1.Location = new System.Drawing.Point(274, 147);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 400);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.PcbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PcbLogo.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
+            this.PcbLogo.Location = new System.Drawing.Point(274, 147);
+            this.PcbLogo.Name = "PcbLogo";
+            this.PcbLogo.Size = new System.Drawing.Size(400, 400);
+            this.PcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbLogo.TabIndex = 0;
+            this.PcbLogo.TabStop = false;
             // 
             // FrmMenuPrincipal
             // 
@@ -751,7 +752,7 @@
             this.ToolStripMain.ResumeLayout(false);
             this.ToolStripMain.PerformLayout();
             this.PanFormHijos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -793,6 +794,6 @@
         private System.Windows.Forms.Panel PanSeparadorMain;
         private System.Windows.Forms.Panel PanFormHijos;
         private System.Windows.Forms.ToolTip ToolTipMain;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PcbLogo;
     }
 }

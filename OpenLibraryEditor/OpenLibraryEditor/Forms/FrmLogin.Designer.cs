@@ -50,6 +50,7 @@
             this.BtnFrancia = new System.Windows.Forms.ToolStripButton();
             this.TimerAparecer = new System.Windows.Forms.Timer(this.components);
             this.MBtnCerrarLogin = new FontAwesome.Sharp.Material.MaterialButton();
+            this.TTLogin = new System.Windows.Forms.ToolTip(this.components);
             this.PanLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra)).BeginInit();
@@ -350,6 +351,7 @@
             // ToggleConectado
             // 
             this.ToggleConectado.AutoSize = true;
+            this.ToggleConectado.BackColor = System.Drawing.Color.Transparent;
             this.ToggleConectado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToggleConectado.Location = new System.Drawing.Point(261, 158);
             this.ToggleConectado.MinimumSize = new System.Drawing.Size(45, 22);
@@ -360,7 +362,7 @@
             this.ToggleConectado.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.ToggleConectado.Size = new System.Drawing.Size(45, 22);
             this.ToggleConectado.TabIndex = 4;
-            this.ToggleConectado.UseVisualStyleBackColor = true;
+            this.ToggleConectado.UseVisualStyleBackColor = false;
             // 
             // KTxtNombre
             // 
@@ -613,5 +615,6 @@
         private System.Windows.Forms.ToolStripButton BtnFrancia;
         private System.Windows.Forms.Timer TimerAparecer;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarLogin;
+        private System.Windows.Forms.ToolTip TTLogin;
     }
 }

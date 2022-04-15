@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Microsoft.VisualBasic;
+using ComponentFactory.Krypton.Navigator;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -46,6 +47,110 @@ namespace OpenLibraryEditor.Forms
             libroActual = libro;
         }
         #region metodos propios
+
+        private void IdiomaTexto()
+        {
+            TTnuevoLibro.SetToolTip(this.MBtnCerrarTitulos, ControladorIdioma.GetTexto("Cerrar"));
+            TTnuevoLibro.SetToolTip(this.LblTituloForm, ControladorIdioma.GetTexto("Al_Titulo"));
+            LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Titulo");
+            KpageDatosGenerales.Text = ControladorIdioma.GetTexto("Al_TabDatosGen");
+            KgbDatosGeneralesNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabDatosGen");
+            LblTituloNL.Text = ControladorIdioma.GetTexto("Al_DGTitulo");
+            TTnuevoLibro.SetToolTip(this.KTxtTituloNL, ControladorIdioma.GetTexto("Al_TTTxtTitulo"));
+            LblSubtituloNL.Text = ControladorIdioma.GetTexto("Al_DGSubtitulo");
+            TTnuevoLibro.SetToolTip(this.KTxtSubtituloNL, ControladorIdioma.GetTexto("Al_TTTxtSubti"));
+            LblTituAlternativoNL.Text = ControladorIdioma.GetTexto("Al_DGTituAlt");
+            TTnuevoLibro.SetToolTip(this.KTxtTituAlternativoNL, ControladorIdioma.GetTexto("Al_TTTxtTAlt"));
+            LblEdicionNL.Text = ControladorIdioma.GetTexto("Al_DGEditorial");
+            TTnuevoLibro.SetToolTip(this.KCCEditorialNL, ControladorIdioma.GetTexto("Al_TTCmbEdi"));
+            TTnuevoLibro.SetToolTip(this.MBtnMasEditorialNL, ControladorIdioma.GetTexto("Al_TTBtnMasEdi"));
+            LblEdicionNL.Text = ControladorIdioma.GetTexto("Al_DGEdicion");
+            TTnuevoLibro.SetToolTip(this.KNudEdicionNL, ControladorIdioma.GetTexto("Al_TTEdicion"));
+            LblVolumenNL.Text = ControladorIdioma.GetTexto("Al_DGVolumen");
+            TTnuevoLibro.SetToolTip(this.KNudVolumenNL, ControladorIdioma.GetTexto("Al_TTVolumen"));
+            LblTipoNL.Text = ControladorIdioma.GetTexto("Al_DGTipo");
+            TTnuevoLibro.SetToolTip(this.KCmbTipoNL, ControladorIdioma.GetTexto("Al_TTCmbTipo"));
+            LblNumeroCapNL.Text = ControladorIdioma.GetTexto("Al_DGCapi");
+            TTnuevoLibro.SetToolTip(this.KNudCapiActualNL, ControladorIdioma.GetTexto("Al_TTCapi"));
+            LblNumPagNL.Text = ControladorIdioma.GetTexto("Al_DGPag");
+            TTnuevoLibro.SetToolTip(this.KNudNumPagNL, ControladorIdioma.GetTexto("Al_TTPag"));
+            LblMAyores18NL.Text = ControladorIdioma.GetTexto("Al_DG18");
+            TTnuevoLibro.SetToolTip(this.TBtnMayores18NL, ControladorIdioma.GetTexto("Al_TT18"));
+            LblEnlaceNL.Text = ControladorIdioma.GetTexto("Al_DGEnlace");
+            TTnuevoLibro.SetToolTip(this.KTxtEnlaceNL, ControladorIdioma.GetTexto("Al_TTEnlace"));
+            LblSinopsisNL.Text = ControladorIdioma.GetTexto("Al_DGSinopsis");
+            TTnuevoLibro.SetToolTip(this.KTxtSinopsisNL, ControladorIdioma.GetTexto("Al_TTSinopsis"));
+            LblIsbn10NL.Text = ControladorIdioma.GetTexto("Al_DG10");
+            TTnuevoLibro.SetToolTip(this.KTxtIsbn10, ControladorIdioma.GetTexto("Al_TT10"));
+            LblIsbn13NL.Text = ControladorIdioma.GetTexto("Al_DG13");
+            TTnuevoLibro.SetToolTip(this.KTxtIsbn13, ControladorIdioma.GetTexto("Al_TT13"));
+            LblPublicacionNL.Text = ControladorIdioma.GetTexto("Al_DGPub");
+            TTnuevoLibro.SetToolTip(this.KMtxtFecPublicacionNL, ControladorIdioma.GetTexto("FormatoFecha"));
+            LblFechaInclusionNL.Text = ControladorIdioma.GetTexto("Al_DGInclusion");
+            TTnuevoLibro.SetToolTip(this.KMtxtInclusionbbddNL, ControladorIdioma.GetTexto("FormatoFecha"));
+            LblPersonasNL.Text = ControladorIdioma.GetTexto("Al_DGPersonas");
+            TTnuevoLibro.SetToolTip(this.KCCPersonasNL, ControladorIdioma.GetTexto("Al_TTPersonas"));
+            TTnuevoLibro.SetToolTip(this.MBtnMasPersonasNL, ControladorIdioma.GetTexto("Al_TTBtnMasPer"));
+            LblGenerosNL.Text = ControladorIdioma.GetTexto("Al_DGGeneros");
+            TTnuevoLibro.SetToolTip(this.KCCGenerosNL, ControladorIdioma.GetTexto("Al_TTGeneros"));
+            TTnuevoLibro.SetToolTip(this.MBtnMasGenerosNL, ControladorIdioma.GetTexto("Al_TTBtnMasGen"));
+            LblSerieNL.Text = ControladorIdioma.GetTexto("Al_DGSerie");
+            TTnuevoLibro.SetToolTip(this.KCCSerieNL, ControladorIdioma.GetTexto("Al_TTSerie"));
+            TTnuevoLibro.SetToolTip(this.MBtnMasSerieNL, ControladorIdioma.GetTexto("Al_TTBtnMasSer"));
+            LblEtiquetasNL.Text = ControladorIdioma.GetTexto("Al_DGEtiquetas");
+            TTnuevoLibro.SetToolTip(this.KCCEtiquetaNL, ControladorIdioma.GetTexto("Al_TTEtiquetas"));
+            TTnuevoLibro.SetToolTip(this.MBtnMasEtiquetasNL, ControladorIdioma.GetTexto("Al_TTBtnMasEti"));
+            LblIdiomaOriginalNL.Text = ControladorIdioma.GetTexto("Al_DGIdiOri");
+            TTnuevoLibro.SetToolTip(this.KCmbIdiomaOriginalNL, ControladorIdioma.GetTexto("Al_TTIdiOri"));
+            LblIdiomaNL.Text = ControladorIdioma.GetTexto("Al_DGIdioma");
+            TTnuevoLibro.SetToolTip(this.KCmbIdiomaNL, ControladorIdioma.GetTexto("Al_TTIdi"));
+            
+            KPageDatosUsuario.Text = ControladorIdioma.GetTexto("Al_TabDatosUsu");
+            KGbDatosUsuarioNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabDatosUsu");
+            LblPuntuacionNL.Text = ControladorIdioma.GetTexto("Al_DUPunt");
+            TTnuevoLibro.SetToolTip(this.KNudPuntuacionNL, ControladorIdioma.GetTexto("Al_TTPunt"));
+            LblVecesLeidoNL.Text = ControladorIdioma.GetTexto("Al_DUleido");
+            TTnuevoLibro.SetToolTip(this.KNudVecesLeidoNL, ControladorIdioma.GetTexto("Al_TTVecLeido"));
+            LblEstadoLecturaNL.Text = ControladorIdioma.GetTexto("Al_DUEstado");
+            TTnuevoLibro.SetToolTip(this.KCmbEstadoLecturaNL, ControladorIdioma.GetTexto("Al_TTEstado"));
+            LblTiempoLecNL.Text = ControladorIdioma.GetTexto("Al_DUTiempoLec");
+            TTnuevoLibro.SetToolTip(this.KMtxtTiempoLecturaNL, ControladorIdioma.GetTexto("Al_TTTiempo"));
+            LblCapituloActualNL.Text = ControladorIdioma.GetTexto("Al_DUCap");
+            TTnuevoLibro.SetToolTip(this.KNudCapiActualNL, ControladorIdioma.GetTexto("Al_TTCapiActual"));
+            LblFecComiNL.Text = ControladorIdioma.GetTexto("Al_DUComienzo");
+            TTnuevoLibro.SetToolTip(this.KMtxtFecComienzoNL, ControladorIdioma.GetTexto("FormatoFecha"));
+            LblFecFinalNL.Text = ControladorIdioma.GetTexto("Al_DUFin");
+            TTnuevoLibro.SetToolTip(this.KMtxtFecFinalNL, ControladorIdioma.GetTexto("FormatoFecha"));
+            LblFavoritoNL.Text = ControladorIdioma.GetTexto("Al_DUFav");
+            TTnuevoLibro.SetToolTip(this.TBtnFavNL, ControladorIdioma.GetTexto("Al_TTFav"));
+            LblOcultarNL.Text = ControladorIdioma.GetTexto("Al_DUOcultar");
+            TTnuevoLibro.SetToolTip(this.TBtnOcultarNL, ControladorIdioma.GetTexto("Al_TTOcu"));
+            LblComentarioNL.Text = ControladorIdioma.GetTexto("Al_DUComentario");
+            TTnuevoLibro.SetToolTip(this.KTxtComentarioUsuarioNL, ControladorIdioma.GetTexto("Al_TTCome"));
+
+            KPageImagenes.Text = ControladorIdioma.GetTexto("Al_TabImg");
+            KGbImagenesNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabImg");
+            LblImgPortadaNL.Text = ControladorIdioma.GetTexto("Al_IMPortada");
+            TTnuevoLibro.SetToolTip(this.IBtnPortadaNL, ControladorIdioma.GetTexto("Al_TTBtnPortada"));
+            LblImgContraNL.Text = ControladorIdioma.GetTexto("Al_IMContra");
+            TTnuevoLibro.SetToolTip(this.IBtnContraportadaNL, ControladorIdioma.GetTexto("Al_TTBtnContra"));
+
+            KPageAcciones.Text = ControladorIdioma.GetTexto("Al_TabAcciones");
+            KGbAccionesNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabAcciones");
+            LsvAccionesNL.Columns[0].Text = ControladorIdioma.GetTexto("Al_ACFic");
+            LsvAccionesNL.Columns[1].Text = ControladorIdioma.GetTexto("Al_ACEje");
+            LblFicheroNL.Text = ControladorIdioma.GetTexto("Al_ACFic");
+            LblEjecutableNL.Text = ControladorIdioma.GetTexto("Al_ACEje");
+            BtnGuardarAccionesNL.Text= ControladorIdioma.GetTexto("Al_ACGuardar");
+            TTnuevoLibro.SetToolTip(this.BtnGuardarAccionesNL, ControladorIdioma.GetTexto("Al_ACGuardar"));
+            TTnuevoLibro.SetToolTip(this.IbtnFichero, ControladorIdioma.GetTexto("Al_TTBtnBuscarFichero"));
+            TTnuevoLibro.SetToolTip(this.MBtnMasLsvAccionesNL, ControladorIdioma.GetTexto("Al_TTBtnMasAcc"));
+            TTnuevoLibro.SetToolTip(this.MBtnMenosLsvAccionesNL, ControladorIdioma.GetTexto("Al_TTBtnMenosAcc"));
+            TTnuevoLibro.SetToolTip(this.LsvAccionesNL, ControladorIdioma.GetTexto("Al_TTLsvAcciones"));
+
+            BtnGuardarNL.Text = ControladorIdioma.GetTexto("Al_Guardar");
+            TTnuevoLibro.SetToolTip(this.BtnGuardarNL, ControladorIdioma.GetTexto("Al_Guardar"));
+        }
         private int AgregarComboCheckItem(CheckedComboBox checkedCombo, object item)
         {
             return checkedCombo.Items.Add(new CCBoxItem(item.ToString(), 0, item));
@@ -169,6 +274,8 @@ namespace OpenLibraryEditor.Forms
         #endregion
         private void FrmAniadirLibro_Load(object sender, EventArgs e)
         {
+            IdiomaTexto();
+            KcellTabs.SelectedPage = KpageDatosGenerales;
             //Agregar valores de listas
             RellenarEditorial();
             RellenarEjecutable();

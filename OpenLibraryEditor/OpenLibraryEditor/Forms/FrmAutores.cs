@@ -60,6 +60,7 @@ namespace OpenLibraryEditor.Forms
 
         private void FrmAutores_Load(object sender, EventArgs e)
         {
+            IdiomaTexto();
             //Cargar personas
             foreach (Persona p in listaPersona)
             {
@@ -78,6 +79,40 @@ namespace OpenLibraryEditor.Forms
         }
 
         #region metodos propios
+
+        private void IdiomaTexto()
+        {
+            LblTituloAutores.Text = ControladorIdioma.GetTexto("Au_TituloFrm");
+            TTAutores.SetToolTip(this.LblTituloAutores, ControladorIdioma.GetTexto("Au_TituloFrm"));
+            TTAutores.SetToolTip(this.LsvAutoresNA, ControladorIdioma.GetTexto("Au_TTLsv"));
+            TTAutores.SetToolTip(this.MBtnMasLsvNA, ControladorIdioma.GetTexto("Au_TTBtnMasLsv"));
+            TTAutores.SetToolTip(this.MBtnMenosLsvNA, ControladorIdioma.GetTexto("Au_TTBtnMenosLsv"));
+            LsvAutoresNA.Columns[0].Text = ControladorIdioma.GetTexto("Au_LsvNombre");
+            LsvAutoresNA.Columns[1].Text = ControladorIdioma.GetTexto("Au_Ocupacion");
+            LblNombreNA.Text= ControladorIdioma.GetTexto("Au_Nombre");
+            TTAutores.SetToolTip(this.KTxtNombreAu, ControladorIdioma.GetTexto("Au_TTNombre"));
+            LblAliasAu.Text = ControladorIdioma.GetTexto("Au_Alias");
+            TTAutores.SetToolTip(this.KtxtAliasAu, ControladorIdioma.GetTexto("Au_TTAlias"));
+            LblOcupacionNA.Text = ControladorIdioma.GetTexto("Au_Ocupacion");
+            TTAutores.SetToolTip(this.KCmbOcupacionNA, ControladorIdioma.GetTexto("Au_TTOcupacion"));
+            TTAutores.SetToolTip(this.MBtnMasOcupacionNA, ControladorIdioma.GetTexto("Au_TTBtnMasOcu"));
+            TTAutores.SetToolTip(this.MBtnMenosOcupacionNA, ControladorIdioma.GetTexto("Au_TTBtnMenosOcu"));
+            LblNacimientoAu.Text = ControladorIdioma.GetTexto("Au_FNac");
+            TTAutores.SetToolTip(this.KMtxtFecNacimientoNA, ControladorIdioma.GetTexto("FormatoFecha"));
+            LblDefuncionAu.Text = ControladorIdioma.GetTexto("Au_FDef");
+            TTAutores.SetToolTip(this.KMtxtFecMuerteNA, ControladorIdioma.GetTexto("FormatoFecha"));
+            LblEnlaceAu.Text = ControladorIdioma.GetTexto("Au_Enlace");
+            TTAutores.SetToolTip(this.KTxtEnlaceAu, ControladorIdioma.GetTexto("Au_TTEnlace"));
+            LblComentarioAu.Text = ControladorIdioma.GetTexto("Au_Comentario");
+            TTAutores.SetToolTip(this.KTxtComentarioAu, ControladorIdioma.GetTexto("Au_TTComentario"));
+            TTAutores.SetToolTip(this.MBtnAniadirImagenAu, ControladorIdioma.GetTexto("Au_TTMasImg"));
+            TTAutores.SetToolTip(this.MBtnBorrarImagenAu, ControladorIdioma.GetTexto("Au_TTMenosImg"));
+            TTAutores.SetToolTip(this.PcbAutorNA, ControladorIdioma.GetTexto("Au_Pcb"));
+            KBtnCancelarAu.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTAutores.SetToolTip(this.KBtnCancelarAu, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarAu.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTAutores.SetToolTip(this.KBtnAceptarAu, ControladorIdioma.GetTexto("Aceptar"));
+        }
         private void ActualizarOcupacion()
         {
             listaOcupacion.Sort();

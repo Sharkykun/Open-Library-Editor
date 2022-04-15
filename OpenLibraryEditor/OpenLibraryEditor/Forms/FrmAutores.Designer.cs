@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutores));
             this.PanTituloAutores = new System.Windows.Forms.Panel();
             this.MBtnCerrarAutores = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloAutores = new System.Windows.Forms.Label();
             this.PcbLogoAutores = new System.Windows.Forms.PictureBox();
-            this.OfdImagenAu = new System.Windows.Forms.OpenFileDialog();
             this.PanBtnAu = new System.Windows.Forms.Panel();
             this.KBtnCancelarAu = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.KBtnAceptarAu = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -62,6 +62,7 @@
             this.LblNombreNA = new System.Windows.Forms.Label();
             this.KTxtNombreAu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PcbAutorNA = new System.Windows.Forms.PictureBox();
+            this.TTAutores = new System.Windows.Forms.ToolTip(this.components);
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
             this.PanBtnAu.SuspendLayout();
@@ -123,10 +124,6 @@
             this.PcbLogoAutores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoAutores.TabIndex = 3;
             this.PcbLogoAutores.TabStop = false;
-            // 
-            // OfdImagenAu
-            // 
-            this.OfdImagenAu.FileName = "openFileDialog1";
             // 
             // PanBtnAu
             // 
@@ -696,7 +693,6 @@
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarAutores;
         private System.Windows.Forms.Label LblTituloAutores;
         private System.Windows.Forms.PictureBox PcbLogoAutores;
-        private System.Windows.Forms.OpenFileDialog OfdImagenAu;
         private System.Windows.Forms.Panel PanBtnAu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnCancelarAu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnAceptarAu;
@@ -725,5 +721,6 @@
         private System.Windows.Forms.Label LblNombreNA;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreAu;
         private System.Windows.Forms.PictureBox PcbAutorNA;
+        private System.Windows.Forms.ToolTip TTAutores;
     }
 }

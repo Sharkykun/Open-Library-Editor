@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.Metodos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,41 +15,39 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmRegistro : Form
     {
-        private string idioma;
-        public FrmRegistro(string idiomaSeleccionado)
+     
+        public FrmRegistro()
         {
             InitializeComponent();
-            idioma = idiomaSeleccionado;
         }
        
 
         private void FrmRegistro_Load(object sender, EventArgs e)
         {
-            if (idioma.Equals("spanish"))
-            {
-                Clases.ControladorIdioma.idioma = "Strings_es_ES";
-                IdiomaTexto();
-            }
-            else if (idioma.Equals("english"))
-            {
-                Clases.ControladorIdioma.idioma = "Strings_en_US";
-                IdiomaTexto();
-            }
-            else 
-            {
-                Clases.ControladorIdioma.idioma = "Strings_fr_FR";
-                IdiomaTexto();
-            }
+            IdiomaTexto();
         }
 
         private void IdiomaTexto()
         {
-            LblTituloFrm.Text = Clases.ControladorIdioma.GetTexto("Reg_TituloForm");
-            LblUrlReg.Text = Clases.ControladorIdioma.GetTexto("Reg_Url");
-            LblNombreReg.Text = Clases.ControladorIdioma.GetTexto("Reg_Nombre");
-            LblContraReg.Text = Clases.ControladorIdioma.GetTexto("Reg_Contra");
-            LblContra1Reg.Text = Clases.ControladorIdioma.GetTexto("Reg_Contra1");
-            BtnRegistrarme.Text = Clases.ControladorIdioma.GetTexto("Reg_BtnRegistro");
+            LblTituloFrm.Text = ControladorIdioma.GetTexto("Reg_TituloForm");
+            TTRegistro.SetToolTip(this.LblTituloFrm, ControladorIdioma.GetTexto("Reg_TituloForm"));
+            LblUrlReg.Text = ControladorIdioma.GetTexto("Reg_Url");
+            TTRegistro.SetToolTip(this.TxtUrlReg, ControladorIdioma.GetTexto("Reg_TTUrl"));
+            LblNombreReg.Text = ControladorIdioma.GetTexto("Reg_Nombre");
+            TTRegistro.SetToolTip(this.TxtNombreReg, ControladorIdioma.GetTexto("Reg_TTNombre"));
+            LblMailReg.Text = ControladorIdioma.GetTexto("Reg_Email");
+            TTRegistro.SetToolTip(this.TxtMailReg, ControladorIdioma.GetTexto("Reg_TTEmail"));
+            LblContraReg.Text = ControladorIdioma.GetTexto("Reg_Contra");
+            TTRegistro.SetToolTip(this.KTxtContraReg, ControladorIdioma.GetTexto("Reg_TTContra"));
+            LblContra1Reg.Text = ControladorIdioma.GetTexto("Reg_Contra1");
+            TTRegistro.SetToolTip(this.KTxtContra1Reg, ControladorIdioma.GetTexto("Reg_TTContra1"));
+            BtnRegistrarme.Text = ControladorIdioma.GetTexto("Reg_BtnRegistro");
+            TTRegistro.SetToolTip(this.BtnRegistrarme, ControladorIdioma.GetTexto("Reg_BtnRegistro"));
+            TTRegistro.SetToolTip(this.IpcbMostrarContraReg, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTRegistro.SetToolTip(this.IpcbOcultarContra1Reg, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTRegistro.SetToolTip(this.IpcbOcultarContraReg, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+            TTRegistro.SetToolTip(this.IpcbOcultarContra1Reg, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+            TTRegistro.SetToolTip(this.MBtnCerrarRegistro, ControladorIdioma.GetTexto("Cerrar"));
         }
         private void MBtnCerrarRegistro_Click(object sender, EventArgs e)
         {
@@ -74,20 +74,20 @@ namespace OpenLibraryEditor.Forms
 
         private void IpcbMostrarContraReg_Click(object sender, EventArgs e)
         {
-            Metodos.MetodosComunes.MostrarOcultarContra(KTxtContraReg, true, false, IpcbOcultarContraReg, IpcbMostrarContraReg);
+            MetodosComunes.MostrarOcultarContra(KTxtContraReg, true, false, IpcbOcultarContraReg, IpcbMostrarContraReg);
         }
         private void IpcbOcultarContraReg_Click(object sender, EventArgs e)
         {
-            Metodos.MetodosComunes.MostrarOcultarContra(KTxtContraReg, false, true, IpcbMostrarContraReg, IpcbOcultarContraReg);
+            MetodosComunes.MostrarOcultarContra(KTxtContraReg, false, true, IpcbMostrarContraReg, IpcbOcultarContraReg);
         }
         private void IpcbMostrarContra1Reg_Click(object sender, EventArgs e)
         {
-            Metodos.MetodosComunes.MostrarOcultarContra(KTxtContra1Reg, true, false, IpcbOcultarContra1Reg, IpcbMostrarContra1Reg);
+            MetodosComunes.MostrarOcultarContra(KTxtContra1Reg, true, false, IpcbOcultarContra1Reg, IpcbMostrarContra1Reg);
         }
 
         private void IpcbOcultarContra1Reg_Click(object sender, EventArgs e)
         {
-            Metodos.MetodosComunes.MostrarOcultarContra(KTxtContra1Reg,false,true,IpcbMostrarContra1Reg,IpcbOcultarContra1Reg);
+            MetodosComunes.MostrarOcultarContra(KTxtContra1Reg,false,true,IpcbMostrarContra1Reg,IpcbOcultarContra1Reg);
 
         }
 

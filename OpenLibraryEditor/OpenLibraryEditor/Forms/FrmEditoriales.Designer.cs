@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditoriales));
             this.PanBtnEd = new System.Windows.Forms.Panel();
             this.KBtnCancelarEd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -48,6 +49,7 @@
             this.LblComentarioEd = new System.Windows.Forms.Label();
             this.KTxtComentarioEd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PcbEditorialesEd = new System.Windows.Forms.PictureBox();
+            this.TTEditorial = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtnEd.SuspendLayout();
             this.PanTituloEditoriales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditoriales)).BeginInit();
@@ -496,5 +498,6 @@
         private System.Windows.Forms.Label LblComentarioEd;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtComentarioEd;
         private System.Windows.Forms.PictureBox PcbEditorialesEd;
+        private System.Windows.Forms.ToolTip TTEditorial;
     }
 }

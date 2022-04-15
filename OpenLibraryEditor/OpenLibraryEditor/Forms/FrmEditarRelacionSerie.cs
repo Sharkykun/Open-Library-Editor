@@ -32,6 +32,7 @@ namespace OpenLibraryEditor.Forms
         public FrmEditarRelacionSerie(RelacionSerie relacion, ListView listView, Serie serie)
         {
             InitializeComponent();
+            IdiomaTexto();
             relacionTemp = relacion;
             serieOrigen = serie;
             foreach (ListViewItem i in listView.Items)
@@ -67,6 +68,28 @@ namespace OpenLibraryEditor.Forms
             this.Close();
         }
         #region metodos propios
+        private void IdiomaTexto()
+        {
+            TTrs.SetToolTip(this.PcbLogoReSe,ControladorIdioma.GetTexto("Main_TTLogo"));
+            LblTituloReSe.Text = ControladorIdioma.GetTexto("RS_TituloFrm");
+            TTrs.SetToolTip(this.LblTituloReSe, ControladorIdioma.GetTexto("RS_TituloFrm"));
+            KGbSerieRS.Values.Heading= ControladorIdioma.GetTexto("RS_Serie");
+            TTrs.SetToolTip(this.LsvSeriesRS, ControladorIdioma.GetTexto("RS_Lsv"));
+            LsvSeriesRS.Columns[0].Text= ControladorIdioma.GetTexto("RS_LsvNombre");
+            LsvSeriesRS.Columns[1].Text = ControladorIdioma.GetTexto("RS_LsvEstado");
+            LblTipoRelacionRS.Text= ControladorIdioma.GetTexto("RS_Tipo");
+            TTrs.SetToolTip(this.KCmbtipoRelacionRS, ControladorIdioma.GetTexto("RS_TTCmb"));
+            TTrs.SetToolTip(this.MBtnMasRS, ControladorIdioma.GetTexto("RS_TTBtnMas"));
+            TTrs.SetToolTip(this.MBtnMenosRS, ControladorIdioma.GetTexto("RS_TTBtnMenos"));
+            TTrs.SetToolTip(this.MBtnAniadirImagenRS, ControladorIdioma.GetTexto("RS_TTBtnMasImg"));
+            TTrs.SetToolTip(this.MBtnBorrarImagenRS, ControladorIdioma.GetTexto("RS_TTBtnMenosImg"));
+            TTrs.SetToolTip(this.PcbRS, ControladorIdioma.GetTexto("RS_Pcb"));
+            KBtnCancelarRS.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTrs.SetToolTip(this.KBtnCancelarRS, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarRS.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTrs.SetToolTip(this.KBtnAceptarRS, ControladorIdioma.GetTexto("Aceptar"));
+            TTrs.SetToolTip(this.MBtnCerrarReSe, ControladorIdioma.GetTexto("Cerrar"));
+        }
         private void CargarImagen(string rutaImagen)
         {
             try

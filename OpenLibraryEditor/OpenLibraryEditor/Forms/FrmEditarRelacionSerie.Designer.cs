@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarRelacionSerie));
             this.PanBtnReSe = new System.Windows.Forms.Panel();
             this.KBtnCancelarRS = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -47,6 +48,7 @@
             this.PcbRS = new System.Windows.Forms.PictureBox();
             this.MBtnMasRS = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosRS = new FontAwesome.Sharp.Material.MaterialButton();
+            this.TTrs = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtnReSe.SuspendLayout();
             this.PanTituloRelacionSerie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoReSe)).BeginInit();
@@ -492,5 +494,6 @@
         private System.Windows.Forms.PictureBox PcbRS;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasRS;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosRS;
+        private System.Windows.Forms.ToolTip TTrs;
     }
 }

@@ -44,6 +44,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void FrmEditoriales_Load(object sender, EventArgs e)
         {
+            IdiomaTexto();
             //Cargar editorial
             foreach (Editorial p in listaEditorial)
             {
@@ -57,6 +58,28 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #region metodos propios
+        private void IdiomaTexto()
+        {
+            LblTituloEditoriales.Text = ControladorIdioma.GetTexto("ED_TituloFrm");
+            TTEditorial.SetToolTip(this.LblTituloEditoriales, ControladorIdioma.GetTexto("ED_TituloFrm"));
+            TTEditorial.SetToolTip(this.LsvEditorialNE, ControladorIdioma.GetTexto("ED_Lsv"));
+            LsvEditorialNE.Columns[0].Text = ControladorIdioma.GetTexto("ED_LsvNombre");
+            TTEditorial.SetToolTip(this.MBtnMasLsvNE, ControladorIdioma.GetTexto("ED_LsvMas"));
+            TTEditorial.SetToolTip(this.MBtnMenosLsvNE, ControladorIdioma.GetTexto("ED_LsvMenos"));
+            LblNombreEd.Text = ControladorIdioma.GetTexto("ED_Nombre");
+            TTEditorial.SetToolTip(this.KTxtNombreEd, ControladorIdioma.GetTexto("ED_TTNombre"));
+            LblComentarioEd.Text = ControladorIdioma.GetTexto("ED_Comentario");
+            TTEditorial.SetToolTip(this.KTxtComentarioEd, ControladorIdioma.GetTexto("ED_TTComentario"));
+            TTEditorial.SetToolTip(this.PcbEditorialesEd, ControladorIdioma.GetTexto("ED_TTPcb"));
+            TTEditorial.SetToolTip(this.MBtnAniadirImagenEd, ControladorIdioma.GetTexto("ED_TTMasImg"));
+            TTEditorial.SetToolTip(this.MBtnBorrarImagenEd, ControladorIdioma.GetTexto("ED_TTMenosImg"));
+            TTEditorial.SetToolTip(this.PcbLogoEditoriales, ControladorIdioma.GetTexto("Main_TTLogo"));
+            KBtnCancelarEd.Text= ControladorIdioma.GetTexto("Cancelar");
+            TTEditorial.SetToolTip(this.KBtnCancelarEd, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarEd.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTEditorial.SetToolTip(this.KBtnAceptarEd, ControladorIdioma.GetTexto("Aceptar"));
+            TTEditorial.SetToolTip(this.MBtnCerrarEditoriales, ControladorIdioma.GetTexto("Cerrar"));
+        }
         private ListViewItem AniadirEditorial(Editorial editorial)
         {
             var item = LsvEditorialNE.Items.Add(editorial.Nombre);
