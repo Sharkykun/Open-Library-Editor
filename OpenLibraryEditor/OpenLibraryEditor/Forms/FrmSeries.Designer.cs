@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSeries));
             this.PanBtnSe = new System.Windows.Forms.Panel();
             this.KBtnCancelarSe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -59,6 +60,7 @@
             this.LblComentarioSe = new System.Windows.Forms.Label();
             this.KTxtComentarioSe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PcbSerieNS = new System.Windows.Forms.PictureBox();
+            this.TTSeries = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtnSe.SuspendLayout();
             this.PanTituloSeries.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoSeries)).BeginInit();
@@ -692,5 +694,6 @@
         private System.Windows.Forms.Label LblComentarioSe;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtComentarioSe;
         private System.Windows.Forms.PictureBox PcbSerieNS;
+        private System.Windows.Forms.ToolTip TTSeries;
     }
 }

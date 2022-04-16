@@ -981,9 +981,9 @@ namespace OpenLibraryEditor.Idiomas {
         /// <summary>
         ///   Busca una cadena traducida similar a Escribe el alias de la persona (si tuviera).
         /// </summary>
-        internal static string Au_TTALias {
+        internal static string Au_TTAlias {
             get {
-                return ResourceManager.GetString("Au_TTALias", resourceCulture);
+                return ResourceManager.GetString("Au_TTAlias", resourceCulture);
             }
         }
         
@@ -1591,11 +1591,254 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a imagen de la editorial.
+        ///   Busca una cadena traducida similar a Imagen de la editorial.
         /// </summary>
         internal static string ED_TTPcb {
             get {
                 return ResourceManager.GetString("ED_TTPcb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Argumentos.
+        /// </summary>
+        internal static string Ej_Argumentos {
+            get {
+                return ResourceManager.GetString("Ej_Argumentos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Extensión asociada.
+        /// </summary>
+        internal static string Ej_Extension {
+            get {
+                return ResourceManager.GetString("Ej_Extension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Extensión.
+        /// </summary>
+        internal static string Ej_LsvExtension {
+            get {
+                return ResourceManager.GetString("Ej_LsvExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Ej_LsvNombre {
+            get {
+                return ResourceManager.GetString("Ej_LsvNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre ejecutable.
+        /// </summary>
+        internal static string Ej_Nombre {
+            get {
+                return ResourceManager.GetString("Ej_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ruta del ejecutable.
+        /// </summary>
+        internal static string Ej_Ruta {
+            get {
+                return ResourceManager.GetString("Ej_Ruta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Ejecutable.
+        /// </summary>
+        internal static string Ej_TituloFrm {
+            get {
+                return ResourceManager.GetString("Ej_TituloFrm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí los argumentos del ejecutable.
+        /// </summary>
+        internal static string Ej_TTArgumentos {
+            get {
+                return ResourceManager.GetString("Ej_TTArgumentos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí la extensión asociada al libro (pdf, epub...).
+        /// </summary>
+        internal static string Ej_TTExtension {
+            get {
+                return ResourceManager.GetString("Ej_TTExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona un nombre para editarlo.
+        /// </summary>
+        internal static string Ej_TTLsv {
+            get {
+                return ResourceManager.GetString("Ej_TTLsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir un nuevo ejecutable.
+        /// </summary>
+        internal static string Ej_TTMas {
+            get {
+                return ResourceManager.GetString("Ej_TTMas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar el ejecutable seleccionado.
+        /// </summary>
+        internal static string Ej_TTMenos {
+            get {
+                return ResourceManager.GetString("Ej_TTMenos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí el nombre del ejecutable.
+        /// </summary>
+        internal static string Ej_TTNombre {
+            get {
+                return ResourceManager.GetString("Ej_TTNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para buscar la ruta del ejecutable.
+        /// </summary>
+        internal static string Ej_TTRuta {
+            get {
+                return ResourceManager.GetString("Ej_TTRuta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categoría.
+        /// </summary>
+        internal static string Et_Categoria {
+            get {
+                return ResourceManager.GetString("Et_Categoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comentario.
+        /// </summary>
+        internal static string Et_Comentario {
+            get {
+                return ResourceManager.GetString("Et_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir una nueva etiqueta.
+        /// </summary>
+        internal static string Et_LsvMas {
+            get {
+                return ResourceManager.GetString("Et_LsvMas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar la etiqueta seleccionada.
+        /// </summary>
+        internal static string Et_LsvMenos {
+            get {
+                return ResourceManager.GetString("Et_LsvMenos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Et_LsvNombre {
+            get {
+                return ResourceManager.GetString("Et_LsvNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir una nueva categoría.
+        /// </summary>
+        internal static string Et_MasCat {
+            get {
+                return ResourceManager.GetString("Et_MasCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar la categoría seleccionada.
+        /// </summary>
+        internal static string Et_MenosCat {
+            get {
+                return ResourceManager.GetString("Et_MenosCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre etiqueta.
+        /// </summary>
+        internal static string Et_Nombre {
+            get {
+                return ResourceManager.GetString("Et_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Etiquetas.
+        /// </summary>
+        internal static string Et_TituloFrm {
+            get {
+                return ResourceManager.GetString("Et_TituloFrm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona una categoría.
+        /// </summary>
+        internal static string Et_TTCategoria {
+            get {
+                return ResourceManager.GetString("Et_TTCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí tus comentarios sobre la etiqueta.
+        /// </summary>
+        internal static string Et_TTComentario {
+            get {
+                return ResourceManager.GetString("Et_TTComentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el nombre de una etiqueta para editarla.
+        /// </summary>
+        internal static string Et_TTLsv {
+            get {
+                return ResourceManager.GetString("Et_TTLsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí el nombre de la etiqueta.
+        /// </summary>
+        internal static string Et_TTNombre {
+            get {
+                return ResourceManager.GetString("Et_TTNombre", resourceCulture);
             }
         }
         
@@ -1605,6 +1848,105 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string FormatoFecha {
             get {
                 return ResourceManager.GetString("FormatoFecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comentario.
+        /// </summary>
+        internal static string Ge_Comentario {
+            get {
+                return ResourceManager.GetString("Ge_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Género Padre.
+        /// </summary>
+        internal static string Ge_Genero {
+            get {
+                return ResourceManager.GetString("Ge_Genero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Ge_LsvNombre {
+            get {
+                return ResourceManager.GetString("Ge_LsvNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre género.
+        /// </summary>
+        internal static string Ge_Nombre {
+            get {
+                return ResourceManager.GetString("Ge_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Géneros.
+        /// </summary>
+        internal static string Ge_TituloFrm {
+            get {
+                return ResourceManager.GetString("Ge_TituloFrm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí tus comentarios sobre el género.
+        /// </summary>
+        internal static string Ge_TTComentario {
+            get {
+                return ResourceManager.GetString("Ge_TTComentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el género padre del género.
+        /// </summary>
+        internal static string Ge_TTGenero {
+            get {
+                return ResourceManager.GetString("Ge_TTGenero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el nombre de un género para editarlo.
+        /// </summary>
+        internal static string Ge_TTLsv {
+            get {
+                return ResourceManager.GetString("Ge_TTLsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir un nuevo género.
+        /// </summary>
+        internal static string Ge_TTMas {
+            get {
+                return ResourceManager.GetString("Ge_TTMas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar el género seleccionado.
+        /// </summary>
+        internal static string Ge_TTMenos {
+            get {
+                return ResourceManager.GetString("Ge_TTMenos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí el nombre del género.
+        /// </summary>
+        internal static string Ge_TTNombre {
+            get {
+                return ResourceManager.GetString("Ge_TTNombre", resourceCulture);
             }
         }
         
@@ -2307,6 +2649,204 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string RS_TTCmb {
             get {
                 return ResourceManager.GetString("RS_TTCmb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comentario.
+        /// </summary>
+        internal static string Se_Comentario {
+            get {
+                return ResourceManager.GetString("Se_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estado.
+        /// </summary>
+        internal static string Se_Estado {
+            get {
+                return ResourceManager.GetString("Se_Estado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imagen.
+        /// </summary>
+        internal static string Se_Imagen {
+            get {
+                return ResourceManager.GetString("Se_Imagen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Se_LsvNombre {
+            get {
+                return ResourceManager.GetString("Se_LsvNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre serie.
+        /// </summary>
+        internal static string Se_Nombre {
+            get {
+                return ResourceManager.GetString("Se_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        internal static string Se_REditar {
+            get {
+                return ResourceManager.GetString("Se_REditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Relaciones.
+        /// </summary>
+        internal static string Se_Relaciones {
+            get {
+                return ResourceManager.GetString("Se_Relaciones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Serie.
+        /// </summary>
+        internal static string Se_RLsvSerie {
+            get {
+                return ResourceManager.GetString("Se_RLsvSerie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo relación.
+        /// </summary>
+        internal static string Se_RLsvTipo {
+            get {
+                return ResourceManager.GetString("Se_RLsvTipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir una nueva relación entre series.
+        /// </summary>
+        internal static string Se_RMas {
+            get {
+                return ResourceManager.GetString("Se_RMas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar la relación entre series seleccionada.
+        /// </summary>
+        internal static string Se_RMenos {
+            get {
+                return ResourceManager.GetString("Se_RMenos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para editar la relación entre series.
+        /// </summary>
+        internal static string Se_RTTEditar {
+            get {
+                return ResourceManager.GetString("Se_RTTEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Series.
+        /// </summary>
+        internal static string Se_TituloFrm {
+            get {
+                return ResourceManager.GetString("Se_TituloFrm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí tus comentarios sobre la serie.
+        /// </summary>
+        internal static string Se_TTComentario {
+            get {
+                return ResourceManager.GetString("Se_TTComentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el estado de la serie.
+        /// </summary>
+        internal static string Se_TTEstado {
+            get {
+                return ResourceManager.GetString("Se_TTEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Selecciona el nombre de una serie para editarla.
+        /// </summary>
+        internal static string Se_TTLsv {
+            get {
+                return ResourceManager.GetString("Se_TTLsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir una nueva serie.
+        /// </summary>
+        internal static string Se_TTLsvMas {
+            get {
+                return ResourceManager.GetString("Se_TTLsvMas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar la serie seleccionada.
+        /// </summary>
+        internal static string Se_TTLsvMenos {
+            get {
+                return ResourceManager.GetString("Se_TTLsvMenos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para añadir una imagen para la serie.
+        /// </summary>
+        internal static string Se_TTMasImg {
+            get {
+                return ResourceManager.GetString("Se_TTMasImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click para eliminar la imagen de la serie.
+        /// </summary>
+        internal static string Se_TTMenosImg {
+            get {
+                return ResourceManager.GetString("Se_TTMenosImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe aquí el nombre de la serie.
+        /// </summary>
+        internal static string Se_TTNombre {
+            get {
+                return ResourceManager.GetString("Se_TTNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imagen de la serie.
+        /// </summary>
+        internal static string Se_TTPcb {
+            get {
+                return ResourceManager.GetString("Se_TTPcb", resourceCulture);
             }
         }
         

@@ -318,9 +318,9 @@
             this.KCCEtiquetaNL.CheckOnClick = true;
             this.KCCEtiquetaNL.DropDownHeight = 1;
             this.KCCEtiquetaNL.DropDownWidth = 177;
-            this.KCCEtiquetaNL.Location = new System.Drawing.Point(645, 280);
+            this.KCCEtiquetaNL.Location = new System.Drawing.Point(671, 280);
             this.KCCEtiquetaNL.Name = "KCCEtiquetaNL";
-            this.KCCEtiquetaNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCEtiquetaNL.Size = new System.Drawing.Size(216, 33);
             this.KCCEtiquetaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -343,9 +343,9 @@
             this.KCCSerieNL.CheckOnClick = true;
             this.KCCSerieNL.DropDownHeight = 1;
             this.KCCSerieNL.DropDownWidth = 177;
-            this.KCCSerieNL.Location = new System.Drawing.Point(645, 241);
+            this.KCCSerieNL.Location = new System.Drawing.Point(671, 241);
             this.KCCSerieNL.Name = "KCCSerieNL";
-            this.KCCSerieNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCSerieNL.Size = new System.Drawing.Size(216, 33);
             this.KCCSerieNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCSerieNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCCSerieNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -368,9 +368,9 @@
             this.KCCGenerosNL.CheckOnClick = true;
             this.KCCGenerosNL.DropDownHeight = 1;
             this.KCCGenerosNL.DropDownWidth = 177;
-            this.KCCGenerosNL.Location = new System.Drawing.Point(645, 201);
+            this.KCCGenerosNL.Location = new System.Drawing.Point(671, 201);
             this.KCCGenerosNL.Name = "KCCGenerosNL";
-            this.KCCGenerosNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCGenerosNL.Size = new System.Drawing.Size(216, 33);
             this.KCCGenerosNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCGenerosNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCCGenerosNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -393,9 +393,9 @@
             this.KCCPersonasNL.CheckOnClick = true;
             this.KCCPersonasNL.DropDownHeight = 1;
             this.KCCPersonasNL.DropDownWidth = 177;
-            this.KCCPersonasNL.Location = new System.Drawing.Point(645, 161);
+            this.KCCPersonasNL.Location = new System.Drawing.Point(671, 161);
             this.KCCPersonasNL.Name = "KCCPersonasNL";
-            this.KCCPersonasNL.Size = new System.Drawing.Size(221, 33);
+            this.KCCPersonasNL.Size = new System.Drawing.Size(216, 33);
             this.KCCPersonasNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCPersonasNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCCPersonasNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -447,7 +447,7 @@
             this.MBtnMasEtiquetasNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
             this.MBtnMasEtiquetasNL.IconColor = System.Drawing.Color.Navy;
             this.MBtnMasEtiquetasNL.IconSize = 40;
-            this.MBtnMasEtiquetasNL.Location = new System.Drawing.Point(869, 281);
+            this.MBtnMasEtiquetasNL.Location = new System.Drawing.Point(893, 281);
             this.MBtnMasEtiquetasNL.Name = "MBtnMasEtiquetasNL";
             this.MBtnMasEtiquetasNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasEtiquetasNL.TabIndex = 130;
@@ -463,7 +463,7 @@
             this.MBtnMasSerieNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
             this.MBtnMasSerieNL.IconColor = System.Drawing.Color.Navy;
             this.MBtnMasSerieNL.IconSize = 40;
-            this.MBtnMasSerieNL.Location = new System.Drawing.Point(869, 242);
+            this.MBtnMasSerieNL.Location = new System.Drawing.Point(893, 242);
             this.MBtnMasSerieNL.Name = "MBtnMasSerieNL";
             this.MBtnMasSerieNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasSerieNL.TabIndex = 129;
@@ -479,7 +479,7 @@
             this.MBtnMasGenerosNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
             this.MBtnMasGenerosNL.IconColor = System.Drawing.Color.Navy;
             this.MBtnMasGenerosNL.IconSize = 40;
-            this.MBtnMasGenerosNL.Location = new System.Drawing.Point(869, 203);
+            this.MBtnMasGenerosNL.Location = new System.Drawing.Point(893, 203);
             this.MBtnMasGenerosNL.Name = "MBtnMasGenerosNL";
             this.MBtnMasGenerosNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasGenerosNL.TabIndex = 128;
@@ -495,7 +495,7 @@
             this.MBtnMasPersonasNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
             this.MBtnMasPersonasNL.IconColor = System.Drawing.Color.Navy;
             this.MBtnMasPersonasNL.IconSize = 40;
-            this.MBtnMasPersonasNL.Location = new System.Drawing.Point(869, 163);
+            this.MBtnMasPersonasNL.Location = new System.Drawing.Point(893, 163);
             this.MBtnMasPersonasNL.Name = "MBtnMasPersonasNL";
             this.MBtnMasPersonasNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasPersonasNL.TabIndex = 127;
@@ -536,7 +536,7 @@
             // 
             // KMtxtInclusionbbddNL
             // 
-            this.KMtxtInclusionbbddNL.Location = new System.Drawing.Point(645, 122);
+            this.KMtxtInclusionbbddNL.Location = new System.Drawing.Point(671, 122);
             this.KMtxtInclusionbbddNL.Mask = "00/00/0000";
             this.KMtxtInclusionbbddNL.Name = "KMtxtInclusionbbddNL";
             this.KMtxtInclusionbbddNL.Size = new System.Drawing.Size(120, 33);
@@ -554,7 +554,7 @@
             // 
             // KMtxtFecPublicacionNL
             // 
-            this.KMtxtFecPublicacionNL.Location = new System.Drawing.Point(645, 83);
+            this.KMtxtFecPublicacionNL.Location = new System.Drawing.Point(671, 83);
             this.KMtxtFecPublicacionNL.Mask = "00/00/0000";
             this.KMtxtFecPublicacionNL.Name = "KMtxtFecPublicacionNL";
             this.KMtxtFecPublicacionNL.Size = new System.Drawing.Size(120, 33);
@@ -576,7 +576,7 @@
             this.LblEtiquetasNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEtiquetasNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEtiquetasNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblEtiquetasNL.Location = new System.Drawing.Point(485, 286);
+            this.LblEtiquetasNL.Location = new System.Drawing.Point(469, 286);
             this.LblEtiquetasNL.Name = "LblEtiquetasNL";
             this.LblEtiquetasNL.Size = new System.Drawing.Size(73, 20);
             this.LblEtiquetasNL.TabIndex = 88;
@@ -588,7 +588,7 @@
             this.LblSerieNL.BackColor = System.Drawing.Color.Transparent;
             this.LblSerieNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSerieNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblSerieNL.Location = new System.Drawing.Point(485, 247);
+            this.LblSerieNL.Location = new System.Drawing.Point(469, 247);
             this.LblSerieNL.Name = "LblSerieNL";
             this.LblSerieNL.Size = new System.Drawing.Size(44, 20);
             this.LblSerieNL.TabIndex = 85;
@@ -654,11 +654,11 @@
             this.LblFechaInclusionNL.BackColor = System.Drawing.Color.Transparent;
             this.LblFechaInclusionNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFechaInclusionNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblFechaInclusionNL.Location = new System.Drawing.Point(485, 128);
+            this.LblFechaInclusionNL.Location = new System.Drawing.Point(469, 128);
             this.LblFechaInclusionNL.Name = "LblFechaInclusionNL";
-            this.LblFechaInclusionNL.Size = new System.Drawing.Size(141, 20);
+            this.LblFechaInclusionNL.Size = new System.Drawing.Size(196, 20);
             this.LblFechaInclusionNL.TabIndex = 78;
-            this.LblFechaInclusionNL.Text = "Inclusión en BBDD";
+            this.LblFechaInclusionNL.Text = "Inclusion base de données";
             // 
             // LblGenerosNL
             // 
@@ -666,7 +666,7 @@
             this.LblGenerosNL.BackColor = System.Drawing.Color.Transparent;
             this.LblGenerosNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblGenerosNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblGenerosNL.Location = new System.Drawing.Point(485, 207);
+            this.LblGenerosNL.Location = new System.Drawing.Point(469, 207);
             this.LblGenerosNL.Name = "LblGenerosNL";
             this.LblGenerosNL.Size = new System.Drawing.Size(66, 20);
             this.LblGenerosNL.TabIndex = 74;
@@ -675,9 +675,9 @@
             // KCmbIdiomaOriginalNL
             // 
             this.KCmbIdiomaOriginalNL.DropDownWidth = 213;
-            this.KCmbIdiomaOriginalNL.Location = new System.Drawing.Point(645, 319);
+            this.KCmbIdiomaOriginalNL.Location = new System.Drawing.Point(671, 319);
             this.KCmbIdiomaOriginalNL.Name = "KCmbIdiomaOriginalNL";
-            this.KCmbIdiomaOriginalNL.Size = new System.Drawing.Size(280, 33);
+            this.KCmbIdiomaOriginalNL.Size = new System.Drawing.Size(254, 33);
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -727,7 +727,7 @@
             this.LblPublicacionNL.BackColor = System.Drawing.Color.Transparent;
             this.LblPublicacionNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPublicacionNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblPublicacionNL.Location = new System.Drawing.Point(485, 89);
+            this.LblPublicacionNL.Location = new System.Drawing.Point(469, 89);
             this.LblPublicacionNL.Name = "LblPublicacionNL";
             this.LblPublicacionNL.Size = new System.Drawing.Size(136, 20);
             this.LblPublicacionNL.TabIndex = 65;
@@ -739,7 +739,7 @@
             this.LblPersonasNL.BackColor = System.Drawing.Color.Transparent;
             this.LblPersonasNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPersonasNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblPersonasNL.Location = new System.Drawing.Point(485, 167);
+            this.LblPersonasNL.Location = new System.Drawing.Point(469, 167);
             this.LblPersonasNL.Name = "LblPersonasNL";
             this.LblPersonasNL.Size = new System.Drawing.Size(73, 20);
             this.LblPersonasNL.TabIndex = 60;
@@ -748,9 +748,9 @@
             // KCmbIdiomaNL
             // 
             this.KCmbIdiomaNL.DropDownWidth = 213;
-            this.KCmbIdiomaNL.Location = new System.Drawing.Point(645, 356);
+            this.KCmbIdiomaNL.Location = new System.Drawing.Point(671, 356);
             this.KCmbIdiomaNL.Name = "KCmbIdiomaNL";
-            this.KCmbIdiomaNL.Size = new System.Drawing.Size(280, 33);
+            this.KCmbIdiomaNL.Size = new System.Drawing.Size(254, 33);
             this.KCmbIdiomaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -771,7 +771,7 @@
             this.LblIdiomaNL.BackColor = System.Drawing.Color.Transparent;
             this.LblIdiomaNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIdiomaNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblIdiomaNL.Location = new System.Drawing.Point(485, 363);
+            this.LblIdiomaNL.Location = new System.Drawing.Point(469, 363);
             this.LblIdiomaNL.Name = "LblIdiomaNL";
             this.LblIdiomaNL.Size = new System.Drawing.Size(58, 20);
             this.LblIdiomaNL.TabIndex = 57;
@@ -783,7 +783,7 @@
             this.LblIdiomaOriginalNL.BackColor = System.Drawing.Color.Transparent;
             this.LblIdiomaOriginalNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIdiomaOriginalNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblIdiomaOriginalNL.Location = new System.Drawing.Point(485, 325);
+            this.LblIdiomaOriginalNL.Location = new System.Drawing.Point(469, 325);
             this.LblIdiomaOriginalNL.Name = "LblIdiomaOriginalNL";
             this.LblIdiomaOriginalNL.Size = new System.Drawing.Size(117, 20);
             this.LblIdiomaOriginalNL.TabIndex = 48;
@@ -922,9 +922,9 @@
             // 
             // KTxtIsbn13
             // 
-            this.KTxtIsbn13.Location = new System.Drawing.Point(645, 44);
+            this.KTxtIsbn13.Location = new System.Drawing.Point(671, 44);
             this.KTxtIsbn13.Name = "KTxtIsbn13";
-            this.KTxtIsbn13.Size = new System.Drawing.Size(280, 33);
+            this.KTxtIsbn13.Size = new System.Drawing.Size(254, 33);
             this.KTxtIsbn13.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KTxtIsbn13.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KTxtIsbn13.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -943,7 +943,7 @@
             this.LblIsbn13NL.BackColor = System.Drawing.Color.Transparent;
             this.LblIsbn13NL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIsbn13NL.ForeColor = System.Drawing.Color.Navy;
-            this.LblIsbn13NL.Location = new System.Drawing.Point(485, 50);
+            this.LblIsbn13NL.Location = new System.Drawing.Point(469, 50);
             this.LblIsbn13NL.Name = "LblIsbn13NL";
             this.LblIsbn13NL.Size = new System.Drawing.Size(68, 20);
             this.LblIsbn13NL.TabIndex = 29;
@@ -951,9 +951,9 @@
             // 
             // KTxtIsbn10
             // 
-            this.KTxtIsbn10.Location = new System.Drawing.Point(645, 5);
+            this.KTxtIsbn10.Location = new System.Drawing.Point(671, 5);
             this.KTxtIsbn10.Name = "KTxtIsbn10";
-            this.KTxtIsbn10.Size = new System.Drawing.Size(280, 33);
+            this.KTxtIsbn10.Size = new System.Drawing.Size(254, 33);
             this.KTxtIsbn10.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KTxtIsbn10.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KTxtIsbn10.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -972,7 +972,7 @@
             this.LblIsbn10NL.BackColor = System.Drawing.Color.Transparent;
             this.LblIsbn10NL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIsbn10NL.ForeColor = System.Drawing.Color.Navy;
-            this.LblIsbn10NL.Location = new System.Drawing.Point(485, 11);
+            this.LblIsbn10NL.Location = new System.Drawing.Point(469, 11);
             this.LblIsbn10NL.Name = "LblIsbn10NL";
             this.LblIsbn10NL.Size = new System.Drawing.Size(68, 20);
             this.LblIsbn10NL.TabIndex = 27;
@@ -1163,7 +1163,7 @@
             this.IBtnContraportadaNL.IconColor = System.Drawing.Color.Black;
             this.IBtnContraportadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnContraportadaNL.IconSize = 35;
-            this.IBtnContraportadaNL.Location = new System.Drawing.Point(750, 72);
+            this.IBtnContraportadaNL.Location = new System.Drawing.Point(550, 72);
             this.IBtnContraportadaNL.Name = "IBtnContraportadaNL";
             this.IBtnContraportadaNL.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.IBtnContraportadaNL.Size = new System.Drawing.Size(30, 30);
@@ -1177,7 +1177,7 @@
             this.LblImgContraNL.BackColor = System.Drawing.Color.Transparent;
             this.LblImgContraNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblImgContraNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblImgContraNL.Location = new System.Drawing.Point(546, 78);
+            this.LblImgContraNL.Location = new System.Drawing.Point(586, 78);
             this.LblImgContraNL.Name = "LblImgContraNL";
             this.LblImgContraNL.Size = new System.Drawing.Size(198, 20);
             this.LblImgContraNL.TabIndex = 43;
@@ -1189,7 +1189,7 @@
             this.LblImgPortadaNL.BackColor = System.Drawing.Color.Transparent;
             this.LblImgPortadaNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblImgPortadaNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblImgPortadaNL.Location = new System.Drawing.Point(136, 77);
+            this.LblImgPortadaNL.Location = new System.Drawing.Point(173, 78);
             this.LblImgPortadaNL.Name = "LblImgPortadaNL";
             this.LblImgPortadaNL.Size = new System.Drawing.Size(152, 20);
             this.LblImgPortadaNL.TabIndex = 40;
@@ -1205,7 +1205,7 @@
             this.IBtnPortadaNL.IconColor = System.Drawing.Color.Black;
             this.IBtnPortadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnPortadaNL.IconSize = 35;
-            this.IBtnPortadaNL.Location = new System.Drawing.Point(294, 72);
+            this.IBtnPortadaNL.Location = new System.Drawing.Point(140, 72);
             this.IBtnPortadaNL.Name = "IBtnPortadaNL";
             this.IBtnPortadaNL.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.IBtnPortadaNL.Size = new System.Drawing.Size(30, 30);
@@ -1802,7 +1802,7 @@
             this.KPageAcciones});
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KcellTabs.SelectedIndex = 2;
+            this.KcellTabs.SelectedIndex = 0;
             this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.Navy;
             this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.Navy;
             this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.Gainsboro;

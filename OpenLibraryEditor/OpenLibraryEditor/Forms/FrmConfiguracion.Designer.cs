@@ -69,6 +69,11 @@
             this.RbtnMediana = new System.Windows.Forms.RadioButton();
             this.RbtnMiniatura = new System.Windows.Forms.RadioButton();
             this.KgbDetallesLibro = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.ChkTags = new System.Windows.Forms.CheckBox();
+            this.ChkEditoriales = new System.Windows.Forms.CheckBox();
+            this.ChkSeries = new System.Windows.Forms.CheckBox();
+            this.ChkGeneros = new System.Windows.Forms.CheckBox();
+            this.ChkAutores = new System.Windows.Forms.CheckBox();
             this.LblCamposActualizar = new System.Windows.Forms.Label();
             this.KgbServidorWeb = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.NudPuerto = new System.Windows.Forms.NumericUpDown();
@@ -85,11 +90,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanConfiguracion = new System.Windows.Forms.Panel();
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
-            this.ChkAutores = new System.Windows.Forms.CheckBox();
-            this.ChkGeneros = new System.Windows.Forms.CheckBox();
-            this.ChkSeries = new System.Windows.Forms.CheckBox();
-            this.ChkEditoriales = new System.Windows.Forms.CheckBox();
-            this.ChkTags = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbConfi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral.Panel)).BeginInit();
@@ -144,7 +144,7 @@
             this.MPcbConfi.IconChar = FontAwesome.Sharp.MaterialIcons.CogOutline;
             this.MPcbConfi.IconColor = System.Drawing.Color.Navy;
             this.MPcbConfi.IconSize = 40;
-            this.MPcbConfi.Location = new System.Drawing.Point(73, 45);
+            this.MPcbConfi.Location = new System.Drawing.Point(55, 45);
             this.MPcbConfi.Name = "MPcbConfi";
             this.MPcbConfi.Size = new System.Drawing.Size(40, 40);
             this.MPcbConfi.TabIndex = 6;
@@ -156,7 +156,7 @@
             this.LblTituloConfi.AutoSize = true;
             this.LblTituloConfi.Font = new System.Drawing.Font("Merienda One", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
-            this.LblTituloConfi.Location = new System.Drawing.Point(108, 48);
+            this.LblTituloConfi.Location = new System.Drawing.Point(88, 48);
             this.LblTituloConfi.Name = "LblTituloConfi";
             this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
             this.LblTituloConfi.TabIndex = 3;
@@ -166,16 +166,16 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(73, 81);
+            this.panel1.Location = new System.Drawing.Point(55, 81);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 3);
+            this.panel1.Size = new System.Drawing.Size(824, 3);
             this.panel1.TabIndex = 4;
             // 
             // KgbGeneral
             // 
             this.KgbGeneral.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbGeneral.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbGeneral.Location = new System.Drawing.Point(73, 111);
+            this.KgbGeneral.Location = new System.Drawing.Point(55, 111);
             this.KgbGeneral.Name = "KgbGeneral";
             // 
             // KgbGeneral.Panel
@@ -190,7 +190,7 @@
             this.KgbGeneral.Panel.Controls.Add(this.LblUltimaBBDD);
             this.KgbGeneral.Panel.Controls.Add(this.TxtSubtituloUltimaBBDD);
             this.KgbGeneral.Panel.Controls.Add(this.TxtSubtituloContenidoExp);
-            this.KgbGeneral.Size = new System.Drawing.Size(758, 283);
+            this.KgbGeneral.Size = new System.Drawing.Size(824, 283);
             this.KgbGeneral.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KgbGeneral.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
             this.KgbGeneral.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -211,7 +211,7 @@
             this.TBtnContenidoExp.AutoSize = true;
             this.TBtnContenidoExp.Checked = true;
             this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnContenidoExp.Location = new System.Drawing.Point(407, 183);
+            this.TBtnContenidoExp.Location = new System.Drawing.Point(469, 183);
             this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
             this.TBtnContenidoExp.Name = "TBtnContenidoExp";
             this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
@@ -244,7 +244,7 @@
             this.TxtSubtituloUbicacion.Multiline = true;
             this.TxtSubtituloUbicacion.Name = "TxtSubtituloUbicacion";
             this.TxtSubtituloUbicacion.ReadOnly = true;
-            this.TxtSubtituloUbicacion.Size = new System.Drawing.Size(287, 25);
+            this.TxtSubtituloUbicacion.Size = new System.Drawing.Size(388, 25);
             this.TxtSubtituloUbicacion.TabIndex = 25;
             this.TxtSubtituloUbicacion.Text = "Establecer la ruta de la base de datos local\r\n";
             // 
@@ -264,7 +264,7 @@
             this.TBtnUltimaBBDD.AutoSize = true;
             this.TBtnUltimaBBDD.Checked = true;
             this.TBtnUltimaBBDD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnUltimaBBDD.Location = new System.Drawing.Point(407, 33);
+            this.TBtnUltimaBBDD.Location = new System.Drawing.Point(469, 33);
             this.TBtnUltimaBBDD.MinimumSize = new System.Drawing.Size(45, 22);
             this.TBtnUltimaBBDD.Name = "TBtnUltimaBBDD";
             this.TBtnUltimaBBDD.OffBackColor = System.Drawing.Color.DarkGray;
@@ -285,7 +285,7 @@
             this.IBtnOpenFile.IconColor = System.Drawing.Color.Black;
             this.IBtnOpenFile.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnOpenFile.IconSize = 25;
-            this.IBtnOpenFile.Location = new System.Drawing.Point(709, 105);
+            this.IBtnOpenFile.Location = new System.Drawing.Point(769, 105);
             this.IBtnOpenFile.Name = "IBtnOpenFile";
             this.IBtnOpenFile.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.IBtnOpenFile.Size = new System.Drawing.Size(23, 23);
@@ -297,7 +297,7 @@
             this.TxtUbicacionBBDD.BackColor = System.Drawing.Color.LightGray;
             this.TxtUbicacionBBDD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtUbicacionBBDD.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUbicacionBBDD.Location = new System.Drawing.Point(407, 104);
+            this.TxtUbicacionBBDD.Location = new System.Drawing.Point(469, 104);
             this.TxtUbicacionBBDD.Name = "TxtUbicacionBBDD";
             this.TxtUbicacionBBDD.Size = new System.Drawing.Size(329, 25);
             this.TxtUbicacionBBDD.TabIndex = 27;
@@ -324,7 +324,7 @@
             this.TxtSubtituloUltimaBBDD.Multiline = true;
             this.TxtSubtituloUltimaBBDD.Name = "TxtSubtituloUltimaBBDD";
             this.TxtSubtituloUltimaBBDD.ReadOnly = true;
-            this.TxtSubtituloUltimaBBDD.Size = new System.Drawing.Size(353, 45);
+            this.TxtSubtituloUltimaBBDD.Size = new System.Drawing.Size(388, 45);
             this.TxtSubtituloUltimaBBDD.TabIndex = 24;
             this.TxtSubtituloUltimaBBDD.Text = "Recordar la última base de datos abierta y cargarla \r\nautomáticamente al iniciar " +
     "la aplicación\r\n";
@@ -340,7 +340,7 @@
             this.TxtSubtituloContenidoExp.Multiline = true;
             this.TxtSubtituloContenidoExp.Name = "TxtSubtituloContenidoExp";
             this.TxtSubtituloContenidoExp.ReadOnly = true;
-            this.TxtSubtituloContenidoExp.Size = new System.Drawing.Size(246, 39);
+            this.TxtSubtituloContenidoExp.Size = new System.Drawing.Size(335, 39);
             this.TxtSubtituloContenidoExp.TabIndex = 31;
             this.TxtSubtituloContenidoExp.Text = "Permitir la visualización de contenidos\r\nclasificados como explícitos\r\n";
             // 
@@ -348,7 +348,7 @@
             // 
             this.KgbApariencia.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbApariencia.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbApariencia.Location = new System.Drawing.Point(73, 421);
+            this.KgbApariencia.Location = new System.Drawing.Point(55, 421);
             this.KgbApariencia.Name = "KgbApariencia";
             // 
             // KgbApariencia.Panel
@@ -361,7 +361,7 @@
             this.KgbApariencia.Panel.Controls.Add(this.CmbIdiomaConfi);
             this.KgbApariencia.Panel.Controls.Add(this.GbVisualizacion);
             this.KgbApariencia.Panel.Controls.Add(this.GbTema);
-            this.KgbApariencia.Size = new System.Drawing.Size(758, 380);
+            this.KgbApariencia.Size = new System.Drawing.Size(824, 380);
             this.KgbApariencia.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KgbApariencia.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
             this.KgbApariencia.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -389,7 +389,7 @@
             this.CmbDobleClick.FormattingEnabled = true;
             this.CmbDobleClick.IntegralHeight = false;
             this.CmbDobleClick.ItemHeight = 16;
-            this.CmbDobleClick.Location = new System.Drawing.Point(407, 201);
+            this.CmbDobleClick.Location = new System.Drawing.Point(469, 201);
             this.CmbDobleClick.Name = "CmbDobleClick";
             this.CmbDobleClick.Size = new System.Drawing.Size(329, 22);
             this.CmbDobleClick.TabIndex = 17;
@@ -405,7 +405,7 @@
             this.TxtSubtituloDobleClick.Multiline = true;
             this.TxtSubtituloDobleClick.Name = "TxtSubtituloDobleClick";
             this.TxtSubtituloDobleClick.ReadOnly = true;
-            this.TxtSubtituloDobleClick.Size = new System.Drawing.Size(255, 39);
+            this.TxtSubtituloDobleClick.Size = new System.Drawing.Size(335, 39);
             this.TxtSubtituloDobleClick.TabIndex = 15;
             this.TxtSubtituloDobleClick.Text = "Configurar la funcionalidad al hacer \r\ndoble click sobre un libro\r\n";
             // 
@@ -431,7 +431,7 @@
             this.TxtSubtituloEligeIdioConfi.Multiline = true;
             this.TxtSubtituloEligeIdioConfi.Name = "TxtSubtituloEligeIdioConfi";
             this.TxtSubtituloEligeIdioConfi.ReadOnly = true;
-            this.TxtSubtituloEligeIdioConfi.Size = new System.Drawing.Size(246, 41);
+            this.TxtSubtituloEligeIdioConfi.Size = new System.Drawing.Size(335, 41);
             this.TxtSubtituloEligeIdioConfi.TabIndex = 8;
             this.TxtSubtituloEligeIdioConfi.Text = "Elige tu idioma. Los cambios se\r\naplicarán tras reiniciar la aplicación\r\n";
             // 
@@ -458,7 +458,7 @@
             this.CmbIdiomaConfi.FormattingEnabled = true;
             this.CmbIdiomaConfi.IntegralHeight = false;
             this.CmbIdiomaConfi.ItemHeight = 24;
-            this.CmbIdiomaConfi.Location = new System.Drawing.Point(407, 44);
+            this.CmbIdiomaConfi.Location = new System.Drawing.Point(469, 44);
             this.CmbIdiomaConfi.Name = "CmbIdiomaConfi";
             this.CmbIdiomaConfi.Size = new System.Drawing.Size(329, 30);
             this.CmbIdiomaConfi.TabIndex = 7;
@@ -489,7 +489,7 @@
             this.TxtSubtituloVisuConfi.Multiline = true;
             this.TxtSubtituloVisuConfi.Name = "TxtSubtituloVisuConfi";
             this.TxtSubtituloVisuConfi.ReadOnly = true;
-            this.TxtSubtituloVisuConfi.Size = new System.Drawing.Size(255, 39);
+            this.TxtSubtituloVisuConfi.Size = new System.Drawing.Size(335, 39);
             this.TxtSubtituloVisuConfi.TabIndex = 14;
             this.TxtSubtituloVisuConfi.Text = "Establece la visialización por defecto de \r\ntu biblioteca al iniciar la aplicació" +
     "n\r\n";
@@ -499,7 +499,7 @@
             this.RbtnDetalles.AutoSize = true;
             this.RbtnDetalles.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RbtnDetalles.ForeColor = System.Drawing.Color.Navy;
-            this.RbtnDetalles.Location = new System.Drawing.Point(390, 55);
+            this.RbtnDetalles.Location = new System.Drawing.Point(452, 55);
             this.RbtnDetalles.Name = "RbtnDetalles";
             this.RbtnDetalles.Size = new System.Drawing.Size(119, 24);
             this.RbtnDetalles.TabIndex = 3;
@@ -512,7 +512,7 @@
             this.RbtnMosaico.AutoSize = true;
             this.RbtnMosaico.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RbtnMosaico.ForeColor = System.Drawing.Color.Navy;
-            this.RbtnMosaico.Location = new System.Drawing.Point(390, 25);
+            this.RbtnMosaico.Location = new System.Drawing.Point(452, 25);
             this.RbtnMosaico.Name = "RbtnMosaico";
             this.RbtnMosaico.Size = new System.Drawing.Size(86, 24);
             this.RbtnMosaico.TabIndex = 2;
@@ -556,7 +556,7 @@
             this.TxtSubtituloTema.Multiline = true;
             this.TxtSubtituloTema.Name = "TxtSubtituloTema";
             this.TxtSubtituloTema.ReadOnly = true;
-            this.TxtSubtituloTema.Size = new System.Drawing.Size(327, 40);
+            this.TxtSubtituloTema.Size = new System.Drawing.Size(358, 40);
             this.TxtSubtituloTema.TabIndex = 19;
             this.TxtSubtituloTema.Text = "Establece el tema predeterminado de la aplicación. \r\nSe aplicará al reiniciar la " +
     "aplicación\r\n";
@@ -566,7 +566,7 @@
             this.RbtnOscuro.AutoSize = true;
             this.RbtnOscuro.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RbtnOscuro.ForeColor = System.Drawing.Color.Navy;
-            this.RbtnOscuro.Location = new System.Drawing.Point(390, 54);
+            this.RbtnOscuro.Location = new System.Drawing.Point(452, 54);
             this.RbtnOscuro.Name = "RbtnOscuro";
             this.RbtnOscuro.Size = new System.Drawing.Size(76, 24);
             this.RbtnOscuro.TabIndex = 3;
@@ -590,7 +590,7 @@
             this.RbtnClaro.AutoSize = true;
             this.RbtnClaro.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RbtnClaro.ForeColor = System.Drawing.Color.Navy;
-            this.RbtnClaro.Location = new System.Drawing.Point(390, 24);
+            this.RbtnClaro.Location = new System.Drawing.Point(452, 24);
             this.RbtnClaro.Name = "RbtnClaro";
             this.RbtnClaro.Size = new System.Drawing.Size(65, 24);
             this.RbtnClaro.TabIndex = 2;
@@ -602,7 +602,7 @@
             // 
             this.KgbDescargasWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbDescargasWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbDescargasWeb.Location = new System.Drawing.Point(73, 827);
+            this.KgbDescargasWeb.Location = new System.Drawing.Point(55, 827);
             this.KgbDescargasWeb.Name = "KgbDescargasWeb";
             // 
             // KgbDescargasWeb.Panel
@@ -610,7 +610,7 @@
             this.KgbDescargasWeb.Panel.Controls.Add(this.KgbImagenesLibro);
             this.KgbDescargasWeb.Panel.Controls.Add(this.KgbDetallesLibro);
             this.KgbDescargasWeb.Panel.Controls.Add(this.LblCamposActualizar);
-            this.KgbDescargasWeb.Size = new System.Drawing.Size(758, 335);
+            this.KgbDescargasWeb.Size = new System.Drawing.Size(824, 335);
             this.KgbDescargasWeb.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KgbDescargasWeb.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
             this.KgbDescargasWeb.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -628,7 +628,7 @@
             // 
             // KgbImagenesLibro
             // 
-            this.KgbImagenesLibro.Location = new System.Drawing.Point(407, 49);
+            this.KgbImagenesLibro.Location = new System.Drawing.Point(432, 49);
             this.KgbImagenesLibro.Name = "KgbImagenesLibro";
             // 
             // KgbImagenesLibro.Panel
@@ -636,7 +636,7 @@
             this.KgbImagenesLibro.Panel.Controls.Add(this.RbtnGrande);
             this.KgbImagenesLibro.Panel.Controls.Add(this.RbtnMediana);
             this.KgbImagenesLibro.Panel.Controls.Add(this.RbtnMiniatura);
-            this.KgbImagenesLibro.Size = new System.Drawing.Size(329, 210);
+            this.KgbImagenesLibro.Size = new System.Drawing.Size(360, 210);
             this.KgbImagenesLibro.StateCommon.Back.Color1 = System.Drawing.Color.LightGray;
             this.KgbImagenesLibro.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KgbImagenesLibro.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -703,7 +703,7 @@
             this.KgbDetallesLibro.Panel.Controls.Add(this.ChkSeries);
             this.KgbDetallesLibro.Panel.Controls.Add(this.ChkGeneros);
             this.KgbDetallesLibro.Panel.Controls.Add(this.ChkAutores);
-            this.KgbDetallesLibro.Size = new System.Drawing.Size(330, 210);
+            this.KgbDetallesLibro.Size = new System.Drawing.Size(360, 210);
             this.KgbDetallesLibro.StateCommon.Back.Color1 = System.Drawing.Color.LightGray;
             this.KgbDetallesLibro.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KgbDetallesLibro.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -715,6 +715,71 @@
             this.KgbDetallesLibro.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbDetallesLibro.TabIndex = 18;
             this.KgbDetallesLibro.Values.Heading = "Detalles del libro";
+            // 
+            // ChkTags
+            // 
+            this.ChkTags.AutoSize = true;
+            this.ChkTags.BackColor = System.Drawing.Color.Transparent;
+            this.ChkTags.Font = new System.Drawing.Font("Merienda", 10F);
+            this.ChkTags.ForeColor = System.Drawing.Color.Navy;
+            this.ChkTags.Location = new System.Drawing.Point(27, 144);
+            this.ChkTags.Name = "ChkTags";
+            this.ChkTags.Size = new System.Drawing.Size(80, 24);
+            this.ChkTags.TabIndex = 9;
+            this.ChkTags.Text = "Autores";
+            this.ChkTags.UseVisualStyleBackColor = false;
+            // 
+            // ChkEditoriales
+            // 
+            this.ChkEditoriales.AutoSize = true;
+            this.ChkEditoriales.BackColor = System.Drawing.Color.Transparent;
+            this.ChkEditoriales.Font = new System.Drawing.Font("Merienda", 10F);
+            this.ChkEditoriales.ForeColor = System.Drawing.Color.Navy;
+            this.ChkEditoriales.Location = new System.Drawing.Point(27, 113);
+            this.ChkEditoriales.Name = "ChkEditoriales";
+            this.ChkEditoriales.Size = new System.Drawing.Size(80, 24);
+            this.ChkEditoriales.TabIndex = 8;
+            this.ChkEditoriales.Text = "Autores";
+            this.ChkEditoriales.UseVisualStyleBackColor = false;
+            // 
+            // ChkSeries
+            // 
+            this.ChkSeries.AutoSize = true;
+            this.ChkSeries.BackColor = System.Drawing.Color.Transparent;
+            this.ChkSeries.Font = new System.Drawing.Font("Merienda", 10F);
+            this.ChkSeries.ForeColor = System.Drawing.Color.Navy;
+            this.ChkSeries.Location = new System.Drawing.Point(27, 82);
+            this.ChkSeries.Name = "ChkSeries";
+            this.ChkSeries.Size = new System.Drawing.Size(80, 24);
+            this.ChkSeries.TabIndex = 7;
+            this.ChkSeries.Text = "Autores";
+            this.ChkSeries.UseVisualStyleBackColor = false;
+            // 
+            // ChkGeneros
+            // 
+            this.ChkGeneros.AutoSize = true;
+            this.ChkGeneros.BackColor = System.Drawing.Color.Transparent;
+            this.ChkGeneros.Font = new System.Drawing.Font("Merienda", 10F);
+            this.ChkGeneros.ForeColor = System.Drawing.Color.Navy;
+            this.ChkGeneros.Location = new System.Drawing.Point(27, 51);
+            this.ChkGeneros.Name = "ChkGeneros";
+            this.ChkGeneros.Size = new System.Drawing.Size(80, 24);
+            this.ChkGeneros.TabIndex = 6;
+            this.ChkGeneros.Text = "Autores";
+            this.ChkGeneros.UseVisualStyleBackColor = false;
+            // 
+            // ChkAutores
+            // 
+            this.ChkAutores.AutoSize = true;
+            this.ChkAutores.BackColor = System.Drawing.Color.Transparent;
+            this.ChkAutores.Font = new System.Drawing.Font("Merienda", 10F);
+            this.ChkAutores.ForeColor = System.Drawing.Color.Navy;
+            this.ChkAutores.Location = new System.Drawing.Point(27, 20);
+            this.ChkAutores.Name = "ChkAutores";
+            this.ChkAutores.Size = new System.Drawing.Size(80, 24);
+            this.ChkAutores.TabIndex = 5;
+            this.ChkAutores.Text = "Autores";
+            this.ChkAutores.UseVisualStyleBackColor = false;
             // 
             // LblCamposActualizar
             // 
@@ -731,7 +796,7 @@
             // 
             this.KgbServidorWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbServidorWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbServidorWeb.Location = new System.Drawing.Point(73, 1190);
+            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1190);
             this.KgbServidorWeb.Name = "KgbServidorWeb";
             // 
             // KgbServidorWeb.Panel
@@ -743,7 +808,7 @@
             this.KgbServidorWeb.Panel.Controls.Add(this.TxtTituloServidorWeb);
             this.KgbServidorWeb.Panel.Controls.Add(this.TxtSubtituloServidor);
             this.KgbServidorWeb.Panel.Controls.Add(this.LblTituloServidorWeb);
-            this.KgbServidorWeb.Size = new System.Drawing.Size(758, 225);
+            this.KgbServidorWeb.Size = new System.Drawing.Size(824, 225);
             this.KgbServidorWeb.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KgbServidorWeb.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
             this.KgbServidorWeb.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -765,7 +830,7 @@
             this.NudPuerto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NudPuerto.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NudPuerto.ForeColor = System.Drawing.Color.Navy;
-            this.NudPuerto.Location = new System.Drawing.Point(406, 123);
+            this.NudPuerto.Location = new System.Drawing.Point(469, 123);
             this.NudPuerto.Name = "NudPuerto";
             this.NudPuerto.Size = new System.Drawing.Size(120, 27);
             this.NudPuerto.TabIndex = 32;
@@ -798,7 +863,7 @@
             this.LblPuertoServidor.AutoSize = true;
             this.LblPuertoServidor.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPuertoServidor.ForeColor = System.Drawing.Color.Navy;
-            this.LblPuertoServidor.Location = new System.Drawing.Point(402, 84);
+            this.LblPuertoServidor.Location = new System.Drawing.Point(469, 84);
             this.LblPuertoServidor.Name = "LblPuertoServidor";
             this.LblPuertoServidor.Size = new System.Drawing.Size(70, 26);
             this.LblPuertoServidor.TabIndex = 30;
@@ -820,9 +885,9 @@
             this.TxtTituloServidorWeb.BackColor = System.Drawing.Color.LightGray;
             this.TxtTituloServidorWeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTituloServidorWeb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(407, 25);
+            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(469, 25);
             this.TxtTituloServidorWeb.Name = "TxtTituloServidorWeb";
-            this.TxtTituloServidorWeb.Size = new System.Drawing.Size(329, 25);
+            this.TxtTituloServidorWeb.Size = new System.Drawing.Size(323, 25);
             this.TxtTituloServidorWeb.TabIndex = 28;
             // 
             // TxtSubtituloServidor
@@ -867,7 +932,7 @@
             // 
             this.BtnCancelarConfi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnCancelarConfi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancelarConfi.Location = new System.Drawing.Point(558, 5);
+            this.BtnCancelarConfi.Location = new System.Drawing.Point(615, 5);
             this.BtnCancelarConfi.Margin = new System.Windows.Forms.Padding(0);
             this.BtnCancelarConfi.Name = "BtnCancelarConfi";
             this.BtnCancelarConfi.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -947,7 +1012,7 @@
             // 
             this.BtnAceptarConfi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnAceptarConfi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAceptarConfi.Location = new System.Drawing.Point(696, 5);
+            this.BtnAceptarConfi.Location = new System.Drawing.Point(753, 5);
             this.BtnAceptarConfi.Margin = new System.Windows.Forms.Padding(0);
             this.BtnAceptarConfi.Name = "BtnAceptarConfi";
             this.BtnAceptarConfi.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1028,7 +1093,7 @@
             // 
             this.BtnRestaurarValores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnRestaurarValores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRestaurarValores.Location = new System.Drawing.Point(61, 5);
+            this.BtnRestaurarValores.Location = new System.Drawing.Point(55, 5);
             this.BtnRestaurarValores.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRestaurarValores.Name = "BtnRestaurarValores";
             this.BtnRestaurarValores.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1131,71 +1196,6 @@
             this.PanConfiguracion.Name = "PanConfiguracion";
             this.PanConfiguracion.Size = new System.Drawing.Size(948, 693);
             this.PanConfiguracion.TabIndex = 3;
-            // 
-            // ChkAutores
-            // 
-            this.ChkAutores.AutoSize = true;
-            this.ChkAutores.BackColor = System.Drawing.Color.Transparent;
-            this.ChkAutores.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkAutores.ForeColor = System.Drawing.Color.Navy;
-            this.ChkAutores.Location = new System.Drawing.Point(27, 20);
-            this.ChkAutores.Name = "ChkAutores";
-            this.ChkAutores.Size = new System.Drawing.Size(80, 24);
-            this.ChkAutores.TabIndex = 5;
-            this.ChkAutores.Text = "Autores";
-            this.ChkAutores.UseVisualStyleBackColor = false;
-            // 
-            // ChkGeneros
-            // 
-            this.ChkGeneros.AutoSize = true;
-            this.ChkGeneros.BackColor = System.Drawing.Color.Transparent;
-            this.ChkGeneros.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkGeneros.ForeColor = System.Drawing.Color.Navy;
-            this.ChkGeneros.Location = new System.Drawing.Point(27, 51);
-            this.ChkGeneros.Name = "ChkGeneros";
-            this.ChkGeneros.Size = new System.Drawing.Size(80, 24);
-            this.ChkGeneros.TabIndex = 6;
-            this.ChkGeneros.Text = "Autores";
-            this.ChkGeneros.UseVisualStyleBackColor = false;
-            // 
-            // ChkSeries
-            // 
-            this.ChkSeries.AutoSize = true;
-            this.ChkSeries.BackColor = System.Drawing.Color.Transparent;
-            this.ChkSeries.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkSeries.ForeColor = System.Drawing.Color.Navy;
-            this.ChkSeries.Location = new System.Drawing.Point(27, 82);
-            this.ChkSeries.Name = "ChkSeries";
-            this.ChkSeries.Size = new System.Drawing.Size(80, 24);
-            this.ChkSeries.TabIndex = 7;
-            this.ChkSeries.Text = "Autores";
-            this.ChkSeries.UseVisualStyleBackColor = false;
-            // 
-            // ChkEditoriales
-            // 
-            this.ChkEditoriales.AutoSize = true;
-            this.ChkEditoriales.BackColor = System.Drawing.Color.Transparent;
-            this.ChkEditoriales.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkEditoriales.ForeColor = System.Drawing.Color.Navy;
-            this.ChkEditoriales.Location = new System.Drawing.Point(27, 113);
-            this.ChkEditoriales.Name = "ChkEditoriales";
-            this.ChkEditoriales.Size = new System.Drawing.Size(80, 24);
-            this.ChkEditoriales.TabIndex = 8;
-            this.ChkEditoriales.Text = "Autores";
-            this.ChkEditoriales.UseVisualStyleBackColor = false;
-            // 
-            // ChkTags
-            // 
-            this.ChkTags.AutoSize = true;
-            this.ChkTags.BackColor = System.Drawing.Color.Transparent;
-            this.ChkTags.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkTags.ForeColor = System.Drawing.Color.Navy;
-            this.ChkTags.Location = new System.Drawing.Point(27, 144);
-            this.ChkTags.Name = "ChkTags";
-            this.ChkTags.Size = new System.Drawing.Size(80, 24);
-            this.ChkTags.TabIndex = 9;
-            this.ChkTags.Text = "Autores";
-            this.ChkTags.UseVisualStyleBackColor = false;
             // 
             // FrmConfiguracion
             // 

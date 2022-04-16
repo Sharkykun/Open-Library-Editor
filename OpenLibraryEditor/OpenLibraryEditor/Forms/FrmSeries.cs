@@ -45,6 +45,21 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
+        private void FrmSeries_Load(object sender, EventArgs e)
+        {
+            IdiomaTexto();
+            //Cargar personas
+            foreach (Serie s in listaSerie)
+            {
+                AniadirSerie(s);
+            }
+
+            if (setNew)
+            {
+                MBtnMasLsvNS_Click(null, null);
+                serieNueva = serieActual;
+            }
+        }
         #region mover formulario
         //Para poder mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -59,6 +74,39 @@ namespace OpenLibraryEditor.Forms
         #endregion
 
         #region metodos propios
+        private void IdiomaTexto()
+        {
+            TTSeries.SetToolTip(this.PcbLogoSeries,ControladorIdioma.GetTexto("Main_TTLogo"));
+            LblTituloSeries.Text = ControladorIdioma.GetTexto("Se_TituloFrm");
+            TTSeries.SetToolTip(this.LblTituloSeries, ControladorIdioma.GetTexto("Se_TituloFrm"));
+            TTSeries.SetToolTip(this.LsvSeriesNS, ControladorIdioma.GetTexto("Se_TTLsv"));
+            LsvSeriesNS.Columns[0].Text = ControladorIdioma.GetTexto("Se_LsvNombre");
+            LsvSeriesNS.Columns[1].Text = ControladorIdioma.GetTexto("Se_Estado");
+            TTSeries.SetToolTip(this.MBtnMasLsvNS, ControladorIdioma.GetTexto("Se_TTLsvMas"));
+            TTSeries.SetToolTip(this.MBtnMenosLsvNS, ControladorIdioma.GetTexto("Se_TTLsvMenos"));
+            LblNombreSe.Text = ControladorIdioma.GetTexto("Se_Nombre");
+            TTSeries.SetToolTip(this.KTxtNombreSe, ControladorIdioma.GetTexto("Se_TTNombre"));
+            LblEstadoSe.Text = ControladorIdioma.GetTexto("Se_Estado");
+            TTSeries.SetToolTip(this.KCmbEstadoSe, ControladorIdioma.GetTexto("Se_TTEstado"));
+            LblComentarioSe.Text = ControladorIdioma.GetTexto("Se_Comentario");
+            TTSeries.SetToolTip(this.KTxtComentarioSe, ControladorIdioma.GetTexto("Se_TTComentario"));
+            LblImagenSerieNS.Text = ControladorIdioma.GetTexto("Se_Imagen");
+            TTSeries.SetToolTip(this.PcbSerieNS, ControladorIdioma.GetTexto("Se_TTPcb"));
+            TTSeries.SetToolTip(this.MBtnAniadirImagenSe, ControladorIdioma.GetTexto("Se_TTMasImg"));
+            TTSeries.SetToolTip(this.MBtnBorrarImagenSe, ControladorIdioma.GetTexto("Se_TTMenosImg"));
+            KGbRelacionesNS.Values.Heading = ControladorIdioma.GetTexto("Se_Relaciones");
+            LsvRelacionSeriesNS.Columns[0].Text = ControladorIdioma.GetTexto("Se_RLsvSerie");
+            LsvRelacionSeriesNS.Columns[1].Text = ControladorIdioma.GetTexto("Se_RLsvTipo");
+            TTSeries.SetToolTip(this.MBtnMasRelacionNS, ControladorIdioma.GetTexto("Se_RMas"));
+            TTSeries.SetToolTip(this.MBtnMenosRelacionNS, ControladorIdioma.GetTexto("Se_RMenos"));
+            MBtnEditarRS.Text = ControladorIdioma.GetTexto("Se_REditar");
+            TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_TTEditar"));
+            KBtnCancelarSe.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTSeries.SetToolTip(this.KBtnCancelarSe, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarSe.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTSeries.SetToolTip(this.KBtnAceptarSe, ControladorIdioma.GetTexto("Aceptar"));
+            TTSeries.SetToolTip(this.MBtnCerrarSeries, ControladorIdioma.GetTexto("Cerrar"));
+        }
         private ListViewItem AniadirSerie(Serie serie)
         {
             var item = LsvSeriesNS.Items.Add(serie.Nombre);
@@ -121,21 +169,7 @@ namespace OpenLibraryEditor.Forms
         }
 
         #endregion
-        private void FrmSeries_Load(object sender, EventArgs e)
-        {
-
-            //Cargar personas
-            foreach (Serie s in listaSerie)
-            {
-                AniadirSerie(s);
-            }
-
-            if (setNew)
-            {
-                MBtnMasLsvNS_Click(null, null);
-                serieNueva = serieActual;
-            }
-        }
+       
 
         private void LsvSeriesNS_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {

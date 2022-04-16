@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGeneros));
             this.PanTituloGeneros = new System.Windows.Forms.Panel();
             this.MBtnCerrarGeneros = new FontAwesome.Sharp.Material.MaterialButton();
@@ -48,6 +49,7 @@
             this.KTxtNombreGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblComentarioGe = new System.Windows.Forms.Label();
             this.KTxtComentarioGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TTGeneros = new System.Windows.Forms.ToolTip(this.components);
             this.PanTituloGeneros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).BeginInit();
             this.PanBtnGe.SuspendLayout();
@@ -495,5 +497,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreGe;
         private System.Windows.Forms.Label LblComentarioGe;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtComentarioGe;
+        private System.Windows.Forms.ToolTip TTGeneros;
     }
 }

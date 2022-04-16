@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEjecutable));
             this.PanBtnEje = new System.Windows.Forms.Panel();
             this.KBtnCancelarEJ = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -46,11 +47,12 @@
             this.LblArgumentosEJ = new System.Windows.Forms.Label();
             this.KTxtArgumentosEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblRutaEJ = new System.Windows.Forms.Label();
-            this.KTxtRutaEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblExtensionEJ = new System.Windows.Forms.Label();
             this.KTxtExtensionEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblNombreEJ = new System.Windows.Forms.Label();
             this.KTxtNombreEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.KTxtRutaEJ = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TTEjecutable = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtnEje.SuspendLayout();
             this.PanTituloEjecutables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEjecutable)).BeginInit();
@@ -419,23 +421,6 @@
             this.LblRutaEJ.TabIndex = 156;
             this.LblRutaEJ.Text = "Ruta del ejecutable";
             // 
-            // KTxtRutaEJ
-            // 
-            this.KTxtRutaEJ.Location = new System.Drawing.Point(25, 182);
-            this.KTxtRutaEJ.Name = "KTxtRutaEJ";
-            this.KTxtRutaEJ.Size = new System.Drawing.Size(346, 33);
-            this.KTxtRutaEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtRutaEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtRutaEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtRutaEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtRutaEJ.StateCommon.Border.Rounding = 10;
-            this.KTxtRutaEJ.StateCommon.Border.Width = 2;
-            this.KTxtRutaEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KTxtRutaEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtRutaEJ.TabIndex = 155;
-            // 
             // LblExtensionEJ
             // 
             this.LblExtensionEJ.AutoSize = true;
@@ -492,6 +477,23 @@
             this.KTxtNombreEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreEJ.TabIndex = 151;
             // 
+            // KTxtRutaEJ
+            // 
+            this.KTxtRutaEJ.Location = new System.Drawing.Point(25, 182);
+            this.KTxtRutaEJ.Name = "KTxtRutaEJ";
+            this.KTxtRutaEJ.Size = new System.Drawing.Size(346, 33);
+            this.KTxtRutaEJ.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtRutaEJ.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtRutaEJ.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtRutaEJ.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtRutaEJ.StateCommon.Border.Rounding = 10;
+            this.KTxtRutaEJ.StateCommon.Border.Width = 2;
+            this.KTxtRutaEJ.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtRutaEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtRutaEJ.TabIndex = 155;
+            // 
             // FrmEjecutable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -543,5 +545,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtExtensionEJ;
         private System.Windows.Forms.Label LblNombreEJ;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreEJ;
+        private System.Windows.Forms.ToolTip TTEjecutable;
     }
 }

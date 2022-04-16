@@ -48,6 +48,13 @@ namespace OpenLibraryEditor.Forms
         }
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
+            if (ControladorIdioma.idioma.Equals("Strings_fr_FR"))
+                LlLogIn.Location = new Point(30,168);
+            else if (ControladorIdioma.idioma.Equals("Strings_en_US"))
+                LlLogIn.Location = new Point(88, 168);
+            else
+                LlLogIn.Location = new Point(65, 168);
+          
             IdiomaTexto();
         }
         #region texto segun idioma seleccionado

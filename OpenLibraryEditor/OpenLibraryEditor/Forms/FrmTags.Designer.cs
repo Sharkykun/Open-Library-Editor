@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTags));
             this.PanBtnTa = new System.Windows.Forms.Panel();
-            this.KBtnCancelarTa = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.KBtnAceptarTa = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.KBtnCancelarTag = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.KBtnAceptarTag = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.PanTituloTags = new System.Windows.Forms.Panel();
             this.MBtnCerrarTags = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloTags = new System.Windows.Forms.Label();
@@ -46,10 +47,11 @@
             this.LblCategoriaTa = new System.Windows.Forms.Label();
             this.LblNombreTa = new System.Windows.Forms.Label();
             this.KTxtNombreNE = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.MBtnMasCategoriaTa = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnMasCategoriaTag = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosCategoriaTag = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblComentarioTa = new System.Windows.Forms.Label();
             this.KTxtComentarioTa = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TTEtiquetas = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtnTa.SuspendLayout();
             this.PanTituloTags.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoTags)).BeginInit();
@@ -60,175 +62,175 @@
             // PanBtnTa
             // 
             this.PanBtnTa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.PanBtnTa.Controls.Add(this.KBtnCancelarTa);
-            this.PanBtnTa.Controls.Add(this.KBtnAceptarTa);
+            this.PanBtnTa.Controls.Add(this.KBtnCancelarTag);
+            this.PanBtnTa.Controls.Add(this.KBtnAceptarTag);
             this.PanBtnTa.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PanBtnTa.Location = new System.Drawing.Point(0, 454);
             this.PanBtnTa.Name = "PanBtnTa";
             this.PanBtnTa.Size = new System.Drawing.Size(805, 45);
             this.PanBtnTa.TabIndex = 120;
             // 
-            // KBtnCancelarTa
+            // KBtnCancelarTag
             // 
-            this.KBtnCancelarTa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.KBtnCancelarTa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KBtnCancelarTa.Location = new System.Drawing.Point(532, 5);
-            this.KBtnCancelarTa.Margin = new System.Windows.Forms.Padding(0);
-            this.KBtnCancelarTa.Name = "KBtnCancelarTa";
-            this.KBtnCancelarTa.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.KBtnCancelarTa.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.KBtnCancelarTa.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnCancelarTa.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnCancelarTag.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.KBtnCancelarTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.KBtnCancelarTag.Location = new System.Drawing.Point(532, 5);
+            this.KBtnCancelarTag.Margin = new System.Windows.Forms.Padding(0);
+            this.KBtnCancelarTag.Name = "KBtnCancelarTag";
+            this.KBtnCancelarTag.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.KBtnCancelarTag.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.KBtnCancelarTag.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnCancelarTag.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnCancelarTa.OverrideDefault.Border.Rounding = 30;
-            this.KBtnCancelarTa.OverrideDefault.Border.Width = 2;
-            this.KBtnCancelarTa.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.KBtnCancelarTa.Size = new System.Drawing.Size(126, 35);
-            this.KBtnCancelarTa.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.KBtnCancelarTa.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.KBtnCancelarTa.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnCancelarTa.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateCommon.Border.ColorAngle = 0F;
-            this.KBtnCancelarTa.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnCancelarTag.OverrideDefault.Border.Rounding = 30;
+            this.KBtnCancelarTag.OverrideDefault.Border.Width = 2;
+            this.KBtnCancelarTag.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
+            this.KBtnCancelarTag.Size = new System.Drawing.Size(126, 35);
+            this.KBtnCancelarTag.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.KBtnCancelarTag.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.KBtnCancelarTag.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnCancelarTag.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateCommon.Border.ColorAngle = 0F;
+            this.KBtnCancelarTag.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnCancelarTa.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnCancelarTa.StateCommon.Border.Rounding = 30;
-            this.KBtnCancelarTa.StateCommon.Border.Width = 2;
-            this.KBtnCancelarTa.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.KBtnCancelarTa.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.KBtnCancelarTa.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.KBtnCancelarTa.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.KBtnCancelarTa.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.KBtnCancelarTa.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnCancelarTa.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnCancelarTag.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnCancelarTag.StateCommon.Border.Rounding = 30;
+            this.KBtnCancelarTag.StateCommon.Border.Width = 2;
+            this.KBtnCancelarTag.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
+            this.KBtnCancelarTag.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateCommon.Content.ShortText.ColorAngle = 36F;
+            this.KBtnCancelarTag.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
+            this.KBtnCancelarTag.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.KBtnCancelarTag.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.KBtnCancelarTag.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnCancelarTag.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnCancelarTa.StateNormal.Border.Rounding = 30;
-            this.KBtnCancelarTa.StateNormal.Border.Width = 2;
-            this.KBtnCancelarTa.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnCancelarTa.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.KBtnCancelarTa.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.KBtnCancelarTa.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.KBtnCancelarTa.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnCancelarTag.StateNormal.Border.Rounding = 30;
+            this.KBtnCancelarTag.StateNormal.Border.Width = 2;
+            this.KBtnCancelarTag.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnCancelarTag.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
+            this.KBtnCancelarTag.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
+            this.KBtnCancelarTag.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
+            this.KBtnCancelarTag.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.StatePressed.Border.Color1 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StatePressed.Border.Color2 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnCancelarTa.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnCancelarTa.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnCancelarTa.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.KBtnCancelarTa.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnCancelarTag.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StateTracking.Back.Color1 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StateTracking.Back.Color2 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnCancelarTag.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnCancelarTag.StateTracking.Border.Color1 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StateTracking.Border.Color2 = System.Drawing.Color.Black;
+            this.KBtnCancelarTag.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnCancelarTa.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.KBtnCancelarTa.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.KBtnCancelarTa.TabIndex = 1;
-            this.KBtnCancelarTa.Values.Text = "Cancelar";
-            this.KBtnCancelarTa.Click += new System.EventHandler(this.KBtnCancelarTa_Click);
+            this.KBtnCancelarTag.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.KBtnCancelarTag.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.KBtnCancelarTag.TabIndex = 1;
+            this.KBtnCancelarTag.Values.Text = "Cancelar";
+            this.KBtnCancelarTag.Click += new System.EventHandler(this.KBtnCancelarTa_Click);
             // 
-            // KBtnAceptarTa
+            // KBtnAceptarTag
             // 
-            this.KBtnAceptarTa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KBtnAceptarTa.Location = new System.Drawing.Point(670, 5);
-            this.KBtnAceptarTa.Margin = new System.Windows.Forms.Padding(0);
-            this.KBtnAceptarTa.Name = "KBtnAceptarTa";
-            this.KBtnAceptarTa.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnAceptarTa.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnAceptarTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.KBtnAceptarTag.Location = new System.Drawing.Point(670, 5);
+            this.KBtnAceptarTag.Margin = new System.Windows.Forms.Padding(0);
+            this.KBtnAceptarTag.Name = "KBtnAceptarTag";
+            this.KBtnAceptarTag.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnAceptarTag.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnAceptarTa.OverrideDefault.Border.Rounding = 30;
-            this.KBtnAceptarTa.OverrideDefault.Border.Width = 2;
-            this.KBtnAceptarTa.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.KBtnAceptarTa.Size = new System.Drawing.Size(126, 35);
-            this.KBtnAceptarTa.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnAceptarTa.StateCommon.Border.Color1 = System.Drawing.Color.Navy;
-            this.KBtnAceptarTa.StateCommon.Border.Color2 = System.Drawing.Color.Navy;
-            this.KBtnAceptarTa.StateCommon.Border.ColorAngle = 0F;
-            this.KBtnAceptarTa.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnAceptarTag.OverrideDefault.Border.Rounding = 30;
+            this.KBtnAceptarTag.OverrideDefault.Border.Width = 2;
+            this.KBtnAceptarTag.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
+            this.KBtnAceptarTag.Size = new System.Drawing.Size(126, 35);
+            this.KBtnAceptarTag.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnAceptarTag.StateCommon.Border.Color1 = System.Drawing.Color.Navy;
+            this.KBtnAceptarTag.StateCommon.Border.Color2 = System.Drawing.Color.Navy;
+            this.KBtnAceptarTag.StateCommon.Border.ColorAngle = 0F;
+            this.KBtnAceptarTag.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnAceptarTa.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnAceptarTa.StateCommon.Border.Rounding = 30;
-            this.KBtnAceptarTa.StateCommon.Border.Width = 2;
-            this.KBtnAceptarTa.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.KBtnAceptarTa.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.KBtnAceptarTa.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.KBtnAceptarTa.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KBtnAceptarTa.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnAceptarTa.StateNormal.Border.Color1 = System.Drawing.Color.Gainsboro;
-            this.KBtnAceptarTa.StateNormal.Border.Color2 = System.Drawing.Color.Gainsboro;
-            this.KBtnAceptarTa.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnAceptarTag.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnAceptarTag.StateCommon.Border.Rounding = 30;
+            this.KBtnAceptarTag.StateCommon.Border.Width = 2;
+            this.KBtnAceptarTag.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
+            this.KBtnAceptarTag.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.StateCommon.Content.ShortText.ColorAngle = 36F;
+            this.KBtnAceptarTag.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
+            this.KBtnAceptarTag.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KBtnAceptarTag.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnAceptarTag.StateNormal.Border.Color1 = System.Drawing.Color.Gainsboro;
+            this.KBtnAceptarTag.StateNormal.Border.Color2 = System.Drawing.Color.Gainsboro;
+            this.KBtnAceptarTag.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnAceptarTa.StateNormal.Border.Rounding = 30;
-            this.KBtnAceptarTa.StateNormal.Border.Width = 2;
-            this.KBtnAceptarTa.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.KBtnAceptarTa.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.KBtnAceptarTa.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.KBtnAceptarTa.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnAceptarTag.StateNormal.Border.Rounding = 30;
+            this.KBtnAceptarTag.StateNormal.Border.Width = 2;
+            this.KBtnAceptarTag.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
+            this.KBtnAceptarTag.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
+            this.KBtnAceptarTag.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
+            this.KBtnAceptarTag.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.StatePressed.Border.Color1 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StatePressed.Border.Color2 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnAceptarTa.StatePressed.Border.Rounding = 30;
-            this.KBtnAceptarTa.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.KBtnAceptarTa.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KBtnAceptarTa.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.KBtnAceptarTa.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KBtnAceptarTag.StatePressed.Border.Rounding = 30;
+            this.KBtnAceptarTag.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StateTracking.Back.Color1 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StateTracking.Back.Color2 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.KBtnAceptarTag.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.KBtnAceptarTag.StateTracking.Border.Color1 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StateTracking.Border.Color2 = System.Drawing.Color.Black;
+            this.KBtnAceptarTag.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KBtnAceptarTa.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.KBtnAceptarTa.TabIndex = 0;
-            this.KBtnAceptarTa.Values.Text = "Aceptar";
-            this.KBtnAceptarTa.Click += new System.EventHandler(this.KBtnAceptarTa_Click);
+            this.KBtnAceptarTag.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.KBtnAceptarTag.TabIndex = 0;
+            this.KBtnAceptarTag.Values.Text = "Aceptar";
+            this.KBtnAceptarTag.Click += new System.EventHandler(this.KBtnAceptarTa_Click);
             // 
             // PanTituloTags
             // 
@@ -351,7 +353,7 @@
             this.PanOpcionesTag.Controls.Add(this.LblCategoriaTa);
             this.PanOpcionesTag.Controls.Add(this.LblNombreTa);
             this.PanOpcionesTag.Controls.Add(this.KTxtNombreNE);
-            this.PanOpcionesTag.Controls.Add(this.MBtnMasCategoriaTa);
+            this.PanOpcionesTag.Controls.Add(this.MBtnMasCategoriaTag);
             this.PanOpcionesTag.Controls.Add(this.MBtnMenosCategoriaTag);
             this.PanOpcionesTag.Controls.Add(this.LblComentarioTa);
             this.PanOpcionesTag.Controls.Add(this.KTxtComentarioTa);
@@ -420,20 +422,20 @@
             this.KTxtNombreNE.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreNE.TabIndex = 134;
             // 
-            // MBtnMasCategoriaTa
+            // MBtnMasCategoriaTag
             // 
-            this.MBtnMasCategoriaTa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnMasCategoriaTa.FlatAppearance.BorderSize = 0;
-            this.MBtnMasCategoriaTa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnMasCategoriaTa.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasCategoriaTa.IconColor = System.Drawing.Color.Navy;
-            this.MBtnMasCategoriaTa.IconSize = 40;
-            this.MBtnMasCategoriaTa.Location = new System.Drawing.Point(351, 107);
-            this.MBtnMasCategoriaTa.Name = "MBtnMasCategoriaTa";
-            this.MBtnMasCategoriaTa.Size = new System.Drawing.Size(30, 30);
-            this.MBtnMasCategoriaTa.TabIndex = 130;
-            this.MBtnMasCategoriaTa.UseVisualStyleBackColor = true;
-            this.MBtnMasCategoriaTa.Click += new System.EventHandler(this.MBtnMasCategoriaTa_Click);
+            this.MBtnMasCategoriaTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMasCategoriaTag.FlatAppearance.BorderSize = 0;
+            this.MBtnMasCategoriaTag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasCategoriaTag.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
+            this.MBtnMasCategoriaTag.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasCategoriaTag.IconSize = 40;
+            this.MBtnMasCategoriaTag.Location = new System.Drawing.Point(351, 107);
+            this.MBtnMasCategoriaTag.Name = "MBtnMasCategoriaTag";
+            this.MBtnMasCategoriaTag.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMasCategoriaTag.TabIndex = 130;
+            this.MBtnMasCategoriaTag.UseVisualStyleBackColor = true;
+            this.MBtnMasCategoriaTag.Click += new System.EventHandler(this.MBtnMasCategoriaTa_Click);
             // 
             // MBtnMenosCategoriaTag
             // 
@@ -510,8 +512,8 @@
 
         #endregion
         private System.Windows.Forms.Panel PanBtnTa;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnCancelarTa;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnAceptarTa;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnCancelarTag;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton KBtnAceptarTag;
         private System.Windows.Forms.Panel PanTituloTags;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarTags;
         private System.Windows.Forms.Label LblTituloTags;
@@ -526,9 +528,10 @@
         private System.Windows.Forms.Label LblCategoriaTa;
         private System.Windows.Forms.Label LblNombreTa;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreNE;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnMasCategoriaTa;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMasCategoriaTag;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosCategoriaTag;
         private System.Windows.Forms.Label LblComentarioTa;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtComentarioTa;
+        private System.Windows.Forms.ToolTip TTEtiquetas;
     }
 }

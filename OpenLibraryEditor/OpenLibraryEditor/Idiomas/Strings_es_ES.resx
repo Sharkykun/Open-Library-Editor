@@ -423,7 +423,7 @@
   <data name="Au_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Autores</value>
   </data>
-  <data name="Au_TTALias" xml:space="preserve">
+  <data name="Au_TTAlias" xml:space="preserve">
     <value>Escribe el alias de la persona (si tuviera)</value>
   </data>
   <data name="Au_TTBtnMasLsv" xml:space="preserve">
@@ -628,10 +628,124 @@
     <value>Escribe aquí el nombre de la editorial</value>
   </data>
   <data name="ED_TTPcb" xml:space="preserve">
-    <value>imagen de la editorial</value>
+    <value>Imagen de la editorial</value>
+  </data>
+  <data name="Ej_Argumentos" xml:space="preserve">
+    <value>Argumentos</value>
+  </data>
+  <data name="Ej_Extension" xml:space="preserve">
+    <value>Extensión asociada</value>
+  </data>
+  <data name="Ej_LsvExtension" xml:space="preserve">
+    <value>Extensión</value>
+  </data>
+  <data name="Ej_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Ej_Nombre" xml:space="preserve">
+    <value>Nombre ejecutable</value>
+  </data>
+  <data name="Ej_Ruta" xml:space="preserve">
+    <value>Ruta del ejecutable</value>
+  </data>
+  <data name="Ej_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Ejecutable</value>
+  </data>
+  <data name="Ej_TTArgumentos" xml:space="preserve">
+    <value>Escribe aquí los argumentos del ejecutable</value>
+  </data>
+  <data name="Ej_TTExtension" xml:space="preserve">
+    <value>Escribe aquí la extensión asociada al libro (pdf, epub...)</value>
+  </data>
+  <data name="Ej_TTLsv" xml:space="preserve">
+    <value>Selecciona un nombre para editarlo</value>
+  </data>
+  <data name="Ej_TTMas" xml:space="preserve">
+    <value>Haz click para añadir un nuevo ejecutable</value>
+  </data>
+  <data name="Ej_TTMenos" xml:space="preserve">
+    <value>Haz click para eliminar el ejecutable seleccionado</value>
+  </data>
+  <data name="Ej_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre del ejecutable</value>
+  </data>
+  <data name="Ej_TTRuta" xml:space="preserve">
+    <value>Haz click para buscar la ruta del ejecutable</value>
+  </data>
+  <data name="Et_Categoria" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Et_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Et_LsvMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva etiqueta</value>
+  </data>
+  <data name="Et_LsvMenos" xml:space="preserve">
+    <value>Haz click para eliminar la etiqueta seleccionada</value>
+  </data>
+  <data name="Et_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Et_MasCat" xml:space="preserve">
+    <value>Haz click para añadir una nueva categoría</value>
+  </data>
+  <data name="Et_MenosCat" xml:space="preserve">
+    <value>Haz click para eliminar la categoría seleccionada</value>
+  </data>
+  <data name="Et_Nombre" xml:space="preserve">
+    <value>Nombre etiqueta</value>
+  </data>
+  <data name="Et_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Etiquetas</value>
+  </data>
+  <data name="Et_TTCategoria" xml:space="preserve">
+    <value>Selecciona una categoría</value>
+  </data>
+  <data name="Et_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre la etiqueta</value>
+  </data>
+  <data name="Et_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de una etiqueta para editarla</value>
+  </data>
+  <data name="Et_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre de la etiqueta</value>
   </data>
   <data name="FormatoFecha" xml:space="preserve">
     <value>Formato DD/MM/YYYY</value>
+  </data>
+  <data name="Ge_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Ge_Genero" xml:space="preserve">
+    <value>Género Padre</value>
+  </data>
+  <data name="Ge_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Ge_Nombre" xml:space="preserve">
+    <value>Nombre género</value>
+  </data>
+  <data name="Ge_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Géneros</value>
+  </data>
+  <data name="Ge_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre el género</value>
+  </data>
+  <data name="Ge_TTGenero" xml:space="preserve">
+    <value>Selecciona el género padre del género</value>
+  </data>
+  <data name="Ge_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de un género para editarlo</value>
+  </data>
+  <data name="Ge_TTMas" xml:space="preserve">
+    <value>Haz click para añadir un nuevo género</value>
+  </data>
+  <data name="Ge_TTMenos" xml:space="preserve">
+    <value>Haz click para eliminar el género seleccionado</value>
+  </data>
+  <data name="Ge_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre del género</value>
   </data>
   <data name="Log_BtnEntrar" xml:space="preserve">
     <value>Entrar</value>
@@ -866,6 +980,72 @@
   </data>
   <data name="RS_TTCmb" xml:space="preserve">
     <value>Selecciona el tipo de relación entre las series</value>
+  </data>
+  <data name="Se_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Se_Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Se_Imagen" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="Se_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Se_Nombre" xml:space="preserve">
+    <value>Nombre serie</value>
+  </data>
+  <data name="Se_REditar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Se_Relaciones" xml:space="preserve">
+    <value>Relaciones</value>
+  </data>
+  <data name="Se_RLsvSerie" xml:space="preserve">
+    <value>Serie</value>
+  </data>
+  <data name="Se_RLsvTipo" xml:space="preserve">
+    <value>Tipo relación</value>
+  </data>
+  <data name="Se_RMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva relación entre series</value>
+  </data>
+  <data name="Se_RMenos" xml:space="preserve">
+    <value>Haz click para eliminar la relación entre series seleccionada</value>
+  </data>
+  <data name="Se_RTTEditar" xml:space="preserve">
+    <value>Haz click para editar la relación entre series</value>
+  </data>
+  <data name="Se_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Series</value>
+  </data>
+  <data name="Se_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre la serie</value>
+  </data>
+  <data name="Se_TTEstado" xml:space="preserve">
+    <value>Selecciona el estado de la serie</value>
+  </data>
+  <data name="Se_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de una serie para editarla</value>
+  </data>
+  <data name="Se_TTLsvMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva serie</value>
+  </data>
+  <data name="Se_TTLsvMenos" xml:space="preserve">
+    <value>Haz click para eliminar la serie seleccionada</value>
+  </data>
+  <data name="Se_TTMasImg" xml:space="preserve">
+    <value>Haz click para añadir una imagen para la serie</value>
+  </data>
+  <data name="Se_TTMenosImg" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de la serie</value>
+  </data>
+  <data name="Se_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre de la serie</value>
+  </data>
+  <data name="Se_TTPcb" xml:space="preserve">
+    <value>Imagen de la serie</value>
   </data>
   <data name="ShowDialogCerrar" xml:space="preserve">
     <value>¿Seguro qué deseas salir?</value>

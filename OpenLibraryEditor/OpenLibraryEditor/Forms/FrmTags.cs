@@ -57,6 +57,7 @@ namespace OpenLibraryEditor.Forms
 
         private void FrmTags_Load(object sender, EventArgs e)
         {
+            IdiomaTexto();
             //Cargar etiquetas
             foreach (Etiqueta et in listaEtiqueta)
             {
@@ -74,6 +75,30 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #region metodos propios
+        private void IdiomaTexto()
+        {
+            TTEtiquetas.SetToolTip(this.PcbLogoTags,ControladorIdioma.GetTexto("Main_TTLogo"));
+            LblTituloTags.Text = ControladorIdioma.GetTexto("Et_TituloFrm");
+            TTEtiquetas.SetToolTip(this.LblTituloTags, ControladorIdioma.GetTexto("Et_TituloFrm"));
+            TTEtiquetas.SetToolTip(this.LsvTagsNT, ControladorIdioma.GetTexto("Et_TTLsv"));
+            LsvTagsNT.Columns[0].Text = ControladorIdioma.GetTexto("Et_LsvNombre");
+            LsvTagsNT.Columns[1].Text = ControladorIdioma.GetTexto("Et_Categoria");
+            TTEtiquetas.SetToolTip(this.MBtnMasLsvNT, ControladorIdioma.GetTexto("Et_LsvMas"));
+            TTEtiquetas.SetToolTip(this.MBtnMenosLsvNT, ControladorIdioma.GetTexto("Et_LsvMenos"));
+            LblNombreTa.Text = ControladorIdioma.GetTexto("Et_Nombre");
+            TTEtiquetas.SetToolTip(this.KTxtNombreNE, ControladorIdioma.GetTexto("Et_TTNombre"));
+            LblCategoriaTa.Text = ControladorIdioma.GetTexto("Et_Categoria");
+            TTEtiquetas.SetToolTip(this.KCmbCategoriaNE, ControladorIdioma.GetTexto("Et_TTCategoria"));
+            TTEtiquetas.SetToolTip(this.MBtnMasCategoriaTag, ControladorIdioma.GetTexto("Et_MasCat"));
+            TTEtiquetas.SetToolTip(this.MBtnMenosCategoriaTag, ControladorIdioma.GetTexto("Et_MenosCat"));
+            LblComentarioTa.Text = ControladorIdioma.GetTexto("Et_Comentario");
+            TTEtiquetas.SetToolTip(this.KTxtComentarioTa, ControladorIdioma.GetTexto("Et_TTComentario"));
+            KBtnCancelarTag.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTEtiquetas.SetToolTip(this.KBtnCancelarTag, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarTag.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTEtiquetas.SetToolTip(this.KBtnAceptarTag, ControladorIdioma.GetTexto("Aceptar"));
+            TTEtiquetas.SetToolTip(this.MBtnCerrarTags, ControladorIdioma.GetTexto("Cerrar"));
+        }
         private void ActualizarCategoria()
         {
             listaCategoria.Sort();

@@ -33,6 +33,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void FrmGeneros_Load(object sender, EventArgs e)
         {
+            IdiomaTexto();
             //Cargar etiquetas
             foreach (Genero gen in listaGenero)
             {
@@ -50,6 +51,28 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #region metodos propios
+        private void IdiomaTexto()
+        {
+            TTGeneros.SetToolTip(this.PcbLogoGeneros,ControladorIdioma.GetTexto("Main_TTLogo"));
+            LblTituloGeneros.Text = ControladorIdioma.GetTexto("Ge_TituloFrm");
+            TTGeneros.SetToolTip(this.LblTituloGeneros, ControladorIdioma.GetTexto("Ge_TituloFrm"));
+            TTGeneros.SetToolTip(this.LsvGeneroNG, ControladorIdioma.GetTexto("Ge_TTLsv"));
+            LsvGeneroNG.Columns[0].Text = ControladorIdioma.GetTexto("Ge_LsvNombre");
+            LsvGeneroNG.Columns[1].Text = ControladorIdioma.GetTexto("Ge_Genero");
+            TTGeneros.SetToolTip(this.MBtnMasLsvNG, ControladorIdioma.GetTexto("Ge_TTMas"));
+            TTGeneros.SetToolTip(this.MBtnMenosLsvNG, ControladorIdioma.GetTexto("Ge_TTMenos"));
+            LblNombreGe.Text = ControladorIdioma.GetTexto("Ge_Nombre");
+            TTGeneros.SetToolTip(this.KTxtNombreGe, ControladorIdioma.GetTexto("Ge_TTNombre"));
+            LblGeneroPadreGe.Text = ControladorIdioma.GetTexto("Ge_Genero");
+            TTGeneros.SetToolTip(this.KCmbGeneroPadreGe, ControladorIdioma.GetTexto("Ge_TTGenero"));
+            LblComentarioGe.Text = ControladorIdioma.GetTexto("Ge_Comentario");
+            TTGeneros.SetToolTip(this.KTxtComentarioGe, ControladorIdioma.GetTexto("Ge_TTComentario"));
+            KBtnCancelarGe.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTGeneros.SetToolTip(this.KBtnCancelarGe, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarGe.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTGeneros.SetToolTip(this.KBtnAceptarGe, ControladorIdioma.GetTexto("Aceptar"));
+            TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar")); 
+        }
         private void ActualizarGeneroPadre()
         {
             generoBinding.ResetBindings(false);

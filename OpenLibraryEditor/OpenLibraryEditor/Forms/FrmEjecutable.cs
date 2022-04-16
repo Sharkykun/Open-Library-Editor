@@ -50,6 +50,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void FrmEjecutable_Load(object sender, EventArgs e)
         {
+            IdiomaTexto();
             //Cargar etiquetas
             foreach (UsuarioEjecutable ej in listaEjecutable)
             {
@@ -61,6 +62,30 @@ namespace OpenLibraryEditor.Forms
 
         }
         #region metodos propios
+        private void IdiomaTexto()
+        {
+            TTEjecutable.SetToolTip(this.PcbLogoEjecutable, ControladorIdioma.GetTexto("Main_TTLogo"));
+            LblTituloEjecutable.Text = ControladorIdioma.GetTexto("Ej_TituloFrm");
+            TTEjecutable.SetToolTip(this.LblTituloEjecutable, ControladorIdioma.GetTexto("Ej_TituloFrm"));
+            TTEjecutable.SetToolTip(this.LsvEjecutable, ControladorIdioma.GetTexto("Ej_TTLsv"));
+            LsvEjecutable.Columns[0].Text = ControladorIdioma.GetTexto("Ej_LsvNombre");
+            LsvEjecutable.Columns[1].Text = ControladorIdioma.GetTexto("Ej_LsvExtension");
+            TTEjecutable.SetToolTip(this.MBtnMasLsvEJ, ControladorIdioma.GetTexto("Ej_TTMas"));
+            TTEjecutable.SetToolTip(this.MBtnMenosLsvEJ, ControladorIdioma.GetTexto("Ej_TTMenos"));
+            LblNombreEJ.Text = ControladorIdioma.GetTexto("Ej_Nombre");
+            TTEjecutable.SetToolTip(this.KTxtNombreEJ, ControladorIdioma.GetTexto("Ej_TTNombre"));
+            LblExtensionEJ.Text = ControladorIdioma.GetTexto("Ej_Extension");
+            TTEjecutable.SetToolTip(this.KTxtExtensionEJ, ControladorIdioma.GetTexto("Ej_TTExtension"));
+            LblRutaEJ.Text = ControladorIdioma.GetTexto("Ej_Ruta");
+            TTEjecutable.SetToolTip(this.IBtnBuscarRutaEJ, ControladorIdioma.GetTexto("Ej_TTRuta"));
+            LblArgumentosEJ.Text = ControladorIdioma.GetTexto("Ej_Argumentos");
+            TTEjecutable.SetToolTip(this.KTxtArgumentosEJ, ControladorIdioma.GetTexto("Ej_TTArgumentos"));
+            KBtnCancelarEJ.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTEjecutable.SetToolTip(this.KBtnCancelarEJ, ControladorIdioma.GetTexto("Cancelar"));
+            KBtnAceptarEJ.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTEjecutable.SetToolTip(this.KBtnAceptarEJ, ControladorIdioma.GetTexto("Aceptar"));
+            TTEjecutable.SetToolTip(this.MBtnCerrarEjecutable, ControladorIdioma.GetTexto("Cerrar"));
+        }
         private ListViewItem AniadirEjecutable(UsuarioEjecutable ejecutable)
         {
             var item = LsvEjecutable.Items.Add(ejecutable.NombreEjecutable);

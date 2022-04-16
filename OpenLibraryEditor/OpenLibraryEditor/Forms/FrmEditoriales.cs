@@ -64,8 +64,8 @@ namespace OpenLibraryEditor.Forms
             TTEditorial.SetToolTip(this.LblTituloEditoriales, ControladorIdioma.GetTexto("ED_TituloFrm"));
             TTEditorial.SetToolTip(this.LsvEditorialNE, ControladorIdioma.GetTexto("ED_Lsv"));
             LsvEditorialNE.Columns[0].Text = ControladorIdioma.GetTexto("ED_LsvNombre");
-            TTEditorial.SetToolTip(this.MBtnMasLsvNE, ControladorIdioma.GetTexto("ED_LsvMas"));
-            TTEditorial.SetToolTip(this.MBtnMenosLsvNE, ControladorIdioma.GetTexto("ED_LsvMenos"));
+            TTEditorial.SetToolTip(this.MBtnMasLsvNE, ControladorIdioma.GetTexto("ED_TTLsvMas"));
+            TTEditorial.SetToolTip(this.MBtnMenosLsvNE, ControladorIdioma.GetTexto("ED_TTLsvMenos"));
             LblNombreEd.Text = ControladorIdioma.GetTexto("ED_Nombre");
             TTEditorial.SetToolTip(this.KTxtNombreEd, ControladorIdioma.GetTexto("ED_TTNombre"));
             LblComentarioEd.Text = ControladorIdioma.GetTexto("ED_Comentario");

@@ -29,6 +29,7 @@ namespace OpenLibraryEditor.Forms
 
         private void IdiomaTexto()
         {
+            TTRegistro.SetToolTip(this.PcbLogoRegistro, ControladorIdioma.GetTexto("Main_TTLogo"));
             LblTituloFrm.Text = ControladorIdioma.GetTexto("Reg_TituloForm");
             TTRegistro.SetToolTip(this.LblTituloFrm, ControladorIdioma.GetTexto("Reg_TituloForm"));
             LblUrlReg.Text = ControladorIdioma.GetTexto("Reg_Url");
