@@ -114,6 +114,17 @@ namespace OpenLibraryEditor.Forms
                 PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
             }
         }
+
+        private void ComprobarGuardado()
+        {
+            //Comparar objetos para preguntar si guardar
+            if (editorialActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    KBtnAceptarEd_Click(null, null);
+            }
+        }
         #endregion
 
         #region mover formulario
@@ -133,13 +144,8 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvEditorialNE_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && editorialActual != null && EsObjetoCambiado())
-            {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
-                    KBtnAceptarEd_Click(null, null);
-            }
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvEditorialNE.SelectedItems.Count == 1)
@@ -195,22 +201,30 @@ namespace OpenLibraryEditor.Forms
 
         private void KBtnAceptarEd_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesED.Visible == true) { 
-                //Actualizar etiqueta
-                editorialActual.Nombre = KTxtNombreEd.Text;
-                editorialActual.Comentario = KTxtComentarioEd.Text;
-                if (rutaImagen != editorialActual.Imagen)
+            if (PanOpcionesED.Visible == true) {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreEd.Text))
                 {
-                    editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                        ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
-                    rutaImagen = editorialActual.Imagen;
-                }
+                    //Actualizar etiqueta
+                    editorialActual.Nombre = KTxtNombreEd.Text;
+                    editorialActual.Comentario = KTxtComentarioEd.Text;
+                    if (rutaImagen != editorialActual.Imagen)
+                    {
+                        editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                            ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
+                        rutaImagen = editorialActual.Imagen;
+                    }
 
-                //Actualizar listview
-                itemActual.Text = KTxtNombreEd.Text;
+                    //Actualizar listview
+                    itemActual.Text = KTxtNombreEd.Text;
+                }
+                else
+                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
             }
         }
 
-       
+        private void FrmEditoriales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
     }
 }

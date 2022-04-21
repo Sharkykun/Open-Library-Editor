@@ -235,7 +235,10 @@ namespace OpenLibraryEditor.Controles
                 // this method once again after hiding this window.
                 dropdownClosed = true;
                 // Set the focus to our parent CheckedComboBox and hide the dropdown check list.
-                ccbParent.Focus();
+                System.Threading.Tasks.Task.Delay(10).ContinueWith(_ =>
+                {
+                    this.Invoke(new MethodInvoker(delegate { ccbParent.Focus(); }));
+                });
                 this.Hide();
                 // Notify CheckedComboBox that its dropdown is closed. (NOTE: it does not matter which parameters we pass to
                 // OnDropDownClosed() as long as the argument is CCBoxEventArgs so that the method knows the notification has
@@ -245,7 +248,7 @@ namespace OpenLibraryEditor.Controles
 
             protected override void OnActivated(EventArgs e)
             {
-                Debug.WriteLine("OnActivated");
+                //Debug.WriteLine("OnActivated");
                 base.OnActivated(e);
                 dropdownClosed = false;
                 // Assign the old string value to compare with the new value for any changes.
@@ -260,7 +263,7 @@ namespace OpenLibraryEditor.Controles
 
             protected override void OnDeactivate(EventArgs e)
             {
-                Debug.WriteLine("OnDeactivate");
+                //Debug.WriteLine("OnDeactivate");
                 base.OnDeactivate(e);
                 CCBoxEventArgs ce = e as CCBoxEventArgs;
                 if (ce != null)
@@ -379,6 +382,12 @@ namespace OpenLibraryEditor.Controles
         {
             base.OnDropDown(e);
             DoDropDown();
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            DroppedDown = false;
         }
 
         private void DoDropDown()

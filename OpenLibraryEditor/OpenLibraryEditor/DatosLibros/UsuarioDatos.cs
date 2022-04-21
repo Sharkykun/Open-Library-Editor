@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,20 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class UsuarioDatos
     {
-        private string estanteriaImagen;
-        private int estanteriaPosX;
-        private int estanteriaPosY;
-        private int estanteriaPadding;
+        private bool cargaUltimaBD = true;
+        private string ubicacionBD;
+        private bool contenidoExplicito = true;
+        private string idiomaIntefaz;
+        private int tipoVista;
+        private string accionDobleClick;
+        private string tema;
+        private bool[] descargaDetallesLibro = { true, true, true, true, true };
+        private int tamañoImagenLibro;
+        private List<InfoBaseDatos> listaInfoBD = new List<InfoBaseDatos>();
+        private InfoBaseDatos bDActual;
         private string googleBooksApiKey;
+
+        public const string RUTA_FICHERO = "config.json";
 
         //Listas estática para todo lo local
         [JsonIgnore]
@@ -37,17 +47,30 @@ namespace OpenLibraryEditor.DatosLibros
         {
         }
 
-        public UsuarioDatos(int estanteriaPosX, int estanteriaPosY, int estanteriaPadding)
+        public string GoogleBooksApiKey { get => googleBooksApiKey; set => googleBooksApiKey = value; }
+        public bool CargaUltimaBD { get => cargaUltimaBD; set => cargaUltimaBD = value; }
+        public string UbicacionBD { get => ubicacionBD; set => ubicacionBD = value; }
+        public bool ContenidoExplicito { get => contenidoExplicito; set => contenidoExplicito = value; }
+        public string IdiomaIntefaz { get => idiomaIntefaz; set => idiomaIntefaz = value; }
+        public int TipoVista { get => tipoVista; set => tipoVista = value; }
+        public string AccionDobleClick { get => accionDobleClick; set => accionDobleClick = value; }
+        public string Tema { get => tema; set => tema = value; }
+        public bool[] DescargaDetallesLibro { get => descargaDetallesLibro; set => descargaDetallesLibro = value; }
+        public int TamañoImagenLibro { get => tamañoImagenLibro; set => tamañoImagenLibro = value; }
+        public List<InfoBaseDatos> ListaInfoBD { get => listaInfoBD; set => listaInfoBD = value; }
+        public InfoBaseDatos BDActual { get => bDActual; set => bDActual = value; }
+
+        private static object CargarJson()
         {
-            this.estanteriaPosX = estanteriaPosX;
-            this.estanteriaPosY = estanteriaPosY;
-            this.estanteriaPadding = estanteriaPadding;
+            string json = File.ReadAllText(RUTA_FICHERO);
+            UsuarioDatos obj = (UsuarioDatos)JsonConvert.DeserializeObject(json, typeof(UsuarioDatos));
+            return obj;
         }
 
-        public string EstanteriaImagen { get => estanteriaImagen; set => estanteriaImagen = value; }
-        public int EstanteriaPosX { get => estanteriaPosX; set => estanteriaPosX = value; }
-        public int EstanteriaPosY { get => estanteriaPosY; set => estanteriaPosY = value; }
-        public int EstanteriaPadding { get => estanteriaPadding; set => estanteriaPadding = value; }
-        public string GoogleBooksApiKey { get => googleBooksApiKey; set => googleBooksApiKey = value; }
+        private void GuardarJson()
+        {
+            string jsonString = JsonConvert.SerializeObject(this, Formatting.Indented);
+            File.WriteAllText(RUTA_FICHERO, jsonString);
+        }
     }
 }

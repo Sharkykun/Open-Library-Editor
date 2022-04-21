@@ -2,13 +2,7 @@
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OpenLibraryEditor.Forms
@@ -99,6 +93,17 @@ namespace OpenLibraryEditor.Forms
             else
                 return true;
         }
+
+        private void ComprobarGuardado()
+        {
+            //Comparar objetos para preguntar si guardar
+            if (generoActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    KBtnAceptarGe_Click(null, null);
+            }
+        }
         #endregion
         private void MBtnCerrarGeneros_Click(object sender, EventArgs e)
         {
@@ -125,13 +130,8 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvGeneroNG_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && generoActual != null && EsObjetoCambiado())
-            {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
-                    KBtnAceptarGe_Click(null, null);
-            }
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvGeneroNG.SelectedItems.Count == 1)
@@ -172,24 +172,36 @@ namespace OpenLibraryEditor.Forms
 
         private void KBtnAceptarGe_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesGE.Visible == true) { 
-                //Actualizar etiqueta
-                generoActual.Nombre = KTxtNombreGe.Text;
-                generoActual.GeneroPadre = (Genero)KCmbGeneroPadreGe.SelectedItem;
-                generoActual.Comentario = KTxtComentarioGe.Text;
-
-                //Actualizar listview
-                itemActual.Text = KTxtNombreGe.Text;
-                foreach (ListViewItem item in LsvGeneroNG.Items)
+            if (PanOpcionesGE.Visible == true) {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text) &&
+                KCmbGeneroPadreGe.SelectedItem != generoActual)
                 {
-                    if (item.Tag == generoActual)
-                        item.SubItems[1].Text = generoActual.GeneroPadre.Nombre;
-                }
+                    //Actualizar etiqueta
+                    generoActual.Nombre = KTxtNombreGe.Text;
+                    generoActual.GeneroPadre = (Genero)KCmbGeneroPadreGe.SelectedItem;
+                    generoActual.Comentario = KTxtComentarioGe.Text;
 
-                ActualizarGeneroPadre();
+                    //Actualizar listview
+                    itemActual.Text = KTxtNombreGe.Text;
+                    itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
+                    foreach (ListViewItem item in LsvGeneroNG.Items)
+                    {
+                        Genero gp = (item.Tag as Genero).GeneroPadre;
+                        if (gp == generoActual && gp != null)
+                            item.SubItems[1].Text = generoActual.Nombre;
+                    }
+
+                    ActualizarGeneroPadre();
+                }
+                else
+                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío." +
+                        "\nEl género padre no puede ser el mismo que el actualmente seleccionado.");
             }
         }
 
-       
+        private void FrmGeneros_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
     }
 }

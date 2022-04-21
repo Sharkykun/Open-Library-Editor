@@ -81,8 +81,6 @@ namespace OpenLibraryEditor.Forms
             TTrs.SetToolTip(this.KCmbtipoRelacionRS, ControladorIdioma.GetTexto("RS_TTCmb"));
             TTrs.SetToolTip(this.MBtnMasRS, ControladorIdioma.GetTexto("RS_TTBtnMas"));
             TTrs.SetToolTip(this.MBtnMenosRS, ControladorIdioma.GetTexto("RS_TTBtnMenos"));
-            TTrs.SetToolTip(this.MBtnAniadirImagenRS, ControladorIdioma.GetTexto("RS_TTBtnMasImg"));
-            TTrs.SetToolTip(this.MBtnBorrarImagenRS, ControladorIdioma.GetTexto("RS_TTBtnMenosImg"));
             TTrs.SetToolTip(this.PcbRS, ControladorIdioma.GetTexto("RS_Pcb"));
             KBtnCancelarRS.Text = ControladorIdioma.GetTexto("Cancelar");
             TTrs.SetToolTip(this.KBtnCancelarRS, ControladorIdioma.GetTexto("Cancelar"));
@@ -154,21 +152,6 @@ namespace OpenLibraryEditor.Forms
                 ActualizarTipoRelacion();
                 KCmbtipoRelacionRS.SelectedItem = null;
             }
-        }
-
-        private void MBtnAniadirImagenRS_Click(object sender, EventArgs e)
-        {
-            string s = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_IMAGEN);
-            if (s != "")
-            {
-                rutaImagen = s;
-                CargarImagen(rutaImagen);
-            }
-        }
-
-        private void MBtnBorrarImagenRS_Click(object sender, EventArgs e)
-        {
-            PcbRS.Image = PcbRS.ErrorImage;
         }
 
         private void KBtnAceptarRS_Click(object sender, EventArgs e)

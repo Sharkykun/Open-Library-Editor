@@ -309,6 +309,7 @@
             this.LsvAutoresNA.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvAutoresNA.HideSelection = false;
             this.LsvAutoresNA.Location = new System.Drawing.Point(12, 70);
+            this.LsvAutoresNA.MultiSelect = false;
             this.LsvAutoresNA.Name = "LsvAutoresNA";
             this.LsvAutoresNA.Size = new System.Drawing.Size(221, 313);
             this.LsvAutoresNA.TabIndex = 131;
@@ -674,6 +675,7 @@
             this.Name = "FrmAutores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAutores";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAutores_FormClosing);
             this.Load += new System.EventHandler(this.FrmAutores_Load);
             this.PanTituloAutores.ResumeLayout(false);
             this.PanTituloAutores.PerformLayout();

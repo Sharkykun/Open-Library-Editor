@@ -1802,7 +1802,7 @@
             this.KPageAcciones});
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KcellTabs.SelectedIndex = 0;
+            this.KcellTabs.SelectedIndex = 3;
             this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.Navy;
             this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.Navy;
             this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.Gainsboro;
@@ -2165,6 +2165,7 @@
             this.LsvAccionesNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvAccionesNL.HideSelection = false;
             this.LsvAccionesNL.Location = new System.Drawing.Point(29, 28);
+            this.LsvAccionesNL.MultiSelect = false;
             this.LsvAccionesNL.Name = "LsvAccionesNL";
             this.LsvAccionesNL.Size = new System.Drawing.Size(324, 412);
             this.LsvAccionesNL.TabIndex = 44;
@@ -2194,6 +2195,7 @@
             this.Name = "FrmAniadirLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTitulos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAniadirLibro_FormClosing);
             this.Load += new System.EventHandler(this.FrmAniadirLibro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL.Panel)).EndInit();
             this.KgbDatosGeneralesNL.Panel.ResumeLayout(false);

@@ -296,6 +296,7 @@
             this.LsvTagsNT.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvTagsNT.HideSelection = false;
             this.LsvTagsNT.Location = new System.Drawing.Point(25, 70);
+            this.LsvTagsNT.MultiSelect = false;
             this.LsvTagsNT.Name = "LsvTagsNT";
             this.LsvTagsNT.Size = new System.Drawing.Size(308, 313);
             this.LsvTagsNT.TabIndex = 130;
@@ -498,6 +499,7 @@
             this.Name = "FrmTags";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTags";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmTags_FormClosing);
             this.Load += new System.EventHandler(this.FrmTags_Load);
             this.PanBtnTa.ResumeLayout(false);
             this.PanTituloTags.ResumeLayout(false);

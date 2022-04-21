@@ -36,7 +36,7 @@ namespace OpenLibraryEditor.Forms
         private List<Idioma> listaIdioma = UsuarioDatos.listaIdioma;
         private List<UsuarioEjecutable> listaEjecutable = UsuarioDatos.listaEjecutable;
         private List<UsuarioAccion> listaAccion = new List<UsuarioAccion>();
-        private UsuarioAccion accionActual;
+        private UsuarioAccion accionActual = new UsuarioAccion();
         private ListViewItem itemActual;
         private string rutaImagenPortada;
         private string rutaImagenContraportada;
@@ -164,7 +164,10 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem AniadirAccion(UsuarioAccion accion)
         {
             var item = LsvAccionesNL.Items.Add(Path.GetFileName(accion.RutaFichero));
-            if (accion.Ejecutable != null) item.SubItems.Add(accion.Ejecutable.ToString());
+            if (accion.Ejecutable != null) 
+                item.SubItems.Add(accion.Ejecutable.ToString());
+            else 
+                item.SubItems.Add("");
             item.Tag = accion;
             if (accionActual == accion) item.Selected = true;
             return item;
@@ -204,23 +207,23 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void RellenarPersona()
+        private void RellenarPersona(List<Persona> listaComparador)
         {
             KCCPersonasNL.Items.Clear();
             listaPersona.ForEach(p =>
             {
                 int i = AgregarComboCheckItem(KCCPersonasNL, p);
-                if (libroActual.ListaPersona.Contains(p)) KCCPersonasNL.SetItemChecked(i, true);
+                if (listaComparador.Contains(p)) KCCPersonasNL.SetItemChecked(i, true);
             });
         }
 
-        private void RellenarEditorial()
+        private void RellenarEditorial(List<Editorial> listaComparador)
         {
             KCCEditorialNL.Items.Clear();
             listaEditorial.ForEach(p =>
             {
                 int i = AgregarComboCheckItem(KCCEditorialNL, p);
-                if (libroActual.ListaEditorial.Contains(p)) KCCEditorialNL.SetItemChecked(i, true);
+                if (listaComparador.Contains(p)) KCCEditorialNL.SetItemChecked(i, true);
             });
         }
 
@@ -230,33 +233,33 @@ namespace OpenLibraryEditor.Forms
             listaEjecutable.ForEach(p => AgregarComboItem(KCmbEjecutableNL, p));
         }
 
-        private void RellenarEtiqueta()
+        private void RellenarEtiqueta(List<Etiqueta> listaComparador)
         {
             KCCEtiquetaNL.Items.Clear();
             listaEtiqueta.ForEach(p =>
             {
                 int i = AgregarComboCheckItem(KCCEtiquetaNL, p);
-                if (libroActual.ListaEtiqueta.Contains(p)) KCCEtiquetaNL.SetItemChecked(i, true);
+                if (listaComparador.Contains(p)) KCCEtiquetaNL.SetItemChecked(i, true);
             });
         }
 
-        private void RellenarGenero()
+        private void RellenarGenero(List<Genero> listaComparador)
         {
             KCCGenerosNL.Items.Clear();
             listaGenero.ForEach(p =>
             {
                 int i = AgregarComboCheckItem(KCCGenerosNL, p);
-                if (libroActual.ListaGenero.Contains(p)) KCCGenerosNL.SetItemChecked(i, true);
+                if (listaComparador.Contains(p)) KCCGenerosNL.SetItemChecked(i, true);
             });
         }
 
-        private void RellenarSerie()
+        private void RellenarSerie(List<Serie> listaComparador)
         {
             KCCSerieNL.Items.Clear();
             listaSerie.ForEach(p =>
             {
                 int i = AgregarComboCheckItem(KCCSerieNL, p);
-                if (libroActual.ListaSerie.Contains(p)) KCCSerieNL.SetItemChecked(i, true);
+                if (listaComparador.Contains(p)) KCCSerieNL.SetItemChecked(i, true);
             });
         }
         #endregion
@@ -277,16 +280,16 @@ namespace OpenLibraryEditor.Forms
             IdiomaTexto();
             KcellTabs.SelectedPage = KpageDatosGenerales;
             //Agregar valores de listas
-            RellenarEditorial();
+            RellenarEditorial(libroActual.ListaEditorial);
             RellenarEjecutable();
-            RellenarEtiqueta();
-            RellenarGenero();
-            RellenarSerie();
+            RellenarEtiqueta(libroActual.ListaEtiqueta);
+            RellenarGenero(libroActual.ListaGenero);
+            RellenarSerie(libroActual.ListaSerie);
             listaIdioma.ForEach(p => {
                 AgregarComboItem(KCmbIdiomaNL, p);
                 AgregarComboItem(KCmbIdiomaOriginalNL, p);
             });
-            RellenarPersona();
+            RellenarPersona(libroActual.ListaPersona);
 
             //Vincular lista de tipo libro con Combobox
             tipoBinding.DataSource = listaTipoLibro;
@@ -332,14 +335,24 @@ namespace OpenLibraryEditor.Forms
             FrmEditoriales editoriales = new FrmEditoriales(true);
             editoriales.FormBorderStyle = FormBorderStyle.None;
             editoriales.ShowDialog();
-            RellenarEditorial();
+            List<Editorial> temp = new List<Editorial>();
+            foreach (CCBoxItem p in KCCEditorialNL.CheckedItems)
+            {
+                temp.Add((Editorial)p.Item);
+            }
+            RellenarEditorial(temp);
         }    
         private void MBtnMasPersonasNL_Click(object sender, EventArgs e)
         {
             FrmAutores autores = new FrmAutores(true);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
-            RellenarPersona();
+            List<Persona> temp = new List<Persona>();
+            foreach (CCBoxItem p in KCCPersonasNL.CheckedItems)
+            {
+                temp.Add((Persona)p.Item);
+            }
+            RellenarPersona(temp);
         }
 
         private void MBtnMasGenerosNL_Click(object sender, EventArgs e)
@@ -347,7 +360,12 @@ namespace OpenLibraryEditor.Forms
             FrmGeneros generos = new FrmGeneros(true);
             generos.FormBorderStyle = FormBorderStyle.None;
             generos.ShowDialog();
-            RellenarGenero();
+            List<Genero> temp = new List<Genero>();
+            foreach (CCBoxItem p in KCCGenerosNL.CheckedItems)
+            {
+                temp.Add((Genero)p.Item);
+            }
+            RellenarGenero(temp);
         }
 
         private void MBtnMasSerieNL_Click(object sender, EventArgs e)
@@ -355,7 +373,12 @@ namespace OpenLibraryEditor.Forms
             FrmSeries series = new FrmSeries(true);
             series.FormBorderStyle = FormBorderStyle.None;
             series.ShowDialog();
-            RellenarSerie();
+            List<Serie> temp = new List<Serie>();
+            foreach (CCBoxItem p in KCCSerieNL.CheckedItems)
+            {
+                temp.Add((Serie)p.Item);
+            }
+            RellenarSerie(temp);
         }
 
         private void MBtnMasEtiquetasNL_Click(object sender, EventArgs e)
@@ -363,7 +386,12 @@ namespace OpenLibraryEditor.Forms
             FrmTags tags = new FrmTags(true);
             tags.FormBorderStyle = FormBorderStyle.None;
             tags.ShowDialog();
-            RellenarEtiqueta();
+            List<Etiqueta> temp = new List<Etiqueta>();
+            foreach (CCBoxItem p in KCCEtiquetaNL.CheckedItems)
+            {
+                temp.Add((Etiqueta)p.Item);
+            }
+            RellenarEtiqueta(temp);
         }
         private void MBtnMasTipoLibroNL_Click(object sender, EventArgs e)
         {
@@ -462,11 +490,8 @@ namespace OpenLibraryEditor.Forms
 
             //Actualizar listview
             itemActual.Text = accionActual.RutaFichero;
-            itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
-        }
-        private void IBtnBuscarFicheroAccionesNL_Click(object sender, EventArgs e)
-        {
-            
+            if (accionActual.Ejecutable != null)
+                itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
         }
         private void IbtnFichero_Click(object sender, EventArgs e)
         {
@@ -559,6 +584,15 @@ namespace OpenLibraryEditor.Forms
             this.Close();
         }
 
-        
+        private void FrmAniadirLibro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Comparar objetos para preguntar si guardar
+            if (libroActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto("el libro");
+                if (result == DialogResult.Yes)
+                    BtnGuardarNL_Click(null, null);
+            }
+        }
     }
 }

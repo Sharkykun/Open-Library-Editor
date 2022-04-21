@@ -36,11 +36,9 @@
             this.LblTituloConfi = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.KgbGeneral = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.LblContenidoExpConfi = new System.Windows.Forms.Label();
             this.TxtSubtituloUbicacion = new System.Windows.Forms.TextBox();
             this.LblUbicacion = new System.Windows.Forms.Label();
-            this.TBtnUltimaBBDD = new OpenLibraryEditor.Controles.ToggleButton();
             this.IBtnOpenFile = new FontAwesome.Sharp.IconButton();
             this.TxtUbicacionBBDD = new System.Windows.Forms.TextBox();
             this.LblUltimaBBDD = new System.Windows.Forms.Label();
@@ -90,6 +88,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanConfiguracion = new System.Windows.Forms.Panel();
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
+            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
+            this.TBtnUltimaBBDD = new OpenLibraryEditor.Controles.ToggleButton();
+            this.MBtnMasIP = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnMenosIP = new FontAwesome.Sharp.Material.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbConfi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral.Panel)).BeginInit();
@@ -158,7 +160,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloConfi.Location = new System.Drawing.Point(88, 48);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
             this.LblTituloConfi.TabIndex = 3;
             this.LblTituloConfi.Text = "Configuración";
             // 
@@ -206,22 +208,6 @@
             this.KgbGeneral.TabIndex = 12;
             this.KgbGeneral.Values.Heading = " General";
             // 
-            // TBtnContenidoExp
-            // 
-            this.TBtnContenidoExp.AutoSize = true;
-            this.TBtnContenidoExp.Checked = true;
-            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnContenidoExp.Location = new System.Drawing.Point(469, 183);
-            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
-            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.TabIndex = 30;
-            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
-            // 
             // LblContenidoExpConfi
             // 
             this.LblContenidoExpConfi.AutoSize = true;
@@ -259,22 +245,6 @@
             this.LblUbicacion.TabIndex = 23;
             this.LblUbicacion.Text = "Ubicación base de datos local\r\n";
             // 
-            // TBtnUltimaBBDD
-            // 
-            this.TBtnUltimaBBDD.AutoSize = true;
-            this.TBtnUltimaBBDD.Checked = true;
-            this.TBtnUltimaBBDD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnUltimaBBDD.Location = new System.Drawing.Point(469, 33);
-            this.TBtnUltimaBBDD.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnUltimaBBDD.Name = "TBtnUltimaBBDD";
-            this.TBtnUltimaBBDD.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnUltimaBBDD.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnUltimaBBDD.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnUltimaBBDD.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnUltimaBBDD.Size = new System.Drawing.Size(45, 22);
-            this.TBtnUltimaBBDD.TabIndex = 22;
-            this.TBtnUltimaBBDD.UseVisualStyleBackColor = true;
-            // 
             // IBtnOpenFile
             // 
             this.IBtnOpenFile.BackColor = System.Drawing.Color.Transparent;
@@ -291,6 +261,7 @@
             this.IBtnOpenFile.Size = new System.Drawing.Size(23, 23);
             this.IBtnOpenFile.TabIndex = 28;
             this.IBtnOpenFile.UseVisualStyleBackColor = false;
+            this.IBtnOpenFile.Click += new System.EventHandler(this.IBtnOpenFile_Click);
             // 
             // TxtUbicacionBBDD
             // 
@@ -801,6 +772,8 @@
             // 
             // KgbServidorWeb.Panel
             // 
+            this.KgbServidorWeb.Panel.Controls.Add(this.MBtnMenosIP);
+            this.KgbServidorWeb.Panel.Controls.Add(this.MBtnMasIP);
             this.KgbServidorWeb.Panel.Controls.Add(this.NudPuerto);
             this.KgbServidorWeb.Panel.Controls.Add(this.CmbIP);
             this.KgbServidorWeb.Panel.Controls.Add(this.LblPuertoServidor);
@@ -830,7 +803,7 @@
             this.NudPuerto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NudPuerto.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NudPuerto.ForeColor = System.Drawing.Color.Navy;
-            this.NudPuerto.Location = new System.Drawing.Point(469, 123);
+            this.NudPuerto.Location = new System.Drawing.Point(485, 123);
             this.NudPuerto.Name = "NudPuerto";
             this.NudPuerto.Size = new System.Drawing.Size(120, 27);
             this.NudPuerto.TabIndex = 32;
@@ -863,7 +836,7 @@
             this.LblPuertoServidor.AutoSize = true;
             this.LblPuertoServidor.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPuertoServidor.ForeColor = System.Drawing.Color.Navy;
-            this.LblPuertoServidor.Location = new System.Drawing.Point(469, 84);
+            this.LblPuertoServidor.Location = new System.Drawing.Point(485, 84);
             this.LblPuertoServidor.Name = "LblPuertoServidor";
             this.LblPuertoServidor.Size = new System.Drawing.Size(70, 26);
             this.LblPuertoServidor.TabIndex = 30;
@@ -885,7 +858,7 @@
             this.TxtTituloServidorWeb.BackColor = System.Drawing.Color.LightGray;
             this.TxtTituloServidorWeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTituloServidorWeb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(469, 25);
+            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(282, 35);
             this.TxtTituloServidorWeb.Name = "TxtTituloServidorWeb";
             this.TxtTituloServidorWeb.Size = new System.Drawing.Size(323, 25);
             this.TxtTituloServidorWeb.TabIndex = 28;
@@ -1197,6 +1170,66 @@
             this.PanConfiguracion.Size = new System.Drawing.Size(948, 693);
             this.PanConfiguracion.TabIndex = 3;
             // 
+            // TBtnContenidoExp
+            // 
+            this.TBtnContenidoExp.AutoSize = true;
+            this.TBtnContenidoExp.Checked = true;
+            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TBtnContenidoExp.Location = new System.Drawing.Point(469, 183);
+            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
+            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.TabIndex = 30;
+            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
+            // 
+            // TBtnUltimaBBDD
+            // 
+            this.TBtnUltimaBBDD.AutoSize = true;
+            this.TBtnUltimaBBDD.Checked = true;
+            this.TBtnUltimaBBDD.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TBtnUltimaBBDD.Location = new System.Drawing.Point(469, 33);
+            this.TBtnUltimaBBDD.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnUltimaBBDD.Name = "TBtnUltimaBBDD";
+            this.TBtnUltimaBBDD.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnUltimaBBDD.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnUltimaBBDD.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnUltimaBBDD.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnUltimaBBDD.Size = new System.Drawing.Size(45, 22);
+            this.TBtnUltimaBBDD.TabIndex = 22;
+            this.TBtnUltimaBBDD.UseVisualStyleBackColor = true;
+            // 
+            // MBtnMasIP
+            // 
+            this.MBtnMasIP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMasIP.FlatAppearance.BorderSize = 0;
+            this.MBtnMasIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasIP.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
+            this.MBtnMasIP.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasIP.IconSize = 40;
+            this.MBtnMasIP.Location = new System.Drawing.Point(376, 123);
+            this.MBtnMasIP.Name = "MBtnMasIP";
+            this.MBtnMasIP.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMasIP.TabIndex = 161;
+            this.MBtnMasIP.UseVisualStyleBackColor = true;
+            // 
+            // MBtnMenosIP
+            // 
+            this.MBtnMenosIP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMenosIP.FlatAppearance.BorderSize = 0;
+            this.MBtnMenosIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosIP.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
+            this.MBtnMenosIP.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMenosIP.IconSize = 40;
+            this.MBtnMenosIP.Location = new System.Drawing.Point(408, 123);
+            this.MBtnMenosIP.Name = "MBtnMenosIP";
+            this.MBtnMenosIP.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMenosIP.TabIndex = 162;
+            this.MBtnMenosIP.UseVisualStyleBackColor = true;
+            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1312,5 +1345,7 @@
         private System.Windows.Forms.CheckBox ChkEditoriales;
         private System.Windows.Forms.CheckBox ChkSeries;
         private System.Windows.Forms.CheckBox ChkTags;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMasIP;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMenosIP;
     }
 }

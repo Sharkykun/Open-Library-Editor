@@ -25,7 +25,6 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem itemSerieActual;
         private List<RelacionSerie> listaTempRelacion;
         private RelacionSerie relacionActual;
-        private ListViewItem itemRelacionActual;
 
         private string rutaImagen;
 
@@ -100,7 +99,7 @@ namespace OpenLibraryEditor.Forms
             TTSeries.SetToolTip(this.MBtnMasRelacionNS, ControladorIdioma.GetTexto("Se_RMas"));
             TTSeries.SetToolTip(this.MBtnMenosRelacionNS, ControladorIdioma.GetTexto("Se_RMenos"));
             MBtnEditarRS.Text = ControladorIdioma.GetTexto("Se_REditar");
-            TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_TTEditar"));
+            TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_RTTEditar"));
             KBtnCancelarSe.Text = ControladorIdioma.GetTexto("Cancelar");
             TTSeries.SetToolTip(this.KBtnCancelarSe, ControladorIdioma.GetTexto("Cancelar"));
             KBtnAceptarSe.Text = ControladorIdioma.GetTexto("Aceptar");
@@ -161,6 +160,17 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
+        private void ComprobarGuardado()
+        {
+            //Comparar objetos para preguntar si guardar
+            if (serieActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    KBtnAceptarSe_Click(null, null);
+            }
+        }
+
         private FrmEditarRelacionSerie CrearFormularioRelacion(RelacionSerie relacion)
         {
             FrmEditarRelacionSerie form = new FrmEditarRelacionSerie(relacion, LsvSeriesNS, serieActual);
@@ -173,13 +183,8 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvSeriesNS_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && serieActual != null && EsObjetoCambiado())
-            {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
-                    KBtnAceptarSe_Click(null, null);
-            }
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvSeriesNS.SelectedItems.Count == 1)
@@ -291,25 +296,33 @@ namespace OpenLibraryEditor.Forms
         }
         private void KBtnAceptarSe_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesSE.Visible == true) { 
-                //Actualizar serie
-                serieActual.Nombre = KTxtNombreSe.Text;
-                serieActual.Estado = KCmbEstadoSe.Text;
-                serieActual.Comentario = KTxtComentarioSe.Text;
-                serieActual.ListaRelacionSerie = listaTempRelacion;
-                if (rutaImagen != serieActual.Imagen)
+            if (PanOpcionesSE.Visible == true) {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreSe.Text))
                 {
-                    serieActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                        ControladorImagen.RUTA_SERIE, serieActual.IdSerie.ToString());
-                    rutaImagen = serieActual.Imagen;
-                }
+                    //Actualizar serie
+                    serieActual.Nombre = KTxtNombreSe.Text;
+                    serieActual.Estado = KCmbEstadoSe.Text;
+                    serieActual.Comentario = KTxtComentarioSe.Text;
+                    serieActual.ListaRelacionSerie = listaTempRelacion;
+                    if (rutaImagen != serieActual.Imagen)
+                    {
+                        serieActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                            ControladorImagen.RUTA_SERIE, serieActual.IdSerie.ToString());
+                        rutaImagen = serieActual.Imagen;
+                    }
 
-                //Actualizar listview
-                itemSerieActual.Text = KTxtNombreSe.Text;
-                itemSerieActual.SubItems[1].Text = KCmbEstadoSe.Text;
+                    //Actualizar listview
+                    itemSerieActual.Text = KTxtNombreSe.Text;
+                    itemSerieActual.SubItems[1].Text = KCmbEstadoSe.Text;
+                }
+                else
+                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
             }
         }
 
-      
+        private void FrmSeries_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
     }
 }

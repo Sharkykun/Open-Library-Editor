@@ -330,6 +330,7 @@
             this.LsvEjecutable.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvEjecutable.HideSelection = false;
             this.LsvEjecutable.Location = new System.Drawing.Point(25, 70);
+            this.LsvEjecutable.MultiSelect = false;
             this.LsvEjecutable.Name = "LsvEjecutable";
             this.LsvEjecutable.Size = new System.Drawing.Size(336, 313);
             this.LsvEjecutable.TabIndex = 141;
@@ -510,6 +511,7 @@
             this.Name = "FrmEjecutable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEjecutable";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEjecutable_FormClosing);
             this.Load += new System.EventHandler(this.FrmEjecutable_Load);
             this.PanBtnEje.ResumeLayout(false);
             this.PanTituloEjecutables.ResumeLayout(false);

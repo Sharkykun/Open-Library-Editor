@@ -114,6 +114,7 @@
     <Compile Include="DatosLibros\Etiqueta.cs" />
     <Compile Include="DatosLibros\Genero.cs" />
     <Compile Include="DatosLibros\Idioma.cs" />
+    <Compile Include="DatosLibros\InfoBaseDatos.cs" />
     <Compile Include="DatosLibros\Libro.cs" />
     <Compile Include="DatosLibros\Persona.cs" />
     <Compile Include="DatosLibros\RelacionSerie.cs" />
