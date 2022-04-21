@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMisGeneros));
             this.PanTreeMGE = new System.Windows.Forms.Panel();
             this.TrvGenerosMGE = new System.Windows.Forms.TreeView();
             this.PanNumGenerosMGE = new System.Windows.Forms.Panel();
@@ -72,9 +73,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TrvGenerosMGE.BackColor = System.Drawing.Color.Navy;
-            this.TrvGenerosMGE.Location = new System.Drawing.Point(40, 40);
+            this.TrvGenerosMGE.Location = new System.Drawing.Point(0, 0);
             this.TrvGenerosMGE.Name = "TrvGenerosMGE";
-            this.TrvGenerosMGE.Size = new System.Drawing.Size(868, 458);
+            this.TrvGenerosMGE.Size = new System.Drawing.Size(260, 546);
             this.TrvGenerosMGE.TabIndex = 2;
             // 
             // PanNumGenerosMGE
@@ -296,6 +297,7 @@
             this.Controls.Add(this.PanTreeMGE);
             this.Controls.Add(this.PanBusquedaMGE);
             this.Controls.Add(this.PanTituloMisGeneros);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMisGeneros";
             this.Text = "FrmMisGeneros";
             this.PanTreeMGE.ResumeLayout(false);

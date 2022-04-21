@@ -1,5 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using FontAwesome.Sharp.Material;
+using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,48 +48,55 @@ namespace OpenLibraryEditor.Forms
         }
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
+            if (ControladorIdioma.idioma.Equals("Strings_fr_FR"))
+                LlLogIn.Location = new Point(30,168);
+            else if (ControladorIdioma.idioma.Equals("Strings_en_US"))
+                LlLogIn.Location = new Point(88, 168);
+            else
+                LlLogIn.Location = new Point(65, 168);
+          
             IdiomaTexto();
         }
         #region texto segun idioma seleccionado
         private void IdiomaTexto()
         {
-            ToolTipMain.SetToolTip(this.AciFotoUsuario, Clases.ControladorIdioma.GetTexto("Main_TTFotoUsuario"));
-            LlLogIn.Text = Clases.ControladorIdioma.GetTexto("Main_LinkSesion");
-            ToolTipMain.SetToolTip(this.LlLogIn, Clases.ControladorIdioma.GetTexto("Main_TTLink"));
-            MBtnMiBiblioteca.Text= Clases.ControladorIdioma.GetTexto("Main_MiBiblioteca");
-            ToolTipMain.SetToolTip(this.MBtnMiBiblioteca, Clases.ControladorIdioma.GetTexto("Main_MiBiblioteca"));
-            MBtnAutores.Text = Clases.ControladorIdioma.GetTexto("Main_Autores");
-            ToolTipMain.SetToolTip(this.MBtnAutores, Clases.ControladorIdioma.GetTexto("Main_TTAutores"));
-            MBtnTítulos.Text = Clases.ControladorIdioma.GetTexto("Main_Titulos");
-            ToolTipMain.SetToolTip(this.MBtnTítulos, Clases.ControladorIdioma.GetTexto("Main_TTTitulos"));
-            MBtnGeneros.Text = Clases.ControladorIdioma.GetTexto("Main_Generos");
-            ToolTipMain.SetToolTip(this.MBtnGeneros, Clases.ControladorIdioma.GetTexto("Main_TTGeneros"));
-            MBtnSeries.Text = Clases.ControladorIdioma.GetTexto("Main_Series");
-            ToolTipMain.SetToolTip(this.MBtnSeries, Clases.ControladorIdioma.GetTexto("Main_TTSeries"));
-            MBtnEditoriales.Text = Clases.ControladorIdioma.GetTexto("Main_Editoriales");
-            ToolTipMain.SetToolTip(this.MBtnEditoriales, Clases.ControladorIdioma.GetTexto("Main_TTEditoriales"));
-            MBtnTags.Text = Clases.ControladorIdioma.GetTexto("Main_Tags");
-            ToolTipMain.SetToolTip(this.MBtnTags, Clases.ControladorIdioma.GetTexto("Main_TTTags"));
-            MBtnBuscar.Text = Clases.ControladorIdioma.GetTexto("Main_Buscar");
-            ToolTipMain.SetToolTip(this.MBtnBuscar, Clases.ControladorIdioma.GetTexto("Main_TTBuscar"));
-            MBtnConfiguracion.Text = Clases.ControladorIdioma.GetTexto("Main_Confi");
-            ToolTipMain.SetToolTip(this.MBtnConfiguracion, Clases.ControladorIdioma.GetTexto("Main_TTConfi"));
-            MBtnSalir.Text = Clases.ControladorIdioma.GetTexto("Main_Salir");
-            ToolTipMain.SetToolTip(this.MBtnSalir, Clases.ControladorIdioma.GetTexto("Main_TTSalir"));
-            BtnAniadirLibroMsb.Text = Clases.ControladorIdioma.GetTexto("Main_NuevoLibro");
-            BtnModificarLibroMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Modificar");
-            BtnBorrarLibroMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Eliminar");
-            BtnAutoresMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Autores");
-            BtnGenerosMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Generos");
-            BtnSeriesMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Series");
-            BtnEditorialesMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Editoriales");
-            BtnTagsMsb.Text = Clases.ControladorIdioma.GetTexto("Main_Tags");
-            ToolTipMain.SetToolTip(this.PcbLogoMain, Clases.ControladorIdioma.GetTexto("Main_TTLogo"));
-            ToolTipMain.SetToolTip(this.LblTituloMain, Clases.ControladorIdioma.GetTexto("Main_TTFormTitulo"));
-            ToolTipMain.SetToolTip(this.MBtnMinimizarMain, Clases.ControladorIdioma.GetTexto("Main_TTMinimizar"));
-            ToolTipMain.SetToolTip(this.MBtnMaximizarMain, Clases.ControladorIdioma.GetTexto("Main_TTMaximizar"));
-            ToolTipMain.SetToolTip(this.MBtnRestaurarMain, Clases.ControladorIdioma.GetTexto("Main_TTRestaurar"));
-            ToolTipMain.SetToolTip(this.MBtnCerrarMain, Clases.ControladorIdioma.GetTexto("Main_TTCerrar"));
+            ToolTipMain.SetToolTip(this.AciFotoUsuario, ControladorIdioma.GetTexto("Main_TTFotoUsuario"));
+            LlLogIn.Text = ControladorIdioma.GetTexto("Main_LinkSesion");
+            ToolTipMain.SetToolTip(this.LlLogIn, ControladorIdioma.GetTexto("Main_TTLink"));
+            MBtnMiBiblioteca.Text= ControladorIdioma.GetTexto("Main_MiBiblioteca");
+            ToolTipMain.SetToolTip(this.MBtnMiBiblioteca, ControladorIdioma.GetTexto("Main_MiBiblioteca"));
+            MBtnAutores.Text = ControladorIdioma.GetTexto("Main_Autores");
+            ToolTipMain.SetToolTip(this.MBtnAutores, ControladorIdioma.GetTexto("Main_TTAutores"));
+            MBtnTítulos.Text = ControladorIdioma.GetTexto("Main_Titulos");
+            ToolTipMain.SetToolTip(this.MBtnTítulos, ControladorIdioma.GetTexto("Main_TTTitulos"));
+            MBtnGeneros.Text = ControladorIdioma.GetTexto("Main_Generos");
+            ToolTipMain.SetToolTip(this.MBtnGeneros, ControladorIdioma.GetTexto("Main_TTGeneros"));
+            MBtnSeries.Text = ControladorIdioma.GetTexto("Main_Series");
+            ToolTipMain.SetToolTip(this.MBtnSeries, ControladorIdioma.GetTexto("Main_TTSeries"));
+            MBtnEditoriales.Text = ControladorIdioma.GetTexto("Main_Editoriales");
+            ToolTipMain.SetToolTip(this.MBtnEditoriales, ControladorIdioma.GetTexto("Main_TTEditoriales"));
+            MBtnTags.Text = ControladorIdioma.GetTexto("Main_Tags");
+            ToolTipMain.SetToolTip(this.MBtnTags, ControladorIdioma.GetTexto("Main_TTTags"));
+            MBtnBuscar.Text = ControladorIdioma.GetTexto("Main_Buscar");
+            ToolTipMain.SetToolTip(this.MBtnBuscar, ControladorIdioma.GetTexto("Main_TTBuscar"));
+            MBtnConfiguracion.Text = ControladorIdioma.GetTexto("Main_Confi");
+            ToolTipMain.SetToolTip(this.MBtnConfiguracion, ControladorIdioma.GetTexto("Main_TTConfi"));
+            MBtnSalir.Text = ControladorIdioma.GetTexto("Main_Salir");
+            ToolTipMain.SetToolTip(this.MBtnSalir, ControladorIdioma.GetTexto("Main_TTSalir"));
+            BtnAniadirLibroMsb.Text = ControladorIdioma.GetTexto("Main_NuevoLibro");
+            BtnModificarLibroMsb.Text = ControladorIdioma.GetTexto("Main_Modificar");
+            BtnBorrarLibroMsb.Text = ControladorIdioma.GetTexto("Main_Eliminar");
+            BtnAutoresMsb.Text = ControladorIdioma.GetTexto("Main_Autores");
+            BtnGenerosMsb.Text = ControladorIdioma.GetTexto("Main_Generos");
+            BtnSeriesMsb.Text = ControladorIdioma.GetTexto("Main_Series");
+            BtnEditorialesMsb.Text = ControladorIdioma.GetTexto("Main_Editoriales");
+            BtnTagsMsb.Text = ControladorIdioma.GetTexto("Main_Tags");
+            ToolTipMain.SetToolTip(this.PcbLogoMain, ControladorIdioma.GetTexto("Main_TTLogo"));
+            ToolTipMain.SetToolTip(this.LblTituloMain, ControladorIdioma.GetTexto("Main_TTFormTitulo"));
+            ToolTipMain.SetToolTip(this.MBtnMinimizarMain, ControladorIdioma.GetTexto("Main_TTMinimizar"));
+            ToolTipMain.SetToolTip(this.MBtnMaximizarMain, ControladorIdioma.GetTexto("Main_TTMaximizar"));
+            ToolTipMain.SetToolTip(this.MBtnRestaurarMain, ControladorIdioma.GetTexto("Main_TTRestaurar"));
+            ToolTipMain.SetToolTip(this.MBtnCerrarMain, ControladorIdioma.GetTexto("Main_TTCerrar"));
         }
         #endregion
         #region Colores boton seleccionado
@@ -225,7 +234,9 @@ namespace OpenLibraryEditor.Forms
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            AbrirFormularios(new FrmNuevoLibro());
+            FrmAniadirLibro al = new FrmAniadirLibro(new Libro());
+            al.FormBorderStyle=FormBorderStyle.None;
+            al.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
@@ -244,7 +255,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnAutoresMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmAutores autores = new FrmAutores();
+            FrmAutores autores = new FrmAutores(true);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -252,7 +263,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnGenerosMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmGeneros generos = new FrmGeneros();
+            FrmGeneros generos = new FrmGeneros(true);
             generos.FormBorderStyle = FormBorderStyle.None;
             generos.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -260,7 +271,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnSeriesMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmSeries series = new FrmSeries();
+            FrmSeries series = new FrmSeries(true);
             series.FormBorderStyle = FormBorderStyle.None;
             series.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -268,7 +279,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnEditorialesMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmEditoriales editoriales = new FrmEditoriales();
+            FrmEditoriales editoriales = new FrmEditoriales(true);
             editoriales.FormBorderStyle = FormBorderStyle.None;
             editoriales.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -276,7 +287,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnTagsMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmTags tags = new FrmTags();
+            FrmTags tags = new FrmTags(true);
             tags.FormBorderStyle = FormBorderStyle.None;
             tags.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);

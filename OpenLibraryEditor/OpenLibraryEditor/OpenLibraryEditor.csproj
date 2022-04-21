@@ -47,6 +47,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
+    <Reference Include="FastDeepCloner, Version=1.0.3.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastDeepCloner.1.3.6\lib\net451\FastDeepCloner.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -55,6 +58,28 @@
     </Reference>
     <Reference Include="FontAwesome.Sharp.Pro, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.Pro.5.15.4\lib\net48\FontAwesome.Sharp.Pro.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.57.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.57.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.57.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Books.v1, Version=1.57.0.2633, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Books.v1.1.57.0.2633\lib\net45\Google.Apis.Books.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.57.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.57.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -74,11 +99,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\CCBoxItem.cs" />
     <Compile Include="Clases\ControladorIdioma.cs" />
+    <Compile Include="Clases\ControladorImagen.cs" />
+    <Compile Include="Clases\GoogleBooksController.cs" />
     <Compile Include="Clases\MiMessageBox.cs" />
+    <Compile Include="Clases\VentanaWindowsComun.cs" />
+    <Compile Include="Controles\CheckedComboBox.cs" />
     <Compile Include="Controles\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DatosLibros\Biblioteca.cs" />
+    <Compile Include="DatosLibros\Editorial.cs" />
+    <Compile Include="DatosLibros\Etiqueta.cs" />
+    <Compile Include="DatosLibros\Genero.cs" />
+    <Compile Include="DatosLibros\Idioma.cs" />
+    <Compile Include="DatosLibros\Libro.cs" />
+    <Compile Include="DatosLibros\Persona.cs" />
+    <Compile Include="DatosLibros\RelacionSerie.cs" />
+    <Compile Include="DatosLibros\Serie.cs" />
+    <Compile Include="DatosLibros\UsuarioAccion.cs" />
+    <Compile Include="DatosLibros\UsuarioDatos.cs" />
+    <Compile Include="DatosLibros\UsuarioEjecutable.cs" />
     <Compile Include="Forms\FrmAutores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,11 +139,23 @@
     <Compile Include="Forms\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmEditarRelacionSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEditarRelacionSerie.Designer.cs">
+      <DependentUpon>FrmEditarRelacionSerie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmEditoriales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmEditoriales.Designer.cs">
       <DependentUpon>FrmEditoriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEjecutable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEjecutable.Designer.cs">
+      <DependentUpon>FrmEjecutable.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmGeneros.cs">
       <SubType>Form</SubType>
@@ -175,12 +229,6 @@
     <Compile Include="Forms\FrmModificarLibro.Designer.cs">
       <DependentUpon>FrmModificarLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmNuevoLibro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmNuevoLibro.Designer.cs">
-      <DependentUpon>FrmNuevoLibro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,11 +253,11 @@
     <Compile Include="Forms\FrmTags.Designer.cs">
       <DependentUpon>FrmTags.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmTitulos.cs">
+    <Compile Include="Forms\FrmAniadirLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmTitulos.Designer.cs">
-      <DependentUpon>FrmTitulos.cs</DependentUpon>
+    <Compile Include="Forms\FrmAniadirLibro.Designer.cs">
+      <DependentUpon>FrmAniadirLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="Idiomas\Strings_en_US.Designer.cs">
       <DependentUpon>Strings_en_US.resx</DependentUpon>
@@ -238,8 +286,14 @@
     <EmbeddedResource Include="Forms\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditarRelacionSerie.resx">
+      <DependentUpon>FrmEditarRelacionSerie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditoriales.resx">
       <DependentUpon>FrmEditoriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEjecutable.resx">
+      <DependentUpon>FrmEjecutable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmGeneros.resx">
       <DependentUpon>FrmGeneros.cs</DependentUpon>
@@ -274,8 +328,8 @@
     <EmbeddedResource Include="Forms\FrmMisTitulos.resx">
       <DependentUpon>FrmMisTitulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmNuevoLibro.resx">
-      <DependentUpon>FrmNuevoLibro.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmModificarLibro.resx">
+      <DependentUpon>FrmModificarLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRegistro.resx">
       <DependentUpon>FrmRegistro.cs</DependentUpon>
@@ -289,8 +343,8 @@
     <EmbeddedResource Include="Forms\FrmTags.resx">
       <DependentUpon>FrmTags.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmTitulos.resx">
-      <DependentUpon>FrmTitulos.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAniadirLibro.resx">
+      <DependentUpon>FrmAniadirLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Idiomas\Strings_en_US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -363,6 +417,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PortadaLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

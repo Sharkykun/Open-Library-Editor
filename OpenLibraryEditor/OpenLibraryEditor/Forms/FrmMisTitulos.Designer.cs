@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMisTitulos));
             this.PanLsvMTI = new System.Windows.Forms.Panel();
             this.PanNumTitulosMTI = new System.Windows.Forms.Panel();
             this.LblPonerNumTitulosMTI = new System.Windows.Forms.Label();
@@ -301,6 +302,7 @@
             this.Controls.Add(this.PanLsvMTI);
             this.Controls.Add(this.PanBusquedaMTI);
             this.Controls.Add(this.PanTituloMisTitulos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMisTitulos";
             this.Text = "FrmMisTitulos";
             this.PanLsvMTI.ResumeLayout(false);

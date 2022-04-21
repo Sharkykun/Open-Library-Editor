@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using FontAwesome;
 using FontAwesome.Sharp;
+using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.Metodos;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -61,18 +63,29 @@ namespace OpenLibraryEditor.Forms
         //Método para cambiar el idioma de la aplicación
         private void IdiomaTexto()
         {
-            BtnSpain.Text = Clases.ControladorIdioma.GetTexto("Log_BtnSpain");
-            BtnUsa.Text = Clases.ControladorIdioma.GetTexto("Log_BtnUSA");
-            BtnFrancia.Text = Clases.ControladorIdioma.GetTexto("Log_BtnFrancia");
-            KTxtUrl.Text = Clases.ControladorIdioma.GetTexto("Log_Url");
-            KTxtNombre.Text = Clases.ControladorIdioma.GetTexto("Log_Nombre");
-            KTxtContra.Text = Clases.ControladorIdioma.GetTexto("Log_Contra");
-            LblSesionIniciada.Text = Clases.ControladorIdioma.GetTexto("Log_LblConectado");
-            LlblRecuperar.Text = Clases.ControladorIdioma.GetTexto("Log_LlRecuperar");
-            BtnRegistrarse.Text = Clases.ControladorIdioma.GetTexto("Log_BtnRegistrarse");
-            BtnEntrar.Text = Clases.ControladorIdioma.GetTexto("Log_BtnEntrar");
-            BtnInvitado.Text = Clases.ControladorIdioma.GetTexto("Log_BtnInvitado");
-
+            TTLogin.SetToolTip(this.PcbLogo, ControladorIdioma.GetTexto("Log_TTLogo"));
+            BtnSpain.Text = ControladorIdioma.GetTexto("Log_BtnSpain");
+            BtnUsa.Text = ControladorIdioma.GetTexto("Log_BtnUSA");
+            BtnFrancia.Text = ControladorIdioma.GetTexto("Log_BtnFrancia");
+            KTxtUrl.Text = ControladorIdioma.GetTexto("Log_Url");
+            TTLogin.SetToolTip(this.KTxtUrl, ControladorIdioma.GetTexto("Log_TTUrl"));
+            KTxtNombre.Text = ControladorIdioma.GetTexto("Log_Nombre");
+            TTLogin.SetToolTip(this.KTxtNombre, ControladorIdioma.GetTexto("Log_TTNombre"));
+            KTxtContra.Text = ControladorIdioma.GetTexto("Log_Contra");
+            TTLogin.SetToolTip(this.KTxtContra, ControladorIdioma.GetTexto("Log_TTContra"));
+            LblSesionIniciada.Text = ControladorIdioma.GetTexto("Log_LblConectado");
+            TTLogin.SetToolTip(this.ToggleConectado, ControladorIdioma.GetTexto("Log_TTSesion"));
+            LlblRecuperar.Text = ControladorIdioma.GetTexto("Log_LlRecuperar");
+            TTLogin.SetToolTip(this.LlblRecuperar, ControladorIdioma.GetTexto("Log_TTOlvidado"));
+            BtnRegistrarse.Text = ControladorIdioma.GetTexto("Log_BtnRegistrarse");
+            TTLogin.SetToolTip(this.BtnRegistrarse, ControladorIdioma.GetTexto("Log_BtnRegistrarse"));
+            BtnEntrar.Text = ControladorIdioma.GetTexto("Log_BtnEntrar");
+            TTLogin.SetToolTip(this.BtnEntrar, ControladorIdioma.GetTexto("Log_BtnEntrar"));
+            BtnInvitado.Text = ControladorIdioma.GetTexto("Log_BtnInvitado");
+            TTLogin.SetToolTip(this.BtnInvitado, ControladorIdioma.GetTexto("Log_BtnInvitado"));
+            TTLogin.SetToolTip(this.IpcbMostrarContra, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTLogin.SetToolTip(this.IpcbOcultarContra, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+            TTLogin.SetToolTip(this.MBtnCerrarLogin, ControladorIdioma.GetTexto("Main_Salir"));
         }
         //Quitar el placeHolder de los KryptonTextBox al entrar en ellos
         private void PlaceholderOff(KryptonTextBox txt, string s)
@@ -159,9 +172,9 @@ namespace OpenLibraryEditor.Forms
         }
         private void Reset(KryptonTextBox txt1, KryptonTextBox txt2, KryptonTextBox txt3)
         {
-            PlaceholderOn(txt1, Clases.ControladorIdioma.GetTexto("Log_Url"));
-            PlaceholderOn(txt2, Clases.ControladorIdioma.GetTexto("Log_Nombre"));
-            PlaceholderOn(txt3, Clases.ControladorIdioma.GetTexto("Log_Contra"));
+            PlaceholderOn(txt1, ControladorIdioma.GetTexto("Log_Url"));
+            PlaceholderOn(txt2, ControladorIdioma.GetTexto("Log_Nombre"));
+            PlaceholderOn(txt3, ControladorIdioma.GetTexto("Log_Contra"));
             txt3.UseSystemPasswordChar = false;
             txt1.StateCommon.Content.Color1 = Color.DimGray;
             txt2.StateCommon.Content.Color1 = Color.DimGray;
@@ -173,57 +186,62 @@ namespace OpenLibraryEditor.Forms
         #region Mostrar/Ocultar password
         private void IpcbOcultarContra_Click(object sender, EventArgs e)
         {
-            Metodos.MetodosComunes.MostrarOcultarContra(KTxtContra, false, true, IpcbMostrarContra, IpcbOcultarContra);
+            MetodosComunes.MostrarOcultarContra(KTxtContra, false, true, IpcbMostrarContra, IpcbOcultarContra);
         }
 
         private void IpcbMostrarContra_Click(object sender, EventArgs e)
         {
-            Metodos.MetodosComunes.MostrarOcultarContra(KTxtContra,true,false,IpcbOcultarContra, IpcbMostrarContra);
+            MetodosComunes.MostrarOcultarContra(KTxtContra,true,false,IpcbOcultarContra, IpcbMostrarContra);
         }
         #endregion
         #region botones 
         private void BtnRegistrarse_Click(object sender, EventArgs e)
         {
-            if (BtnRegistrarse.Text.Equals(Idiomas.Strings_es_ES.Log_BtnRegistrarse))
-            {
-                FrmRegistro registro = new FrmRegistro("spanish");
-                //signIn.Text = languages.Strings_es_ES.FrmTittle_SignIn;
-                registro.ShowDialog();
-            }
-            else if(BtnRegistrarse.Text.Equals(Idiomas.Strings_en_US.Log_BtnRegistrarse))
-            {
-                FrmRegistro registro = new FrmRegistro("english");
-                //signIn.Text = languages.Strings_en_US.FrmTittle_SignIn;
-                registro.ShowDialog();
-            }
-            else
-            {
-                FrmRegistro registro = new FrmRegistro("french");
-                //signIn.Text = languages.Strings_en_US.FrmTittle_SignIn;
-                registro.ShowDialog();
-            }
+            FrmRegistro registro = new FrmRegistro();
+            registro.ShowDialog();
+            //if (BtnRegistrarse.Text.Equals(Idiomas.Strings_es_ES.Log_BtnRegistrarse))
+            //{
+            //    FrmRegistro registro = new FrmRegistro("spanish");
+            //    //signIn.Text = languages.Strings_es_ES.FrmTittle_SignIn;
+            //    registro.ShowDialog();
+            //}
+            //else if(BtnRegistrarse.Text.Equals(Idiomas.Strings_en_US.Log_BtnRegistrarse))
+            //{
+            //    FrmRegistro registro = new FrmRegistro("english");
+            //    //signIn.Text = languages.Strings_en_US.FrmTittle_SignIn;
+            //    registro.ShowDialog();
+            //}
+            //else
+            //{
+            //    FrmRegistro registro = new FrmRegistro("french");
+            //    //signIn.Text = languages.Strings_en_US.FrmTittle_SignIn;
+            //    registro.ShowDialog();
+            //}
         }
 
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-            {
-                MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, Idiomas.Strings_es_ES.Log_Url,
-                    Idiomas.Strings_es_ES.Log_Nombre, Idiomas.Strings_es_ES.Log_Contra, Idiomas.Strings_es_ES.Log_Error1,
-                    Idiomas.Strings_es_ES.Log_Error2, Idiomas.Strings_es_ES.Log_Error3, Idiomas.Strings_es_ES.Log_Error4);
-            }
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-            {
-                MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, Idiomas.Strings_en_US.Log_Url,
-                    Idiomas.Strings_en_US.Log_Nombre, Idiomas.Strings_en_US.Log_Contra, Idiomas.Strings_en_US.Log_Error1,
-                    Idiomas.Strings_en_US.Log_Error2, Idiomas.Strings_en_US.Log_Error3, Idiomas.Strings_en_US.Log_Error4);
-            }
-            else
-            {
-                MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, Idiomas.Strings_fr_FR.Log_Url,
-                    Idiomas.Strings_fr_FR.Log_Nombre, Idiomas.Strings_fr_FR.Log_Contra, Idiomas.Strings_fr_FR.Log_Error1,
-                    Idiomas.Strings_fr_FR.Log_Error2, Idiomas.Strings_fr_FR.Log_Error3, Idiomas.Strings_fr_FR.Log_Error4);
-            }
+            MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, ControladorIdioma.GetTexto("Log_Url"),
+                    ControladorIdioma.GetTexto("Log_Nombre"), ControladorIdioma.GetTexto("Log_Contra"), ControladorIdioma.GetTexto("Log_Error1"),
+                    ControladorIdioma.GetTexto("Log_Error2"), ControladorIdioma.GetTexto("Log_Error3"), ControladorIdioma.GetTexto("Log_Error4"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //{
+            //    MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, Idiomas.Strings_es_ES.Log_Url,
+            //        Idiomas.Strings_es_ES.Log_Nombre, Idiomas.Strings_es_ES.Log_Contra, Idiomas.Strings_es_ES.Log_Error1,
+            //        Idiomas.Strings_es_ES.Log_Error2, Idiomas.Strings_es_ES.Log_Error3, Idiomas.Strings_es_ES.Log_Error4);
+            //}
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //{
+            //    MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, Idiomas.Strings_en_US.Log_Url,
+            //        Idiomas.Strings_en_US.Log_Nombre, Idiomas.Strings_en_US.Log_Contra, Idiomas.Strings_en_US.Log_Error1,
+            //        Idiomas.Strings_en_US.Log_Error2, Idiomas.Strings_en_US.Log_Error3, Idiomas.Strings_en_US.Log_Error4);
+            //}
+            //else
+            //{
+            //    MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, Idiomas.Strings_fr_FR.Log_Url,
+            //        Idiomas.Strings_fr_FR.Log_Nombre, Idiomas.Strings_fr_FR.Log_Contra, Idiomas.Strings_fr_FR.Log_Error1,
+            //        Idiomas.Strings_fr_FR.Log_Error2, Idiomas.Strings_fr_FR.Log_Error3, Idiomas.Strings_fr_FR.Log_Error4);
+            //}
         }
        
         private void BtnInvitado_Click(object sender, EventArgs e)
@@ -237,20 +255,20 @@ namespace OpenLibraryEditor.Forms
         #region Cambiar idioma
         private void BtnSpain_Click(object sender, EventArgs e)
         {
-            Clases.ControladorIdioma.idioma = "Strings_es_ES";
+            ControladorIdioma.idioma = "Strings_es_ES";
             IdiomaTexto();
             Reset(KTxtUrl, KTxtNombre, KTxtContra);
         }
         private void BtnUsa_Click(object sender, EventArgs e)
         {
-            Clases.ControladorIdioma.idioma = "Strings_en_US";
+            ControladorIdioma.idioma = "Strings_en_US";
             IdiomaTexto();
             Reset(KTxtUrl, KTxtNombre, KTxtContra);
         }
 
         private void BtnFrancia_Click(object sender, EventArgs e)
         {
-            Clases.ControladorIdioma.idioma = "Strings_fr_FR";
+            ControladorIdioma.idioma = "Strings_fr_FR";
             IdiomaTexto();
             Reset(KTxtUrl, KTxtNombre, KTxtContra);
 
@@ -260,63 +278,69 @@ namespace OpenLibraryEditor.Forms
         #region PlaceHolder KryptonTextBox
         private void KTxtUrl_Enter(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-                PlaceholderOff(KTxtUrl, Idiomas.Strings_es_ES.Log_Url);
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-                PlaceholderOff(KTxtUrl, Idiomas.Strings_en_US.Log_Url);
-            else
-                PlaceholderOff(KTxtUrl, Idiomas.Strings_fr_FR.Log_Url);
+            PlaceholderOff(KTxtUrl, ControladorIdioma.GetTexto("Log_Url"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //    PlaceholderOff(KTxtUrl, Idiomas.Strings_es_ES.Log_Url);
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //    PlaceholderOff(KTxtUrl, Idiomas.Strings_en_US.Log_Url);
+            //else
+            //    PlaceholderOff(KTxtUrl, Idiomas.Strings_fr_FR.Log_Url);
         }
 
         private void KTxtUrl_Leave(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-                PlaceholderOn(KTxtUrl, Idiomas.Strings_es_ES.Log_Url);
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-                PlaceholderOn(KTxtUrl, Idiomas.Strings_en_US.Log_Url);
-            else
-                PlaceholderOn(KTxtUrl, Idiomas.Strings_fr_FR.Log_Url);
+            PlaceholderOn(KTxtUrl, ControladorIdioma.GetTexto("Log_Url"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //    PlaceholderOn(KTxtUrl, Idiomas.Strings_es_ES.Log_Url);
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //    PlaceholderOn(KTxtUrl, Idiomas.Strings_en_US.Log_Url);
+            //else
+            //    PlaceholderOn(KTxtUrl, Idiomas.Strings_fr_FR.Log_Url);
         }
 
 
         private void KTxtNombre_Enter(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-                PlaceholderOff(KTxtNombre, Idiomas.Strings_es_ES.Log_Nombre);
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-                PlaceholderOff(KTxtNombre, Idiomas.Strings_en_US.Log_Nombre);
-            else
-                PlaceholderOff(KTxtNombre, Idiomas.Strings_fr_FR.Log_Nombre);
+            PlaceholderOff(KTxtNombre, ControladorIdioma.GetTexto("Log_Nombre"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //    PlaceholderOff(KTxtNombre, Idiomas.Strings_es_ES.Log_Nombre);
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //    PlaceholderOff(KTxtNombre, Idiomas.Strings_en_US.Log_Nombre);
+            //else
+            //    PlaceholderOff(KTxtNombre, Idiomas.Strings_fr_FR.Log_Nombre);
         }
 
         private void KTxtNombre_Leave(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-                PlaceholderOn(KTxtNombre, Idiomas.Strings_es_ES.Log_Nombre);
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-                PlaceholderOn(KTxtNombre, Idiomas.Strings_en_US.Log_Nombre);
-            else
-                PlaceholderOn(KTxtNombre, Idiomas.Strings_fr_FR.Log_Nombre);
+            PlaceholderOn(KTxtNombre, ControladorIdioma.GetTexto("Log_Nombre"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //    PlaceholderOn(KTxtNombre, Idiomas.Strings_es_ES.Log_Nombre);
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //    PlaceholderOn(KTxtNombre, Idiomas.Strings_en_US.Log_Nombre);
+            //else
+            //    PlaceholderOn(KTxtNombre, Idiomas.Strings_fr_FR.Log_Nombre);
         }
 
         private void KTxtContra_Enter(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-                PlaceholderContraOff(KTxtContra, Idiomas.Strings_es_ES.Log_Contra);
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-                PlaceholderContraOff(KTxtContra, Idiomas.Strings_en_US.Log_Contra);
-            else
-                PlaceholderContraOff(KTxtContra, Idiomas.Strings_fr_FR.Log_Contra);
+            PlaceholderContraOff(KTxtContra, ControladorIdioma.GetTexto("Log_Contra"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //    PlaceholderContraOff(KTxtContra, Idiomas.Strings_es_ES.Log_Contra);
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //    PlaceholderContraOff(KTxtContra, Idiomas.Strings_en_US.Log_Contra);
+            //else
+            //    PlaceholderContraOff(KTxtContra, Idiomas.Strings_fr_FR.Log_Contra);
         }
 
         private void KTxtContra_Leave(object sender, EventArgs e)
         {
-            if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
-                PlaceholderOn(KTxtContra, Idiomas.Strings_es_ES.Log_Contra);
-            else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
-                PlaceholderOn(KTxtContra, Idiomas.Strings_en_US.Log_Contra);
-            else
-                PlaceholderOn(KTxtContra, Idiomas.Strings_fr_FR.Log_Contra);
+            PlaceholderOn(KTxtContra, ControladorIdioma.GetTexto("Log_Contra"));
+            //if (BtnSpain.Text.Equals(Idiomas.Strings_es_ES.Log_BtnSpain))
+            //    PlaceholderOn(KTxtContra, Idiomas.Strings_es_ES.Log_Contra);
+            //else if (BtnSpain.Text.Equals(Idiomas.Strings_en_US.Log_BtnSpain))
+            //    PlaceholderOn(KTxtContra, Idiomas.Strings_en_US.Log_Contra);
+            //else
+            //    PlaceholderOn(KTxtContra, Idiomas.Strings_fr_FR.Log_Contra);
         }
         #endregion
 

@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasTagMTA_Click(object sender, EventArgs e)
         {
-            FrmTags t=new FrmTags();
+            FrmTags t=new FrmTags(true);
             t.FormBorderStyle = FormBorderStyle.None;
             t.ShowDialog();
         }

@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasEditorialMED_Click(object sender, EventArgs e)
         {
-            FrmEditoriales ed=new FrmEditoriales();
+            FrmEditoriales ed=new FrmEditoriales(true);
             ed.FormBorderStyle = FormBorderStyle.None;
             ed.ShowDialog();
         }

@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasAutorMAU_Click(object sender, EventArgs e)
         {
-            FrmAutores a=new FrmAutores();
+            FrmAutores a=new FrmAutores(true);
             a.FormBorderStyle = FormBorderStyle.None;
             a.ShowDialog();
         }

@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasGeneroMGE_Click(object sender, EventArgs e)
         {
-            FrmGeneros g=new FrmGeneros();
+            FrmGeneros g=new FrmGeneros(true);
             g.FormBorderStyle= FormBorderStyle.None;
             g.ShowDialog();
         }
