@@ -234,7 +234,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmAniadirLibro al = new FrmAniadirLibro(new Libro());
+            FrmLibros al = new FrmLibros(new Libro());
             al.FormBorderStyle=FormBorderStyle.None;
             al.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
@@ -242,9 +242,9 @@ namespace OpenLibraryEditor.Forms
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmModificarLibro ml = new FrmModificarLibro();
-            ml.FormBorderStyle = FormBorderStyle.None;
-            ml.ShowDialog();
+            //FrmLibros al = new FrmLibros(libroSeleccionado);
+            //al.FormBorderStyle = FormBorderStyle.None;
+            //al.ShowDialog();
             BotonActivoTool(sender, Colores.colorBiblioteca);
         }
         private void BtnBorrarLibroMsb_ButtonClick(object sender, EventArgs e)

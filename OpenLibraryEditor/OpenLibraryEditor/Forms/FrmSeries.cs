@@ -174,6 +174,7 @@ namespace OpenLibraryEditor.Forms
         private FrmEditarRelacionSerie CrearFormularioRelacion(RelacionSerie relacion)
         {
             FrmEditarRelacionSerie form = new FrmEditarRelacionSerie(relacion, LsvSeriesNS, serieActual);
+            form.FormBorderStyle = FormBorderStyle.None;
             form.ShowDialog();
             return form;
         }

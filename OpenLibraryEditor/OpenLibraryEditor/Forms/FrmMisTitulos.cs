@@ -21,7 +21,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasTituloMTI_Click(object sender, EventArgs e)
         {
             Libro l = new Libro();
-            FrmAniadirLibro t=new FrmAniadirLibro(l);
+            FrmLibros t=new FrmLibros(l);
             t.FormBorderStyle = FormBorderStyle.None;
             t.ShowDialog();
         }
