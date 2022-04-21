@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,16 @@ namespace OpenLibraryEditor.Clases
                     //Get the path of specified file
                     return openFileDialog.FileName;
                 }
+            }
+            return "";
+        }
+
+        public static string GetRutaCarpeta()
+        {
+            FolderBrowserDialog diag = new FolderBrowserDialog();
+            if (diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                return diag.SelectedPath;
             }
             return "";
         }

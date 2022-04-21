@@ -14,12 +14,18 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmConfiguracion : Form
     {
+        /*
+        TODO:
+        - Carga de valores de configuracion en Load.
+        - Guarda de configuración al aceptar, tanto en objeto como Json.
+        - Hacer restaurar valores
+        - Cargar valores de combobox de infoBDs
+         */
+
         private List<string> idiomas;
         public FrmConfiguracion()
         {
             InitializeComponent();
-           
-            
         }
 
         private void FrmConfiguracion_Load(object sender, EventArgs e)
@@ -127,6 +133,13 @@ namespace OpenLibraryEditor.Forms
         private void BtnRestaurarValores_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void IBtnOpenFile_Click(object sender, EventArgs e)
+        {
+            string carpeta = VentanaWindowsComun.GetRutaCarpeta();
+            if (carpeta != "")
+                TxtUbicacionBBDD.Text = carpeta;
         }
     }
 }

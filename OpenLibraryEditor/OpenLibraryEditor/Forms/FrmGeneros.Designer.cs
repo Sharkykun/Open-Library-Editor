@@ -294,6 +294,7 @@
             this.LsvGeneroNG.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvGeneroNG.HideSelection = false;
             this.LsvGeneroNG.Location = new System.Drawing.Point(25, 70);
+            this.LsvGeneroNG.MultiSelect = false;
             this.LsvGeneroNG.Name = "LsvGeneroNG";
             this.LsvGeneroNG.Size = new System.Drawing.Size(283, 313);
             this.LsvGeneroNG.TabIndex = 127;
@@ -464,6 +465,7 @@
             this.Name = "FrmGeneros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGeneros";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGeneros_FormClosing);
             this.Load += new System.EventHandler(this.FrmGeneros_Load);
             this.PanTituloGeneros.ResumeLayout(false);
             this.PanTituloGeneros.PerformLayout();

@@ -114,6 +114,7 @@
     <Compile Include="DatosLibros\Etiqueta.cs" />
     <Compile Include="DatosLibros\Genero.cs" />
     <Compile Include="DatosLibros\Idioma.cs" />
+    <Compile Include="DatosLibros\InfoBaseDatos.cs" />
     <Compile Include="DatosLibros\Libro.cs" />
     <Compile Include="DatosLibros\Persona.cs" />
     <Compile Include="DatosLibros\RelacionSerie.cs" />
@@ -223,12 +224,6 @@
     <Compile Include="Forms\FrmMisTitulos.Designer.cs">
       <DependentUpon>FrmMisTitulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmModificarLibro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmModificarLibro.Designer.cs">
-      <DependentUpon>FrmModificarLibro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,11 +248,11 @@
     <Compile Include="Forms\FrmTags.Designer.cs">
       <DependentUpon>FrmTags.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmAniadirLibro.cs">
+    <Compile Include="Forms\FrmLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAniadirLibro.Designer.cs">
-      <DependentUpon>FrmAniadirLibro.cs</DependentUpon>
+    <Compile Include="Forms\FrmLibros.Designer.cs">
+      <DependentUpon>FrmLibros.cs</DependentUpon>
     </Compile>
     <Compile Include="Idiomas\Strings_en_US.Designer.cs">
       <DependentUpon>Strings_en_US.resx</DependentUpon>
@@ -328,9 +323,6 @@
     <EmbeddedResource Include="Forms\FrmMisTitulos.resx">
       <DependentUpon>FrmMisTitulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmModificarLibro.resx">
-      <DependentUpon>FrmModificarLibro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRegistro.resx">
       <DependentUpon>FrmRegistro.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,8 +335,8 @@
     <EmbeddedResource Include="Forms\FrmTags.resx">
       <DependentUpon>FrmTags.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAniadirLibro.resx">
-      <DependentUpon>FrmAniadirLibro.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmLibros.resx">
+      <DependentUpon>FrmLibros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Idiomas\Strings_en_US.resx">
       <Generator>ResXFileCodeGenerator</Generator>

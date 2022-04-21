@@ -126,17 +126,23 @@ namespace OpenLibraryEditor.Forms
             else
                 return true;
         }
-        #endregion
 
-        private void LsvTagsNT_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void ComprobarGuardado()
         {
             //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && etiquetaActual != null && EsObjetoCambiado())
+            if (etiquetaActual != null && EsObjetoCambiado())
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
                     KBtnAceptarTa_Click(null, null);
             }
+        }
+        #endregion
+
+        private void LsvTagsNT_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvTagsNT.SelectedItems.Count == 1)
@@ -200,16 +206,26 @@ namespace OpenLibraryEditor.Forms
 
         private void KBtnAceptarTa_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesTag.Visible == true) { 
-                //Actualizar etiqueta
-                etiquetaActual.Nombre = KTxtNombreNE.Text;
-                etiquetaActual.NombreCategoria = KCmbCategoriaNE.Text;
-                etiquetaActual.Comentario = KTxtComentarioTa.Text;
+            if (PanOpcionesTag.Visible == true) {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreNE.Text))
+                {
+                    //Actualizar etiqueta
+                    etiquetaActual.Nombre = KTxtNombreNE.Text;
+                    etiquetaActual.NombreCategoria = KCmbCategoriaNE.Text;
+                    etiquetaActual.Comentario = KTxtComentarioTa.Text;
 
-                //Actualizar listview
-                itemActual.Text = KTxtNombreNE.Text;
-                itemActual.SubItems[1].Text = KCmbCategoriaNE.Text;
+                    //Actualizar listview
+                    itemActual.Text = KTxtNombreNE.Text;
+                    itemActual.SubItems[1].Text = KCmbCategoriaNE.Text;
+                }
+                else
+                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
             }
+        }
+
+        private void FrmTags_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
         }
     }
 }

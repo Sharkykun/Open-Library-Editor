@@ -344,6 +344,7 @@
             this.LsvSeriesNS.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvSeriesNS.HideSelection = false;
             this.LsvSeriesNS.Location = new System.Drawing.Point(15, 70);
+            this.LsvSeriesNS.MultiSelect = false;
             this.LsvSeriesNS.Name = "LsvSeriesNS";
             this.LsvSeriesNS.Size = new System.Drawing.Size(215, 313);
             this.LsvSeriesNS.TabIndex = 139;
@@ -506,6 +507,11 @@
             // KCmbEstadoSe
             // 
             this.KCmbEstadoSe.DropDownWidth = 228;
+            this.KCmbEstadoSe.Items.AddRange(new object[] {
+            "En publicación",
+            "Finalizada",
+            "Pausada",
+            "Abandonada"});
             this.KCmbEstadoSe.Location = new System.Drawing.Point(122, 45);
             this.KCmbEstadoSe.Name = "KCmbEstadoSe";
             this.KCmbEstadoSe.Size = new System.Drawing.Size(218, 33);
@@ -646,6 +652,7 @@
             this.Name = "FrmSeries";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSeries";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSeries_FormClosing);
             this.Load += new System.EventHandler(this.FrmSeries_Load);
             this.PanBtnSe.ResumeLayout(false);
             this.PanTituloSeries.ResumeLayout(false);

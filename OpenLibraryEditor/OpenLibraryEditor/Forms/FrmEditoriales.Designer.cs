@@ -293,6 +293,7 @@
             this.LsvEditorialNE.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvEditorialNE.HideSelection = false;
             this.LsvEditorialNE.Location = new System.Drawing.Point(25, 70);
+            this.LsvEditorialNE.MultiSelect = false;
             this.LsvEditorialNE.Name = "LsvEditorialNE";
             this.LsvEditorialNE.Size = new System.Drawing.Size(215, 313);
             this.LsvEditorialNE.TabIndex = 126;
@@ -466,6 +467,7 @@
             this.Name = "FrmEditoriales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditoriales";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEditoriales_FormClosing);
             this.Load += new System.EventHandler(this.FrmEditoriales_Load);
             this.PanBtnEd.ResumeLayout(false);
             this.PanTituloEditoriales.ResumeLayout(false);

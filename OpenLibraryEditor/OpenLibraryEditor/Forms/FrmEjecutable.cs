@@ -107,16 +107,22 @@ namespace OpenLibraryEditor.Forms
                 return true;
         }
 
-        #endregion
-        private void LsvEjecutable_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void ComprobarGuardado()
         {
             //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && ejecutableActual != null && EsObjetoCambiado())
+            if (ejecutableActual != null && EsObjetoCambiado())
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
                     KBtnAceptarEJ_Click(null, null);
             }
+        }
+
+        #endregion
+        private void LsvEjecutable_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvEjecutable.SelectedItems.Count == 1)
@@ -179,6 +185,11 @@ namespace OpenLibraryEditor.Forms
                 }
                 else VentanaWindowsComun.MensajeError("El nombre, extensión y ruta no pueden estar vacíos.");
             }
+        }
+
+        private void FrmEjecutable_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmAutores : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "la persona";
+        private const string NOMBRE_OBJETO = "el autor";
         private bool setNew;
         private Persona personaNueva;
         private List<Persona> listaPersona = UsuarioDatos.listaPersona;
@@ -163,17 +163,22 @@ namespace OpenLibraryEditor.Forms
                 PcbAutorNA.Image = PcbAutorNA.ErrorImage;
             }
         }
-        #endregion
-        private void LsvAutoresNA_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
 
+        private void ComprobarGuardado()
+        {
             //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && personaActual != null && EsObjetoCambiado())
+            if (personaActual != null && EsObjetoCambiado())
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
                     KBtnAceptarAu_Click(null, null);
             }
+        }
+        #endregion
+        private void LsvAutoresNA_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvAutoresNA.SelectedItems.Count == 1)
@@ -260,25 +265,35 @@ namespace OpenLibraryEditor.Forms
         {
             if (PanOpcionesNA.Visible == true)
             {
-                //Actualizar persona
-                personaActual.Nombre = KTxtNombreAu.Text;
-                personaActual.NombreOcupacion = KCmbOcupacionNA.Text;
-                personaActual.Comentario = KTxtComentarioAu.Text;
-                personaActual.Alias = KtxtAliasAu.Text;
-                personaActual.EnlaceReferencia = KTxtEnlaceAu.Text;
-                personaActual.FechaDefuncion = DateTime.Parse(KMtxtFecMuerteNA.Text);
-                personaActual.FechaNacimiento = DateTime.Parse(KMtxtFecNacimientoNA.Text);
-                if (rutaImagen != personaActual.Imagen)
+                if (!String.IsNullOrWhiteSpace(KTxtNombreAu.Text))
                 {
-                    personaActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                        ControladorImagen.RUTA_PERSONA, personaActual.IdPersona.ToString());
-                    rutaImagen = personaActual.Imagen;
-                }
+                    //Actualizar persona
+                    personaActual.Nombre = KTxtNombreAu.Text;
+                    personaActual.NombreOcupacion = KCmbOcupacionNA.Text;
+                    personaActual.Comentario = KTxtComentarioAu.Text;
+                    personaActual.Alias = KtxtAliasAu.Text;
+                    personaActual.EnlaceReferencia = KTxtEnlaceAu.Text;
+                    personaActual.FechaDefuncion = DateTime.Parse(KMtxtFecMuerteNA.Text);
+                    personaActual.FechaNacimiento = DateTime.Parse(KMtxtFecNacimientoNA.Text);
+                    if (rutaImagen != personaActual.Imagen)
+                    {
+                        personaActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                            ControladorImagen.RUTA_PERSONA, personaActual.IdPersona.ToString());
+                        rutaImagen = personaActual.Imagen;
+                    }
 
-                //Actualizar listview
-                itemActual.Text = KTxtNombreAu.Text;
-                itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+                    //Actualizar listview
+                    itemActual.Text = KTxtNombreAu.Text;
+                    itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+                }
+                else
+                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
             }
+        }
+
+        private void FrmAutores_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
         }
     }
 }

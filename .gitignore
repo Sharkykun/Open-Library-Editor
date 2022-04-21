@@ -12,7 +12,10 @@
 *.dll.config
 *.cache
 *.suo
-
+# Include dlls if they’re in the NuGet packages directory
+!/packages/*/lib/*.dll
+# Include dlls if they're in the CommonReferences directory
+!*CommonReferences/*.dll
 ####################
 # VS Upgrade stuff #
 ####################
@@ -20,8 +23,8 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
-bin/
-obj/
+*/bin/
+*/obj/
 TestResults/
 ###################
 # Web publish log #
@@ -191,6 +194,15 @@ publish/
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
 
 # Windows Azure Build Output
 csx/

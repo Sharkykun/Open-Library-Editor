@@ -43,8 +43,6 @@
             this.ChEstadoRS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.KCmbtipoRelacionRS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblTipoRelacionRS = new System.Windows.Forms.Label();
-            this.MBtnAniadirImagenRS = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnBorrarImagenRS = new FontAwesome.Sharp.Material.MaterialButton();
             this.PcbRS = new System.Windows.Forms.PictureBox();
             this.MBtnMasRS = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosRS = new FontAwesome.Sharp.Material.MaterialButton();
@@ -323,6 +321,7 @@
             this.LsvSeriesRS.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvSeriesRS.HideSelection = false;
             this.LsvSeriesRS.Location = new System.Drawing.Point(3, 8);
+            this.LsvSeriesRS.MultiSelect = false;
             this.LsvSeriesRS.Name = "LsvSeriesRS";
             this.LsvSeriesRS.Size = new System.Drawing.Size(250, 317);
             this.LsvSeriesRS.TabIndex = 140;
@@ -370,34 +369,6 @@
             this.LblTipoRelacionRS.Size = new System.Drawing.Size(123, 20);
             this.LblTipoRelacionRS.TabIndex = 148;
             this.LblTipoRelacionRS.Text = "Tipo de relación";
-            // 
-            // MBtnAniadirImagenRS
-            // 
-            this.MBtnAniadirImagenRS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnAniadirImagenRS.FlatAppearance.BorderSize = 0;
-            this.MBtnAniadirImagenRS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnAniadirImagenRS.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
-            this.MBtnAniadirImagenRS.IconColor = System.Drawing.Color.Navy;
-            this.MBtnAniadirImagenRS.Location = new System.Drawing.Point(547, 395);
-            this.MBtnAniadirImagenRS.Name = "MBtnAniadirImagenRS";
-            this.MBtnAniadirImagenRS.Size = new System.Drawing.Size(30, 30);
-            this.MBtnAniadirImagenRS.TabIndex = 146;
-            this.MBtnAniadirImagenRS.UseVisualStyleBackColor = true;
-            this.MBtnAniadirImagenRS.Click += new System.EventHandler(this.MBtnAniadirImagenRS_Click);
-            // 
-            // MBtnBorrarImagenRS
-            // 
-            this.MBtnBorrarImagenRS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnBorrarImagenRS.FlatAppearance.BorderSize = 0;
-            this.MBtnBorrarImagenRS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnBorrarImagenRS.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
-            this.MBtnBorrarImagenRS.IconColor = System.Drawing.Color.Navy;
-            this.MBtnBorrarImagenRS.Location = new System.Drawing.Point(587, 395);
-            this.MBtnBorrarImagenRS.Name = "MBtnBorrarImagenRS";
-            this.MBtnBorrarImagenRS.Size = new System.Drawing.Size(30, 30);
-            this.MBtnBorrarImagenRS.TabIndex = 147;
-            this.MBtnBorrarImagenRS.UseVisualStyleBackColor = true;
-            this.MBtnBorrarImagenRS.Click += new System.EventHandler(this.MBtnBorrarImagenRS_Click);
             // 
             // PcbRS
             // 
@@ -449,8 +420,6 @@
             this.Controls.Add(this.MBtnMenosRS);
             this.Controls.Add(this.KCmbtipoRelacionRS);
             this.Controls.Add(this.LblTipoRelacionRS);
-            this.Controls.Add(this.MBtnAniadirImagenRS);
-            this.Controls.Add(this.MBtnBorrarImagenRS);
             this.Controls.Add(this.PcbRS);
             this.Controls.Add(this.KGbSerieRS);
             this.Controls.Add(this.PanBtnReSe);
@@ -489,8 +458,6 @@
         private System.Windows.Forms.ColumnHeader ChEstadoRS;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbtipoRelacionRS;
         private System.Windows.Forms.Label LblTipoRelacionRS;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnAniadirImagenRS;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnBorrarImagenRS;
         private System.Windows.Forms.PictureBox PcbRS;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasRS;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosRS;
