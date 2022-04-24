@@ -13,11 +13,18 @@ using System.Threading.Tasks;
 
 namespace OpenLibraryEditor.Clases
 {
+    /*
+     - OPCIONAL: Añadir buscar más de 40 libros. Lanzaría varias consultas.
+     */
     public class GoogleBooksController
     {
         private BooksService service;
 
-        public Volumes bookCollection; //Lista de libros al realizar busqueda
+        private const int MAX_QUERY_RESULT = 40;
+
+        private Volumes bookCollection; //Lista de libros al realizar busqueda
+
+        public Volumes BookCollection { get => bookCollection; set => bookCollection = value; }
 
         /// <summary>
         /// Instancia e inicia el servicio de Google Books.
@@ -49,25 +56,33 @@ namespace OpenLibraryEditor.Clases
         /// <param name="matureBooks">Marca si debe buscar o no libros para mayores de edad.</param>
         public void SearchBook(string bookName, int count, bool matureBooks)
         {
-            //Crear Query para buscar libros
-            var query = service.Volumes.List(bookName);
-            if (count > 0) query.MaxResults = count;
-            if (matureBooks) query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.MATURE;
-            else query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.NotMature;
-
-            var result = service.Volumes.List(bookName).Execute();
-            if (result != null && result.Items != null)
+            try
             {
-                bookCollection = result;
+                //Crear Query para buscar libros
+                var query = service.Volumes.List(bookName);
+                if (count > 0) query.MaxResults = count;
+                if (matureBooks) query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.MATURE;
+                else query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.NotMature;
+
+                var result = query.Execute();
+                if (result != null && result.Items != null)
+                {
+                    bookCollection = result;
+                }
+                else
+                    bookCollection = null;
             }
-            bookCollection = null;
+            catch (Google.GoogleApiException)
+            {
+                VentanaWindowsComun.MensajeError("La busqueda en Google Books falló.\nCompruebe que su clave privada es correcta\ny que ha escrito algo para poder buscar.");
+                bookCollection = null;
+            }
         }
 
         /// <summary>
         /// Convierte los datos de un libro de Google Books a un libro de esta app.
         /// </summary>
         /// <param name="volume">Libro de Google Books a convertir.</param>
-        /// <param name="bookInfoOnly">Indica si solo debe convertir la información general del libro, sin tener en cuenta autores, géneros...</param>
         /// <returns>Libro convertido. Retorna excepción si el ISBN del libro ya existe en el listado.</returns>
         public Libro ParseBook(Volume volume, bool sacarPersonas, bool sacarEditorial, bool sacarGeneros)
         {

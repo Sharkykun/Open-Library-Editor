@@ -12,6 +12,7 @@ using ComponentFactory.Krypton.Toolkit;
 using FontAwesome;
 using FontAwesome.Sharp;
 using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.DatosLibros;
 using OpenLibraryEditor.Metodos;
 
 namespace OpenLibraryEditor.Forms
@@ -27,6 +28,11 @@ namespace OpenLibraryEditor.Forms
         #region Cargar metodos iniciales
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            //Cargar configuración local.
+            //Si no existe, cargar valores por defecto.
+            UsuarioDatos.configuracionUsuario = UsuarioDatos.CargarJson();
+            ControladorIdioma.idioma = UsuarioDatos.configuracionUsuario.IdiomaIntefaz;
+
             TimerAparecer.Start();
             this.Opacity = 0.0;
             IdiomaTexto();
@@ -255,12 +261,16 @@ namespace OpenLibraryEditor.Forms
         #region Cambiar idioma
         private void BtnSpain_Click(object sender, EventArgs e)
         {
+            UsuarioDatos.configuracionUsuario.IdiomaIntefaz = "Strings_es_ES";
+            UsuarioDatos.configuracionUsuario.GuardarJson();
             ControladorIdioma.idioma = "Strings_es_ES";
             IdiomaTexto();
             Reset(KTxtUrl, KTxtNombre, KTxtContra);
         }
         private void BtnUsa_Click(object sender, EventArgs e)
         {
+            UsuarioDatos.configuracionUsuario.IdiomaIntefaz = "Strings_en_US";
+            UsuarioDatos.configuracionUsuario.GuardarJson();
             ControladorIdioma.idioma = "Strings_en_US";
             IdiomaTexto();
             Reset(KTxtUrl, KTxtNombre, KTxtContra);
@@ -268,6 +278,8 @@ namespace OpenLibraryEditor.Forms
 
         private void BtnFrancia_Click(object sender, EventArgs e)
         {
+            UsuarioDatos.configuracionUsuario.IdiomaIntefaz = "Strings_fr_FR";
+            UsuarioDatos.configuracionUsuario.GuardarJson();
             ControladorIdioma.idioma = "Strings_fr_FR";
             IdiomaTexto();
             Reset(KTxtUrl, KTxtNombre, KTxtContra);
