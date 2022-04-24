@@ -27,6 +27,11 @@ namespace OpenLibraryEditor.Clases
                 "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
+        public static DialogResult MensajeInformacion(string texto)
+        {
+            return MessageBox.Show(texto, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         public static DialogResult MensajeError(string mensaje)
         {
             return MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);

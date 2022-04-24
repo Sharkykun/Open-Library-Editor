@@ -18,7 +18,6 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmMenuPrincipal : Form
     {
-        private string idioma;
         private MaterialButton botonActual;
         private MaterialSplitButton toolSeleccionado;
         private Panel bordeIzqBoton;
@@ -597,7 +596,7 @@ namespace OpenLibraryEditor.Forms
 
         #endregion
         #region texto segun idioma seleccionado
-        private void IdiomaTexto()
+        public void IdiomaTexto()
         {
             ToolTipMain.SetToolTip(this.AciFotoUsuario, ControladorIdioma.GetTexto("Main_TTFotoUsuario"));
             LlLogIn.Text = ControladorIdioma.GetTexto("Main_LinkSesion");

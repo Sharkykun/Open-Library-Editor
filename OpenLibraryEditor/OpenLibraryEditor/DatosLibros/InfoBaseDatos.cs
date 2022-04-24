@@ -26,5 +26,10 @@ namespace OpenLibraryEditor.DatosLibros
         public string Nombre { get => nombre; set => nombre = value; }
         public string ServidorIP { get => servidorIP; set => servidorIP = value; }
         public int Puerto { get => puerto; set => puerto = value; }
+
+        public override string ToString()
+        {
+            return nombre;
+        }
     }
 }

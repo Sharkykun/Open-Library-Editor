@@ -36,9 +36,11 @@
             this.LblTituloConfi = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.KgbGeneral = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.LblContenidoExpConfi = new System.Windows.Forms.Label();
             this.TxtSubtituloUbicacion = new System.Windows.Forms.TextBox();
             this.LblUbicacion = new System.Windows.Forms.Label();
+            this.TBtnUltimaBBDD = new OpenLibraryEditor.Controles.ToggleButton();
             this.IBtnOpenFile = new FontAwesome.Sharp.IconButton();
             this.TxtUbicacionBBDD = new System.Windows.Forms.TextBox();
             this.LblUltimaBBDD = new System.Windows.Forms.Label();
@@ -62,6 +64,9 @@
             this.LblTema = new System.Windows.Forms.Label();
             this.RbtnClaro = new System.Windows.Forms.RadioButton();
             this.KgbDescargasWeb = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.TxtGoogleBooksClave = new System.Windows.Forms.TextBox();
+            this.TxtSubtituloGoogleBooksClave = new System.Windows.Forms.TextBox();
+            this.LblGoogleBooksClave = new System.Windows.Forms.Label();
             this.KgbImagenesLibro = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.RbtnGrande = new System.Windows.Forms.RadioButton();
             this.RbtnMediana = new System.Windows.Forms.RadioButton();
@@ -74,6 +79,8 @@
             this.ChkAutores = new System.Windows.Forms.CheckBox();
             this.LblCamposActualizar = new System.Windows.Forms.Label();
             this.KgbServidorWeb = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.TxtIP = new System.Windows.Forms.TextBox();
+            this.LblIp = new System.Windows.Forms.Label();
             this.MBtnMenosIP = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMasIP = new FontAwesome.Sharp.Material.MaterialButton();
             this.NudPuerto = new System.Windows.Forms.NumericUpDown();
@@ -90,8 +97,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanConfiguracion = new System.Windows.Forms.Panel();
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
-            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
-            this.TBtnUltimaBBDD = new OpenLibraryEditor.Controles.ToggleButton();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbConfi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral.Panel)).BeginInit();
@@ -160,7 +165,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloConfi.Location = new System.Drawing.Point(86, 18);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
             this.LblTituloConfi.TabIndex = 3;
             this.LblTituloConfi.Text = "Configuración";
             // 
@@ -208,6 +213,22 @@
             this.KgbGeneral.TabIndex = 12;
             this.KgbGeneral.Values.Heading = " General";
             // 
+            // TBtnContenidoExp
+            // 
+            this.TBtnContenidoExp.AutoSize = true;
+            this.TBtnContenidoExp.Checked = true;
+            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TBtnContenidoExp.Location = new System.Drawing.Point(469, 183);
+            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
+            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.TabIndex = 30;
+            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
+            // 
             // LblContenidoExpConfi
             // 
             this.LblContenidoExpConfi.AutoSize = true;
@@ -244,6 +265,22 @@
             this.LblUbicacion.Size = new System.Drawing.Size(281, 26);
             this.LblUbicacion.TabIndex = 23;
             this.LblUbicacion.Text = "Ubicación base de datos local\r\n";
+            // 
+            // TBtnUltimaBBDD
+            // 
+            this.TBtnUltimaBBDD.AutoSize = true;
+            this.TBtnUltimaBBDD.Checked = true;
+            this.TBtnUltimaBBDD.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TBtnUltimaBBDD.Location = new System.Drawing.Point(469, 33);
+            this.TBtnUltimaBBDD.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnUltimaBBDD.Name = "TBtnUltimaBBDD";
+            this.TBtnUltimaBBDD.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnUltimaBBDD.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnUltimaBBDD.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnUltimaBBDD.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnUltimaBBDD.Size = new System.Drawing.Size(45, 22);
+            this.TBtnUltimaBBDD.TabIndex = 22;
+            this.TBtnUltimaBBDD.UseVisualStyleBackColor = true;
             // 
             // IBtnOpenFile
             // 
@@ -351,7 +388,6 @@
             // CmbDobleClick
             // 
             this.CmbDobleClick.BackColor = System.Drawing.Color.LightGray;
-            this.CmbDobleClick.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CmbDobleClick.DropDownHeight = 70;
             this.CmbDobleClick.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDobleClick.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -359,10 +395,13 @@
             this.CmbDobleClick.ForeColor = System.Drawing.Color.Navy;
             this.CmbDobleClick.FormattingEnabled = true;
             this.CmbDobleClick.IntegralHeight = false;
-            this.CmbDobleClick.ItemHeight = 16;
+            this.CmbDobleClick.ItemHeight = 18;
+            this.CmbDobleClick.Items.AddRange(new object[] {
+            "Ejecutar Libro",
+            "Editar Información Libro"});
             this.CmbDobleClick.Location = new System.Drawing.Point(469, 201);
             this.CmbDobleClick.Name = "CmbDobleClick";
-            this.CmbDobleClick.Size = new System.Drawing.Size(329, 22);
+            this.CmbDobleClick.Size = new System.Drawing.Size(329, 26);
             this.CmbDobleClick.TabIndex = 17;
             // 
             // TxtSubtituloDobleClick
@@ -578,10 +617,13 @@
             // 
             // KgbDescargasWeb.Panel
             // 
+            this.KgbDescargasWeb.Panel.Controls.Add(this.TxtGoogleBooksClave);
+            this.KgbDescargasWeb.Panel.Controls.Add(this.TxtSubtituloGoogleBooksClave);
+            this.KgbDescargasWeb.Panel.Controls.Add(this.LblGoogleBooksClave);
             this.KgbDescargasWeb.Panel.Controls.Add(this.KgbImagenesLibro);
             this.KgbDescargasWeb.Panel.Controls.Add(this.KgbDetallesLibro);
             this.KgbDescargasWeb.Panel.Controls.Add(this.LblCamposActualizar);
-            this.KgbDescargasWeb.Size = new System.Drawing.Size(824, 335);
+            this.KgbDescargasWeb.Size = new System.Drawing.Size(824, 394);
             this.KgbDescargasWeb.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
             this.KgbDescargasWeb.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
             this.KgbDescargasWeb.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -596,6 +638,42 @@
             this.KgbDescargasWeb.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbDescargasWeb.TabIndex = 14;
             this.KgbDescargasWeb.Values.Heading = "Descargas web";
+            // 
+            // TxtGoogleBooksClave
+            // 
+            this.TxtGoogleBooksClave.BackColor = System.Drawing.Color.LightGray;
+            this.TxtGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtGoogleBooksClave.Location = new System.Drawing.Point(303, 290);
+            this.TxtGoogleBooksClave.Name = "TxtGoogleBooksClave";
+            this.TxtGoogleBooksClave.Size = new System.Drawing.Size(323, 25);
+            this.TxtGoogleBooksClave.TabIndex = 31;
+            // 
+            // TxtSubtituloGoogleBooksClave
+            // 
+            this.TxtSubtituloGoogleBooksClave.BackColor = System.Drawing.Color.Gainsboro;
+            this.TxtSubtituloGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSubtituloGoogleBooksClave.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TxtSubtituloGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSubtituloGoogleBooksClave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
+            this.TxtSubtituloGoogleBooksClave.Location = new System.Drawing.Point(24, 307);
+            this.TxtSubtituloGoogleBooksClave.Multiline = true;
+            this.TxtSubtituloGoogleBooksClave.Name = "TxtSubtituloGoogleBooksClave";
+            this.TxtSubtituloGoogleBooksClave.ReadOnly = true;
+            this.TxtSubtituloGoogleBooksClave.Size = new System.Drawing.Size(246, 48);
+            this.TxtSubtituloGoogleBooksClave.TabIndex = 30;
+            this.TxtSubtituloGoogleBooksClave.Text = "Establece la clave privada de Google Books";
+            // 
+            // LblGoogleBooksClave
+            // 
+            this.LblGoogleBooksClave.AutoSize = true;
+            this.LblGoogleBooksClave.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGoogleBooksClave.ForeColor = System.Drawing.Color.Navy;
+            this.LblGoogleBooksClave.Location = new System.Drawing.Point(24, 276);
+            this.LblGoogleBooksClave.Name = "LblGoogleBooksClave";
+            this.LblGoogleBooksClave.Size = new System.Drawing.Size(184, 26);
+            this.LblGoogleBooksClave.TabIndex = 29;
+            this.LblGoogleBooksClave.Text = "Clave Google Books";
             // 
             // KgbImagenesLibro
             // 
@@ -767,11 +845,13 @@
             // 
             this.KgbServidorWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbServidorWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1160);
+            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1210);
             this.KgbServidorWeb.Name = "KgbServidorWeb";
             // 
             // KgbServidorWeb.Panel
             // 
+            this.KgbServidorWeb.Panel.Controls.Add(this.TxtIP);
+            this.KgbServidorWeb.Panel.Controls.Add(this.LblIp);
             this.KgbServidorWeb.Panel.Controls.Add(this.MBtnMenosIP);
             this.KgbServidorWeb.Panel.Controls.Add(this.MBtnMasIP);
             this.KgbServidorWeb.Panel.Controls.Add(this.NudPuerto);
@@ -797,6 +877,28 @@
             this.KgbServidorWeb.TabIndex = 15;
             this.KgbServidorWeb.Values.Heading = "Servidor web";
             // 
+            // TxtIP
+            // 
+            this.TxtIP.BackColor = System.Drawing.Color.LightGray;
+            this.TxtIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtIP.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIP.Location = new System.Drawing.Point(648, 123);
+            this.TxtIP.Name = "TxtIP";
+            this.TxtIP.Size = new System.Drawing.Size(150, 25);
+            this.TxtIP.TabIndex = 164;
+            this.TxtIP.Leave += new System.EventHandler(this.TxtIP_Leave);
+            // 
+            // LblIp
+            // 
+            this.LblIp.AutoSize = true;
+            this.LblIp.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIp.ForeColor = System.Drawing.Color.Navy;
+            this.LblIp.Location = new System.Drawing.Point(646, 85);
+            this.LblIp.Name = "LblIp";
+            this.LblIp.Size = new System.Drawing.Size(29, 26);
+            this.LblIp.TabIndex = 163;
+            this.LblIp.Text = "IP";
+            // 
             // MBtnMenosIP
             // 
             this.MBtnMenosIP.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -810,6 +912,7 @@
             this.MBtnMenosIP.Size = new System.Drawing.Size(30, 30);
             this.MBtnMenosIP.TabIndex = 162;
             this.MBtnMenosIP.UseVisualStyleBackColor = true;
+            this.MBtnMenosIP.Click += new System.EventHandler(this.MBtnMenosIP_Click);
             // 
             // MBtnMasIP
             // 
@@ -824,6 +927,7 @@
             this.MBtnMasIP.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasIP.TabIndex = 161;
             this.MBtnMasIP.UseVisualStyleBackColor = true;
+            this.MBtnMasIP.Click += new System.EventHandler(this.MBtnMasIP_Click);
             // 
             // NudPuerto
             // 
@@ -841,11 +945,11 @@
             0,
             0,
             0});
+            this.NudPuerto.ValueChanged += new System.EventHandler(this.NudPuerto_ValueChanged);
             // 
             // CmbIP
             // 
             this.CmbIP.BackColor = System.Drawing.Color.LightGray;
-            this.CmbIP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.CmbIP.DropDownHeight = 70;
             this.CmbIP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbIP.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -853,11 +957,12 @@
             this.CmbIP.ForeColor = System.Drawing.Color.Navy;
             this.CmbIP.FormattingEnabled = true;
             this.CmbIP.IntegralHeight = false;
-            this.CmbIP.ItemHeight = 20;
+            this.CmbIP.ItemHeight = 18;
             this.CmbIP.Location = new System.Drawing.Point(23, 124);
             this.CmbIP.Name = "CmbIP";
             this.CmbIP.Size = new System.Drawing.Size(347, 26);
             this.CmbIP.TabIndex = 31;
+            this.CmbIP.SelectedIndexChanged += new System.EventHandler(this.CmbIP_SelectedIndexChanged);
             // 
             // LblPuertoServidor
             // 
@@ -886,10 +991,11 @@
             this.TxtTituloServidorWeb.BackColor = System.Drawing.Color.LightGray;
             this.TxtTituloServidorWeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTituloServidorWeb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(282, 35);
+            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(303, 24);
             this.TxtTituloServidorWeb.Name = "TxtTituloServidorWeb";
             this.TxtTituloServidorWeb.Size = new System.Drawing.Size(323, 25);
             this.TxtTituloServidorWeb.TabIndex = 28;
+            this.TxtTituloServidorWeb.TextChanged += new System.EventHandler(this.TxtTituloServidorWeb_TextChanged);
             // 
             // TxtSubtituloServidor
             // 
@@ -924,7 +1030,7 @@
             this.PanBotonesConfi.Controls.Add(this.BtnAceptarConfi);
             this.PanBotonesConfi.Controls.Add(this.BtnRestaurarValores);
             this.PanBotonesConfi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanBotonesConfi.Location = new System.Drawing.Point(0, 1420);
+            this.PanBotonesConfi.Location = new System.Drawing.Point(0, 1470);
             this.PanBotonesConfi.Name = "PanBotonesConfi";
             this.PanBotonesConfi.Size = new System.Drawing.Size(931, 43);
             this.PanBotonesConfi.TabIndex = 16;
@@ -1089,6 +1195,7 @@
             this.BtnAceptarConfi.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
             this.BtnAceptarConfi.TabIndex = 9;
             this.BtnAceptarConfi.Values.Text = "Aceptar";
+            this.BtnAceptarConfi.Click += new System.EventHandler(this.BtnAceptarConfi_Click);
             // 
             // BtnRestaurarValores
             // 
@@ -1175,7 +1282,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 1385);
+            this.panel2.Location = new System.Drawing.Point(0, 1435);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(931, 35);
             this.panel2.TabIndex = 17;
@@ -1197,38 +1304,6 @@
             this.PanConfiguracion.Name = "PanConfiguracion";
             this.PanConfiguracion.Size = new System.Drawing.Size(948, 693);
             this.PanConfiguracion.TabIndex = 3;
-            // 
-            // TBtnContenidoExp
-            // 
-            this.TBtnContenidoExp.AutoSize = true;
-            this.TBtnContenidoExp.Checked = true;
-            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnContenidoExp.Location = new System.Drawing.Point(469, 183);
-            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
-            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.TabIndex = 30;
-            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
-            // 
-            // TBtnUltimaBBDD
-            // 
-            this.TBtnUltimaBBDD.AutoSize = true;
-            this.TBtnUltimaBBDD.Checked = true;
-            this.TBtnUltimaBBDD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnUltimaBBDD.Location = new System.Drawing.Point(469, 33);
-            this.TBtnUltimaBBDD.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnUltimaBBDD.Name = "TBtnUltimaBBDD";
-            this.TBtnUltimaBBDD.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnUltimaBBDD.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnUltimaBBDD.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnUltimaBBDD.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnUltimaBBDD.Size = new System.Drawing.Size(45, 22);
-            this.TBtnUltimaBBDD.TabIndex = 22;
-            this.TBtnUltimaBBDD.UseVisualStyleBackColor = true;
             // 
             // FrmConfiguracion
             // 
@@ -1347,5 +1422,10 @@
         private System.Windows.Forms.CheckBox ChkTags;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasIP;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosIP;
+        private System.Windows.Forms.Label LblIp;
+        private System.Windows.Forms.TextBox TxtIP;
+        private System.Windows.Forms.TextBox TxtGoogleBooksClave;
+        private System.Windows.Forms.TextBox TxtSubtituloGoogleBooksClave;
+        private System.Windows.Forms.Label LblGoogleBooksClave;
     }
 }
