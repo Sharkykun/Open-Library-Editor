@@ -64,6 +64,9 @@
             this.LblTema = new System.Windows.Forms.Label();
             this.RbtnClaro = new System.Windows.Forms.RadioButton();
             this.KgbDescargasWeb = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.TxtGoogleBooksClave = new System.Windows.Forms.TextBox();
+            this.TxtSubtituloGoogleBooksClave = new System.Windows.Forms.TextBox();
+            this.LblGoogleBooksClave = new System.Windows.Forms.Label();
             this.KgbImagenesLibro = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.RbtnGrande = new System.Windows.Forms.RadioButton();
             this.RbtnMediana = new System.Windows.Forms.RadioButton();
@@ -94,9 +97,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanConfiguracion = new System.Windows.Forms.Panel();
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
-            this.TxtGoogleBooksClave = new System.Windows.Forms.TextBox();
-            this.TxtSubtituloGoogleBooksClave = new System.Windows.Forms.TextBox();
-            this.LblGoogleBooksClave = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbConfi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral.Panel)).BeginInit();
@@ -151,7 +151,7 @@
             this.MPcbConfi.IconChar = FontAwesome.Sharp.MaterialIcons.CogOutline;
             this.MPcbConfi.IconColor = System.Drawing.Color.Navy;
             this.MPcbConfi.IconSize = 40;
-            this.MPcbConfi.Location = new System.Drawing.Point(55, 12);
+            this.MPcbConfi.Location = new System.Drawing.Point(55, 15);
             this.MPcbConfi.Name = "MPcbConfi";
             this.MPcbConfi.Size = new System.Drawing.Size(40, 40);
             this.MPcbConfi.TabIndex = 6;
@@ -163,7 +163,7 @@
             this.LblTituloConfi.AutoSize = true;
             this.LblTituloConfi.Font = new System.Drawing.Font("Merienda One", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
-            this.LblTituloConfi.Location = new System.Drawing.Point(88, 15);
+            this.LblTituloConfi.Location = new System.Drawing.Point(86, 18);
             this.LblTituloConfi.Name = "LblTituloConfi";
             this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
             this.LblTituloConfi.TabIndex = 3;
@@ -173,7 +173,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(55, 48);
+            this.panel1.Location = new System.Drawing.Point(55, 51);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(824, 3);
             this.panel1.TabIndex = 4;
@@ -182,7 +182,7 @@
             // 
             this.KgbGeneral.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbGeneral.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbGeneral.Location = new System.Drawing.Point(55, 78);
+            this.KgbGeneral.Location = new System.Drawing.Point(55, 81);
             this.KgbGeneral.Name = "KgbGeneral";
             // 
             // KgbGeneral.Panel
@@ -356,7 +356,7 @@
             // 
             this.KgbApariencia.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbApariencia.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbApariencia.Location = new System.Drawing.Point(55, 388);
+            this.KgbApariencia.Location = new System.Drawing.Point(55, 391);
             this.KgbApariencia.Name = "KgbApariencia";
             // 
             // KgbApariencia.Panel
@@ -612,7 +612,7 @@
             // 
             this.KgbDescargasWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbDescargasWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbDescargasWeb.Location = new System.Drawing.Point(55, 794);
+            this.KgbDescargasWeb.Location = new System.Drawing.Point(55, 797);
             this.KgbDescargasWeb.Name = "KgbDescargasWeb";
             // 
             // KgbDescargasWeb.Panel
@@ -638,6 +638,42 @@
             this.KgbDescargasWeb.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbDescargasWeb.TabIndex = 14;
             this.KgbDescargasWeb.Values.Heading = "Descargas web";
+            // 
+            // TxtGoogleBooksClave
+            // 
+            this.TxtGoogleBooksClave.BackColor = System.Drawing.Color.LightGray;
+            this.TxtGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtGoogleBooksClave.Location = new System.Drawing.Point(303, 290);
+            this.TxtGoogleBooksClave.Name = "TxtGoogleBooksClave";
+            this.TxtGoogleBooksClave.Size = new System.Drawing.Size(323, 25);
+            this.TxtGoogleBooksClave.TabIndex = 31;
+            // 
+            // TxtSubtituloGoogleBooksClave
+            // 
+            this.TxtSubtituloGoogleBooksClave.BackColor = System.Drawing.Color.Gainsboro;
+            this.TxtSubtituloGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSubtituloGoogleBooksClave.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TxtSubtituloGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSubtituloGoogleBooksClave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
+            this.TxtSubtituloGoogleBooksClave.Location = new System.Drawing.Point(24, 307);
+            this.TxtSubtituloGoogleBooksClave.Multiline = true;
+            this.TxtSubtituloGoogleBooksClave.Name = "TxtSubtituloGoogleBooksClave";
+            this.TxtSubtituloGoogleBooksClave.ReadOnly = true;
+            this.TxtSubtituloGoogleBooksClave.Size = new System.Drawing.Size(246, 48);
+            this.TxtSubtituloGoogleBooksClave.TabIndex = 30;
+            this.TxtSubtituloGoogleBooksClave.Text = "Establece la clave privada de Google Books";
+            // 
+            // LblGoogleBooksClave
+            // 
+            this.LblGoogleBooksClave.AutoSize = true;
+            this.LblGoogleBooksClave.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGoogleBooksClave.ForeColor = System.Drawing.Color.Navy;
+            this.LblGoogleBooksClave.Location = new System.Drawing.Point(24, 276);
+            this.LblGoogleBooksClave.Name = "LblGoogleBooksClave";
+            this.LblGoogleBooksClave.Size = new System.Drawing.Size(184, 26);
+            this.LblGoogleBooksClave.TabIndex = 29;
+            this.LblGoogleBooksClave.Text = "Clave Google Books";
             // 
             // KgbImagenesLibro
             // 
@@ -809,7 +845,7 @@
             // 
             this.KgbServidorWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbServidorWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1214);
+            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1210);
             this.KgbServidorWeb.Name = "KgbServidorWeb";
             // 
             // KgbServidorWeb.Panel
@@ -994,16 +1030,16 @@
             this.PanBotonesConfi.Controls.Add(this.BtnAceptarConfi);
             this.PanBotonesConfi.Controls.Add(this.BtnRestaurarValores);
             this.PanBotonesConfi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanBotonesConfi.Location = new System.Drawing.Point(0, 1474);
+            this.PanBotonesConfi.Location = new System.Drawing.Point(0, 1470);
             this.PanBotonesConfi.Name = "PanBotonesConfi";
-            this.PanBotonesConfi.Size = new System.Drawing.Size(931, 45);
+            this.PanBotonesConfi.Size = new System.Drawing.Size(931, 43);
             this.PanBotonesConfi.TabIndex = 16;
             // 
             // BtnCancelarConfi
             // 
             this.BtnCancelarConfi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnCancelarConfi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancelarConfi.Location = new System.Drawing.Point(615, 5);
+            this.BtnCancelarConfi.Location = new System.Drawing.Point(608, 5);
             this.BtnCancelarConfi.Margin = new System.Windows.Forms.Padding(0);
             this.BtnCancelarConfi.Name = "BtnCancelarConfi";
             this.BtnCancelarConfi.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1083,7 +1119,7 @@
             // 
             this.BtnAceptarConfi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnAceptarConfi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAceptarConfi.Location = new System.Drawing.Point(753, 5);
+            this.BtnAceptarConfi.Location = new System.Drawing.Point(746, 5);
             this.BtnAceptarConfi.Margin = new System.Windows.Forms.Padding(0);
             this.BtnAceptarConfi.Name = "BtnAceptarConfi";
             this.BtnAceptarConfi.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1165,7 +1201,7 @@
             // 
             this.BtnRestaurarValores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnRestaurarValores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRestaurarValores.Location = new System.Drawing.Point(55, 5);
+            this.BtnRestaurarValores.Location = new System.Drawing.Point(48, 5);
             this.BtnRestaurarValores.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRestaurarValores.Name = "BtnRestaurarValores";
             this.BtnRestaurarValores.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1246,7 +1282,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 1439);
+            this.panel2.Location = new System.Drawing.Point(0, 1435);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(931, 35);
             this.panel2.TabIndex = 17;
@@ -1268,42 +1304,6 @@
             this.PanConfiguracion.Name = "PanConfiguracion";
             this.PanConfiguracion.Size = new System.Drawing.Size(948, 693);
             this.PanConfiguracion.TabIndex = 3;
-            // 
-            // TxtGoogleBooksClave
-            // 
-            this.TxtGoogleBooksClave.BackColor = System.Drawing.Color.LightGray;
-            this.TxtGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtGoogleBooksClave.Location = new System.Drawing.Point(303, 290);
-            this.TxtGoogleBooksClave.Name = "TxtGoogleBooksClave";
-            this.TxtGoogleBooksClave.Size = new System.Drawing.Size(323, 25);
-            this.TxtGoogleBooksClave.TabIndex = 31;
-            // 
-            // TxtSubtituloGoogleBooksClave
-            // 
-            this.TxtSubtituloGoogleBooksClave.BackColor = System.Drawing.Color.Gainsboro;
-            this.TxtSubtituloGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtSubtituloGoogleBooksClave.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.TxtSubtituloGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSubtituloGoogleBooksClave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))));
-            this.TxtSubtituloGoogleBooksClave.Location = new System.Drawing.Point(24, 307);
-            this.TxtSubtituloGoogleBooksClave.Multiline = true;
-            this.TxtSubtituloGoogleBooksClave.Name = "TxtSubtituloGoogleBooksClave";
-            this.TxtSubtituloGoogleBooksClave.ReadOnly = true;
-            this.TxtSubtituloGoogleBooksClave.Size = new System.Drawing.Size(246, 48);
-            this.TxtSubtituloGoogleBooksClave.TabIndex = 30;
-            this.TxtSubtituloGoogleBooksClave.Text = "Establece la clave privada de Google Books";
-            // 
-            // LblGoogleBooksClave
-            // 
-            this.LblGoogleBooksClave.AutoSize = true;
-            this.LblGoogleBooksClave.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGoogleBooksClave.ForeColor = System.Drawing.Color.Navy;
-            this.LblGoogleBooksClave.Location = new System.Drawing.Point(24, 276);
-            this.LblGoogleBooksClave.Name = "LblGoogleBooksClave";
-            this.LblGoogleBooksClave.Size = new System.Drawing.Size(184, 26);
-            this.LblGoogleBooksClave.TabIndex = 29;
-            this.LblGoogleBooksClave.Text = "Clave Google Books";
             // 
             // FrmConfiguracion
             // 

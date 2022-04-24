@@ -819,14 +819,29 @@
   <data name="Main_Confi" xml:space="preserve">
     <value>Configuración</value>
   </data>
+  <data name="Main_Edi" xml:space="preserve">
+    <value>Editoriales:</value>
+  </data>
   <data name="Main_Editoriales" xml:space="preserve">
     <value>Editoriales</value>
   </data>
   <data name="Main_Eliminar" xml:space="preserve">
     <value>Eliminar libro</value>
   </data>
+  <data name="Main_Formato" xml:space="preserve">
+    <value>Formato:</value>
+  </data>
   <data name="Main_Generos" xml:space="preserve">
     <value>Géneros</value>
+  </data>
+  <data name="Main_Idioma" xml:space="preserve">
+    <value>Idioma:</value>
+  </data>
+  <data name="Main_is10" xml:space="preserve">
+    <value>ISBN 10:</value>
+  </data>
+  <data name="Main_is13" xml:space="preserve">
+    <value>ISBN 13:</value>
   </data>
   <data name="Main_LinkSesion" xml:space="preserve">
     <value>Iniciar sesión</value>
@@ -840,8 +855,17 @@
   <data name="Main_NuevoLibro" xml:space="preserve">
     <value>Añadir nuevo libro</value>
   </data>
+  <data name="Main_Pag" xml:space="preserve">
+    <value>Páginas:</value>
+  </data>
+  <data name="Main_Publicado" xml:space="preserve">
+    <value>Publicado:</value>
+  </data>
   <data name="Main_Salir" xml:space="preserve">
     <value>Salir</value>
+  </data>
+  <data name="Main_Ser" xml:space="preserve">
+    <value>Series:</value>
   </data>
   <data name="Main_Series" xml:space="preserve">
     <value>Series</value>
@@ -853,7 +877,7 @@
     <value>Títulos</value>
   </data>
   <data name="Main_TTAutores" xml:space="preserve">
-    <value>Mis autores</value>
+    <value>Mis Autores</value>
   </data>
   <data name="Main_TTBuscar" xml:space="preserve">
     <value>Buscar libros</value>
@@ -865,7 +889,7 @@
     <value>Configurar aplicación</value>
   </data>
   <data name="Main_TTEditoriales" xml:space="preserve">
-    <value>Mis editoriales</value>
+    <value>Mis Editoriales</value>
   </data>
   <data name="Main_TTFormTitulo" xml:space="preserve">
     <value>Open Library Editor</value>
@@ -874,7 +898,7 @@
     <value>Imagen usuario</value>
   </data>
   <data name="Main_TTGeneros" xml:space="preserve">
-    <value>Mis géneros</value>
+    <value>Mis Géneros</value>
   </data>
   <data name="Main_TTLink" xml:space="preserve">
     <value>Click para iniciar sesión</value>
@@ -895,13 +919,13 @@
     <value>Salir</value>
   </data>
   <data name="Main_TTSeries" xml:space="preserve">
-    <value>Mis series</value>
+    <value>Mis Series</value>
   </data>
   <data name="Main_TTTags" xml:space="preserve">
-    <value>Mis etiquetas</value>
+    <value>Mis Etiquetas</value>
   </data>
   <data name="Main_TTTitulos" xml:space="preserve">
-    <value>Mis títulos</value>
+    <value>Mis Títulos</value>
   </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>Registrarme</value>

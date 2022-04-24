@@ -819,14 +819,29 @@
   <data name="Main_Confi" xml:space="preserve">
     <value>Setting</value>
   </data>
+  <data name="Main_Edi" xml:space="preserve">
+    <value>Publishers:</value>
+  </data>
   <data name="Main_Editoriales" xml:space="preserve">
     <value>Publishers</value>
   </data>
   <data name="Main_Eliminar" xml:space="preserve">
     <value>Remove book</value>
   </data>
+  <data name="Main_Formato" xml:space="preserve">
+    <value>Format:</value>
+  </data>
   <data name="Main_Generos" xml:space="preserve">
     <value>Genres</value>
+  </data>
+  <data name="Main_Idioma" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="Main_is10" xml:space="preserve">
+    <value>ISBN 10:</value>
+  </data>
+  <data name="Main_is13" xml:space="preserve">
+    <value>ISBN 13:</value>
   </data>
   <data name="Main_LinkSesion" xml:space="preserve">
     <value>Sign in</value>
@@ -840,8 +855,17 @@
   <data name="Main_NuevoLibro" xml:space="preserve">
     <value>Add new book</value>
   </data>
+  <data name="Main_Pag" xml:space="preserve">
+    <value>Pages:</value>
+  </data>
+  <data name="Main_Publicado" xml:space="preserve">
+    <value>Published:</value>
+  </data>
   <data name="Main_Salir" xml:space="preserve">
     <value>Exit</value>
+  </data>
+  <data name="Main_Ser" xml:space="preserve">
+    <value>Series:</value>
   </data>
   <data name="Main_Series" xml:space="preserve">
     <value>Series</value>
