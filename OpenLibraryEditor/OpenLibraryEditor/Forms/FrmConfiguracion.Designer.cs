@@ -74,6 +74,8 @@
             this.ChkAutores = new System.Windows.Forms.CheckBox();
             this.LblCamposActualizar = new System.Windows.Forms.Label();
             this.KgbServidorWeb = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.MBtnMenosIP = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnMasIP = new FontAwesome.Sharp.Material.MaterialButton();
             this.NudPuerto = new System.Windows.Forms.NumericUpDown();
             this.CmbIP = new System.Windows.Forms.ComboBox();
             this.LblPuertoServidor = new System.Windows.Forms.Label();
@@ -90,8 +92,6 @@
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
             this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.TBtnUltimaBBDD = new OpenLibraryEditor.Controles.ToggleButton();
-            this.MBtnMasIP = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnMenosIP = new FontAwesome.Sharp.Material.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbConfi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral.Panel)).BeginInit();
@@ -146,7 +146,7 @@
             this.MPcbConfi.IconChar = FontAwesome.Sharp.MaterialIcons.CogOutline;
             this.MPcbConfi.IconColor = System.Drawing.Color.Navy;
             this.MPcbConfi.IconSize = 40;
-            this.MPcbConfi.Location = new System.Drawing.Point(55, 45);
+            this.MPcbConfi.Location = new System.Drawing.Point(55, 15);
             this.MPcbConfi.Name = "MPcbConfi";
             this.MPcbConfi.Size = new System.Drawing.Size(40, 40);
             this.MPcbConfi.TabIndex = 6;
@@ -158,9 +158,9 @@
             this.LblTituloConfi.AutoSize = true;
             this.LblTituloConfi.Font = new System.Drawing.Font("Merienda One", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
-            this.LblTituloConfi.Location = new System.Drawing.Point(88, 48);
+            this.LblTituloConfi.Location = new System.Drawing.Point(86, 18);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
             this.LblTituloConfi.TabIndex = 3;
             this.LblTituloConfi.Text = "Configuración";
             // 
@@ -168,7 +168,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.panel1.Location = new System.Drawing.Point(55, 81);
+            this.panel1.Location = new System.Drawing.Point(55, 51);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(824, 3);
             this.panel1.TabIndex = 4;
@@ -177,7 +177,7 @@
             // 
             this.KgbGeneral.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbGeneral.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbGeneral.Location = new System.Drawing.Point(55, 111);
+            this.KgbGeneral.Location = new System.Drawing.Point(55, 81);
             this.KgbGeneral.Name = "KgbGeneral";
             // 
             // KgbGeneral.Panel
@@ -319,7 +319,7 @@
             // 
             this.KgbApariencia.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbApariencia.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbApariencia.Location = new System.Drawing.Point(55, 421);
+            this.KgbApariencia.Location = new System.Drawing.Point(55, 391);
             this.KgbApariencia.Name = "KgbApariencia";
             // 
             // KgbApariencia.Panel
@@ -573,7 +573,7 @@
             // 
             this.KgbDescargasWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbDescargasWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbDescargasWeb.Location = new System.Drawing.Point(55, 827);
+            this.KgbDescargasWeb.Location = new System.Drawing.Point(55, 797);
             this.KgbDescargasWeb.Name = "KgbDescargasWeb";
             // 
             // KgbDescargasWeb.Panel
@@ -767,7 +767,7 @@
             // 
             this.KgbServidorWeb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbServidorWeb.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1190);
+            this.KgbServidorWeb.Location = new System.Drawing.Point(55, 1160);
             this.KgbServidorWeb.Name = "KgbServidorWeb";
             // 
             // KgbServidorWeb.Panel
@@ -796,6 +796,34 @@
             this.KgbServidorWeb.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbServidorWeb.TabIndex = 15;
             this.KgbServidorWeb.Values.Heading = "Servidor web";
+            // 
+            // MBtnMenosIP
+            // 
+            this.MBtnMenosIP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMenosIP.FlatAppearance.BorderSize = 0;
+            this.MBtnMenosIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosIP.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
+            this.MBtnMenosIP.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMenosIP.IconSize = 40;
+            this.MBtnMenosIP.Location = new System.Drawing.Point(408, 123);
+            this.MBtnMenosIP.Name = "MBtnMenosIP";
+            this.MBtnMenosIP.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMenosIP.TabIndex = 162;
+            this.MBtnMenosIP.UseVisualStyleBackColor = true;
+            // 
+            // MBtnMasIP
+            // 
+            this.MBtnMasIP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMasIP.FlatAppearance.BorderSize = 0;
+            this.MBtnMasIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasIP.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
+            this.MBtnMasIP.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasIP.IconSize = 40;
+            this.MBtnMasIP.Location = new System.Drawing.Point(376, 123);
+            this.MBtnMasIP.Name = "MBtnMasIP";
+            this.MBtnMasIP.Size = new System.Drawing.Size(30, 30);
+            this.MBtnMasIP.TabIndex = 161;
+            this.MBtnMasIP.UseVisualStyleBackColor = true;
             // 
             // NudPuerto
             // 
@@ -896,16 +924,16 @@
             this.PanBotonesConfi.Controls.Add(this.BtnAceptarConfi);
             this.PanBotonesConfi.Controls.Add(this.BtnRestaurarValores);
             this.PanBotonesConfi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanBotonesConfi.Location = new System.Drawing.Point(0, 1450);
+            this.PanBotonesConfi.Location = new System.Drawing.Point(0, 1420);
             this.PanBotonesConfi.Name = "PanBotonesConfi";
-            this.PanBotonesConfi.Size = new System.Drawing.Size(931, 45);
+            this.PanBotonesConfi.Size = new System.Drawing.Size(931, 43);
             this.PanBotonesConfi.TabIndex = 16;
             // 
             // BtnCancelarConfi
             // 
             this.BtnCancelarConfi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnCancelarConfi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancelarConfi.Location = new System.Drawing.Point(615, 5);
+            this.BtnCancelarConfi.Location = new System.Drawing.Point(608, 5);
             this.BtnCancelarConfi.Margin = new System.Windows.Forms.Padding(0);
             this.BtnCancelarConfi.Name = "BtnCancelarConfi";
             this.BtnCancelarConfi.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -985,7 +1013,7 @@
             // 
             this.BtnAceptarConfi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnAceptarConfi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAceptarConfi.Location = new System.Drawing.Point(753, 5);
+            this.BtnAceptarConfi.Location = new System.Drawing.Point(746, 5);
             this.BtnAceptarConfi.Margin = new System.Windows.Forms.Padding(0);
             this.BtnAceptarConfi.Name = "BtnAceptarConfi";
             this.BtnAceptarConfi.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1066,7 +1094,7 @@
             // 
             this.BtnRestaurarValores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnRestaurarValores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRestaurarValores.Location = new System.Drawing.Point(55, 5);
+            this.BtnRestaurarValores.Location = new System.Drawing.Point(48, 5);
             this.BtnRestaurarValores.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRestaurarValores.Name = "BtnRestaurarValores";
             this.BtnRestaurarValores.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1147,7 +1175,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 1415);
+            this.panel2.Location = new System.Drawing.Point(0, 1385);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(931, 35);
             this.panel2.TabIndex = 17;
@@ -1201,34 +1229,6 @@
             this.TBtnUltimaBBDD.Size = new System.Drawing.Size(45, 22);
             this.TBtnUltimaBBDD.TabIndex = 22;
             this.TBtnUltimaBBDD.UseVisualStyleBackColor = true;
-            // 
-            // MBtnMasIP
-            // 
-            this.MBtnMasIP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnMasIP.FlatAppearance.BorderSize = 0;
-            this.MBtnMasIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnMasIP.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasIP.IconColor = System.Drawing.Color.Navy;
-            this.MBtnMasIP.IconSize = 40;
-            this.MBtnMasIP.Location = new System.Drawing.Point(376, 123);
-            this.MBtnMasIP.Name = "MBtnMasIP";
-            this.MBtnMasIP.Size = new System.Drawing.Size(30, 30);
-            this.MBtnMasIP.TabIndex = 161;
-            this.MBtnMasIP.UseVisualStyleBackColor = true;
-            // 
-            // MBtnMenosIP
-            // 
-            this.MBtnMenosIP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnMenosIP.FlatAppearance.BorderSize = 0;
-            this.MBtnMenosIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnMenosIP.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
-            this.MBtnMenosIP.IconColor = System.Drawing.Color.Navy;
-            this.MBtnMenosIP.IconSize = 40;
-            this.MBtnMenosIP.Location = new System.Drawing.Point(408, 123);
-            this.MBtnMenosIP.Name = "MBtnMenosIP";
-            this.MBtnMenosIP.Size = new System.Drawing.Size(30, 30);
-            this.MBtnMenosIP.TabIndex = 162;
-            this.MBtnMenosIP.UseVisualStyleBackColor = true;
             // 
             // FrmConfiguracion
             // 

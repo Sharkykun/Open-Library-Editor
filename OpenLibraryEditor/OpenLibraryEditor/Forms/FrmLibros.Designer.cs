@@ -1856,7 +1856,7 @@
             this.KPageDatosUsuario.MinimumSize = new System.Drawing.Size(50, 50);
             this.KPageDatosUsuario.Name = "KPageDatosUsuario";
             this.KPageDatosUsuario.Size = new System.Drawing.Size(1010, 639);
-            this.KPageDatosUsuario.Text = "Datos usuario";
+            this.KPageDatosUsuario.Text = "Usuario";
             this.KPageDatosUsuario.ToolTipTitle = "Page ToolTip";
             this.KPageDatosUsuario.UniqueName = "547A78A47ADC44C1A69817F08AD60FBD";
             // 
@@ -2185,7 +2185,7 @@
             this.ChEjecutableNL.Text = "Ejecutable";
             this.ChEjecutableNL.Width = 133;
             // 
-            // FrmAniadirLibro
+            // FrmLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2194,7 +2194,7 @@
             this.Controls.Add(this.PanTituloTitulos);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmAniadirLibro";
+            this.Name = "FrmLibros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTitulos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAniadirLibro_FormClosing);

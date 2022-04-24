@@ -2167,6 +2167,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Editoriales:.
+        /// </summary>
+        internal static string Main_Edi {
+            get {
+                return ResourceManager.GetString("Main_Edi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Editoriales.
         /// </summary>
         internal static string Main_Editoriales {
@@ -2185,11 +2194,47 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Formato:.
+        /// </summary>
+        internal static string Main_Formato {
+            get {
+                return ResourceManager.GetString("Main_Formato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Géneros.
         /// </summary>
         internal static string Main_Generos {
             get {
                 return ResourceManager.GetString("Main_Generos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Idioma:.
+        /// </summary>
+        internal static string Main_Idioma {
+            get {
+                return ResourceManager.GetString("Main_Idioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN 10:.
+        /// </summary>
+        internal static string Main_is10 {
+            get {
+                return ResourceManager.GetString("Main_is10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN 13:.
+        /// </summary>
+        internal static string Main_is13 {
+            get {
+                return ResourceManager.GetString("Main_is13", resourceCulture);
             }
         }
         
@@ -2230,11 +2275,38 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Páginas:.
+        /// </summary>
+        internal static string Main_Pag {
+            get {
+                return ResourceManager.GetString("Main_Pag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Publicado:.
+        /// </summary>
+        internal static string Main_Publicado {
+            get {
+                return ResourceManager.GetString("Main_Publicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salir.
         /// </summary>
         internal static string Main_Salir {
             get {
                 return ResourceManager.GetString("Main_Salir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Series:.
+        /// </summary>
+        internal static string Main_Ser {
+            get {
+                return ResourceManager.GetString("Main_Ser", resourceCulture);
             }
         }
         
@@ -2266,7 +2338,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mis autores.
+        ///   Busca una cadena traducida similar a Mis Autores.
         /// </summary>
         internal static string Main_TTAutores {
             get {
@@ -2302,7 +2374,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mis editoriales.
+        ///   Busca una cadena traducida similar a Mis Editoriales.
         /// </summary>
         internal static string Main_TTEditoriales {
             get {
@@ -2329,7 +2401,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mis géneros.
+        ///   Busca una cadena traducida similar a Mis Géneros.
         /// </summary>
         internal static string Main_TTGeneros {
             get {
@@ -2392,7 +2464,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mis series.
+        ///   Busca una cadena traducida similar a Mis Series.
         /// </summary>
         internal static string Main_TTSeries {
             get {
@@ -2401,7 +2473,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mis etiquetas.
+        ///   Busca una cadena traducida similar a Mis Etiquetas.
         /// </summary>
         internal static string Main_TTTags {
             get {
@@ -2410,7 +2482,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mis títulos.
+        ///   Busca una cadena traducida similar a Mis Títulos.
         /// </summary>
         internal static string Main_TTTitulos {
             get {

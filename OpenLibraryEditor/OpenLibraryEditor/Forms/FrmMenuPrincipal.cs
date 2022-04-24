@@ -2,6 +2,7 @@
 using FontAwesome.Sharp.Material;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
+using OpenLibraryEditor.Controles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace OpenLibraryEditor.Forms
 
         private int altoPantalla;
         private int anchoPantalla;
+        private List<String> titulos = new List<string>();
+        Button mas = new Button();
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -39,6 +42,11 @@ namespace OpenLibraryEditor.Forms
             anchoPantalla = Screen.FromHandle(this.Handle).WorkingArea.Width;
             altoPantalla = Screen.FromHandle(this.Handle).WorkingArea.Height;
             this.MaximumSize = new Size(anchoPantalla,altoPantalla);
+            this.DoubleBuffered = true;
+            PanVistaDetalles.Visible = false;
+            PanVistaMosaico.Visible = true;
+            PanVistaMosaico.BringToFront();
+           //vistaDetallesH.setEditoriales("prueba1, prueba 2");
 
             //Quitar el texto del borde para que simule que no hay, pero se nota
             //this.Text = String.Empty;
@@ -54,9 +62,540 @@ namespace OpenLibraryEditor.Forms
                 LlLogIn.Location = new Point(88, 168);
             else
                 LlLogIn.Location = new Point(65, 168);
-          
+
+            TitulosPrueba();
+            if (PanVistaMosaico.Visible == true)
+                ColocarLibrosMosaico();
+            else
+                ColocarLibrosDetalles();
+
             IdiomaTexto();
+            PanDetallesLibro.VerticalScroll.Visible = false;
+            PanDetallesLibro.HorizontalScroll.Maximum = 0;
+            PanDetallesLibro.HorizontalScroll.Visible = false;
+            KpDetalles.VerticalScroll.Enabled = false;
+            KpDetalles.VerticalScroll.Visible = false;
+           
         }
+        #region Mostrar libros de la biblioteca
+        private void ColocarLibrosMosaico()
+        {
+            PanVistaMosaico.Controls.Clear();
+            int tamPanel = PanVistaMosaico.Width;
+            int altoPanel = PanVistaMosaico.Height;
+
+            int x = 10;
+            int y = 10;
+            foreach (string s in titulos)
+            {
+                Button botonLibro = new Button();
+                if (x < (tamPanel - 135))
+                {
+                    botonLibro.Location = new Point(x, y);
+                    botonLibro.Size = new Size(130, 170);
+                    botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
+                    botonLibro.BackgroundImage = OpenLibraryEditor.Properties.Resources.PortadaLogo;
+                    botonLibro.Text = s;
+                    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                    botonLibro.ForeColor = Color.Gainsboro;
+                    botonLibro.Padding = new Padding(15, 0, 5, 0);
+                    PanVistaMosaico.Controls.Add(botonLibro);
+                    botonLibro.Visible = true;
+                    botonLibro.Click += new EventHandler(ManejadorLibro_Click);
+                    x = x + 135;
+                }
+                else
+                {
+                    x = 10;
+                    y = y + 175;
+                    botonLibro.Location = new Point(x, y);
+                    botonLibro.Size = new Size(130, 170);
+                    botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
+                    botonLibro.BackgroundImage = OpenLibraryEditor.Properties.Resources.PortadaLogo;
+                    botonLibro.Text = s;
+                    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                    botonLibro.ForeColor = Color.Gainsboro;
+                    botonLibro.Padding = new Padding(15, 0, 5, 0);
+                    PanVistaMosaico.Controls.Add(botonLibro);
+                    botonLibro.Visible = true;
+                    botonLibro.Click += new EventHandler(ManejadorLibro_Click);
+                    x = x + 135;
+                }
+            }
+        }
+        private void ManejadorLibro_Click(object sender, EventArgs e)
+        {
+            
+            Button libroSeleccionado = (Button)sender;
+            PanDetallesLibro.Visible = true;
+            PcbLibro.Image = libroSeleccionado.BackgroundImage;
+            TxtTituloLibro.Text = libroSeleccionado.Text;
+            //ColocarLibros();
+        }
+        private void ManejadorLibroDet_Click(object sender, EventArgs e)
+        {
+
+            VistaDetallesV libroSeleccionado = (VistaDetallesV)sender;
+            PanDetallesLibro.Visible = true;
+            PcbLibro.Image = libroSeleccionado.getImagen();
+            TxtTituloLibro.Text = libroSeleccionado.getTituloLibro();
+            TxtPersonas.Text = libroSeleccionado.getPersonas();
+            //ColocarLibros();
+        }
+        private void ColocarLibrosDetalles()
+        {
+            PanVistaDetalles.Controls.Clear();
+            int tamPanel = PanVistaDetalles.Width;
+            int altoPanel = PanVistaDetalles.Height;
+
+            int x = 10;
+            int y = 10;
+            foreach (string s in titulos)
+            {
+                VistaDetallesV vista = new VistaDetallesV();
+                if (x < (tamPanel - 400))
+                {
+                    vista.Location = new Point(x, y);
+                    vista.setTituloLibro(s);
+                    PanVistaDetalles.Controls.Add(vista);
+                    vista.Visible = true;
+                    vista.Click += new EventHandler(ManejadorLibroDet_Click);
+                    x = x + 439;
+                }
+                else
+                {
+                    x = 10;
+                    y = y + 255;
+                    vista.Location = new Point(x, y);
+                    vista.setTituloLibro(s);
+                    PanVistaDetalles.Controls.Add(vista);
+                    vista.Visible = true;
+                    vista.Click += new EventHandler(ManejadorLibroDet_Click);
+                    x = x + 439;
+                }
+            }
+        }
+        private void PruebaDetalles()
+        {
+            //PanVistaDetalles.Controls.Clear();
+            //int tamPanel = PanVistaDetalles.Width;
+            //int altoPanel = PanVistaDetalles.Height;
+
+            //int x = 10;
+            //int y = 10;
+            //foreach (string s in titulos)
+            //{
+            //    Panel panel = new Panel();
+            //    PanelTransparente transparente = new PanelTransparente();
+            //    PictureBox pic = new PictureBox();
+            //    Label titulo = new Label();
+            //    Label personas = new Label();
+            //    Label editoriales = new Label();
+            //    Label series = new Label();
+            //    Label isbn10 = new Label();
+            //    Label isbn13=new Label();
+            //    Label paginas=new Label();
+            //    Label publicado=new Label();
+            //    Label idioma = new Label();
+            //    Label formato = new Label();
+            //    Label escribirEdi = new Label();
+            //    Label escribirSer = new Label();
+            //    Label escribirIs10 = new Label();
+            //    Label escribirIs13 = new Label();
+            //    Label escribirPag = new Label();
+            //    Label escribirFec = new Label();
+            //    Label escribirIdi = new Label();
+            //    Label escribirFor = new Label();
+            //    if (x < (tamPanel - 419))
+            //    {
+            //        panel.Location = new Point(x, y);
+            //        panel.Size = new Size(419,240);
+            //        panel.BackColor = Color.Gainsboro;
+            //        pic.Size = new Size(120,160);
+            //        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            //        pic.Location=new Point(5, 59);
+
+            //        titulo.ForeColor = Color.Navy;
+            //        titulo.BackColor = Color.Transparent;
+            //        titulo.Font = new Font("Merienda One",11, FontStyle.Bold);
+            //        titulo.Location = new Point(5,5);
+            //        titulo.Text = s;
+
+            //        personas.ForeColor = Color.Navy;
+            //        personas.BackColor = Color.Transparent;
+            //        personas.Font = new Font("Merienda", 9, FontStyle.Italic);
+            //        personas.Location=new Point(10,33);
+            //        //personas.Text = s.Personas;
+
+            //        editoriales.ForeColor = Color.FromArgb(4,5,214);
+            //        editoriales.BackColor = Color.Transparent;
+            //        editoriales.Text = ControladorIdioma.GetTexto("Main_Edi");
+            //        editoriales.Font = new Font("Merienda",9,FontStyle.Bold);
+            //        editoriales.Location = new Point(137,61);
+            //        escribirEdi.ForeColor = Color.Black;
+            //        escribirEdi.BackColor = Color.Transparent;
+            //        //escribirEdi.Text = s.Editoriales;
+            //        escribirEdi.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirEdi.Location = new Point(210, 61);
+
+            //        series.ForeColor = Color.FromArgb(4, 5, 214);
+            //        series.BackColor = Color.Transparent;
+            //        series.Text = ControladorIdioma.GetTexto("Main_Ser");
+            //        series.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        series.Location = new Point(165, 81);
+            //        escribirSer.ForeColor = Color.Black;
+            //        escribirSer.BackColor = Color.Transparent;
+            //        //escribirSer.Text = s.Series;
+            //        escribirSer.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirSer.Location = new Point(210, 81);
+
+            //        isbn10.ForeColor = Color.FromArgb(4, 5, 214);
+            //        isbn10.BackColor = Color.Transparent;
+            //        isbn10.Text = ControladorIdioma.GetTexto("Main_is10");
+            //        isbn10.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        isbn10.Location = new Point(155, 101);
+            //        escribirIs10.ForeColor = Color.Black;
+            //        escribirIs10.BackColor = Color.Transparent;
+            //        //escribirIs10.Text = s.Isbn10;
+            //        escribirIs10.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirIs10.Location = new Point(210, 101);
+
+            //        isbn13.ForeColor = Color.FromArgb(4, 5, 214);
+            //        isbn13.BackColor = Color.Transparent;
+            //        isbn13.Text = ControladorIdioma.GetTexto("Main_is13");
+            //        isbn13.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        isbn13.Location = new Point(155, 121);
+            //        escribirIs13.ForeColor = Color.Black;
+            //        escribirIs13.BackColor = Color.Transparent;
+            //        //escribirIs13.Text = s.Isbn13;
+            //        escribirIs13.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirIs13.Location = new Point(210, 121);
+
+            //        paginas.ForeColor = Color.FromArgb(4, 5, 214);
+            //        paginas.BackColor = Color.Transparent;
+            //        paginas.Text = ControladorIdioma.GetTexto("Main_Pag");
+            //        paginas.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        paginas.Location = new Point(155, 141);
+            //        escribirPag.ForeColor = Color.Black;
+            //        escribirPag.BackColor = Color.Transparent;
+            //        //escribirPag.Text = s.Paginas;
+            //        escribirPag.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirPag.Location = new Point(210, 141);
+
+            //        publicado.ForeColor = Color.FromArgb(4, 5, 214);
+            //        publicado.BackColor = Color.Transparent;
+            //        publicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
+            //        publicado.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        publicado.Location = new Point(144, 161);
+            //        escribirFec.ForeColor = Color.Black;
+            //        escribirFec.BackColor = Color.Transparent;
+            //        //escribirFec.Text = s.Fecha;
+            //        escribirFec.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirFec.Location = new Point(210, 161);
+
+            //        idioma.ForeColor = Color.FromArgb(4, 5, 214);
+            //        idioma.BackColor = Color.Transparent;
+            //        idioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
+            //        idioma.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        idioma.Location = new Point(162, 181);
+            //        escribirIdi.ForeColor = Color.Black;
+            //        escribirIdi.BackColor = Color.Transparent;
+            //        //escribirIdi.Text = s.Idioma;
+            //        escribirIdi.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirIdi.Location = new Point(210, 181);
+
+            //        formato.ForeColor = Color.FromArgb(4, 5, 214);
+            //        formato.BackColor = Color.Transparent;
+            //        formato.Text = ControladorIdioma.GetTexto("Main_Formato");
+            //        formato.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        formato.Location = new Point(153, 201);
+            //        escribirFor.ForeColor = Color.Black;
+            //        escribirFor.BackColor = Color.Transparent;
+            //        //escribirFor.Text = s.Formato;
+            //        escribirFor.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirFor.Location = new Point(210, 201);
+
+            //        transparente.Location = new Point(x-5, y-5);
+            //        transparente.Size = new Size(429,250);
+            //        transparente.BringToFront();
+            //        transparente.TamBorde = 5;
+            //        transparente.ColorBorde = Color.Navy;
+
+            //        panel.Controls.Add(titulo);
+            //        titulo.Visible = true;
+            //        panel.Controls.Add(personas);
+            //        personas.Visible = true;
+            //        panel.Controls.Add(editoriales);
+            //        editoriales.Visible = true;
+            //        panel.Controls.Add(escribirEdi);
+            //        escribirEdi.Visible = true;
+            //        panel.Controls.Add(series);
+            //        series.Visible = true;
+            //        panel.Controls.Add(escribirSer);
+            //        escribirSer.Visible = true;
+            //        panel.Controls.Add(isbn10);
+            //        isbn10.Visible = true;
+            //        panel.Controls.Add(escribirIs10);
+            //        escribirIs10.Visible = true;
+            //        panel.Controls.Add(isbn13);
+            //        isbn13.Visible = true;
+            //        panel.Controls.Add(escribirIs13);
+            //        escribirIs13.Visible = true;
+            //        panel.Controls.Add(paginas);
+            //        paginas.Visible = true;
+            //        panel.Controls.Add(escribirPag);
+            //        escribirPag.Visible = true;
+            //        panel.Controls.Add(publicado);
+            //        publicado.Visible = true;
+            //        panel.Controls.Add(escribirFec);
+            //        escribirFec.Visible = true;
+            //        panel.Controls.Add(idioma);
+            //        idioma.Visible = true;
+            //        panel.Controls.Add(escribirIdi);
+            //        escribirIdi.Visible = true;
+            //        panel.Controls.Add(formato);
+            //        formato.Visible = true;
+            //        panel.Controls.Add(escribirFor);
+            //        escribirFor.Visible = true;
+
+            //        PanVistaDetalles.Controls.Add(panel);
+            //        panel.Visible = true;
+            //        PanVistaDetalles.Controls.Add(transparente);
+            //        transparente.Visible = true;
+            //        transparente.Click += new EventHandler(ManejadorLibroDet_Click);
+            //        transparente.MouseEnter += new EventHandler(CambiarColorPanel_Enter);
+            //        transparente.MouseLeave += new EventHandler(CambiarColorPanel_Leave);
+            //        x = x + 439;
+            //    }
+            //    else
+            //    {
+            //        x = 10;
+            //        y = y + 255;
+
+            //        panel.Location = new Point(x, y);
+            //        panel.Size = new Size(419, 240);
+            //        panel.BackColor = Color.Gainsboro;
+            //        pic.Size = new Size(120, 160);
+            //        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            //        pic.Location = new Point(5, 59);
+
+            //        titulo.ForeColor = Color.Navy;
+            //        titulo.BackColor = Color.Transparent;
+            //        titulo.Font = new Font("Merienda One", 11, FontStyle.Bold);
+            //        titulo.Location = new Point(5, 5);
+            //        titulo.Text = s;
+
+            //        personas.ForeColor = Color.Navy;
+            //        personas.BackColor = Color.Transparent;
+            //        personas.Font = new Font("Merienda", 9, FontStyle.Italic);
+            //        personas.Location = new Point(10, 33);
+            //        //personas.Text = s.Personas;
+
+            //        editoriales.ForeColor = Color.FromArgb(4, 5, 214);
+            //        editoriales.BackColor = Color.Transparent;
+            //        editoriales.Text = ControladorIdioma.GetTexto("Main_Edi");
+            //        editoriales.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        editoriales.Location = new Point(137, 61);
+            //        escribirEdi.ForeColor = Color.Black;
+            //        escribirEdi.BackColor = Color.Transparent;
+            //        //escribirEdi.Text = s.Editoriales;
+            //        escribirEdi.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirEdi.Location = new Point(210, 61);
+
+            //        series.ForeColor = Color.FromArgb(4, 5, 214);
+            //        series.BackColor = Color.Transparent;
+            //        series.Text = ControladorIdioma.GetTexto("Main_Ser");
+            //        series.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        series.Location = new Point(165, 81);
+            //        escribirSer.ForeColor = Color.Black;
+            //        escribirSer.BackColor = Color.Transparent;
+            //        //escribirSer.Text = s.Series;
+            //        escribirSer.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirSer.Location = new Point(210, 81);
+
+            //        isbn10.ForeColor = Color.FromArgb(4, 5, 214);
+            //        isbn10.BackColor = Color.Transparent;
+            //        isbn10.Text = ControladorIdioma.GetTexto("Main_is10");
+            //        isbn10.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        isbn10.Location = new Point(155, 101);
+            //        escribirIs10.ForeColor = Color.Black;
+            //        escribirIs10.BackColor = Color.Transparent;
+            //        //escribirIs10.Text = s.Isbn10;
+            //        escribirIs10.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirIs10.Location = new Point(210, 101);
+
+            //        isbn13.ForeColor = Color.FromArgb(4, 5, 214);
+            //        isbn13.BackColor = Color.Transparent;
+            //        isbn13.Text = ControladorIdioma.GetTexto("Main_is13");
+            //        isbn13.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        isbn13.Location = new Point(155, 121);
+            //        escribirIs13.ForeColor = Color.Black;
+            //        escribirIs13.BackColor = Color.Transparent;
+            //        //escribirIs13.Text = s.Isbn13;
+            //        escribirIs13.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirIs13.Location = new Point(210, 121);
+
+            //        paginas.ForeColor = Color.FromArgb(4, 5, 214);
+            //        paginas.BackColor = Color.Transparent;
+            //        paginas.Text = ControladorIdioma.GetTexto("Main_Pag");
+            //        paginas.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        paginas.Location = new Point(155, 141);
+            //        escribirPag.ForeColor = Color.Black;
+            //        escribirPag.BackColor = Color.Transparent;
+            //        //escribirPag.Text = s.Paginas;
+            //        escribirPag.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirPag.Location = new Point(210, 141);
+
+            //        publicado.ForeColor = Color.FromArgb(4, 5, 214);
+            //        publicado.BackColor = Color.Transparent;
+            //        publicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
+            //        publicado.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        publicado.Location = new Point(144, 161);
+            //        escribirFec.ForeColor = Color.Black;
+            //        escribirFec.BackColor = Color.Transparent;
+            //        //escribirFec.Text = s.Fecha;
+            //        escribirFec.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirFec.Location = new Point(210, 161);
+
+            //        idioma.ForeColor = Color.FromArgb(4, 5, 214);
+            //        idioma.BackColor = Color.Transparent;
+            //        idioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
+            //        idioma.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        idioma.Location = new Point(162, 181);
+            //        escribirIdi.ForeColor = Color.Black;
+            //        escribirIdi.BackColor = Color.Transparent;
+            //        //escribirIdi.Text = s.Idioma;
+            //        escribirIdi.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirIdi.Location = new Point(210, 181);
+
+            //        formato.ForeColor = Color.FromArgb(4, 5, 214);
+            //        formato.BackColor = Color.Transparent;
+            //        formato.Text = ControladorIdioma.GetTexto("Main_Formato");
+            //        formato.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        formato.Location = new Point(153, 201);
+            //        escribirFor.ForeColor = Color.Black;
+            //        escribirFor.BackColor = Color.Transparent;
+            //        //escribirFor.Text = s.Formato;
+            //        escribirFor.Font = new Font("Merienda", 9, FontStyle.Bold);
+            //        escribirFor.Location = new Point(210, 201);
+
+            //        transparente.Location = new Point(x - 5, y - 5);
+            //        transparente.Size = new Size(429, 250);
+            //        transparente.BringToFront();
+            //        transparente.TamBorde = 5;
+            //        transparente.ColorBorde = Color.Navy;
+
+            //        panel.Controls.Add(titulo);
+            //        titulo.Visible = true;
+            //        panel.Controls.Add(personas);
+            //        personas.Visible = true;
+            //        panel.Controls.Add(editoriales);
+            //        editoriales.Visible = true;
+            //        panel.Controls.Add(escribirEdi);
+            //        escribirEdi.Visible = true;
+            //        panel.Controls.Add(series);
+            //        series.Visible = true;
+            //        panel.Controls.Add(escribirSer);
+            //        escribirSer.Visible = true;
+            //        panel.Controls.Add(isbn10);
+            //        isbn10.Visible = true;
+            //        panel.Controls.Add(escribirIs10);
+            //        escribirIs10.Visible = true;
+            //        panel.Controls.Add(isbn13);
+            //        isbn13.Visible = true;
+            //        panel.Controls.Add(escribirIs13);
+            //        escribirIs13.Visible = true;
+            //        panel.Controls.Add(paginas);
+            //        paginas.Visible = true;
+            //        panel.Controls.Add(escribirPag);
+            //        escribirPag.Visible = true;
+            //        panel.Controls.Add(publicado);
+            //        publicado.Visible = true;
+            //        panel.Controls.Add(escribirFec);
+            //        escribirFec.Visible = true;
+            //        panel.Controls.Add(idioma);
+            //        idioma.Visible = true;
+            //        panel.Controls.Add(escribirIdi);
+            //        escribirIdi.Visible = true;
+            //        panel.Controls.Add(formato);
+            //        formato.Visible = true;
+            //        panel.Controls.Add(escribirFor);
+            //        escribirFor.Visible = true;
+
+            //        PanVistaDetalles.Controls.Add(panel);
+            //        panel.Visible = true;
+            //        PanVistaDetalles.Controls.Add(transparente);
+            //        transparente.Visible = true;
+            //        transparente.Click += new EventHandler(ManejadorLibroDet_Click);
+            //        transparente.MouseEnter += new EventHandler(CambiarColorPanel_Enter);
+            //        transparente.MouseLeave += new EventHandler(CambiarColorPanel_Leave);
+            //        x = x + 439;
+            //    }
+            //    void CambiarColorPanel_Enter(object sender, EventArgs e)
+            //    {
+            //        panel.BackColor = Color.Silver;
+            //    }
+            //    void CambiarColorPanel_Leave(object sender, EventArgs e)
+            //    {
+            //        panel.BackColor = Color.Gainsboro;
+            //    }
+            //}
+        }
+       
+        private void TitulosPrueba()
+        {
+            titulos.Add("Caballero Luna");
+            titulos.Add("Spiderman Homecoming");
+            titulos.Add("Thor");
+            titulos.Add("Capitán América");
+            titulos.Add("Los Vengadores");
+            titulos.Add("Iron Man");
+            titulos.Add("Viuda negra");
+            titulos.Add("Black Panther");
+            titulos.Add("Guardianes de la Galaxia");
+            titulos.Add("Wanda y Visión");
+            titulos.Add("Ojo de Halcón");
+            titulos.Add("Loki");
+            titulos.Add("Bruja Escarlata");
+            titulos.Add("Capitana Marvel");
+            titulos.Add("Shan-Chi la leyenda de los 10 anillos ");
+            titulos.Add("Ant-Man");
+            titulos.Add("Eternals");
+            titulos.Add("Doctor Strange");
+            titulos.Add("Hulk");
+            titulos.Add("Falcon y el Soldado de invierno");
+        }
+        private void MBtnVistaDetallesMBI_Click(object sender, EventArgs e)
+        {
+            PanVistaDetalles.Visible = true;
+            PanVistaMosaico.Visible = false;
+            ColocarLibrosDetalles();
+            PanVistaDetalles.BringToFront();
+        }
+
+        private void MBtnVistaMosaicoMBI_Click(object sender, EventArgs e)
+        {
+            PanVistaDetalles.Visible = false;
+            PanVistaMosaico.Visible = true;
+            PanVistaMosaico.BringToFront();
+        }
+        private void PanVistaMosaico_Resize(object sender, EventArgs e)
+        {
+            this.DoubleBuffered = true;
+            ColocarLibrosMosaico();
+        }
+        private void PanVistaDetalles_Resize(object sender, EventArgs e)
+        {
+            this.DoubleBuffered = true;
+            //PruebaDetalles();
+            ColocarLibrosDetalles();
+        }
+        private void MBtncerrarDetallesLibro_Click(object sender, EventArgs e)
+        {
+            PanDetallesLibro.Visible = false;
+        }
+
+        #endregion
         #region texto segun idioma seleccionado
         private void IdiomaTexto()
         {
@@ -175,8 +714,8 @@ namespace OpenLibraryEditor.Forms
             fhijo.FormBorderStyle=FormBorderStyle.None;
             fhijo.Dock=DockStyle.Fill;
             this.DoubleBuffered = true;
-            PanFormHijos.Controls.Add(fhijo);
-            PanFormHijos.Tag = fhijo;
+            PanHijos.Controls.Add(fhijo);
+            PanHijos.Tag = fhijo;
             fhijo.BringToFront();
             fhijo.Show();
 
@@ -185,12 +724,20 @@ namespace OpenLibraryEditor.Forms
         #region Botones menu lateral
         private void MBtnMiBiblioteca_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMiBiblioteca());
+            //AbrirFormularios(new FrmMiBiblioteca());
+            PanFormHijos.BringToFront();
+            PanListViewsOpciones.Visible = false;
+            LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
+            MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.BookOpenPageVariant;
             BotonActivo(sender, Colores.colorBiblioteca);
         }
         private void MBtnAutores_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisAutores());
+            //AbrirFormularios(new FrmMisAutores());
+            PanFormHijos.BringToFront();
+            PanListViewsOpciones.Visible = true;
+            LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
+            MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.AccountGroup;
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnTitulos_Click(object sender, EventArgs e)

@@ -106,8 +106,23 @@
     <Compile Include="Clases\MiMessageBox.cs" />
     <Compile Include="Clases\VentanaWindowsComun.cs" />
     <Compile Include="Controles\CheckedComboBox.cs" />
+    <Compile Include="Controles\PanelTransparente.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controles\ToggleButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\VistaDetallesH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\VistaDetallesH.Designer.cs">
+      <DependentUpon>VistaDetallesH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\VistaDetallesV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\VistaDetallesV.Designer.cs">
+      <DependentUpon>VistaDetallesV.cs</DependentUpon>
     </Compile>
     <Compile Include="DatosLibros\Biblioteca.cs" />
     <Compile Include="DatosLibros\Editorial.cs" />
@@ -272,6 +287,12 @@
     <Compile Include="Metodos\MetodosComunes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controles\VistaDetallesH.resx">
+      <DependentUpon>VistaDetallesH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\VistaDetallesV.resx">
+      <DependentUpon>VistaDetallesV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAutores.resx">
       <DependentUpon>FrmAutores.cs</DependentUpon>
     </EmbeddedResource>
