@@ -36,7 +36,7 @@ namespace OpenLibraryEditor.BaseDatos
             tabla.ExecuteNonQuery();
         }
 
-        public static void InsertAutor(Persona autor)
+        public static void InsertAutor(Autor autor)
         {
             //Comprobar si existe Ocupacion
             if (LecturaBD.SelectOcupacion(autor.NombreOcupacion) == null)
@@ -44,7 +44,7 @@ namespace OpenLibraryEditor.BaseDatos
 
             MySqlCommand tabla = new MySqlCommand(String.Format(@"
             INSERT INTO `Autor` VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');",
-            autor.IdPersona,
+            autor.IdAutor,
             autor.Nombre,
             autor.Alias,
             autor.NombreOcupacion,
@@ -56,7 +56,7 @@ namespace OpenLibraryEditor.BaseDatos
             tabla.ExecuteNonQuery();
         }
 
-        public static void UpdateAutor(Persona autor)
+        public static void UpdateAutor(Autor autor)
         {
             //Comprobar si existe Ocupacion
             if (LecturaBD.SelectOcupacion(autor.NombreOcupacion) == null)
@@ -72,7 +72,7 @@ namespace OpenLibraryEditor.BaseDatos
                 enlaceReferencia = '{6}',
                 comentario = '{7}',
                 imagen = '{8}';",
-            autor.IdPersona,
+            autor.IdAutor,
             autor.Nombre,
             autor.Alias,
             autor.NombreOcupacion,
@@ -84,14 +84,14 @@ namespace OpenLibraryEditor.BaseDatos
             tabla.ExecuteNonQuery();
         }
 
-        public static void DeleteAutor(Persona autor)
+        public static void DeleteAutor(Autor autor)
         {
             //Comprobar si ningun autor que queda tiene la Ocupacion
             if (LecturaBD.SelectOcupacionCantidadPorAutor(autor.NombreOcupacion) <= 1)
                 DeleteOcupacion(autor.NombreOcupacion);
 
             MySqlCommand tabla = new MySqlCommand(@"
-            DELETE FROM `Autor` WHERE idAutor = " + autor.IdPersona + ";", ConexionBD.conexion);
+            DELETE FROM `Autor` WHERE idAutor = " + autor.IdAutor + ";", ConexionBD.conexion);
             tabla.ExecuteNonQuery();
         }
     }

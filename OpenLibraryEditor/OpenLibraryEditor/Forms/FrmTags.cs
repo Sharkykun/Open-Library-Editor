@@ -20,7 +20,7 @@ namespace OpenLibraryEditor.Forms
         private const string NOMBRE_OBJETO = "la etiqueta";
         private bool setNew;
         private Etiqueta etiquetaNueva;
-        private List<Etiqueta> listaEtiqueta = UsuarioDatos.listaEtiqueta;
+        private List<Etiqueta> listaEtiqueta = Biblioteca.biblioteca.ListaEtiqueta;
         private List<string> listaCategoria = Etiqueta.categoriaLista;
         private Etiqueta etiquetaActual;
         private ListViewItem itemActual;

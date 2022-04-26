@@ -74,13 +74,64 @@
             this.PanMasdatos = new System.Windows.Forms.Panel();
             this.KTabDetalles = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.KpDetalles = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.TxtSinopsis = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.PanFecha = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.LinkEnlace = new System.Windows.Forms.LinkLabel();
+            this.LblPublicado = new System.Windows.Forms.Label();
+            this.LblEscribirFechaPub = new System.Windows.Forms.Label();
+            this.PanTipo = new System.Windows.Forms.Panel();
+            this.LblEscribirTipoLibro = new System.Windows.Forms.Label();
+            this.LblTipoLibro = new System.Windows.Forms.Label();
+            this.PanIdiomas = new System.Windows.Forms.Panel();
+            this.LblIdioma = new System.Windows.Forms.Label();
+            this.LblEscribirIdioma = new System.Windows.Forms.Label();
+            this.LblIdiOri = new System.Windows.Forms.Label();
+            this.LblEscribirIdiOri = new System.Windows.Forms.Label();
+            this.PanEtiquetas = new System.Windows.Forms.Panel();
+            this.LblEtiquetas = new System.Windows.Forms.Label();
+            this.LblEscribirEtiquetas = new System.Windows.Forms.Label();
+            this.PanGeneros = new System.Windows.Forms.Panel();
+            this.LblGenero = new System.Windows.Forms.Label();
+            this.LblEscribirGenero = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.PanIsbn = new System.Windows.Forms.Panel();
+            this.LblCapitulos = new System.Windows.Forms.Label();
+            this.LblEscribirIs13 = new System.Windows.Forms.Label();
+            this.LblIs13 = new System.Windows.Forms.Label();
+            this.LblIs10 = new System.Windows.Forms.Label();
+            this.LblEscribirIs10 = new System.Windows.Forms.Label();
+            this.LblEscribirCapitulos = new System.Windows.Forms.Label();
+            this.LblPag = new System.Windows.Forms.Label();
+            this.LblEscribirPag = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.PanEditorial = new System.Windows.Forms.Panel();
+            this.LblEditorial = new System.Windows.Forms.Label();
+            this.LblEscribirEditorial = new System.Windows.Forms.Label();
+            this.PanSinopsis = new System.Windows.Forms.Panel();
+            this.LblSinopsis = new System.Windows.Forms.Label();
+            this.TxtSinopsis = new System.Windows.Forms.TextBox();
             this.KpUsuario = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.KpImg = new ComponentFactory.Krypton.Navigator.KryptonPage();
-            this.KpAcciones = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtEscribirComentario = new System.Windows.Forms.TextBox();
+            this.LblComentario = new System.Windows.Forms.Label();
+            this.LblOculto = new System.Windows.Forms.Label();
+            this.LblEscribirOculto = new System.Windows.Forms.Label();
+            this.LblFavorito = new System.Windows.Forms.Label();
+            this.LblEscribirFavorito = new System.Windows.Forms.Label();
+            this.LblFin = new System.Windows.Forms.Label();
+            this.LblEscribirFecFin = new System.Windows.Forms.Label();
+            this.LblComienzo = new System.Windows.Forms.Label();
+            this.LblCapAct = new System.Windows.Forms.Label();
+            this.LblEscribirFecComienzo = new System.Windows.Forms.Label();
+            this.LblEscribirCapiAct = new System.Windows.Forms.Label();
+            this.LblTiempoLec = new System.Windows.Forms.Label();
+            this.LblEscribirEstadoLectura = new System.Windows.Forms.Label();
+            this.LblVecesLeido = new System.Windows.Forms.Label();
+            this.LblEscribirVecesLeido = new System.Windows.Forms.Label();
+            this.LblEstadoLectura = new System.Windows.Forms.Label();
+            this.LblEscribirPuntuacion = new System.Windows.Forms.Label();
+            this.LblPuntuacion = new System.Windows.Forms.Label();
+            this.LblEscribirTiempoLec = new System.Windows.Forms.Label();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.PanFotoTitulo = new System.Windows.Forms.Panel();
             this.MBtncerrarDetallesLibro = new FontAwesome.Sharp.Material.MaterialButton();
@@ -119,9 +170,16 @@
             this.KTabDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KpDetalles)).BeginInit();
             this.KpDetalles.SuspendLayout();
+            this.PanFecha.SuspendLayout();
+            this.PanTipo.SuspendLayout();
+            this.PanIdiomas.SuspendLayout();
+            this.PanEtiquetas.SuspendLayout();
+            this.PanGeneros.SuspendLayout();
+            this.PanIsbn.SuspendLayout();
+            this.PanEditorial.SuspendLayout();
+            this.PanSinopsis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KpUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KpImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KpAcciones)).BeginInit();
+            this.KpUsuario.SuspendLayout();
             this.PanFotoTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLibro)).BeginInit();
             this.PanBusquedaMBI.SuspendLayout();
@@ -432,6 +490,7 @@
             this.MBtnSeries.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnSeries.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnSeries.UseVisualStyleBackColor = false;
+            this.MBtnSeries.Visible = false;
             this.MBtnSeries.Click += new System.EventHandler(this.MBtnSeries_Click);
             // 
             // MBtnGeneros
@@ -482,6 +541,7 @@
             this.MBtnTítulos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnTítulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnTítulos.UseVisualStyleBackColor = false;
+            this.MBtnTítulos.Visible = false;
             this.MBtnTítulos.Click += new System.EventHandler(this.MBtnTitulos_Click);
             // 
             // MBtnAutores
@@ -717,6 +777,7 @@
             this.BtnSeriesMsb.Size = new System.Drawing.Size(71, 62);
             this.BtnSeriesMsb.Text = "Series";
             this.BtnSeriesMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnSeriesMsb.Visible = false;
             this.BtnSeriesMsb.ButtonClick += new System.EventHandler(this.BtnSeriesMsb_ButtonClick);
             // 
             // BtnEditorialesMsb
@@ -779,7 +840,7 @@
             this.PanLibrosMBI.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanLibrosMBI.Location = new System.Drawing.Point(0, 104);
             this.PanLibrosMBI.Name = "PanLibrosMBI";
-            this.PanLibrosMBI.Size = new System.Drawing.Size(949, 544);
+            this.PanLibrosMBI.Size = new System.Drawing.Size(949, 546);
             this.PanLibrosMBI.TabIndex = 13;
             // 
             // PanVistaDetalles
@@ -789,7 +850,7 @@
             this.PanVistaDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanVistaDetalles.Location = new System.Drawing.Point(250, 0);
             this.PanVistaDetalles.Name = "PanVistaDetalles";
-            this.PanVistaDetalles.Size = new System.Drawing.Size(449, 544);
+            this.PanVistaDetalles.Size = new System.Drawing.Size(449, 546);
             this.PanVistaDetalles.TabIndex = 2;
             this.PanVistaDetalles.Resize += new System.EventHandler(this.PanVistaDetalles_Resize);
             // 
@@ -800,7 +861,7 @@
             this.PanListViewsOpciones.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanListViewsOpciones.Location = new System.Drawing.Point(0, 0);
             this.PanListViewsOpciones.Name = "PanListViewsOpciones";
-            this.PanListViewsOpciones.Size = new System.Drawing.Size(250, 544);
+            this.PanListViewsOpciones.Size = new System.Drawing.Size(250, 546);
             this.PanListViewsOpciones.TabIndex = 3;
             this.PanListViewsOpciones.Visible = false;
             // 
@@ -817,7 +878,7 @@
             this.LsvOpciones.LargeImageList = this.ImgListLsvGrande;
             this.LsvOpciones.Location = new System.Drawing.Point(10, 10);
             this.LsvOpciones.Name = "LsvOpciones";
-            this.LsvOpciones.Size = new System.Drawing.Size(230, 524);
+            this.LsvOpciones.Size = new System.Drawing.Size(230, 526);
             this.LsvOpciones.SmallImageList = this.ImgListLsvPeque;
             this.LsvOpciones.TabIndex = 0;
             this.LsvOpciones.UseCompatibleStateImageBehavior = false;
@@ -845,7 +906,7 @@
             this.PanDetallesLibro.ForeColor = System.Drawing.Color.Gainsboro;
             this.PanDetallesLibro.Location = new System.Drawing.Point(699, 0);
             this.PanDetallesLibro.Name = "PanDetallesLibro";
-            this.PanDetallesLibro.Size = new System.Drawing.Size(250, 544);
+            this.PanDetallesLibro.Size = new System.Drawing.Size(250, 546);
             this.PanDetallesLibro.TabIndex = 1;
             this.PanDetallesLibro.Visible = false;
             // 
@@ -855,9 +916,9 @@
             this.PanMasdatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.PanMasdatos.Controls.Add(this.KTabDetalles);
             this.PanMasdatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanMasdatos.Location = new System.Drawing.Point(0, 236);
+            this.PanMasdatos.Location = new System.Drawing.Point(0, 220);
             this.PanMasdatos.Name = "PanMasdatos";
-            this.PanMasdatos.Size = new System.Drawing.Size(250, 308);
+            this.PanMasdatos.Size = new System.Drawing.Size(250, 326);
             this.PanMasdatos.TabIndex = 1;
             // 
             // KTabDetalles
@@ -871,6 +932,8 @@
             this.KTabDetalles.Button.CloseButton.AllowInheritText = false;
             this.KTabDetalles.Button.CloseButton.AllowInheritToolTipTitle = false;
             this.KTabDetalles.Button.CloseButton.UniqueName = "EFB397408E1B405B87ADBA9AEFE9581D";
+            this.KTabDetalles.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
+            this.KTabDetalles.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
             // 
             // 
             // 
@@ -884,129 +947,711 @@
             this.KTabDetalles.Name = "KTabDetalles";
             this.KTabDetalles.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.KpDetalles,
-            this.KpUsuario,
-            this.KpImg,
-            this.KpAcciones});
+            this.KpUsuario});
             this.KTabDetalles.Palette = this.kryptonPalette1;
             this.KTabDetalles.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.KTabDetalles.SelectedIndex = 0;
-            this.KTabDetalles.Size = new System.Drawing.Size(250, 308);
+            this.KTabDetalles.Size = new System.Drawing.Size(250, 326);
             this.KTabDetalles.TabIndex = 0;
-            this.KTabDetalles.Text = "kryptonNavigator1";
             // 
             // KpDetalles
             // 
             this.KpDetalles.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
             this.KpDetalles.AutoScroll = true;
-            this.KpDetalles.Controls.Add(this.textBox1);
-            this.KpDetalles.Controls.Add(this.TxtSinopsis);
-            this.KpDetalles.Controls.Add(this.label2);
-            this.KpDetalles.Controls.Add(this.label1);
+            this.KpDetalles.Controls.Add(this.PanFecha);
+            this.KpDetalles.Controls.Add(this.PanTipo);
+            this.KpDetalles.Controls.Add(this.PanIdiomas);
+            this.KpDetalles.Controls.Add(this.PanEtiquetas);
+            this.KpDetalles.Controls.Add(this.PanGeneros);
+            this.KpDetalles.Controls.Add(this.panel6);
+            this.KpDetalles.Controls.Add(this.PanIsbn);
+            this.KpDetalles.Controls.Add(this.panel4);
+            this.KpDetalles.Controls.Add(this.PanEditorial);
+            this.KpDetalles.Controls.Add(this.PanSinopsis);
             this.KpDetalles.Flags = 65534;
             this.KpDetalles.LastVisibleSet = true;
             this.KpDetalles.MinimumSize = new System.Drawing.Size(50, 50);
             this.KpDetalles.Name = "KpDetalles";
-            this.KpDetalles.Size = new System.Drawing.Size(248, 282);
+            this.KpDetalles.Size = new System.Drawing.Size(248, 300);
             this.KpDetalles.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KpDetalles.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KpDetalles.Text = "Detalles";
+            this.KpDetalles.Text = "Detalles generales";
             this.KpDetalles.ToolTipTitle = "Page ToolTip";
             this.KpDetalles.UniqueName = "3C62194E06FD43B78FA94E74917D8D6E";
             // 
-            // textBox1
+            // PanFecha
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox1.Font = new System.Drawing.Font("Merienda One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Location = new System.Drawing.Point(15, 212);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(193, 78);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TxtSinopsis
-            // 
-            this.TxtSinopsis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.TxtSinopsis.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtSinopsis.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.TxtSinopsis.Font = new System.Drawing.Font("Merienda One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSinopsis.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtSinopsis.Location = new System.Drawing.Point(15, 33);
-            this.TxtSinopsis.Multiline = true;
-            this.TxtSinopsis.Name = "TxtSinopsis";
-            this.TxtSinopsis.ReadOnly = true;
-            this.TxtSinopsis.Size = new System.Drawing.Size(193, 139);
-            this.TxtSinopsis.TabIndex = 3;
-            this.TxtSinopsis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 187);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Editorial:";
+            this.PanFecha.AutoSize = true;
+            this.PanFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanFecha.Controls.Add(this.label1);
+            this.PanFecha.Controls.Add(this.LinkEnlace);
+            this.PanFecha.Controls.Add(this.LblPublicado);
+            this.PanFecha.Controls.Add(this.LblEscribirFechaPub);
+            this.PanFecha.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanFecha.Location = new System.Drawing.Point(0, 532);
+            this.PanFecha.Name = "PanFecha";
+            this.PanFecha.Size = new System.Drawing.Size(231, 80);
+            this.PanFecha.TabIndex = 45;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 13);
+            this.label1.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Sinopsis:";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.TabIndex = 52;
+            // 
+            // LinkEnlace
+            // 
+            this.LinkEnlace.AutoSize = true;
+            this.LinkEnlace.BackColor = System.Drawing.Color.Transparent;
+            this.LinkEnlace.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LinkEnlace.ForeColor = System.Drawing.Color.Transparent;
+            this.LinkEnlace.LinkColor = System.Drawing.Color.Gainsboro;
+            this.LinkEnlace.Location = new System.Drawing.Point(12, 32);
+            this.LinkEnlace.Name = "LinkEnlace";
+            this.LinkEnlace.Size = new System.Drawing.Size(192, 17);
+            this.LinkEnlace.TabIndex = 51;
+            this.LinkEnlace.TabStop = true;
+            this.LinkEnlace.Text = "Enlace de referencia del libro";
+            // 
+            // LblPublicado
+            // 
+            this.LblPublicado.AutoSize = true;
+            this.LblPublicado.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPublicado.Location = new System.Drawing.Point(12, 7);
+            this.LblPublicado.Name = "LblPublicado";
+            this.LblPublicado.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblPublicado.Size = new System.Drawing.Size(80, 25);
+            this.LblPublicado.TabIndex = 50;
+            this.LblPublicado.Text = "Publicado:";
+            // 
+            // LblEscribirFechaPub
+            // 
+            this.LblEscribirFechaPub.AutoSize = true;
+            this.LblEscribirFechaPub.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirFechaPub.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirFechaPub.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirFechaPub.Name = "LblEscribirFechaPub";
+            this.LblEscribirFechaPub.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblEscribirFechaPub.Size = new System.Drawing.Size(67, 24);
+            this.LblEscribirFechaPub.TabIndex = 49;
+            this.LblEscribirFechaPub.Text = "02/071998";
+            // 
+            // PanTipo
+            // 
+            this.PanTipo.AutoSize = true;
+            this.PanTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanTipo.Controls.Add(this.LblEscribirTipoLibro);
+            this.PanTipo.Controls.Add(this.LblTipoLibro);
+            this.PanTipo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanTipo.Location = new System.Drawing.Point(0, 508);
+            this.PanTipo.Name = "PanTipo";
+            this.PanTipo.Size = new System.Drawing.Size(231, 24);
+            this.PanTipo.TabIndex = 44;
+            // 
+            // LblEscribirTipoLibro
+            // 
+            this.LblEscribirTipoLibro.AutoSize = true;
+            this.LblEscribirTipoLibro.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirTipoLibro.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirTipoLibro.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirTipoLibro.Name = "LblEscribirTipoLibro";
+            this.LblEscribirTipoLibro.Size = new System.Drawing.Size(52, 16);
+            this.LblEscribirTipoLibro.TabIndex = 52;
+            this.LblEscribirTipoLibro.Text = "NOVELA";
+            // 
+            // LblTipoLibro
+            // 
+            this.LblTipoLibro.AutoSize = true;
+            this.LblTipoLibro.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoLibro.Location = new System.Drawing.Point(12, 7);
+            this.LblTipoLibro.Name = "LblTipoLibro";
+            this.LblTipoLibro.Size = new System.Drawing.Size(81, 17);
+            this.LblTipoLibro.TabIndex = 53;
+            this.LblTipoLibro.Text = "Tipo libro:";
+            // 
+            // PanIdiomas
+            // 
+            this.PanIdiomas.AutoSize = true;
+            this.PanIdiomas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanIdiomas.Controls.Add(this.LblIdioma);
+            this.PanIdiomas.Controls.Add(this.LblEscribirIdioma);
+            this.PanIdiomas.Controls.Add(this.LblIdiOri);
+            this.PanIdiomas.Controls.Add(this.LblEscribirIdiOri);
+            this.PanIdiomas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanIdiomas.Location = new System.Drawing.Point(0, 459);
+            this.PanIdiomas.Name = "PanIdiomas";
+            this.PanIdiomas.Size = new System.Drawing.Size(231, 49);
+            this.PanIdiomas.TabIndex = 43;
+            // 
+            // LblIdioma
+            // 
+            this.LblIdioma.AutoSize = true;
+            this.LblIdioma.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIdioma.Location = new System.Drawing.Point(12, 7);
+            this.LblIdioma.Name = "LblIdioma";
+            this.LblIdioma.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblIdioma.Size = new System.Drawing.Size(59, 25);
+            this.LblIdioma.TabIndex = 46;
+            this.LblIdioma.Text = "Idioma:";
+            // 
+            // LblEscribirIdioma
+            // 
+            this.LblEscribirIdioma.AutoSize = true;
+            this.LblEscribirIdioma.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIdioma.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirIdioma.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirIdioma.Name = "LblEscribirIdioma";
+            this.LblEscribirIdioma.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblEscribirIdioma.Size = new System.Drawing.Size(79, 24);
+            this.LblEscribirIdioma.TabIndex = 45;
+            this.LblEscribirIdioma.Text = "CASTELLANO";
+            // 
+            // LblIdiOri
+            // 
+            this.LblIdiOri.AutoSize = true;
+            this.LblIdiOri.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIdiOri.Location = new System.Drawing.Point(12, 32);
+            this.LblIdiOri.Name = "LblIdiOri";
+            this.LblIdiOri.Size = new System.Drawing.Size(120, 17);
+            this.LblIdiOri.TabIndex = 48;
+            this.LblIdiOri.Text = "Idioma original:";
+            // 
+            // LblEscribirIdiOri
+            // 
+            this.LblEscribirIdiOri.AutoSize = true;
+            this.LblEscribirIdiOri.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIdiOri.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirIdiOri.Location = new System.Drawing.Point(136, 32);
+            this.LblEscribirIdiOri.Name = "LblEscribirIdiOri";
+            this.LblEscribirIdiOri.Size = new System.Drawing.Size(48, 16);
+            this.LblEscribirIdiOri.TabIndex = 47;
+            this.LblEscribirIdiOri.Text = "INGLÉS";
+            // 
+            // PanEtiquetas
+            // 
+            this.PanEtiquetas.AutoSize = true;
+            this.PanEtiquetas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanEtiquetas.Controls.Add(this.LblEtiquetas);
+            this.PanEtiquetas.Controls.Add(this.LblEscribirEtiquetas);
+            this.PanEtiquetas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanEtiquetas.Location = new System.Drawing.Point(0, 404);
+            this.PanEtiquetas.Name = "PanEtiquetas";
+            this.PanEtiquetas.Size = new System.Drawing.Size(231, 55);
+            this.PanEtiquetas.TabIndex = 42;
+            // 
+            // LblEtiquetas
+            // 
+            this.LblEtiquetas.AutoSize = true;
+            this.LblEtiquetas.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEtiquetas.Location = new System.Drawing.Point(12, 7);
+            this.LblEtiquetas.Name = "LblEtiquetas";
+            this.LblEtiquetas.Size = new System.Drawing.Size(79, 17);
+            this.LblEtiquetas.TabIndex = 44;
+            this.LblEtiquetas.Text = "Etiquetas:";
+            // 
+            // LblEscribirEtiquetas
+            // 
+            this.LblEscribirEtiquetas.AutoSize = true;
+            this.LblEscribirEtiquetas.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirEtiquetas.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirEtiquetas.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirEtiquetas.Name = "LblEscribirEtiquetas";
+            this.LblEscribirEtiquetas.Size = new System.Drawing.Size(108, 48);
+            this.LblEscribirEtiquetas.TabIndex = 43;
+            this.LblEscribirEtiquetas.Text = "JUVENIL\r\nPARA TODOS LOS \r\nPÚBLICOS";
+            // 
+            // PanGeneros
+            // 
+            this.PanGeneros.AutoSize = true;
+            this.PanGeneros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanGeneros.Controls.Add(this.LblGenero);
+            this.PanGeneros.Controls.Add(this.LblEscribirGenero);
+            this.PanGeneros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanGeneros.Location = new System.Drawing.Point(0, 349);
+            this.PanGeneros.Name = "PanGeneros";
+            this.PanGeneros.Size = new System.Drawing.Size(231, 55);
+            this.PanGeneros.TabIndex = 41;
+            // 
+            // LblGenero
+            // 
+            this.LblGenero.AutoSize = true;
+            this.LblGenero.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGenero.Location = new System.Drawing.Point(12, 7);
+            this.LblGenero.Name = "LblGenero";
+            this.LblGenero.Size = new System.Drawing.Size(68, 17);
+            this.LblGenero.TabIndex = 42;
+            this.LblGenero.Text = "Géneros:";
+            // 
+            // LblEscribirGenero
+            // 
+            this.LblEscribirGenero.AutoSize = true;
+            this.LblEscribirGenero.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirGenero.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirGenero.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirGenero.Name = "LblEscribirGenero";
+            this.LblEscribirGenero.Size = new System.Drawing.Size(116, 48);
+            this.LblEscribirGenero.TabIndex = 41;
+            this.LblEscribirGenero.Text = "FANTASÍA Y MAGÍA, \r\nAVENTURAS\r\nCIENCIA FICCIÓN";
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 349);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(231, 0);
+            this.panel6.TabIndex = 4;
+            // 
+            // PanIsbn
+            // 
+            this.PanIsbn.AutoSize = true;
+            this.PanIsbn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanIsbn.Controls.Add(this.LblCapitulos);
+            this.PanIsbn.Controls.Add(this.LblEscribirIs13);
+            this.PanIsbn.Controls.Add(this.LblIs13);
+            this.PanIsbn.Controls.Add(this.LblIs10);
+            this.PanIsbn.Controls.Add(this.LblEscribirIs10);
+            this.PanIsbn.Controls.Add(this.LblEscribirCapitulos);
+            this.PanIsbn.Controls.Add(this.LblPag);
+            this.PanIsbn.Controls.Add(this.LblEscribirPag);
+            this.PanIsbn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanIsbn.Location = new System.Drawing.Point(0, 250);
+            this.PanIsbn.Name = "PanIsbn";
+            this.PanIsbn.Size = new System.Drawing.Size(231, 99);
+            this.PanIsbn.TabIndex = 3;
+            // 
+            // LblCapitulos
+            // 
+            this.LblCapitulos.AutoSize = true;
+            this.LblCapitulos.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCapitulos.Location = new System.Drawing.Point(12, 57);
+            this.LblCapitulos.Name = "LblCapitulos";
+            this.LblCapitulos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblCapitulos.Size = new System.Drawing.Size(78, 25);
+            this.LblCapitulos.TabIndex = 38;
+            this.LblCapitulos.Text = "Capítulos:";
+            // 
+            // LblEscribirIs13
+            // 
+            this.LblEscribirIs13.AutoSize = true;
+            this.LblEscribirIs13.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIs13.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirIs13.Location = new System.Drawing.Point(96, 32);
+            this.LblEscribirIs13.Name = "LblEscribirIs13";
+            this.LblEscribirIs13.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblEscribirIs13.Size = new System.Drawing.Size(98, 24);
+            this.LblEscribirIs13.TabIndex = 37;
+            this.LblEscribirIs13.Text = "9788498389753";
+            // 
+            // LblIs13
+            // 
+            this.LblIs13.AutoSize = true;
+            this.LblIs13.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIs13.Location = new System.Drawing.Point(12, 32);
+            this.LblIs13.Name = "LblIs13";
+            this.LblIs13.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblIs13.Size = new System.Drawing.Size(67, 25);
+            this.LblIs13.TabIndex = 33;
+            this.LblIs13.Text = "ISBN 13:";
+            // 
+            // LblIs10
+            // 
+            this.LblIs10.AutoSize = true;
+            this.LblIs10.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIs10.Location = new System.Drawing.Point(12, 7);
+            this.LblIs10.Name = "LblIs10";
+            this.LblIs10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblIs10.Size = new System.Drawing.Size(67, 25);
+            this.LblIs10.TabIndex = 35;
+            this.LblIs10.Text = "ISBN 10:";
+            // 
+            // LblEscribirIs10
+            // 
+            this.LblEscribirIs10.AutoSize = true;
+            this.LblEscribirIs10.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIs10.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirIs10.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirIs10.Name = "LblEscribirIs10";
+            this.LblEscribirIs10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblEscribirIs10.Size = new System.Drawing.Size(97, 24);
+            this.LblEscribirIs10.TabIndex = 36;
+            this.LblEscribirIs10.Text = "NO DISPONIBLE";
+            // 
+            // LblEscribirCapitulos
+            // 
+            this.LblEscribirCapitulos.AutoSize = true;
+            this.LblEscribirCapitulos.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirCapitulos.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirCapitulos.Location = new System.Drawing.Point(96, 57);
+            this.LblEscribirCapitulos.Name = "LblEscribirCapitulos";
+            this.LblEscribirCapitulos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblEscribirCapitulos.Size = new System.Drawing.Size(21, 24);
+            this.LblEscribirCapitulos.TabIndex = 34;
+            this.LblEscribirCapitulos.Text = "25";
+            // 
+            // LblPag
+            // 
+            this.LblPag.AutoSize = true;
+            this.LblPag.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPag.Location = new System.Drawing.Point(12, 82);
+            this.LblPag.Name = "LblPag";
+            this.LblPag.Size = new System.Drawing.Size(67, 17);
+            this.LblPag.TabIndex = 40;
+            this.LblPag.Text = "Páginas:";
+            // 
+            // LblEscribirPag
+            // 
+            this.LblEscribirPag.AutoSize = true;
+            this.LblEscribirPag.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirPag.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirPag.Location = new System.Drawing.Point(96, 82);
+            this.LblEscribirPag.Name = "LblEscribirPag";
+            this.LblEscribirPag.Size = new System.Drawing.Size(28, 16);
+            this.LblEscribirPag.TabIndex = 39;
+            this.LblEscribirPag.Text = "352";
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 250);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(231, 0);
+            this.panel4.TabIndex = 2;
+            // 
+            // PanEditorial
+            // 
+            this.PanEditorial.AutoSize = true;
+            this.PanEditorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanEditorial.Controls.Add(this.LblEditorial);
+            this.PanEditorial.Controls.Add(this.LblEscribirEditorial);
+            this.PanEditorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanEditorial.Location = new System.Drawing.Point(0, 226);
+            this.PanEditorial.Name = "PanEditorial";
+            this.PanEditorial.Size = new System.Drawing.Size(231, 24);
+            this.PanEditorial.TabIndex = 1;
+            // 
+            // LblEditorial
+            // 
+            this.LblEditorial.AutoSize = true;
+            this.LblEditorial.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEditorial.Location = new System.Drawing.Point(12, 7);
+            this.LblEditorial.Name = "LblEditorial";
+            this.LblEditorial.Size = new System.Drawing.Size(74, 17);
+            this.LblEditorial.TabIndex = 30;
+            this.LblEditorial.Text = "Editorial:";
+            // 
+            // LblEscribirEditorial
+            // 
+            this.LblEscribirEditorial.AutoSize = true;
+            this.LblEscribirEditorial.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirEditorial.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirEditorial.Name = "LblEscribirEditorial";
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(82, 16);
+            this.LblEscribirEditorial.TabIndex = 32;
+            this.LblEscribirEditorial.Text = "SALAMANDRA\r\n";
+            // 
+            // PanSinopsis
+            // 
+            this.PanSinopsis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanSinopsis.Controls.Add(this.LblSinopsis);
+            this.PanSinopsis.Controls.Add(this.TxtSinopsis);
+            this.PanSinopsis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanSinopsis.Location = new System.Drawing.Point(0, 0);
+            this.PanSinopsis.Name = "PanSinopsis";
+            this.PanSinopsis.Size = new System.Drawing.Size(231, 226);
+            this.PanSinopsis.TabIndex = 0;
+            // 
+            // LblSinopsis
+            // 
+            this.LblSinopsis.AutoSize = true;
+            this.LblSinopsis.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSinopsis.Location = new System.Drawing.Point(12, 16);
+            this.LblSinopsis.Name = "LblSinopsis";
+            this.LblSinopsis.Size = new System.Drawing.Size(71, 17);
+            this.LblSinopsis.TabIndex = 29;
+            this.LblSinopsis.Text = "Sinopsis:";
+            // 
+            // TxtSinopsis
+            // 
+            this.TxtSinopsis.BackColor = System.Drawing.Color.Navy;
+            this.TxtSinopsis.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSinopsis.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TxtSinopsis.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSinopsis.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtSinopsis.Location = new System.Drawing.Point(12, 39);
+            this.TxtSinopsis.Multiline = true;
+            this.TxtSinopsis.Name = "TxtSinopsis";
+            this.TxtSinopsis.ReadOnly = true;
+            this.TxtSinopsis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TxtSinopsis.Size = new System.Drawing.Size(210, 180);
+            this.TxtSinopsis.TabIndex = 31;
+            this.TxtSinopsis.Text = resources.GetString("TxtSinopsis.Text");
             // 
             // KpUsuario
             // 
             this.KpUsuario.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
             this.KpUsuario.AutoScroll = true;
+            this.KpUsuario.Controls.Add(this.label2);
+            this.KpUsuario.Controls.Add(this.TxtEscribirComentario);
+            this.KpUsuario.Controls.Add(this.LblComentario);
+            this.KpUsuario.Controls.Add(this.LblOculto);
+            this.KpUsuario.Controls.Add(this.LblEscribirOculto);
+            this.KpUsuario.Controls.Add(this.LblFavorito);
+            this.KpUsuario.Controls.Add(this.LblEscribirFavorito);
+            this.KpUsuario.Controls.Add(this.LblFin);
+            this.KpUsuario.Controls.Add(this.LblEscribirFecFin);
+            this.KpUsuario.Controls.Add(this.LblComienzo);
+            this.KpUsuario.Controls.Add(this.LblCapAct);
+            this.KpUsuario.Controls.Add(this.LblEscribirFecComienzo);
+            this.KpUsuario.Controls.Add(this.LblEscribirCapiAct);
+            this.KpUsuario.Controls.Add(this.LblTiempoLec);
+            this.KpUsuario.Controls.Add(this.LblEscribirEstadoLectura);
+            this.KpUsuario.Controls.Add(this.LblVecesLeido);
+            this.KpUsuario.Controls.Add(this.LblEscribirVecesLeido);
+            this.KpUsuario.Controls.Add(this.LblEstadoLectura);
+            this.KpUsuario.Controls.Add(this.LblEscribirPuntuacion);
+            this.KpUsuario.Controls.Add(this.LblPuntuacion);
+            this.KpUsuario.Controls.Add(this.LblEscribirTiempoLec);
             this.KpUsuario.Flags = 65534;
             this.KpUsuario.LastVisibleSet = true;
             this.KpUsuario.MinimumSize = new System.Drawing.Size(50, 50);
             this.KpUsuario.Name = "KpUsuario";
-            this.KpUsuario.Size = new System.Drawing.Size(248, 282);
+            this.KpUsuario.Size = new System.Drawing.Size(248, 300);
             this.KpUsuario.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KpUsuario.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KpUsuario.Text = "Usuario";
+            this.KpUsuario.Text = "Detalles usuario";
             this.KpUsuario.ToolTipTitle = "Page ToolTip";
             this.KpUsuario.UniqueName = "9AB5A4B0B5954FD7569D6087164B84B5";
             // 
-            // KpImg
+            // label2
             // 
-            this.KpImg.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
-            this.KpImg.AutoScroll = true;
-            this.KpImg.Flags = 65534;
-            this.KpImg.LastVisibleSet = true;
-            this.KpImg.MinimumSize = new System.Drawing.Size(50, 50);
-            this.KpImg.Name = "KpImg";
-            this.KpImg.Size = new System.Drawing.Size(248, 282);
-            this.KpImg.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KpImg.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KpImg.Text = "Imágenes";
-            this.KpImg.ToolTipTitle = "Page ToolTip";
-            this.KpImg.UniqueName = "F5A962438F574FFBA49AE264BDA70B23";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 380);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.TabIndex = 41;
             // 
-            // KpAcciones
+            // TxtEscribirComentario
             // 
-            this.KpAcciones.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
-            this.KpAcciones.AutoScroll = true;
-            this.KpAcciones.Flags = 65534;
-            this.KpAcciones.LastVisibleSet = true;
-            this.KpAcciones.MinimumSize = new System.Drawing.Size(50, 50);
-            this.KpAcciones.Name = "KpAcciones";
-            this.KpAcciones.Size = new System.Drawing.Size(248, 282);
-            this.KpAcciones.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KpAcciones.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KpAcciones.Text = "Acciones";
-            this.KpAcciones.ToolTipTitle = "Page ToolTip";
-            this.KpAcciones.UniqueName = "B3F8FE0BD51843FA5D8F35B63938F056";
+            this.TxtEscribirComentario.BackColor = System.Drawing.Color.Navy;
+            this.TxtEscribirComentario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtEscribirComentario.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TxtEscribirComentario.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEscribirComentario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtEscribirComentario.Location = new System.Drawing.Point(15, 264);
+            this.TxtEscribirComentario.Multiline = true;
+            this.TxtEscribirComentario.Name = "TxtEscribirComentario";
+            this.TxtEscribirComentario.ReadOnly = true;
+            this.TxtEscribirComentario.Size = new System.Drawing.Size(210, 111);
+            this.TxtEscribirComentario.TabIndex = 40;
+            this.TxtEscribirComentario.Text = "Un libro muy bueno, buenisímo. el mejor libro que he leído en toda mi vida\r\n";
+            // 
+            // LblComentario
+            // 
+            this.LblComentario.AutoSize = true;
+            this.LblComentario.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblComentario.Location = new System.Drawing.Point(12, 241);
+            this.LblComentario.Name = "LblComentario";
+            this.LblComentario.Size = new System.Drawing.Size(93, 17);
+            this.LblComentario.TabIndex = 39;
+            this.LblComentario.Text = "Comentario:";
+            // 
+            // LblOculto
+            // 
+            this.LblOculto.AutoSize = true;
+            this.LblOculto.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblOculto.Location = new System.Drawing.Point(12, 216);
+            this.LblOculto.Name = "LblOculto";
+            this.LblOculto.Size = new System.Drawing.Size(58, 17);
+            this.LblOculto.TabIndex = 38;
+            this.LblOculto.Text = "Oculto:";
+            // 
+            // LblEscribirOculto
+            // 
+            this.LblEscribirOculto.AutoSize = true;
+            this.LblEscribirOculto.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirOculto.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirOculto.Location = new System.Drawing.Point(136, 216);
+            this.LblEscribirOculto.Name = "LblEscribirOculto";
+            this.LblEscribirOculto.Size = new System.Drawing.Size(25, 16);
+            this.LblEscribirOculto.TabIndex = 37;
+            this.LblEscribirOculto.Text = "NO";
+            // 
+            // LblFavorito
+            // 
+            this.LblFavorito.AutoSize = true;
+            this.LblFavorito.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFavorito.Location = new System.Drawing.Point(12, 191);
+            this.LblFavorito.Name = "LblFavorito";
+            this.LblFavorito.Size = new System.Drawing.Size(69, 17);
+            this.LblFavorito.TabIndex = 36;
+            this.LblFavorito.Text = "Favorito:";
+            // 
+            // LblEscribirFavorito
+            // 
+            this.LblEscribirFavorito.AutoSize = true;
+            this.LblEscribirFavorito.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirFavorito.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirFavorito.Location = new System.Drawing.Point(137, 191);
+            this.LblEscribirFavorito.Name = "LblEscribirFavorito";
+            this.LblEscribirFavorito.Size = new System.Drawing.Size(18, 16);
+            this.LblEscribirFavorito.TabIndex = 35;
+            this.LblEscribirFavorito.Text = "SI";
+            // 
+            // LblFin
+            // 
+            this.LblFin.AutoSize = true;
+            this.LblFin.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFin.Location = new System.Drawing.Point(12, 166);
+            this.LblFin.Name = "LblFin";
+            this.LblFin.Size = new System.Drawing.Size(77, 17);
+            this.LblFin.TabIndex = 34;
+            this.LblFin.Text = "Fecha fin:";
+            // 
+            // LblEscribirFecFin
+            // 
+            this.LblEscribirFecFin.AutoSize = true;
+            this.LblEscribirFecFin.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirFecFin.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirFecFin.Location = new System.Drawing.Point(137, 166);
+            this.LblEscribirFecFin.Name = "LblEscribirFecFin";
+            this.LblEscribirFecFin.Size = new System.Drawing.Size(71, 16);
+            this.LblEscribirFecFin.TabIndex = 33;
+            this.LblEscribirFecFin.Text = "09/06/2022";
+            // 
+            // LblComienzo
+            // 
+            this.LblComienzo.AutoSize = true;
+            this.LblComienzo.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblComienzo.Location = new System.Drawing.Point(12, 141);
+            this.LblComienzo.Name = "LblComienzo";
+            this.LblComienzo.Size = new System.Drawing.Size(122, 17);
+            this.LblComienzo.TabIndex = 32;
+            this.LblComienzo.Text = "Fecha comienzo:";
+            // 
+            // LblCapAct
+            // 
+            this.LblCapAct.AutoSize = true;
+            this.LblCapAct.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCapAct.Location = new System.Drawing.Point(12, 116);
+            this.LblCapAct.Name = "LblCapAct";
+            this.LblCapAct.Size = new System.Drawing.Size(121, 17);
+            this.LblCapAct.TabIndex = 30;
+            this.LblCapAct.Text = "Capítulo actual:";
+            // 
+            // LblEscribirFecComienzo
+            // 
+            this.LblEscribirFecComienzo.AutoSize = true;
+            this.LblEscribirFecComienzo.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirFecComienzo.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirFecComienzo.Location = new System.Drawing.Point(137, 141);
+            this.LblEscribirFecComienzo.Name = "LblEscribirFecComienzo";
+            this.LblEscribirFecComienzo.Size = new System.Drawing.Size(71, 16);
+            this.LblEscribirFecComienzo.TabIndex = 31;
+            this.LblEscribirFecComienzo.Text = "24/04/2022";
+            // 
+            // LblEscribirCapiAct
+            // 
+            this.LblEscribirCapiAct.AutoSize = true;
+            this.LblEscribirCapiAct.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirCapiAct.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirCapiAct.Location = new System.Drawing.Point(137, 116);
+            this.LblEscribirCapiAct.Name = "LblEscribirCapiAct";
+            this.LblEscribirCapiAct.Size = new System.Drawing.Size(14, 16);
+            this.LblEscribirCapiAct.TabIndex = 29;
+            this.LblEscribirCapiAct.Text = "4";
+            // 
+            // LblTiempoLec
+            // 
+            this.LblTiempoLec.AutoSize = true;
+            this.LblTiempoLec.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTiempoLec.Location = new System.Drawing.Point(12, 91);
+            this.LblTiempoLec.Name = "LblTiempoLec";
+            this.LblTiempoLec.Size = new System.Drawing.Size(118, 17);
+            this.LblTiempoLec.TabIndex = 28;
+            this.LblTiempoLec.Text = "Tiempo lectura:";
+            // 
+            // LblEscribirEstadoLectura
+            // 
+            this.LblEscribirEstadoLectura.AutoSize = true;
+            this.LblEscribirEstadoLectura.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirEstadoLectura.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirEstadoLectura.Location = new System.Drawing.Point(137, 66);
+            this.LblEscribirEstadoLectura.Name = "LblEscribirEstadoLectura";
+            this.LblEscribirEstadoLectura.Size = new System.Drawing.Size(41, 16);
+            this.LblEscribirEstadoLectura.TabIndex = 27;
+            this.LblEscribirEstadoLectura.Text = "LEÍDO";
+            // 
+            // LblVecesLeido
+            // 
+            this.LblVecesLeido.AutoSize = true;
+            this.LblVecesLeido.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblVecesLeido.Location = new System.Drawing.Point(12, 41);
+            this.LblVecesLeido.Name = "LblVecesLeido";
+            this.LblVecesLeido.Size = new System.Drawing.Size(91, 17);
+            this.LblVecesLeido.TabIndex = 25;
+            this.LblVecesLeido.Text = "Veces leído:";
+            // 
+            // LblEscribirVecesLeido
+            // 
+            this.LblEscribirVecesLeido.AutoSize = true;
+            this.LblEscribirVecesLeido.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirVecesLeido.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirVecesLeido.Location = new System.Drawing.Point(137, 41);
+            this.LblEscribirVecesLeido.Name = "LblEscribirVecesLeido";
+            this.LblEscribirVecesLeido.Size = new System.Drawing.Size(14, 16);
+            this.LblEscribirVecesLeido.TabIndex = 26;
+            this.LblEscribirVecesLeido.Text = "1";
+            // 
+            // LblEstadoLectura
+            // 
+            this.LblEstadoLectura.AutoSize = true;
+            this.LblEstadoLectura.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEstadoLectura.Location = new System.Drawing.Point(12, 66);
+            this.LblEstadoLectura.Name = "LblEstadoLectura";
+            this.LblEstadoLectura.Size = new System.Drawing.Size(115, 17);
+            this.LblEstadoLectura.TabIndex = 23;
+            this.LblEstadoLectura.Text = "Estado lectura:";
+            // 
+            // LblEscribirPuntuacion
+            // 
+            this.LblEscribirPuntuacion.AutoSize = true;
+            this.LblEscribirPuntuacion.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirPuntuacion.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirPuntuacion.Location = new System.Drawing.Point(137, 16);
+            this.LblEscribirPuntuacion.Name = "LblEscribirPuntuacion";
+            this.LblEscribirPuntuacion.Size = new System.Drawing.Size(14, 16);
+            this.LblEscribirPuntuacion.TabIndex = 22;
+            this.LblEscribirPuntuacion.Text = "8";
+            // 
+            // LblPuntuacion
+            // 
+            this.LblPuntuacion.AutoSize = true;
+            this.LblPuntuacion.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPuntuacion.Location = new System.Drawing.Point(12, 16);
+            this.LblPuntuacion.Name = "LblPuntuacion";
+            this.LblPuntuacion.Size = new System.Drawing.Size(90, 17);
+            this.LblPuntuacion.TabIndex = 21;
+            this.LblPuntuacion.Text = "Puntuación:";
+            // 
+            // LblEscribirTiempoLec
+            // 
+            this.LblEscribirTiempoLec.AutoSize = true;
+            this.LblEscribirTiempoLec.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirTiempoLec.ForeColor = System.Drawing.Color.White;
+            this.LblEscribirTiempoLec.Location = new System.Drawing.Point(137, 91);
+            this.LblEscribirTiempoLec.Name = "LblEscribirTiempoLec";
+            this.LblEscribirTiempoLec.Size = new System.Drawing.Size(55, 16);
+            this.LblEscribirTiempoLec.TabIndex = 24;
+            this.LblEscribirTiempoLec.Text = "25:12:53";
             // 
             // kryptonPalette1
             // 
@@ -1029,7 +1674,7 @@
             this.PanFotoTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanFotoTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanFotoTitulo.Name = "PanFotoTitulo";
-            this.PanFotoTitulo.Size = new System.Drawing.Size(250, 236);
+            this.PanFotoTitulo.Size = new System.Drawing.Size(250, 220);
             this.PanFotoTitulo.TabIndex = 0;
             // 
             // MBtncerrarDetallesLibro
@@ -1061,7 +1706,7 @@
             this.TxtPersonas.Multiline = true;
             this.TxtPersonas.Name = "TxtPersonas";
             this.TxtPersonas.ReadOnly = true;
-            this.TxtPersonas.Size = new System.Drawing.Size(213, 56);
+            this.TxtPersonas.Size = new System.Drawing.Size(213, 45);
             this.TxtPersonas.TabIndex = 3;
             this.TxtPersonas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1097,7 +1742,7 @@
             this.PanVistaMosaico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanVistaMosaico.Location = new System.Drawing.Point(0, 0);
             this.PanVistaMosaico.Name = "PanVistaMosaico";
-            this.PanVistaMosaico.Size = new System.Drawing.Size(949, 544);
+            this.PanVistaMosaico.Size = new System.Drawing.Size(949, 546);
             this.PanVistaMosaico.TabIndex = 0;
             this.PanVistaMosaico.Resize += new System.EventHandler(this.PanVistaMosaico_Resize);
             // 
@@ -1105,9 +1750,9 @@
             // 
             this.PanPiePagina.BackColor = System.Drawing.Color.Navy;
             this.PanPiePagina.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanPiePagina.Location = new System.Drawing.Point(0, 648);
+            this.PanPiePagina.Location = new System.Drawing.Point(0, 650);
             this.PanPiePagina.Name = "PanPiePagina";
-            this.PanPiePagina.Size = new System.Drawing.Size(949, 45);
+            this.PanPiePagina.Size = new System.Drawing.Size(949, 43);
             this.PanPiePagina.TabIndex = 12;
             // 
             // PanBusquedaMBI
@@ -1135,7 +1780,7 @@
             this.MBtnBuscarMBI.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarMBI.IconColor = System.Drawing.Color.Gainsboro;
             this.MBtnBuscarMBI.IconSize = 30;
-            this.MBtnBuscarMBI.Location = new System.Drawing.Point(658, 10);
+            this.MBtnBuscarMBI.Location = new System.Drawing.Point(545, 9);
             this.MBtnBuscarMBI.Name = "MBtnBuscarMBI";
             this.MBtnBuscarMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarMBI.Size = new System.Drawing.Size(20, 20);
@@ -1144,7 +1789,7 @@
             // 
             // KTxtBuscarMBI
             // 
-            this.KTxtBuscarMBI.Location = new System.Drawing.Point(453, 3);
+            this.KTxtBuscarMBI.Location = new System.Drawing.Point(340, 3);
             this.KTxtBuscarMBI.Name = "KTxtBuscarMBI";
             this.KTxtBuscarMBI.Size = new System.Drawing.Size(235, 33);
             this.KTxtBuscarMBI.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
@@ -1168,7 +1813,7 @@
             this.MBtnOrdenMBI.IconChar = FontAwesome.Sharp.MaterialIcons.OrderAlphabeticalAscending;
             this.MBtnOrdenMBI.IconColor = System.Drawing.Color.Gainsboro;
             this.MBtnOrdenMBI.IconSize = 40;
-            this.MBtnOrdenMBI.Location = new System.Drawing.Point(701, 4);
+            this.MBtnOrdenMBI.Location = new System.Drawing.Point(585, 4);
             this.MBtnOrdenMBI.Name = "MBtnOrdenMBI";
             this.MBtnOrdenMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnOrdenMBI.Size = new System.Drawing.Size(30, 30);
@@ -1178,9 +1823,12 @@
             // KCmbBuscarPorMBI
             // 
             this.KCmbBuscarPorMBI.DropDownWidth = 160;
-            this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(249, 4);
+            this.KCmbBuscarPorMBI.Items.AddRange(new object[] {
+            "Autores",
+            "Géneros"});
+            this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(127, 3);
             this.KCmbBuscarPorMBI.Name = "KCmbBuscarPorMBI";
-            this.KCmbBuscarPorMBI.Size = new System.Drawing.Size(198, 33);
+            this.KCmbBuscarPorMBI.Size = new System.Drawing.Size(207, 33);
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gainsboro;
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gainsboro;
@@ -1191,8 +1839,8 @@
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Width = 2;
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Gainsboro;
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbBuscarPorMBI.TabIndex = 108;
             // 
             // LblBuscarPorMBI
@@ -1200,7 +1848,7 @@
             this.LblBuscarPorMBI.AutoSize = true;
             this.LblBuscarPorMBI.Font = new System.Drawing.Font("Merienda One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBuscarPorMBI.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LblBuscarPorMBI.Location = new System.Drawing.Point(154, 11);
+            this.LblBuscarPorMBI.Location = new System.Drawing.Point(40, 11);
             this.LblBuscarPorMBI.Name = "LblBuscarPorMBI";
             this.LblBuscarPorMBI.Size = new System.Drawing.Size(83, 18);
             this.LblBuscarPorMBI.TabIndex = 8;
@@ -1214,12 +1862,13 @@
             this.MBtnVistaMosaicoMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewGridOutline;
             this.MBtnVistaMosaicoMBI.IconColor = System.Drawing.Color.Gainsboro;
             this.MBtnVistaMosaicoMBI.IconSize = 40;
-            this.MBtnVistaMosaicoMBI.Location = new System.Drawing.Point(76, 5);
+            this.MBtnVistaMosaicoMBI.Location = new System.Drawing.Point(812, 5);
             this.MBtnVistaMosaicoMBI.Name = "MBtnVistaMosaicoMBI";
             this.MBtnVistaMosaicoMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnVistaMosaicoMBI.Size = new System.Drawing.Size(30, 30);
             this.MBtnVistaMosaicoMBI.TabIndex = 7;
             this.MBtnVistaMosaicoMBI.UseVisualStyleBackColor = true;
+            this.MBtnVistaMosaicoMBI.Visible = false;
             this.MBtnVistaMosaicoMBI.Click += new System.EventHandler(this.MBtnVistaMosaicoMBI_Click);
             // 
             // MBtnVistaDetallesMBI
@@ -1230,12 +1879,13 @@
             this.MBtnVistaDetallesMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewList;
             this.MBtnVistaDetallesMBI.IconColor = System.Drawing.Color.Gainsboro;
             this.MBtnVistaDetallesMBI.IconSize = 45;
-            this.MBtnVistaDetallesMBI.Location = new System.Drawing.Point(40, 5);
+            this.MBtnVistaDetallesMBI.Location = new System.Drawing.Point(776, 5);
             this.MBtnVistaDetallesMBI.Name = "MBtnVistaDetallesMBI";
             this.MBtnVistaDetallesMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnVistaDetallesMBI.Size = new System.Drawing.Size(30, 30);
             this.MBtnVistaDetallesMBI.TabIndex = 6;
             this.MBtnVistaDetallesMBI.UseVisualStyleBackColor = true;
+            this.MBtnVistaDetallesMBI.Visible = false;
             this.MBtnVistaDetallesMBI.Click += new System.EventHandler(this.MBtnVistaDetallesMBI_Click);
             // 
             // PanTituloFormAbierto
@@ -1332,9 +1982,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.KpDetalles)).EndInit();
             this.KpDetalles.ResumeLayout(false);
             this.KpDetalles.PerformLayout();
+            this.PanFecha.ResumeLayout(false);
+            this.PanFecha.PerformLayout();
+            this.PanTipo.ResumeLayout(false);
+            this.PanTipo.PerformLayout();
+            this.PanIdiomas.ResumeLayout(false);
+            this.PanIdiomas.PerformLayout();
+            this.PanEtiquetas.ResumeLayout(false);
+            this.PanEtiquetas.PerformLayout();
+            this.PanGeneros.ResumeLayout(false);
+            this.PanGeneros.PerformLayout();
+            this.PanIsbn.ResumeLayout(false);
+            this.PanIsbn.PerformLayout();
+            this.PanEditorial.ResumeLayout(false);
+            this.PanEditorial.PerformLayout();
+            this.PanSinopsis.ResumeLayout(false);
+            this.PanSinopsis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KpUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KpImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KpAcciones)).EndInit();
+            this.KpUsuario.ResumeLayout(false);
+            this.KpUsuario.PerformLayout();
             this.PanFotoTitulo.ResumeLayout(false);
             this.PanFotoTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLibro)).EndInit();
@@ -1417,12 +2083,63 @@
         private ComponentFactory.Krypton.Navigator.KryptonNavigator KTabDetalles;
         private ComponentFactory.Krypton.Navigator.KryptonPage KpDetalles;
         private ComponentFactory.Krypton.Navigator.KryptonPage KpUsuario;
-        private ComponentFactory.Krypton.Navigator.KryptonPage KpImg;
-        private ComponentFactory.Krypton.Navigator.KryptonPage KpAcciones;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private System.Windows.Forms.TextBox TxtSinopsis;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtEscribirComentario;
+        private System.Windows.Forms.Label LblComentario;
+        private System.Windows.Forms.Label LblOculto;
+        private System.Windows.Forms.Label LblEscribirOculto;
+        private System.Windows.Forms.Label LblFavorito;
+        private System.Windows.Forms.Label LblEscribirFavorito;
+        private System.Windows.Forms.Label LblFin;
+        private System.Windows.Forms.Label LblEscribirFecFin;
+        private System.Windows.Forms.Label LblComienzo;
+        private System.Windows.Forms.Label LblCapAct;
+        private System.Windows.Forms.Label LblEscribirFecComienzo;
+        private System.Windows.Forms.Label LblEscribirCapiAct;
+        private System.Windows.Forms.Label LblTiempoLec;
+        private System.Windows.Forms.Label LblEscribirEstadoLectura;
+        private System.Windows.Forms.Label LblVecesLeido;
+        private System.Windows.Forms.Label LblEscribirVecesLeido;
+        private System.Windows.Forms.Label LblEstadoLectura;
+        private System.Windows.Forms.Label LblEscribirPuntuacion;
+        private System.Windows.Forms.Label LblPuntuacion;
+        private System.Windows.Forms.Label LblEscribirTiempoLec;
+        private System.Windows.Forms.Panel PanFecha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.LinkLabel LinkEnlace;
+        private System.Windows.Forms.Label LblPublicado;
+        private System.Windows.Forms.Label LblEscribirFechaPub;
+        private System.Windows.Forms.Panel PanTipo;
+        private System.Windows.Forms.Label LblEscribirTipoLibro;
+        private System.Windows.Forms.Label LblTipoLibro;
+        private System.Windows.Forms.Panel PanIdiomas;
+        private System.Windows.Forms.Label LblIdioma;
+        private System.Windows.Forms.Label LblEscribirIdioma;
+        private System.Windows.Forms.Label LblIdiOri;
+        private System.Windows.Forms.Label LblEscribirIdiOri;
+        private System.Windows.Forms.Panel PanEtiquetas;
+        private System.Windows.Forms.Label LblEtiquetas;
+        private System.Windows.Forms.Label LblEscribirEtiquetas;
+        private System.Windows.Forms.Panel PanGeneros;
+        private System.Windows.Forms.Label LblGenero;
+        private System.Windows.Forms.Label LblEscribirGenero;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel PanIsbn;
+        private System.Windows.Forms.Label LblCapitulos;
+        private System.Windows.Forms.Label LblEscribirIs13;
+        private System.Windows.Forms.Label LblIs13;
+        private System.Windows.Forms.Label LblIs10;
+        private System.Windows.Forms.Label LblEscribirIs10;
+        private System.Windows.Forms.Label LblEscribirCapitulos;
+        private System.Windows.Forms.Label LblPag;
+        private System.Windows.Forms.Label LblEscribirPag;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel PanEditorial;
+        private System.Windows.Forms.Label LblEditorial;
+        private System.Windows.Forms.Label LblEscribirEditorial;
+        private System.Windows.Forms.Panel PanSinopsis;
+        private System.Windows.Forms.Label LblSinopsis;
+        private System.Windows.Forms.TextBox TxtSinopsis;
     }
 }

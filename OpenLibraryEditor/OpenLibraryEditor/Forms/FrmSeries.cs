@@ -20,7 +20,7 @@ namespace OpenLibraryEditor.Forms
         private const string NOMBRE_OBJETO = "la serie";
         private bool setNew;
         private Serie serieNueva;
-        private List<Serie> listaSerie = UsuarioDatos.listaSerie;
+        private List<Serie> listaSerie = Biblioteca.biblioteca.ListaSerie;
         private Serie serieActual;
         private ListViewItem itemSerieActual;
         private List<RelacionSerie> listaTempRelacion;

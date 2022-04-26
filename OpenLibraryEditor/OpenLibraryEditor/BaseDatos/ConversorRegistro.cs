@@ -15,9 +15,9 @@ namespace OpenLibraryEditor.BaseDatos
             return registro["nombreOcupacion"].ToString();
         }
 
-        public static Persona RegistroAAutor(MySqlDataReader registro)
+        public static Autor RegistroAAutor(MySqlDataReader registro)
         {
-            return new Persona(int.Parse(registro["idAutor"].ToString()),
+            return new Autor(int.Parse(registro["idAutor"].ToString()),
                 registro["nombre"].ToString(),
                 registro["alias"].ToString(),
                 registro["nombreOcupacion"].ToString(),

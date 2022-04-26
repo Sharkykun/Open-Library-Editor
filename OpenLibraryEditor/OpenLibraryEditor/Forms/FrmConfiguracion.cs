@@ -100,6 +100,9 @@ namespace OpenLibraryEditor.Forms
             LblPuertoServidor.Text = ControladorIdioma.GetTexto("Con_SWPuerto");
             TTConfi.SetToolTip(this.NudPuerto, ControladorIdioma.GetTexto("Con_SWTTPuerto"));
 
+            LblGoogleBooksClave.Text = ControladorIdioma.GetTexto("Con_Google");
+            TxtSubtituloGoogleBooksClave.Text = ControladorIdioma.GetTexto("Con_SubGoogle");
+
             BtnRestaurarValores.Text = ControladorIdioma.GetTexto("Con_BtnRestaurar");
             TTConfi.SetToolTip(this.BtnRestaurarValores, ControladorIdioma.GetTexto("Con_BtnRestaurar"));
             BtnCancelarConfi.Text = ControladorIdioma.GetTexto("Cancelar");

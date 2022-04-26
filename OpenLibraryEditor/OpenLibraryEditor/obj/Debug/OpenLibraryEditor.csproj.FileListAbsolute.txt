@@ -61,12 +61,6 @@ C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLib
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMenuPrincipal.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMessageBox.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMiBiblioteca.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisAutores.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisEditoriales.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisGeneros.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisSeries.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisTags.resources
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisTitulos.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmRegistro.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmSeries.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.FrmSplashScreen.resources
@@ -137,12 +131,6 @@ E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Edit
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMenuPrincipal.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMessageBox.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMiBiblioteca.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisAutores.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisEditoriales.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisGeneros.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisSeries.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisTags.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmMisTitulos.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmRegistro.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmSeries.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.FrmSplashScreen.resources

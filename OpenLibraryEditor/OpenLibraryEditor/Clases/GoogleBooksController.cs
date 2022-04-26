@@ -91,7 +91,7 @@ namespace OpenLibraryEditor.Clases
             string isbn13 = volInfo.IndustryIdentifiers.FirstOrDefault(p => p.Type == "ISBN_13").Identifier;
             string isbn10 = volInfo.IndustryIdentifiers.FirstOrDefault(p => p.Type == "ISBN_10").Identifier;
 
-            if (UsuarioDatos.biblioteca.ListaLibro.Any(p => p.Isbn_13 == isbn13))
+            if (Biblioteca.biblioteca.ListaLibro.Any(p => p.Isbn_13 == isbn13))
             {
                 throw new Libro.IdRepetidoException("El ISBN del libro ya existe en la biblioteca.");
             }
@@ -101,16 +101,16 @@ namespace OpenLibraryEditor.Clases
             if (sacarPersonas)
             {
                 //Sacar personas
-                List<Persona> peopleList = new List<Persona>();
+                List<Autor> peopleList = new List<Autor>();
 
                 foreach (var auth in volInfo.Authors)
                 {
                     //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                    Persona pers = UsuarioDatos.listaPersona.FirstOrDefault(p => p.Nombre == auth);
+                    Autor pers = Biblioteca.biblioteca.ListaPersona.FirstOrDefault(p => p.Nombre == auth);
                     if (pers == null)
                     {
-                        pers = new Persona(auth);
-                        UsuarioDatos.listaPersona.Add(pers);
+                        pers = new Autor(auth);
+                        Biblioteca.biblioteca.ListaPersona.Add(pers);
                     }
 
                     peopleList.Add(pers);
@@ -126,11 +126,11 @@ namespace OpenLibraryEditor.Clases
                 List<Editorial> editorialList = new List<Editorial>();
 
                 //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                Editorial edi = UsuarioDatos.listaEditorial.FirstOrDefault(p => p.Nombre == volInfo.Publisher);
+                Editorial edi = Biblioteca.biblioteca.ListaEditorial.FirstOrDefault(p => p.Nombre == volInfo.Publisher);
                 if (edi == null)
                 {
                     edi = new Editorial(volInfo.Publisher);
-                    UsuarioDatos.listaEditorial.Add(edi);
+                    Biblioteca.biblioteca.ListaEditorial.Add(edi);
                 }
 
                 editorialList.Add(edi);
@@ -145,11 +145,11 @@ namespace OpenLibraryEditor.Clases
                 foreach (var cat in volInfo.Categories)
                 {
                     //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                    Genero gen = UsuarioDatos.listaGenero.FirstOrDefault(p => p.Nombre == cat);
+                    Genero gen = Biblioteca.biblioteca.ListaGenero.FirstOrDefault(p => p.Nombre == cat);
                     if (gen == null)
                     {
                         gen = new Genero(cat);
-                        UsuarioDatos.listaGenero.Add(gen);
+                        Biblioteca.biblioteca.ListaGenero.Add(gen);
                     }
 
                     generoLista.Add(gen);

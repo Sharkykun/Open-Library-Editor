@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.Forms
     {
         #region atributos
         private const string NOMBRE_OBJETO = "la editorial";
-        private List<Editorial> listaEditorial = UsuarioDatos.listaEditorial;
+        private List<Editorial> listaEditorial = Biblioteca.biblioteca.ListaEditorial;
         private Editorial editorialActual;
         private ListViewItem itemActual;
 

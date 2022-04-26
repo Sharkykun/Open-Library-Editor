@@ -55,10 +55,10 @@ namespace OpenLibraryEditor.BaseDatos
 			return int.Parse(ScalarPersonalizado(query, "c"));
 		}
 
-		public static List<Persona> SelectAutoresLista(Persona autor)
+		public static List<Autor> SelectAutoresLista(Autor autor)
 		{
-			string query = "Select * From Autor Where idAutor = " + autor.IdPersona;
-			List<Persona> listaAutores = new List<Persona>();
+			string query = "Select * From Autor Where idAutor = " + autor.IdAutor;
+			List<Autor> listaAutores = new List<Autor>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -75,10 +75,10 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static Persona SelectAutor(Persona autor)
+		public static Autor SelectAutor(Autor autor)
 		{
-			string query = "Select * From Autor Where idAutor = " + autor.IdPersona;
-			List<Persona> listaAutores = new List<Persona>();
+			string query = "Select * From Autor Where idAutor = " + autor.IdAutor;
+			List<Autor> listaAutores = new List<Autor>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{

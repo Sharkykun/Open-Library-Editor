@@ -14,7 +14,7 @@ namespace OpenLibraryEditor.Forms
     
     public partial class FrmMiBiblioteca : Form
     {
-        private List<Libro> titulos = UsuarioDatos.biblioteca.ListaLibro;
+        private List<Libro> titulos = Biblioteca.biblioteca.ListaLibro;
         Button mas = new Button();
         public FrmMiBiblioteca()
         {

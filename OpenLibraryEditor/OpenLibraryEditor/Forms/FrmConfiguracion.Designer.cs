@@ -165,7 +165,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloConfi.Location = new System.Drawing.Point(86, 18);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
             this.LblTituloConfi.TabIndex = 3;
             this.LblTituloConfi.Text = "Configuración";
             // 
@@ -281,6 +281,7 @@
             this.TBtnUltimaBBDD.Size = new System.Drawing.Size(45, 22);
             this.TBtnUltimaBBDD.TabIndex = 22;
             this.TBtnUltimaBBDD.UseVisualStyleBackColor = true;
+            this.TBtnUltimaBBDD.Visible = false;
             // 
             // IBtnOpenFile
             // 
@@ -320,6 +321,7 @@
             this.LblUltimaBBDD.Size = new System.Drawing.Size(358, 26);
             this.LblUltimaBBDD.TabIndex = 21;
             this.LblUltimaBBDD.Text = "Cargar la última base de datos abierta\r\n";
+            this.LblUltimaBBDD.Visible = false;
             // 
             // TxtSubtituloUltimaBBDD
             // 
@@ -336,6 +338,7 @@
             this.TxtSubtituloUltimaBBDD.TabIndex = 24;
             this.TxtSubtituloUltimaBBDD.Text = "Recordar la última base de datos abierta y cargarla \r\nautomáticamente al iniciar " +
     "la aplicación\r\n";
+            this.TxtSubtituloUltimaBBDD.Visible = false;
             // 
             // TxtSubtituloContenidoExp
             // 
@@ -399,10 +402,11 @@
             this.CmbDobleClick.Items.AddRange(new object[] {
             "Ejecutar Libro",
             "Editar Información Libro"});
-            this.CmbDobleClick.Location = new System.Drawing.Point(469, 201);
+            this.CmbDobleClick.Location = new System.Drawing.Point(469, 203);
             this.CmbDobleClick.Name = "CmbDobleClick";
             this.CmbDobleClick.Size = new System.Drawing.Size(329, 26);
             this.CmbDobleClick.TabIndex = 17;
+            this.CmbDobleClick.Visible = false;
             // 
             // TxtSubtituloDobleClick
             // 
@@ -418,6 +422,7 @@
             this.TxtSubtituloDobleClick.Size = new System.Drawing.Size(335, 39);
             this.TxtSubtituloDobleClick.TabIndex = 15;
             this.TxtSubtituloDobleClick.Text = "Configurar la funcionalidad al hacer \r\ndoble click sobre un libro\r\n";
+            this.TxtSubtituloDobleClick.Visible = false;
             // 
             // LblDobleClick
             // 
@@ -429,6 +434,7 @@
             this.LblDobleClick.Size = new System.Drawing.Size(111, 26);
             this.LblDobleClick.TabIndex = 16;
             this.LblDobleClick.Text = "Doble click";
+            this.LblDobleClick.Visible = false;
             // 
             // TxtSubtituloEligeIdioConfi
             // 
@@ -487,6 +493,7 @@
             this.GbVisualizacion.Size = new System.Drawing.Size(715, 89);
             this.GbVisualizacion.TabIndex = 15;
             this.GbVisualizacion.TabStop = false;
+            this.GbVisualizacion.Visible = false;
             // 
             // TxtSubtituloVisuConfi
             // 
@@ -554,6 +561,7 @@
             this.GbTema.Size = new System.Drawing.Size(715, 89);
             this.GbTema.TabIndex = 20;
             this.GbTema.TabStop = false;
+            this.GbTema.Visible = false;
             // 
             // TxtSubtituloTema
             // 
@@ -644,7 +652,7 @@
             this.TxtGoogleBooksClave.BackColor = System.Drawing.Color.LightGray;
             this.TxtGoogleBooksClave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGoogleBooksClave.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtGoogleBooksClave.Location = new System.Drawing.Point(303, 290);
+            this.TxtGoogleBooksClave.Location = new System.Drawing.Point(469, 292);
             this.TxtGoogleBooksClave.Name = "TxtGoogleBooksClave";
             this.TxtGoogleBooksClave.Size = new System.Drawing.Size(323, 25);
             this.TxtGoogleBooksClave.TabIndex = 31;
@@ -660,7 +668,7 @@
             this.TxtSubtituloGoogleBooksClave.Multiline = true;
             this.TxtSubtituloGoogleBooksClave.Name = "TxtSubtituloGoogleBooksClave";
             this.TxtSubtituloGoogleBooksClave.ReadOnly = true;
-            this.TxtSubtituloGoogleBooksClave.Size = new System.Drawing.Size(246, 48);
+            this.TxtSubtituloGoogleBooksClave.Size = new System.Drawing.Size(358, 37);
             this.TxtSubtituloGoogleBooksClave.TabIndex = 30;
             this.TxtSubtituloGoogleBooksClave.Text = "Establece la clave privada de Google Books";
             // 
@@ -697,6 +705,7 @@
             this.KgbImagenesLibro.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbImagenesLibro.TabIndex = 19;
             this.KgbImagenesLibro.Values.Heading = "Tamaño imagen libro";
+            this.KgbImagenesLibro.Visible = false;
             // 
             // RbtnGrande
             // 
@@ -882,9 +891,9 @@
             this.TxtIP.BackColor = System.Drawing.Color.LightGray;
             this.TxtIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtIP.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtIP.Location = new System.Drawing.Point(648, 123);
+            this.TxtIP.Location = new System.Drawing.Point(625, 123);
             this.TxtIP.Name = "TxtIP";
-            this.TxtIP.Size = new System.Drawing.Size(150, 25);
+            this.TxtIP.Size = new System.Drawing.Size(173, 25);
             this.TxtIP.TabIndex = 164;
             this.TxtIP.Leave += new System.EventHandler(this.TxtIP_Leave);
             // 
@@ -893,7 +902,7 @@
             this.LblIp.AutoSize = true;
             this.LblIp.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIp.ForeColor = System.Drawing.Color.Navy;
-            this.LblIp.Location = new System.Drawing.Point(646, 85);
+            this.LblIp.Location = new System.Drawing.Point(625, 84);
             this.LblIp.Name = "LblIp";
             this.LblIp.Size = new System.Drawing.Size(29, 26);
             this.LblIp.TabIndex = 163;
@@ -935,7 +944,7 @@
             this.NudPuerto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NudPuerto.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NudPuerto.ForeColor = System.Drawing.Color.Navy;
-            this.NudPuerto.Location = new System.Drawing.Point(485, 123);
+            this.NudPuerto.Location = new System.Drawing.Point(469, 123);
             this.NudPuerto.Name = "NudPuerto";
             this.NudPuerto.Size = new System.Drawing.Size(120, 27);
             this.NudPuerto.TabIndex = 32;
@@ -969,7 +978,7 @@
             this.LblPuertoServidor.AutoSize = true;
             this.LblPuertoServidor.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPuertoServidor.ForeColor = System.Drawing.Color.Navy;
-            this.LblPuertoServidor.Location = new System.Drawing.Point(485, 84);
+            this.LblPuertoServidor.Location = new System.Drawing.Point(469, 84);
             this.LblPuertoServidor.Name = "LblPuertoServidor";
             this.LblPuertoServidor.Size = new System.Drawing.Size(70, 26);
             this.LblPuertoServidor.TabIndex = 30;
@@ -991,9 +1000,9 @@
             this.TxtTituloServidorWeb.BackColor = System.Drawing.Color.LightGray;
             this.TxtTituloServidorWeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTituloServidorWeb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(303, 24);
+            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(469, 24);
             this.TxtTituloServidorWeb.Name = "TxtTituloServidorWeb";
-            this.TxtTituloServidorWeb.Size = new System.Drawing.Size(323, 25);
+            this.TxtTituloServidorWeb.Size = new System.Drawing.Size(324, 25);
             this.TxtTituloServidorWeb.TabIndex = 28;
             this.TxtTituloServidorWeb.TextChanged += new System.EventHandler(this.TxtTituloServidorWeb_TextChanged);
             // 

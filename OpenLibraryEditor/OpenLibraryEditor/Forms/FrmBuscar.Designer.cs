@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscar));
             this.PanBusquedaMBI = new System.Windows.Forms.Panel();
+            this.KCmbTipoBusquedaBUS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.MBtnBuscarBUS = new FontAwesome.Sharp.Material.MaterialButton();
             this.KTxtBuscarBUS = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KCmbServidoresBUS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -38,12 +39,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblTituloBuscar = new System.Windows.Forms.Label();
             this.MPcbBuscar = new FontAwesome.Sharp.Material.MaterialPictureBox();
-            this.KCmbTipoBusquedaBUS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.PanBusquedaMBI.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbServidoresBUS)).BeginInit();
             this.PanTituloMiBiblioteca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).BeginInit();
             this.SuspendLayout();
             // 
             // PanBusquedaMBI
@@ -60,6 +60,27 @@
             this.PanBusquedaMBI.Size = new System.Drawing.Size(948, 40);
             this.PanBusquedaMBI.TabIndex = 11;
             // 
+            // KCmbTipoBusquedaBUS
+            // 
+            this.KCmbTipoBusquedaBUS.DropDownWidth = 160;
+            this.KCmbTipoBusquedaBUS.Location = new System.Drawing.Point(307, 3);
+            this.KCmbTipoBusquedaBUS.Name = "KCmbTipoBusquedaBUS";
+            this.KCmbTipoBusquedaBUS.Size = new System.Drawing.Size(161, 33);
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gainsboro;
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Width = 2;
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbTipoBusquedaBUS.TabIndex = 127;
+            // 
             // MBtnBuscarBUS
             // 
             this.MBtnBuscarBUS.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -69,7 +90,7 @@
             this.MBtnBuscarBUS.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarBUS.IconColor = System.Drawing.Color.Gainsboro;
             this.MBtnBuscarBUS.IconSize = 30;
-            this.MBtnBuscarBUS.Location = new System.Drawing.Point(796, 10);
+            this.MBtnBuscarBUS.Location = new System.Drawing.Point(796, 9);
             this.MBtnBuscarBUS.Name = "MBtnBuscarBUS";
             this.MBtnBuscarBUS.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarBUS.Size = new System.Drawing.Size(20, 20);
@@ -110,7 +131,8 @@
             this.KCmbServidoresBUS.StateCommon.ComboBox.Border.Width = 2;
             this.KCmbServidoresBUS.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Gainsboro;
             this.KCmbServidoresBUS.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbServidoresBUS.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
+            this.KCmbServidoresBUS.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
+            this.KCmbServidoresBUS.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
             this.KCmbServidoresBUS.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbServidoresBUS.TabIndex = 108;
             this.KCmbServidoresBUS.SelectedIndexChanged += new System.EventHandler(this.KCmbServidoresBUS_SelectedIndexChanged);
@@ -120,7 +142,7 @@
             this.LblBuscarPorBUS.AutoSize = true;
             this.LblBuscarPorBUS.Font = new System.Drawing.Font("Merienda One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBuscarPorBUS.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LblBuscarPorBUS.Location = new System.Drawing.Point(41, 11);
+            this.LblBuscarPorBUS.Location = new System.Drawing.Point(40, 11);
             this.LblBuscarPorBUS.Name = "LblBuscarPorBUS";
             this.LblBuscarPorBUS.Size = new System.Drawing.Size(76, 18);
             this.LblBuscarPorBUS.TabIndex = 8;
@@ -154,7 +176,7 @@
             this.LblTituloBuscar.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloBuscar.Location = new System.Drawing.Point(75, 18);
             this.LblTituloBuscar.Name = "LblTituloBuscar";
-            this.LblTituloBuscar.Size = new System.Drawing.Size(96, 32);
+            this.LblTituloBuscar.Size = new System.Drawing.Size(95, 32);
             this.LblTituloBuscar.TabIndex = 10;
             this.LblTituloBuscar.Text = "Buscar";
             // 
@@ -162,7 +184,7 @@
             // 
             this.MPcbBuscar.BackColor = System.Drawing.Color.Transparent;
             this.MPcbBuscar.ForeColor = System.Drawing.Color.Navy;
-            this.MPcbBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.MagnifyExpand;
+            this.MPcbBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MPcbBuscar.IconColor = System.Drawing.Color.Navy;
             this.MPcbBuscar.IconSize = 40;
             this.MPcbBuscar.Location = new System.Drawing.Point(40, 15);
@@ -171,30 +193,11 @@
             this.MPcbBuscar.TabIndex = 12;
             this.MPcbBuscar.TabStop = false;
             // 
-            // KCmbTipoBusquedaBUS
-            // 
-            this.KCmbTipoBusquedaBUS.DropDownWidth = 160;
-            this.KCmbTipoBusquedaBUS.Location = new System.Drawing.Point(307, 3);
-            this.KCmbTipoBusquedaBUS.Name = "KCmbTipoBusquedaBUS";
-            this.KCmbTipoBusquedaBUS.Size = new System.Drawing.Size(161, 33);
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbTipoBusquedaBUS.TabIndex = 127;
-            // 
             // FrmBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(948, 693);
             this.Controls.Add(this.PanBusquedaMBI);
             this.Controls.Add(this.PanTituloMiBiblioteca);
@@ -204,11 +207,11 @@
             this.Load += new System.EventHandler(this.FrmBuscar_Load);
             this.PanBusquedaMBI.ResumeLayout(false);
             this.PanBusquedaMBI.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbServidoresBUS)).EndInit();
             this.PanTituloMiBiblioteca.ResumeLayout(false);
             this.PanTituloMiBiblioteca.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).EndInit();
             this.ResumeLayout(false);
 
         }

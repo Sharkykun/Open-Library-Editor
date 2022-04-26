@@ -55,7 +55,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idEtiqueta = rnd.Next();
-            } while (UsuarioDatos.listaEtiqueta.
+            } while (Biblioteca.biblioteca.ListaEtiqueta.
                 FindIndex(p => idEtiqueta == p.idEtiqueta) != -1);
         }
 

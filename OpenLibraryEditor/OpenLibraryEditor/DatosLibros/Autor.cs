@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace OpenLibraryEditor.DatosLibros
 {
-    public class Persona : IComparable<Persona>
+    public class Autor : IComparable<Autor>
     {
-        private int idPersona;
+        private int idAutor;
         private string nombre = "";
         private string alias = "";
         private string nombreOcupacion = "";
@@ -21,18 +21,18 @@ namespace OpenLibraryEditor.DatosLibros
         [JsonIgnore]
         public static List<string> ocupacionLista = new List<string>();
 
-        public Persona()
+        public Autor()
         {
         }
-        public Persona(string nombre)
+        public Autor(string nombre)
         {
             SetRandomId();
             this.nombre = nombre;
         }
 
-        public Persona(int idPersona, string nombre, string alias, string nombreOcupacion, DateTime fechaNacimiento, DateTime fechaDefuncion, string enlaceReferencia, string comentario, string imagen)
+        public Autor(int idPersona, string nombre, string alias, string nombreOcupacion, DateTime fechaNacimiento, DateTime fechaDefuncion, string enlaceReferencia, string comentario, string imagen)
         {
-            this.idPersona = idPersona;
+            this.idAutor = idPersona;
             this.nombre = nombre;
             this.alias = alias;
             this.nombreOcupacion = nombreOcupacion;
@@ -45,7 +45,7 @@ namespace OpenLibraryEditor.DatosLibros
 
 
         #region Get y Set
-        public int IdPersona { get => idPersona; set => idPersona = value; }
+        public int IdAutor { get => idAutor; set => idAutor = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Alias { get => alias; set => alias = value; }
         public string NombreOcupacion { get => nombreOcupacion; set => nombreOcupacion = value; }
@@ -62,18 +62,18 @@ namespace OpenLibraryEditor.DatosLibros
             Random rnd = new Random();
             do
             {
-                idPersona = rnd.Next();
-            } while (UsuarioDatos.listaPersona.
-                FindIndex(p => idPersona == p.idPersona) != -1);
+                idAutor = rnd.Next();
+            } while (Biblioteca.biblioteca.ListaPersona.
+                FindIndex(p => idAutor == p.idAutor) != -1);
         }
 
-        public int CompareTo(Persona other)
+        public int CompareTo(Autor other)
         {
             if (nombre.CompareTo(other.nombre) > 0) return 1;
             else if (nombre.CompareTo(other.nombre) == 0)
             {
-                if (idPersona > other.idPersona) return 1;
-                else if (idPersona == other.idPersona) return 0;
+                if (idAutor > other.idAutor) return 1;
+                else if (idAutor == other.idAutor) return 0;
                 else return -1;
             }
             else return -1;

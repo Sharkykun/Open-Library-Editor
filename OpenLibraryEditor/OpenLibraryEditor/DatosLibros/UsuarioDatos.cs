@@ -31,23 +31,6 @@ namespace OpenLibraryEditor.DatosLibros
         [JsonIgnore]
         public static UsuarioDatos configuracionUsuario = new UsuarioDatos();
 
-        //Listas estática para todo lo local
-        [JsonIgnore]
-        public static Biblioteca biblioteca = new Biblioteca();
-        [JsonIgnore]
-        public static List<Editorial> listaEditorial = new List<Editorial>();
-        [JsonIgnore]
-        public static List<Genero> listaGenero = new List<Genero>();
-        [JsonIgnore]
-        public static List<Persona> listaPersona = new List<Persona>();
-        [JsonIgnore]
-        public static List<Serie> listaSerie = new List<Serie>();
-        [JsonIgnore]
-        public static List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
-        [JsonIgnore]
-        public static List<Idioma> listaIdioma = new List<Idioma>();
-        [JsonIgnore]
-        public static List<UsuarioEjecutable> listaEjecutable = new List<UsuarioEjecutable>();
 
         public UsuarioDatos()
         {

@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.Forms
         #region atributos
         private const string NOMBRE_OBJETO = "el ejecutable";
         private bool setNew;
-        private List<UsuarioEjecutable> listaEjecutable = UsuarioDatos.listaEjecutable;
+        private List<UsuarioEjecutable> listaEjecutable = Biblioteca.biblioteca.ListaEjecutable;
         private UsuarioEjecutable ejecutableActual;
         private ListViewItem itemActual;
         #endregion
