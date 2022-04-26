@@ -22,7 +22,7 @@ namespace OpenLibraryEditor.Forms
         private Serie serieOrigen;
         private Serie serieActual;
         private ListViewItem itemActual;
-        private List<string> listaTipoRelacion = RelacionSerie.tipoRelacionLista;
+        private List<string> listaTipoRelacion = Biblioteca.biblioteca.ListaTipoRelacion;
         private BindingSource tipoBinding = new BindingSource();
         private bool esOk = false;
         private string rutaImagen;

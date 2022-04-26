@@ -17,10 +17,6 @@ namespace OpenLibraryEditor.DatosLibros
         private string comentario = "";
         private string imagen = "";
 
-        //Lista estática de ocupaciones
-        [JsonIgnore]
-        public static List<string> ocupacionLista = new List<string>();
-
         public Autor()
         {
         }

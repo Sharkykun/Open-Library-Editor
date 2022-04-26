@@ -12,6 +12,10 @@ namespace OpenLibraryEditor.DatosLibros
     {
         public static Biblioteca biblioteca = new Biblioteca();
 
+        private List<string> listaTipoLibro = new List<string>();
+        private List<string> listaOcupacion = new List<string>();
+        private List<string> listaCategoria = new List<string>();
+        private List<string> listaTipoRelacion = new List<string>();
         private List<Editorial> listaEditorial = new List<Editorial>();
         private List<Genero> listaGenero = new List<Genero>();
         private List<Autor> listaPersona = new List<Autor>();
@@ -23,14 +27,21 @@ namespace OpenLibraryEditor.DatosLibros
 
         public const string RUTA_FICHERO = "biblioteca.json";
 
-        public List<Libro> ListaLibro { get => listaLibro; set => listaLibro = value; }
+
+        public List<string> ListaTipoLibro { get => listaTipoLibro; set => listaTipoLibro = value; }
+        public List<string> ListaOcupacion { get => listaOcupacion; set => listaOcupacion = value; }
+        public List<string> ListaCategoria { get => listaCategoria; set => listaCategoria = value; }
+        public List<string> ListaTipoRelacion { get => listaTipoRelacion; set => listaTipoRelacion = value; }
+        public List<Idioma> ListaIdioma { get => listaIdioma; set => listaIdioma = value; }
+
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
         public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
         public List<Autor> ListaPersona { get => listaPersona; set => listaPersona = value; }
         public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
         public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
-        public List<Idioma> ListaIdioma { get => listaIdioma; set => listaIdioma = value; }
         public List<UsuarioEjecutable> ListaEjecutable { get => listaEjecutable; set => listaEjecutable = value; }
+        public List<Libro> ListaLibro { get => listaLibro; set => listaLibro = value; }
+        
 
         override public string ToString()
         {
