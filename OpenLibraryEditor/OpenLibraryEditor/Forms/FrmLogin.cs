@@ -256,6 +256,25 @@ namespace OpenLibraryEditor.Forms
             menu.Show();
             this.Hide();
 
+            Persona testA = new Persona(0,
+                "pepe",
+                "el gafas",
+                "Escritor",
+                new DateTime(),
+                new DateTime(),
+                "",
+                "",
+                "");
+            BaseDatos.ConexionBD.CrearBD("localhost","root","metrica123","3306");
+            BaseDatos.ConexionBD.AbrirConexion();
+            BaseDatos.EscrituraBD.InsertOcupacion("Escritor");
+            BaseDatos.EscrituraBD.InsertAutor(testA);
+            testA.Nombre = "Jose";
+            BaseDatos.EscrituraBD.UpdateAutor(testA);
+            BaseDatos.EscrituraBD.DeleteAutor(testA);
+            //BaseDatos.EscrituraBD.UpdateOcupacion("Escritor", "Escritor/a");
+            //BaseDatos.EscrituraBD.DeleteOcupacion("Escritor/a");
+            BaseDatos.ConexionBD.CerrarConexion();
         }
         #endregion
         #region Cambiar idioma

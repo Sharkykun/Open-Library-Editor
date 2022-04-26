@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenLibraryEditor.DatosLibros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace OpenLibraryEditor.Forms
     
     public partial class FrmMiBiblioteca : Form
     {
-        private List<String> titulos = new List<string>();
+        private List<Libro> titulos = UsuarioDatos.biblioteca.ListaLibro;
         Button mas = new Button();
         public FrmMiBiblioteca()
         {
@@ -47,7 +48,7 @@ namespace OpenLibraryEditor.Forms
 
             int x = 20;
             int y = 10;
-            foreach (string s in titulos)
+            foreach (Libro s in titulos)
             {
                 //var imgPictureBox = new PictureBox();
                 //Panel estante = new Panel();
@@ -64,7 +65,7 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Size = new System.Drawing.Size(140, 180);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
                     botonLibro.BackgroundImage = OpenLibraryEditor.Properties.Resources.PortadaLogo;
-                    botonLibro.Text = s;
+                    botonLibro.Text = s.Titulo;
                     botonLibro.Font = new Font("Merienda One", 10, FontStyle.Bold);
                     botonLibro.ForeColor = Color.Gainsboro;
                     botonLibro.Padding = new Padding(15, 0, 5, 0);
@@ -82,7 +83,7 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Size = new System.Drawing.Size(140, 180);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
                     botonLibro.BackgroundImage = OpenLibraryEditor.Properties.Resources.PortadaLogo;
-                    botonLibro.Text = s;
+                    botonLibro.Text = s.Titulo;
                     botonLibro.Font = new Font("Merienda One", 10, FontStyle.Bold);
                     botonLibro.ForeColor = Color.Gainsboro;
                     botonLibro.Padding = new Padding(15, 0, 5, 0);
@@ -164,26 +165,26 @@ namespace OpenLibraryEditor.Forms
        
         private void TitulosPrueba()
         {
-            titulos.Add("Caballero Luna");
-            titulos.Add("Spiderman Homecoming");
-            titulos.Add("Thor");
-            titulos.Add("Capitán América");
-            titulos.Add("Los Vengadores");
-            titulos.Add("Iron Man");
-            titulos.Add("Viuda negra");
-            titulos.Add("Black Panther");
-            titulos.Add("Guardianes de la Galaxia");
-            titulos.Add("Wanda y Visión");
-            titulos.Add("Ojo de Halcón");
-            titulos.Add("Loki");
-            titulos.Add("Bruja Escarlata");
-            titulos.Add("Capitana Marvel");
-            titulos.Add("Shan-Chi la leyenda de los 10 anillos ");
-            titulos.Add("Ant-Man");
-            titulos.Add("Eternals");
-            titulos.Add("Doctor Strange");
-            titulos.Add("Hulk");
-            titulos.Add("Falcon y el Soldado de invierno");
+            titulos.Add(new Libro("1", "Caballero Luna"));
+            titulos.Add(new Libro("2", "Spiderman Homecoming"));
+            titulos.Add(new Libro("3", "Thor"));
+            //titulos.Add("Capitán América");
+            //titulos.Add("Los Vengadores");
+            //titulos.Add("Iron Man");
+            //titulos.Add("Viuda negra");
+            //titulos.Add("Black Panther");
+            //titulos.Add("Guardianes de la Galaxia");
+            //titulos.Add("Wanda y Visión");
+            //titulos.Add("Ojo de Halcón");
+            //titulos.Add("Loki");
+            //titulos.Add("Bruja Escarlata");
+            //titulos.Add("Capitana Marvel");
+            //titulos.Add("Shan-Chi la leyenda de los 10 anillos ");
+            //titulos.Add("Ant-Man");
+            //titulos.Add("Eternals");
+            //titulos.Add("Doctor Strange");
+            //titulos.Add("Hulk");
+            //titulos.Add("Falcon y el Soldado de invierno");
         }
 
         private void MBtnVistaDetallesMBI_Click(object sender, EventArgs e)

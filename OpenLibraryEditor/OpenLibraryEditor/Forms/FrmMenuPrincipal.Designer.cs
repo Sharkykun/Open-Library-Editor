@@ -1266,7 +1266,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 

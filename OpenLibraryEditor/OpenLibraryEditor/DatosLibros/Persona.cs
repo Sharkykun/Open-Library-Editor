@@ -30,6 +30,20 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
+        public Persona(int idPersona, string nombre, string alias, string nombreOcupacion, DateTime fechaNacimiento, DateTime fechaDefuncion, string enlaceReferencia, string comentario, string imagen)
+        {
+            this.idPersona = idPersona;
+            this.nombre = nombre;
+            this.alias = alias;
+            this.nombreOcupacion = nombreOcupacion;
+            this.fechaNacimiento = fechaNacimiento;
+            this.fechaDefuncion = fechaDefuncion;
+            this.enlaceReferencia = enlaceReferencia;
+            this.comentario = comentario;
+            this.imagen = imagen;
+        }
+
+
         #region Get y Set
         public int IdPersona { get => idPersona; set => idPersona = value; }
         public string Nombre { get => nombre; set => nombre = value; }
