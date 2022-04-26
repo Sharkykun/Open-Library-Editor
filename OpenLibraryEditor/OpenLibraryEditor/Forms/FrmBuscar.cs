@@ -29,7 +29,11 @@ namespace OpenLibraryEditor.Forms
         {
             InitializeComponent();
         }
-
+        private void IdiomaTexto()
+        {
+            LblTituloBuscar.Text = ControladorIdioma.GetTexto("Main_Buscar");
+            LblBuscarPorBUS.Text = ControladorIdioma.GetTexto("Bus_BuscarEn");
+        }
         private string QueryGoogle()
         {
             string query = "";
@@ -56,6 +60,7 @@ namespace OpenLibraryEditor.Forms
             KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
             UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
             KCmbServidoresBUS.SelectedIndex = 0;
+            IdiomaTexto();
         }
 
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
@@ -89,19 +94,19 @@ namespace OpenLibraryEditor.Forms
             switch (KCmbServidoresBUS.SelectedItem)
             {
                 case NOMBRE_GOOGLE:
-                    KCmbTipoBusquedaBUS.Items.Add("Título / ISBN");
-                    KCmbTipoBusquedaBUS.Items.Add("Autor");
-                    KCmbTipoBusquedaBUS.Items.Add("Género");
-                    KCmbTipoBusquedaBUS.Items.Add("Editorial");
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_TituloIsbn"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Autor"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Editorial"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Genero"));
                     break;
                 default:
-                    KCmbTipoBusquedaBUS.Items.Add("Título");
-                    KCmbTipoBusquedaBUS.Items.Add("ISBN");
-                    KCmbTipoBusquedaBUS.Items.Add("Autor");
-                    KCmbTipoBusquedaBUS.Items.Add("Editorial");
-                    KCmbTipoBusquedaBUS.Items.Add("Género");
-                    KCmbTipoBusquedaBUS.Items.Add("Etiqueta");
-                    KCmbTipoBusquedaBUS.Items.Add("Serie");
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("Isbn"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Autor"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Editorial"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Genero"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("Etiqueta"));
+                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("RS_Serie"));
                     break;
             }
             KCmbTipoBusquedaBUS.SelectedIndex = 0;

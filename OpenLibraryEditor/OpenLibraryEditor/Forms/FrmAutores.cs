@@ -112,6 +112,8 @@ namespace OpenLibraryEditor.Forms
             TTAutores.SetToolTip(this.KBtnCancelarAu, ControladorIdioma.GetTexto("Cancelar"));
             KBtnAceptarAu.Text = ControladorIdioma.GetTexto("Aceptar");
             TTAutores.SetToolTip(this.KBtnAceptarAu, ControladorIdioma.GetTexto("Aceptar"));
+            LblSigueVivo.Text = ControladorIdioma.GetTexto("Au_Vivo");
+            TTAutores.SetToolTip(this.TBtnVivo, ControladorIdioma.GetTexto("Au_TTVivo"));
         }
         private void ActualizarOcupacion()
         {

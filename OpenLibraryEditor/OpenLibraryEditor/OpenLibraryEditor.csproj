@@ -203,42 +203,6 @@
     <Compile Include="Forms\FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmMisAutores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMisAutores.Designer.cs">
-      <DependentUpon>FrmMisAutores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMisEditoriales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMisEditoriales.Designer.cs">
-      <DependentUpon>FrmMisEditoriales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMisGeneros.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMisGeneros.Designer.cs">
-      <DependentUpon>FrmMisGeneros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMisSeries.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMisSeries.Designer.cs">
-      <DependentUpon>FrmMisSeries.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMisTags.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMisTags.Designer.cs">
-      <DependentUpon>FrmMisTags.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmMisTitulos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMisTitulos.Designer.cs">
-      <DependentUpon>FrmMisTitulos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,24 +290,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMiBiblioteca.resx">
       <DependentUpon>FrmMiBiblioteca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMisAutores.resx">
-      <DependentUpon>FrmMisAutores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMisEditoriales.resx">
-      <DependentUpon>FrmMisEditoriales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMisGeneros.resx">
-      <DependentUpon>FrmMisGeneros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMisSeries.resx">
-      <DependentUpon>FrmMisSeries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMisTags.resx">
-      <DependentUpon>FrmMisTags.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMisTitulos.resx">
-      <DependentUpon>FrmMisTitulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRegistro.resx">
       <DependentUpon>FrmRegistro.cs</DependentUpon>

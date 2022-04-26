@@ -26,7 +26,6 @@ namespace OpenLibraryEditor.Forms
         private int altoPantalla;
         private int anchoPantalla;
         private List<String> titulos = new List<string>();
-        Button mas = new Button();
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -63,18 +62,13 @@ namespace OpenLibraryEditor.Forms
                 LlLogIn.Location = new Point(65, 168);
 
             TitulosPrueba();
-            if (PanVistaMosaico.Visible == true)
-                ColocarLibrosMosaico();
-            else
-                ColocarLibrosDetalles();
+            ColocarLibrosMosaico();
+            //if (PanVistaMosaico.Visible == true)
+            //    ColocarLibrosMosaico();
+            //else
+            //    ColocarLibrosDetalles();
 
             IdiomaTexto();
-            PanDetallesLibro.VerticalScroll.Visible = false;
-            PanDetallesLibro.HorizontalScroll.Maximum = 0;
-            PanDetallesLibro.HorizontalScroll.Visible = false;
-            KpDetalles.VerticalScroll.Enabled = false;
-            KpDetalles.VerticalScroll.Visible = false;
-           
         }
         #region Mostrar libros de la biblioteca
         private void ColocarLibrosMosaico()
@@ -93,7 +87,20 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Location = new Point(x, y);
                     botonLibro.Size = new Size(130, 170);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
-                    botonLibro.BackgroundImage = OpenLibraryEditor.Properties.Resources.PortadaLogo;
+                    //botonLibro.Tag = libro;
+                    //if (s.Image != null)
+                    //{
+                    //    botonLibro.BackgroundImage = s.Image;
+                    //}
+                    //else
+                    //{
+                    //    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
+                    //    botonLibro.Text = s;
+                    //    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                    //    botonLibro.ForeColor = Color.Gainsboro;
+                    //    botonLibro.Padding = new Padding(15, 0, 5, 0);
+                    //}
+                    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
                     botonLibro.Text = s;
                     botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
                     botonLibro.ForeColor = Color.Gainsboro;
@@ -110,7 +117,20 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Location = new Point(x, y);
                     botonLibro.Size = new Size(130, 170);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
-                    botonLibro.BackgroundImage = OpenLibraryEditor.Properties.Resources.PortadaLogo;
+                    //botonLibro.Tag = libro;
+                    //if (s.Image != null)
+                    //{
+                    //    botonLibro.BackgroundImage = s.Image;
+                    //}
+                    //else
+                    //{
+                    //    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
+                    //    botonLibro.Text = s;
+                    //    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                    //    botonLibro.ForeColor = Color.Gainsboro;
+                    //    botonLibro.Padding = new Padding(15, 0, 5, 0);
+                    //}
+                    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
                     botonLibro.Text = s;
                     botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
                     botonLibro.ForeColor = Color.Gainsboro;
@@ -124,11 +144,32 @@ namespace OpenLibraryEditor.Forms
         }
         private void ManejadorLibro_Click(object sender, EventArgs e)
         {
-            
             Button libroSeleccionado = (Button)sender;
             PanDetallesLibro.Visible = true;
             PcbLibro.Image = libroSeleccionado.BackgroundImage;
             TxtTituloLibro.Text = libroSeleccionado.Text;
+            //TxtPersonas.Text =;
+            //LblEscribirEditorial.Text =;
+            //LblEscribirIs10.Text =;
+            //LblEscribirIs13 =;
+            //LblEscribirCapitulos.Text =;
+            //LblEscribirPag.Text =;
+            //LblEscribirGenero.Text =;
+            //LblEscribirEtiquetas.Text =;
+            //LblEscribirIdioma.Text =;
+            //LblEscribirIdiOri.Text =;
+            //LblEscribirTipoLibro.Text =;
+            //LblEscribirFechaPub.Text =;
+            //LblEscribirPuntuacion.Text =;
+            //LblEscribirVecesLeido.Text =;
+            //LblEscribirEstadoLectura.Text =;
+            //LblEscribirTiempoLec.Text =;
+            //LblEscribirCapiAct.Text =;
+            //LblEscribirFecComienzo.Text =;
+            //LblEscribirFecFin.Text =;
+            //LblEscribirFavorito.Text =;
+            //LblEscribirOculto.Text =;
+            //TxtEscribirComentario.Text =;
             //ColocarLibros();
         }
         private void ManejadorLibroDet_Click(object sender, EventArgs e)
@@ -143,36 +184,36 @@ namespace OpenLibraryEditor.Forms
         }
         private void ColocarLibrosDetalles()
         {
-            PanVistaDetalles.Controls.Clear();
-            int tamPanel = PanVistaDetalles.Width;
-            int altoPanel = PanVistaDetalles.Height;
+            //PanVistaDetalles.Controls.Clear();
+            //int tamPanel = PanVistaDetalles.Width;
+            //int altoPanel = PanVistaDetalles.Height;
 
-            int x = 10;
-            int y = 10;
-            foreach (string s in titulos)
-            {
-                VistaDetallesV vista = new VistaDetallesV();
-                if (x < (tamPanel - 400))
-                {
-                    vista.Location = new Point(x, y);
-                    vista.setTituloLibro(s);
-                    PanVistaDetalles.Controls.Add(vista);
-                    vista.Visible = true;
-                    vista.Click += new EventHandler(ManejadorLibroDet_Click);
-                    x = x + 439;
-                }
-                else
-                {
-                    x = 10;
-                    y = y + 255;
-                    vista.Location = new Point(x, y);
-                    vista.setTituloLibro(s);
-                    PanVistaDetalles.Controls.Add(vista);
-                    vista.Visible = true;
-                    vista.Click += new EventHandler(ManejadorLibroDet_Click);
-                    x = x + 439;
-                }
-            }
+            //int x = 10;
+            //int y = 10;
+            //foreach (string s in titulos)
+            //{
+            //    VistaDetallesV vista = new VistaDetallesV();
+            //    if (x < (tamPanel - 400))
+            //    {
+            //        vista.Location = new Point(x, y);
+            //        vista.setTituloLibro(s);
+            //        PanVistaDetalles.Controls.Add(vista);
+            //        vista.Visible = true;
+            //        vista.Click += new EventHandler(ManejadorLibroDet_Click);
+            //        x = x + 439;
+            //    }
+            //    else
+            //    {
+            //        x = 10;
+            //        y = y + 255;
+            //        vista.Location = new Point(x, y);
+            //        vista.setTituloLibro(s);
+            //        PanVistaDetalles.Controls.Add(vista);
+            //        vista.Visible = true;
+            //        vista.Click += new EventHandler(ManejadorLibroDet_Click);
+            //        x = x + 439;
+            //    }
+            //}
         }
         private void PruebaDetalles()
         {
@@ -635,6 +676,33 @@ namespace OpenLibraryEditor.Forms
             ToolTipMain.SetToolTip(this.MBtnMaximizarMain, ControladorIdioma.GetTexto("Main_TTMaximizar"));
             ToolTipMain.SetToolTip(this.MBtnRestaurarMain, ControladorIdioma.GetTexto("Main_TTRestaurar"));
             ToolTipMain.SetToolTip(this.MBtnCerrarMain, ControladorIdioma.GetTexto("Main_TTCerrar"));
+            
+            KpDetalles.Text = ControladorIdioma.GetTexto("Main_DetallesGenerales");
+            LblSinopsis.Text = ControladorIdioma.GetTexto("Main_Sinopsis");
+            LblEditorial.Text = ControladorIdioma.GetTexto("Main_Editorial");
+            LblIs10.Text = ControladorIdioma.GetTexto("Main_is10");
+            LblIs13.Text = ControladorIdioma.GetTexto("Main_is13");
+            LblCapitulos.Text = ControladorIdioma.GetTexto("Main_Capi");
+            LblPag.Text = ControladorIdioma.GetTexto("Main_Pag");
+            LblGenero.Text = ControladorIdioma.GetTexto("Main_Gen");
+            LblEtiquetas.Text = ControladorIdioma.GetTexto("Main_Eti");
+            LblIdioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
+            LblIdiOri.Text = ControladorIdioma.GetTexto("Main_IdiOri");
+            LblTipoLibro.Text = ControladorIdioma.GetTexto("Main_TipoLibro");
+            LblPublicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
+            LlLogIn.Text = ControladorIdioma.GetTexto("Main_Enlace");
+
+            KpUsuario.Text = ControladorIdioma.GetTexto("Main_DetallesUsuario");
+            LblPuntuacion.Text = ControladorIdioma.GetTexto("Main_Punt");
+            LblVecesLeido.Text = ControladorIdioma.GetTexto("Main_VecesLeido");
+            LblEstadoLectura.Text = ControladorIdioma.GetTexto("Main_EstadoLec");
+            LblTiempoLec.Text = ControladorIdioma.GetTexto("Main_TiempoLec");
+            LblCapAct.Text = ControladorIdioma.GetTexto("Main_CapAct");
+            LblComienzo.Text = ControladorIdioma.GetTexto("Main_Comienzo");
+            LblFin.Text = ControladorIdioma.GetTexto("Main_Fin");
+            LblFavorito.Text = ControladorIdioma.GetTexto("Main_Fav");
+            LblOculto.Text = ControladorIdioma.GetTexto("Main_Ocu");
+            LblComentario.Text = ControladorIdioma.GetTexto("Main_Com");
         }
         #endregion
         #region Colores boton seleccionado
@@ -727,7 +795,7 @@ namespace OpenLibraryEditor.Forms
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = false;
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
-            MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.BookOpenPageVariant;
+            MPcbTituloFrm.IconChar = MaterialIcons.BookOpenPageVariant;
             BotonActivo(sender, Colores.colorBiblioteca);
         }
         private void MBtnAutores_Click(object sender, EventArgs e)
@@ -736,32 +804,47 @@ namespace OpenLibraryEditor.Forms
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
-            MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.AccountGroup;
+            MPcbTituloFrm.IconChar = MaterialIcons.AccountGroup;
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnTitulos_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisTitulos());
-            BotonActivo(sender, Colores.colorSubmenu);
+            //PanFormHijos.BringToFront();
+            //PanListViewsOpciones.Visible = true;
+            //LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
+            //MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.AccountGroup;
+            //BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnGeneros_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisGeneros());
+            PanFormHijos.BringToFront();
+            PanListViewsOpciones.Visible = true;
+            LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTGeneros");
+            MPcbTituloFrm.IconChar = MaterialIcons.DramaMasks;
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnSeries_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisSeries());
-            BotonActivo(sender, Colores.colorSubmenu);
+            //PanFormHijos.BringToFront();
+            //PanListViewsOpciones.Visible = true;
+            //LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
+            //MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.AccountGroup;
+            //BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnEditoriales_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisEditoriales());
+            PanFormHijos.BringToFront();
+            PanListViewsOpciones.Visible = true;
+            LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTEditoriales");
+            MPcbTituloFrm.IconChar = MaterialIcons.BankOutline;
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnTags_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmMisTags());
+            PanFormHijos.BringToFront();
+            PanListViewsOpciones.Visible = true;
+            LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTTags");
+            MPcbTituloFrm.IconChar = MaterialIcons.TagMultiple;
             BotonActivo(sender, Colores.colorSubmenu);
         }
         private void MBtnBuscar_Click(object sender, EventArgs e)

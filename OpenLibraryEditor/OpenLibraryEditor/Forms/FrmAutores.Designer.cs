@@ -63,6 +63,8 @@
             this.KTxtNombreAu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PcbAutorNA = new System.Windows.Forms.PictureBox();
             this.TTAutores = new System.Windows.Forms.ToolTip(this.components);
+            this.LblSigueVivo = new System.Windows.Forms.Label();
+            this.TBtnVivo = new OpenLibraryEditor.Controles.ToggleButton();
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
             this.PanBtnAu.SuspendLayout();
@@ -363,6 +365,8 @@
             // 
             // PanOpcionesNA
             // 
+            this.PanOpcionesNA.Controls.Add(this.TBtnVivo);
+            this.PanOpcionesNA.Controls.Add(this.LblSigueVivo);
             this.PanOpcionesNA.Controls.Add(this.LblOcupacionNA);
             this.PanOpcionesNA.Controls.Add(this.KCmbOcupacionNA);
             this.PanOpcionesNA.Controls.Add(this.MBtnMasOcupacionNA);
@@ -451,7 +455,7 @@
             // 
             // KMtxtFecMuerteNA
             // 
-            this.KMtxtFecMuerteNA.Location = new System.Drawing.Point(172, 174);
+            this.KMtxtFecMuerteNA.Location = new System.Drawing.Point(172, 213);
             this.KMtxtFecMuerteNA.Mask = "00/00/0000";
             this.KMtxtFecMuerteNA.Name = "KMtxtFecMuerteNA";
             this.KMtxtFecMuerteNA.Size = new System.Drawing.Size(107, 33);
@@ -518,7 +522,7 @@
             this.LblComentarioAu.AutoSize = true;
             this.LblComentarioAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblComentarioAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblComentarioAu.Location = new System.Drawing.Point(3, 258);
+            this.LblComentarioAu.Location = new System.Drawing.Point(3, 297);
             this.LblComentarioAu.Name = "LblComentarioAu";
             this.LblComentarioAu.Size = new System.Drawing.Size(91, 20);
             this.LblComentarioAu.TabIndex = 157;
@@ -526,7 +530,7 @@
             // 
             // KTxtComentarioAu
             // 
-            this.KTxtComentarioAu.Location = new System.Drawing.Point(172, 252);
+            this.KTxtComentarioAu.Location = new System.Drawing.Point(172, 291);
             this.KTxtComentarioAu.Multiline = true;
             this.KTxtComentarioAu.Name = "KTxtComentarioAu";
             this.KTxtComentarioAu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -548,7 +552,7 @@
             this.LblEnlaceAu.AutoSize = true;
             this.LblEnlaceAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEnlaceAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblEnlaceAu.Location = new System.Drawing.Point(3, 219);
+            this.LblEnlaceAu.Location = new System.Drawing.Point(3, 258);
             this.LblEnlaceAu.Name = "LblEnlaceAu";
             this.LblEnlaceAu.Size = new System.Drawing.Size(155, 20);
             this.LblEnlaceAu.TabIndex = 156;
@@ -556,7 +560,7 @@
             // 
             // KTxtEnlaceAu
             // 
-            this.KTxtEnlaceAu.Location = new System.Drawing.Point(172, 213);
+            this.KTxtEnlaceAu.Location = new System.Drawing.Point(172, 252);
             this.KTxtEnlaceAu.Name = "KTxtEnlaceAu";
             this.KTxtEnlaceAu.Size = new System.Drawing.Size(369, 33);
             this.KTxtEnlaceAu.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
@@ -576,7 +580,7 @@
             this.LblDefuncionAu.AutoSize = true;
             this.LblDefuncionAu.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDefuncionAu.ForeColor = System.Drawing.Color.Navy;
-            this.LblDefuncionAu.Location = new System.Drawing.Point(3, 180);
+            this.LblDefuncionAu.Location = new System.Drawing.Point(3, 219);
             this.LblDefuncionAu.Name = "LblDefuncionAu";
             this.LblDefuncionAu.Size = new System.Drawing.Size(147, 20);
             this.LblDefuncionAu.TabIndex = 155;
@@ -659,6 +663,31 @@
             this.PcbAutorNA.TabIndex = 146;
             this.PcbAutorNA.TabStop = false;
             // 
+            // LblSigueVivo
+            // 
+            this.LblSigueVivo.AutoSize = true;
+            this.LblSigueVivo.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSigueVivo.ForeColor = System.Drawing.Color.Navy;
+            this.LblSigueVivo.Location = new System.Drawing.Point(3, 180);
+            this.LblSigueVivo.Name = "LblSigueVivo";
+            this.LblSigueVivo.Size = new System.Drawing.Size(75, 20);
+            this.LblSigueVivo.TabIndex = 164;
+            this.LblSigueVivo.Text = "Está vivo:";
+            // 
+            // TBtnVivo
+            // 
+            this.TBtnVivo.AutoSize = true;
+            this.TBtnVivo.Location = new System.Drawing.Point(172, 180);
+            this.TBtnVivo.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnVivo.Name = "TBtnVivo";
+            this.TBtnVivo.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnVivo.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnVivo.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnVivo.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnVivo.Size = new System.Drawing.Size(45, 22);
+            this.TBtnVivo.TabIndex = 165;
+            this.TBtnVivo.UseVisualStyleBackColor = true;
+            // 
             // FrmAutores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -724,5 +753,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreAu;
         private System.Windows.Forms.PictureBox PcbAutorNA;
         private System.Windows.Forms.ToolTip TTAutores;
+        private Controles.ToggleButton TBtnVivo;
+        private System.Windows.Forms.Label LblSigueVivo;
     }
 }

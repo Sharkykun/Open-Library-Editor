@@ -447,11 +447,32 @@
   <data name="Au_TTOcupacion" xml:space="preserve">
     <value>Selecciona la ocupación de la persona</value>
   </data>
+  <data name="Au_TTVivo" xml:space="preserve">
+    <value>Selecciona si el autor sigue vivo</value>
+  </data>
+  <data name="Au_Vivo" xml:space="preserve">
+    <value>Está vivo:</value>
+  </data>
+  <data name="Bus_BuscarEn" xml:space="preserve">
+    <value>Buscar en:</value>
+  </data>
   <data name="Cancelar" xml:space="preserve">
     <value>Cancelar</value>
   </data>
   <data name="Cerrar" xml:space="preserve">
     <value>Cerrar </value>
+  </data>
+  <data name="CmbBuscar_Autor" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="CmbBuscar_Editorial" xml:space="preserve">
+    <value>Editorial</value>
+  </data>
+  <data name="CmbBuscar_Genero" xml:space="preserve">
+    <value>Género</value>
+  </data>
+  <data name="CmbBuscar_TituloIsbn" xml:space="preserve">
+    <value>Título / ISBN</value>
   </data>
   <data name="Con_AClaro" xml:space="preserve">
     <value>Claro</value>
@@ -546,6 +567,9 @@
   <data name="Con_GExplicito" xml:space="preserve">
     <value>Contenido explícito</value>
   </data>
+  <data name="Con_Google" xml:space="preserve">
+    <value>Clave Google Books</value>
+  </data>
   <data name="Con_GPermitir" xml:space="preserve">
     <value>Permitir la visualización de contenidos clasificados como explícitos</value>
   </data>
@@ -569,6 +593,9 @@
   </data>
   <data name="Con_Servidor" xml:space="preserve">
     <value>Servidor web</value>
+  </data>
+  <data name="Con_SubGoogle" xml:space="preserve">
+    <value>Establece la clave privada de Google Books</value>
   </data>
   <data name="Con_SWCmbIP" xml:space="preserve">
     <value>Selecciona la IP del servidor web</value>
@@ -672,6 +699,9 @@
   <data name="Ej_TTRuta" xml:space="preserve">
     <value>Haz click para buscar la ruta del ejecutable</value>
   </data>
+  <data name="Etiqueta" xml:space="preserve">
+    <value>Etiqueta</value>
+  </data>
   <data name="Et_Categoria" xml:space="preserve">
     <value>Categoría</value>
   </data>
@@ -747,6 +777,9 @@
   <data name="Ge_TTNombre" xml:space="preserve">
     <value>Escribe aquí el nombre del género</value>
   </data>
+  <data name="Isbn" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
   <data name="Log_BtnEntrar" xml:space="preserve">
     <value>Entrar</value>
   </data>
@@ -816,11 +849,32 @@
   <data name="Main_Buscar" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="Main_CapAct" xml:space="preserve">
+    <value>Capítulo actual:</value>
+  </data>
+  <data name="Main_Capi" xml:space="preserve">
+    <value>Capítulos:</value>
+  </data>
+  <data name="Main_Com" xml:space="preserve">
+    <value>Comentario:</value>
+  </data>
+  <data name="Main_Comienzo" xml:space="preserve">
+    <value>Fecha comienzo:</value>
+  </data>
   <data name="Main_Confi" xml:space="preserve">
     <value>Configuración</value>
   </data>
+  <data name="Main_DetallesGenerales" xml:space="preserve">
+    <value>Detalles generales</value>
+  </data>
+  <data name="Main_DetallesUsuario" xml:space="preserve">
+    <value>Detalles usuario</value>
+  </data>
   <data name="Main_Edi" xml:space="preserve">
     <value>Editoriales:</value>
+  </data>
+  <data name="Main_Editorial" xml:space="preserve">
+    <value>Editorial:</value>
   </data>
   <data name="Main_Editoriales" xml:space="preserve">
     <value>Editoriales</value>
@@ -828,14 +882,35 @@
   <data name="Main_Eliminar" xml:space="preserve">
     <value>Eliminar libro</value>
   </data>
+  <data name="Main_Enlace" xml:space="preserve">
+    <value>Enlace de referencia del libro</value>
+  </data>
+  <data name="Main_EstadoLec" xml:space="preserve">
+    <value>Estado lectura:</value>
+  </data>
+  <data name="Main_Eti" xml:space="preserve">
+    <value>Etiquetas:</value>
+  </data>
+  <data name="Main_Fav" xml:space="preserve">
+    <value>Favorito:</value>
+  </data>
+  <data name="Main_Fin" xml:space="preserve">
+    <value>Fecha fin:</value>
+  </data>
   <data name="Main_Formato" xml:space="preserve">
     <value>Formato:</value>
+  </data>
+  <data name="Main_Gen" xml:space="preserve">
+    <value>Géneros:</value>
   </data>
   <data name="Main_Generos" xml:space="preserve">
     <value>Géneros</value>
   </data>
   <data name="Main_Idioma" xml:space="preserve">
     <value>Idioma:</value>
+  </data>
+  <data name="Main_IdiOri" xml:space="preserve">
+    <value>Idioma original:</value>
   </data>
   <data name="Main_is10" xml:space="preserve">
     <value>ISBN 10:</value>
@@ -855,11 +930,17 @@
   <data name="Main_NuevoLibro" xml:space="preserve">
     <value>Añadir nuevo libro</value>
   </data>
+  <data name="Main_Ocu" xml:space="preserve">
+    <value>Oculto:</value>
+  </data>
   <data name="Main_Pag" xml:space="preserve">
     <value>Páginas:</value>
   </data>
   <data name="Main_Publicado" xml:space="preserve">
     <value>Publicado:</value>
+  </data>
+  <data name="Main_Punt" xml:space="preserve">
+    <value>Puntuación:</value>
   </data>
   <data name="Main_Salir" xml:space="preserve">
     <value>Salir</value>
@@ -870,8 +951,17 @@
   <data name="Main_Series" xml:space="preserve">
     <value>Series</value>
   </data>
+  <data name="Main_Sinopsis" xml:space="preserve">
+    <value>Sinopsis:</value>
+  </data>
   <data name="Main_Tags" xml:space="preserve">
     <value>Etiquetas</value>
+  </data>
+  <data name="Main_TiempoLec" xml:space="preserve">
+    <value>Tiempo lectura:</value>
+  </data>
+  <data name="Main_TipoLibro" xml:space="preserve">
+    <value>Tipo libro:</value>
   </data>
   <data name="Main_Titulos" xml:space="preserve">
     <value>Títulos</value>
@@ -926,6 +1016,9 @@
   </data>
   <data name="Main_TTTitulos" xml:space="preserve">
     <value>Mis Títulos</value>
+  </data>
+  <data name="Main_VecesLeido" xml:space="preserve">
+    <value>Veces leído:</value>
   </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>Registrarme</value>
