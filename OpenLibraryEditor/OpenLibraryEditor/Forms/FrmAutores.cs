@@ -20,16 +20,16 @@ namespace OpenLibraryEditor.Forms
         #region atributos
         private const string NOMBRE_OBJETO = "el autor";
         private bool setNew;
-        private Persona personaNueva;
-        private List<Persona> listaPersona = UsuarioDatos.listaPersona;
-        private List<string> listaOcupacion = Persona.ocupacionLista;
-        private Persona personaActual;
+        private Autor personaNueva;
+        private List<Autor> listaPersona = Biblioteca.biblioteca.ListaPersona;
+        private List<string> listaOcupacion = Autor.ocupacionLista;
+        private Autor personaActual;
         private ListViewItem itemActual;
         private BindingSource ocupacionBinding = new BindingSource();
 
         private string rutaImagen;
 
-        public Persona PersonaNueva { get => personaNueva; set => personaNueva = value; }
+        public Autor PersonaNueva { get => personaNueva; set => personaNueva = value; }
         #endregion
         public FrmAutores(bool setNew)
         {
@@ -62,7 +62,7 @@ namespace OpenLibraryEditor.Forms
         {
             IdiomaTexto();
             //Cargar personas
-            foreach (Persona p in listaPersona)
+            foreach (Autor p in listaPersona)
             {
                 AniadirPersona(p);
             }
@@ -123,7 +123,7 @@ namespace OpenLibraryEditor.Forms
                     null : personaActual.NombreOcupacion;
         }
 
-        private ListViewItem AniadirPersona(Persona persona)
+        private ListViewItem AniadirPersona(Autor persona)
         {
             var item = LsvAutoresNA.Items.Add(persona.Nombre);
             item.SubItems.Add(persona.NombreOcupacion);
@@ -187,7 +187,7 @@ namespace OpenLibraryEditor.Forms
             {
                 PanOpcionesNA.Visible = true;
                 itemActual = LsvAutoresNA.SelectedItems[0];
-                personaActual = (Persona)itemActual.Tag;
+                personaActual = (Autor)itemActual.Tag;
                 KTxtNombreAu.Text = personaActual.Nombre;
                 KTxtComentarioAu.Text = personaActual.Comentario;
                 KCmbOcupacionNA.SelectedItem = personaActual.NombreOcupacion == "" ?
@@ -208,7 +208,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasLsvNA_Click(object sender, EventArgs e)
         {
-            Persona p = new Persona("Nueva Persona");
+            Autor p = new Autor("Nueva Persona");
             listaPersona.Add(p);
             var item = AniadirPersona(p);
             item.Selected = true;
@@ -280,7 +280,7 @@ namespace OpenLibraryEditor.Forms
                     if (rutaImagen != personaActual.Imagen)
                     {
                         personaActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                            ControladorImagen.RUTA_PERSONA, personaActual.IdPersona.ToString());
+                            ControladorImagen.RUTA_PERSONA, personaActual.IdAutor.ToString());
                         rutaImagen = personaActual.Imagen;
                     }
 

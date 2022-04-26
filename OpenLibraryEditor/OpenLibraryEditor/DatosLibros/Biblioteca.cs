@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,29 +10,55 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class Biblioteca
     {
-        private int idBiblioteca;
-        private string nombre;
+        public static Biblioteca biblioteca = new Biblioteca();
+
         private List<Libro> listaLibro = new List<Libro>();
-        private string imagen;
+        private List<Editorial> listaEditorial = new List<Editorial>();
+        private List<Genero> listaGenero = new List<Genero>();
+        private List<Autor> listaPersona = new List<Autor>();
+        private List<Serie> listaSerie = new List<Serie>();
+        private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
+        private List<Idioma> listaIdioma = new List<Idioma>();
+        private List<UsuarioEjecutable> listaEjecutable = new List<UsuarioEjecutable>();
 
-        public Biblioteca()
-        {
-        }
+        public const string RUTA_FICHERO = "biblioteca.json";
 
-        public Biblioteca(int idBiblioteca, string nombre)
-        {
-            this.idBiblioteca = idBiblioteca;
-            this.nombre = nombre;
-        }
-
-        public int IdBiblioteca { get => idBiblioteca; set => idBiblioteca = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
         public List<Libro> ListaLibro { get => listaLibro; set => listaLibro = value; }
-        public string Imagen { get => imagen; set => imagen = value; }
+        public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
+        public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
+        public List<Autor> ListaPersona { get => listaPersona; set => listaPersona = value; }
+        public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
+        public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
+        public List<Idioma> ListaIdioma { get => listaIdioma; set => listaIdioma = value; }
+        public List<UsuarioEjecutable> ListaEjecutable { get => listaEjecutable; set => listaEjecutable = value; }
 
         override public string ToString()
         {
-            return nombre;
+            return "Nº de libros: "+ listaLibro.Count;
+        }
+
+        public static Biblioteca CargarJson()
+        {
+            if (File.Exists(RUTA_FICHERO))
+            {
+                string json = File.ReadAllText(RUTA_FICHERO);
+                Biblioteca obj = (Biblioteca)JsonConvert.DeserializeObject(json, typeof(Biblioteca), new JsonSerializerSettings
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.All
+                });
+                return obj;
+            }
+            else
+                return new Biblioteca();
+        }
+
+        public void GuardarJson()
+        {
+            string jsonString = JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.All
+            });
+            File.WriteAllText(RUTA_FICHERO, jsonString);
         }
     }
 }

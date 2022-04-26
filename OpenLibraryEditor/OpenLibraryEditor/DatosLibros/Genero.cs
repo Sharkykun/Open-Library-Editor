@@ -45,7 +45,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idGenero = rnd.Next();
-            } while (UsuarioDatos.listaGenero.
+            } while (Biblioteca.biblioteca.ListaGenero.
                 FindIndex(p => idGenero == p.idGenero) != -1);
         }
 

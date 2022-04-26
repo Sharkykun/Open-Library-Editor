@@ -31,6 +31,7 @@ namespace OpenLibraryEditor.Forms
             //Cargar configuración local.
             //Si no existe, cargar valores por defecto.
             UsuarioDatos.configuracionUsuario = UsuarioDatos.CargarJson();
+            Biblioteca.biblioteca = Biblioteca.CargarJson();
             ControladorIdioma.idioma = UsuarioDatos.configuracionUsuario.IdiomaIntefaz;
 
             TimerAparecer.Start();
@@ -256,6 +257,25 @@ namespace OpenLibraryEditor.Forms
             menu.Show();
             this.Hide();
 
+            Autor testA = new Autor(0,
+                "pepe",
+                "el gafas",
+                "Escritor",
+                new DateTime(),
+                new DateTime(),
+                "",
+                "",
+                "");
+            //BaseDatos.ConexionBD.CrearBD("localhost","root","metrica123","3306");
+            //BaseDatos.ConexionBD.AbrirConexion();
+            //BaseDatos.EscrituraBD.InsertOcupacion("Escritor");
+            //BaseDatos.EscrituraBD.InsertAutor(testA);
+            //testA.Nombre = "Jose";
+            //BaseDatos.EscrituraBD.UpdateAutor(testA);
+            //BaseDatos.EscrituraBD.DeleteAutor(testA);
+            //BaseDatos.EscrituraBD.UpdateOcupacion("Escritor", "Escritor/a");
+            //BaseDatos.EscrituraBD.DeleteOcupacion("Escritor/a");
+            //BaseDatos.ConexionBD.CerrarConexion();
         }
         #endregion
         #region Cambiar idioma

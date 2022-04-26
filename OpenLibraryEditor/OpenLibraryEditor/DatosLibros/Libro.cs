@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OpenLibraryEditor.DatosLibros
 {
-    public class Libro
+    public class Libro : IComparable<Libro>
     {
         //Datos de libro comunes
         private string isbn_13;
@@ -26,7 +26,7 @@ namespace OpenLibraryEditor.DatosLibros
         private Idioma idioma;
         private string isbn_10;
         private List<Genero> listaGenero = new List<Genero>();
-        private List<Persona> listaPersona = new List<Persona>();
+        private List<Autor> listaPersona = new List<Autor>();
         private string imagenPortada;
         private string imagenContraportada;
         private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
@@ -93,7 +93,7 @@ namespace OpenLibraryEditor.DatosLibros
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
         public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
         public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
-        public List<Persona> ListaPersona { get => listaPersona; set => listaPersona = value; }
+        public List<Autor> ListaPersona { get => listaPersona; set => listaPersona = value; }
         public string ImagenPortada { get => imagenPortada; set => imagenPortada = value; }
         public string ImagenContraportada { get => imagenContraportada; set => imagenContraportada = value; }
         public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
@@ -103,6 +103,18 @@ namespace OpenLibraryEditor.DatosLibros
         override public string ToString()
         {
             return titulo;
+        }
+
+        public int CompareTo(Libro otro)
+        {
+            if (titulo.CompareTo(otro.titulo) > 0) return 1;
+            else if (titulo.CompareTo(otro.titulo) == 0)
+            {
+                if (isbn_13.CompareTo(otro.isbn_13) > 0) return 1;
+                else if (isbn_13 == otro.isbn_13) return 0;
+                else return -1;
+            }
+            else return -1;
         }
 
         [Serializable]

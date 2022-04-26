@@ -25,7 +25,9 @@ namespace OpenLibraryEditor.Forms
 
         private int altoPantalla;
         private int anchoPantalla;
-        private List<String> titulos = new List<string>();
+        private List<Libro> titulos = Biblioteca.biblioteca.ListaLibro;
+        private Libro libroActual;
+        private Button mas = new Button();
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -52,6 +54,13 @@ namespace OpenLibraryEditor.Forms
             //this.DoubleBuffered = true;
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
+
+        private void RecolocarLibros() {
+            if (PanVistaMosaico.Visible == true)
+                ColocarLibrosMosaico();
+            else
+                ColocarLibrosDetalles();
+        }
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             if (ControladorIdioma.idioma.Equals("Strings_fr_FR"))
@@ -62,24 +71,21 @@ namespace OpenLibraryEditor.Forms
                 LlLogIn.Location = new Point(65, 168);
 
             TitulosPrueba();
-            ColocarLibrosMosaico();
-            //if (PanVistaMosaico.Visible == true)
-            //    ColocarLibrosMosaico();
-            //else
-            //    ColocarLibrosDetalles();
+            RecolocarLibros();
 
             IdiomaTexto();
         }
         #region Mostrar libros de la biblioteca
         private void ColocarLibrosMosaico()
         {
+            titulos.Sort();
             PanVistaMosaico.Controls.Clear();
             int tamPanel = PanVistaMosaico.Width;
             int altoPanel = PanVistaMosaico.Height;
 
             int x = 10;
             int y = 10;
-            foreach (string s in titulos)
+            foreach (Libro libro in titulos)
             {
                 Button botonLibro = new Button();
                 if (x < (tamPanel - 135))
@@ -87,23 +93,19 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Location = new Point(x, y);
                     botonLibro.Size = new Size(130, 170);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
-                    //botonLibro.Tag = libro;
-                    //if (s.Image != null)
-                    //{
-                    //    botonLibro.BackgroundImage = s.Image;
-                    //}
-                    //else
-                    //{
-                    //    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
-                    //    botonLibro.Text = s;
-                    //    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
-                    //    botonLibro.ForeColor = Color.Gainsboro;
-                    //    botonLibro.Padding = new Padding(15, 0, 5, 0);
-                    //}
-                    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
-                    botonLibro.Text = s;
-                    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
-                    botonLibro.ForeColor = Color.Gainsboro;
+                    botonLibro.Tag = libro;
+                    if (libro.ImagenPortada != null)
+                    {
+                        botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
+                    }
+                    else
+                    {
+                        botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
+                        botonLibro.Text = libro.Titulo;
+                        botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                        botonLibro.ForeColor = Color.Gainsboro;
+                        botonLibro.Padding = new Padding(15, 0, 5, 0);
+                    }
                     botonLibro.Padding = new Padding(15, 0, 5, 0);
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
@@ -117,23 +119,19 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Location = new Point(x, y);
                     botonLibro.Size = new Size(130, 170);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
-                    //botonLibro.Tag = libro;
-                    //if (s.Image != null)
-                    //{
-                    //    botonLibro.BackgroundImage = s.Image;
-                    //}
-                    //else
-                    //{
-                    //    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
-                    //    botonLibro.Text = s;
-                    //    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
-                    //    botonLibro.ForeColor = Color.Gainsboro;
-                    //    botonLibro.Padding = new Padding(15, 0, 5, 0);
-                    //}
-                    botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
-                    botonLibro.Text = s;
-                    botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
-                    botonLibro.ForeColor = Color.Gainsboro;
+                    botonLibro.Tag = libro;
+                    if (libro.ImagenPortada != null)
+                    {
+                        botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
+                    }
+                    else
+                    {
+                        botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
+                        botonLibro.Text = libro.Titulo;
+                        botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                        botonLibro.ForeColor = Color.Gainsboro;
+                        botonLibro.Padding = new Padding(15, 0, 5, 0);
+                    }
                     botonLibro.Padding = new Padding(15, 0, 5, 0);
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
@@ -145,6 +143,7 @@ namespace OpenLibraryEditor.Forms
         private void ManejadorLibro_Click(object sender, EventArgs e)
         {
             Button libroSeleccionado = (Button)sender;
+            libroActual = (Libro)libroSeleccionado.Tag;
             PanDetallesLibro.Visible = true;
             PcbLibro.Image = libroSeleccionado.BackgroundImage;
             TxtTituloLibro.Text = libroSeleccionado.Text;
@@ -176,6 +175,7 @@ namespace OpenLibraryEditor.Forms
         {
 
             VistaDetallesV libroSeleccionado = (VistaDetallesV)sender;
+            libroActual = (Libro)libroSeleccionado.Tag;
             PanDetallesLibro.Visible = true;
             PcbLibro.Image = libroSeleccionado.getImagen();
             TxtTituloLibro.Text = libroSeleccionado.getTituloLibro();
@@ -584,26 +584,29 @@ namespace OpenLibraryEditor.Forms
        
         private void TitulosPrueba()
         {
-            titulos.Add("Caballero Luna");
-            titulos.Add("Spiderman Homecoming");
-            titulos.Add("Thor");
-            titulos.Add("Capitán América");
-            titulos.Add("Los Vengadores");
-            titulos.Add("Iron Man");
-            titulos.Add("Viuda negra");
-            titulos.Add("Black Panther");
-            titulos.Add("Guardianes de la Galaxia");
-            titulos.Add("Wanda y Visión");
-            titulos.Add("Ojo de Halcón");
-            titulos.Add("Loki");
-            titulos.Add("Bruja Escarlata");
-            titulos.Add("Capitana Marvel");
-            titulos.Add("Shan-Chi la leyenda de los 10 anillos ");
-            titulos.Add("Ant-Man");
-            titulos.Add("Eternals");
-            titulos.Add("Doctor Strange");
-            titulos.Add("Hulk");
-            titulos.Add("Falcon y el Soldado de invierno");
+            if (titulos.Count == 0)
+            {
+                titulos.Add(new Libro("1", "Caballero Luna"));
+                titulos.Add(new Libro("2", "Spiderman Homecoming"));
+                titulos.Add(new Libro("3", "Thor"));
+                //titulos.Add("Capitán América");
+                //titulos.Add("Los Vengadores");
+                //titulos.Add("Iron Man");
+                //titulos.Add("Viuda negra");
+                //titulos.Add("Black Panther");
+                //titulos.Add("Guardianes de la Galaxia");
+                //titulos.Add("Wanda y Visión");
+                //titulos.Add("Ojo de Halcón");
+                //titulos.Add("Loki");
+                //titulos.Add("Bruja Escarlata");
+                //titulos.Add("Capitana Marvel");
+                //titulos.Add("Shan-Chi la leyenda de los 10 anillos ");
+                //titulos.Add("Ant-Man");
+                //titulos.Add("Eternals");
+                //titulos.Add("Doctor Strange");
+                //titulos.Add("Hulk");
+                //titulos.Add("Falcon y el Soldado de invierno");
+            }
         }
         private void MBtnVistaDetallesMBI_Click(object sender, EventArgs e)
         {
@@ -863,23 +866,33 @@ namespace OpenLibraryEditor.Forms
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            FrmLibros al = new FrmLibros(new Libro());
+            Libro nuevoLibro = new Libro();
+            FrmLibros al = new FrmLibros(nuevoLibro);
+            if (nuevoLibro.Isbn_13 == null)
+                titulos.Add(nuevoLibro);
             al.FormBorderStyle=FormBorderStyle.None;
             al.ShowDialog();
             BotonActivoTool(sender,Colores.colorBiblioteca);
+            RecolocarLibros();
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            //FrmLibros al = new FrmLibros(libroSeleccionado);
-            //al.FormBorderStyle = FormBorderStyle.None;
-            //al.ShowDialog();
+            FrmLibros al = new FrmLibros(libroActual);
+            al.FormBorderStyle = FormBorderStyle.None;
+            al.ShowDialog();
             BotonActivoTool(sender, Colores.colorBiblioteca);
+            RecolocarLibros();
         }
         private void BtnBorrarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
             BotonActivoTool(sender,Colores.colorBiblioteca);
+            if (VentanaWindowsComun.MensajeBorrarObjeto("el libro") == DialogResult.Yes)
+            {
+                titulos.Remove(libroActual);
+                RecolocarLibros();
+            }
         }
         private void BtnAutoresMsb_ButtonClick(object sender, EventArgs e)
         {
@@ -1016,6 +1029,7 @@ namespace OpenLibraryEditor.Forms
             {
                 //Guardar datos en la base de datos local
                 e.Cancel = false;
+                Biblioteca.biblioteca.GuardarJson();
             }
             else
                 e.Cancel = true;

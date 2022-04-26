@@ -13,7 +13,7 @@ namespace OpenLibraryEditor.Forms
         private const string NOMBRE_OBJETO = "el género";
         private bool setNew;
         private Genero generoNuevo;
-        private List<Genero> listaGenero = UsuarioDatos.listaGenero;
+        private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
         private Genero generoActual;
         private ListViewItem itemActual;
         private BindingSource generoBinding = new BindingSource();

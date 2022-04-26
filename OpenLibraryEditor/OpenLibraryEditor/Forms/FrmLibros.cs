@@ -28,13 +28,13 @@ namespace OpenLibraryEditor.Forms
 
         //listas
         private List<string> listaTipoLibro = Libro.tipoLibroLista;
-        private List<Editorial> listaEditorial = UsuarioDatos.listaEditorial;
-        private List<Genero> listaGenero = UsuarioDatos.listaGenero;
-        private List<Persona> listaPersona = UsuarioDatos.listaPersona;
-        private List<Serie> listaSerie = UsuarioDatos.listaSerie;
-        private List<Etiqueta> listaEtiqueta = UsuarioDatos.listaEtiqueta;
-        private List<Idioma> listaIdioma = UsuarioDatos.listaIdioma;
-        private List<UsuarioEjecutable> listaEjecutable = UsuarioDatos.listaEjecutable;
+        private List<Editorial> listaEditorial = Biblioteca.biblioteca.ListaEditorial;
+        private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
+        private List<Autor> listaPersona = Biblioteca.biblioteca.ListaPersona;
+        private List<Serie> listaSerie = Biblioteca.biblioteca.ListaSerie;
+        private List<Etiqueta> listaEtiqueta = Biblioteca.biblioteca.ListaEtiqueta;
+        private List<Idioma> listaIdioma = Biblioteca.biblioteca.ListaIdioma;
+        private List<UsuarioEjecutable> listaEjecutable = Biblioteca.biblioteca.ListaEjecutable;
         private List<UsuarioAccion> listaAccion = new List<UsuarioAccion>();
         private UsuarioAccion accionActual = new UsuarioAccion();
         private ListViewItem itemActual;
@@ -207,7 +207,7 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void RellenarPersona(List<Persona> listaComparador)
+        private void RellenarPersona(List<Autor> listaComparador)
         {
             KCCPersonasNL.Items.Clear();
             listaPersona.ForEach(p =>
@@ -347,10 +347,10 @@ namespace OpenLibraryEditor.Forms
             FrmAutores autores = new FrmAutores(true);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
-            List<Persona> temp = new List<Persona>();
+            List<Autor> temp = new List<Autor>();
             foreach (CCBoxItem p in KCCPersonasNL.CheckedItems)
             {
-                temp.Add((Persona)p.Item);
+                temp.Add((Autor)p.Item);
             }
             RellenarPersona(temp);
         }
@@ -511,7 +511,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnGuardarNL_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(KTxtIsbn13.Text) &&
-               !UsuarioDatos.biblioteca.ListaLibro.Any(p => p.Isbn_13 == KTxtIsbn13.Text)
+               !Biblioteca.biblioteca.ListaLibro.Any(p => p.Isbn_13 == KTxtIsbn13.Text)
                && !String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
             {
                 //Actualizar libro
@@ -534,7 +534,7 @@ namespace OpenLibraryEditor.Forms
                 libroActual.EnlaceReferencia = KTxtEnlaceNL.Text;
                 libroActual.ListaPersona.Clear();
                 foreach (var c in KCCPersonasNL.CheckedItems)
-                    libroActual.ListaPersona.Add((Persona)(c as CCBoxItem).Item);
+                    libroActual.ListaPersona.Add((Autor)(c as CCBoxItem).Item);
                 libroActual.ListaGenero.Clear();
                 foreach (var c in KCCGenerosNL.CheckedItems)
                     libroActual.ListaGenero.Add((Genero)(c as CCBoxItem).Item);

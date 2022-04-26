@@ -33,7 +33,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idEditorial = rnd.Next();
-            } while (UsuarioDatos.listaEditorial.
+            } while (Biblioteca.biblioteca.ListaEditorial.
                 FindIndex(p => idEditorial == p.idEditorial) != -1);
         }
 
