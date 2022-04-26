@@ -49,9 +49,6 @@ namespace OpenLibraryEditor.DatosLibros
         private bool ocultar;
         private bool favorito;
 
-        //Listas estáticas
-        public static List<string> tipoLibroLista = new List<string>();
-
         public Libro()
         {
         }

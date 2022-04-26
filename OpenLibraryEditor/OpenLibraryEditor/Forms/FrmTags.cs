@@ -21,7 +21,7 @@ namespace OpenLibraryEditor.Forms
         private bool setNew;
         private Etiqueta etiquetaNueva;
         private List<Etiqueta> listaEtiqueta = Biblioteca.biblioteca.ListaEtiqueta;
-        private List<string> listaCategoria = Etiqueta.categoriaLista;
+        private List<string> listaCategoria = Biblioteca.biblioteca.ListaCategoria;
         private Etiqueta etiquetaActual;
         private ListViewItem itemActual;
         private BindingSource categoriaBinding = new BindingSource();

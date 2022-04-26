@@ -27,7 +27,7 @@ namespace OpenLibraryEditor.Forms
         private BindingSource tipoBinding = new BindingSource();
 
         //listas
-        private List<string> listaTipoLibro = Libro.tipoLibroLista;
+        private List<string> listaTipoLibro = Biblioteca.biblioteca.ListaTipoLibro;
         private List<Editorial> listaEditorial = Biblioteca.biblioteca.ListaEditorial;
         private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
         private List<Autor> listaPersona = Biblioteca.biblioteca.ListaPersona;

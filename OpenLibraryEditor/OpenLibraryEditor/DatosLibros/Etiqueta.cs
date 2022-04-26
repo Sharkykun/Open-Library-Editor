@@ -11,10 +11,6 @@ namespace OpenLibraryEditor.DatosLibros
         private string comentario = "";
         private string nombreCategoria = "";
 
-        //Lista estática de ocupaciones
-        [JsonIgnore]
-        public static List<string> categoriaLista = new List<string>();
-
         public Etiqueta()
         {
         }
