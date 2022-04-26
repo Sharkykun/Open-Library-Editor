@@ -12,7 +12,6 @@ namespace OpenLibraryEditor.DatosLibros
     {
         public static Biblioteca biblioteca = new Biblioteca();
 
-        private List<Libro> listaLibro = new List<Libro>();
         private List<Editorial> listaEditorial = new List<Editorial>();
         private List<Genero> listaGenero = new List<Genero>();
         private List<Autor> listaPersona = new List<Autor>();
@@ -20,6 +19,7 @@ namespace OpenLibraryEditor.DatosLibros
         private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
         private List<Idioma> listaIdioma = new List<Idioma>();
         private List<UsuarioEjecutable> listaEjecutable = new List<UsuarioEjecutable>();
+        private List<Libro> listaLibro = new List<Libro>();
 
         public const string RUTA_FICHERO = "biblioteca.json";
 
