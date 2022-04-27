@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using Google.Apis.Books.v1.Data;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -70,13 +71,35 @@ namespace OpenLibraryEditor.Forms
             {
                 case NOMBRE_GOOGLE:
                     query = QueryGoogle();
+                    ImageList imglist = new ImageList();
+                    LsvSeriesNS.Items.Clear();
                     //Iniciar API
                     GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
                         UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
                     //Realizar Query
                     gBooks.SearchBook(query,40,UsuarioDatos.configuracionUsuario.ContenidoExplicito);
                     //Listar libros
-                    _ = gBooks.BookCollection;
+                    foreach (var libro in gBooks.BookCollection.Items)
+                    {
+                        var info = libro.VolumeInfo;
+                        if (info.ImageLinks != null) 
+                            imglist.Images.Add("image", 
+                                GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                        else
+                            imglist.Images.Add("image",
+                                new PictureBox().ErrorImage);
+                        imglist.ColorDepth = ColorDepth.Depth32Bit;
+                        imglist.ImageSize = new Size(150, 200);
+
+                        LsvSeriesNS.SmallImageList = imglist;
+                        LsvSeriesNS.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
+                        ListViewItem lvi = 
+                            LsvSeriesNS.Items.Add(info.Title + "\n" +
+                            info.PublishedDate + "\n" + info.Description, 
+                            imglist.Images.Count-1);
+                        lvi.Tag = libro;
+
+                    }
                     break;
                 default:
                     //Lanzar sentencia SQL adecuada según el Combo de tipo
@@ -110,6 +133,24 @@ namespace OpenLibraryEditor.Forms
                     break;
             }
             KCmbTipoBusquedaBUS.SelectedIndex = 0;
+        }
+
+        private void LsvSeriesNS_DoubleClick(object sender, EventArgs e)
+        {
+            switch (KCmbServidoresBUS.SelectedItem)
+            {
+                case NOMBRE_GOOGLE:
+                    //Pregunta si añadir libro a la lista local,
+                    //y convertir en caso afirmativo
+                    if (VentanaWindowsComun.MensajeGuardarObjeto("el libro") == DialogResult.Yes)
+                    {
+                        Biblioteca.biblioteca.ListaLibro.Add(GoogleBooksController.ParseBook((Volume)LsvSeriesNS.SelectedItems[0].Tag,
+                            UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
+                            UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
+                            UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+                    }
+                    break;
+            }
         }
     }
 }

@@ -27,8 +27,8 @@ namespace OpenLibraryEditor.BaseDatos
         public static void DeleteOcupacion(string ocupacion)
         {
             //Quitar la referencia en todos los autores
-            MySqlCommand tabla = new MySqlCommand(String.Format(@"
-            UPDATE `Autor` SET nombreOcupacion = '' WHERE nombreOcupacion='" + ocupacion+"' ", ConexionBD.conexion));
+            MySqlCommand tabla = new MySqlCommand(@"
+            UPDATE `Autor` SET nombreOcupacion = NULL WHERE nombreOcupacion='" + ocupacion+"' ", ConexionBD.conexion);
             tabla.ExecuteNonQuery();
 
             tabla = new MySqlCommand(@"

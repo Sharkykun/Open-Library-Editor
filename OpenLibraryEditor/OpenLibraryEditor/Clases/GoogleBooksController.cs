@@ -84,7 +84,7 @@ namespace OpenLibraryEditor.Clases
         /// </summary>
         /// <param name="volume">Libro de Google Books a convertir.</param>
         /// <returns>Libro convertido. Retorna excepción si el ISBN del libro ya existe en el listado.</returns>
-        public Libro ParseBook(Volume volume, bool sacarPersonas, bool sacarEditorial, bool sacarGeneros)
+        public static Libro ParseBook(Volume volume, bool sacarPersonas, bool sacarEditorial, bool sacarGeneros)
         {
             //Sacar ISBN y comprobar si existe
             var volInfo = volume.VolumeInfo;
@@ -106,17 +106,17 @@ namespace OpenLibraryEditor.Clases
                 foreach (var auth in volInfo.Authors)
                 {
                     //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                    Autor pers = Biblioteca.biblioteca.ListaPersona.FirstOrDefault(p => p.Nombre == auth);
+                    Autor pers = Biblioteca.biblioteca.ListaAutor.FirstOrDefault(p => p.Nombre == auth);
                     if (pers == null)
                     {
                         pers = new Autor(auth);
-                        Biblioteca.biblioteca.ListaPersona.Add(pers);
+                        Biblioteca.biblioteca.ListaAutor.Add(pers);
                     }
 
                     peopleList.Add(pers);
                 }
 
-                book.ListaPersona = peopleList;
+                book.ListaAutor = peopleList;
             }
 
             if (sacarEditorial)
@@ -166,9 +166,14 @@ namespace OpenLibraryEditor.Clases
             book.Sinopsis = volInfo.Description;
             book.NumeroPaginas = (int)volInfo.PageCount;
             book.FechaPublicacion = DateTime.Parse(volInfo.PublishedDate);
-            book.NumeroVolumen = Double.Parse(volInfo.SeriesInfo.BookDisplayNumber);
+            if(volInfo.SeriesInfo != null)
+                book.NumeroVolumen = 
+                    Double.Parse(volInfo.SeriesInfo.BookDisplayNumber);
             if (volInfo.ImageLinks != null)
-                book.ImagenPortada = volInfo.ImageLinks.Medium;
+            {
+                book.ImagenPortada = ControladorImagen.RUTA_LIBRO+isbn13+"_c.png";
+                SaveImageFromURL(volInfo.ImageLinks.Thumbnail).Save(book.ImagenPortada);
+            }
             if (volInfo.MaturityRating == "MATURE")
                 book.MayorEdad = true;
 
@@ -180,7 +185,7 @@ namespace OpenLibraryEditor.Clases
         /// </summary>
         /// <param name="imageUrl">URL de imagen.</param>
         /// <returns>Bitmap que contiene la imagen descargada.</returns>
-        public Bitmap SaveImageFromURL(string imageUrl)
+        public static Bitmap SaveImageFromURL(string imageUrl)
         {
             WebClient client = new WebClient();
             Stream stream = client.OpenRead(imageUrl);

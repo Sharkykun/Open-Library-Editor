@@ -59,7 +59,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idAutor = rnd.Next();
-            } while (Biblioteca.biblioteca.ListaPersona.
+            } while (Biblioteca.biblioteca.ListaAutor.
                 FindIndex(p => idAutor == p.idAutor) != -1);
         }
 

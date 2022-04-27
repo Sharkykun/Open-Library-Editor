@@ -39,6 +39,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblTituloBuscar = new System.Windows.Forms.Label();
             this.MPcbBuscar = new FontAwesome.Sharp.Material.MaterialPictureBox();
+            this.LsvSeriesNS = new System.Windows.Forms.ListView();
+            this.ChPortada = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanBusquedaMBI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbServidoresBUS)).BeginInit();
@@ -176,7 +178,7 @@
             this.LblTituloBuscar.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloBuscar.Location = new System.Drawing.Point(75, 18);
             this.LblTituloBuscar.Name = "LblTituloBuscar";
-            this.LblTituloBuscar.Size = new System.Drawing.Size(95, 32);
+            this.LblTituloBuscar.Size = new System.Drawing.Size(96, 32);
             this.LblTituloBuscar.TabIndex = 10;
             this.LblTituloBuscar.Text = "Buscar";
             // 
@@ -193,12 +195,35 @@
             this.MPcbBuscar.TabIndex = 12;
             this.MPcbBuscar.TabStop = false;
             // 
+            // LsvSeriesNS
+            // 
+            this.LsvSeriesNS.BackColor = System.Drawing.Color.Gainsboro;
+            this.LsvSeriesNS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LsvSeriesNS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ChPortada});
+            this.LsvSeriesNS.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LsvSeriesNS.HideSelection = false;
+            this.LsvSeriesNS.Location = new System.Drawing.Point(12, 154);
+            this.LsvSeriesNS.MultiSelect = false;
+            this.LsvSeriesNS.Name = "LsvSeriesNS";
+            this.LsvSeriesNS.Size = new System.Drawing.Size(924, 527);
+            this.LsvSeriesNS.TabIndex = 140;
+            this.LsvSeriesNS.UseCompatibleStateImageBehavior = false;
+            this.LsvSeriesNS.View = System.Windows.Forms.View.Details;
+            this.LsvSeriesNS.DoubleClick += new System.EventHandler(this.LsvSeriesNS_DoubleClick);
+            // 
+            // ChPortada
+            // 
+            this.ChPortada.Text = "";
+            this.ChPortada.Width = 703;
+            // 
             // FrmBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(948, 693);
+            this.Controls.Add(this.LsvSeriesNS);
             this.Controls.Add(this.PanBusquedaMBI);
             this.Controls.Add(this.PanTituloMiBiblioteca);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -228,5 +253,7 @@
         private System.Windows.Forms.Label LblTituloBuscar;
         private FontAwesome.Sharp.Material.MaterialPictureBox MPcbBuscar;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbTipoBusquedaBUS;
+        private System.Windows.Forms.ListView LsvSeriesNS;
+        private System.Windows.Forms.ColumnHeader ChPortada;
     }
 }

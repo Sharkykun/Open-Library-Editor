@@ -30,7 +30,7 @@ namespace OpenLibraryEditor.Forms
         private List<string> listaTipoLibro = Biblioteca.biblioteca.ListaTipoLibro;
         private List<Editorial> listaEditorial = Biblioteca.biblioteca.ListaEditorial;
         private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
-        private List<Autor> listaPersona = Biblioteca.biblioteca.ListaPersona;
+        private List<Autor> listaPersona = Biblioteca.biblioteca.ListaAutor;
         private List<Serie> listaSerie = Biblioteca.biblioteca.ListaSerie;
         private List<Etiqueta> listaEtiqueta = Biblioteca.biblioteca.ListaEtiqueta;
         private List<Idioma> listaIdioma = Biblioteca.biblioteca.ListaIdioma;
@@ -289,7 +289,7 @@ namespace OpenLibraryEditor.Forms
                 AgregarComboItem(KCmbIdiomaNL, p);
                 AgregarComboItem(KCmbIdiomaOriginalNL, p);
             });
-            RellenarPersona(libroActual.ListaPersona);
+            RellenarPersona(libroActual.ListaAutor);
 
             //Vincular lista de tipo libro con Combobox
             tipoBinding.DataSource = listaTipoLibro;
@@ -510,8 +510,9 @@ namespace OpenLibraryEditor.Forms
 
         private void BtnGuardarNL_Click(object sender, EventArgs e)
         {
+            object obj = Biblioteca.biblioteca.ListaLibro.Find(p => p.Isbn_13 == KTxtIsbn13.Text);
             if (!String.IsNullOrWhiteSpace(KTxtIsbn13.Text) &&
-               !Biblioteca.biblioteca.ListaLibro.Any(p => p.Isbn_13 == KTxtIsbn13.Text)
+               ( obj == libroActual || obj == null )
                && !String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
             {
                 //Actualizar libro
@@ -532,9 +533,9 @@ namespace OpenLibraryEditor.Forms
                 libroActual.FechaAdicionBD = DateTime.Parse(KMtxtInclusionbbddNL.Text);
                 libroActual.MayorEdad = TBtnMayores18NL.Checked;
                 libroActual.EnlaceReferencia = KTxtEnlaceNL.Text;
-                libroActual.ListaPersona.Clear();
+                libroActual.ListaAutor.Clear();
                 foreach (var c in KCCPersonasNL.CheckedItems)
-                    libroActual.ListaPersona.Add((Autor)(c as CCBoxItem).Item);
+                    libroActual.ListaAutor.Add((Autor)(c as CCBoxItem).Item);
                 libroActual.ListaGenero.Clear();
                 foreach (var c in KCCGenerosNL.CheckedItems)
                     libroActual.ListaGenero.Add((Genero)(c as CCBoxItem).Item);
