@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.DatosLibros
         private List<string> listaTipoRelacion = new List<string>();
         private List<Editorial> listaEditorial = new List<Editorial>();
         private List<Genero> listaGenero = new List<Genero>();
-        private List<Autor> listaPersona = new List<Autor>();
+        private List<Autor> listaAutor = new List<Autor>();
         private List<Serie> listaSerie = new List<Serie>();
         private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
         private List<Idioma> listaIdioma = new List<Idioma>();
@@ -36,7 +36,7 @@ namespace OpenLibraryEditor.DatosLibros
 
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
         public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
-        public List<Autor> ListaPersona { get => listaPersona; set => listaPersona = value; }
+        public List<Autor> ListaAutor { get => listaAutor; set => listaAutor = value; }
         public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
         public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
         public List<UsuarioEjecutable> ListaEjecutable { get => listaEjecutable; set => listaEjecutable = value; }
@@ -52,7 +52,10 @@ namespace OpenLibraryEditor.DatosLibros
         {
             if (File.Exists(RUTA_FICHERO))
             {
-                string json = File.ReadAllText(RUTA_FICHERO);
+                string json = String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.UbicacionBD) ? 
+                    File.ReadAllText(RUTA_FICHERO) :
+                    File.ReadAllText(UsuarioDatos.configuracionUsuario.UbicacionBD +
+                        "\\" + RUTA_FICHERO);
                 Biblioteca obj = (Biblioteca)JsonConvert.DeserializeObject(json, typeof(Biblioteca), new JsonSerializerSettings
                 {
                     PreserveReferencesHandling = PreserveReferencesHandling.All
@@ -69,7 +72,11 @@ namespace OpenLibraryEditor.DatosLibros
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.All
             });
-            File.WriteAllText(RUTA_FICHERO, jsonString);
+            if(!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.UbicacionBD))
+                File.WriteAllText(UsuarioDatos.configuracionUsuario.UbicacionBD+
+                    "\\"+RUTA_FICHERO, jsonString);
+            else
+                File.WriteAllText(RUTA_FICHERO, jsonString);
         }
     }
 }

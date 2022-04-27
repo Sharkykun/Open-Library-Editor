@@ -26,7 +26,7 @@ namespace OpenLibraryEditor.DatosLibros
         private Idioma idioma;
         private string isbn_10;
         private List<Genero> listaGenero = new List<Genero>();
-        private List<Autor> listaPersona = new List<Autor>();
+        private List<Autor> listaAutor = new List<Autor>();
         private string imagenPortada;
         private string imagenContraportada;
         private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
@@ -90,7 +90,7 @@ namespace OpenLibraryEditor.DatosLibros
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
         public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
         public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
-        public List<Autor> ListaPersona { get => listaPersona; set => listaPersona = value; }
+        public List<Autor> ListaAutor { get => listaAutor; set => listaAutor = value; }
         public string ImagenPortada { get => imagenPortada; set => imagenPortada = value; }
         public string ImagenContraportada { get => imagenContraportada; set => imagenContraportada = value; }
         public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }

@@ -440,6 +440,7 @@
             this.MBtnTags.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnTags.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnTags.UseVisualStyleBackColor = false;
+            this.MBtnTags.Visible = false;
             this.MBtnTags.Click += new System.EventHandler(this.MBtnTags_Click);
             // 
             // MBtnEditoriales
@@ -616,6 +617,7 @@
             this.LlLogIn.TabIndex = 2;
             this.LlLogIn.TabStop = true;
             this.LlLogIn.Text = "Iniciar sesión";
+            this.LlLogIn.Visible = false;
             // 
             // AciFotoUsuario
             // 
@@ -814,6 +816,7 @@
             this.BtnTagsMsb.Size = new System.Drawing.Size(91, 62);
             this.BtnTagsMsb.Text = "Etiquetas";
             this.BtnTagsMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnTagsMsb.Visible = false;
             this.BtnTagsMsb.ButtonClick += new System.EventHandler(this.BtnTagsMsb_ButtonClick);
             // 
             // PanFormHijos
@@ -877,12 +880,14 @@
             this.LsvOpciones.HideSelection = false;
             this.LsvOpciones.LargeImageList = this.ImgListLsvGrande;
             this.LsvOpciones.Location = new System.Drawing.Point(10, 10);
+            this.LsvOpciones.MultiSelect = false;
             this.LsvOpciones.Name = "LsvOpciones";
             this.LsvOpciones.Size = new System.Drawing.Size(230, 526);
             this.LsvOpciones.SmallImageList = this.ImgListLsvPeque;
             this.LsvOpciones.TabIndex = 0;
             this.LsvOpciones.UseCompatibleStateImageBehavior = false;
-            this.LsvOpciones.View = System.Windows.Forms.View.List;
+            this.LsvOpciones.View = System.Windows.Forms.View.Details;
+            this.LsvOpciones.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvOpciones_ItemSelectionChanged);
             // 
             // ImgListLsvGrande
             // 
@@ -1036,7 +1041,7 @@
             this.LblEscribirFechaPub.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirFechaPub.Name = "LblEscribirFechaPub";
             this.LblEscribirFechaPub.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.LblEscribirFechaPub.Size = new System.Drawing.Size(67, 24);
+            this.LblEscribirFechaPub.Size = new System.Drawing.Size(68, 24);
             this.LblEscribirFechaPub.TabIndex = 49;
             this.LblEscribirFechaPub.Text = "02/071998";
             // 
@@ -1059,7 +1064,7 @@
             this.LblEscribirTipoLibro.ForeColor = System.Drawing.Color.White;
             this.LblEscribirTipoLibro.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirTipoLibro.Name = "LblEscribirTipoLibro";
-            this.LblEscribirTipoLibro.Size = new System.Drawing.Size(52, 16);
+            this.LblEscribirTipoLibro.Size = new System.Drawing.Size(53, 16);
             this.LblEscribirTipoLibro.TabIndex = 52;
             this.LblEscribirTipoLibro.Text = "NOVELA";
             // 
@@ -1106,7 +1111,7 @@
             this.LblEscribirIdioma.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirIdioma.Name = "LblEscribirIdioma";
             this.LblEscribirIdioma.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.LblEscribirIdioma.Size = new System.Drawing.Size(79, 24);
+            this.LblEscribirIdioma.Size = new System.Drawing.Size(80, 24);
             this.LblEscribirIdioma.TabIndex = 45;
             this.LblEscribirIdioma.Text = "CASTELLANO";
             // 
@@ -1127,7 +1132,7 @@
             this.LblEscribirIdiOri.ForeColor = System.Drawing.Color.White;
             this.LblEscribirIdiOri.Location = new System.Drawing.Point(136, 32);
             this.LblEscribirIdiOri.Name = "LblEscribirIdiOri";
-            this.LblEscribirIdiOri.Size = new System.Drawing.Size(48, 16);
+            this.LblEscribirIdiOri.Size = new System.Drawing.Size(49, 16);
             this.LblEscribirIdiOri.TabIndex = 47;
             this.LblEscribirIdiOri.Text = "INGLÉS";
             // 
@@ -1160,7 +1165,7 @@
             this.LblEscribirEtiquetas.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEtiquetas.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirEtiquetas.Name = "LblEscribirEtiquetas";
-            this.LblEscribirEtiquetas.Size = new System.Drawing.Size(108, 48);
+            this.LblEscribirEtiquetas.Size = new System.Drawing.Size(109, 48);
             this.LblEscribirEtiquetas.TabIndex = 43;
             this.LblEscribirEtiquetas.Text = "JUVENIL\r\nPARA TODOS LOS \r\nPÚBLICOS";
             // 
@@ -1193,7 +1198,7 @@
             this.LblEscribirGenero.ForeColor = System.Drawing.Color.White;
             this.LblEscribirGenero.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirGenero.Name = "LblEscribirGenero";
-            this.LblEscribirGenero.Size = new System.Drawing.Size(116, 48);
+            this.LblEscribirGenero.Size = new System.Drawing.Size(117, 48);
             this.LblEscribirGenero.TabIndex = 41;
             this.LblEscribirGenero.Text = "FANTASÍA Y MAGÍA, \r\nAVENTURAS\r\nCIENCIA FICCIÓN";
             // 
@@ -1243,7 +1248,7 @@
             this.LblEscribirIs13.Location = new System.Drawing.Point(96, 32);
             this.LblEscribirIs13.Name = "LblEscribirIs13";
             this.LblEscribirIs13.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.LblEscribirIs13.Size = new System.Drawing.Size(98, 24);
+            this.LblEscribirIs13.Size = new System.Drawing.Size(99, 24);
             this.LblEscribirIs13.TabIndex = 37;
             this.LblEscribirIs13.Text = "9788498389753";
             // 
@@ -1277,7 +1282,7 @@
             this.LblEscribirIs10.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirIs10.Name = "LblEscribirIs10";
             this.LblEscribirIs10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.LblEscribirIs10.Size = new System.Drawing.Size(97, 24);
+            this.LblEscribirIs10.Size = new System.Drawing.Size(98, 24);
             this.LblEscribirIs10.TabIndex = 36;
             this.LblEscribirIs10.Text = "NO DISPONIBLE";
             // 
@@ -1289,7 +1294,7 @@
             this.LblEscribirCapitulos.Location = new System.Drawing.Point(96, 57);
             this.LblEscribirCapitulos.Name = "LblEscribirCapitulos";
             this.LblEscribirCapitulos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.LblEscribirCapitulos.Size = new System.Drawing.Size(21, 24);
+            this.LblEscribirCapitulos.Size = new System.Drawing.Size(22, 24);
             this.LblEscribirCapitulos.TabIndex = 34;
             this.LblEscribirCapitulos.Text = "25";
             // 
@@ -1310,7 +1315,7 @@
             this.LblEscribirPag.ForeColor = System.Drawing.Color.White;
             this.LblEscribirPag.Location = new System.Drawing.Point(96, 82);
             this.LblEscribirPag.Name = "LblEscribirPag";
-            this.LblEscribirPag.Size = new System.Drawing.Size(28, 16);
+            this.LblEscribirPag.Size = new System.Drawing.Size(29, 16);
             this.LblEscribirPag.TabIndex = 39;
             this.LblEscribirPag.Text = "352";
             // 
@@ -1353,7 +1358,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(96, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(82, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(83, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "SALAMANDRA\r\n";
             // 
@@ -1481,7 +1486,7 @@
             this.LblEscribirOculto.ForeColor = System.Drawing.Color.White;
             this.LblEscribirOculto.Location = new System.Drawing.Point(136, 216);
             this.LblEscribirOculto.Name = "LblEscribirOculto";
-            this.LblEscribirOculto.Size = new System.Drawing.Size(25, 16);
+            this.LblEscribirOculto.Size = new System.Drawing.Size(26, 16);
             this.LblEscribirOculto.TabIndex = 37;
             this.LblEscribirOculto.Text = "NO";
             // 
@@ -1502,7 +1507,7 @@
             this.LblEscribirFavorito.ForeColor = System.Drawing.Color.White;
             this.LblEscribirFavorito.Location = new System.Drawing.Point(137, 191);
             this.LblEscribirFavorito.Name = "LblEscribirFavorito";
-            this.LblEscribirFavorito.Size = new System.Drawing.Size(18, 16);
+            this.LblEscribirFavorito.Size = new System.Drawing.Size(19, 16);
             this.LblEscribirFavorito.TabIndex = 35;
             this.LblEscribirFavorito.Text = "SI";
             // 
@@ -1523,7 +1528,7 @@
             this.LblEscribirFecFin.ForeColor = System.Drawing.Color.White;
             this.LblEscribirFecFin.Location = new System.Drawing.Point(137, 166);
             this.LblEscribirFecFin.Name = "LblEscribirFecFin";
-            this.LblEscribirFecFin.Size = new System.Drawing.Size(71, 16);
+            this.LblEscribirFecFin.Size = new System.Drawing.Size(72, 16);
             this.LblEscribirFecFin.TabIndex = 33;
             this.LblEscribirFecFin.Text = "09/06/2022";
             // 
@@ -1554,7 +1559,7 @@
             this.LblEscribirFecComienzo.ForeColor = System.Drawing.Color.White;
             this.LblEscribirFecComienzo.Location = new System.Drawing.Point(137, 141);
             this.LblEscribirFecComienzo.Name = "LblEscribirFecComienzo";
-            this.LblEscribirFecComienzo.Size = new System.Drawing.Size(71, 16);
+            this.LblEscribirFecComienzo.Size = new System.Drawing.Size(72, 16);
             this.LblEscribirFecComienzo.TabIndex = 31;
             this.LblEscribirFecComienzo.Text = "24/04/2022";
             // 
@@ -1565,7 +1570,7 @@
             this.LblEscribirCapiAct.ForeColor = System.Drawing.Color.White;
             this.LblEscribirCapiAct.Location = new System.Drawing.Point(137, 116);
             this.LblEscribirCapiAct.Name = "LblEscribirCapiAct";
-            this.LblEscribirCapiAct.Size = new System.Drawing.Size(14, 16);
+            this.LblEscribirCapiAct.Size = new System.Drawing.Size(15, 16);
             this.LblEscribirCapiAct.TabIndex = 29;
             this.LblEscribirCapiAct.Text = "4";
             // 
@@ -1586,7 +1591,7 @@
             this.LblEscribirEstadoLectura.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEstadoLectura.Location = new System.Drawing.Point(137, 66);
             this.LblEscribirEstadoLectura.Name = "LblEscribirEstadoLectura";
-            this.LblEscribirEstadoLectura.Size = new System.Drawing.Size(41, 16);
+            this.LblEscribirEstadoLectura.Size = new System.Drawing.Size(42, 16);
             this.LblEscribirEstadoLectura.TabIndex = 27;
             this.LblEscribirEstadoLectura.Text = "LEÍDO";
             // 
@@ -1607,7 +1612,7 @@
             this.LblEscribirVecesLeido.ForeColor = System.Drawing.Color.White;
             this.LblEscribirVecesLeido.Location = new System.Drawing.Point(137, 41);
             this.LblEscribirVecesLeido.Name = "LblEscribirVecesLeido";
-            this.LblEscribirVecesLeido.Size = new System.Drawing.Size(14, 16);
+            this.LblEscribirVecesLeido.Size = new System.Drawing.Size(15, 16);
             this.LblEscribirVecesLeido.TabIndex = 26;
             this.LblEscribirVecesLeido.Text = "1";
             // 
@@ -1628,7 +1633,7 @@
             this.LblEscribirPuntuacion.ForeColor = System.Drawing.Color.White;
             this.LblEscribirPuntuacion.Location = new System.Drawing.Point(137, 16);
             this.LblEscribirPuntuacion.Name = "LblEscribirPuntuacion";
-            this.LblEscribirPuntuacion.Size = new System.Drawing.Size(14, 16);
+            this.LblEscribirPuntuacion.Size = new System.Drawing.Size(15, 16);
             this.LblEscribirPuntuacion.TabIndex = 22;
             this.LblEscribirPuntuacion.Text = "8";
             // 
@@ -1649,7 +1654,7 @@
             this.LblEscribirTiempoLec.ForeColor = System.Drawing.Color.White;
             this.LblEscribirTiempoLec.Location = new System.Drawing.Point(137, 91);
             this.LblEscribirTiempoLec.Name = "LblEscribirTiempoLec";
-            this.LblEscribirTiempoLec.Size = new System.Drawing.Size(55, 16);
+            this.LblEscribirTiempoLec.Size = new System.Drawing.Size(56, 16);
             this.LblEscribirTiempoLec.TabIndex = 24;
             this.LblEscribirTiempoLec.Text = "25:12:53";
             // 
@@ -1786,6 +1791,7 @@
             this.MBtnBuscarMBI.Size = new System.Drawing.Size(20, 20);
             this.MBtnBuscarMBI.TabIndex = 126;
             this.MBtnBuscarMBI.UseVisualStyleBackColor = true;
+            this.MBtnBuscarMBI.Click += new System.EventHandler(this.MBtnBuscarMBI_Click);
             // 
             // KTxtBuscarMBI
             // 
@@ -1819,13 +1825,11 @@
             this.MBtnOrdenMBI.Size = new System.Drawing.Size(30, 30);
             this.MBtnOrdenMBI.TabIndex = 109;
             this.MBtnOrdenMBI.UseVisualStyleBackColor = true;
+            this.MBtnOrdenMBI.Click += new System.EventHandler(this.MBtnOrdenMBI_Click);
             // 
             // KCmbBuscarPorMBI
             // 
             this.KCmbBuscarPorMBI.DropDownWidth = 160;
-            this.KCmbBuscarPorMBI.Items.AddRange(new object[] {
-            "Autores",
-            "Géneros"});
             this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(127, 3);
             this.KCmbBuscarPorMBI.Name = "KCmbBuscarPorMBI";
             this.KCmbBuscarPorMBI.Size = new System.Drawing.Size(207, 33);

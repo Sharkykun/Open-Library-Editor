@@ -21,7 +21,7 @@ namespace OpenLibraryEditor.Forms
         private const string NOMBRE_OBJETO = "el autor";
         private bool setNew;
         private Autor personaNueva;
-        private List<Autor> listaPersona = Biblioteca.biblioteca.ListaPersona;
+        private List<Autor> listaPersona = Biblioteca.biblioteca.ListaAutor;
         private List<string> listaOcupacion = Biblioteca.biblioteca.ListaOcupacion;
         private Autor personaActual;
         private ListViewItem itemActual;
