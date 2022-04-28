@@ -59,6 +59,7 @@ namespace OpenLibraryEditor.DatosLibros
             this.titulo = titulo;
         }
 
+
         #region Get y Set
         public string Isbn_13 { get => isbn_13; set => isbn_13 = value; }
         public string Titulo { get => titulo; set => titulo = value; }

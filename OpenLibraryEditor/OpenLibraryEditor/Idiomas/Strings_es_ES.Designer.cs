@@ -412,6 +412,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Modificar libro.
+        /// </summary>
+        internal static string Al_Modificar {
+            get {
+                return ResourceManager.GetString("Al_Modificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Acciones.
         /// </summary>
         internal static string Al_TabAcciones {

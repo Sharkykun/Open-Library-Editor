@@ -234,6 +234,9 @@
   <data name="Al_IMPortada" xml:space="preserve">
     <value>Seleccionar portada</value>
   </data>
+  <data name="Al_Modificar" xml:space="preserve">
+    <value>Open Library Editor - Modificar libro</value>
+  </data>
   <data name="Al_TabAcciones" xml:space="preserve">
     <value>Acciones</value>
   </data>

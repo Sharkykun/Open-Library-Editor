@@ -278,6 +278,14 @@ namespace OpenLibraryEditor.Forms
         private void FrmAniadirLibro_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
+            if (this.Text.Equals(ControladorIdioma.GetTexto("Al_Titulo")))
+            {
+                LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Titulo");
+            }
+            else
+            {
+                LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Modificar");
+            }
             KcellTabs.SelectedPage = KpageDatosGenerales;
             //Agregar valores de listas
             RellenarEditorial(libroActual.ListaEditorial);

@@ -27,7 +27,7 @@ namespace OpenLibraryEditor.Forms
         private int anchoPantalla;
         private List<Libro> titulos = Biblioteca.biblioteca.ListaLibro;
         private Libro libroActual;
-        private Button mas = new Button();
+      
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -151,38 +151,101 @@ namespace OpenLibraryEditor.Forms
                 }
             }
         }
+        private void ResetearDetallesLibro()
+        {
+            TxtSinopsis.Clear();
+            TxtAutores.Clear();
+            LblEscribirGenero.Text="";
+            LblEscribirEditorial.Text = "";
+            LblEscribirEtiquetas.Text = "";
+          
+        }
         private void ManejadorLibro_Click(object sender, EventArgs e)
         {
+            KTabDetalles.SelectedPage = KpDetalles;
+            ResetearDetallesLibro();
             Button libroSeleccionado = (Button)sender;
             libroActual = (Libro)libroSeleccionado.Tag;
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
-            PcbLibro.Image = libroSeleccionado.BackgroundImage;
-            TxtTituloLibro.Text = libroSeleccionado.Text;
-            //TxtPersonas.Text =;
-            //LblEscribirEditorial.Text =;
-            //LblEscribirIs10.Text =;
-            //LblEscribirIs13 =;
-            //LblEscribirCapitulos.Text =;
-            //LblEscribirPag.Text =;
-            //LblEscribirGenero.Text =;
-            //LblEscribirEtiquetas.Text =;
-            //LblEscribirIdioma.Text =;
-            //LblEscribirIdiOri.Text =;
-            //LblEscribirTipoLibro.Text =;
-            //LblEscribirFechaPub.Text =;
-            //LblEscribirPuntuacion.Text =;
-            //LblEscribirVecesLeido.Text =;
-            //LblEscribirEstadoLectura.Text =;
-            //LblEscribirTiempoLec.Text =;
-            //LblEscribirCapiAct.Text =;
-            //LblEscribirFecComienzo.Text =;
-            //LblEscribirFecFin.Text =;
-            //LblEscribirFavorito.Text =;
-            //LblEscribirOculto.Text =;
-            //TxtEscribirComentario.Text =;
+            PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
+            TxtTituloLibro.Text = libroActual.Titulo + " "+libroActual.Subtitulo;
+            foreach (Autor a in libroActual.ListaAutor)
+            {
+                TxtAutores.Text += a.Nombre+", ";
+            }
+            TxtSinopsis.Text = libroActual.Sinopsis;
+            foreach (Editorial ed in libroActual.ListaEditorial)
+            {
+                if (libroActual.ListaEditorial.Count > 1)
+                    LblEscribirEditorial.Text += ed.Nombre.ToUpper() + "\r\n";
+                //else if(libro.ListaEditorial.Count>1)
+                //    LblEscribirEditorial.Text += ed.Nombre.ToUpper() + ",";
+                else
+                    LblEscribirEditorial.Text += ed.Nombre.ToUpper();
+            }
+            if (libroActual.Isbn_10 == "")
+                LblEscribirIs10.Text ="NO DISPONIBLE";
+            else
+                LblEscribirIs10.Text = libroActual.Isbn_10;
+            if (libroActual.Isbn_13 == "")
+                LblEscribirIs13.Text = "NO DISPONIBLE";
+            else
+                LblEscribirIs13.Text = libroActual.Isbn_13;
+
+            LblEscribirCapitulos.Text = libroActual.NumeroCapitulos.ToString();
+            LblEscribirPag.Text = libroActual.NumeroPaginas.ToString();
+            foreach (Genero g in libroActual.ListaGenero)
+            {
+                if (libroActual.ListaGenero.Count > 1)
+                    LblEscribirGenero.Text += g.Nombre.ToUpper() + "\r\n";
+                //else if (libro.ListaEditorial.Count > 1)
+                //    LblEscribirGenero.Text += g.Nombre.ToUpper() + ",";
+                else
+                    LblEscribirGenero.Text += g.Nombre.ToUpper();
+            }
+            //foreach (Etiqueta et in libro.ListaEtiqueta)
+            //{
+            //    if (libro.ListaEtiqueta.Count > 1)
+            //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper() + "\r\n";
+            //    //else if (libro.ListaEditorial.Count > 1)
+            //    //    LblEscribirGenero.Text += g.Nombre.ToUpper() + ",";
+            //    else
+            //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper();
+            //}
+
+            //LblEscribirIdioma.Text =libro.Idioma.NombreIdioma;
+            //LblEscribirIdiOri.Text =libro.IdiomaOriginal.NombreIdioma;
+            if(libroActual.NombreTipo!=null)
+                 LblEscribirTipoLibro.Text =libroActual.NombreTipo.ToUpper();
+            //No se si no la coje bien o que no la guarda bien, pero no muestra la que es
+            LblEscribirFechaPub.Text =libroActual.FechaPublicacion.ToShortDateString();
+            LblEscribirPuntuacion.Text =libroActual.Puntuacion.ToString();
+            LblEscribirVecesLeido.Text =libroActual.VecesLeido.ToString();
+            LblEscribirEstadoLectura.Text =libroActual.EstadoLectura;
+            LblEscribirTiempoLec.Text =libroActual.TiempoLectura.ToLongTimeString();
+            LblEscribirCapiAct.Text =libroActual.CapituloActual.ToString();
+            LblEscribirFecComienzo.Text =libroActual.FechaComienzo.ToShortDateString();
+            LblEscribirFecFin.Text =libroActual.FechaTerminado.ToShortDateString();
+            if (libroActual.Favorito == true)
+                LblEscribirFavorito.Text = "SI";
+            else
+                LblEscribirFavorito.Text = "NO";
+            if (libroActual.Ocultar == true)
+                LblEscribirOculto.Text = "SI";
+            else
+                LblEscribirOculto.Text = "NO";
+           
+            TxtEscribirComentario.Text = libroActual.Comentario;
             //ColocarLibros();
+        }
+        private void LinkEnlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (libroActual.EnlaceReferencia != null)
+                System.Diagnostics.Process.Start(libroActual.EnlaceReferencia);
+            else
+                VentanaWindowsComun.MensajeError("No hay ningún enlace guardado");
         }
         private void ManejadorLibroDet_Click(object sender, EventArgs e)
         {
@@ -194,7 +257,7 @@ namespace OpenLibraryEditor.Forms
             BtnModificarLibroMsb.Enabled = true;
             PcbLibro.Image = libroSeleccionado.getImagen();
             TxtTituloLibro.Text = libroSeleccionado.getTituloLibro();
-            TxtPersonas.Text = libroSeleccionado.getPersonas();
+            TxtAutores.Text = libroSeleccionado.getPersonas();
             //ColocarLibros();
         }
         private void ColocarLibrosDetalles()
@@ -825,6 +888,7 @@ namespace OpenLibraryEditor.Forms
             //AbrirFormularios(new FrmMisAutores());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
+            MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
             MPcbTituloFrm.IconChar = MaterialIcons.AccountGroup;
 
@@ -867,6 +931,7 @@ namespace OpenLibraryEditor.Forms
         {
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
+            MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTGeneros");
             MPcbTituloFrm.IconChar = MaterialIcons.DramaMasks;
 
@@ -898,6 +963,7 @@ namespace OpenLibraryEditor.Forms
         {
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
+            MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTEditoriales");
             MPcbTituloFrm.IconChar = MaterialIcons.BankOutline;
 
@@ -933,6 +999,7 @@ namespace OpenLibraryEditor.Forms
         {
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
+            MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTTags");
             MPcbTituloFrm.IconChar = MaterialIcons.TagMultiple;
             BotonActivo(sender, Colores.colorSubmenu);
@@ -956,7 +1023,9 @@ namespace OpenLibraryEditor.Forms
             Libro nuevoLibro = new Libro();
             FrmLibros al = new FrmLibros(nuevoLibro);
             al.FormBorderStyle=FormBorderStyle.None;
+            al.Text = ControladorIdioma.GetTexto("Al_Titulo");
             al.ShowDialog();
+
             //Comprobar si el libro tiene isbn o no para guardarlo
             if (!String.IsNullOrWhiteSpace(nuevoLibro.Isbn_13))
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
@@ -969,6 +1038,7 @@ namespace OpenLibraryEditor.Forms
             ResetColores();
             FrmLibros al = new FrmLibros(libroActual);
             al.FormBorderStyle = FormBorderStyle.None;
+            al.Text = ControladorIdioma.GetTexto("Al_Modificar");
             al.ShowDialog();
             BotonActivoTool(sender, Colores.colorBiblioteca);
             RecolocarLibros(false);
