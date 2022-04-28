@@ -26,9 +26,8 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
-        public Autor(int idPersona, string nombre, string alias, string nombreOcupacion, DateTime fechaNacimiento, DateTime fechaDefuncion, string enlaceReferencia, string comentario, string imagen)
+        public Autor(string nombre, string alias, string nombreOcupacion, DateTime fechaNacimiento, DateTime fechaDefuncion, string enlaceReferencia, string comentario, string imagen)
         {
-            this.idAutor = idPersona;
             this.nombre = nombre;
             this.alias = alias;
             this.nombreOcupacion = nombreOcupacion;

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMessageBox));
             this.PanTitulo = new System.Windows.Forms.Panel();
+            this.PcbLogoMain = new System.Windows.Forms.PictureBox();
+            this.MBtnCerrarDialog = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblCaption = new System.Windows.Forms.Label();
             this.PanBotones = new System.Windows.Forms.Panel();
             this.button3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -38,13 +40,11 @@
             this.PanTexto = new System.Windows.Forms.Panel();
             this.LblMensaje = new System.Windows.Forms.Label();
             this.PcbIcono = new System.Windows.Forms.PictureBox();
-            this.PcbLogoMain = new System.Windows.Forms.PictureBox();
-            this.MBtnCerrarDialog = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
             this.PanBotones.SuspendLayout();
             this.PanTexto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbIcono)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
             this.SuspendLayout();
             // 
             // PanTitulo
@@ -60,6 +60,36 @@
             this.PanTitulo.TabIndex = 0;
             this.PanTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
+            // PcbLogoMain
+            // 
+            this.PcbLogoMain.BackColor = System.Drawing.Color.Transparent;
+            this.PcbLogoMain.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
+            this.PcbLogoMain.Location = new System.Drawing.Point(5, 2);
+            this.PcbLogoMain.Name = "PcbLogoMain";
+            this.PcbLogoMain.Size = new System.Drawing.Size(36, 36);
+            this.PcbLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbLogoMain.TabIndex = 5;
+            this.PcbLogoMain.TabStop = false;
+            this.PcbLogoMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
+            // 
+            // MBtnCerrarDialog
+            // 
+            this.MBtnCerrarDialog.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnCerrarDialog.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MBtnCerrarDialog.FlatAppearance.BorderSize = 0;
+            this.MBtnCerrarDialog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.MBtnCerrarDialog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.MBtnCerrarDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnCerrarDialog.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
+            this.MBtnCerrarDialog.IconColor = System.Drawing.Color.Gainsboro;
+            this.MBtnCerrarDialog.IconSize = 40;
+            this.MBtnCerrarDialog.Location = new System.Drawing.Point(326, 0);
+            this.MBtnCerrarDialog.Name = "MBtnCerrarDialog";
+            this.MBtnCerrarDialog.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.MBtnCerrarDialog.Size = new System.Drawing.Size(40, 40);
+            this.MBtnCerrarDialog.TabIndex = 6;
+            this.MBtnCerrarDialog.UseVisualStyleBackColor = false;
+            // 
             // LblCaption
             // 
             this.LblCaption.AutoSize = true;
@@ -71,6 +101,7 @@
             this.LblCaption.Size = new System.Drawing.Size(52, 17);
             this.LblCaption.TabIndex = 0;
             this.LblCaption.Text = "label1";
+            this.LblCaption.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // PanBotones
             // 
@@ -189,35 +220,6 @@
             this.PcbIcono.TabIndex = 0;
             this.PcbIcono.TabStop = false;
             // 
-            // PcbLogoMain
-            // 
-            this.PcbLogoMain.BackColor = System.Drawing.Color.Transparent;
-            this.PcbLogoMain.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
-            this.PcbLogoMain.Location = new System.Drawing.Point(5, 2);
-            this.PcbLogoMain.Name = "PcbLogoMain";
-            this.PcbLogoMain.Size = new System.Drawing.Size(36, 36);
-            this.PcbLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbLogoMain.TabIndex = 5;
-            this.PcbLogoMain.TabStop = false;
-            // 
-            // MBtnCerrarDialog
-            // 
-            this.MBtnCerrarDialog.BackColor = System.Drawing.Color.Transparent;
-            this.MBtnCerrarDialog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MBtnCerrarDialog.FlatAppearance.BorderSize = 0;
-            this.MBtnCerrarDialog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.MBtnCerrarDialog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.MBtnCerrarDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnCerrarDialog.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
-            this.MBtnCerrarDialog.IconColor = System.Drawing.Color.Gainsboro;
-            this.MBtnCerrarDialog.IconSize = 40;
-            this.MBtnCerrarDialog.Location = new System.Drawing.Point(326, 0);
-            this.MBtnCerrarDialog.Name = "MBtnCerrarDialog";
-            this.MBtnCerrarDialog.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.MBtnCerrarDialog.Size = new System.Drawing.Size(40, 40);
-            this.MBtnCerrarDialog.TabIndex = 6;
-            this.MBtnCerrarDialog.UseVisualStyleBackColor = false;
-            // 
             // FrmMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,11 +234,11 @@
             this.Text = "FrmMessageBox";
             this.PanTitulo.ResumeLayout(false);
             this.PanTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).EndInit();
             this.PanBotones.ResumeLayout(false);
             this.PanTexto.ResumeLayout(false);
             this.PanTexto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbIcono)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -10,15 +10,9 @@ namespace OpenLibraryEditor.BaseDatos
 {
     public class ConversorRegistro
     {
-        public static string RegistroAOcupacion(MySqlDataReader registro)
-        {
-            return registro["nombreOcupacion"].ToString();
-        }
-
         public static Autor RegistroAAutor(MySqlDataReader registro)
         {
-            return new Autor(int.Parse(registro["idAutor"].ToString()),
-                registro["nombre"].ToString(),
+            return new Autor(registro["nombreAutor"].ToString(),
                 registro["alias"].ToString(),
                 registro["nombreOcupacion"].ToString(),
                 DateTime.Parse(registro["fechaNacimiento"].ToString()),
@@ -26,6 +20,74 @@ namespace OpenLibraryEditor.BaseDatos
                 registro["enlaceReferencia"].ToString(),
                 registro["comentario"].ToString(),
                 registro["imagen"].ToString());
+        }
+
+        public static Editorial RegistroAEditorial(MySqlDataReader registro)
+        {
+            return new Editorial(registro["nombreEditorial"].ToString(),
+                registro["comentario"].ToString(),
+                registro["imagen"].ToString());
+        }
+
+        public static Genero RegistroAGenero(MySqlDataReader registro)
+        {
+            //Si tiene genero padre, sacarlo recursivamente
+            Genero genero = null;
+            if (registro["generoPadre"].ToString() == null)
+                genero = LecturaBD.SelectGenero(registro["generoPadre"].ToString());
+
+            return new Genero(registro["nombreGenero"].ToString(),
+                genero,
+                registro["comentario"].ToString());
+        }
+
+        public static InfoUsuarioBD RegistroAUsuarioInfo(MySqlDataReader registro)
+        {
+            return new InfoUsuarioBD(registro["nombreUsuario"].ToString(),
+                registro["correoUsuario"].ToString(),
+                registro["tipoUsuario"].ToString());
+        }
+
+        public static Libro RegistroALibro(MySqlDataReader registro)
+        {
+            //Si tiene genero padre, sacarlo recursivamente
+            Libro libro = new Libro();
+            libro.Isbn_13 = registro["isbn13"].ToString();
+            libro.Titulo = registro["titulo"].ToString();
+            libro.Subtitulo = registro["subtitulo"].ToString();
+            libro.TituloAlternativo = registro["tituloAlternativo"].ToString();
+            libro.Sinopsis = registro["sinopsis"].ToString();
+            libro.NumeroPaginas = int.Parse(registro["numeroPaginas"].ToString());
+            libro.FechaPublicacion = DateTime.Parse(registro["fechaPublicacion"].ToString());
+            libro.FechaAdicionBD = DateTime.Parse(registro["fechaAdicionBD"].ToString());
+            libro.Edicion = int.Parse(registro["edicion"].ToString());
+            libro.NumeroVolumen = double.Parse(registro["numeroVolumen"].ToString());
+            libro.Idioma = registro["idioma"].ToString();
+            libro.IdiomaOriginal = registro["idiomaOriginal"].ToString();
+            libro.Isbn_10 = registro["isbn10"].ToString();
+            libro.ImagenPortada = registro["imagenPortada"].ToString();
+            libro.ImagenContraportada = registro["imagenContraportada"].ToString();
+            libro.NombreTipo = registro["nombreTipoLibro"].ToString();
+            libro.MayorEdad = bool.Parse(registro["mayorEdad"].ToString());
+            libro.NumeroCapitulos = int.Parse(registro["numeroCapitulos"].ToString());
+            libro.EnlaceReferencia = registro["enlaceReferencia"].ToString();
+            return libro;
+        }
+
+        public static void RegistroAUsuarioLibro(MySqlDataReader registro, Libro libro)
+        {
+            //Si tiene genero padre, sacarlo recursivamente
+            libro.Puntuacion = Double.Parse(registro["puntuacion"].ToString());
+            libro.VecesLeido = int.Parse(registro["vecesLeido"].ToString());
+            libro.TiempoLectura = DateTime.Parse(registro["tiempoLectura"].ToString());
+            libro.FechaComienzo = DateTime.Parse(registro["fechaComienzo"].ToString());
+            libro.FechaTerminado = DateTime.Parse(registro["fechaTerminado"].ToString());
+            libro.Comentario = registro["comentario"].ToString();
+            libro.CapituloActual = int.Parse(registro["capituloActual"].ToString());
+            libro.EstadoLectura = registro["estadoLectura"].ToString();
+            libro.Ocultar = bool.Parse(registro["ocultar"].ToString());
+            libro.Favorito = bool.Parse(registro["favorito"].ToString());
+            
         }
     }
 }

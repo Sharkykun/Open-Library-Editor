@@ -313,6 +313,7 @@ namespace OpenLibraryEditor.Forms
             KNudNumCapNL.Value = libroActual.NumeroCapitulos;
             KNudNumPagNL.Value = libroActual.NumeroPaginas;
             KTxtIsbn10.Text = libroActual.Isbn_10;
+            KTxtSinopsisNL.Text = libroActual.Sinopsis;
             KTxtIsbn13.Text = libroActual.Isbn_13;
             KMtxtFecPublicacionNL.Text = libroActual.FechaPublicacion.Date.ToShortDateString();
             KMtxtInclusionbbddNL.Text = libroActual.FechaAdicionBD.Date.ToShortDateString();
@@ -533,6 +534,7 @@ namespace OpenLibraryEditor.Forms
                 libroActual.Edicion = (int)KNudEdicionNL.Value;
                 libroActual.NumeroVolumen = (double)KNudVolumenNL.Value;
                 libroActual.NombreTipo = KCmbTipoNL.Text;
+                libroActual.Sinopsis = KTxtSinopsisNL.Text;
                 libroActual.NumeroCapitulos = (int)KNudNumCapNL.Value;
                 libroActual.NumeroPaginas = (int)KNudNumPagNL.Value;
                 libroActual.Isbn_10 = KTxtIsbn10.Text;
@@ -553,8 +555,10 @@ namespace OpenLibraryEditor.Forms
                 libroActual.ListaSerie.Clear();
                 foreach (var c in KCCSerieNL.CheckedItems)
                     libroActual.ListaSerie.Add((Serie)(c as CCBoxItem).Item);
-                libroActual.IdiomaOriginal = (Idioma)KCmbIdiomaOriginalNL.SelectedItem;
-                libroActual.Idioma = (Idioma)KCmbIdiomaNL.SelectedItem;
+                if(KCmbIdiomaOriginalNL.SelectedIndex != -1)
+                    libroActual.IdiomaOriginal = KCmbIdiomaOriginalNL.SelectedItem.ToString();
+                if (KCmbIdiomaNL.SelectedIndex != -1)
+                    libroActual.Idioma = KCmbIdiomaNL.SelectedItem.ToString();
                 libroActual.Puntuacion = (double)KNudPuntuacionNL.Value;
                 libroActual.VecesLeido = (int)KNudVecesLeidoNL.Value;
                 libroActual.EstadoLectura = KCmbEstadoLecturaNL.Text;
