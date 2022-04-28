@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static OpenLibraryEditor.DatosLibros.Libro;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -77,7 +78,7 @@ namespace OpenLibraryEditor.Forms
                     GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
                         UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
                     //Realizar Query
-                    gBooks.SearchBook(query,40,UsuarioDatos.configuracionUsuario.ContenidoExplicito);
+                    gBooks.SearchBook(query,10,UsuarioDatos.configuracionUsuario.ContenidoExplicito);
                     //Listar libros
                     foreach (var libro in gBooks.BookCollection.Items)
                     {
@@ -144,10 +145,17 @@ namespace OpenLibraryEditor.Forms
                     //y convertir en caso afirmativo
                     if (VentanaWindowsComun.MensajeGuardarObjeto("el libro") == DialogResult.Yes)
                     {
-                        Biblioteca.biblioteca.ListaLibro.Add(GoogleBooksController.ParseBook((Volume)LsvSeriesNS.SelectedItems[0].Tag,
-                            UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
-                            UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
-                            UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+                        try
+                        {
+                            Biblioteca.biblioteca.ListaLibro.Add(GoogleBooksController.ParseBook((Volume)LsvSeriesNS.SelectedItems[0].Tag,
+                                UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
+                                UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
+                                UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+                        }
+                        catch (IdRepetidoException)
+                        {
+                            VentanaWindowsComun.MensajeError("No se puede añadir porque el libro ya existe en la biblioteca.");
+                        }
                     }
                     break;
             }

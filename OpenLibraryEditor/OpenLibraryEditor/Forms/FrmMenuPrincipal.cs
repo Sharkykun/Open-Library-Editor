@@ -49,9 +49,9 @@ namespace OpenLibraryEditor.Forms
             PanVistaMosaico.BringToFront();
 
             //Agregar filtros de libro
-            KCmbBuscarPorMBI.Items.Add("Título");
-            KCmbBuscarPorMBI.Items.Add("Subtítulo");
-            KCmbBuscarPorMBI.Items.Add("ISBN");
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
             KCmbBuscarPorMBI.SelectedIndex = 0;
 
             //vistaDetallesH.setEditoriales("prueba1, prueba 2");
@@ -164,10 +164,12 @@ namespace OpenLibraryEditor.Forms
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
+
             if(File.Exists(libroActual.ImagenPortada))
                 PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
             else
                 PcbLibro.Image = Properties.Resources.PortadaLogo;
+
             TxtTituloLibro.Text = libroActual.Titulo + " "+libroActual.Subtitulo;
             foreach (Autor a in libroActual.ListaAutor)
             {
@@ -213,9 +215,9 @@ namespace OpenLibraryEditor.Forms
             //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper();
             //}
 
-            //LblEscribirIdioma.Text =libro.Idioma.NombreIdioma;
-            //LblEscribirIdiOri.Text =libro.IdiomaOriginal.NombreIdioma;
-            if(libroActual.NombreTipo!=null)
+            LblEscribirIdioma.Text = libroActual.Idioma.ToUpper();
+            LblEscribirIdiOri.Text = libroActual.IdiomaOriginal.ToUpper();
+            if (libroActual.NombreTipo!=null)
                  LblEscribirTipoLibro.Text =libroActual.NombreTipo.ToUpper();
             //No se si no la coje bien o que no la guarda bien, pero no muestra la que es
             LblEscribirFechaPub.Text =libroActual.FechaPublicacion.ToShortDateString();
@@ -240,9 +242,11 @@ namespace OpenLibraryEditor.Forms
         }
         private void LinkEnlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (libroActual.EnlaceReferencia != null)
+            if (!String.IsNullOrWhiteSpace(libroActual.EnlaceReferencia))
                 System.Diagnostics.Process.Start(libroActual.EnlaceReferencia);
             else
+                //MiMessageBox.Show("No hay ningún enlace guardado","Open Library Editor",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+
                 VentanaWindowsComun.MensajeError("No hay ningún enlace guardado");
         }
         private void ManejadorLibroDet_Click(object sender, EventArgs e)
@@ -771,7 +775,7 @@ namespace OpenLibraryEditor.Forms
             LblIdiOri.Text = ControladorIdioma.GetTexto("Main_IdiOri");
             LblTipoLibro.Text = ControladorIdioma.GetTexto("Main_TipoLibro");
             LblPublicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
-            LlLogIn.Text = ControladorIdioma.GetTexto("Main_Enlace");
+            LinkEnlace.Text = ControladorIdioma.GetTexto("Main_Enlace");
 
             KpUsuario.Text = ControladorIdioma.GetTexto("Main_DetallesUsuario");
             LblPuntuacion.Text = ControladorIdioma.GetTexto("Main_Punt");
@@ -907,7 +911,7 @@ namespace OpenLibraryEditor.Forms
                         Image.FromFile(autor.Imagen));
                 else
                     imglist.Images.Add("image",
-                        new PictureBox().ErrorImage);
+                        Properties.Resources.silueta);
 
                 var i = LsvOpciones.Items.Add(autor.Nombre, imglist.Images.Count-1);
                 i.Tag = autor;
@@ -1221,7 +1225,6 @@ namespace OpenLibraryEditor.Forms
         Rectangle InfIzqda { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
         Rectangle InfDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
 
-
         protected override void WndProc(ref Message message)
         {
             base.WndProc(ref message);
@@ -1242,32 +1245,30 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-
         #endregion
         #region cerrar formulario
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        { 
+            Biblioteca.biblioteca.GuardarJson(); 
+        }
+        private void CerrarFormulario()
         {
-            string mensaje = Clases.ControladorIdioma.GetTexto("ShowDialogCerrar");
-            
-            DialogResult boton = MessageBox.Show(mensaje, "Open Library Editor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string mensaje = ControladorIdioma.GetTexto("ShowDialogCerrar");
+
+            DialogResult boton = VentanaWindowsComun.MensajeSalir(mensaje);
 
             if (boton == DialogResult.Yes)
-            {
-                //Guardar datos en la base de datos local
-                e.Cancel = false;
-                Biblioteca.biblioteca.GuardarJson();
-            }
-            else
-                e.Cancel = true;
+                Application.Exit();
         }
         private void MBtnCerrarMain_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            CerrarFormulario();
+           
         }
         private void MBtnSalir_Click(object sender, EventArgs e)
         {
+            CerrarFormulario();
             
-            Application.Exit();
         }
         #endregion
         #region mover formulario

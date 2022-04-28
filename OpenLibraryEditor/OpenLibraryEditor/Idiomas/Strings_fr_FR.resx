@@ -1038,6 +1038,27 @@
   <data name="Main_VecesLeido" xml:space="preserve">
     <value>Fois lire:</value>
   </data>
+  <data name="Ms_Abortar" xml:space="preserve">
+    <value>Avorter</value>
+  </data>
+  <data name="Ms_Aceptar" xml:space="preserve">
+    <value>Accepter</value>
+  </data>
+  <data name="Ms_Cancelar" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Ms_No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="Ms_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Ms_Reintentar" xml:space="preserve">
+    <value>Retenter</value>
+  </data>
+  <data name="Ms_Si" xml:space="preserve">
+    <value>Oui</value>
+  </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>S'inscrire</value>
   </data>

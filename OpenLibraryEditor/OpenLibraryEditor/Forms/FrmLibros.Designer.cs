@@ -686,6 +686,13 @@
             // KCmbIdiomaOriginalNL
             // 
             this.KCmbIdiomaOriginalNL.DropDownWidth = 213;
+            this.KCmbIdiomaOriginalNL.Items.AddRange(new object[] {
+            "Español",
+            "Inglés",
+            "Japonés",
+            "Chino",
+            "Alemán",
+            "Francés"});
             this.KCmbIdiomaOriginalNL.Location = new System.Drawing.Point(671, 319);
             this.KCmbIdiomaOriginalNL.Name = "KCmbIdiomaOriginalNL";
             this.KCmbIdiomaOriginalNL.Size = new System.Drawing.Size(254, 33);
@@ -700,7 +707,8 @@
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F);
             this.KCmbIdiomaOriginalNL.TabIndex = 73;
             // 
             // LblEnlaceNL
@@ -759,6 +767,13 @@
             // KCmbIdiomaNL
             // 
             this.KCmbIdiomaNL.DropDownWidth = 213;
+            this.KCmbIdiomaNL.Items.AddRange(new object[] {
+            "Español",
+            "Inglés",
+            "Japonés",
+            "Chino",
+            "Alemán",
+            "Francés"});
             this.KCmbIdiomaNL.Location = new System.Drawing.Point(671, 356);
             this.KCmbIdiomaNL.Name = "KCmbIdiomaNL";
             this.KCmbIdiomaNL.Size = new System.Drawing.Size(254, 33);
@@ -773,7 +788,8 @@
             this.KCmbIdiomaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
             this.KCmbIdiomaNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F);
             this.KCmbIdiomaNL.TabIndex = 58;
             // 
             // LblIdiomaNL
@@ -949,6 +965,7 @@
             // KTxtIsbn13
             // 
             this.KTxtIsbn13.Location = new System.Drawing.Point(671, 44);
+            this.KTxtIsbn13.MaxLength = 13;
             this.KTxtIsbn13.Name = "KTxtIsbn13";
             this.KTxtIsbn13.Size = new System.Drawing.Size(254, 33);
             this.KTxtIsbn13.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
@@ -978,6 +995,7 @@
             // KTxtIsbn10
             // 
             this.KTxtIsbn10.Location = new System.Drawing.Point(671, 5);
+            this.KTxtIsbn10.MaxLength = 10;
             this.KTxtIsbn10.Name = "KTxtIsbn10";
             this.KTxtIsbn10.Size = new System.Drawing.Size(254, 33);
             this.KTxtIsbn10.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;

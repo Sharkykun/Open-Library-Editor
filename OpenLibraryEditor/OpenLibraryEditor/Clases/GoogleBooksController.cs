@@ -98,7 +98,7 @@ namespace OpenLibraryEditor.Clases
 
             Libro book = new Libro();
 
-            if (sacarPersonas)
+            if (sacarPersonas && volInfo.Authors != null && volInfo.Authors.Count > 0)
             {
                 //Sacar personas
                 List<Autor> peopleList = new List<Autor>();
@@ -119,7 +119,7 @@ namespace OpenLibraryEditor.Clases
                 book.ListaAutor = peopleList;
             }
 
-            if (sacarEditorial)
+            if (sacarEditorial && !String.IsNullOrWhiteSpace(volInfo.Publisher))
             {
 
                 //Sacar editorial
@@ -137,7 +137,7 @@ namespace OpenLibraryEditor.Clases
                 book.ListaEditorial = editorialList;
             }
 
-            if (sacarGeneros)
+            if (sacarGeneros && volInfo.Categories != null && volInfo.Categories.Count > 0)
             {
                 //Sacar géneros
                 List<Genero> generoLista = new List<Genero>();
@@ -164,8 +164,15 @@ namespace OpenLibraryEditor.Clases
             book.Titulo = volInfo.Title;
             book.Subtitulo = volInfo.Subtitle;
             book.Sinopsis = volInfo.Description;
-            book.NumeroPaginas = (int)volInfo.PageCount;
-            book.FechaPublicacion = DateTime.Parse(volInfo.PublishedDate);
+            if(volInfo.PageCount != null)
+                book.NumeroPaginas = (int)volInfo.PageCount;
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(volInfo.PublishedDate))
+                    book.FechaPublicacion = DateTime.Parse(volInfo.PublishedDate);
+            }
+            catch (FormatException){; }
+
             if(volInfo.SeriesInfo != null)
                 book.NumeroVolumen = 
                     Double.Parse(volInfo.SeriesInfo.BookDisplayNumber);

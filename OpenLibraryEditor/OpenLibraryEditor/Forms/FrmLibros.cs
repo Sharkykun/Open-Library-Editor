@@ -555,8 +555,10 @@ namespace OpenLibraryEditor.Forms
                 libroActual.ListaSerie.Clear();
                 foreach (var c in KCCSerieNL.CheckedItems)
                     libroActual.ListaSerie.Add((Serie)(c as CCBoxItem).Item);
-                libroActual.IdiomaOriginal = (Idioma)KCmbIdiomaOriginalNL.SelectedItem;
-                libroActual.Idioma = (Idioma)KCmbIdiomaNL.SelectedItem;
+                if(KCmbIdiomaOriginalNL.SelectedIndex != -1)
+                    libroActual.IdiomaOriginal = KCmbIdiomaOriginalNL.SelectedItem.ToString();
+                if (KCmbIdiomaNL.SelectedIndex != -1)
+                    libroActual.Idioma = KCmbIdiomaNL.SelectedItem.ToString();
                 libroActual.Puntuacion = (double)KNudPuntuacionNL.Value;
                 libroActual.VecesLeido = (int)KNudVecesLeidoNL.Value;
                 libroActual.EstadoLectura = KCmbEstadoLecturaNL.Text;

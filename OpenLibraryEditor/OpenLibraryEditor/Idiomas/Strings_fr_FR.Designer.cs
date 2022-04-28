@@ -2824,6 +2824,69 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Avorter.
+        /// </summary>
+        internal static string Ms_Abortar {
+            get {
+                return ResourceManager.GetString("Ms_Abortar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Accepter.
+        /// </summary>
+        internal static string Ms_Aceptar {
+            get {
+                return ResourceManager.GetString("Ms_Aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Annuler.
+        /// </summary>
+        internal static string Ms_Cancelar {
+            get {
+                return ResourceManager.GetString("Ms_Cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Non.
+        /// </summary>
+        internal static string Ms_No {
+            get {
+                return ResourceManager.GetString("Ms_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ok.
+        /// </summary>
+        internal static string Ms_Ok {
+            get {
+                return ResourceManager.GetString("Ms_Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Retenter.
+        /// </summary>
+        internal static string Ms_Reintentar {
+            get {
+                return ResourceManager.GetString("Ms_Reintentar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Oui.
+        /// </summary>
+        internal static string Ms_Si {
+            get {
+                return ResourceManager.GetString("Ms_Si", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a S&apos;inscrire.
         /// </summary>
         internal static string Reg_BtnRegistro {

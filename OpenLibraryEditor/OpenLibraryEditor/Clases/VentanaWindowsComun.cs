@@ -17,24 +17,28 @@ namespace OpenLibraryEditor.Clases
 
         public static DialogResult MensajeBorrarObjeto(string objetoNombre)
         {
-            return MessageBox.Show("¿Quieres borrar "+objetoNombre+"?",
+            return MiMessageBox.Show("¿Quieres borrar "+objetoNombre+"?",
                 "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
         public static DialogResult MensajeGuardarObjeto(string objetoNombre)
         {
-            return MessageBox.Show("¿Quieres guardar " + objetoNombre + "?",
+            return MiMessageBox.Show("¿Quieres guardar " + objetoNombre + "?",
                 "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
         public static DialogResult MensajeInformacion(string texto)
         {
-            return MessageBox.Show(texto, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return MiMessageBox.Show(texto, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static DialogResult MensajeError(string mensaje)
         {
-            return MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return MiMessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public static DialogResult MensajeSalir(string mensaje)
+        {
+            return MiMessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         public static string GetRutaFichero(string filter)
