@@ -22,6 +22,13 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
+        public Genero(string nombre, Genero generoPadre, string comentario)
+        {
+            this.nombre = nombre;
+            this.generoPadre = generoPadre;
+            this.comentario = comentario;
+        }
+
         public int IdGenero { get => idGenero; set => idGenero = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public Genero GeneroPadre { get => generoPadre; set => generoPadre = value; }

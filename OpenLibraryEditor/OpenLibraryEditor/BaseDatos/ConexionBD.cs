@@ -41,7 +41,6 @@ namespace OpenLibraryEditor.BaseDatos
 
             //Creamos tablas
             CrearTablaUsuario();
-            CrearTablaIdioma();
             CrearTablaOcupacion();
             CrearTablaTipoLibro();
             CrearTablaEditorial();
@@ -112,33 +111,21 @@ namespace OpenLibraryEditor.BaseDatos
 	            `fechaAdicionBD` DATE,
 	            `edicion` INT,
 	            `numeroVolumen` INT,
-	            `nombreIdioma` varchar(75),
+	            `idioma` varchar(75),
 	            `idiomaOriginal` varchar(75),
 	            `isbn10` varchar(10),
 	            `imagenPortada` varchar(256),
 	            `imagenContraportada` varchar(256),
 	            `nombreTipoLibro` varchar(40),
 	            `mayorEdad` BOOLEAN NOT NULL,
-	            `numeroCapitulos` INT NOT NULL,
+	            `numeroCapitulos` INT,
 	            `enlaceReferencia` varchar(256),
-                `comentario` varchar(300),
-	            PRIMARY KEY (`isbn13`),
-                FOREIGN KEY (`nombreIdioma`) REFERENCES `Idioma`(`nombreIdioma`),
-                FOREIGN KEY (`idiomaOriginal`) REFERENCES `Idioma`(`nombreIdioma`),
+                PRIMARY KEY (`isbn13`),
                 FOREIGN KEY (`nombreTipoLibro`) REFERENCES `TipoLibro`(`nombreTipoLibro`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
 
-        private static void CrearTablaIdioma()
-        {
-            MySqlCommand tabla = new MySqlCommand(@"
-            CREATE TABLE `Idioma` (
-	            `nombreIdioma` varchar(75) NOT NULL,
-	            PRIMARY KEY (`nombreIdioma`)
-            );", conexion);
-            tabla.ExecuteNonQuery();
-        }
         private static void CrearTablaTipoLibro()
         {
             MySqlCommand tabla = new MySqlCommand(@"
@@ -152,11 +139,10 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Editorial` (
-	            `idEditorial` INT NOT NULL,
-	            `nombre` varchar(75) NOT NULL,
+	            `nombreEditorial` varchar(75) NOT NULL,
 	            `comentario` varchar(300),
 	            `imagen` varchar(256),
-	            PRIMARY KEY (`idEditorial`)
+	            PRIMARY KEY (`nombreEditorial`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -164,10 +150,10 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `ListaEditorial` (
-	            `idEditorial` INT NOT NULL,
+	            `nombreEditorial` varchar(75) NOT NULL,
 	            `isbn13` varchar(13) NOT NULL,
-	            PRIMARY KEY (`idEditorial`,`isbn13`),
-                FOREIGN KEY (`idEditorial`) REFERENCES `Editorial`(`idEditorial`),
+	            PRIMARY KEY (`nombreEditorial`,`isbn13`),
+                FOREIGN KEY (`nombreEditorial`) REFERENCES `Editorial`(`nombreEditorial`),
                 FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
             );", conexion);
             tabla.ExecuteNonQuery();
@@ -176,8 +162,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Autor` (
-	            `idAutor` INT NOT NULL,
-	            `nombre` varchar(150) NOT NULL,
+	            `nombreAutor` varchar(150) NOT NULL,
 	            `alias` varchar(150),
 	            `nombreOcupacion` varchar(75),
 	            `fechaNacimiento` DATE,
@@ -185,7 +170,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `enlaceReferencia` varchar(256),
 	            `comentario` varchar(300),
 	            `imagen` varchar(256),
-	            PRIMARY KEY (`idAutor`),
+	            PRIMARY KEY (`nombreAutor`),
                 FOREIGN KEY (`nombreOcupacion`) REFERENCES `Ocupacion`(`nombreOcupacion`)
             );", conexion);
             tabla.ExecuteNonQuery();
@@ -205,10 +190,10 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `ListaAutor` (
-	            `idAutor` INT NOT NULL,
+	            `nombreAutor` varchar(150) NOT NULL,
 	            `isbn13` varchar(13) NOT NULL,
-	            PRIMARY KEY (`idAutor`,`isbn13`),
-                FOREIGN KEY (`idAutor`) REFERENCES `Autor`(`idAutor`),
+	            PRIMARY KEY (`nombreAutor`,`isbn13`),
+                FOREIGN KEY (`nombreAutor`) REFERENCES `Autor`(`nombreAutor`),
                 FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
             );", conexion);
             tabla.ExecuteNonQuery();
@@ -218,12 +203,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Genero` (
-	            `idGenero` INT NOT NULL,
-	            `nombre` varchar(75),
-	            `generoPadre` INT NOT NULL,
+	            `nombreGenero` varchar(75) NOT NULL,
+	            `generoPadre` varchar(75),
 	            `comentario` varchar(300),
-	            PRIMARY KEY (`idGenero`),
-                FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`idGenero`)
+	            PRIMARY KEY (`nombreGenero`),
+                FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`nombreGenero`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -232,10 +216,10 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `ListaGenero` (
-	            `idGenero` INT NOT NULL,
+	            `nombreGenero` varchar(75) NOT NULL,
 	            `isbn13` varchar(13) NOT NULL,
-	            PRIMARY KEY (`idGenero`,`isbn13`),
-                FOREIGN KEY (`idGenero`) REFERENCES `Genero`(`idGenero`),
+	            PRIMARY KEY (`nombreGenero`,`isbn13`),
+                FOREIGN KEY (`nombreGenero`) REFERENCES `Genero`(`nombreGenero`),
                 FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
             );", conexion);
             tabla.ExecuteNonQuery();
@@ -247,7 +231,7 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `Usuario` (
 	            `correoUsuario` varchar(150) NOT NULL,
 	            `nombreUsuario` varchar(50) NOT NULL,
-	            `contraseña` varchar(50) NOT NULL,
+	            `contrasenia` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
 	            PRIMARY KEY (`correoUsuario`)
             );", conexion);

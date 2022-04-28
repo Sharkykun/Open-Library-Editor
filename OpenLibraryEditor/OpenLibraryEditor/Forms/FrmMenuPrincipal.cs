@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -62,6 +63,22 @@ namespace OpenLibraryEditor.Forms
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
+        private void GenerarPortadaLibro(Libro libro, Button botonLibro)
+        {
+            if (libro.ImagenPortada != null)
+            {
+                botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
+            }
+            else
+            {
+                botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
+                botonLibro.Text = libro.Titulo;
+                botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
+                botonLibro.ForeColor = Color.Gainsboro;
+                botonLibro.Padding = new Padding(15, 0, 5, 0);
+            }
+        }
+
         private void RecolocarLibros(bool ignorarOrdenar) {
             if(!ignorarOrdenar)
                 titulos.Sort();
@@ -105,18 +122,7 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Size = new Size(130, 170);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
                     botonLibro.Tag = libro;
-                    if (libro.ImagenPortada != null)
-                    {
-                        botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
-                    }
-                    else
-                    {
-                        botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
-                        botonLibro.Text = libro.Titulo;
-                        botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
-                        botonLibro.ForeColor = Color.Gainsboro;
-                        botonLibro.Padding = new Padding(15, 0, 5, 0);
-                    }
+                    GenerarPortadaLibro(libro, botonLibro);
                     botonLibro.Padding = new Padding(15, 0, 5, 0);
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
@@ -131,18 +137,7 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.Size = new Size(130, 170);
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
                     botonLibro.Tag = libro;
-                    if (libro.ImagenPortada != null)
-                    {
-                        botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
-                    }
-                    else
-                    {
-                        botonLibro.BackgroundImage = Properties.Resources.PortadaLogo;
-                        botonLibro.Text = libro.Titulo;
-                        botonLibro.Font = new Font("Merienda One", 9, FontStyle.Bold);
-                        botonLibro.ForeColor = Color.Gainsboro;
-                        botonLibro.Padding = new Padding(15, 0, 5, 0);
-                    }
+                    GenerarPortadaLibro(libro, botonLibro);
                     botonLibro.Padding = new Padding(15, 0, 5, 0);
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
@@ -169,7 +164,10 @@ namespace OpenLibraryEditor.Forms
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
-            PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
+            if(File.Exists(libroActual.ImagenPortada))
+                PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
+            else
+                PcbLibro.Image = Properties.Resources.PortadaLogo;
             TxtTituloLibro.Text = libroActual.Titulo + " "+libroActual.Subtitulo;
             foreach (Autor a in libroActual.ListaAutor)
             {

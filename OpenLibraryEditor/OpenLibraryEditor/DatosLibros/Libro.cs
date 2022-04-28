@@ -23,7 +23,7 @@ namespace OpenLibraryEditor.DatosLibros
         private int edicion;
         private List<Serie> listaSerie = new List<Serie>();
         private double numeroVolumen; //Para series de múltiples volúmenes
-        private Idioma idioma;
+        private string idioma;
         private string isbn_10;
         private List<Genero> listaGenero = new List<Genero>();
         private List<Autor> listaAutor = new List<Autor>();
@@ -33,7 +33,7 @@ namespace OpenLibraryEditor.DatosLibros
         private string nombreTipo; //novela, manga, novela web...
         private bool mayorEdad;
         private int numeroCapitulos;
-        private Idioma idiomaOriginal;
+        private string idiomaOriginal;
         private string enlaceReferencia;
 
         //Datos personales de usuario
@@ -71,12 +71,12 @@ namespace OpenLibraryEditor.DatosLibros
         public DateTime FechaAdicionBD { get => fechaAdicionBD; set => fechaAdicionBD = value; }
         public int Edicion { get => edicion; set => edicion = value; }
         public double NumeroVolumen { get => numeroVolumen; set => numeroVolumen = value; }
-        public Idioma Idioma { get => idioma; set => idioma = value; }
+        public string Idioma { get => idioma; set => idioma = value; }
         public string Isbn_10 { get => isbn_10; set => isbn_10 = value; }
         public string NombreTipo { get => nombreTipo; set => nombreTipo = value; }
         public bool MayorEdad { get => mayorEdad; set => mayorEdad = value; }
         public int NumeroCapitulos { get => numeroCapitulos; set => numeroCapitulos = value; }
-        public Idioma IdiomaOriginal { get => idiomaOriginal; set => idiomaOriginal = value; }
+        public string IdiomaOriginal { get => idiomaOriginal; set => idiomaOriginal = value; }
         public string EnlaceReferencia { get => enlaceReferencia; set => enlaceReferencia = value; }
         public double Puntuacion { get => puntuacion; set => puntuacion = value; }
         public int VecesLeido { get => vecesLeido; set => vecesLeido = value; }

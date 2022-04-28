@@ -20,6 +20,13 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
+        public Editorial(string nombre, string comentario, string imagen)
+        {
+            this.nombre = nombre;
+            this.comentario = comentario;
+            this.imagen = imagen;
+        }
+
         #region Get y Set
         public int IdEditorial { get => idEditorial; set => idEditorial = value; }
         public string Nombre { get => nombre; set => nombre = value; }
