@@ -48,9 +48,9 @@ namespace OpenLibraryEditor.Forms
             PanVistaMosaico.BringToFront();
 
             //Agregar filtros de libro
-            KCmbBuscarPorMBI.Items.Add("Título");
-            KCmbBuscarPorMBI.Items.Add("Subtítulo");
-            KCmbBuscarPorMBI.Items.Add("ISBN");
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
             KCmbBuscarPorMBI.SelectedIndex = 0;
 
             //vistaDetallesH.setEditoriales("prueba1, prueba 2");
@@ -61,6 +61,7 @@ namespace OpenLibraryEditor.Forms
             //this.DoubleBuffered = true;
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
+
 
         private void RecolocarLibros(bool ignorarOrdenar) {
             if(!ignorarOrdenar)
@@ -169,7 +170,11 @@ namespace OpenLibraryEditor.Forms
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
-            PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
+            if (libroActual.ImagenPortada != null)
+                PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
+            else
+                PcbLibro.Image = Properties.Resources.PortadaLogo;
+
             TxtTituloLibro.Text = libroActual.Titulo + " "+libroActual.Subtitulo;
             foreach (Autor a in libroActual.ListaAutor)
             {
@@ -245,7 +250,9 @@ namespace OpenLibraryEditor.Forms
             if (libroActual.EnlaceReferencia != null)
                 System.Diagnostics.Process.Start(libroActual.EnlaceReferencia);
             else
-                VentanaWindowsComun.MensajeError("No hay ningún enlace guardado");
+                MiMessageBox.Show("No hay ningún enlace guardado","Open Library Editor",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+           
+                //VentanaWindowsComun.MensajeError("No hay ningún enlace guardado");
         }
         private void ManejadorLibroDet_Click(object sender, EventArgs e)
         {
@@ -773,7 +780,7 @@ namespace OpenLibraryEditor.Forms
             LblIdiOri.Text = ControladorIdioma.GetTexto("Main_IdiOri");
             LblTipoLibro.Text = ControladorIdioma.GetTexto("Main_TipoLibro");
             LblPublicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
-            LlLogIn.Text = ControladorIdioma.GetTexto("Main_Enlace");
+            LinkEnlace.Text = ControladorIdioma.GetTexto("Main_Enlace");
 
             KpUsuario.Text = ControladorIdioma.GetTexto("Main_DetallesUsuario");
             LblPuntuacion.Text = ControladorIdioma.GetTexto("Main_Punt");
@@ -1223,7 +1230,6 @@ namespace OpenLibraryEditor.Forms
         Rectangle InfIzqda { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
         Rectangle InfDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
 
-
         protected override void WndProc(ref Message message)
         {
             base.WndProc(ref message);
@@ -1244,32 +1250,30 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-
         #endregion
         #region cerrar formulario
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        { 
+            Biblioteca.biblioteca.GuardarJson(); 
+        }
+        private void CerrarFormulario()
         {
-            string mensaje = Clases.ControladorIdioma.GetTexto("ShowDialogCerrar");
-            
-            DialogResult boton = MessageBox.Show(mensaje, "Open Library Editor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string mensaje = ControladorIdioma.GetTexto("ShowDialogCerrar");
+
+            DialogResult boton = VentanaWindowsComun.MensajeSalir(mensaje);
 
             if (boton == DialogResult.Yes)
-            {
-                //Guardar datos en la base de datos local
-                e.Cancel = false;
-                Biblioteca.biblioteca.GuardarJson();
-            }
-            else
-                e.Cancel = true;
+                Application.Exit();
         }
         private void MBtnCerrarMain_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            CerrarFormulario();
+           
         }
         private void MBtnSalir_Click(object sender, EventArgs e)
         {
+            CerrarFormulario();
             
-            Application.Exit();
         }
         #endregion
         #region mover formulario

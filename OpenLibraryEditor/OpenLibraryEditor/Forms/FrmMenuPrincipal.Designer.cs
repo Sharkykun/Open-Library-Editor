@@ -955,7 +955,7 @@
             this.KpUsuario});
             this.KTabDetalles.Palette = this.kryptonPalette1;
             this.KTabDetalles.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KTabDetalles.SelectedIndex = 0;
+            this.KTabDetalles.SelectedIndex = 1;
             this.KTabDetalles.Size = new System.Drawing.Size(250, 326);
             this.KTabDetalles.TabIndex = 0;
             // 
@@ -1039,7 +1039,7 @@
             this.LblEscribirFechaPub.AutoSize = true;
             this.LblEscribirFechaPub.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirFechaPub.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirFechaPub.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirFechaPub.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirFechaPub.Name = "LblEscribirFechaPub";
             this.LblEscribirFechaPub.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.LblEscribirFechaPub.Size = new System.Drawing.Size(0, 24);
@@ -1062,7 +1062,7 @@
             this.LblEscribirTipoLibro.AutoSize = true;
             this.LblEscribirTipoLibro.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirTipoLibro.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirTipoLibro.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirTipoLibro.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirTipoLibro.Name = "LblEscribirTipoLibro";
             this.LblEscribirTipoLibro.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirTipoLibro.TabIndex = 52;
@@ -1107,7 +1107,7 @@
             this.LblEscribirIdioma.AutoSize = true;
             this.LblEscribirIdioma.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirIdioma.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirIdioma.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirIdioma.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirIdioma.Name = "LblEscribirIdioma";
             this.LblEscribirIdioma.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.LblEscribirIdioma.Size = new System.Drawing.Size(0, 24);
@@ -1128,7 +1128,7 @@
             this.LblEscribirIdiOri.AutoSize = true;
             this.LblEscribirIdiOri.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirIdiOri.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirIdiOri.Location = new System.Drawing.Point(136, 32);
+            this.LblEscribirIdiOri.Location = new System.Drawing.Point(158, 32);
             this.LblEscribirIdiOri.Name = "LblEscribirIdiOri";
             this.LblEscribirIdiOri.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirIdiOri.TabIndex = 47;
@@ -1161,7 +1161,7 @@
             this.LblEscribirEtiquetas.AutoSize = true;
             this.LblEscribirEtiquetas.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirEtiquetas.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirEtiquetas.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirEtiquetas.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEtiquetas.Name = "LblEscribirEtiquetas";
             this.LblEscribirEtiquetas.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirEtiquetas.TabIndex = 43;
@@ -1193,7 +1193,7 @@
             this.LblEscribirGenero.AutoSize = true;
             this.LblEscribirGenero.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirGenero.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirGenero.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirGenero.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirGenero.Name = "LblEscribirGenero";
             this.LblEscribirGenero.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirGenero.TabIndex = 41;
@@ -1241,7 +1241,7 @@
             this.LblEscribirIs13.AutoSize = true;
             this.LblEscribirIs13.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirIs13.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirIs13.Location = new System.Drawing.Point(96, 32);
+            this.LblEscribirIs13.Location = new System.Drawing.Point(118, 32);
             this.LblEscribirIs13.Name = "LblEscribirIs13";
             this.LblEscribirIs13.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.LblEscribirIs13.Size = new System.Drawing.Size(0, 24);
@@ -1274,7 +1274,7 @@
             this.LblEscribirIs10.AutoSize = true;
             this.LblEscribirIs10.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirIs10.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirIs10.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirIs10.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirIs10.Name = "LblEscribirIs10";
             this.LblEscribirIs10.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.LblEscribirIs10.Size = new System.Drawing.Size(0, 24);
@@ -1285,7 +1285,7 @@
             this.LblEscribirCapitulos.AutoSize = true;
             this.LblEscribirCapitulos.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirCapitulos.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirCapitulos.Location = new System.Drawing.Point(96, 57);
+            this.LblEscribirCapitulos.Location = new System.Drawing.Point(118, 57);
             this.LblEscribirCapitulos.Name = "LblEscribirCapitulos";
             this.LblEscribirCapitulos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.LblEscribirCapitulos.Size = new System.Drawing.Size(0, 24);
@@ -1306,7 +1306,7 @@
             this.LblEscribirPag.AutoSize = true;
             this.LblEscribirPag.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirPag.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirPag.Location = new System.Drawing.Point(96, 82);
+            this.LblEscribirPag.Location = new System.Drawing.Point(118, 82);
             this.LblEscribirPag.Name = "LblEscribirPag";
             this.LblEscribirPag.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirPag.TabIndex = 39;
@@ -1348,7 +1348,7 @@
             this.LblEscribirEditorial.AutoSize = true;
             this.LblEscribirEditorial.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirEditorial.Location = new System.Drawing.Point(96, 7);
+            this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
             this.LblEscribirEditorial.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirEditorial.TabIndex = 32;
@@ -1473,7 +1473,7 @@
             this.LblEscribirOculto.AutoSize = true;
             this.LblEscribirOculto.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirOculto.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirOculto.Location = new System.Drawing.Point(136, 216);
+            this.LblEscribirOculto.Location = new System.Drawing.Point(150, 216);
             this.LblEscribirOculto.Name = "LblEscribirOculto";
             this.LblEscribirOculto.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirOculto.TabIndex = 37;
@@ -1493,7 +1493,7 @@
             this.LblEscribirFavorito.AutoSize = true;
             this.LblEscribirFavorito.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirFavorito.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirFavorito.Location = new System.Drawing.Point(137, 191);
+            this.LblEscribirFavorito.Location = new System.Drawing.Point(151, 191);
             this.LblEscribirFavorito.Name = "LblEscribirFavorito";
             this.LblEscribirFavorito.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirFavorito.TabIndex = 35;
@@ -1513,7 +1513,7 @@
             this.LblEscribirFecFin.AutoSize = true;
             this.LblEscribirFecFin.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirFecFin.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirFecFin.Location = new System.Drawing.Point(137, 166);
+            this.LblEscribirFecFin.Location = new System.Drawing.Point(151, 166);
             this.LblEscribirFecFin.Name = "LblEscribirFecFin";
             this.LblEscribirFecFin.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirFecFin.TabIndex = 33;
@@ -1543,7 +1543,7 @@
             this.LblEscribirFecComienzo.AutoSize = true;
             this.LblEscribirFecComienzo.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirFecComienzo.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirFecComienzo.Location = new System.Drawing.Point(137, 141);
+            this.LblEscribirFecComienzo.Location = new System.Drawing.Point(151, 141);
             this.LblEscribirFecComienzo.Name = "LblEscribirFecComienzo";
             this.LblEscribirFecComienzo.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirFecComienzo.TabIndex = 31;
@@ -1553,7 +1553,7 @@
             this.LblEscribirCapiAct.AutoSize = true;
             this.LblEscribirCapiAct.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirCapiAct.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirCapiAct.Location = new System.Drawing.Point(137, 116);
+            this.LblEscribirCapiAct.Location = new System.Drawing.Point(151, 116);
             this.LblEscribirCapiAct.Name = "LblEscribirCapiAct";
             this.LblEscribirCapiAct.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirCapiAct.TabIndex = 29;
@@ -1573,7 +1573,7 @@
             this.LblEscribirEstadoLectura.AutoSize = true;
             this.LblEscribirEstadoLectura.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirEstadoLectura.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirEstadoLectura.Location = new System.Drawing.Point(137, 66);
+            this.LblEscribirEstadoLectura.Location = new System.Drawing.Point(151, 66);
             this.LblEscribirEstadoLectura.Name = "LblEscribirEstadoLectura";
             this.LblEscribirEstadoLectura.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirEstadoLectura.TabIndex = 27;
@@ -1593,7 +1593,7 @@
             this.LblEscribirVecesLeido.AutoSize = true;
             this.LblEscribirVecesLeido.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirVecesLeido.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirVecesLeido.Location = new System.Drawing.Point(137, 41);
+            this.LblEscribirVecesLeido.Location = new System.Drawing.Point(151, 41);
             this.LblEscribirVecesLeido.Name = "LblEscribirVecesLeido";
             this.LblEscribirVecesLeido.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirVecesLeido.TabIndex = 26;
@@ -1613,7 +1613,7 @@
             this.LblEscribirPuntuacion.AutoSize = true;
             this.LblEscribirPuntuacion.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirPuntuacion.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirPuntuacion.Location = new System.Drawing.Point(137, 16);
+            this.LblEscribirPuntuacion.Location = new System.Drawing.Point(151, 16);
             this.LblEscribirPuntuacion.Name = "LblEscribirPuntuacion";
             this.LblEscribirPuntuacion.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirPuntuacion.TabIndex = 22;
@@ -1633,7 +1633,7 @@
             this.LblEscribirTiempoLec.AutoSize = true;
             this.LblEscribirTiempoLec.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEscribirTiempoLec.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirTiempoLec.Location = new System.Drawing.Point(137, 91);
+            this.LblEscribirTiempoLec.Location = new System.Drawing.Point(151, 91);
             this.LblEscribirTiempoLec.Name = "LblEscribirTiempoLec";
             this.LblEscribirTiempoLec.Size = new System.Drawing.Size(0, 16);
             this.LblEscribirTiempoLec.TabIndex = 24;

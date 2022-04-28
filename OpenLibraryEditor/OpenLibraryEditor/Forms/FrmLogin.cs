@@ -266,7 +266,7 @@ namespace OpenLibraryEditor.Forms
                 "",
                 "",
                 "");
-            //BaseDatos.ConexionBD.CrearBD("localhost", "root", "metrica123", "3306");
+            //BaseDatos.ConexionBD.CrearBD("localhost", "root", "", "3306");
             //BaseDatos.ConexionBD.AbrirConexion();
             //BaseDatos.EscrituraBD.InsertOcupacion("Escritor");
             //BaseDatos.EscrituraBD.InsertAutor(testA);
