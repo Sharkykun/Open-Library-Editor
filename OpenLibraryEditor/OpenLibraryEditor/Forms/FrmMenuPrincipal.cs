@@ -214,12 +214,12 @@ namespace OpenLibraryEditor.Forms
             //    else
             //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper();
             //}
-
-            LblEscribirIdioma.Text = libroActual.Idioma.ToUpper();
-            LblEscribirIdiOri.Text = libroActual.IdiomaOriginal.ToUpper();
+            if (!String.IsNullOrWhiteSpace(libroActual.Idioma))
+                LblEscribirIdioma.Text = libroActual.Idioma.ToUpper();
+            if (!String.IsNullOrWhiteSpace(libroActual.IdiomaOriginal))
+                LblEscribirIdiOri.Text = libroActual.IdiomaOriginal.ToUpper();
             if (libroActual.NombreTipo!=null)
                  LblEscribirTipoLibro.Text =libroActual.NombreTipo.ToUpper();
-            //No se si no la coje bien o que no la guarda bien, pero no muestra la que es
             LblEscribirFechaPub.Text =libroActual.FechaPublicacion.ToShortDateString();
             LblEscribirPuntuacion.Text =libroActual.Puntuacion.ToString();
             LblEscribirVecesLeido.Text =libroActual.VecesLeido.ToString();

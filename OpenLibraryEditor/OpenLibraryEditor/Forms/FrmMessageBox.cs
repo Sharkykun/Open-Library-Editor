@@ -198,7 +198,7 @@ namespace OpenLibraryEditor.Forms
                     //Abort Button
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "Abort";
+                    button1.Text = "Cancelar";
                     button1.DialogResult = DialogResult.Abort;//Set DialogResult
                     button1.BackColor = Color.Goldenrod;
                     //Retry Button
@@ -207,7 +207,7 @@ namespace OpenLibraryEditor.Forms
                     button2.Text = "Retry";
                     button2.DialogResult = DialogResult.Retry;//Set DialogResult                    
                                                               //Ignore Button
-                    button3.Visible = true;
+                    button3.Visible = false;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
                     button3.Text = "Ignore";
                     button3.DialogResult = DialogResult.Ignore;//Set DialogResult
