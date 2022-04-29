@@ -38,5 +38,12 @@ namespace OpenLibraryEditor.Clases
             }
             return "";
         }
+
+        public static string RenombrarImagen(string nombreOriginal, string nombreNuevo)
+        {
+            string[] ruta = nombreOriginal.Split('\\');
+            ruta[ruta.Length - 1] = nombreNuevo;
+            return Path.Combine(ruta);
+        }
     }
 }

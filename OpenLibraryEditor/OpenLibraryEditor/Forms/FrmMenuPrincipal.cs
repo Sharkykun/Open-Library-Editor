@@ -65,7 +65,7 @@ namespace OpenLibraryEditor.Forms
 
         private void GenerarPortadaLibro(Libro libro, Button botonLibro)
         {
-            if (libro.ImagenPortada != null)
+            if (File.Exists(libro.ImagenPortada))
             {
                 botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
             }
@@ -666,9 +666,9 @@ namespace OpenLibraryEditor.Forms
         {
             if (titulos.Count == 0)
             {
-                titulos.Add(new Libro("1", "Caballero Luna"));
-                titulos.Add(new Libro("2", "Spiderman Homecoming"));
-                titulos.Add(new Libro("3", "Thor"));
+                titulos.Add(new Libro("Caballero Luna"));
+                titulos.Add(new Libro("Spiderman Homecoming"));
+                titulos.Add(new Libro("Thor"));
                 //titulos.Add("Capitán América");
                 //titulos.Add("Los Vengadores");
                 //titulos.Add("Iron Man");
@@ -1022,14 +1022,14 @@ namespace OpenLibraryEditor.Forms
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            Libro nuevoLibro = new Libro();
+            Libro nuevoLibro = new Libro("Nuevo Libro");
             FrmLibros al = new FrmLibros(nuevoLibro);
             al.FormBorderStyle=FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Titulo");
             al.ShowDialog();
 
-            //Comprobar si el libro tiene isbn o no para guardarlo
-            if (!String.IsNullOrWhiteSpace(nuevoLibro.Isbn_13))
+            //Comprobar si el libro se ha aceptado o no para guardarlo
+            if (al.EsOk)
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
 
             BotonActivoTool(sender,Colores.colorBiblioteca);

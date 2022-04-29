@@ -40,6 +40,9 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem itemActual;
         private string rutaImagenPortada;
         private string rutaImagenContraportada;
+        private bool esOk;
+
+        public bool EsOk { get => esOk; set => esOk = value; }
         #endregion
         public FrmLibros(Libro libro)
         {
@@ -519,10 +522,7 @@ namespace OpenLibraryEditor.Forms
 
         private void BtnGuardarNL_Click(object sender, EventArgs e)
         {
-            object obj = Biblioteca.biblioteca.ListaLibro.Find(p => p.Isbn_13 == KTxtIsbn13.Text);
-            if (!String.IsNullOrWhiteSpace(KTxtIsbn13.Text) &&
-               ( obj == libroActual || obj == null )
-               && !String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
+            if (!String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
             {
                 //Actualizar libro
                 libroActual.Titulo = KTxtTituloNL.Text;
@@ -572,19 +572,20 @@ namespace OpenLibraryEditor.Forms
                 if (rutaImagenPortada != libroActual.ImagenPortada)
                 {
                     libroActual.ImagenPortada = ControladorImagen.GuardarImagen(rutaImagenPortada,
-                        ControladorImagen.RUTA_LIBRO, libroActual.Isbn_13 + "_c");
+                        ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_c");
                     rutaImagenPortada = libroActual.ImagenPortada;
                 }
                 if (rutaImagenContraportada != libroActual.ImagenContraportada)
                 {
                     libroActual.ImagenContraportada = ControladorImagen.GuardarImagen(rutaImagenContraportada,
-                        ControladorImagen.RUTA_LIBRO, libroActual.Isbn_13 + "_b");
+                        ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_b");
                     rutaImagenContraportada = libroActual.ImagenContraportada;
                 }
                 libroActual.ListaAccion.Clear();
                 foreach (ListViewItem c in LsvAccionesNL.Items)
                     libroActual.ListaAccion.Add((UsuarioAccion)c.Tag);
 
+                esOk = true;
                 Close();
             }
             else

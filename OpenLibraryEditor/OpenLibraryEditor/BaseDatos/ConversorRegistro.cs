@@ -12,7 +12,7 @@ namespace OpenLibraryEditor.BaseDatos
     {
         public static Autor RegistroAAutor(MySqlDataReader registro)
         {
-            return new Autor(registro["nombreAutor"].ToString(),
+            Autor a = new Autor(registro["nombreAutor"].ToString(),
                 registro["alias"].ToString(),
                 registro["nombreOcupacion"].ToString(),
                 DateTime.Parse(registro["fechaNacimiento"].ToString()),
@@ -20,25 +20,31 @@ namespace OpenLibraryEditor.BaseDatos
                 registro["enlaceReferencia"].ToString(),
                 registro["comentario"].ToString(),
                 registro["imagen"].ToString());
+            a.ListaIdCompartido.Add(ConexionBD.idBD+"-"+registro["idAutor"].ToString());
+            return a;
         }
 
         public static Editorial RegistroAEditorial(MySqlDataReader registro)
         {
-            return new Editorial(registro["nombreEditorial"].ToString(),
+            Editorial e = new Editorial(registro["nombreEditorial"].ToString(),
                 registro["comentario"].ToString(),
                 registro["imagen"].ToString());
+            e.ListaIdCompartido.Add(ConexionBD.idBD + "-" + registro["idEditorial"].ToString());
+            return e;
         }
 
         public static Genero RegistroAGenero(MySqlDataReader registro)
         {
             //Si tiene genero padre, sacarlo recursivamente
-            Genero genero = null;
+            Genero generoPadre = null;
             if (registro["generoPadre"].ToString() == null)
-                genero = LecturaBD.SelectGenero(registro["generoPadre"].ToString());
+                generoPadre = LecturaBD.SelectGenero(registro["generoPadre"].ToString());
 
-            return new Genero(registro["nombreGenero"].ToString(),
-                genero,
+            Genero g = new Genero(registro["nombreGenero"].ToString(),
+                generoPadre,
                 registro["comentario"].ToString());
+            g.ListaIdCompartido.Add(ConexionBD.idBD + "-" + registro["idGenero"].ToString());
+            return g;
         }
 
         public static InfoUsuarioBD RegistroAUsuarioInfo(MySqlDataReader registro)
@@ -50,7 +56,6 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static Libro RegistroALibro(MySqlDataReader registro)
         {
-            //Si tiene genero padre, sacarlo recursivamente
             Libro libro = new Libro();
             libro.Isbn_13 = registro["isbn13"].ToString();
             libro.Titulo = registro["titulo"].ToString();
@@ -71,12 +76,12 @@ namespace OpenLibraryEditor.BaseDatos
             libro.MayorEdad = bool.Parse(registro["mayorEdad"].ToString());
             libro.NumeroCapitulos = int.Parse(registro["numeroCapitulos"].ToString());
             libro.EnlaceReferencia = registro["enlaceReferencia"].ToString();
+            libro.ListaIdCompartido.Add(ConexionBD.idBD + "-" + registro["idLibro"].ToString());
             return libro;
         }
 
         public static void RegistroAUsuarioLibro(MySqlDataReader registro, Libro libro)
         {
-            //Si tiene genero padre, sacarlo recursivamente
             libro.Puntuacion = Double.Parse(registro["puntuacion"].ToString());
             libro.VecesLeido = int.Parse(registro["vecesLeido"].ToString());
             libro.TiempoLectura = DateTime.Parse(registro["tiempoLectura"].ToString());
@@ -87,7 +92,6 @@ namespace OpenLibraryEditor.BaseDatos
             libro.EstadoLectura = registro["estadoLectura"].ToString();
             libro.Ocultar = bool.Parse(registro["ocultar"].ToString());
             libro.Favorito = bool.Parse(registro["favorito"].ToString());
-            
         }
     }
 }

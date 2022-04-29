@@ -11,6 +11,8 @@ namespace OpenLibraryEditor.DatosLibros
     public class Libro : IComparable<Libro>
     {
         //Datos de libro comunes
+        private List<string> listaIdCompartido = new List<string>();
+        private int idLibro;
         private string isbn_13;
         private string titulo;
         private string subtitulo;
@@ -53,9 +55,9 @@ namespace OpenLibraryEditor.DatosLibros
         {
         }
 
-        public Libro(string isbn_13, string titulo)
+        public Libro(string titulo)
         {
-            this.isbn_13 = isbn_13;
+            SetRandomId();
             this.titulo = titulo;
         }
 
@@ -96,11 +98,23 @@ namespace OpenLibraryEditor.DatosLibros
         public string ImagenContraportada { get => imagenContraportada; set => imagenContraportada = value; }
         public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
         public List<UsuarioAccion> ListaAccion { get => listaAccion; set => listaAccion = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
+        public int IdLibro { get => idLibro; set => idLibro = value; }
         #endregion
 
         override public string ToString()
         {
             return titulo;
+        }
+
+        private void SetRandomId()
+        {
+            Random rnd = new Random();
+            do
+            {
+                idLibro = rnd.Next();
+            } while (Biblioteca.biblioteca.ListaLibro.
+                FindIndex(p => idLibro == p.idLibro) != -1);
         }
 
         public int CompareTo(Libro otro)

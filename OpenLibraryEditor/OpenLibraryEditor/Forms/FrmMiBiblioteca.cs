@@ -165,9 +165,9 @@ namespace OpenLibraryEditor.Forms
        
         private void TitulosPrueba()
         {
-            titulos.Add(new Libro("1", "Caballero Luna"));
-            titulos.Add(new Libro("2", "Spiderman Homecoming"));
-            titulos.Add(new Libro("3", "Thor"));
+            titulos.Add(new Libro("Caballero Luna"));
+            titulos.Add(new Libro("Spiderman Homecoming"));
+            titulos.Add(new Libro("Thor"));
             //titulos.Add("Capitán América");
             //titulos.Add("Los Vengadores");
             //titulos.Add("Iron Man");

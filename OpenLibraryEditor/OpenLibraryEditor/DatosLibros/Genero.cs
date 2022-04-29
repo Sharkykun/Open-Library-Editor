@@ -8,6 +8,7 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class Genero : IComparable<Genero>
     {
+        private List<string> listaIdCompartido = new List<string>();
         private int idGenero;
         private string nombre = "";
         private Genero generoPadre;
@@ -33,6 +34,7 @@ namespace OpenLibraryEditor.DatosLibros
         public string Nombre { get => nombre; set => nombre = value; }
         public Genero GeneroPadre { get => generoPadre; set => generoPadre = value; }
         public string Comentario { get => comentario; set => comentario = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
 
         public int CompareTo(Genero otro)
         {
