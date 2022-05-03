@@ -17,7 +17,8 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmTags : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "la etiqueta";
+       //private const string NOMBRE_OBJETO = "la etiqueta";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Et_LaEtiqueta");
         private bool setNew;
         private Etiqueta etiquetaNueva;
         private List<Etiqueta> listaEtiqueta = Biblioteca.biblioteca.ListaEtiqueta;
@@ -50,11 +51,10 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarTa_Click(object sender, EventArgs e)
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void FrmTags_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
@@ -93,10 +93,10 @@ namespace OpenLibraryEditor.Forms
             TTEtiquetas.SetToolTip(this.MBtnMenosCategoriaTag, ControladorIdioma.GetTexto("Et_MenosCat"));
             LblComentarioTa.Text = ControladorIdioma.GetTexto("Et_Comentario");
             TTEtiquetas.SetToolTip(this.KTxtComentarioTa, ControladorIdioma.GetTexto("Et_TTComentario"));
-            KBtnCancelarTag.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTEtiquetas.SetToolTip(this.KBtnCancelarTag, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarTag.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTEtiquetas.SetToolTip(this.KBtnAceptarTag, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTEtiquetas.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTEtiquetas.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
             TTEtiquetas.SetToolTip(this.MBtnCerrarTags, ControladorIdioma.GetTexto("Cerrar"));
         }
         private void ActualizarCategoria()
@@ -134,7 +134,7 @@ namespace OpenLibraryEditor.Forms
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
-                    KBtnAceptarTa_Click(null, null);
+                    GBtnAceptar_Click(null, null);
             }
         }
         #endregion
@@ -164,7 +164,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasLsvNT_Click(object sender, EventArgs e)
         {
-            Etiqueta et = new Etiqueta("Nueva Etiqueta");
+            Etiqueta et = new Etiqueta(ControladorIdioma.GetTexto("Et_NuevaEti"));
             listaEtiqueta.Add(et);
             var item = AniadirEtiqueta(et);
             item.Selected = true;
@@ -196,17 +196,17 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMenosCategoriaTag_Click(object sender, EventArgs e)
         {
-            if (VentanaWindowsComun.MensajeBorrarObjeto("la categoría") == DialogResult.Yes)
+            if (VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Et_LaCategoria")) == DialogResult.Yes)
             {
                 listaCategoria.Remove((string)KCmbCategoriaNE.SelectedItem);
                 ActualizarCategoria();
                 KCmbCategoriaNE.SelectedItem = null;
             }
         }
-
-        private void KBtnAceptarTa_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesTag.Visible == true) {
+            if (PanOpcionesTag.Visible == true)
+            {
                 if (!String.IsNullOrWhiteSpace(KTxtNombreNE.Text))
                 {
                     //Actualizar etiqueta
@@ -219,10 +219,9 @@ namespace OpenLibraryEditor.Forms
                     itemActual.SubItems[1].Text = KCmbCategoriaNE.Text;
                 }
                 else
-                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
-
         private void FrmTags_FormClosing(object sender, FormClosingEventArgs e)
         {
             ComprobarGuardado();

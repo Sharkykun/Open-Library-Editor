@@ -18,7 +18,8 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmAutores : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "el autor";
+        //private const string NOMBRE_OBJETO = "el autor";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Au_ElAutor");
         private bool setNew;
         private Autor personaNueva;
         private List<Autor> listaPersona = Biblioteca.biblioteca.ListaAutor;
@@ -41,10 +42,11 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarAu_Click(object sender, EventArgs e)
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+     
         #region mover formulario
         //Para poder mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -108,10 +110,10 @@ namespace OpenLibraryEditor.Forms
             TTAutores.SetToolTip(this.MBtnAniadirImagenAu, ControladorIdioma.GetTexto("Au_MasImg"));
             TTAutores.SetToolTip(this.MBtnBorrarImagenAu, ControladorIdioma.GetTexto("Au_MenosImg"));
             TTAutores.SetToolTip(this.PcbAutorNA, ControladorIdioma.GetTexto("Au_Pcb"));
-            KBtnCancelarAu.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTAutores.SetToolTip(this.KBtnCancelarAu, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarAu.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTAutores.SetToolTip(this.KBtnAceptarAu, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTAutores.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTAutores.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
             LblSigueVivo.Text = ControladorIdioma.GetTexto("Au_Vivo");
             TTAutores.SetToolTip(this.TBtnVivo, ControladorIdioma.GetTexto("Au_TTVivo"));
         }
@@ -173,7 +175,7 @@ namespace OpenLibraryEditor.Forms
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
-                    KBtnAceptarAu_Click(null, null);
+                    GBtnAceptar_Click(null, null);
             }
         }
         #endregion
@@ -208,7 +210,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasLsvNA_Click(object sender, EventArgs e)
         {
-            Autor p = new Autor("Nueva Persona");
+            Autor p = new Autor(ControladorIdioma.GetTexto("Au_NuevaPersona"));
             listaPersona.Add(p);
             var item = AniadirPersona(p);
             item.Selected = true;
@@ -228,25 +230,45 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasOcupacionNA_Click(object sender, EventArgs e)
         {
-            string x = Interaction.InputBox("Escribe el nombre de la ocupación.",
-                "Añadir Ocupación", "", Location.X, Location.Y + 10);
+            FrmInputTxt input = new FrmInputTxt(null);
+            if (KCmbOcupacionNA.SelectedItem != null)
+            {
+                input = new FrmInputTxt(KCmbOcupacionNA.SelectedItem.ToString());
+            }
+            input.FormBorderStyle = FormBorderStyle.None;
+            input.Text = "Ocupación";
+            input.ShowDialog();
+            string x = input.tipo;
             //Comprobar que no esté en blanco
-            if (!String.IsNullOrWhiteSpace(x))
+            if (!String.IsNullOrWhiteSpace(x) && !input.editable)
             {
                 listaOcupacion.Add(x);
                 ActualizarOcupacion();
                 KCmbOcupacionNA.SelectedItem = x;
             }
-        }
-
-        private void MBtnMenosOcupacionNA_Click(object sender, EventArgs e)
-        {
-            if (VentanaWindowsComun.MensajeBorrarObjeto("la ocupación") == DialogResult.Yes)
+            else if (!String.IsNullOrWhiteSpace(x) && input.editable)
+            {
+                int i = listaOcupacion.IndexOf(KCmbOcupacionNA.SelectedItem.ToString());
+                listaOcupacion[i] = x;
+                ActualizarOcupacion();
+                KCmbOcupacionNA.SelectedItem = x;
+            }
+            else if (x == null)
             {
                 listaOcupacion.Remove((string)KCmbOcupacionNA.SelectedItem);
                 ActualizarOcupacion();
                 KCmbOcupacionNA.SelectedItem = null;
             }
+        }
+
+        private void MBtnMenosOcupacionNA_Click(object sender, EventArgs e)
+        {
+            //if (VentanaWindowsComun.MensajeBorrarObjeto(personaActual.NombreOcupacion) == DialogResult.Yes)
+            //{
+            //    listaOcupacion.Remove((string)KCmbOcupacionNA.SelectedItem);
+            //    ActualizarOcupacion();
+            //    KCmbOcupacionNA.SelectedItem = null;
+            //}
         }
 
         private void MBtnAniadirImagenAu_Click(object sender, EventArgs e)
@@ -263,7 +285,7 @@ namespace OpenLibraryEditor.Forms
         {
              PcbAutorNA.Image = PcbAutorNA.ErrorImage;
         }
-        private void KBtnAceptarAu_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (PanOpcionesNA.Visible == true)
             {
@@ -289,7 +311,7 @@ namespace OpenLibraryEditor.Forms
                     itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
                 }
                 else
-                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
 
@@ -297,5 +319,7 @@ namespace OpenLibraryEditor.Forms
         {
             ComprobarGuardado();
         }
+
+      
     }
 }

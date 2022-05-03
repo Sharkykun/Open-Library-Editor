@@ -83,6 +83,9 @@
     <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\..\..\..\Downloads\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -185,6 +188,12 @@
     <Compile Include="DatosLibros\UsuarioAccion.cs" />
     <Compile Include="DatosLibros\UsuarioDatos.cs" />
     <Compile Include="DatosLibros\UsuarioEjecutable.cs" />
+    <Compile Include="Forms\FrmAdministrarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAdministrarUsuarios.Designer.cs">
+      <DependentUpon>FrmAdministrarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAutores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +211,12 @@
     </Compile>
     <Compile Include="Forms\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCrearBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCrearBD.Designer.cs">
+      <DependentUpon>FrmCrearBD.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmEditarRelacionSerie.cs">
       <SubType>Form</SubType>
@@ -226,6 +241,12 @@
     </Compile>
     <Compile Include="Forms\FrmGeneros.Designer.cs">
       <DependentUpon>FrmGeneros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmInputTxt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmInputTxt.Designer.cs">
+      <DependentUpon>FrmInputTxt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmMessageBox.cs">
       <SubType>Form</SubType>
@@ -305,6 +326,9 @@
     <EmbeddedResource Include="Controles\VistaDetallesV.resx">
       <DependentUpon>VistaDetallesV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAdministrarUsuarios.resx">
+      <DependentUpon>FrmAdministrarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAutores.resx">
       <DependentUpon>FrmAutores.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +338,9 @@
     <EmbeddedResource Include="Forms\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCrearBD.resx">
+      <DependentUpon>FrmCrearBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditarRelacionSerie.resx">
       <DependentUpon>FrmEditarRelacionSerie.cs</DependentUpon>
@@ -326,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmGeneros.resx">
       <DependentUpon>FrmGeneros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmInputTxt.resx">
+      <DependentUpon>FrmInputTxt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -443,6 +473,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
