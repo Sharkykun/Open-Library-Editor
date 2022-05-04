@@ -10,6 +10,24 @@ namespace OpenLibraryEditor.BaseDatos
 {
     public class LecturaBD
     {
+		public static int SelectObtenerIdBD()
+		{
+			string query = "Select * From Biblioteca";
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
+		public static int SelectObtenerIdNuevoTabla(string tablaNombre, string campo, int randomId)
+		{
+			string query = "Select count(*) From "+tablaNombre+" where "+campo+" like "+ randomId;
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
 		public static string SelectOcupacion(string ocupacion)
         {
             string query = "Select * From Ocupacion Where nombreOcupacion = '" + ocupacion+"'";

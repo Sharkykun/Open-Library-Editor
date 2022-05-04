@@ -228,44 +228,11 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasIP_Click(object sender, EventArgs e)
         {
-            //FrmInputTxt input = new FrmInputTxt(null);
-            //if (CmbIP.SelectedItem != null)
-            //{
-            //    input = new FrmInputTxt(KCmbOcupacionNA.SelectedItem.ToString());
-            //}
-            //input.FormBorderStyle = FormBorderStyle.None;
-            //input.Text = "Servidor";
-            //input.ShowDialog();
-            //string x = input.tipo;
-            ////Comprobar que no esté en blanco
-            //if (!String.IsNullOrWhiteSpace(x) && !input.editable)
-            //{
-            //    InfoBaseDatos info = new InfoBaseDatos(x, "0.0.0.0", 80);
-            //    CmbIP.Items.Add(info);
-            //    CmbIP.SelectedItem = info;
-            //}
-            //else if (!String.IsNullOrWhiteSpace(x) && input.editable)
-            //{
-            //    int i = info.IndexOf(CmbIP.SelectedItem.ToString());
-            //    info[i] = x;
-            //    ActualizarOcupacion();
-            //    KCmbOcupacionNA.SelectedItem = x;
-            //}
-            //else if (x == null)
-            //{
-            //    CmbIP.Items.Remove(CmbIP.SelectedItem);
-            //    if (CmbIP.Items.Count > 0)
-            //        CmbIP.SelectedIndex = 0;
-            //}
-            string x = Interaction.InputBox("Escribe el nombre del servidor.",
-                "Añadir Servidor", "", Location.X, Location.Y + 10);
-            //Comprobar que no esté en blanco
-            if (!String.IsNullOrWhiteSpace(x))
-            {
-                InfoBaseDatos info = new InfoBaseDatos(x, "0.0.0.0", 80);
-                CmbIP.Items.Add(info);
-                CmbIP.SelectedItem = info;
-            }
+            //Falta mensaje de error si campos vacios
+            InfoBaseDatos info = new InfoBaseDatos(TxtTituloServidorWeb.Text,
+                TxtIP.Text, (int)NudPuerto.Value);
+            CmbIP.Items.Add(info);
+            CmbIP.SelectedItem = info;
         }
 
         private void MBtnMenosIP_Click(object sender, EventArgs e)

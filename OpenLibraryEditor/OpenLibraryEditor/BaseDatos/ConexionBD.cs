@@ -10,6 +10,7 @@ namespace OpenLibraryEditor.BaseDatos
     public class ConexionBD
     {
         public static MySqlConnection conexion;
+        public static int idBD;
         public const string NOMBRE_BD = "open_library_editor";
 
         public static void CrearBD(string servidor, string usuario, string contrasena, string puerto)
@@ -40,6 +41,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
 
             //Creamos tablas
+            CrearTablaIdBD();
             CrearTablaUsuario();
             CrearTablaOcupacion();
             CrearTablaTipoLibro();
@@ -51,6 +53,11 @@ namespace OpenLibraryEditor.BaseDatos
             CrearTablaListaAutor();
             CrearTablaListaGenero();
             CrearTablaUsuarioLibro();
+
+            //Generar ID random propio de la BD
+            Random rnd = new Random();
+            EscrituraBD.InsertarIdBD(rnd.Next());
+            idBD = LecturaBD.SelectObtenerIdBD();
 
             CerrarConexion();
         }
@@ -101,6 +108,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Libro` (
+                `idLibro` INT NOT NULL,
 	            `isbn13` varchar(13) NOT NULL,
 	            `titulo` varchar(150) NOT NULL,
                 `subtitulo` varchar(150),
@@ -120,7 +128,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `mayorEdad` BOOLEAN NOT NULL,
 	            `numeroCapitulos` INT,
 	            `enlaceReferencia` varchar(256),
-                PRIMARY KEY (`isbn13`),
+                PRIMARY KEY (`idLibro`),
                 FOREIGN KEY (`nombreTipoLibro`) REFERENCES `TipoLibro`(`nombreTipoLibro`)
             );", conexion);
             tabla.ExecuteNonQuery();
@@ -139,10 +147,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Editorial` (
+                `idEditorial` INT NOT NULL,
 	            `nombreEditorial` varchar(75) NOT NULL,
 	            `comentario` varchar(300),
 	            `imagen` varchar(256),
-	            PRIMARY KEY (`nombreEditorial`)
+	            PRIMARY KEY (`idEditorial`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -150,11 +159,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `ListaEditorial` (
-	            `nombreEditorial` varchar(75) NOT NULL,
-	            `isbn13` varchar(13) NOT NULL,
-	            PRIMARY KEY (`nombreEditorial`,`isbn13`),
-                FOREIGN KEY (`nombreEditorial`) REFERENCES `Editorial`(`nombreEditorial`),
-                FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
+	            `idEditorial` INT NOT NULL,
+	            `idLibro` INT NOT NULL,
+	            PRIMARY KEY (`idEditorial`,`idLibro`),
+                FOREIGN KEY (`idEditorial`) REFERENCES `Editorial`(`idEditorial`),
+                FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -162,6 +171,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Autor` (
+                `idAutor` INT NOT NULL,
 	            `nombreAutor` varchar(150) NOT NULL,
 	            `alias` varchar(150),
 	            `nombreOcupacion` varchar(75),
@@ -170,7 +180,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `enlaceReferencia` varchar(256),
 	            `comentario` varchar(300),
 	            `imagen` varchar(256),
-	            PRIMARY KEY (`nombreAutor`),
+	            PRIMARY KEY (`idAutor`),
                 FOREIGN KEY (`nombreOcupacion`) REFERENCES `Ocupacion`(`nombreOcupacion`)
             );", conexion);
             tabla.ExecuteNonQuery();
@@ -190,11 +200,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `ListaAutor` (
-	            `nombreAutor` varchar(150) NOT NULL,
-	            `isbn13` varchar(13) NOT NULL,
-	            PRIMARY KEY (`nombreAutor`,`isbn13`),
-                FOREIGN KEY (`nombreAutor`) REFERENCES `Autor`(`nombreAutor`),
-                FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
+	            `idAutor` INT NOT NULL,
+	            `idLibro` INT NOT NULL,
+	            PRIMARY KEY (`idAutor`,`idLibro`),
+                FOREIGN KEY (`idAutor`) REFERENCES `Autor`(`idAutor`),
+                FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -203,11 +213,12 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Genero` (
+                `idGenero` INT NOT NULL,
 	            `nombreGenero` varchar(75) NOT NULL,
-	            `generoPadre` varchar(75),
+	            `generoPadre` INT,
 	            `comentario` varchar(300),
-	            PRIMARY KEY (`nombreGenero`),
-                FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`nombreGenero`)
+	            PRIMARY KEY (`idGenero`),
+                FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`idGenero`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -216,11 +227,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `ListaGenero` (
-	            `nombreGenero` varchar(75) NOT NULL,
-	            `isbn13` varchar(13) NOT NULL,
-	            PRIMARY KEY (`nombreGenero`,`isbn13`),
-                FOREIGN KEY (`nombreGenero`) REFERENCES `Genero`(`nombreGenero`),
-                FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
+	            `idGenero` INT NOT NULL,
+	            `idLibro` INT NOT NULL,
+	            PRIMARY KEY (`idGenero`,`idLibro`),
+                FOREIGN KEY (`idGenero`) REFERENCES `Genero`(`idGenero`),
+                FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -233,7 +244,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `nombreUsuario` varchar(50) NOT NULL,
 	            `contrasenia` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
-	            PRIMARY KEY (`correoUsuario`)
+	            PRIMARY KEY (`nombreUsuario`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }
@@ -242,8 +253,8 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `UsuarioLibro` (
-	            `correoUsuario` varchar(150) NOT NULL,
-	            `isbn13` varchar(13) NOT NULL,
+	            `nombreUsuario` varchar(50) NOT NULL,
+	            `idLibro` INT NOT NULL,
 	            `puntuacion` INT,
 	            `vecesLeido` INT,
 	            `tiempoLectura` TIME,
@@ -254,9 +265,19 @@ namespace OpenLibraryEditor.BaseDatos
 	            `estadoLectura` varchar(40) NOT NULL,
 	            `ocultar` BOOLEAN NOT NULL,
 	            `favorito` BOOLEAN NOT NULL,
-	            PRIMARY KEY (`correoUsuario`,`isbn13`),
-                FOREIGN KEY (`correoUsuario`) REFERENCES `Usuario`(`correoUsuario`),
-                FOREIGN KEY (`isbn13`) REFERENCES `Libro`(`isbn13`)
+	            PRIMARY KEY (`nombreUsuario`,`idLibro`),
+                FOREIGN KEY (`nombreUsuario`) REFERENCES `Usuario`(`nombreUsuario`),
+                FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
+            );", conexion);
+            tabla.ExecuteNonQuery();
+        }
+
+        private static void CrearTablaIdBD()
+        {
+            MySqlCommand tabla = new MySqlCommand(@"
+            CREATE TABLE `Biblioteca` (
+	            `idBD` INT NOT NULL,
+	            PRIMARY KEY (`idBD`)
             );", conexion);
             tabla.ExecuteNonQuery();
         }

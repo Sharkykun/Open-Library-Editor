@@ -11,6 +11,8 @@ namespace OpenLibraryEditor.DatosLibros
     public class Libro : IComparable<Libro>
     {
         //Datos de libro comunes
+        private List<string> listaIdCompartido = new List<string>();
+        private int idLibro;
         private string isbn_13;
         private string titulo;
         private string subtitulo;
@@ -19,7 +21,7 @@ namespace OpenLibraryEditor.DatosLibros
         private int numeroPaginas;
         private List<Editorial> listaEditorial = new List<Editorial>();
         private DateTime fechaPublicacion;
-        private DateTime fechaAdicionBD; //Fecha de inclusión en base de datos
+        private DateTime fechaAdicionBD; //Fecha de inclusión en base de datos local
         private int edicion;
         private List<Serie> listaSerie = new List<Serie>();
         private double numeroVolumen; //Para series de múltiples volúmenes
@@ -41,7 +43,7 @@ namespace OpenLibraryEditor.DatosLibros
         private List<UsuarioAccion> listaAccion = new List<UsuarioAccion>();
         private int vecesLeido; 
         private string estadoLectura;
-        private DateTime tiempoLectura;
+        private TimeSpan tiempoLectura;
         private string comentario; 
         private int capituloActual;
         private DateTime fechaComienzo;
@@ -53,9 +55,9 @@ namespace OpenLibraryEditor.DatosLibros
         {
         }
 
-        public Libro(string isbn_13, string titulo)
+        public Libro(string titulo)
         {
-            this.isbn_13 = isbn_13;
+            SetRandomId();
             this.titulo = titulo;
         }
 
@@ -81,7 +83,7 @@ namespace OpenLibraryEditor.DatosLibros
         public double Puntuacion { get => puntuacion; set => puntuacion = value; }
         public int VecesLeido { get => vecesLeido; set => vecesLeido = value; }
         public string EstadoLectura { get => estadoLectura; set => estadoLectura = value; }
-        public DateTime TiempoLectura { get => tiempoLectura; set => tiempoLectura = value; }
+        public TimeSpan TiempoLectura { get => tiempoLectura; set => tiempoLectura = value; }
         public string Comentario { get => comentario; set => comentario = value; }
         public int CapituloActual { get => capituloActual; set => capituloActual = value; }
         public DateTime FechaComienzo { get => fechaComienzo; set => fechaComienzo = value; }
@@ -96,11 +98,23 @@ namespace OpenLibraryEditor.DatosLibros
         public string ImagenContraportada { get => imagenContraportada; set => imagenContraportada = value; }
         public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
         public List<UsuarioAccion> ListaAccion { get => listaAccion; set => listaAccion = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
+        public int IdLibro { get => idLibro; set => idLibro = value; }
         #endregion
 
         override public string ToString()
         {
             return titulo;
+        }
+
+        private void SetRandomId()
+        {
+            Random rnd = new Random();
+            do
+            {
+                idLibro = rnd.Next();
+            } while (Biblioteca.biblioteca.ListaLibro.
+                FindIndex(p => idLibro == p.idLibro) != -1);
         }
 
         public int CompareTo(Libro otro)

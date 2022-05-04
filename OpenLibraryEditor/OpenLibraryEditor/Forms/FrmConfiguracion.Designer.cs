@@ -165,7 +165,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloConfi.Location = new System.Drawing.Point(75, 18);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
             this.LblTituloConfi.TabIndex = 3;
             this.LblTituloConfi.Text = "Configuración";
             // 
@@ -392,7 +392,6 @@
             // CmbDobleClick
             // 
             this.CmbDobleClick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.CmbDobleClick.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CmbDobleClick.DropDownHeight = 70;
             this.CmbDobleClick.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDobleClick.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -406,9 +405,8 @@
             "Editar Información Libro"});
             this.CmbDobleClick.Location = new System.Drawing.Point(469, 203);
             this.CmbDobleClick.Name = "CmbDobleClick";
-            this.CmbDobleClick.Size = new System.Drawing.Size(329, 24);
+            this.CmbDobleClick.Size = new System.Drawing.Size(329, 26);
             this.CmbDobleClick.TabIndex = 17;
-            this.CmbDobleClick.Visible = false;
             // 
             // TxtSubtituloDobleClick
             // 
@@ -424,7 +422,6 @@
             this.TxtSubtituloDobleClick.Size = new System.Drawing.Size(335, 39);
             this.TxtSubtituloDobleClick.TabIndex = 15;
             this.TxtSubtituloDobleClick.Text = "Configurar la funcionalidad al hacer \r\ndoble click sobre un libro\r\n";
-            this.TxtSubtituloDobleClick.Visible = false;
             // 
             // LblDobleClick
             // 
@@ -436,7 +433,6 @@
             this.LblDobleClick.Size = new System.Drawing.Size(111, 26);
             this.LblDobleClick.TabIndex = 16;
             this.LblDobleClick.Text = "Doble click";
-            this.LblDobleClick.Visible = false;
             // 
             // TxtSubtituloEligeIdioConfi
             // 
@@ -901,7 +897,7 @@
             this.TxtIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtIP.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.TxtIP.Location = new System.Drawing.Point(625, 123);
+            this.TxtIP.Location = new System.Drawing.Point(189, 120);
             this.TxtIP.Name = "TxtIP";
             this.TxtIP.Size = new System.Drawing.Size(173, 25);
             this.TxtIP.TabIndex = 164;
@@ -912,7 +908,7 @@
             this.LblIp.AutoSize = true;
             this.LblIp.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblIp.Location = new System.Drawing.Point(625, 84);
+            this.LblIp.Location = new System.Drawing.Point(189, 81);
             this.LblIp.Name = "LblIp";
             this.LblIp.Size = new System.Drawing.Size(29, 26);
             this.LblIp.TabIndex = 163;
@@ -927,7 +923,7 @@
             this.MBtnMenosIP.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
             this.MBtnMenosIP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnMenosIP.IconSize = 40;
-            this.MBtnMenosIP.Location = new System.Drawing.Point(408, 123);
+            this.MBtnMenosIP.Location = new System.Drawing.Point(795, 121);
             this.MBtnMenosIP.Name = "MBtnMenosIP";
             this.MBtnMenosIP.Size = new System.Drawing.Size(30, 30);
             this.MBtnMenosIP.TabIndex = 162;
@@ -943,7 +939,7 @@
             this.MBtnMasIP.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
             this.MBtnMasIP.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnMasIP.IconSize = 40;
-            this.MBtnMasIP.Location = new System.Drawing.Point(376, 123);
+            this.MBtnMasIP.Location = new System.Drawing.Point(372, 117);
             this.MBtnMasIP.Name = "MBtnMasIP";
             this.MBtnMasIP.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasIP.TabIndex = 161;
@@ -956,7 +952,7 @@
             this.NudPuerto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NudPuerto.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NudPuerto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.NudPuerto.Location = new System.Drawing.Point(469, 123);
+            this.NudPuerto.Location = new System.Drawing.Point(33, 120);
             this.NudPuerto.Name = "NudPuerto";
             this.NudPuerto.Size = new System.Drawing.Size(120, 27);
             this.NudPuerto.TabIndex = 32;
@@ -979,9 +975,9 @@
             this.CmbIP.FormattingEnabled = true;
             this.CmbIP.IntegralHeight = false;
             this.CmbIP.ItemHeight = 18;
-            this.CmbIP.Location = new System.Drawing.Point(23, 124);
+            this.CmbIP.Location = new System.Drawing.Point(513, 121);
             this.CmbIP.Name = "CmbIP";
-            this.CmbIP.Size = new System.Drawing.Size(347, 26);
+            this.CmbIP.Size = new System.Drawing.Size(279, 26);
             this.CmbIP.TabIndex = 31;
             this.CmbIP.SelectedIndexChanged += new System.EventHandler(this.CmbIP_SelectedIndexChanged);
             // 
@@ -990,7 +986,7 @@
             this.LblPuertoServidor.AutoSize = true;
             this.LblPuertoServidor.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPuertoServidor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblPuertoServidor.Location = new System.Drawing.Point(469, 84);
+            this.LblPuertoServidor.Location = new System.Drawing.Point(33, 81);
             this.LblPuertoServidor.Name = "LblPuertoServidor";
             this.LblPuertoServidor.Size = new System.Drawing.Size(70, 26);
             this.LblPuertoServidor.TabIndex = 30;
@@ -1001,7 +997,7 @@
             this.LblIpServidor.AutoSize = true;
             this.LblIpServidor.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblIpServidor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblIpServidor.Location = new System.Drawing.Point(17, 84);
+            this.LblIpServidor.Location = new System.Drawing.Point(507, 81);
             this.LblIpServidor.Name = "LblIpServidor";
             this.LblIpServidor.Size = new System.Drawing.Size(181, 26);
             this.LblIpServidor.TabIndex = 29;
@@ -1013,7 +1009,7 @@
             this.TxtTituloServidorWeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTituloServidorWeb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTituloServidorWeb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(469, 24);
+            this.TxtTituloServidorWeb.Location = new System.Drawing.Point(264, 24);
             this.TxtTituloServidorWeb.Name = "TxtTituloServidorWeb";
             this.TxtTituloServidorWeb.Size = new System.Drawing.Size(324, 25);
             this.TxtTituloServidorWeb.TabIndex = 28;

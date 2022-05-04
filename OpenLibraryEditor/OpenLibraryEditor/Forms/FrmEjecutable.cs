@@ -13,6 +13,11 @@ using System.Windows.Forms;
 
 namespace OpenLibraryEditor.Forms
 {
+    /*
+     TODO:
+    - Añadir tooltip para argumentos, en el que explique que si usa "{file}" sirve para cargar el fichero en esa posición.
+    Ej.:     -f {file} -b
+     */
     public partial class FrmEjecutable : Form
     {
         #region atributos
@@ -168,11 +173,9 @@ namespace OpenLibraryEditor.Forms
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesEJ.Visible == true)
-            {
-                if (String.IsNullOrWhiteSpace(KTxtNombreEJ.Text) &&
-                    String.IsNullOrWhiteSpace(KTxtExtensionEJ.Text) &&
-                    String.IsNullOrWhiteSpace(KTxtRutaEJ.Text))
+            if (PanOpcionesEJ.Visible == true) { 
+                if (!String.IsNullOrWhiteSpace(KTxtNombreEJ.Text) &&
+                    !String.IsNullOrWhiteSpace(KTxtRutaEJ.Text))
                 {
                     //Actualizar etiqueta
                     ejecutableActual.NombreEjecutable = KTxtNombreEJ.Text;

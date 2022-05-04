@@ -361,7 +361,6 @@
             this.MBtnAdminUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnAdminUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnAdminUsuarios.UseVisualStyleBackColor = false;
-            this.MBtnAdminUsuarios.Visible = false;
             this.MBtnAdminUsuarios.Click += new System.EventHandler(this.MBtnAdminUsuarios_Click);
             // 
             // PanSeparadorMain
@@ -1422,7 +1421,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(109, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(110, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "prueba de tamaño";
             // 
@@ -1946,6 +1945,7 @@
             this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbBuscarPorMBI.TabIndex = 108;
+            this.KCmbBuscarPorMBI.SelectedIndexChanged += new System.EventHandler(this.KCmbBuscarPorMBI_SelectedIndexChanged);
             // 
             // LblBuscarPorMBI
             // 
@@ -2020,7 +2020,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 

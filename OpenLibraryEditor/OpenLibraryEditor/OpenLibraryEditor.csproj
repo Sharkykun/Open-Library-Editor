@@ -84,7 +84,7 @@
       <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\..\..\..\..\Downloads\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\tests\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
@@ -156,6 +156,9 @@
     <Compile Include="Clases\MiMessageBox.cs" />
     <Compile Include="Clases\VentanaWindowsComun.cs" />
     <Compile Include="Controles\CheckedComboBox.cs" />
+    <Compile Include="Controles\DoubleClickButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controles\PanelTransparente.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Microsoft.VisualBasic;
 using ComponentFactory.Krypton.Navigator;
+using System.Globalization;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -41,6 +42,9 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem itemActual;
         private string rutaImagenPortada;
         private string rutaImagenContraportada;
+        private bool esOk;
+
+        public bool EsOk { get => esOk; set => esOk = value; }
         #endregion
         public FrmLibros(Libro libro)
         {
@@ -325,7 +329,7 @@ namespace OpenLibraryEditor.Forms
             KNudPuntuacionNL.Value = (decimal)libroActual.Puntuacion;
             KNudVecesLeidoNL.Value = libroActual.VecesLeido;
             KCmbEstadoLecturaNL.Text = libroActual.EstadoLectura;
-            KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.TimeOfDay.ToString();
+            KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
             KNudCapiActualNL.Value = libroActual.CapituloActual;
             KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
             KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
@@ -336,8 +340,10 @@ namespace OpenLibraryEditor.Forms
             CargarImagen(PcbImgPortadaNL, rutaImagenPortada);
             rutaImagenContraportada = libroActual.ImagenContraportada;
             CargarImagen(PcbImgContraNL, rutaImagenContraportada);
-            libroActual.ListaAccion.Clear();
-            libroActual.ListaAccion.ForEach(p => listaAccion.Add(p));
+            libroActual.ListaAccion.ForEach(p => {
+                var item = AniadirAccion(p);
+                item.Selected = true;
+            });
         }
         #region Datos generales
         private void MBtnMasEditorialNL_Click(object sender, EventArgs e)
@@ -540,10 +546,7 @@ namespace OpenLibraryEditor.Forms
 
         private void GBtnGuardarLibro_Click(object sender, EventArgs e)
         {
-            object obj = Biblioteca.biblioteca.ListaLibro.Find(p => p.Isbn_13 == KTxtIsbn13.Text);
-            if (!String.IsNullOrWhiteSpace(KTxtIsbn13.Text) &&
-               (obj == libroActual || obj == null)
-               && !String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
+            if (!String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
             {
                 //Actualizar libro
                 libroActual.Titulo = KTxtTituloNL.Text;
@@ -583,7 +586,7 @@ namespace OpenLibraryEditor.Forms
                 libroActual.Puntuacion = (double)KNudPuntuacionNL.Value;
                 libroActual.VecesLeido = (int)KNudVecesLeidoNL.Value;
                 libroActual.EstadoLectura = KCmbEstadoLecturaNL.Text;
-                libroActual.TiempoLectura = DateTime.Parse(KMtxtTiempoLecturaNL.Text);
+                libroActual.TiempoLectura = TimeSpan.Parse(KMtxtTiempoLecturaNL.Text);
                 libroActual.CapituloActual = (int)KNudCapiActualNL.Value;
                 libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
                 libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
@@ -593,19 +596,20 @@ namespace OpenLibraryEditor.Forms
                 if (rutaImagenPortada != libroActual.ImagenPortada)
                 {
                     libroActual.ImagenPortada = ControladorImagen.GuardarImagen(rutaImagenPortada,
-                        ControladorImagen.RUTA_LIBRO, libroActual.Isbn_13 + "_c");
+                        ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_c");
                     rutaImagenPortada = libroActual.ImagenPortada;
                 }
                 if (rutaImagenContraportada != libroActual.ImagenContraportada)
                 {
                     libroActual.ImagenContraportada = ControladorImagen.GuardarImagen(rutaImagenContraportada,
-                        ControladorImagen.RUTA_LIBRO, libroActual.Isbn_13 + "_b");
+                        ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_b");
                     rutaImagenContraportada = libroActual.ImagenContraportada;
                 }
                 libroActual.ListaAccion.Clear();
                 foreach (ListViewItem c in LsvAccionesNL.Items)
                     libroActual.ListaAccion.Add((UsuarioAccion)c.Tag);
 
+                esOk = true;
                 Close();
             }
             else

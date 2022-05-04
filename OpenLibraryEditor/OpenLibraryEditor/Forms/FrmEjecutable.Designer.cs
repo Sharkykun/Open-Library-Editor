@@ -329,6 +329,7 @@
             this.LblExtensionEJ.Size = new System.Drawing.Size(146, 20);
             this.LblExtensionEJ.TabIndex = 154;
             this.LblExtensionEJ.Text = "Extensión asociada";
+            this.LblExtensionEJ.Visible = false;
             // 
             // KTxtExtensionEJ
             // 
@@ -346,6 +347,7 @@
             this.KTxtExtensionEJ.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtExtensionEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtExtensionEJ.TabIndex = 153;
+            this.KTxtExtensionEJ.Visible = false;
             // 
             // LblNombreEJ
             // 

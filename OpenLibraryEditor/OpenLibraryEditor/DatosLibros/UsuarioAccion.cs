@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace OpenLibraryEditor.DatosLibros
 {
@@ -35,6 +36,29 @@ namespace OpenLibraryEditor.DatosLibros
                 idAccion = rnd.Next();
             } while (libroref.ListaAccion.
                 FindIndex(p => idAccion == p.idAccion) != -1);
+        }
+
+        public Process EjecutarAccion()
+        {
+            string exe = "\""+ejecutable.RutaEjecutable+ "\"";
+            string cmd = "";
+            //Si la constante "file" aparece en los argumentos, coloar ruta fichero ahí
+            //Si no, crear estructura por defecto, exe + fichero + argumentos.
+            if (ejecutable.Argumentos.Contains(UsuarioEjecutable.CLAVE_FICHERO))
+            {
+                string copia = ejecutable.Argumentos;
+                copia.Replace(UsuarioEjecutable.CLAVE_FICHERO, "\"" + rutaFichero + "\"");
+                cmd += " " + ejecutable.Argumentos;
+            }
+            else
+            {
+                cmd += "\"" + rutaFichero + "\" ";
+                cmd += ejecutable.Argumentos;
+            }
+
+            //Lanzar proceso
+            Process p = Process.Start(exe, cmd);
+            return p;
         }
     }
 }

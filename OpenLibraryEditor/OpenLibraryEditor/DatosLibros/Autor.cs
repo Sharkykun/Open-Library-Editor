@@ -7,6 +7,7 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class Autor : IComparable<Autor>
     {
+        private List<string> listaIdCompartido = new List<string>();
         private int idAutor;
         private string nombre = "";
         private string alias = "";
@@ -49,6 +50,7 @@ namespace OpenLibraryEditor.DatosLibros
         public string EnlaceReferencia { get => enlaceReferencia; set => enlaceReferencia = value; }
         public string Comentario { get => comentario; set => comentario = value; }
         public string Imagen { get => imagen; set => imagen = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
 
         #endregion
 
