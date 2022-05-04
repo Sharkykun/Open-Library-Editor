@@ -153,6 +153,9 @@
     <Compile Include="Clases\MiMessageBox.cs" />
     <Compile Include="Clases\VentanaWindowsComun.cs" />
     <Compile Include="Controles\CheckedComboBox.cs" />
+    <Compile Include="Controles\DoubleClickButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controles\PanelTransparente.cs">
       <SubType>Component</SubType>
     </Compile>

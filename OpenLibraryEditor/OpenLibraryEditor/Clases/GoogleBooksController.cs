@@ -87,6 +87,7 @@ namespace OpenLibraryEditor.Clases
         public static Libro ParseBook(Volume volume, bool sacarPersonas, bool sacarEditorial, bool sacarGeneros)
         {
             //Sacar ISBN y comprobar si existe
+            //volInfo.PreviewLink para sacar el enlace del libro
             var volInfo = volume.VolumeInfo;
             string isbn13 = volInfo.IndustryIdentifiers.FirstOrDefault(p => p.Type == "ISBN_13").Identifier;
             string isbn10 = volInfo.IndustryIdentifiers.FirstOrDefault(p => p.Type == "ISBN_10").Identifier;
@@ -183,6 +184,10 @@ namespace OpenLibraryEditor.Clases
             }
             if (volInfo.MaturityRating == "MATURE")
                 book.MayorEdad = true;
+
+            //Poner enlace a leer libro en enlace de referencia si tiene
+            if (!String.IsNullOrWhiteSpace(volInfo.PreviewLink))
+                book.EnlaceReferencia = volInfo.PreviewLink;
 
             return book;
         }

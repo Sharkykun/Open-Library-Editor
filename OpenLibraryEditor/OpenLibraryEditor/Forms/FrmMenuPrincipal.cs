@@ -14,6 +14,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
+using System.Globalization;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -26,13 +29,14 @@ namespace OpenLibraryEditor.Forms
 
         private int altoPantalla;
         private int anchoPantalla;
-        private List<Libro> titulos = Biblioteca.biblioteca.ListaLibro;
+        private List<Libro> titulos;
         private Libro libroActual;
       
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-           
+
+            titulos = SacarListaLibro();
             bordeIzqBoton = new Panel();
             bordeIzqBoton.Size = new Size(7, 45);
             PanMenuMain.Controls.Add(bordeIzqBoton);
@@ -52,6 +56,11 @@ namespace OpenLibraryEditor.Forms
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
+            KCmbBuscarPorMBI.Items.Add("Título Alternativo");
+            KCmbBuscarPorMBI.Items.Add("Idioma");
+            KCmbBuscarPorMBI.Items.Add("Idioma Original");
+            KCmbBuscarPorMBI.Items.Add("Tipo de Libro");
+            KCmbBuscarPorMBI.Items.Add("Favoritos");
             KCmbBuscarPorMBI.SelectedIndex = 0;
 
             //vistaDetallesH.setEditoriales("prueba1, prueba 2");
@@ -61,6 +70,17 @@ namespace OpenLibraryEditor.Forms
             //this.ControlBox = false;
             //this.DoubleBuffered = true;
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+
+        private List<Libro> SacarListaLibro()
+        {
+            List<Libro> libro;
+            if (UsuarioDatos.configuracionUsuario.ContenidoExplicito)
+                libro = Biblioteca.biblioteca.ListaLibro;
+            else
+                libro = Biblioteca.biblioteca.ListaLibro.FindAll(
+                    p => !p.MayorEdad);
+            return libro;
         }
 
         private void GenerarPortadaLibro(Libro libro, Button botonLibro)
@@ -115,7 +135,7 @@ namespace OpenLibraryEditor.Forms
             int y = 10;
             foreach (Libro libro in titulos)
             {
-                Button botonLibro = new Button();
+                DoubleClickButton botonLibro = new DoubleClickButton();
                 if (x < (tamPanel - 135))
                 {
                     botonLibro.Location = new Point(x, y);
@@ -127,6 +147,7 @@ namespace OpenLibraryEditor.Forms
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
                     botonLibro.Click += new EventHandler(ManejadorLibro_Click);
+                    botonLibro.DoubleClick += new EventHandler(DobleClickLibro);
                     x = x + 135;
                 }
                 else
@@ -142,6 +163,7 @@ namespace OpenLibraryEditor.Forms
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
                     botonLibro.Click += new EventHandler(ManejadorLibro_Click);
+                    botonLibro.DoubleClick += new EventHandler(DobleClickLibro);
                     x = x + 135;
                 }
             }
@@ -157,10 +179,11 @@ namespace OpenLibraryEditor.Forms
         }
         private void ManejadorLibro_Click(object sender, EventArgs e)
         {
-            KTabDetalles.SelectedPage = KpDetalles;
+            //KTabDetalles.SelectedPage = KpDetalles;
             ResetearDetallesLibro();
             Button libroSeleccionado = (Button)sender;
             libroActual = (Libro)libroSeleccionado.Tag;
+
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
@@ -224,7 +247,7 @@ namespace OpenLibraryEditor.Forms
             LblEscribirPuntuacion.Text =libroActual.Puntuacion.ToString();
             LblEscribirVecesLeido.Text =libroActual.VecesLeido.ToString();
             LblEscribirEstadoLectura.Text =libroActual.EstadoLectura;
-            LblEscribirTiempoLec.Text =libroActual.TiempoLectura.ToLongTimeString();
+            LblEscribirTiempoLec.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
             LblEscribirCapiAct.Text =libroActual.CapituloActual.ToString();
             LblEscribirFecComienzo.Text =libroActual.FechaComienzo.ToShortDateString();
             LblEscribirFecFin.Text =libroActual.FechaTerminado.ToShortDateString();
@@ -240,6 +263,66 @@ namespace OpenLibraryEditor.Forms
             TxtEscribirComentario.Text = libroActual.Comentario;
             //ColocarLibros();
         }
+
+        private void EsperarHastaFinDeProcesos(List<Process> listaProcesos)
+        {
+            FormWindowState state = this.WindowState;
+            this.WindowState = FormWindowState.Minimized;
+
+            //Calcular tiempo de lectura = lo que tarda en cerrar los procesos
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
+            while (!listaProcesos.All(p => p.HasExited))
+            {
+                Thread.Sleep(100);
+            }
+
+            //Obtener y establecer tiempo de lectura
+            watch.Stop();
+            TimeSpan time;
+            if(libroActual.TiempoLectura != null)
+                time = libroActual.TiempoLectura;
+            else
+                time = new TimeSpan();
+            libroActual.TiempoLectura = time.Add(watch.Elapsed);
+            LblEscribirTiempoLec.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
+
+            //Reactivar ventana y desbloquear
+            Enabled = true;
+            Cursor.Current = Cursors.Default;
+            this.WindowState = state;
+            Activate();
+        }
+
+        private void DobleClickLibro(object sender, EventArgs e)
+        {
+            //Determinar acción en base a configuración de usuario
+            switch (UsuarioDatos.configuracionUsuario.AccionDobleClick)
+            {
+                case 0:
+                    //Ejecutar libro
+                    if (libroActual.ListaAccion.Count > 0)
+                    {
+                        List<Process> listaProcesos = new List<Process>();
+                        //Ocultar ventana y bloquear
+                        Cursor.Current = Cursors.WaitCursor;
+                        Enabled = false;
+
+                        foreach (UsuarioAccion ac in libroActual.ListaAccion)
+                        {
+                            listaProcesos.Add(ac.EjecutarAccion());
+                        }
+                        EsperarHastaFinDeProcesos(listaProcesos);
+                    }
+                    break;
+                case 1:
+                    //Modificar información libro
+                    BtnModificarLibroMsb_ButtonClick(null, null);
+                    break;
+            }
+        }
+
         private void LinkEnlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(libroActual.EnlaceReferencia))
@@ -879,7 +962,7 @@ namespace OpenLibraryEditor.Forms
             //AbrirFormularios(new FrmMiBiblioteca());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = false;
-            titulos = Biblioteca.biblioteca.ListaLibro;
+            titulos = SacarListaLibro();
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
             MPcbTituloFrm.IconChar = MaterialIcons.BookOpenPageVariant;
             BotonActivo(sender, Colores.colorBiblioteca);
@@ -1056,12 +1139,44 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
+        private void KCmbBuscarPorMBI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (KCmbBuscarPorMBI.SelectedIndex)
+            {
+                case 7:
+                    //Buscar sin nada
+                    MostrarCajaBusqueda(-1);
+                    MBtnBuscarMBI_Click(null, null);
+                    break;
+                default:
+                    MostrarCajaBusqueda(0);
+                    break;
+            }
+            MBtnBuscarMBI_Click(null, null);
+        }
+
+        private void MostrarCajaBusqueda(int tipo)
+        {
+            KTxtBuscarMBI.Text = "";
+            KTxtBuscarMBI.Visible = false;
+            MBtnBuscarMBI.Visible = false;
+            switch (tipo)
+            {
+                case 0:
+                    //Busqueda por texto
+                    KTxtBuscarMBI.Visible = true;
+                    MBtnBuscarMBI.Visible = true;
+                    break;
+            }
+        }
+
         private void MBtnBuscarMBI_Click(object sender, EventArgs e)
         {
+            //Filtrar por categoría si se está usando, si no por la lista completa
             if (PanListViewsOpciones.Visible == true)
                 LsvOpciones_ItemSelectionChanged(null, null);
             else
-                titulos = Biblioteca.biblioteca.ListaLibro;
+                titulos = SacarListaLibro();
 
             if (KCmbBuscarPorMBI.Items[0] == KCmbBuscarPorMBI.SelectedItem)
             {
@@ -1078,31 +1193,71 @@ namespace OpenLibraryEditor.Forms
                     p.Subtitulo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                     : false);
             }
-            else
+            else if (KCmbBuscarPorMBI.Items[2] == KCmbBuscarPorMBI.SelectedItem)
             {
-                titulos = titulos
-                    .FindAll(p => p.Subtitulo != null ?
+                //Buscar por ISBN
+                List<Libro> l;
+                l = titulos
+                    .FindAll(p => p.Isbn_10 != null ?
                     p.Isbn_10.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                     : false);
-                titulos.AddRange(Biblioteca.biblioteca.ListaLibro
-                    .FindAll(p => p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1));
+                l.AddRange(titulos
+                    .FindAll(p => p.Isbn_13 != null ?
+                    p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false));
+                titulos = l;
             }
-
-            if (!String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
-                RecolocarLibros(false);
-            else
+            else if (KCmbBuscarPorMBI.Items[3] == KCmbBuscarPorMBI.SelectedItem)
             {
-                titulos = Biblioteca.biblioteca.ListaLibro;
-                RecolocarLibros(false);
+                //Buscar por título alternativo
+                titulos = titulos
+                    .FindAll(p => p.TituloAlternativo != null ?
+                    p.TituloAlternativo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[4] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por idioma
+                titulos = titulos
+                    .FindAll(p => p.Idioma != null ?
+                    p.Idioma.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[5] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por idioma original
+                titulos = titulos
+                    .FindAll(p => p.IdiomaOriginal != null ?
+                    p.IdiomaOriginal.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[6] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por tipo de libro
+                titulos = titulos
+                    .FindAll(p => p.NombreTipo != null ?
+                    p.NombreTipo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[7] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por favorito
+                titulos = titulos.FindAll(p => p.Favorito);
             }
 
+            if(KTxtBuscarMBI.Visible &&
+                !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
+            {
+                titulos = SacarListaLibro();
+            }
+            RecolocarLibros(false);
         }
 
         private void LsvOpciones_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (LsvOpciones.SelectedItems.Count == 1)
             {
-                titulos = Biblioteca.biblioteca.ListaLibro;
+                titulos = SacarListaLibro();
                 object obj = LsvOpciones.SelectedItems[0].Tag;
                 if(obj.GetType() == typeof(Autor))
                     titulos = titulos.FindAll(p => p.ListaAutor.Contains((Autor)obj));
@@ -1223,6 +1378,9 @@ namespace OpenLibraryEditor.Forms
         Rectangle SupIzqda { get { return new Rectangle(0, 0, MARGEN, MARGEN); } }
         Rectangle SupDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, 0, MARGEN, MARGEN); } }
         Rectangle InfIzqda { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
+
+        
+
         Rectangle InfDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
 
         protected override void WndProc(ref Message message)

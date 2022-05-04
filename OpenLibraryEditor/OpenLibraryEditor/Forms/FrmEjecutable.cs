@@ -169,9 +169,8 @@ namespace OpenLibraryEditor.Forms
         private void KBtnAceptarEJ_Click(object sender, EventArgs e)
         {
             if (PanOpcionesEJ.Visible == true) { 
-                if (String.IsNullOrWhiteSpace(KTxtNombreEJ.Text) &&
-                    String.IsNullOrWhiteSpace(KTxtExtensionEJ.Text) &&
-                    String.IsNullOrWhiteSpace(KTxtRutaEJ.Text))
+                if (!String.IsNullOrWhiteSpace(KTxtNombreEJ.Text) &&
+                    !String.IsNullOrWhiteSpace(KTxtRutaEJ.Text))
                 {
                     //Actualizar etiqueta
                     ejecutableActual.NombreEjecutable = KTxtNombreEJ.Text;

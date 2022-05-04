@@ -165,7 +165,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloConfi.Location = new System.Drawing.Point(86, 18);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
             this.LblTituloConfi.TabIndex = 3;
             this.LblTituloConfi.Text = "Configuración";
             // 
@@ -406,7 +406,6 @@
             this.CmbDobleClick.Name = "CmbDobleClick";
             this.CmbDobleClick.Size = new System.Drawing.Size(329, 26);
             this.CmbDobleClick.TabIndex = 17;
-            this.CmbDobleClick.Visible = false;
             // 
             // TxtSubtituloDobleClick
             // 
@@ -422,7 +421,6 @@
             this.TxtSubtituloDobleClick.Size = new System.Drawing.Size(335, 39);
             this.TxtSubtituloDobleClick.TabIndex = 15;
             this.TxtSubtituloDobleClick.Text = "Configurar la funcionalidad al hacer \r\ndoble click sobre un libro\r\n";
-            this.TxtSubtituloDobleClick.Visible = false;
             // 
             // LblDobleClick
             // 
@@ -434,7 +432,6 @@
             this.LblDobleClick.Size = new System.Drawing.Size(111, 26);
             this.LblDobleClick.TabIndex = 16;
             this.LblDobleClick.Text = "Doble click";
-            this.LblDobleClick.Visible = false;
             // 
             // TxtSubtituloEligeIdioConfi
             // 

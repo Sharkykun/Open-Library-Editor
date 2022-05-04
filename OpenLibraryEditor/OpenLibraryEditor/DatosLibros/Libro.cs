@@ -21,7 +21,7 @@ namespace OpenLibraryEditor.DatosLibros
         private int numeroPaginas;
         private List<Editorial> listaEditorial = new List<Editorial>();
         private DateTime fechaPublicacion;
-        private DateTime fechaAdicionBD; //Fecha de inclusión en base de datos
+        private DateTime fechaAdicionBD; //Fecha de inclusión en base de datos local
         private int edicion;
         private List<Serie> listaSerie = new List<Serie>();
         private double numeroVolumen; //Para series de múltiples volúmenes
@@ -43,7 +43,7 @@ namespace OpenLibraryEditor.DatosLibros
         private List<UsuarioAccion> listaAccion = new List<UsuarioAccion>();
         private int vecesLeido; 
         private string estadoLectura;
-        private DateTime tiempoLectura;
+        private TimeSpan tiempoLectura;
         private string comentario; 
         private int capituloActual;
         private DateTime fechaComienzo;
@@ -83,7 +83,7 @@ namespace OpenLibraryEditor.DatosLibros
         public double Puntuacion { get => puntuacion; set => puntuacion = value; }
         public int VecesLeido { get => vecesLeido; set => vecesLeido = value; }
         public string EstadoLectura { get => estadoLectura; set => estadoLectura = value; }
-        public DateTime TiempoLectura { get => tiempoLectura; set => tiempoLectura = value; }
+        public TimeSpan TiempoLectura { get => tiempoLectura; set => tiempoLectura = value; }
         public string Comentario { get => comentario; set => comentario = value; }
         public int CapituloActual { get => capituloActual; set => capituloActual = value; }
         public DateTime FechaComienzo { get => fechaComienzo; set => fechaComienzo = value; }

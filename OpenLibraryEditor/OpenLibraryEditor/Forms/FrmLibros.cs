@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Microsoft.VisualBasic;
 using ComponentFactory.Krypton.Navigator;
+using System.Globalization;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -327,7 +328,7 @@ namespace OpenLibraryEditor.Forms
             KNudPuntuacionNL.Value = (decimal)libroActual.Puntuacion;
             KNudVecesLeidoNL.Value = libroActual.VecesLeido;
             KCmbEstadoLecturaNL.Text = libroActual.EstadoLectura;
-            KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.TimeOfDay.ToString();
+            KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
             KNudCapiActualNL.Value = libroActual.CapituloActual;
             KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
             KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
@@ -338,8 +339,10 @@ namespace OpenLibraryEditor.Forms
             CargarImagen(PcbImgPortadaNL, rutaImagenPortada);
             rutaImagenContraportada = libroActual.ImagenContraportada;
             CargarImagen(PcbImgContraNL, rutaImagenContraportada);
-            libroActual.ListaAccion.Clear();
-            libroActual.ListaAccion.ForEach(p => listaAccion.Add(p));
+            libroActual.ListaAccion.ForEach(p => {
+                var item = AniadirAccion(p);
+                item.Selected = true;
+            });
         }
         #region Datos generales
         private void MBtnMasEditorialNL_Click(object sender, EventArgs e)
@@ -562,7 +565,7 @@ namespace OpenLibraryEditor.Forms
                 libroActual.Puntuacion = (double)KNudPuntuacionNL.Value;
                 libroActual.VecesLeido = (int)KNudVecesLeidoNL.Value;
                 libroActual.EstadoLectura = KCmbEstadoLecturaNL.Text;
-                libroActual.TiempoLectura = DateTime.Parse(KMtxtTiempoLecturaNL.Text);
+                libroActual.TiempoLectura = TimeSpan.Parse(KMtxtTiempoLecturaNL.Text);
                 libroActual.CapituloActual = (int)KNudCapiActualNL.Value;
                 libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
                 libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);

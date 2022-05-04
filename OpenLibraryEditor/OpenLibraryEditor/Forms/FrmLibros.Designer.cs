@@ -1933,7 +1933,6 @@
             this.KPageAcciones.Text = "Acciones";
             this.KPageAcciones.ToolTipTitle = "Page ToolTip";
             this.KPageAcciones.UniqueName = "5421EBB6F5BF4289E4B0594AADB3F701";
-            this.KPageAcciones.Visible = false;
             // 
             // KGbAccionesNL
             // 

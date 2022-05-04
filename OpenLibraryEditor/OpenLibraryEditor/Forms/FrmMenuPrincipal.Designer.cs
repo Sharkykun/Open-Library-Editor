@@ -1826,6 +1826,7 @@
             this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
             this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbBuscarPorMBI.TabIndex = 108;
+            this.KCmbBuscarPorMBI.SelectedIndexChanged += new System.EventHandler(this.KCmbBuscarPorMBI_SelectedIndexChanged);
             // 
             // LblBuscarPorMBI
             // 
@@ -1900,7 +1901,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.Navy;
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 
