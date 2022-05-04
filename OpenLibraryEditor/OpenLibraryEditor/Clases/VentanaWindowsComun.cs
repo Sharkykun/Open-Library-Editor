@@ -17,28 +17,28 @@ namespace OpenLibraryEditor.Clases
 
         public static DialogResult MensajeBorrarObjeto(string objetoNombre)
         {
-            return MiMessageBox.Show("¿Quieres borrar "+objetoNombre+"?",
-                "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            return MiMessageBox.Show(ControladorIdioma.GetTexto("VWC_Borrar") +" "+ objetoNombre+"?",
+                ControladorIdioma.GetTexto("VWC_Advertencia"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
         public static DialogResult MensajeGuardarObjeto(string objetoNombre)
         {
-            return MiMessageBox.Show("¿Quieres guardar " + objetoNombre + "?",
-                "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            return MiMessageBox.Show(ControladorIdioma.GetTexto("VWC_Guardar") +" "+ objetoNombre + "?",
+                ControladorIdioma.GetTexto("VWC_Pregunta"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         public static DialogResult MensajeInformacion(string texto)
         {
-            return MiMessageBox.Show(texto, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return MiMessageBox.Show(texto, ControladorIdioma.GetTexto("VWC_Informacion"), MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static DialogResult MensajeError(string mensaje)
         {
-            return MiMessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return MiMessageBox.Show(mensaje, ControladorIdioma.GetTexto("VWC_Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public static DialogResult MensajeSalir(string mensaje)
         {
-            return MiMessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return MiMessageBox.Show(mensaje, ControladorIdioma.GetTexto("VWC_Pregunta"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         public static string GetRutaFichero(string filter)
@@ -61,7 +61,7 @@ namespace OpenLibraryEditor.Clases
         public static string GetRutaCarpeta()
         {
             FolderBrowserDialog diag = new FolderBrowserDialog();
-            if (diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (diag.ShowDialog() == DialogResult.OK)
             {
                 return diag.SelectedPath;
             }

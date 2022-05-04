@@ -120,6 +120,39 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="Adm_Administrar" xml:space="preserve">
+    <value>Administrar usuarios</value>
+  </data>
+  <data name="Adm_CmbTipo" xml:space="preserve">
+    <value>Tipo de usuario</value>
+  </data>
+  <data name="Adm_DatosUsu" xml:space="preserve">
+    <value>Datos del usuario</value>
+  </data>
+  <data name="Adm_Editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Adm_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Adm_FrmTitulo" xml:space="preserve">
+    <value>Usuarios de mi base de datos</value>
+  </data>
+  <data name="Adm_Nombre" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Adm_NombreUsu" xml:space="preserve">
+    <value>Nombre usuario:</value>
+  </data>
+  <data name="Adm_Tipo" xml:space="preserve">
+    <value>Tipo de usuario:</value>
+  </data>
+  <data name="Adm_Usu" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Al_Accion" xml:space="preserve">
+    <value>la acción</value>
+  </data>
   <data name="Al_ACEje" xml:space="preserve">
     <value>Ejecutable</value>
   </data>
@@ -190,7 +223,7 @@
     <value>Título alternativo</value>
   </data>
   <data name="Al_DGTitulo" xml:space="preserve">
-    <value>Título</value>
+    <value>Título *</value>
   </data>
   <data name="Al_DGVolumen" xml:space="preserve">
     <value>Volumen</value>
@@ -225,6 +258,9 @@
   <data name="Al_DUTiempoLec" xml:space="preserve">
     <value>Tiempo de lectura</value>
   </data>
+  <data name="Al_ElLibro" xml:space="preserve">
+    <value>el libro</value>
+  </data>
   <data name="Al_Guardar" xml:space="preserve">
     <value>Guardar libro</value>
   </data>
@@ -236,6 +272,9 @@
   </data>
   <data name="Al_Modificar" xml:space="preserve">
     <value>Open Library Editor - Modificar libro</value>
+  </data>
+  <data name="Al_RutaFicAqui" xml:space="preserve">
+    <value>Ruta fichero aquí</value>
   </data>
   <data name="Al_TabAcciones" xml:space="preserve">
     <value>Acciones</value>
@@ -396,6 +435,9 @@
   <data name="Au_Comentario" xml:space="preserve">
     <value>Comentario</value>
   </data>
+  <data name="Au_ElAutor" xml:space="preserve">
+    <value>el autor</value>
+  </data>
   <data name="Au_Enlace" xml:space="preserve">
     <value>Enlace de referencia</value>
   </data>
@@ -416,6 +458,9 @@
   </data>
   <data name="Au_Nombre" xml:space="preserve">
     <value>Nombre completo</value>
+  </data>
+  <data name="Au_NuevaPersona" xml:space="preserve">
+    <value>Nueva Persona</value>
   </data>
   <data name="Au_Ocupacion" xml:space="preserve">
     <value>Ocupación</value>
@@ -456,8 +501,32 @@
   <data name="Au_Vivo" xml:space="preserve">
     <value>Está vivo:</value>
   </data>
+  <data name="BD_DApp" xml:space="preserve">
+    <value>Datos para registrarse en la aplicación</value>
+  </data>
+  <data name="BD_DServidor" xml:space="preserve">
+    <value>Datos del servidor</value>
+  </data>
+  <data name="BD_Puerto" xml:space="preserve">
+    <value>Puerto:</value>
+  </data>
+  <data name="BD_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Crear base de datos</value>
+  </data>
+  <data name="BD_Url" xml:space="preserve">
+    <value>Url:</value>
+  </data>
+  <data name="BuscarPor" xml:space="preserve">
+    <value>Buscar por:</value>
+  </data>
   <data name="Bus_BuscarEn" xml:space="preserve">
     <value>Buscar en:</value>
+  </data>
+  <data name="Bus_libro" xml:space="preserve">
+    <value>el libro</value>
+  </data>
+  <data name="CamposObligatorios" xml:space="preserve">
+    <value>( * ) Campos obligatorios </value>
   </data>
   <data name="Cancelar" xml:space="preserve">
     <value>Cancelar</value>
@@ -594,6 +663,9 @@
   <data name="Con_GUbicacion" xml:space="preserve">
     <value>Ubicación base de datos local</value>
   </data>
+  <data name="Con_InfoServidor" xml:space="preserve">
+    <value>la información del servidor</value>
+  </data>
   <data name="Con_Servidor" xml:space="preserve">
     <value>Servidor web</value>
   </data>
@@ -624,8 +696,14 @@
   <data name="Con_Titulo" xml:space="preserve">
     <value>Configuración</value>
   </data>
+  <data name="Crear" xml:space="preserve">
+    <value>Crear</value>
+  </data>
   <data name="ED_Comentario" xml:space="preserve">
     <value>Comentario</value>
+  </data>
+  <data name="ED_LaEditorial" xml:space="preserve">
+    <value>la editorial</value>
   </data>
   <data name="ED_Lsv" xml:space="preserve">
     <value>Selecciona el nombre de una editorial para editarla</value>
@@ -635,6 +713,9 @@
   </data>
   <data name="ED_Nombre" xml:space="preserve">
     <value>Nombre editorial</value>
+  </data>
+  <data name="ED_NuevaEdi" xml:space="preserve">
+    <value>Nueva Editorial</value>
   </data>
   <data name="ED_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Editoriales</value>
@@ -663,6 +744,9 @@
   <data name="Ej_Argumentos" xml:space="preserve">
     <value>Argumentos</value>
   </data>
+  <data name="Ej_ElEjecutable" xml:space="preserve">
+    <value>el ejecutable</value>
+  </data>
   <data name="Ej_Extension" xml:space="preserve">
     <value>Extensión asociada</value>
   </data>
@@ -674,6 +758,9 @@
   </data>
   <data name="Ej_Nombre" xml:space="preserve">
     <value>Nombre ejecutable</value>
+  </data>
+  <data name="Ej_NuevoEjecutable" xml:space="preserve">
+    <value>Nuevo Ejecutable</value>
   </data>
   <data name="Ej_Ruta" xml:space="preserve">
     <value>Ruta del ejecutable</value>
@@ -702,6 +789,27 @@
   <data name="Ej_TTRuta" xml:space="preserve">
     <value>Haz click para buscar la ruta del ejecutable</value>
   </data>
+  <data name="ErrorCamposVacios" xml:space="preserve">
+    <value>Todos los campos son obligatorios</value>
+  </data>
+  <data name="Error_CamposVacios" xml:space="preserve">
+    <value>El nombre, extensión y ruta no pueden estar vacíos.</value>
+  </data>
+  <data name="Error_Genero" xml:space="preserve">
+    <value>El nombre no puede estar vacío. El género no puede ser el mismo que el actualmente seleccionado.</value>
+  </data>
+  <data name="Error_IP" xml:space="preserve">
+    <value>La IP no tiene el formato correcto.</value>
+  </data>
+  <data name="Error_Libro" xml:space="preserve">
+    <value>El título y el ISBN no pueden estar vacíos. Tampoco puede estar el ISBN repetido</value>
+  </data>
+  <data name="Error_LibroExiste" xml:space="preserve">
+    <value>No se puede añadir el libro porque ya existe en la biblioteca</value>
+  </data>
+  <data name="Error_NombreVacio" xml:space="preserve">
+    <value>El nombre no puede estar vacío.</value>
+  </data>
   <data name="Etiqueta" xml:space="preserve">
     <value>Etiqueta</value>
   </data>
@@ -710,6 +818,12 @@
   </data>
   <data name="Et_Comentario" xml:space="preserve">
     <value>Comentario</value>
+  </data>
+  <data name="Et_LaCategoria" xml:space="preserve">
+    <value>la categoría</value>
+  </data>
+  <data name="Et_LaEtiqueta" xml:space="preserve">
+    <value>la etiqueta</value>
   </data>
   <data name="Et_LsvMas" xml:space="preserve">
     <value>Haz click para añadir una nueva etiqueta</value>
@@ -728,6 +842,9 @@
   </data>
   <data name="Et_Nombre" xml:space="preserve">
     <value>Nombre etiqueta</value>
+  </data>
+  <data name="Et_NuevaEti" xml:space="preserve">
+    <value>Nueva Etiqueta</value>
   </data>
   <data name="Et_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Etiquetas</value>
@@ -750,6 +867,9 @@
   <data name="Ge_Comentario" xml:space="preserve">
     <value>Comentario</value>
   </data>
+  <data name="Ge_Gen" xml:space="preserve">
+    <value>el género</value>
+  </data>
   <data name="Ge_Genero" xml:space="preserve">
     <value>Género Padre</value>
   </data>
@@ -758,6 +878,9 @@
   </data>
   <data name="Ge_Nombre" xml:space="preserve">
     <value>Nombre género</value>
+  </data>
+  <data name="Ge_NuevoGen" xml:space="preserve">
+    <value>Nuevo Género</value>
   </data>
   <data name="Ge_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Géneros</value>
@@ -780,8 +903,38 @@
   <data name="Ge_TTNombre" xml:space="preserve">
     <value>Escribe aquí el nombre del género</value>
   </data>
+  <data name="Info_GuardadoOk" xml:space="preserve">
+    <value>Se ha guardado correctamente.</value>
+  </data>
+  <data name="InputA_Texto" xml:space="preserve">
+    <value>Escribe el nombre de la ocupación</value>
+  </data>
+  <data name="InputA_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Ocupación autor</value>
+  </data>
+  <data name="InputC_Texto" xml:space="preserve">
+    <value>Escribe el nombre del servidor</value>
+  </data>
+  <data name="InputC_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Servidor</value>
+  </data>
+  <data name="InputL_Texto" xml:space="preserve">
+    <value>Escribe el nombre del tipo de libro</value>
+  </data>
+  <data name="InputL_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Tipo de libro</value>
+  </data>
+  <data name="Input_Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Input_Modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
+  </data>
+  <data name="Log_BtnCrearBD" xml:space="preserve">
+    <value>Crear base de datos</value>
   </data>
   <data name="Log_BtnEntrar" xml:space="preserve">
     <value>Entrar</value>
@@ -790,13 +943,16 @@
     <value>Francés</value>
   </data>
   <data name="Log_BtnInvitado" xml:space="preserve">
-    <value>Acceso invitado</value>
+    <value>Modo sin conexión</value>
   </data>
   <data name="Log_BtnRegistrarse" xml:space="preserve">
     <value>Registrarse</value>
   </data>
   <data name="Log_BtnSpain" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Log_BtnTTCrearBD" xml:space="preserve">
+    <value>Haz click para crear tu base de datos</value>
   </data>
   <data name="Log_BtnUSA" xml:space="preserve">
     <value>Inglés</value>
@@ -924,14 +1080,35 @@
   <data name="Main_LinkSesion" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
+  <data name="Main_MasAutor" xml:space="preserve">
+    <value>Añadir Autor</value>
+  </data>
+  <data name="Main_MasEdi" xml:space="preserve">
+    <value>Añadir Editorial</value>
+  </data>
+  <data name="Main_MasEtiqueta" xml:space="preserve">
+    <value>Añadir Etiqueta</value>
+  </data>
+  <data name="Main_MasGenero" xml:space="preserve">
+    <value>Añadir Género</value>
+  </data>
+  <data name="Main_MasSerie" xml:space="preserve">
+    <value>Añadir Serie</value>
+  </data>
   <data name="Main_MiBiblioteca" xml:space="preserve">
     <value>Mi Biblioteca</value>
   </data>
   <data name="Main_Modificar" xml:space="preserve">
     <value>Modificar libro</value>
   </data>
+  <data name="Main_No" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="Main_NoDis" xml:space="preserve">
+    <value>NO DISPONIBLE</value>
+  </data>
   <data name="Main_NuevoLibro" xml:space="preserve">
-    <value>Añadir nuevo libro</value>
+    <value>Añadir libro</value>
   </data>
   <data name="Main_Ocu" xml:space="preserve">
     <value>Oculto:</value>
@@ -953,6 +1130,9 @@
   </data>
   <data name="Main_Series" xml:space="preserve">
     <value>Series</value>
+  </data>
+  <data name="Main_Si" xml:space="preserve">
+    <value>SI</value>
   </data>
   <data name="Main_Sinopsis" xml:space="preserve">
     <value>Sinopsis:</value>
@@ -1031,6 +1211,9 @@
   </data>
   <data name="Ms_Cancelar" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="Ms_Ignorar" xml:space="preserve">
+    <value>Ignorar</value>
   </data>
   <data name="Ms_No" xml:space="preserve">
     <value>No</value>
@@ -1131,11 +1314,20 @@
   <data name="Se_Imagen" xml:space="preserve">
     <value>Imagen</value>
   </data>
+  <data name="Se_LaRelacion" xml:space="preserve">
+    <value>la relación</value>
+  </data>
+  <data name="Se_LaSerie" xml:space="preserve">
+    <value>la serie</value>
+  </data>
   <data name="Se_LsvNombre" xml:space="preserve">
     <value>Nombre</value>
   </data>
   <data name="Se_Nombre" xml:space="preserve">
     <value>Nombre serie</value>
+  </data>
+  <data name="Se_NuevaSerie" xml:space="preserve">
+    <value>Nueva Serie</value>
   </data>
   <data name="Se_REditar" xml:space="preserve">
     <value>Editar</value>
@@ -1190,5 +1382,26 @@
   </data>
   <data name="ShowDialogCerrar" xml:space="preserve">
     <value>¿Seguro qué deseas salir?</value>
+  </data>
+  <data name="VWC_Advertencia" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="VWC_Borrado" xml:space="preserve">
+    <value>Borrado correctamente.</value>
+  </data>
+  <data name="VWC_Borrar" xml:space="preserve">
+    <value>¿Quieres borrar</value>
+  </data>
+  <data name="VWC_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="VWC_Guardar" xml:space="preserve">
+    <value>¿Quieres guardar</value>
+  </data>
+  <data name="VWC_Informacion" xml:space="preserve">
+    <value>Información</value>
+  </data>
+  <data name="VWC_Pregunta" xml:space="preserve">
+    <value>Open Library Editor</value>
   </data>
 </root>

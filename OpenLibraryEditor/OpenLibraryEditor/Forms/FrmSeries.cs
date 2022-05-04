@@ -17,7 +17,8 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmSeries : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "la serie";
+        //private const string NOMBRE_OBJETO = "la serie";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Se_LaSerie");
         private bool setNew;
         private Serie serieNueva;
         private List<Serie> listaSerie = Biblioteca.biblioteca.ListaSerie;
@@ -40,7 +41,7 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarSe_Click(object sender, EventArgs e)
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -100,10 +101,10 @@ namespace OpenLibraryEditor.Forms
             TTSeries.SetToolTip(this.MBtnMenosRelacionNS, ControladorIdioma.GetTexto("Se_RMenos"));
             MBtnEditarRS.Text = ControladorIdioma.GetTexto("Se_REditar");
             TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_RTTEditar"));
-            KBtnCancelarSe.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTSeries.SetToolTip(this.KBtnCancelarSe, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarSe.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTSeries.SetToolTip(this.KBtnAceptarSe, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTSeries.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTSeries.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
             TTSeries.SetToolTip(this.MBtnCerrarSeries, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirSerie(Serie serie)
@@ -167,7 +168,7 @@ namespace OpenLibraryEditor.Forms
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
-                    KBtnAceptarSe_Click(null, null);
+                    GBtnAceptar_Click(null, null);
             }
         }
 
@@ -216,7 +217,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasLsvNS_Click(object sender, EventArgs e)
         {
             //Aqui salta un error de que no puede ser 0
-            Serie s = new Serie("Nueva Serie", KCmbEstadoSe.Items[0].ToString());
+            Serie s = new Serie(ControladorIdioma.GetTexto("Se_NuevaSerie"), KCmbEstadoSe.Items[0].ToString());
             listaSerie.Add(s);
             var item = AniadirSerie(s);
             item.Selected = true;
@@ -279,7 +280,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMenosRelacionNS_Click(object sender, EventArgs e)
         {
             if (LsvRelacionSeriesNS.SelectedItems.Count == 1 &&
-               VentanaWindowsComun.MensajeBorrarObjeto("la relación") == DialogResult.Yes)
+               VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Se_LaRelacion")) == DialogResult.Yes)
             {
                 int i = relacionActual.Serie.ListaRelacionSerie.FindIndex(p => p.Serie == serieActual);
                 relacionActual.Serie.ListaRelacionSerie.RemoveAt(i);
@@ -295,9 +296,10 @@ namespace OpenLibraryEditor.Forms
                 relacionActual.NombreTipoRelacionSerie = relacion.NombreTipoRelacionSerie;
             }
         }
-        private void KBtnAceptarSe_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesSE.Visible == true) {
+            if (PanOpcionesSE.Visible == true)
+            {
                 if (!String.IsNullOrWhiteSpace(KTxtNombreSe.Text))
                 {
                     //Actualizar serie
@@ -317,7 +319,7 @@ namespace OpenLibraryEditor.Forms
                     itemSerieActual.SubItems[1].Text = KCmbEstadoSe.Text;
                 }
                 else
-                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
 

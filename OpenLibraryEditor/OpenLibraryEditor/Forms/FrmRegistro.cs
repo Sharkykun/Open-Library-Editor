@@ -42,8 +42,8 @@ namespace OpenLibraryEditor.Forms
             TTRegistro.SetToolTip(this.KTxtContraReg, ControladorIdioma.GetTexto("Reg_TTContra"));
             LblContra1Reg.Text = ControladorIdioma.GetTexto("Reg_Contra1");
             TTRegistro.SetToolTip(this.KTxtContra1Reg, ControladorIdioma.GetTexto("Reg_TTContra1"));
-            BtnRegistrarme.Text = ControladorIdioma.GetTexto("Reg_BtnRegistro");
-            TTRegistro.SetToolTip(this.BtnRegistrarme, ControladorIdioma.GetTexto("Reg_BtnRegistro"));
+            GBtnRegistrarme.Text = ControladorIdioma.GetTexto("Reg_BtnRegistro");
+            TTRegistro.SetToolTip(this.GBtnRegistrarme, ControladorIdioma.GetTexto("Reg_BtnRegistro"));
             TTRegistro.SetToolTip(this.IpcbMostrarContraReg, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
             TTRegistro.SetToolTip(this.IpcbOcultarContra1Reg, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
             TTRegistro.SetToolTip(this.IpcbOcultarContraReg, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));

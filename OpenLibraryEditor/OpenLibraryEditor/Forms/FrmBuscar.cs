@@ -143,7 +143,7 @@ namespace OpenLibraryEditor.Forms
                 case NOMBRE_GOOGLE:
                     //Pregunta si añadir libro a la lista local,
                     //y convertir en caso afirmativo
-                    if (VentanaWindowsComun.MensajeGuardarObjeto("el libro") == DialogResult.Yes)
+                    if (VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Bus_libro")) == DialogResult.Yes)
                     {
                         try
                         {
@@ -154,7 +154,7 @@ namespace OpenLibraryEditor.Forms
                         }
                         catch (IdRepetidoException)
                         {
-                            VentanaWindowsComun.MensajeError("No se puede añadir porque el libro ya existe en la biblioteca.");
+                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_LibroExiste"));
                         }
                     }
                     break;

@@ -23,7 +23,8 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmLibros : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "la acción";
+        //private const string NOMBRE_OBJETO = "la acción";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Al_Accion");
         private Libro libroActual;
         private BindingSource tipoBinding = new BindingSource();
 
@@ -145,15 +146,15 @@ namespace OpenLibraryEditor.Forms
             LsvAccionesNL.Columns[1].Text = ControladorIdioma.GetTexto("Al_ACEje");
             LblFicheroNL.Text = ControladorIdioma.GetTexto("Al_ACFic");
             LblEjecutableNL.Text = ControladorIdioma.GetTexto("Al_ACEje");
-            BtnGuardarAccionesNL.Text= ControladorIdioma.GetTexto("Al_ACGuardar");
-            TTnuevoLibro.SetToolTip(this.BtnGuardarAccionesNL, ControladorIdioma.GetTexto("Al_ACGuardar"));
+            GBtnGuardarAccion.Text= ControladorIdioma.GetTexto("Al_ACGuardar");
+            TTnuevoLibro.SetToolTip(this.GBtnGuardarAccion, ControladorIdioma.GetTexto("Al_ACGuardar"));
             TTnuevoLibro.SetToolTip(this.IbtnFichero, ControladorIdioma.GetTexto("Al_TTBtnBuscarFichero"));
             TTnuevoLibro.SetToolTip(this.MBtnMasLsvAccionesNL, ControladorIdioma.GetTexto("Al_TTBtnMasAcc"));
             TTnuevoLibro.SetToolTip(this.MBtnMenosLsvAccionesNL, ControladorIdioma.GetTexto("Al_TTBtnMenosAcc"));
             TTnuevoLibro.SetToolTip(this.LsvAccionesNL, ControladorIdioma.GetTexto("Al_TTLsvAcciones"));
 
-            BtnGuardarNL.Text = ControladorIdioma.GetTexto("Al_Guardar");
-            TTnuevoLibro.SetToolTip(this.BtnGuardarNL, ControladorIdioma.GetTexto("Al_Guardar"));
+            GBtnGuardarLibro.Text = ControladorIdioma.GetTexto("Al_Guardar");
+            TTnuevoLibro.SetToolTip(this.GBtnGuardarLibro, ControladorIdioma.GetTexto("Al_Guardar"));
         }
         private int AgregarComboCheckItem(CheckedComboBox checkedCombo, object item)
         {
@@ -410,25 +411,46 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnMasTipoLibroNL_Click(object sender, EventArgs e)
         {
-            string x = Interaction.InputBox("Escribe el nombre del tipo de libro.",
-               "Añadir Tipo de Libro", "", Location.X, Location.Y + 10);
+            FrmInputTxt input = new FrmInputTxt(null);
+            if (KCmbTipoNL.SelectedItem != null) { 
+                input = new FrmInputTxt(KCmbTipoNL.SelectedItem.ToString());
+            }
+            input.FormBorderStyle = FormBorderStyle.None;
+            input.Text = "Tipo libro";
+            input.ShowDialog();
+            string x = input.tipo;
             //Comprobar que no esté en blanco
-            if (!String.IsNullOrWhiteSpace(x))
+            if (!String.IsNullOrWhiteSpace(x) && !input.editable)
             {
                 listaTipoLibro.Add(x);
                 ActualizarTipoLibro();
                 KCmbTipoNL.SelectedItem = x;
             }
-        }
-
-        private void MBtnMenosTipoLibroNL_Click(object sender, EventArgs e)
-        {
-            if (VentanaWindowsComun.MensajeBorrarObjeto("el tipo de libro") == DialogResult.Yes)
+            else if(!String.IsNullOrWhiteSpace(x) && input.editable)
+            {
+                int i = listaTipoLibro.IndexOf(KCmbTipoNL.SelectedItem.ToString());
+                listaTipoLibro[i] = x;
+                ActualizarTipoLibro();
+                KCmbTipoNL.SelectedItem = x;
+            }
+            else if(x==null)
             {
                 listaTipoLibro.Remove((string)KCmbTipoNL.SelectedItem);
                 ActualizarTipoLibro();
                 KCmbTipoNL.SelectedItem = null;
             }
+
+            
+        }
+
+        private void MBtnMenosTipoLibroNL_Click(object sender, EventArgs e)
+        {
+            //if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.NombreTipo) == DialogResult.Yes)
+            //{
+            //    listaTipoLibro.Remove((string)KCmbTipoNL.SelectedItem);
+            //    ActualizarTipoLibro();
+            //    KCmbTipoNL.SelectedItem = null;
+            //}
         }
         #endregion
         #region Imagenes
@@ -460,7 +482,7 @@ namespace OpenLibraryEditor.Forms
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto("");
                 if (result == DialogResult.Yes)
-                    BtnGuardarAccionesNL_Click(null, null);
+                    GBtnGuardarAccion_Click(null, null);
             }
 
             //Comprobar selección item
@@ -482,7 +504,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasLsvAccionesNL_Click(object sender, EventArgs e)
         {
-            UsuarioAccion ua = new UsuarioAccion(libroActual, "Ruta fichero aquí", null);
+            UsuarioAccion ua = new UsuarioAccion(libroActual, ControladorIdioma.GetTexto("Al_RutaFicAqui"), null);
             libroActual.ListaAccion.Add(ua);
             var item = AniadirAccion(ua);
             item.Selected = true;
@@ -497,7 +519,7 @@ namespace OpenLibraryEditor.Forms
                 LsvAccionesNL.Items.Remove(item);
             }
         }
-        private void BtnGuardarAccionesNL_Click(object sender, EventArgs e)
+        private void GBtnGuardarAccion_Click(object sender, EventArgs e)
         {
             //Actualizar libro
             accionActual.RutaFichero = KTxtFicheroNL.Text;
@@ -522,8 +544,7 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
 
-
-        private void BtnGuardarNL_Click(object sender, EventArgs e)
+        private void GBtnGuardarLibro_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
             {
@@ -558,7 +579,7 @@ namespace OpenLibraryEditor.Forms
                 libroActual.ListaSerie.Clear();
                 foreach (var c in KCCSerieNL.CheckedItems)
                     libroActual.ListaSerie.Add((Serie)(c as CCBoxItem).Item);
-                if(KCmbIdiomaOriginalNL.SelectedIndex != -1)
+                if (KCmbIdiomaOriginalNL.SelectedIndex != -1)
                     libroActual.IdiomaOriginal = KCmbIdiomaOriginalNL.SelectedItem.ToString();
                 if (KCmbIdiomaNL.SelectedIndex != -1)
                     libroActual.Idioma = KCmbIdiomaNL.SelectedItem.ToString();
@@ -592,8 +613,7 @@ namespace OpenLibraryEditor.Forms
                 Close();
             }
             else
-                VentanaWindowsComun.MensajeError("El título y el ISBN no puede estar vacío." +
-                    "\nTampoco puede estar el ISBN repetido.");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Libro"));
         }
 
         private void MBtnCerrarTitulos_Click(object sender, EventArgs e)
@@ -606,10 +626,11 @@ namespace OpenLibraryEditor.Forms
             //Comparar objetos para preguntar si guardar
             if (libroActual != null && EsObjetoCambiado())
             {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto("el libro");
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Al_ElLibro"));
                 if (result == DialogResult.Yes)
-                    BtnGuardarNL_Click(null, null);
+                    GBtnGuardarLibro_Click(null, null);
             }
         }
+
     }
 }
