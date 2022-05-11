@@ -257,7 +257,7 @@
             this.PanOpcionesEJ.Controls.Add(this.KTxtRutaEJ);
             this.PanOpcionesEJ.Location = new System.Drawing.Point(377, 58);
             this.PanOpcionesEJ.Name = "PanOpcionesEJ";
-            this.PanOpcionesEJ.Size = new System.Drawing.Size(402, 348);
+            this.PanOpcionesEJ.Size = new System.Drawing.Size(419, 348);
             this.PanOpcionesEJ.TabIndex = 151;
             this.PanOpcionesEJ.Visible = false;
             // 
@@ -271,11 +271,11 @@
             this.IBtnBuscarRutaEJ.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
             this.IBtnBuscarRutaEJ.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IBtnBuscarRutaEJ.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnBuscarRutaEJ.IconSize = 25;
-            this.IBtnBuscarRutaEJ.Location = new System.Drawing.Point(340, 189);
+            this.IBtnBuscarRutaEJ.IconSize = 35;
+            this.IBtnBuscarRutaEJ.Location = new System.Drawing.Point(377, 111);
             this.IBtnBuscarRutaEJ.Name = "IBtnBuscarRutaEJ";
             this.IBtnBuscarRutaEJ.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.IBtnBuscarRutaEJ.Size = new System.Drawing.Size(20, 20);
+            this.IBtnBuscarRutaEJ.Size = new System.Drawing.Size(30, 30);
             this.IBtnBuscarRutaEJ.TabIndex = 159;
             this.IBtnBuscarRutaEJ.UseVisualStyleBackColor = false;
             this.IBtnBuscarRutaEJ.Click += new System.EventHandler(this.IBtnBuscarRutaEJ_Click);
@@ -285,7 +285,7 @@
             this.LblArgumentosEJ.AutoSize = true;
             this.LblArgumentosEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblArgumentosEJ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblArgumentosEJ.Location = new System.Drawing.Point(25, 232);
+            this.LblArgumentosEJ.Location = new System.Drawing.Point(25, 157);
             this.LblArgumentosEJ.Name = "LblArgumentosEJ";
             this.LblArgumentosEJ.Size = new System.Drawing.Size(92, 20);
             this.LblArgumentosEJ.TabIndex = 158;
@@ -293,7 +293,7 @@
             // 
             // KTxtArgumentosEJ
             // 
-            this.KTxtArgumentosEJ.Location = new System.Drawing.Point(25, 257);
+            this.KTxtArgumentosEJ.Location = new System.Drawing.Point(25, 182);
             this.KTxtArgumentosEJ.Name = "KTxtArgumentosEJ";
             this.KTxtArgumentosEJ.Size = new System.Drawing.Size(346, 33);
             this.KTxtArgumentosEJ.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -313,7 +313,7 @@
             this.LblRutaEJ.AutoSize = true;
             this.LblRutaEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRutaEJ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblRutaEJ.Location = new System.Drawing.Point(25, 157);
+            this.LblRutaEJ.Location = new System.Drawing.Point(25, 83);
             this.LblRutaEJ.Name = "LblRutaEJ";
             this.LblRutaEJ.Size = new System.Drawing.Size(143, 20);
             this.LblRutaEJ.TabIndex = 156;
@@ -324,7 +324,7 @@
             this.LblExtensionEJ.AutoSize = true;
             this.LblExtensionEJ.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblExtensionEJ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblExtensionEJ.Location = new System.Drawing.Point(25, 83);
+            this.LblExtensionEJ.Location = new System.Drawing.Point(25, 232);
             this.LblExtensionEJ.Name = "LblExtensionEJ";
             this.LblExtensionEJ.Size = new System.Drawing.Size(146, 20);
             this.LblExtensionEJ.TabIndex = 154;
@@ -333,7 +333,7 @@
             // 
             // KTxtExtensionEJ
             // 
-            this.KTxtExtensionEJ.Location = new System.Drawing.Point(25, 108);
+            this.KTxtExtensionEJ.Location = new System.Drawing.Point(25, 257);
             this.KTxtExtensionEJ.Name = "KTxtExtensionEJ";
             this.KTxtExtensionEJ.Size = new System.Drawing.Size(346, 33);
             this.KTxtExtensionEJ.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -379,7 +379,7 @@
             // 
             // KTxtRutaEJ
             // 
-            this.KTxtRutaEJ.Location = new System.Drawing.Point(25, 182);
+            this.KTxtRutaEJ.Location = new System.Drawing.Point(25, 108);
             this.KTxtRutaEJ.Name = "KTxtRutaEJ";
             this.KTxtRutaEJ.Size = new System.Drawing.Size(346, 33);
             this.KTxtRutaEJ.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));

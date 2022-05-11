@@ -63,8 +63,8 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.KTxtComentarioGe, ControladorIdioma.GetTexto("Ge_TTComentario"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTGeneros.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
-            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTGeneros.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTGeneros.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar")); 
         }
         private void ActualizarGeneroPadre()

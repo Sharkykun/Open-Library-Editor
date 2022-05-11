@@ -270,7 +270,6 @@ C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEd
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.csproj.CopyComplete
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Guna.UI.dll
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmInputTxt.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmAdministrarUsuarios.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmCrearBD.resources

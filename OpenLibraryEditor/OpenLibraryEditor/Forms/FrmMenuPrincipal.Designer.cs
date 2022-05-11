@@ -66,7 +66,7 @@
             this.BtnTagsMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.PanFormHijos = new System.Windows.Forms.Panel();
             this.PanLibrosMBI = new System.Windows.Forms.Panel();
-            this.PanVistaDetalles = new System.Windows.Forms.Panel();
+            this.PanVistaMosaico = new System.Windows.Forms.Panel();
             this.PanListViewsOpciones = new System.Windows.Forms.Panel();
             this.LsvOpciones = new System.Windows.Forms.ListView();
             this.ImgListLsvGrande = new System.Windows.Forms.ImageList(this.components);
@@ -139,23 +139,28 @@
             this.TxtAutores = new System.Windows.Forms.TextBox();
             this.TxtTituloLibro = new System.Windows.Forms.TextBox();
             this.PcbLibro = new System.Windows.Forms.PictureBox();
-            this.PanVistaMosaico = new System.Windows.Forms.Panel();
+            this.FlPanBuscar = new System.Windows.Forms.FlowLayoutPanel();
+            this.MBtnOrdenMBI = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnVistaDetallesMBI = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnVistaMosaicoMBI = new FontAwesome.Sharp.Material.MaterialButton();
+            this.LblBuscarPorMBI = new System.Windows.Forms.Label();
+            this.KCmbBuscarPorMBI = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.PanNumPaginas = new System.Windows.Forms.Panel();
+            this.LblPaginasEntre = new System.Windows.Forms.Label();
+            this.KNudPagMax = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.KNudPagMin = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.KTxtBuscarMBI = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
+            this.PanVistaDetalles = new System.Windows.Forms.Panel();
             this.PanPiePagina = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PanBusquedaMBI = new System.Windows.Forms.Panel();
-            this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
-            this.KTxtBuscarMBI = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.MBtnOrdenMBI = new FontAwesome.Sharp.Material.MaterialButton();
-            this.KCmbBuscarPorMBI = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.LblBuscarPorMBI = new System.Windows.Forms.Label();
-            this.MBtnVistaMosaicoMBI = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnVistaDetallesMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanTituloFormAbierto = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblTituloFormAbierto = new System.Windows.Forms.Label();
             this.MPcbTituloFrm = new FontAwesome.Sharp.Material.MaterialPictureBox();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanHijos = new System.Windows.Forms.Panel();
+            this.TimeRedimensionar = new System.Windows.Forms.Timer(this.components);
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -184,9 +189,10 @@
             this.KpUsuario.SuspendLayout();
             this.PanFotoTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLibro)).BeginInit();
-            this.PanPiePagina.SuspendLayout();
-            this.PanBusquedaMBI.SuspendLayout();
+            this.FlPanBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbBuscarPorMBI)).BeginInit();
+            this.PanNumPaginas.SuspendLayout();
+            this.PanPiePagina.SuspendLayout();
             this.PanTituloFormAbierto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbTituloFrm)).BeginInit();
             this.PanHijos.SuspendLayout();
@@ -874,7 +880,6 @@
             this.PanFormHijos.BackColor = System.Drawing.Color.Gainsboro;
             this.PanFormHijos.Controls.Add(this.PanLibrosMBI);
             this.PanFormHijos.Controls.Add(this.PanPiePagina);
-            this.PanFormHijos.Controls.Add(this.PanBusquedaMBI);
             this.PanFormHijos.Controls.Add(this.PanTituloFormAbierto);
             this.PanFormHijos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanFormHijos.Location = new System.Drawing.Point(0, 0);
@@ -886,36 +891,38 @@
             // 
             this.PanLibrosMBI.AutoScroll = true;
             this.PanLibrosMBI.BackColor = System.Drawing.Color.Gainsboro;
-            this.PanLibrosMBI.Controls.Add(this.PanVistaDetalles);
+            this.PanLibrosMBI.Controls.Add(this.PanVistaMosaico);
             this.PanLibrosMBI.Controls.Add(this.PanListViewsOpciones);
             this.PanLibrosMBI.Controls.Add(this.PanDetallesLibro);
-            this.PanLibrosMBI.Controls.Add(this.PanVistaMosaico);
+            this.PanLibrosMBI.Controls.Add(this.FlPanBuscar);
+            this.PanLibrosMBI.Controls.Add(this.PanVistaDetalles);
             this.PanLibrosMBI.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanLibrosMBI.Location = new System.Drawing.Point(0, 104);
+            this.PanLibrosMBI.Location = new System.Drawing.Point(0, 64);
             this.PanLibrosMBI.Name = "PanLibrosMBI";
-            this.PanLibrosMBI.Size = new System.Drawing.Size(949, 542);
+            this.PanLibrosMBI.Size = new System.Drawing.Size(949, 582);
             this.PanLibrosMBI.TabIndex = 13;
             // 
-            // PanVistaDetalles
+            // PanVistaMosaico
             // 
-            this.PanVistaDetalles.AutoScroll = true;
-            this.PanVistaDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.PanVistaDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanVistaDetalles.Location = new System.Drawing.Point(250, 0);
-            this.PanVistaDetalles.Name = "PanVistaDetalles";
-            this.PanVistaDetalles.Size = new System.Drawing.Size(449, 542);
-            this.PanVistaDetalles.TabIndex = 2;
-            this.PanVistaDetalles.Resize += new System.EventHandler(this.PanVistaDetalles_Resize);
+            this.PanVistaMosaico.AutoScroll = true;
+            this.PanVistaMosaico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.PanVistaMosaico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanVistaMosaico.Location = new System.Drawing.Point(250, 40);
+            this.PanVistaMosaico.Name = "PanVistaMosaico";
+            this.PanVistaMosaico.Size = new System.Drawing.Size(449, 542);
+            this.PanVistaMosaico.TabIndex = 2;
+            this.PanVistaMosaico.SizeChanged += new System.EventHandler(this.PanVistaDetalles_SizeChanged);
+            this.PanVistaMosaico.Resize += new System.EventHandler(this.PanVistaMosaico_Resize);
             // 
             // PanListViewsOpciones
             // 
             this.PanListViewsOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.PanListViewsOpciones.Controls.Add(this.LsvOpciones);
             this.PanListViewsOpciones.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanListViewsOpciones.Location = new System.Drawing.Point(0, 0);
+            this.PanListViewsOpciones.Location = new System.Drawing.Point(0, 40);
             this.PanListViewsOpciones.Name = "PanListViewsOpciones";
             this.PanListViewsOpciones.Size = new System.Drawing.Size(250, 542);
-            this.PanListViewsOpciones.TabIndex = 3;
+            this.PanListViewsOpciones.TabIndex = 1;
             this.PanListViewsOpciones.Visible = false;
             // 
             // LsvOpciones
@@ -959,11 +966,12 @@
             this.PanDetallesLibro.Controls.Add(this.PanFotoTitulo);
             this.PanDetallesLibro.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanDetallesLibro.ForeColor = System.Drawing.Color.Gainsboro;
-            this.PanDetallesLibro.Location = new System.Drawing.Point(699, 0);
+            this.PanDetallesLibro.Location = new System.Drawing.Point(699, 40);
             this.PanDetallesLibro.Name = "PanDetallesLibro";
             this.PanDetallesLibro.Size = new System.Drawing.Size(250, 542);
             this.PanDetallesLibro.TabIndex = 1;
             this.PanDetallesLibro.Visible = false;
+            this.PanDetallesLibro.VisibleChanged += new System.EventHandler(this.PanDetallesLibro_VisibleChanged);
             // 
             // PanMasdatos
             // 
@@ -1421,7 +1429,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(110, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(109, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "prueba de tamaño";
             // 
@@ -1828,16 +1836,225 @@
             this.PcbLibro.TabIndex = 1;
             this.PcbLibro.TabStop = false;
             // 
-            // PanVistaMosaico
+            // FlPanBuscar
             // 
-            this.PanVistaMosaico.AutoScroll = true;
-            this.PanVistaMosaico.BackColor = System.Drawing.Color.Gainsboro;
-            this.PanVistaMosaico.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanVistaMosaico.Location = new System.Drawing.Point(0, 0);
-            this.PanVistaMosaico.Name = "PanVistaMosaico";
-            this.PanVistaMosaico.Size = new System.Drawing.Size(949, 542);
-            this.PanVistaMosaico.TabIndex = 0;
-            this.PanVistaMosaico.Resize += new System.EventHandler(this.PanVistaMosaico_Resize);
+            this.FlPanBuscar.AutoSize = true;
+            this.FlPanBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FlPanBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.FlPanBuscar.Controls.Add(this.MBtnOrdenMBI);
+            this.FlPanBuscar.Controls.Add(this.MBtnVistaDetallesMBI);
+            this.FlPanBuscar.Controls.Add(this.MBtnVistaMosaicoMBI);
+            this.FlPanBuscar.Controls.Add(this.LblBuscarPorMBI);
+            this.FlPanBuscar.Controls.Add(this.KCmbBuscarPorMBI);
+            this.FlPanBuscar.Controls.Add(this.PanNumPaginas);
+            this.FlPanBuscar.Controls.Add(this.KTxtBuscarMBI);
+            this.FlPanBuscar.Controls.Add(this.MBtnBuscarMBI);
+            this.FlPanBuscar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FlPanBuscar.Location = new System.Drawing.Point(0, 0);
+            this.FlPanBuscar.Name = "FlPanBuscar";
+            this.FlPanBuscar.Size = new System.Drawing.Size(949, 40);
+            this.FlPanBuscar.TabIndex = 0;
+            // 
+            // MBtnOrdenMBI
+            // 
+            this.MBtnOrdenMBI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnOrdenMBI.FlatAppearance.BorderSize = 0;
+            this.MBtnOrdenMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnOrdenMBI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnOrdenMBI.IconChar = FontAwesome.Sharp.MaterialIcons.OrderAlphabeticalAscending;
+            this.MBtnOrdenMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnOrdenMBI.IconSize = 40;
+            this.MBtnOrdenMBI.Location = new System.Drawing.Point(3, 3);
+            this.MBtnOrdenMBI.Name = "MBtnOrdenMBI";
+            this.MBtnOrdenMBI.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.MBtnOrdenMBI.Size = new System.Drawing.Size(45, 34);
+            this.MBtnOrdenMBI.TabIndex = 132;
+            this.MBtnOrdenMBI.UseVisualStyleBackColor = true;
+            this.MBtnOrdenMBI.Click += new System.EventHandler(this.MBtnOrdenMBI_Click);
+            // 
+            // MBtnVistaDetallesMBI
+            // 
+            this.MBtnVistaDetallesMBI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnVistaDetallesMBI.FlatAppearance.BorderSize = 0;
+            this.MBtnVistaDetallesMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnVistaDetallesMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewList;
+            this.MBtnVistaDetallesMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnVistaDetallesMBI.IconSize = 50;
+            this.MBtnVistaDetallesMBI.Location = new System.Drawing.Point(54, 3);
+            this.MBtnVistaDetallesMBI.Name = "MBtnVistaDetallesMBI";
+            this.MBtnVistaDetallesMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.MBtnVistaDetallesMBI.Size = new System.Drawing.Size(34, 34);
+            this.MBtnVistaDetallesMBI.TabIndex = 6;
+            this.MBtnVistaDetallesMBI.UseVisualStyleBackColor = true;
+            this.MBtnVistaDetallesMBI.Click += new System.EventHandler(this.MBtnVistaDetallesMBI_Click);
+            // 
+            // MBtnVistaMosaicoMBI
+            // 
+            this.MBtnVistaMosaicoMBI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnVistaMosaicoMBI.FlatAppearance.BorderSize = 0;
+            this.MBtnVistaMosaicoMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnVistaMosaicoMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewGridOutline;
+            this.MBtnVistaMosaicoMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnVistaMosaicoMBI.IconSize = 45;
+            this.MBtnVistaMosaicoMBI.Location = new System.Drawing.Point(94, 3);
+            this.MBtnVistaMosaicoMBI.Name = "MBtnVistaMosaicoMBI";
+            this.MBtnVistaMosaicoMBI.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.MBtnVistaMosaicoMBI.Size = new System.Drawing.Size(34, 34);
+            this.MBtnVistaMosaicoMBI.TabIndex = 7;
+            this.MBtnVistaMosaicoMBI.UseVisualStyleBackColor = true;
+            this.MBtnVistaMosaicoMBI.Click += new System.EventHandler(this.MBtnVistaMosaicoMBI_Click);
+            // 
+            // LblBuscarPorMBI
+            // 
+            this.LblBuscarPorMBI.AutoSize = true;
+            this.LblBuscarPorMBI.Font = new System.Drawing.Font("Merienda One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblBuscarPorMBI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblBuscarPorMBI.Location = new System.Drawing.Point(134, 0);
+            this.LblBuscarPorMBI.Name = "LblBuscarPorMBI";
+            this.LblBuscarPorMBI.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.LblBuscarPorMBI.Size = new System.Drawing.Size(83, 28);
+            this.LblBuscarPorMBI.TabIndex = 133;
+            this.LblBuscarPorMBI.Text = "Buscar por:";
+            // 
+            // KCmbBuscarPorMBI
+            // 
+            this.KCmbBuscarPorMBI.DropDownWidth = 160;
+            this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(223, 3);
+            this.KCmbBuscarPorMBI.Name = "KCmbBuscarPorMBI";
+            this.KCmbBuscarPorMBI.Size = new System.Drawing.Size(207, 33);
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Rounding = 10;
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Width = 2;
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbBuscarPorMBI.TabIndex = 109;
+            this.KCmbBuscarPorMBI.SelectedIndexChanged += new System.EventHandler(this.KCmbBuscarPorMBI_SelectedIndexChanged);
+            // 
+            // PanNumPaginas
+            // 
+            this.PanNumPaginas.BackColor = System.Drawing.Color.Transparent;
+            this.PanNumPaginas.Controls.Add(this.LblPaginasEntre);
+            this.PanNumPaginas.Controls.Add(this.KNudPagMax);
+            this.PanNumPaginas.Controls.Add(this.KNudPagMin);
+            this.PanNumPaginas.Location = new System.Drawing.Point(436, 3);
+            this.PanNumPaginas.Name = "PanNumPaginas";
+            this.PanNumPaginas.Size = new System.Drawing.Size(244, 34);
+            this.PanNumPaginas.TabIndex = 129;
+            this.PanNumPaginas.Visible = false;
+            // 
+            // LblPaginasEntre
+            // 
+            this.LblPaginasEntre.AutoSize = true;
+            this.LblPaginasEntre.Font = new System.Drawing.Font("Merienda One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPaginasEntre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblPaginasEntre.Location = new System.Drawing.Point(1, 8);
+            this.LblPaginasEntre.Name = "LblPaginasEntre";
+            this.LblPaginasEntre.Size = new System.Drawing.Size(65, 18);
+            this.LblPaginasEntre.TabIndex = 130;
+            this.LblPaginasEntre.Text = "Between:";
+            // 
+            // KNudPagMax
+            // 
+            this.KNudPagMax.Location = new System.Drawing.Point(160, 0);
+            this.KNudPagMax.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.KNudPagMax.Name = "KNudPagMax";
+            this.KNudPagMax.Size = new System.Drawing.Size(83, 33);
+            this.KNudPagMax.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.KNudPagMax.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudPagMax.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudPagMax.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KNudPagMax.StateCommon.Border.Rounding = 10;
+            this.KNudPagMax.StateCommon.Border.Width = 2;
+            this.KNudPagMax.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KNudPagMax.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KNudPagMax.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.KNudPagMax.TabIndex = 129;
+            this.KNudPagMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // KNudPagMin
+            // 
+            this.KNudPagMin.Location = new System.Drawing.Point(72, 0);
+            this.KNudPagMin.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.KNudPagMin.Name = "KNudPagMin";
+            this.KNudPagMin.Size = new System.Drawing.Size(83, 33);
+            this.KNudPagMin.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.KNudPagMin.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudPagMin.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudPagMin.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KNudPagMin.StateCommon.Border.Rounding = 10;
+            this.KNudPagMin.StateCommon.Border.Width = 2;
+            this.KNudPagMin.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KNudPagMin.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KNudPagMin.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.KNudPagMin.TabIndex = 127;
+            this.KNudPagMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // KTxtBuscarMBI
+            // 
+            this.KTxtBuscarMBI.Location = new System.Drawing.Point(688, 4);
+            this.KTxtBuscarMBI.Margin = new System.Windows.Forms.Padding(5, 4, 0, 0);
+            this.KTxtBuscarMBI.Name = "KTxtBuscarMBI";
+            this.KTxtBuscarMBI.Size = new System.Drawing.Size(212, 33);
+            this.KTxtBuscarMBI.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.KTxtBuscarMBI.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtBuscarMBI.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtBuscarMBI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtBuscarMBI.StateCommon.Border.Rounding = 10;
+            this.KTxtBuscarMBI.StateCommon.Border.Width = 2;
+            this.KTxtBuscarMBI.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtBuscarMBI.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtBuscarMBI.TabIndex = 130;
+            // 
+            // MBtnBuscarMBI
+            // 
+            this.MBtnBuscarMBI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnBuscarMBI.FlatAppearance.BorderSize = 0;
+            this.MBtnBuscarMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnBuscarMBI.ForeColor = System.Drawing.Color.Gainsboro;
+            this.MBtnBuscarMBI.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
+            this.MBtnBuscarMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnBuscarMBI.IconSize = 45;
+            this.MBtnBuscarMBI.Location = new System.Drawing.Point(903, 3);
+            this.MBtnBuscarMBI.Name = "MBtnBuscarMBI";
+            this.MBtnBuscarMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.MBtnBuscarMBI.Size = new System.Drawing.Size(34, 34);
+            this.MBtnBuscarMBI.TabIndex = 131;
+            this.MBtnBuscarMBI.UseVisualStyleBackColor = true;
+            this.MBtnBuscarMBI.Click += new System.EventHandler(this.MBtnBuscarMBI_Click);
+            // 
+            // PanVistaDetalles
+            // 
+            this.PanVistaDetalles.AutoScroll = true;
+            this.PanVistaDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.PanVistaDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanVistaDetalles.Location = new System.Drawing.Point(0, 0);
+            this.PanVistaDetalles.Name = "PanVistaDetalles";
+            this.PanVistaDetalles.Size = new System.Drawing.Size(949, 582);
+            this.PanVistaDetalles.TabIndex = 2;
+            this.PanVistaDetalles.SizeChanged += new System.EventHandler(this.PanVistaDetalles_SizeChanged);
+            this.PanVistaDetalles.Resize += new System.EventHandler(this.PanVistaMosaico_Resize);
             // 
             // PanPiePagina
             // 
@@ -1857,140 +2074,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(949, 4);
             this.panel1.TabIndex = 0;
-            // 
-            // PanBusquedaMBI
-            // 
-            this.PanBusquedaMBI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.PanBusquedaMBI.Controls.Add(this.MBtnBuscarMBI);
-            this.PanBusquedaMBI.Controls.Add(this.KTxtBuscarMBI);
-            this.PanBusquedaMBI.Controls.Add(this.MBtnOrdenMBI);
-            this.PanBusquedaMBI.Controls.Add(this.KCmbBuscarPorMBI);
-            this.PanBusquedaMBI.Controls.Add(this.LblBuscarPorMBI);
-            this.PanBusquedaMBI.Controls.Add(this.MBtnVistaMosaicoMBI);
-            this.PanBusquedaMBI.Controls.Add(this.MBtnVistaDetallesMBI);
-            this.PanBusquedaMBI.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanBusquedaMBI.Location = new System.Drawing.Point(0, 64);
-            this.PanBusquedaMBI.Name = "PanBusquedaMBI";
-            this.PanBusquedaMBI.Size = new System.Drawing.Size(949, 40);
-            this.PanBusquedaMBI.TabIndex = 11;
-            // 
-            // MBtnBuscarMBI
-            // 
-            this.MBtnBuscarMBI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnBuscarMBI.FlatAppearance.BorderSize = 0;
-            this.MBtnBuscarMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnBuscarMBI.ForeColor = System.Drawing.Color.Gainsboro;
-            this.MBtnBuscarMBI.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
-            this.MBtnBuscarMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnBuscarMBI.IconSize = 30;
-            this.MBtnBuscarMBI.Location = new System.Drawing.Point(545, 9);
-            this.MBtnBuscarMBI.Name = "MBtnBuscarMBI";
-            this.MBtnBuscarMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MBtnBuscarMBI.Size = new System.Drawing.Size(20, 20);
-            this.MBtnBuscarMBI.TabIndex = 126;
-            this.MBtnBuscarMBI.UseVisualStyleBackColor = true;
-            this.MBtnBuscarMBI.Click += new System.EventHandler(this.MBtnBuscarMBI_Click);
-            // 
-            // KTxtBuscarMBI
-            // 
-            this.KTxtBuscarMBI.Location = new System.Drawing.Point(340, 3);
-            this.KTxtBuscarMBI.Name = "KTxtBuscarMBI";
-            this.KTxtBuscarMBI.Size = new System.Drawing.Size(235, 33);
-            this.KTxtBuscarMBI.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.KTxtBuscarMBI.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarMBI.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarMBI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtBuscarMBI.StateCommon.Border.Rounding = 10;
-            this.KTxtBuscarMBI.StateCommon.Border.Width = 2;
-            this.KTxtBuscarMBI.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarMBI.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtBuscarMBI.TabIndex = 125;
-            // 
-            // MBtnOrdenMBI
-            // 
-            this.MBtnOrdenMBI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnOrdenMBI.FlatAppearance.BorderSize = 0;
-            this.MBtnOrdenMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnOrdenMBI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnOrdenMBI.IconChar = FontAwesome.Sharp.MaterialIcons.OrderAlphabeticalAscending;
-            this.MBtnOrdenMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnOrdenMBI.IconSize = 40;
-            this.MBtnOrdenMBI.Location = new System.Drawing.Point(585, 4);
-            this.MBtnOrdenMBI.Name = "MBtnOrdenMBI";
-            this.MBtnOrdenMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MBtnOrdenMBI.Size = new System.Drawing.Size(30, 30);
-            this.MBtnOrdenMBI.TabIndex = 109;
-            this.MBtnOrdenMBI.UseVisualStyleBackColor = true;
-            this.MBtnOrdenMBI.Click += new System.EventHandler(this.MBtnOrdenMBI_Click);
-            // 
-            // KCmbBuscarPorMBI
-            // 
-            this.KCmbBuscarPorMBI.DropDownWidth = 160;
-            this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(127, 3);
-            this.KCmbBuscarPorMBI.Name = "KCmbBuscarPorMBI";
-            this.KCmbBuscarPorMBI.Size = new System.Drawing.Size(207, 33);
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbBuscarPorMBI.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbBuscarPorMBI.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbBuscarPorMBI.TabIndex = 108;
-            this.KCmbBuscarPorMBI.SelectedIndexChanged += new System.EventHandler(this.KCmbBuscarPorMBI_SelectedIndexChanged);
-            // 
-            // LblBuscarPorMBI
-            // 
-            this.LblBuscarPorMBI.AutoSize = true;
-            this.LblBuscarPorMBI.Font = new System.Drawing.Font("Merienda One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBuscarPorMBI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblBuscarPorMBI.Location = new System.Drawing.Point(40, 11);
-            this.LblBuscarPorMBI.Name = "LblBuscarPorMBI";
-            this.LblBuscarPorMBI.Size = new System.Drawing.Size(83, 18);
-            this.LblBuscarPorMBI.TabIndex = 8;
-            this.LblBuscarPorMBI.Text = "Buscar por:";
-            // 
-            // MBtnVistaMosaicoMBI
-            // 
-            this.MBtnVistaMosaicoMBI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnVistaMosaicoMBI.FlatAppearance.BorderSize = 0;
-            this.MBtnVistaMosaicoMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnVistaMosaicoMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewGridOutline;
-            this.MBtnVistaMosaicoMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnVistaMosaicoMBI.IconSize = 40;
-            this.MBtnVistaMosaicoMBI.Location = new System.Drawing.Point(812, 5);
-            this.MBtnVistaMosaicoMBI.Name = "MBtnVistaMosaicoMBI";
-            this.MBtnVistaMosaicoMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MBtnVistaMosaicoMBI.Size = new System.Drawing.Size(30, 30);
-            this.MBtnVistaMosaicoMBI.TabIndex = 7;
-            this.MBtnVistaMosaicoMBI.UseVisualStyleBackColor = true;
-            this.MBtnVistaMosaicoMBI.Visible = false;
-            this.MBtnVistaMosaicoMBI.Click += new System.EventHandler(this.MBtnVistaMosaicoMBI_Click);
-            // 
-            // MBtnVistaDetallesMBI
-            // 
-            this.MBtnVistaDetallesMBI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnVistaDetallesMBI.FlatAppearance.BorderSize = 0;
-            this.MBtnVistaDetallesMBI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnVistaDetallesMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewList;
-            this.MBtnVistaDetallesMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnVistaDetallesMBI.IconSize = 45;
-            this.MBtnVistaDetallesMBI.Location = new System.Drawing.Point(776, 5);
-            this.MBtnVistaDetallesMBI.Name = "MBtnVistaDetallesMBI";
-            this.MBtnVistaDetallesMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MBtnVistaDetallesMBI.Size = new System.Drawing.Size(30, 30);
-            this.MBtnVistaDetallesMBI.TabIndex = 6;
-            this.MBtnVistaDetallesMBI.UseVisualStyleBackColor = true;
-            this.MBtnVistaDetallesMBI.Visible = false;
-            this.MBtnVistaDetallesMBI.Click += new System.EventHandler(this.MBtnVistaDetallesMBI_Click);
             // 
             // PanTituloFormAbierto
             // 
@@ -2020,7 +2103,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 
@@ -2066,6 +2149,7 @@
             this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
+            this.ResizeEnd += new System.EventHandler(this.FrmMenuPrincipal_ResizeEnd);
             this.PanTitulo.ResumeLayout(false);
             this.PanTitulo.PerformLayout();
             this.PanButtons.ResumeLayout(false);
@@ -2078,6 +2162,7 @@
             this.ToolStripMain.PerformLayout();
             this.PanFormHijos.ResumeLayout(false);
             this.PanLibrosMBI.ResumeLayout(false);
+            this.PanLibrosMBI.PerformLayout();
             this.PanListViewsOpciones.ResumeLayout(false);
             this.PanDetallesLibro.ResumeLayout(false);
             this.PanMasdatos.ResumeLayout(false);
@@ -2108,10 +2193,12 @@
             this.PanFotoTitulo.ResumeLayout(false);
             this.PanFotoTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLibro)).EndInit();
-            this.PanPiePagina.ResumeLayout(false);
-            this.PanBusquedaMBI.ResumeLayout(false);
-            this.PanBusquedaMBI.PerformLayout();
+            this.FlPanBuscar.ResumeLayout(false);
+            this.FlPanBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbBuscarPorMBI)).EndInit();
+            this.PanNumPaginas.ResumeLayout(false);
+            this.PanNumPaginas.PerformLayout();
+            this.PanPiePagina.ResumeLayout(false);
             this.PanTituloFormAbierto.ResumeLayout(false);
             this.PanTituloFormAbierto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbTituloFrm)).EndInit();
@@ -2157,12 +2244,6 @@
         private System.Windows.Forms.Panel PanSeparadorMain;
         private System.Windows.Forms.Panel PanFormHijos;
         private System.Windows.Forms.ToolTip ToolTipMain;
-        private System.Windows.Forms.Panel PanBusquedaMBI;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnBuscarMBI;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtBuscarMBI;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnOrdenMBI;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbBuscarPorMBI;
-        private System.Windows.Forms.Label LblBuscarPorMBI;
         private FontAwesome.Sharp.Material.MaterialButton MBtnVistaMosaicoMBI;
         private FontAwesome.Sharp.Material.MaterialButton MBtnVistaDetallesMBI;
         private System.Windows.Forms.Panel PanTituloFormAbierto;
@@ -2248,5 +2329,16 @@
         private System.Windows.Forms.TextBox TxtSinopsis;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.Material.MaterialButton MBtnAdminUsuarios;
+        private System.Windows.Forms.FlowLayoutPanel FlPanBuscar;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbBuscarPorMBI;
+        private System.Windows.Forms.Panel PanNumPaginas;
+        private System.Windows.Forms.Label LblPaginasEntre;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPagMax;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPagMin;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtBuscarMBI;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnBuscarMBI;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnOrdenMBI;
+        private System.Windows.Forms.Label LblBuscarPorMBI;
+        private System.Windows.Forms.Timer TimeRedimensionar;
     }
 }

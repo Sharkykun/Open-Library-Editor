@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLibros));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.KgbDatosGeneralesNL = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.LblObligatorio = new System.Windows.Forms.Label();
             this.TBtnMayores18NL = new OpenLibraryEditor.Controles.ToggleButton();
             this.KCCEtiquetaNL = new OpenLibraryEditor.Controles.CheckedComboBox();
             this.KCCSerieNL = new OpenLibraryEditor.Controles.CheckedComboBox();
@@ -141,7 +142,6 @@
             this.TTnuevoLibro = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.LblObligatorio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL.Panel)).BeginInit();
             this.KgbDatosGeneralesNL.Panel.SuspendLayout();
@@ -298,6 +298,18 @@
             this.KgbDatosGeneralesNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbDatosGeneralesNL.TabIndex = 14;
             this.KgbDatosGeneralesNL.Values.Heading = "Datos generales";
+            // 
+            // LblObligatorio
+            // 
+            this.LblObligatorio.AutoSize = true;
+            this.LblObligatorio.BackColor = System.Drawing.Color.Transparent;
+            this.LblObligatorio.Font = new System.Drawing.Font("Merienda One", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
+            this.LblObligatorio.Name = "LblObligatorio";
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.TabIndex = 158;
+            this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
             // TBtnMayores18NL
             // 
@@ -1818,7 +1830,7 @@
             this.KPageAcciones});
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KcellTabs.SelectedIndex = 0;
+            this.KcellTabs.SelectedIndex = 3;
             this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -2004,10 +2016,10 @@
             this.MBtnMasEjecutableNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasEjecutableNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MBtnMasEjecutableNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnMasEjecutableNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
+            this.MBtnMasEjecutableNL.IconChar = FontAwesome.Sharp.MaterialIcons.PenPlus;
             this.MBtnMasEjecutableNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEjecutableNL.IconSize = 40;
-            this.MBtnMasEjecutableNL.Location = new System.Drawing.Point(379, 114);
+            this.MBtnMasEjecutableNL.Location = new System.Drawing.Point(401, 114);
             this.MBtnMasEjecutableNL.Name = "MBtnMasEjecutableNL";
             this.MBtnMasEjecutableNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasEjecutableNL.TabIndex = 125;
@@ -2031,7 +2043,7 @@
             this.GBtnGuardarAccion.Name = "GBtnGuardarAccion";
             this.GBtnGuardarAccion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnGuardarAccion.OnHoverBorderColor = System.Drawing.Color.Empty;
-            this.GBtnGuardarAccion.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnGuardarAccion.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnGuardarAccion.OnHoverImage = null;
             this.GBtnGuardarAccion.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnGuardarAccion.Radius = 15;
@@ -2072,12 +2084,12 @@
             this.IbtnFichero.FlatAppearance.BorderSize = 0;
             this.IbtnFichero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IbtnFichero.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.IbtnFichero.IconColor = System.Drawing.Color.Navy;
+            this.IbtnFichero.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IbtnFichero.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IbtnFichero.IconSize = 25;
-            this.IbtnFichero.Location = new System.Drawing.Point(379, 42);
+            this.IbtnFichero.IconSize = 40;
+            this.IbtnFichero.Location = new System.Drawing.Point(401, 38);
             this.IbtnFichero.Name = "IbtnFichero";
-            this.IbtnFichero.Size = new System.Drawing.Size(20, 20);
+            this.IbtnFichero.Size = new System.Drawing.Size(30, 30);
             this.IbtnFichero.TabIndex = 43;
             this.IbtnFichero.UseVisualStyleBackColor = false;
             this.IbtnFichero.Click += new System.EventHandler(this.IbtnFichero_Click);
@@ -2087,7 +2099,7 @@
             this.KCmbEjecutableNL.DropDownWidth = 228;
             this.KCmbEjecutableNL.Location = new System.Drawing.Point(37, 112);
             this.KCmbEjecutableNL.Name = "KCmbEjecutableNL";
-            this.KCmbEjecutableNL.Size = new System.Drawing.Size(338, 33);
+            this.KCmbEjecutableNL.Size = new System.Drawing.Size(358, 33);
             this.KCmbEjecutableNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -2107,7 +2119,7 @@
             // 
             this.KTxtFicheroNL.Location = new System.Drawing.Point(33, 35);
             this.KTxtFicheroNL.Name = "KTxtFicheroNL";
-            this.KTxtFicheroNL.Size = new System.Drawing.Size(379, 33);
+            this.KTxtFicheroNL.Size = new System.Drawing.Size(362, 33);
             this.KTxtFicheroNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.KTxtFicheroNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtFicheroNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -2166,18 +2178,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(3, 689);
             this.panel3.TabIndex = 149;
-            // 
-            // LblObligatorio
-            // 
-            this.LblObligatorio.AutoSize = true;
-            this.LblObligatorio.BackColor = System.Drawing.Color.Transparent;
-            this.LblObligatorio.Font = new System.Drawing.Font("Merienda One", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
-            this.LblObligatorio.Name = "LblObligatorio";
-            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
-            this.LblObligatorio.TabIndex = 158;
-            this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
             // FrmLibros
             // 

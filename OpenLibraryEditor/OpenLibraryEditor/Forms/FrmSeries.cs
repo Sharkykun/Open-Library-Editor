@@ -103,8 +103,8 @@ namespace OpenLibraryEditor.Forms
             TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_RTTEditar"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTSeries.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
-            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTSeries.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTSeries.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTSeries.SetToolTip(this.MBtnCerrarSeries, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirSerie(Serie serie)

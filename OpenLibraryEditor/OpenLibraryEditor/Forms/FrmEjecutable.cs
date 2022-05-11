@@ -87,8 +87,8 @@ namespace OpenLibraryEditor.Forms
             TTEjecutable.SetToolTip(this.KTxtArgumentosEJ, ControladorIdioma.GetTexto("Ej_TTArgumentos"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTEjecutable.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
-            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTEjecutable.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTEjecutable.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTEjecutable.SetToolTip(this.MBtnCerrarEjecutable, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirEjecutable(UsuarioEjecutable ejecutable)

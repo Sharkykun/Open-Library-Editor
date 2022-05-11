@@ -187,15 +187,6 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Garder.
-        /// </summary>
-        internal static string Al_ACGuardar {
-            get {
-                return ResourceManager.GetString("Al_ACGuardar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a ISBN 10.
         /// </summary>
         internal static string Al_DG10 {
@@ -376,7 +367,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Titre *.
+        ///   Busca una cadena traducida similar a Titre.
         /// </summary>
         internal static string Al_DGTitulo {
             get {
@@ -1744,7 +1735,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a IP du serveur Web.
+        ///   Busca una cadena traducida similar a IP du serveur Web enregistré.
         /// </summary>
         internal static string Con_SWIP {
             get {
@@ -2014,7 +2005,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Écrivez ici les arguments exécutables.
+        ///   Busca una cadena traducida similar a Écrivez ici les arguments exécutables. Exemple: -f {file} -b ({file} il est utilisé pour charger le fichier dans cette position).
         /// </summary>
         internal static string Ej_TTArgumentos {
             get {
@@ -2118,6 +2109,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Error_LibroExiste {
             get {
                 return ResourceManager.GetString("Error_LibroExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Il n&apos;y a pas de lien enregistré.
+        /// </summary>
+        internal static string Error_NoEnlace {
+            get {
+                return ResourceManager.GetString("Error_NoEnlace", resourceCulture);
             }
         }
         
@@ -2293,6 +2293,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Favoris.
+        /// </summary>
+        internal static string Favoritos {
+            get {
+                return ResourceManager.GetString("Favoritos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Format DD/MM/YYYY.
         /// </summary>
         internal static string FormatoFecha {
@@ -2415,6 +2424,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Ge_TTNombre {
             get {
                 return ResourceManager.GetString("Ge_TTNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Garder.
+        /// </summary>
+        internal static string Guardar {
+            get {
+                return ResourceManager.GetString("Guardar", resourceCulture);
             }
         }
         
@@ -3090,6 +3108,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Main_Pag1 {
             get {
                 return ResourceManager.GetString("Main_Pag1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Entre:.
+        /// </summary>
+        internal static string Main_PagEntre {
+            get {
+                return ResourceManager.GetString("Main_PagEntre", resourceCulture);
             }
         }
         
