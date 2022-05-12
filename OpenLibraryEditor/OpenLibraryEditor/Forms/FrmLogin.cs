@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using FontAwesome;
 using FontAwesome.Sharp;
+using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using OpenLibraryEditor.Metodos;
@@ -37,6 +38,14 @@ namespace OpenLibraryEditor.Forms
             TimerAparecer.Start();
             this.Opacity = 0.0;
             IdiomaTexto();
+
+            // Pruebas de carga de clases en la BD
+            // ConexionBD.CrearBD("localhost", "root","","3306");
+            ConexionBD.AbrirConexion();
+
+            // Para pruebas de llamads a BD
+
+            ConexionBD.CerrarConexion();
         }
         private void TimerAparecer_Tick(object sender, EventArgs e)
         {

@@ -12,7 +12,7 @@ namespace OpenLibraryEditor.BaseDatos
     {
 		public static int SelectObtenerIdBD()
 		{
-			string query = "Select * From Biblioteca";
+			string query = "SELECT * FROM Biblioteca";
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());
@@ -21,7 +21,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static int SelectObtenerIdNuevoTabla(string tablaNombre, string campo, int randomId)
 		{
-			string query = "Select count(*) From "+tablaNombre+" where "+campo+" like "+ randomId;
+			string query = "SELECT COUNT(*) FROM "+ tablaNombre+" WHERE "+campo+" like "+ randomId;
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());
@@ -30,7 +30,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static string SelectOcupacion(string ocupacion)
         {
-            string query = "Select * From Ocupacion Where nombreOcupacion = '" + ocupacion+"'";
+            string query = "SELECT * FROM Ocupacion WHERE nombreOcupacion = '" + ocupacion+"'";
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -50,7 +50,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static int SelectOcupacionCantidadPorAutor(string nombreOcupacion)
         {
-			string query = "Select count(*) as c From Autor Where nombreOcupacion = '" + nombreOcupacion+"'";
+			string query = "SELECt COUNT(*) FROM Autor WHERE nombreOcupacion = '" + nombreOcupacion+"'";
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());
@@ -59,7 +59,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Autor> SelectAutoresLista()
 		{
-			string query = "Select * From Autor";
+			string query = "SELECT * FROM Autor";
 			List<Autor> listaAutores = new List<Autor>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
@@ -77,9 +77,9 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static Autor SelectAutor(string nombreAutor)
+		public static Autor SelectAutor(int idAutor)
 		{
-			string query = "Select * From Autor Where nombreAutor = '" + nombreAutor + "'";
+			string query = "SELECT * FROM Autor WHERE idAutor = '" + idAutor + "'";
 			
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -98,7 +98,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<InfoUsuarioBD> SelectUsuariosLista()
 		{
-			string query = "Select * From Usuario";
+			string query = "SELECT * FROM Usuario";
 			List<InfoUsuarioBD> listaUsuarios = new List<InfoUsuarioBD>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
@@ -116,9 +116,9 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static InfoUsuarioBD SelectUsuario(string correo)
+		public static InfoUsuarioBD SelectUsuario(string nombreUsuario)
 		{
-			string query = "Select * From Usuario Where correoUsuario = '" + correo + "'";
+			string query = "SELECT * FROM Usuario WHERE nombreUsuario = '" + nombreUsuario + "'";
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -135,9 +135,9 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static void SelectUsuarioLibro(string correo, Libro libro)
+		public static void SelectUsuarioLibro(string nombreUsuario, Libro libro)
 		{
-			string query = "Select * From UsuarioLibro Where correoUsuario = '" + correo + "'";
+			string query = "SELECT * FROM UsuarioLibro WHERE nombreUsuario = '" + nombreUsuario + "'";
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -154,7 +154,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Editorial> SelectEditorialesLista()
 		{
-			string query = "Select * From Editorial";
+			string query = "SELECT * FROM Editorial";
 			List<Editorial> listaEditoriales = new List<Editorial>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
@@ -172,9 +172,9 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static Editorial SelectEditorial(string nombreEditorial)
+		public static Editorial SelectEditorial(int idEditorial)
 		{
-			string query = "Select * From Editorial Where nombreEditorial = '" + nombreEditorial + "'";
+			string query = "SELECT * FROM Editorial WHERE id = '" + idEditorial + "'";
 			
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -193,7 +193,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Genero> SelectGenerosLista()
 		{
-			string query = "Select * From Genero";
+			string query = "SELECT * FROM Genero";
 			List<Genero> listaGeneros = new List<Genero>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
@@ -211,9 +211,9 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static Genero SelectGenero(string generoNombre)
+		public static Genero SelectGenero(int idGenero)
 		{
-			string query = "Select * From Genero Where nombreGenero = '" + generoNombre + "'";
+			string query = "SELECT * FROM Genero WHERE idGenero = '" + idGenero + "'";
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -232,7 +232,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Libro> SelectLibrosLista()
 		{
-			string query = "Select * From Libro";
+			string query = "SELEC * FROM Libro";
 			List<Libro> listaLibros = new List<Libro>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
@@ -250,9 +250,9 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static Libro SelectLibro(string libroNombre)
+		public static Libro SelectLibro(int idLibro)
 		{
-			string query = "Select * From Libro Where isbn13 = '" + libroNombre + "'";
+			string query = "SELECT * FROM Libro WHERE idLibro = '" + idLibro + "'";
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -271,7 +271,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static string SelectTipoLibro(string tipoLibro)
 		{
-			string query = "Select * From TipoLibro Where nombreTipoLibro = '" + tipoLibro + "'";
+			string query = "SELECT * FROM TipoLibro WHERE nombreTipoLibro = '" + tipoLibro + "'";
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
@@ -291,7 +291,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static int SelectTipoLibroCantidadPorLibro(string tipoLibro)
 		{
-			string query = "Select count(*) as c From Libro Where nombreTipoLibro = '" + tipoLibro + "'";
+			string query = "SELECT COUNT(*) FROM Libro WHERE nombreTipoLibro = '" + tipoLibro + "'";
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());
