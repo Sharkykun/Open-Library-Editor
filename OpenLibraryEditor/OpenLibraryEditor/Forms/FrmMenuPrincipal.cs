@@ -31,7 +31,7 @@ namespace OpenLibraryEditor.Forms
         private int anchoPantalla;
         private List<Libro> titulos;
         private Libro libroActual;
-      
+        private int segundosRedimensionar;
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -56,12 +56,31 @@ namespace OpenLibraryEditor.Forms
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
-            KCmbBuscarPorMBI.Items.Add("Título Alternativo");
-            KCmbBuscarPorMBI.Items.Add("Idioma");
-            KCmbBuscarPorMBI.Items.Add("Idioma Original");
-            KCmbBuscarPorMBI.Items.Add("Tipo de Libro");
-            KCmbBuscarPorMBI.Items.Add("Favoritos");
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTituAlt"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGIdioma"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGIdiOri"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTipo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Favoritos"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGPag"));
             KCmbBuscarPorMBI.SelectedIndex = 0;
+        }
+         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            if (ControladorIdioma.idioma.Equals("Strings_fr_FR"))
+                LlLogIn.Location = new Point(30,168);
+            else if (ControladorIdioma.idioma.Equals("Strings_en_US"))
+                LlLogIn.Location = new Point(88, 168);
+            else
+                LlLogIn.Location = new Point(65, 168);
+
+            //TitulosPrueba();
+            //RecolocarLibros(false);
+            PanVistaDetalles.Visible = false;
+            PanVistaMosaico.Visible = true;
+            PanVistaMosaico.BringToFront();
+            //Dejar marcado mi biblioteca como opción inicial
+            MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
+            IdiomaTexto();
         }
 
         private List<Libro> SacarListaLibro()
@@ -99,26 +118,15 @@ namespace OpenLibraryEditor.Forms
             else
                 ColocarLibrosDetalles();
         }
-        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
-        {
-            if (ControladorIdioma.idioma.Equals("Strings_fr_FR"))
-                LlLogIn.Location = new Point(30,168);
-            else if (ControladorIdioma.idioma.Equals("Strings_en_US"))
-                LlLogIn.Location = new Point(88, 168);
-            else
-                LlLogIn.Location = new Point(65, 168);
-
-            TitulosPrueba();
-            //RecolocarLibros(false);
-            //Dejar marcado mi biblioteca como opción inicial
-            MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
-            IdiomaTexto();
-        }
+       
         #region Mostrar libros de la biblioteca
         private void ColocarLibrosMosaico()
         {
+            PanVistaMosaico.BringToFront();
+            PanVistaMosaico.Visible = true;
+            PanVistaDetalles.Visible = false;
             PanVistaMosaico.Controls.Clear();
-            PanVistaMosaico.BackColor = Color.FromArgb(231, 243, 254);
+            //PanVistaMosaico.BackColor = Color.FromArgb(231, 243, 254);
             int tamPanel = PanVistaMosaico.Width;
             int altoPanel = PanVistaMosaico.Height;
 
@@ -134,7 +142,6 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
                     botonLibro.Tag = libro;
                     GenerarPortadaLibro(libro, botonLibro);
-                    botonLibro.Padding = new Padding(15, 0, 5, 0);
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
                     botonLibro.Click += new EventHandler(ManejadorLibro_Click);
@@ -150,12 +157,121 @@ namespace OpenLibraryEditor.Forms
                     botonLibro.BackgroundImageLayout = ImageLayout.Stretch;
                     botonLibro.Tag = libro;
                     GenerarPortadaLibro(libro, botonLibro);
-                    botonLibro.Padding = new Padding(15, 0, 5, 0);
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
                     botonLibro.Click += new EventHandler(ManejadorLibro_Click);
                     botonLibro.DoubleClick += new EventHandler(DobleClickLibro);
                     x = x + 135;
+                }
+            }
+        }
+        private void ColocarLibrosDetalles()
+        {
+            PanVistaDetalles.Controls.Clear();
+            PanVistaDetalles.BringToFront();
+            PanVistaDetalles.Visible = true;
+            PanVistaMosaico.Visible = false;
+            int tamPanel = PanVistaDetalles.Width;
+            int altoPanel = PanVistaDetalles.Height;
+
+            int x = 10;
+            int y = 10;
+            foreach (Libro libro in titulos)
+            {
+                VistaDetallesV vista = new VistaDetallesV();
+                if (x < (tamPanel - 400))
+                {
+                    vista.Location = new Point(x, y);
+                    vista.setTituloLibro(libro.Titulo + " " + libro.Subtitulo);
+                    vista.Tag = libro;
+                    if (libro.ImagenPortada!=null &&
+                        File.Exists(libro.ImagenPortada))
+                        vista.setImagen(Image.FromFile(libro.ImagenPortada));
+                    else
+                        vista.setImagen(Properties.Resources.PortadaLogo);
+
+                    foreach (Autor a in libro.ListaAutor)
+                    {
+                        vista.setAutores(a.Nombre);
+                    }
+                    foreach (Editorial ed in libro.ListaEditorial)
+                    {
+                        vista.setEditoriales(ed.Nombre);
+                    }
+                    if (!String.IsNullOrWhiteSpace(libro.Idioma))
+                        vista.setIdioma(libro.Idioma);
+                    if (!String.IsNullOrWhiteSpace(libro.NumeroPaginas.ToString()))
+                        vista.setPaginas(libro.NumeroPaginas.ToString());
+
+                    if (!String.IsNullOrWhiteSpace(libro.NombreTipo))
+                        vista.setFormato(libro.NombreTipo);
+
+                    if (!String.IsNullOrWhiteSpace(libro.FechaPublicacion.ToShortDateString()))
+                        vista.setFecha(libro.FechaPublicacion.ToShortDateString());
+
+                    if (String.IsNullOrWhiteSpace(libro.Isbn_10))
+                        vista.setIsbn10(ControladorIdioma.GetTexto("Main_NoDis"));
+                    else
+                        vista.setIsbn10(libro.Isbn_10);
+
+                    if (String.IsNullOrWhiteSpace(libro.Isbn_13))
+                        vista.setIsbn13(ControladorIdioma.GetTexto("Main_NoDis"));
+                    else
+                        vista.setIsbn13(libro.Isbn_13);
+
+                    PanVistaDetalles.Controls.Add(vista);
+                    vista.Visible = true;
+                    vista.Click += new EventHandler(ManejadorLibroDet_Click);
+                    vista.DoubleClick += new EventHandler(DobleClickLibro);
+                    x = x + 420;
+                }
+                else
+                {
+                    x = 10;
+                    y = y + 260;
+                    vista.Location = new Point(x, y);
+                    vista.setTituloLibro(libro.Titulo + " " + libro.Subtitulo);
+                    vista.Tag = libro;
+                    if (libro.ImagenPortada != null &&
+                        File.Exists(libro.ImagenPortada))
+                        vista.setImagen(Image.FromFile(libro.ImagenPortada));
+                    else
+                        vista.setImagen(Properties.Resources.PortadaLogo);
+
+                    foreach (Autor a in libro.ListaAutor)
+                    {
+                        vista.setAutores(a.Nombre);
+                    }
+                    foreach (Editorial ed in libro.ListaEditorial)
+                    {
+                        vista.setEditoriales(ed.Nombre);
+                    }
+                    if(!String.IsNullOrWhiteSpace(libro.Idioma))
+                        vista.setIdioma(libro.Idioma);
+                    if (!String.IsNullOrWhiteSpace(libro.NumeroPaginas.ToString()))
+                        vista.setPaginas(libro.NumeroPaginas.ToString());
+
+                    if (!String.IsNullOrWhiteSpace(libro.NombreTipo))
+                        vista.setFormato(libro.NombreTipo);
+
+                    if (!String.IsNullOrWhiteSpace(libro.FechaPublicacion.ToShortDateString()))
+                        vista.setFecha(libro.FechaPublicacion.ToShortDateString());
+
+                    if (String.IsNullOrWhiteSpace(libro.Isbn_10))
+                        vista.setIsbn10(ControladorIdioma.GetTexto("Main_NoDis"));
+                    else
+                        vista.setIsbn10(libro.Isbn_10);
+
+                    if (String.IsNullOrWhiteSpace(libro.Isbn_13))
+                        vista.setIsbn13(ControladorIdioma.GetTexto("Main_NoDis")); 
+                    else
+                        vista.setIsbn13(libro.Isbn_13);
+                    
+                    PanVistaDetalles.Controls.Add(vista);
+                    vista.Visible = true;
+                    vista.Click += new EventHandler(ManejadorLibroDet_Click);
+                    vista.DoubleClick += new EventHandler(DobleClickLibro);
+                    x = x + 420;
                 }
             }
         }
@@ -192,49 +308,66 @@ namespace OpenLibraryEditor.Forms
             ResetearDetallesLibro();
             Button libroSeleccionado = (Button)sender;
             libroActual = (Libro)libroSeleccionado.Tag;
-
+            if (PanDetallesLibro.Visible == false) { 
+                MostrarDetallesLibro(libroActual);
+                RecolocarLibros(false);
+            }
+            else
+            {
+                MostrarDetallesLibro(libroActual);
+            }
+        }
+        private void MostrarDetallesLibro(Libro l)
+        {
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
+            //PanVistaMosaico_Resize(null,null);
 
-            if(File.Exists(libroActual.ImagenPortada))
-                PcbLibro.Image = Image.FromFile(libroActual.ImagenPortada);
+            if (File.Exists(l.ImagenPortada))
+                PcbLibro.Image = Image.FromFile(l.ImagenPortada);
             else
                 PcbLibro.Image = Properties.Resources.PortadaLogo;
 
-            TxtTituloLibro.Text = libroActual.Titulo + " "+libroActual.Subtitulo;
-            foreach (Autor a in libroActual.ListaAutor)
+            TxtTituloLibro.Text = l.Titulo + " " + l.Subtitulo;
+            string quitarComa = null;
+            foreach (Autor a in l.ListaAutor)
             {
-                TxtAutores.Text += a.Nombre+", ";
+                quitarComa += a.Nombre + ", ";
             }
-            TxtSinopsis.Text = libroActual.Sinopsis;
-            foreach (Editorial ed in libroActual.ListaEditorial)
+            if(!String.IsNullOrWhiteSpace(quitarComa))
+                TxtAutores.Text = quitarComa.Substring(0, (quitarComa.LastIndexOf(", ")));
+
+            TxtSinopsis.Text = l.Sinopsis;
+            foreach (Editorial ed in l.ListaEditorial)
             {
                 LblEscribirEditorial.AutoSize = true;
                 LblEscribirEditorial.MaximumSize = new Size(109, 0);
-                if (libroActual.ListaEditorial.Count > 1 || LblEscribirEditorial.Width > 109) { 
+                if (l.ListaEditorial.Count > 1 || LblEscribirEditorial.Width > 109)
+                {
                     LblEscribirEditorial.Text += ed.Nombre.ToUpper() + "\r\n";
                 }
-                else { 
+                else
+                {
                     LblEscribirEditorial.Text += ed.Nombre.ToUpper();
                 }
             }
-            if (String.IsNullOrWhiteSpace(libroActual.Isbn_10))
+            if (String.IsNullOrWhiteSpace(l.Isbn_10))
                 LblEscribirIs10.Text = ControladorIdioma.GetTexto("Main_NoDis");
             else
-                LblEscribirIs10.Text = libroActual.Isbn_10;
-            if (String.IsNullOrWhiteSpace(libroActual.Isbn_13))
+                LblEscribirIs10.Text = l.Isbn_10;
+            if (String.IsNullOrWhiteSpace(l.Isbn_13))
                 LblEscribirIs13.Text = ControladorIdioma.GetTexto("Main_NoDis");
             else
-                LblEscribirIs13.Text = libroActual.Isbn_13;
+                LblEscribirIs13.Text = l.Isbn_13;
 
-            LblEscribirCapitulos.Text = libroActual.NumeroCapitulos.ToString();
-            LblEscribirPag.Text = libroActual.NumeroPaginas.ToString();
-            foreach (Genero g in libroActual.ListaGenero)
+            LblEscribirCapitulos.Text = l.NumeroCapitulos.ToString();
+            LblEscribirPag.Text = l.NumeroPaginas.ToString();
+            foreach (Genero g in l.ListaGenero)
             {
                 LblEscribirGenero.AutoSize = true;
                 LblEscribirGenero.MaximumSize = new Size(109, 0);
-                if (libroActual.ListaGenero.Count > 1 || LblEscribirGenero.Width > 109)
+                if (l.ListaGenero.Count > 1 || LblEscribirGenero.Width > 109)
                     LblEscribirGenero.Text += g.Nombre.ToUpper() + "\r\n";
                 else
                     LblEscribirGenero.Text += g.Nombre.ToUpper();
@@ -248,31 +381,53 @@ namespace OpenLibraryEditor.Forms
             //    else
             //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper();
             //}
-            if (!String.IsNullOrWhiteSpace(libroActual.Idioma))
-                LblEscribirIdioma.Text = libroActual.Idioma.ToUpper();
-            if (!String.IsNullOrWhiteSpace(libroActual.IdiomaOriginal))
-                LblEscribirIdiOri.Text = libroActual.IdiomaOriginal.ToUpper();
-            if (libroActual.NombreTipo!=null)
-                 LblEscribirTipoLibro.Text =libroActual.NombreTipo.ToUpper();
-            LblEscribirFechaPub.Text =libroActual.FechaPublicacion.ToShortDateString();
-            LblEscribirPuntuacion.Text =libroActual.Puntuacion.ToString();
-            LblEscribirVecesLeido.Text =libroActual.VecesLeido.ToString();
-            LblEscribirEstadoLectura.Text =libroActual.EstadoLectura;
-            LblEscribirTiempoLec.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
-            LblEscribirCapiAct.Text =libroActual.CapituloActual.ToString();
-            LblEscribirFecComienzo.Text =libroActual.FechaComienzo.ToShortDateString();
-            LblEscribirFecFin.Text =libroActual.FechaTerminado.ToShortDateString();
-            if (libroActual.Favorito == true)
+            if (!String.IsNullOrWhiteSpace(l.Idioma))
+                LblEscribirIdioma.Text = l.Idioma.ToUpper();
+            if (!String.IsNullOrWhiteSpace(l.IdiomaOriginal))
+                LblEscribirIdiOri.Text = l.IdiomaOriginal.ToUpper();
+            if (l.NombreTipo != null)
+                LblEscribirTipoLibro.Text = l.NombreTipo.ToUpper();
+            LblEscribirFechaPub.Text = l.FechaPublicacion.ToShortDateString();
+            LblEscribirPuntuacion.Text = l.Puntuacion.ToString();
+            LblEscribirVecesLeido.Text = l.VecesLeido.ToString();
+            LblEscribirEstadoLectura.Text = l.EstadoLectura;
+            LblEscribirTiempoLec.Text = l.TiempoLectura.ToString(@"hh\:mm\:ss");
+            LblEscribirCapiAct.Text = l.CapituloActual.ToString();
+            LblEscribirFecComienzo.Text = l.FechaComienzo.ToShortDateString();
+            LblEscribirFecFin.Text = l.FechaTerminado.ToShortDateString();
+            if (l.Favorito == true)
                 LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_Si");
             else
                 LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_No");
-            if (libroActual.Ocultar == true)
+            if (l.Ocultar == true)
                 LblEscribirOculto.Text = ControladorIdioma.GetTexto("Main_Si");
             else
                 LblEscribirOculto.Text = ControladorIdioma.GetTexto("Main_No");
 
-            TxtEscribirComentario.Text = libroActual.Comentario;
-            //ColocarLibros();
+            TxtEscribirComentario.Text = l.Comentario;
+           
+        }
+        private void PanDetallesLibro_VisibleChanged(object sender, EventArgs e)
+        {
+            //FormResize();
+            //RecolocarLibros(false);
+        }
+        private void ManejadorLibroDet_Click(object sender, EventArgs e)
+        {
+            //KTabDetalles.SelectedPage = KpDetalles;
+            ResetearDetallesLibro();
+            VistaDetallesV libroSeleccionado = (VistaDetallesV)sender;
+            libroActual = (Libro)libroSeleccionado.Tag;
+            if (PanDetallesLibro.Visible == false)
+            {
+                MostrarDetallesLibro(libroActual);
+                RecolocarLibros(false);
+            }
+            else
+            {
+                MostrarDetallesLibro(libroActual);
+            }
+           //MostrarDetallesLibro(libroActual);
         }
 
         private void EsperarHastaFinDeProcesos(List<Process> listaProcesos)
@@ -308,7 +463,7 @@ namespace OpenLibraryEditor.Forms
 
         private void DobleClickLibro(object sender, EventArgs e)
         {
-            //Determinar acción en base a configuración de usuario
+            //Determinar acción en base a configuración de usuarioFormResize
             switch (UsuarioDatos.configuracionUsuario.AccionDobleClick)
             {
                 case 0:
@@ -337,58 +492,17 @@ namespace OpenLibraryEditor.Forms
         private void LinkEnlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(libroActual.EnlaceReferencia))
-                System.Diagnostics.Process.Start(libroActual.EnlaceReferencia);
+            {
+                FrmWebView wv = new FrmWebView(libroActual.EnlaceReferencia);
+                wv.FormBorderStyle = FormBorderStyle.None;
+                wv.ShowDialog();
+                //Process.Start(libroActual.EnlaceReferencia);
+            }
+
             else
-                VentanaWindowsComun.MensajeError("No hay ningún enlace guardado");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NoEnlace"));
         }
-        private void ManejadorLibroDet_Click(object sender, EventArgs e)
-        {
 
-            VistaDetallesV libroSeleccionado = (VistaDetallesV)sender;
-            libroActual = (Libro)libroSeleccionado.Tag;
-            PanDetallesLibro.Visible = true;
-            BtnBorrarLibroMsb.Enabled = true;
-            BtnModificarLibroMsb.Enabled = true;
-            PcbLibro.Image = libroSeleccionado.getImagen();
-            TxtTituloLibro.Text = libroSeleccionado.getTituloLibro();
-            TxtAutores.Text = libroSeleccionado.getPersonas();
-            //ColocarLibros();
-        }
-        private void ColocarLibrosDetalles()
-        {
-            //PanVistaDetalles.Controls.Clear();
-            //int tamPanel = PanVistaDetalles.Width;
-            //int altoPanel = PanVistaDetalles.Height;
-
-            //int x = 10;
-            //int y = 10;
-            //foreach (string s in titulos)
-            //{
-            //    VistaDetallesV vista = new VistaDetallesV();
-            //    if (x < (tamPanel - 400))
-            //    {
-            //        vista.Location = new Point(x, y);
-            //        vista.setTituloLibro(s);
-            //        PanVistaDetalles.Controls.Add(vista);
-            //        vista.Visible = true;
-            //        vista.Click += new EventHandler(ManejadorLibroDet_Click);
-            //        x = x + 439;
-            //    }
-            //    else
-            //    {
-            //        x = 10;
-            //        y = y + 255;
-            //        vista.Location = new Point(x, y);
-            //        vista.setTituloLibro(s);
-            //        PanVistaDetalles.Controls.Add(vista);
-            //        vista.Visible = true;
-            //        vista.Click += new EventHandler(ManejadorLibroDet_Click);
-            //        x = x + 439;
-            //    }
-            //}
-        }
-        
-       
         private void TitulosPrueba()
         {
             if (titulos.Count == 0)
@@ -396,55 +510,96 @@ namespace OpenLibraryEditor.Forms
                 titulos.Add(new Libro("Caballero Luna"));
                 titulos.Add(new Libro("Spiderman Homecoming"));
                 titulos.Add(new Libro("Thor"));
-                //titulos.Add("Capitán América");
-                //titulos.Add("Los Vengadores");
-                //titulos.Add("Iron Man");
-                //titulos.Add("Viuda negra");
-                //titulos.Add("Black Panther");
-                //titulos.Add("Guardianes de la Galaxia");
-                //titulos.Add("Wanda y Visión");
-                //titulos.Add("Ojo de Halcón");
-                //titulos.Add("Loki");
-                //titulos.Add("Bruja Escarlata");
-                //titulos.Add("Capitana Marvel");
-                //titulos.Add("Shan-Chi la leyenda de los 10 anillos ");
-                //titulos.Add("Ant-Man");
-                //titulos.Add("Eternals");
-                //titulos.Add("Doctor Strange");
-                //titulos.Add("Hulk");
-                //titulos.Add("Falcon y el Soldado de invierno");
+                //titulos.Add(new Libro("Capitán América"));
+                //titulos.Add(new Libro("Los Vengadores"));
+                //titulos.Add(new Libro("Iron Man"));
+                //titulos.Add(new Libro("Viuda negra"));
+                //titulos.Add(new Libro("Black Panther"));
+                //titulos.Add(new Libro("Guardianes de la Galaxia"));
+                //titulos.Add(new Libro("Wanda y Visión"));
+                //titulos.Add(new Libro("Ojo de Halcón"));
+                //titulos.Add(new Libro("Loki"));
+                //titulos.Add(new Libro("Bruja Escarlata"));
+                //titulos.Add(new Libro("Capitana Marvel"));
+                //titulos.Add(new Libro("Shan-Chi la leyenda de los 10 anillos"));
+                //titulos.Add(new Libro("Ant-Man"));
+                //titulos.Add(new Libro("Eternals"));
+                //titulos.Add(new Libro("Doctor Strange"));
+                //titulos.Add(new Libro("Hulk"));
+                //titulos.Add(new Libro("Falcon y el Soldado de invierno"));
             }
         }
         private void MBtnVistaDetallesMBI_Click(object sender, EventArgs e)
         {
             PanVistaDetalles.Visible = true;
             PanVistaMosaico.Visible = false;
-            ColocarLibrosDetalles();
+            PanDetallesLibro.Visible = false;
+            //ColocarLibrosDetalles();
+            RecolocarLibros(false);
             PanVistaDetalles.BringToFront();
         }
 
+        private void FormResize()
+        {
+            if (formHijoActual != null)
+            {
+                formHijoActual.WindowState = FormWindowState.Normal;
+                formHijoActual.WindowState = FormWindowState.Maximized;
+            }
+        }
         private void MBtnVistaMosaicoMBI_Click(object sender, EventArgs e)
         {
             PanVistaDetalles.Visible = false;
             PanVistaMosaico.Visible = true;
+            PanDetallesLibro.Visible = false;
             PanVistaMosaico.BringToFront();
+            RecolocarLibros(false);
+            
         }
         private void PanVistaMosaico_Resize(object sender, EventArgs e)
         {
-            this.DoubleBuffered = true;
-            ColocarLibrosMosaico();
+            //    if (segundosRedimensionar > 0)
+            //    {
+            //        Thread.Sleep(segundosRedimensionar * 5);
+            //        FormResize();
+            //        RecolocarLibros(false);
+            //    }
+            //    else
+            //    {
+            //        RecolocarLibros(false);
+            //    }
         }
-        private void PanVistaDetalles_Resize(object sender, EventArgs e)
+        private void PanVistaDetalles_SizeChanged(object sender, EventArgs e)
         {
-            this.DoubleBuffered = true;
-            //PruebaDetalles();
-            ColocarLibrosDetalles();
+            //if (segundosRedimensionar > 0)
+            //{
+            //    Thread.Sleep(segundosRedimensionar * 5);
+            //    //FormResize();
+            //    RecolocarLibros(false);
+            //}
+            //else
+            //{
+            //    RecolocarLibros(false);
+            //}
+        }
+
+        private void FrmMenuPrincipal_ResizeEnd(object sender, EventArgs e)
+        {   
+            var tiempo = Stopwatch.StartNew();
+            //FormResize();
+            RecolocarLibros(false);
+            tiempo.Stop();
+            segundosRedimensionar = Convert.ToInt32(tiempo.ElapsedMilliseconds);
+            //MessageBox.Show(segundosRedimensionar+"");
         }
         private void MBtncerrarDetallesLibro_Click(object sender, EventArgs e)
         {
             PanDetallesLibro.Visible = false;
             BtnBorrarLibroMsb.Enabled = false;
             BtnModificarLibroMsb.Enabled = false;
+            RecolocarLibros(false);
+            //PanVistaMosaico_Resize(null,null);
+            //FrmMenuPrincipal_ResizeEnd(null, null);
         }
 
         #endregion
@@ -489,6 +644,7 @@ namespace OpenLibraryEditor.Forms
             ToolTipMain.SetToolTip(this.MBtnRestaurarMain, ControladorIdioma.GetTexto("Main_TTRestaurar"));
             ToolTipMain.SetToolTip(this.MBtnCerrarMain, ControladorIdioma.GetTexto("Main_TTCerrar"));
             LblBuscarPorMBI.Text = ControladorIdioma.GetTexto("BuscarPor");
+            LblPaginasEntre.Text = ControladorIdioma.GetTexto("Main_PagEntre");
             KpDetalles.Text = ControladorIdioma.GetTexto("Main_DetallesGenerales");
             LblSinopsis.Text = ControladorIdioma.GetTexto("Main_Sinopsis");
             LblEditorial.Text = ControladorIdioma.GetTexto("Main_Editorial");
@@ -595,7 +751,7 @@ namespace OpenLibraryEditor.Forms
             fhijo.TopLevel = false;
             fhijo.FormBorderStyle=FormBorderStyle.None;
             fhijo.Dock=DockStyle.Fill;
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
             PanHijos.Controls.Add(fhijo);
             PanHijos.Tag = fhijo;
             fhijo.BringToFront();
@@ -807,7 +963,14 @@ namespace OpenLibraryEditor.Forms
                 case 7:
                     //Buscar sin nada
                     MostrarCajaBusqueda(-1);
+                    //PanNumPaginas.Visible = false;
                     MBtnBuscarMBI_Click(null, null);
+                    break;
+                case 8:
+                    //Buscar por número de páginas
+                    PanNumPaginas.Visible = true;
+                    MBtnBuscarMBI.Visible = true;
+                    KTxtBuscarMBI.Visible = false;
                     break;
                 default:
                     MostrarCajaBusqueda(0);
@@ -821,6 +984,7 @@ namespace OpenLibraryEditor.Forms
             KTxtBuscarMBI.Text = "";
             KTxtBuscarMBI.Visible = false;
             MBtnBuscarMBI.Visible = false;
+            PanNumPaginas.Visible = false;
             switch (tipo)
             {
                 case 0:
@@ -905,8 +1069,14 @@ namespace OpenLibraryEditor.Forms
                 //Buscar por favorito
                 titulos = titulos.FindAll(p => p.Favorito);
             }
+            else if (KCmbBuscarPorMBI.Items[8] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por número de páginas
+                titulos=titulos.FindAll(p => p.NumeroPaginas >= KNudPagMin.Value 
+                && p.NumeroPaginas <= KNudPagMax.Value);    
+            }
 
-            if(KTxtBuscarMBI.Visible &&
+            if (KTxtBuscarMBI.Visible &&
                 !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
             {
                 titulos = SacarListaLibro();
@@ -1002,6 +1172,8 @@ namespace OpenLibraryEditor.Forms
             //this.WindowState = FormWindowState.Normal;
             this.Size = new Size(sw, sh);
             this.Location = new Point(lx, ly);
+            //FormResize();
+            RecolocarLibros(false);
         }
 
         private void MBtnMinimizarMain_Click(object sender, EventArgs e)
@@ -1020,6 +1192,8 @@ namespace OpenLibraryEditor.Forms
             //this.WindowState = FormWindowState.Maximized;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            //FormResize();
+            RecolocarLibros(false);
         }
         protected override void OnPaint(PaintEventArgs e) // you can safely omit this method if you want
         {
@@ -1048,9 +1222,6 @@ namespace OpenLibraryEditor.Forms
         Rectangle SupIzqda { get { return new Rectangle(0, 0, MARGEN, MARGEN); } }
         Rectangle SupDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, 0, MARGEN, MARGEN); } }
         Rectangle InfIzqda { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
-
-        
-
         Rectangle InfDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
 
         protected override void WndProc(ref Message message)
@@ -1111,5 +1282,6 @@ namespace OpenLibraryEditor.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
     }
 }

@@ -270,7 +270,6 @@ C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEd
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.csproj.CopyComplete
-C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Guna.UI.dll
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmInputTxt.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmAdministrarUsuarios.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmCrearBD.resources
@@ -278,4 +277,24 @@ E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Edit
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmCrearBD.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmInputTxt.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Guna.UI.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmWebView.resources
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Core.dll
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Core.xml
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmWebView.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarUsuario.resources

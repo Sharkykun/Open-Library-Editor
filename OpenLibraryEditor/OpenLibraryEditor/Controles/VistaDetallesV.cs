@@ -1,5 +1,6 @@
 ﻿using OpenLibraryEditor.Clases;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ namespace OpenLibraryEditor.Controles
 {
     public partial class VistaDetallesV : UserControl
     {
+        private ArrayList listaPersonas = new ArrayList();
         public VistaDetallesV()
         {
             InitializeComponent();
         }
+        #region getter y setter
         public void setImagen(Image imagen)
         {
             PcbImgLibro.BackgroundImage = imagen;
-            PcbImgLibro.SizeMode = PictureBoxSizeMode.StretchImage;
+            PcbImgLibro.BackgroundImageLayout = ImageLayout.Stretch;
         }
         public Image getImagen()
         {
@@ -34,65 +37,51 @@ namespace OpenLibraryEditor.Controles
         {
             return LblTituloLibro.Text;
         }
-        public void setPersonas(string personas)
+        public void setAutores(string personas)
         {
-            LblPersonasLibro.Text = personas;
+            listaPersonas.Add(personas);
+            string quitarComa = null;
+            for (int i = 0; i < listaPersonas.Count; i++)
+            {
+                quitarComa += listaPersonas[i] + ", ";
+            }
+            LblAutores.Text = quitarComa.Substring(0, (quitarComa.LastIndexOf(", ")));
         }
-        public string getPersonas()
+        public string getAutores()
         {
-            return LblPersonasLibro.Text;
-        }
-        public void setLblEditorial(string editorial)
-        {
-            LblEditorial.Text = editorial;
+            return LblAutores.Text;
         }
         public void setEditoriales(string editoriales)
-        {
-            LblEscribirEditoriales.Text = editoriales;
+        { 
+             LblEscribirEditorial.Text += editoriales.ToUpper()+" ";
         }
         public string getEditoriales()
         {
-            return LblEscribirEditoriales.Text;
-        }
-        public void setLblSeries(string serie)
-        {
-            LblSeries.Text = serie;
+            return LblEscribirEditorial.Text;
         }
         public void setSeries(string series)
         {
-            LblescribirSeries.Text = series;
+            LblEscribirSeries.Text += series.ToUpper();
         }
         public string getSeries()
         {
-            return LblescribirSeries.Text;
-        }
-        public void setLblIsbn10(string isbn10)
-        {
-            LblIsbn10.Text = isbn10;
+            return LblEscribirSeries.Text;
         }
         public void setIsbn10(string is10)
         {
-            LblEscribirIsbn10.Text = is10;
+            LblEscribirIsbn10.Text = is10.ToUpper();
         }
         public string getIsbn10()
         {
             return LblEscribirIsbn10.Text;
         }
-        public void setLblIsbn13(string isbn13)
-        {
-            LblIsbn13.Text = isbn13;
-        }
         public void setIsbn13(string is13)
         {
-            LblEscribirIsbn13.Text = is13;
+            LblEscribirIsbn13.Text = is13.ToUpper();
         }
         public string getIsbn13()
         {
             return LblEscribirIsbn13.Text;
-        }
-        public void setLblFecha(string fecha)
-        {
-            LblFecha.Text = fecha;
         }
         public void setFecha(string fecha)
         {
@@ -102,51 +91,57 @@ namespace OpenLibraryEditor.Controles
         {
             return LblEscribirFecha.Text;
         }
-        public void setLblIdioma(string idioma)
-        {
-            LblIdioma.Text = idioma;
-        }
         public void setIdioma(string idioma)
         {
-            LblEscribirIdioma.Text = idioma;
+            LblEscribirIdioma.Text = idioma.ToUpper();
         }
         public string getIdioma()
         {
             return LblEscribirIdioma.Text;
         }
-        public void setLblFormato(string formato)
-        {
-            LblFormato.Text = formato;
-        }
         public void setFormato(string formato)
         {
-            LblEscribirFormato.Text = formato;
+            LblEscribirFormato.Text = formato.ToUpper();
         }
         public string getFormato()
         {
             return LblEscribirFormato.Text;
         }
+        public void setPaginas(string paginas)
+        {
+            LblEscribirPag.Text = paginas;
+        }
+        public string getPaginas()
+        {
+            return LblEscribirPag.Text;
+        }
 
+        #endregion
+        #region metodos
         private void PanBorde_MouseEnter(object sender, EventArgs e)
         {
-            PanDatos.BackColor = Color.Silver;
+            PanDatos.BackColor = Color.FromArgb(80, 137,205, 250);
         }
 
         private void PanBorde_MouseLeave(object sender, EventArgs e)
         {
-            PanDatos.BackColor = Color.Gainsboro;
+            PanDatos.BackColor = Color.FromArgb(243, 249, 255);
         }
 
         private void PanBorde_Click(object sender, EventArgs e)
         {
             this.OnClick(e);
         }
-
+        private void PanBorde_DoubleClick(object sender, EventArgs e)
+        {
+            this.OnDoubleClick(e);
+        }
+        #endregion
         private void VistaDetallesV_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
         }
-
+        #region metodos propios
         private void IdiomaTexto()
         {
             LblEditorial.Text = ControladorIdioma.GetTexto("Main_Edi");
@@ -154,9 +149,13 @@ namespace OpenLibraryEditor.Controles
             LblIsbn10.Text = ControladorIdioma.GetTexto("Main_is10");
             LblIsbn13.Text = ControladorIdioma.GetTexto("Main_is13");
             LblPaginas.Text = ControladorIdioma.GetTexto("Main_Pag");
-            LblFecha.Text = ControladorIdioma.GetTexto("Main_Publicado");
+            LblPublicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
             LblIdioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
             LblFormato.Text = ControladorIdioma.GetTexto("Main_Formato");
         }
+
+        #endregion
+
+        
     }
 }

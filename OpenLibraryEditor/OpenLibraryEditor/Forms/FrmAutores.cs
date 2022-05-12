@@ -112,8 +112,8 @@ namespace OpenLibraryEditor.Forms
             TTAutores.SetToolTip(this.PcbAutorNA, ControladorIdioma.GetTexto("Au_Pcb"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTAutores.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
-            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTAutores.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTAutores.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             LblSigueVivo.Text = ControladorIdioma.GetTexto("Au_Vivo");
             TTAutores.SetToolTip(this.TBtnVivo, ControladorIdioma.GetTexto("Au_TTVivo"));
         }

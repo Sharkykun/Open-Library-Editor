@@ -58,7 +58,7 @@ namespace OpenLibraryEditor.Forms
                 LblTitulo.Text = ControladorIdioma.GetTexto("InputC_Titulo");
                 LblNombre.Text = ControladorIdioma.GetTexto("InputC_Texto");
             }
-            GBtnGuardar.Text = ControladorIdioma.GetTexto("Al_ACGuardar");
+            GBtnGuardar.Text = ControladorIdioma.GetTexto("Guardar");
             GBtnModificar.Text = ControladorIdioma.GetTexto("Input_Modificar");
             GBtnEliminar.Text = ControladorIdioma.GetTexto("Input_Eliminar");
         }

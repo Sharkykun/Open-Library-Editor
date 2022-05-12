@@ -159,9 +159,6 @@
   <data name="Al_ACFic" xml:space="preserve">
     <value>Fichero</value>
   </data>
-  <data name="Al_ACGuardar" xml:space="preserve">
-    <value>Guardar</value>
-  </data>
   <data name="Al_DG10" xml:space="preserve">
     <value>ISBN 10</value>
   </data>
@@ -223,7 +220,7 @@
     <value>Título alternativo</value>
   </data>
   <data name="Al_DGTitulo" xml:space="preserve">
-    <value>Título *</value>
+    <value>Título</value>
   </data>
   <data name="Al_DGVolumen" xml:space="preserve">
     <value>Volumen</value>
@@ -679,7 +676,7 @@
     <value>Establece el título de tu servidor web</value>
   </data>
   <data name="Con_SWIP" xml:space="preserve">
-    <value>IP del servidor web</value>
+    <value>IP del servidor web guardadas</value>
   </data>
   <data name="Con_SWPuerto" xml:space="preserve">
     <value>Puerto</value>
@@ -769,7 +766,7 @@
     <value>Open Library Editor - Ejecutable</value>
   </data>
   <data name="Ej_TTArgumentos" xml:space="preserve">
-    <value>Escribe aquí los argumentos del ejecutable</value>
+    <value>Escribe aquí los argumentos del ejecutable. Ej: -f {file} -b ({file} sirve para cargar el fichero en esa posición)</value>
   </data>
   <data name="Ej_TTExtension" xml:space="preserve">
     <value>Escribe aquí la extensión asociada al libro (pdf, epub...)</value>
@@ -806,6 +803,9 @@
   </data>
   <data name="Error_LibroExiste" xml:space="preserve">
     <value>No se puede añadir el libro porque ya existe en la biblioteca</value>
+  </data>
+  <data name="Error_NoEnlace" xml:space="preserve">
+    <value>No hay ningún enlace guardado</value>
   </data>
   <data name="Error_NombreVacio" xml:space="preserve">
     <value>El nombre no puede estar vacío.</value>
@@ -861,6 +861,9 @@
   <data name="Et_TTNombre" xml:space="preserve">
     <value>Escribe aquí el nombre de la etiqueta</value>
   </data>
+  <data name="Favoritos" xml:space="preserve">
+    <value>Favoritos</value>
+  </data>
   <data name="FormatoFecha" xml:space="preserve">
     <value>Formato DD/MM/YYYY</value>
   </data>
@@ -902,6 +905,9 @@
   </data>
   <data name="Ge_TTNombre" xml:space="preserve">
     <value>Escribe aquí el nombre del género</value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Guardar</value>
   </data>
   <data name="Info_GuardadoOk" xml:space="preserve">
     <value>Se ha guardado correctamente.</value>
@@ -1115,6 +1121,9 @@
   </data>
   <data name="Main_Pag" xml:space="preserve">
     <value>Páginas:</value>
+  </data>
+  <data name="Main_PagEntre" xml:space="preserve">
+    <value>Entre:</value>
   </data>
   <data name="Main_Publicado" xml:space="preserve">
     <value>Publicado:</value>

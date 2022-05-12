@@ -77,8 +77,8 @@ namespace OpenLibraryEditor.Forms
             TTEditorial.SetToolTip(this.PcbLogoEditoriales, ControladorIdioma.GetTexto("Main_TTLogo"));
             GBtnCancelar.Text= ControladorIdioma.GetTexto("Cancelar");
             TTEditorial.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
-            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTEditorial.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTEditorial.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTEditorial.SetToolTip(this.MBtnCerrarEditoriales, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirEditorial(Editorial editorial)

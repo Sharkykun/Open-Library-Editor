@@ -30,6 +30,7 @@
         {
             this.PanBorde = new OpenLibraryEditor.Controles.PanelTransparente();
             this.PanDatos = new System.Windows.Forms.Panel();
+            this.PcbImagenLibro = new System.Windows.Forms.PictureBox();
             this.LblEscribirEditoriales = new System.Windows.Forms.Label();
             this.LblescribirSeries = new System.Windows.Forms.Label();
             this.LblEscribirFormato = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.LblEditorial = new System.Windows.Forms.Label();
             this.LblPersonasLibro = new System.Windows.Forms.Label();
             this.LblTituloLibro = new System.Windows.Forms.Label();
-            this.PcbImagenLibro = new System.Windows.Forms.PictureBox();
             this.PanDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbImagenLibro)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,16 @@
             this.PanDatos.Name = "PanDatos";
             this.PanDatos.Size = new System.Drawing.Size(510, 200);
             this.PanDatos.TabIndex = 5;
+            // 
+            // PcbImagenLibro
+            // 
+            this.PcbImagenLibro.Image = global::OpenLibraryEditor.Properties.Resources.PortadaLogo;
+            this.PcbImagenLibro.Location = new System.Drawing.Point(5, 23);
+            this.PcbImagenLibro.Name = "PcbImagenLibro";
+            this.PcbImagenLibro.Size = new System.Drawing.Size(120, 160);
+            this.PcbImagenLibro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbImagenLibro.TabIndex = 20;
+            this.PcbImagenLibro.TabStop = false;
             // 
             // LblEscribirEditoriales
             // 
@@ -301,22 +311,12 @@
             this.LblTituloLibro.TabIndex = 1;
             this.LblTituloLibro.Text = "Harry Potter y la orden del fénix";
             // 
-            // PcbImagenLibro
-            // 
-            this.PcbImagenLibro.Image = global::OpenLibraryEditor.Properties.Resources.PortadaLogo;
-            this.PcbImagenLibro.Location = new System.Drawing.Point(5, 23);
-            this.PcbImagenLibro.Name = "PcbImagenLibro";
-            this.PcbImagenLibro.Size = new System.Drawing.Size(120, 160);
-            this.PcbImagenLibro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbImagenLibro.TabIndex = 20;
-            this.PcbImagenLibro.TabStop = false;
-            // 
             // VistaDetallesH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.PanBorde);
             this.Controls.Add(this.PanDatos);
+            this.Controls.Add(this.PanBorde);
             this.Name = "VistaDetallesH";
             this.Size = new System.Drawing.Size(520, 210);
             this.PanDatos.ResumeLayout(false);

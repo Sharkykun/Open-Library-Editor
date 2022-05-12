@@ -95,8 +95,8 @@ namespace OpenLibraryEditor.Forms
             TTEtiquetas.SetToolTip(this.KTxtComentarioTa, ControladorIdioma.GetTexto("Et_TTComentario"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTEtiquetas.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
-            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTEtiquetas.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTEtiquetas.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTEtiquetas.SetToolTip(this.MBtnCerrarTags, ControladorIdioma.GetTexto("Cerrar"));
         }
         private void ActualizarCategoria()

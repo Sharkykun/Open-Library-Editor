@@ -146,8 +146,8 @@ namespace OpenLibraryEditor.Forms
             LsvAccionesNL.Columns[1].Text = ControladorIdioma.GetTexto("Al_ACEje");
             LblFicheroNL.Text = ControladorIdioma.GetTexto("Al_ACFic");
             LblEjecutableNL.Text = ControladorIdioma.GetTexto("Al_ACEje");
-            GBtnGuardarAccion.Text= ControladorIdioma.GetTexto("Al_ACGuardar");
-            TTnuevoLibro.SetToolTip(this.GBtnGuardarAccion, ControladorIdioma.GetTexto("Al_ACGuardar"));
+            GBtnGuardarAccion.Text= ControladorIdioma.GetTexto("Guardar");
+            TTnuevoLibro.SetToolTip(this.GBtnGuardarAccion, ControladorIdioma.GetTexto("Guardar"));
             TTnuevoLibro.SetToolTip(this.IbtnFichero, ControladorIdioma.GetTexto("Al_TTBtnBuscarFichero"));
             TTnuevoLibro.SetToolTip(this.MBtnMasLsvAccionesNL, ControladorIdioma.GetTexto("Al_TTBtnMasAcc"));
             TTnuevoLibro.SetToolTip(this.MBtnMenosLsvAccionesNL, ControladorIdioma.GetTexto("Al_TTBtnMenosAcc"));
