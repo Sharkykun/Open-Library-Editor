@@ -10,7 +10,7 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmGeneros : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "el género";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Ge_Gen");
         private bool setNew;
         private Genero generoNuevo;
         private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
@@ -61,10 +61,10 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.KCmbGeneroPadreGe, ControladorIdioma.GetTexto("Ge_TTGenero"));
             LblComentarioGe.Text = ControladorIdioma.GetTexto("Ge_Comentario");
             TTGeneros.SetToolTip(this.KTxtComentarioGe, ControladorIdioma.GetTexto("Ge_TTComentario"));
-            KBtnCancelarGe.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTGeneros.SetToolTip(this.KBtnCancelarGe, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarGe.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTGeneros.SetToolTip(this.KBtnAceptarGe, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTGeneros.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTGeneros.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
             TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar")); 
         }
         private void ActualizarGeneroPadre()
@@ -99,9 +99,10 @@ namespace OpenLibraryEditor.Forms
             //Comparar objetos para preguntar si guardar
             if (generoActual != null && EsObjetoCambiado())
             {
+                //VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
-                    KBtnAceptarGe_Click(null, null);
+                    GBtnAceptar_Click(null, null);
             }
         }
         #endregion
@@ -109,7 +110,8 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarGe_Click(object sender, EventArgs e)
+
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -151,7 +153,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnMasLsvNG_Click(object sender, EventArgs e)
         {
-            Genero gen = new Genero("Nuevo Género");
+            Genero gen = new Genero(ControladorIdioma.GetTexto("Ge_NuevoGen"));
             listaGenero.Add(gen);
             var item = AniadirGenero(gen);
             item.Selected = true;
@@ -161,7 +163,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMenosLsvNG_Click(object sender, EventArgs e)
         {
             if (LsvGeneroNG.SelectedItems.Count == 1 &&
-               VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
+               VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Ge_Gen")) == DialogResult.Yes)
             {
                 var item = LsvGeneroNG.SelectedItems[0];
                 listaGenero.Remove(generoActual);
@@ -170,9 +172,10 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void KBtnAceptarGe_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesGE.Visible == true) {
+            if (PanOpcionesGE.Visible == true)
+            {
                 if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text) &&
                 KCmbGeneroPadreGe.SelectedItem != generoActual)
                 {
@@ -194,8 +197,7 @@ namespace OpenLibraryEditor.Forms
                     ActualizarGeneroPadre();
                 }
                 else
-                    VentanaWindowsComun.MensajeError("El nombre no puede estar vacío." +
-                        "\nEl género padre no puede ser el mismo que el actualmente seleccionado.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Genero"));
             }
         }
 

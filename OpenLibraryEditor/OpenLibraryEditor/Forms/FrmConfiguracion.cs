@@ -103,12 +103,12 @@ namespace OpenLibraryEditor.Forms
             LblGoogleBooksClave.Text = ControladorIdioma.GetTexto("Con_Google");
             TxtSubtituloGoogleBooksClave.Text = ControladorIdioma.GetTexto("Con_SubGoogle");
 
-            BtnRestaurarValores.Text = ControladorIdioma.GetTexto("Con_BtnRestaurar");
-            TTConfi.SetToolTip(this.BtnRestaurarValores, ControladorIdioma.GetTexto("Con_BtnRestaurar"));
-            BtnCancelarConfi.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTConfi.SetToolTip(this.BtnCancelarConfi, ControladorIdioma.GetTexto("Cancelar"));
-            BtnAceptarConfi.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTConfi.SetToolTip(this.BtnAceptarConfi, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnRestaurar.Text = ControladorIdioma.GetTexto("Con_BtnRestaurar");
+            TTConfi.SetToolTip(this.GBtnRestaurar, ControladorIdioma.GetTexto("Con_BtnRestaurar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTConfi.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTConfi.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
 
         }
         private void CmbIdiomaConfi_DrawItem(object sender, DrawItemEventArgs e)
@@ -212,8 +212,7 @@ namespace OpenLibraryEditor.Forms
             //Seleccionar BD si el usuario ha entrado en alguna al iniciar sesion
             CmbIP.SelectedItem = configuracionUsuario.BDActual;
         }
-
-        private void BtnRestaurarValores_Click(object sender, EventArgs e)
+        private void GBtnRestaurar_Click(object sender, EventArgs e)
         {
             //Restaura todos los campos menos los relativos a info de servidores
             configuracionUsuario = new UsuarioDatos();
@@ -229,23 +228,19 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasIP_Click(object sender, EventArgs e)
         {
-            string x = Interaction.InputBox("Escribe el nombre del servidor.",
-                "Añadir Servidor", "", Location.X, Location.Y + 10);
-            //Comprobar que no esté en blanco
-            if (!String.IsNullOrWhiteSpace(x))
-            {
-                InfoBaseDatos info = new InfoBaseDatos(x, "0.0.0.0", 80);
-                CmbIP.Items.Add(info);
-                CmbIP.SelectedItem = info;
-            }
+            //Falta mensaje de error si campos vacios
+            InfoBaseDatos info = new InfoBaseDatos(TxtTituloServidorWeb.Text,
+                TxtIP.Text, (int)NudPuerto.Value);
+            CmbIP.Items.Add(info);
+            CmbIP.SelectedItem = info;
         }
 
         private void MBtnMenosIP_Click(object sender, EventArgs e)
         {
-            if (VentanaWindowsComun.MensajeBorrarObjeto("la información del servidor") == DialogResult.Yes)
+            if (VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Con_InfoServidor")) == DialogResult.Yes)
             {
                 CmbIP.Items.Remove(CmbIP.SelectedItem);
-                if(CmbIP.Items.Count > 0)
+                if (CmbIP.Items.Count > 0)
                     CmbIP.SelectedIndex = 0;
             }
         }
@@ -260,8 +255,7 @@ namespace OpenLibraryEditor.Forms
                 TxtIP.Text = info.ServidorIP;
             }
         }
-
-        private void BtnAceptarConfi_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             //Guardar datos en objeto
             configuracionUsuario.CargaUltimaBD = TBtnUltimaBBDD.Checked;
@@ -300,9 +294,8 @@ namespace OpenLibraryEditor.Forms
             FrmMenuPrincipal form = (FrmMenuPrincipal)(Parent as Panel).Parent;
             form.IdiomaTexto();
 
-            VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente.");
+            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("Info_GuardadoOk"));
         }
-
         private void TxtTituloServidorWeb_TextChanged(object sender, EventArgs e)
         {
             if (CmbIP.SelectedIndex != -1)
@@ -328,7 +321,7 @@ namespace OpenLibraryEditor.Forms
                 bool esCorrecto = Regex.Match(TxtIP.Text, patronIP).Success;
                 if (!esCorrecto && !String.IsNullOrWhiteSpace(TxtIP.Text))
                 {
-                    VentanaWindowsComun.MensajeError("La IP no tiene formato correcto.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_IP"));
                     TxtIP.Text = ipAnterior;
                 }
                 else
@@ -338,5 +331,10 @@ namespace OpenLibraryEditor.Forms
                 }
             }
         }
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

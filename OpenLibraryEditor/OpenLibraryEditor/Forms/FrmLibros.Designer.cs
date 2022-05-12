@@ -113,7 +113,7 @@
             this.KNudCapiActualNL = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnGuardarNL = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.GBtnGuardarLibro = new Guna.UI.WinForms.GunaButton();
             this.PanTituloTitulos = new System.Windows.Forms.Panel();
             this.MBtnCerrarTitulos = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloForm = new System.Windows.Forms.Label();
@@ -129,7 +129,7 @@
             this.MBtnMenosLsvAccionesNL = new FontAwesome.Sharp.Material.MaterialButton();
             this.KGbFicheroEjeNL = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.MBtnMasEjecutableNL = new FontAwesome.Sharp.Material.MaterialButton();
-            this.BtnGuardarAccionesNL = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.GBtnGuardarAccion = new Guna.UI.WinForms.GunaButton();
             this.LblFicheroNL = new System.Windows.Forms.Label();
             this.LblEjecutableNL = new System.Windows.Forms.Label();
             this.IbtnFichero = new FontAwesome.Sharp.IconButton();
@@ -139,6 +139,9 @@
             this.ChFicheroNL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChEjecutableNL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TTnuevoLibro = new System.Windows.Forms.ToolTip(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.LblObligatorio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL.Panel)).BeginInit();
             this.KgbDatosGeneralesNL.Panel.SuspendLayout();
@@ -199,11 +202,11 @@
             this.kryptonPalette1.ButtonStyles.ButtonStandalone.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
+            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.kryptonPalette1.HeaderStyles.HeaderPrimary.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonPalette1.SeparatorStyles.SeparatorCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -212,8 +215,8 @@
             this.kryptonPalette1.TabStyles.TabCommon.OverrideFocus.Back.Color2 = System.Drawing.Color.Silver;
             this.kryptonPalette1.TabStyles.TabCommon.OverrideFocus.Content.ShortText.Color1 = System.Drawing.Color.Navy;
             this.kryptonPalette1.TabStyles.TabCommon.OverrideFocus.Content.ShortText.Color2 = System.Drawing.Color.Navy;
-            this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
-            this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
+            this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
             this.kryptonPalette1.TabStyles.TabCommon.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
@@ -228,6 +231,7 @@
             // 
             // KgbDatosGeneralesNL.Panel
             // 
+            this.KgbDatosGeneralesNL.Panel.Controls.Add(this.LblObligatorio);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.TBtnMayores18NL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCEtiquetaNL);
             this.KgbDatosGeneralesNL.Panel.Controls.Add(this.KCCSerieNL);
@@ -282,15 +286,15 @@
             this.KgbDatosGeneralesNL.Size = new System.Drawing.Size(959, 598);
             this.KgbDatosGeneralesNL.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.KgbDatosGeneralesNL.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.KgbDatosGeneralesNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KgbDatosGeneralesNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KgbDatosGeneralesNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KgbDatosGeneralesNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KgbDatosGeneralesNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KgbDatosGeneralesNL.StateCommon.Border.Rounding = 0;
             this.KgbDatosGeneralesNL.StateCommon.Border.Width = 2;
-            this.KgbDatosGeneralesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KgbDatosGeneralesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KgbDatosGeneralesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KgbDatosGeneralesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KgbDatosGeneralesNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbDatosGeneralesNL.TabIndex = 14;
             this.KgbDatosGeneralesNL.Values.Heading = "Datos generales";
@@ -321,20 +325,21 @@
             this.KCCEtiquetaNL.Location = new System.Drawing.Point(671, 280);
             this.KCCEtiquetaNL.Name = "KCCEtiquetaNL";
             this.KCCEtiquetaNL.Size = new System.Drawing.Size(216, 33);
-            this.KCCEtiquetaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCCEtiquetaNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCCEtiquetaNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCCEtiquetaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCEtiquetaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCCEtiquetaNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCEtiquetaNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCEtiquetaNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCEtiquetaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCEtiquetaNL.TabIndex = 157;
             this.KCCEtiquetaNL.ValueSeparator = ", ";
             this.KCCEtiquetaNL.Visible = false;
@@ -347,20 +352,21 @@
             this.KCCSerieNL.Location = new System.Drawing.Point(671, 241);
             this.KCCSerieNL.Name = "KCCSerieNL";
             this.KCCSerieNL.Size = new System.Drawing.Size(216, 33);
-            this.KCCSerieNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCCSerieNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCCSerieNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCSerieNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCCSerieNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCCSerieNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCCSerieNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCCSerieNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCCSerieNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCCSerieNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCSerieNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCCSerieNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCSerieNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCSerieNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCSerieNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCSerieNL.TabIndex = 156;
             this.KCCSerieNL.ValueSeparator = ", ";
             this.KCCSerieNL.Visible = false;
@@ -373,20 +379,21 @@
             this.KCCGenerosNL.Location = new System.Drawing.Point(671, 201);
             this.KCCGenerosNL.Name = "KCCGenerosNL";
             this.KCCGenerosNL.Size = new System.Drawing.Size(216, 33);
-            this.KCCGenerosNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCCGenerosNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCCGenerosNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCGenerosNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCCGenerosNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCCGenerosNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCCGenerosNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCCGenerosNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCCGenerosNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCGenerosNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCCGenerosNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCGenerosNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCGenerosNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCGenerosNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCGenerosNL.TabIndex = 155;
             this.KCCGenerosNL.ValueSeparator = ", ";
             // 
@@ -398,20 +405,21 @@
             this.KCCPersonasNL.Location = new System.Drawing.Point(671, 161);
             this.KCCPersonasNL.Name = "KCCPersonasNL";
             this.KCCPersonasNL.Size = new System.Drawing.Size(216, 33);
-            this.KCCPersonasNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCCPersonasNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCCPersonasNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCPersonasNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCCPersonasNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCCPersonasNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCCPersonasNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCCPersonasNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCCPersonasNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCPersonasNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCCPersonasNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCPersonasNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCPersonasNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCPersonasNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCPersonasNL.TabIndex = 154;
             this.KCCPersonasNL.ValueSeparator = ", ";
             // 
@@ -422,21 +430,22 @@
             this.KCCEditorialNL.DropDownWidth = 177;
             this.KCCEditorialNL.Location = new System.Drawing.Point(177, 122);
             this.KCCEditorialNL.Name = "KCCEditorialNL";
-            this.KCCEditorialNL.Size = new System.Drawing.Size(221, 33);
-            this.KCCEditorialNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCCEditorialNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCCEditorialNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCCEditorialNL.Size = new System.Drawing.Size(239, 33);
+            this.KCCEditorialNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCCEditorialNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCCEditorialNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCCEditorialNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCCEditorialNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCCEditorialNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCCEditorialNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCCEditorialNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCEditorialNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
             this.KCCEditorialNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCCEditorialNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCCEditorialNL.TabIndex = 153;
             this.KCCEditorialNL.ValueSeparator = ", ";
             // 
@@ -446,8 +455,9 @@
             this.MBtnMasEtiquetasNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasEtiquetasNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasEtiquetasNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasEtiquetasNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEtiquetasNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasEtiquetasNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasEtiquetasNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEtiquetasNL.IconSize = 40;
             this.MBtnMasEtiquetasNL.Location = new System.Drawing.Point(893, 281);
             this.MBtnMasEtiquetasNL.Name = "MBtnMasEtiquetasNL";
@@ -463,8 +473,9 @@
             this.MBtnMasSerieNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasSerieNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasSerieNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasSerieNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasSerieNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasSerieNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasSerieNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasSerieNL.IconSize = 40;
             this.MBtnMasSerieNL.Location = new System.Drawing.Point(893, 242);
             this.MBtnMasSerieNL.Name = "MBtnMasSerieNL";
@@ -480,8 +491,9 @@
             this.MBtnMasGenerosNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasGenerosNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasGenerosNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasGenerosNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasGenerosNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasGenerosNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasGenerosNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasGenerosNL.IconSize = 40;
             this.MBtnMasGenerosNL.Location = new System.Drawing.Point(893, 203);
             this.MBtnMasGenerosNL.Name = "MBtnMasGenerosNL";
@@ -496,8 +508,9 @@
             this.MBtnMasPersonasNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasPersonasNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasPersonasNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasPersonasNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasPersonasNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasPersonasNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasPersonasNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasPersonasNL.IconSize = 40;
             this.MBtnMasPersonasNL.Location = new System.Drawing.Point(893, 163);
             this.MBtnMasPersonasNL.Name = "MBtnMasPersonasNL";
@@ -512,10 +525,11 @@
             this.MBtnMasTipoLibroNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasTipoLibroNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasTipoLibroNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnMasTipoLibroNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasTipoLibroNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasTipoLibroNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnMasTipoLibroNL.IconChar = FontAwesome.Sharp.MaterialIcons.PenPlus;
+            this.MBtnMasTipoLibroNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasTipoLibroNL.IconSize = 40;
-            this.MBtnMasTipoLibroNL.Location = new System.Drawing.Point(400, 244);
+            this.MBtnMasTipoLibroNL.Location = new System.Drawing.Point(422, 244);
             this.MBtnMasTipoLibroNL.Name = "MBtnMasTipoLibroNL";
             this.MBtnMasTipoLibroNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasTipoLibroNL.TabIndex = 124;
@@ -528,14 +542,16 @@
             this.MBtnMenosTipoLibroNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMenosTipoLibroNL.FlatAppearance.BorderSize = 0;
             this.MBtnMenosTipoLibroNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosTipoLibroNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMenosTipoLibroNL.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
-            this.MBtnMenosTipoLibroNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMenosTipoLibroNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMenosTipoLibroNL.IconSize = 40;
-            this.MBtnMenosTipoLibroNL.Location = new System.Drawing.Point(431, 244);
+            this.MBtnMenosTipoLibroNL.Location = new System.Drawing.Point(416, 286);
             this.MBtnMenosTipoLibroNL.Name = "MBtnMenosTipoLibroNL";
             this.MBtnMenosTipoLibroNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMenosTipoLibroNL.TabIndex = 125;
             this.MBtnMenosTipoLibroNL.UseVisualStyleBackColor = false;
+            this.MBtnMenosTipoLibroNL.Visible = false;
             this.MBtnMenosTipoLibroNL.Click += new System.EventHandler(this.MBtnMenosTipoLibroNL_Click);
             // 
             // KMtxtInclusionbbddNL
@@ -544,14 +560,15 @@
             this.KMtxtInclusionbbddNL.Mask = "00/00/0000";
             this.KMtxtInclusionbbddNL.Name = "KMtxtInclusionbbddNL";
             this.KMtxtInclusionbbddNL.Size = new System.Drawing.Size(120, 33);
-            this.KMtxtInclusionbbddNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KMtxtInclusionbbddNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KMtxtInclusionbbddNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtInclusionbbddNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KMtxtInclusionbbddNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KMtxtInclusionbbddNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KMtxtInclusionbbddNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KMtxtInclusionbbddNL.StateCommon.Border.Rounding = 10;
             this.KMtxtInclusionbbddNL.StateCommon.Border.Width = 2;
+            this.KMtxtInclusionbbddNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtInclusionbbddNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KMtxtInclusionbbddNL.TabIndex = 93;
             this.KMtxtInclusionbbddNL.Text = "  /  /";
@@ -562,14 +579,15 @@
             this.KMtxtFecPublicacionNL.Mask = "00/00/0000";
             this.KMtxtFecPublicacionNL.Name = "KMtxtFecPublicacionNL";
             this.KMtxtFecPublicacionNL.Size = new System.Drawing.Size(120, 33);
-            this.KMtxtFecPublicacionNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KMtxtFecPublicacionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KMtxtFecPublicacionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecPublicacionNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KMtxtFecPublicacionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KMtxtFecPublicacionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KMtxtFecPublicacionNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KMtxtFecPublicacionNL.StateCommon.Border.Rounding = 10;
             this.KMtxtFecPublicacionNL.StateCommon.Border.Width = 2;
+            this.KMtxtFecPublicacionNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecPublicacionNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KMtxtFecPublicacionNL.TabIndex = 92;
             this.KMtxtFecPublicacionNL.Text = "  /  /";
@@ -579,7 +597,7 @@
             this.LblEtiquetasNL.AutoSize = true;
             this.LblEtiquetasNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEtiquetasNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEtiquetasNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblEtiquetasNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblEtiquetasNL.Location = new System.Drawing.Point(469, 286);
             this.LblEtiquetasNL.Name = "LblEtiquetasNL";
             this.LblEtiquetasNL.Size = new System.Drawing.Size(73, 20);
@@ -592,7 +610,7 @@
             this.LblSerieNL.AutoSize = true;
             this.LblSerieNL.BackColor = System.Drawing.Color.Transparent;
             this.LblSerieNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSerieNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblSerieNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblSerieNL.Location = new System.Drawing.Point(469, 247);
             this.LblSerieNL.Name = "LblSerieNL";
             this.LblSerieNL.Size = new System.Drawing.Size(44, 20);
@@ -605,7 +623,7 @@
             this.LblSinopsisNL.AutoSize = true;
             this.LblSinopsisNL.BackColor = System.Drawing.Color.Transparent;
             this.LblSinopsisNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSinopsisNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblSinopsisNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblSinopsisNL.Location = new System.Drawing.Point(16, 434);
             this.LblSinopsisNL.Name = "LblSinopsisNL";
             this.LblSinopsisNL.Size = new System.Drawing.Size(67, 20);
@@ -623,14 +641,15 @@
             0});
             this.KNudVolumenNL.Name = "KNudVolumenNL";
             this.KNudVolumenNL.Size = new System.Drawing.Size(120, 33);
-            this.KNudVolumenNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudVolumenNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudVolumenNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudVolumenNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudVolumenNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudVolumenNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudVolumenNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudVolumenNL.StateCommon.Border.Rounding = 10;
             this.KNudVolumenNL.StateCommon.Border.Width = 2;
+            this.KNudVolumenNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudVolumenNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudVolumenNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudVolumenNL.TabIndex = 64;
@@ -640,7 +659,7 @@
             this.LblVolumenNL.AutoSize = true;
             this.LblVolumenNL.BackColor = System.Drawing.Color.Transparent;
             this.LblVolumenNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblVolumenNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblVolumenNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblVolumenNL.Location = new System.Drawing.Point(15, 207);
             this.LblVolumenNL.Name = "LblVolumenNL";
             this.LblVolumenNL.Size = new System.Drawing.Size(69, 20);
@@ -652,7 +671,7 @@
             this.LblMAyores18NL.AutoSize = true;
             this.LblMAyores18NL.BackColor = System.Drawing.Color.Transparent;
             this.LblMAyores18NL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblMAyores18NL.ForeColor = System.Drawing.Color.Navy;
+            this.LblMAyores18NL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblMAyores18NL.Location = new System.Drawing.Point(15, 363);
             this.LblMAyores18NL.Name = "LblMAyores18NL";
             this.LblMAyores18NL.Size = new System.Drawing.Size(110, 20);
@@ -664,7 +683,7 @@
             this.LblFechaInclusionNL.AutoSize = true;
             this.LblFechaInclusionNL.BackColor = System.Drawing.Color.Transparent;
             this.LblFechaInclusionNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFechaInclusionNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblFechaInclusionNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblFechaInclusionNL.Location = new System.Drawing.Point(469, 128);
             this.LblFechaInclusionNL.Name = "LblFechaInclusionNL";
             this.LblFechaInclusionNL.Size = new System.Drawing.Size(196, 20);
@@ -676,7 +695,7 @@
             this.LblGenerosNL.AutoSize = true;
             this.LblGenerosNL.BackColor = System.Drawing.Color.Transparent;
             this.LblGenerosNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGenerosNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblGenerosNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblGenerosNL.Location = new System.Drawing.Point(469, 207);
             this.LblGenerosNL.Name = "LblGenerosNL";
             this.LblGenerosNL.Size = new System.Drawing.Size(66, 20);
@@ -696,19 +715,19 @@
             this.KCmbIdiomaOriginalNL.Location = new System.Drawing.Point(671, 319);
             this.KCmbIdiomaOriginalNL.Name = "KCmbIdiomaOriginalNL";
             this.KCmbIdiomaOriginalNL.Size = new System.Drawing.Size(254, 33);
-            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbIdiomaOriginalNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
-            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F);
+            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbIdiomaOriginalNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbIdiomaOriginalNL.TabIndex = 73;
             // 
             // LblEnlaceNL
@@ -716,7 +735,7 @@
             this.LblEnlaceNL.AutoSize = true;
             this.LblEnlaceNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEnlaceNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEnlaceNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblEnlaceNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblEnlaceNL.Location = new System.Drawing.Point(15, 401);
             this.LblEnlaceNL.Name = "LblEnlaceNL";
             this.LblEnlaceNL.Size = new System.Drawing.Size(155, 20);
@@ -728,15 +747,15 @@
             this.KTxtEnlaceNL.Location = new System.Drawing.Point(177, 395);
             this.KTxtEnlaceNL.Name = "KTxtEnlaceNL";
             this.KTxtEnlaceNL.Size = new System.Drawing.Size(748, 33);
-            this.KTxtEnlaceNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtEnlaceNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtEnlaceNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtEnlaceNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtEnlaceNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtEnlaceNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtEnlaceNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtEnlaceNL.StateCommon.Border.Rounding = 10;
             this.KTxtEnlaceNL.StateCommon.Border.Width = 2;
-            this.KTxtEnlaceNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtEnlaceNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtEnlaceNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtEnlaceNL.TabIndex = 71;
             // 
@@ -745,7 +764,7 @@
             this.LblPublicacionNL.AutoSize = true;
             this.LblPublicacionNL.BackColor = System.Drawing.Color.Transparent;
             this.LblPublicacionNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPublicacionNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblPublicacionNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblPublicacionNL.Location = new System.Drawing.Point(469, 89);
             this.LblPublicacionNL.Name = "LblPublicacionNL";
             this.LblPublicacionNL.Size = new System.Drawing.Size(136, 20);
@@ -757,7 +776,7 @@
             this.LblPersonasNL.AutoSize = true;
             this.LblPersonasNL.BackColor = System.Drawing.Color.Transparent;
             this.LblPersonasNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPersonasNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblPersonasNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblPersonasNL.Location = new System.Drawing.Point(469, 167);
             this.LblPersonasNL.Name = "LblPersonasNL";
             this.LblPersonasNL.Size = new System.Drawing.Size(73, 20);
@@ -777,19 +796,19 @@
             this.KCmbIdiomaNL.Location = new System.Drawing.Point(671, 356);
             this.KCmbIdiomaNL.Name = "KCmbIdiomaNL";
             this.KCmbIdiomaNL.Size = new System.Drawing.Size(254, 33);
-            this.KCmbIdiomaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbIdiomaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbIdiomaNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCmbIdiomaNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbIdiomaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbIdiomaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbIdiomaNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
-            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F);
+            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbIdiomaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbIdiomaNL.TabIndex = 58;
             // 
             // LblIdiomaNL
@@ -797,7 +816,7 @@
             this.LblIdiomaNL.AutoSize = true;
             this.LblIdiomaNL.BackColor = System.Drawing.Color.Transparent;
             this.LblIdiomaNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIdiomaNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblIdiomaNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblIdiomaNL.Location = new System.Drawing.Point(469, 363);
             this.LblIdiomaNL.Name = "LblIdiomaNL";
             this.LblIdiomaNL.Size = new System.Drawing.Size(58, 20);
@@ -809,7 +828,7 @@
             this.LblIdiomaOriginalNL.AutoSize = true;
             this.LblIdiomaOriginalNL.BackColor = System.Drawing.Color.Transparent;
             this.LblIdiomaOriginalNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIdiomaOriginalNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblIdiomaOriginalNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblIdiomaOriginalNL.Location = new System.Drawing.Point(469, 325);
             this.LblIdiomaOriginalNL.Name = "LblIdiomaOriginalNL";
             this.LblIdiomaOriginalNL.Size = new System.Drawing.Size(117, 20);
@@ -826,14 +845,15 @@
             0});
             this.KNudNumPagNL.Name = "KNudNumPagNL";
             this.KNudNumPagNL.Size = new System.Drawing.Size(120, 33);
-            this.KNudNumPagNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudNumPagNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudNumPagNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudNumPagNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudNumPagNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudNumPagNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudNumPagNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudNumPagNL.StateCommon.Border.Rounding = 10;
             this.KNudNumPagNL.StateCommon.Border.Width = 2;
+            this.KNudNumPagNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudNumPagNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudNumPagNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudNumPagNL.TabIndex = 46;
@@ -843,7 +863,7 @@
             this.LblNumPagNL.AutoSize = true;
             this.LblNumPagNL.BackColor = System.Drawing.Color.Transparent;
             this.LblNumPagNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumPagNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblNumPagNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblNumPagNL.Location = new System.Drawing.Point(15, 325);
             this.LblNumPagNL.Name = "LblNumPagNL";
             this.LblNumPagNL.Size = new System.Drawing.Size(148, 20);
@@ -860,14 +880,15 @@
             0});
             this.KNudNumCapNL.Name = "KNudNumCapNL";
             this.KNudNumCapNL.Size = new System.Drawing.Size(120, 33);
-            this.KNudNumCapNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudNumCapNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudNumCapNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudNumCapNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudNumCapNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudNumCapNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudNumCapNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudNumCapNL.StateCommon.Border.Rounding = 10;
             this.KNudNumCapNL.StateCommon.Border.Width = 2;
+            this.KNudNumCapNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudNumCapNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudNumCapNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudNumCapNL.TabIndex = 44;
@@ -877,7 +898,7 @@
             this.LblNumeroCapNL.AutoSize = true;
             this.LblNumeroCapNL.BackColor = System.Drawing.Color.Transparent;
             this.LblNumeroCapNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumeroCapNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblNumeroCapNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblNumeroCapNL.Location = new System.Drawing.Point(15, 286);
             this.LblNumeroCapNL.Name = "LblNumeroCapNL";
             this.LblNumeroCapNL.Size = new System.Drawing.Size(155, 20);
@@ -894,14 +915,15 @@
             0});
             this.KNudEdicionNL.Name = "KNudEdicionNL";
             this.KNudEdicionNL.Size = new System.Drawing.Size(120, 33);
-            this.KNudEdicionNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudEdicionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudEdicionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudEdicionNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudEdicionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudEdicionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudEdicionNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudEdicionNL.StateCommon.Border.Rounding = 10;
             this.KNudEdicionNL.StateCommon.Border.Width = 2;
+            this.KNudEdicionNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudEdicionNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudEdicionNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudEdicionNL.TabIndex = 42;
@@ -911,7 +933,7 @@
             this.LblEdicionNL.AutoSize = true;
             this.LblEdicionNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEdicionNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEdicionNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblEdicionNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblEdicionNL.Location = new System.Drawing.Point(15, 167);
             this.LblEdicionNL.Name = "LblEdicionNL";
             this.LblEdicionNL.Size = new System.Drawing.Size(61, 20);
@@ -923,7 +945,7 @@
             this.LblTipoNL.AutoSize = true;
             this.LblTipoNL.BackColor = System.Drawing.Color.Transparent;
             this.LblTipoNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTipoNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblTipoNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblTipoNL.Location = new System.Drawing.Point(15, 247);
             this.LblTipoNL.Name = "LblTipoNL";
             this.LblTipoNL.Size = new System.Drawing.Size(98, 20);
@@ -935,7 +957,7 @@
             this.LblEditorialNL.AutoSize = true;
             this.LblEditorialNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEditorialNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEditorialNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblEditorialNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblEditorialNL.Location = new System.Drawing.Point(15, 128);
             this.LblEditorialNL.Name = "LblEditorialNL";
             this.LblEditorialNL.Size = new System.Drawing.Size(68, 20);
@@ -947,19 +969,20 @@
             this.KCmbTipoNL.DropDownWidth = 213;
             this.KCmbTipoNL.Location = new System.Drawing.Point(177, 241);
             this.KCmbTipoNL.Name = "KCmbTipoNL";
-            this.KCmbTipoNL.Size = new System.Drawing.Size(221, 33);
-            this.KCmbTipoNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbTipoNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbTipoNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbTipoNL.Size = new System.Drawing.Size(239, 33);
+            this.KCmbTipoNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCmbTipoNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCmbTipoNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbTipoNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCmbTipoNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCmbTipoNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbTipoNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbTipoNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbTipoNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbTipoNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbTipoNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbTipoNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbTipoNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbTipoNL.TabIndex = 33;
             // 
             // KTxtIsbn13
@@ -968,15 +991,15 @@
             this.KTxtIsbn13.MaxLength = 13;
             this.KTxtIsbn13.Name = "KTxtIsbn13";
             this.KTxtIsbn13.Size = new System.Drawing.Size(254, 33);
-            this.KTxtIsbn13.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtIsbn13.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtIsbn13.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtIsbn13.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtIsbn13.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtIsbn13.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtIsbn13.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtIsbn13.StateCommon.Border.Rounding = 10;
             this.KTxtIsbn13.StateCommon.Border.Width = 2;
-            this.KTxtIsbn13.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtIsbn13.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtIsbn13.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtIsbn13.TabIndex = 30;
             // 
@@ -985,7 +1008,7 @@
             this.LblIsbn13NL.AutoSize = true;
             this.LblIsbn13NL.BackColor = System.Drawing.Color.Transparent;
             this.LblIsbn13NL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIsbn13NL.ForeColor = System.Drawing.Color.Navy;
+            this.LblIsbn13NL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblIsbn13NL.Location = new System.Drawing.Point(469, 50);
             this.LblIsbn13NL.Name = "LblIsbn13NL";
             this.LblIsbn13NL.Size = new System.Drawing.Size(68, 20);
@@ -998,15 +1021,15 @@
             this.KTxtIsbn10.MaxLength = 10;
             this.KTxtIsbn10.Name = "KTxtIsbn10";
             this.KTxtIsbn10.Size = new System.Drawing.Size(254, 33);
-            this.KTxtIsbn10.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtIsbn10.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtIsbn10.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtIsbn10.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtIsbn10.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtIsbn10.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtIsbn10.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtIsbn10.StateCommon.Border.Rounding = 10;
             this.KTxtIsbn10.StateCommon.Border.Width = 2;
-            this.KTxtIsbn10.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtIsbn10.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtIsbn10.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtIsbn10.TabIndex = 28;
             // 
@@ -1015,7 +1038,7 @@
             this.LblIsbn10NL.AutoSize = true;
             this.LblIsbn10NL.BackColor = System.Drawing.Color.Transparent;
             this.LblIsbn10NL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIsbn10NL.ForeColor = System.Drawing.Color.Navy;
+            this.LblIsbn10NL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblIsbn10NL.Location = new System.Drawing.Point(469, 11);
             this.LblIsbn10NL.Name = "LblIsbn10NL";
             this.LblIsbn10NL.Size = new System.Drawing.Size(68, 20);
@@ -1027,15 +1050,15 @@
             this.KTxtTituAlternativoNL.Location = new System.Drawing.Point(177, 83);
             this.KTxtTituAlternativoNL.Name = "KTxtTituAlternativoNL";
             this.KTxtTituAlternativoNL.Size = new System.Drawing.Size(280, 33);
-            this.KTxtTituAlternativoNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtTituAlternativoNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtTituAlternativoNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtTituAlternativoNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtTituAlternativoNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtTituAlternativoNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtTituAlternativoNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtTituAlternativoNL.StateCommon.Border.Rounding = 10;
             this.KTxtTituAlternativoNL.StateCommon.Border.Width = 2;
-            this.KTxtTituAlternativoNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtTituAlternativoNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtTituAlternativoNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtTituAlternativoNL.TabIndex = 2;
             // 
@@ -1044,7 +1067,7 @@
             this.LblTituAlternativoNL.AutoSize = true;
             this.LblTituAlternativoNL.BackColor = System.Drawing.Color.Transparent;
             this.LblTituAlternativoNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituAlternativoNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblTituAlternativoNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblTituAlternativoNL.Location = new System.Drawing.Point(15, 89);
             this.LblTituAlternativoNL.Name = "LblTituAlternativoNL";
             this.LblTituAlternativoNL.Size = new System.Drawing.Size(127, 20);
@@ -1056,15 +1079,15 @@
             this.KTxtSubtituloNL.Location = new System.Drawing.Point(177, 44);
             this.KTxtSubtituloNL.Name = "KTxtSubtituloNL";
             this.KTxtSubtituloNL.Size = new System.Drawing.Size(280, 33);
-            this.KTxtSubtituloNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtSubtituloNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtSubtituloNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtSubtituloNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtSubtituloNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtSubtituloNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtSubtituloNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtSubtituloNL.StateCommon.Border.Rounding = 10;
             this.KTxtSubtituloNL.StateCommon.Border.Width = 2;
-            this.KTxtSubtituloNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtSubtituloNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtSubtituloNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtSubtituloNL.TabIndex = 1;
             // 
@@ -1073,7 +1096,7 @@
             this.LblSubtituloNL.AutoSize = true;
             this.LblSubtituloNL.BackColor = System.Drawing.Color.Transparent;
             this.LblSubtituloNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSubtituloNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblSubtituloNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblSubtituloNL.Location = new System.Drawing.Point(15, 50);
             this.LblSubtituloNL.Name = "LblSubtituloNL";
             this.LblSubtituloNL.Size = new System.Drawing.Size(70, 20);
@@ -1085,27 +1108,27 @@
             this.LblTituloNL.AutoSize = true;
             this.LblTituloNL.BackColor = System.Drawing.Color.Transparent;
             this.LblTituloNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblTituloNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblTituloNL.Location = new System.Drawing.Point(15, 11);
             this.LblTituloNL.Name = "LblTituloNL";
-            this.LblTituloNL.Size = new System.Drawing.Size(47, 20);
+            this.LblTituloNL.Size = new System.Drawing.Size(59, 20);
             this.LblTituloNL.TabIndex = 21;
-            this.LblTituloNL.Text = "Título";
+            this.LblTituloNL.Text = "Título *";
             // 
             // KTxtTituloNL
             // 
             this.KTxtTituloNL.Location = new System.Drawing.Point(177, 5);
             this.KTxtTituloNL.Name = "KTxtTituloNL";
             this.KTxtTituloNL.Size = new System.Drawing.Size(280, 33);
-            this.KTxtTituloNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtTituloNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtTituloNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtTituloNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtTituloNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtTituloNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtTituloNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtTituloNL.StateCommon.Border.Rounding = 10;
             this.KTxtTituloNL.StateCommon.Border.Width = 2;
-            this.KTxtTituloNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtTituloNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtTituloNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtTituloNL.TabIndex = 0;
             // 
@@ -1116,15 +1139,15 @@
             this.KTxtSinopsisNL.Name = "KTxtSinopsisNL";
             this.KTxtSinopsisNL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.KTxtSinopsisNL.Size = new System.Drawing.Size(748, 106);
-            this.KTxtSinopsisNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtSinopsisNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtSinopsisNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtSinopsisNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtSinopsisNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtSinopsisNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtSinopsisNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtSinopsisNL.StateCommon.Border.Rounding = 10;
             this.KTxtSinopsisNL.StateCommon.Border.Width = 2;
-            this.KTxtSinopsisNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtSinopsisNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtSinopsisNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtSinopsisNL.TabIndex = 82;
             // 
@@ -1134,10 +1157,11 @@
             this.MBtnMasEditorialNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasEditorialNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasEditorialNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasEditorialNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEditorialNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasEditorialNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasEditorialNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEditorialNL.IconSize = 40;
-            this.MBtnMasEditorialNL.Location = new System.Drawing.Point(400, 124);
+            this.MBtnMasEditorialNL.Location = new System.Drawing.Point(422, 124);
             this.MBtnMasEditorialNL.Name = "MBtnMasEditorialNL";
             this.MBtnMasEditorialNL.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasEditorialNL.TabIndex = 126;
@@ -1162,15 +1186,15 @@
             this.KGbImagenesNL.Size = new System.Drawing.Size(959, 598);
             this.KGbImagenesNL.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.KGbImagenesNL.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.KGbImagenesNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KGbImagenesNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KGbImagenesNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbImagenesNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbImagenesNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KGbImagenesNL.StateCommon.Border.Rounding = 0;
             this.KGbImagenesNL.StateCommon.Border.Width = 2;
-            this.KGbImagenesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KGbImagenesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KGbImagenesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbImagenesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbImagenesNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KGbImagenesNL.TabIndex = 16;
             this.KGbImagenesNL.Values.Heading = "Imágenes";
@@ -1206,7 +1230,7 @@
             this.IBtnContraportadaNL.FlatAppearance.BorderSize = 0;
             this.IBtnContraportadaNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IBtnContraportadaNL.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.IBtnContraportadaNL.IconColor = System.Drawing.Color.Black;
+            this.IBtnContraportadaNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IBtnContraportadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnContraportadaNL.IconSize = 35;
             this.IBtnContraportadaNL.Location = new System.Drawing.Point(550, 72);
@@ -1248,7 +1272,7 @@
             this.IBtnPortadaNL.FlatAppearance.BorderSize = 0;
             this.IBtnPortadaNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IBtnPortadaNL.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.IBtnPortadaNL.IconColor = System.Drawing.Color.Black;
+            this.IBtnPortadaNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IBtnPortadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnPortadaNL.IconSize = 35;
             this.IBtnPortadaNL.Location = new System.Drawing.Point(140, 72);
@@ -1289,17 +1313,17 @@
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblPuntuacionNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KNudCapiActualNL);
             this.KGbDatosUsuarioNL.Size = new System.Drawing.Size(959, 598);
-            this.KGbDatosUsuarioNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KGbDatosUsuarioNL.StateCommon.Back.Color2 = System.Drawing.Color.Gainsboro;
-            this.KGbDatosUsuarioNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KGbDatosUsuarioNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KGbDatosUsuarioNL.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.KGbDatosUsuarioNL.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.KGbDatosUsuarioNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbDatosUsuarioNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbDatosUsuarioNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KGbDatosUsuarioNL.StateCommon.Border.Rounding = 0;
             this.KGbDatosUsuarioNL.StateCommon.Border.Width = 2;
-            this.KGbDatosUsuarioNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KGbDatosUsuarioNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KGbDatosUsuarioNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbDatosUsuarioNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbDatosUsuarioNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KGbDatosUsuarioNL.TabIndex = 17;
             this.KGbDatosUsuarioNL.Values.Heading = "Datos usuario";
@@ -1310,14 +1334,15 @@
             this.KMtxtFecFinalNL.Mask = "00/00/0000";
             this.KMtxtFecFinalNL.Name = "KMtxtFecFinalNL";
             this.KMtxtFecFinalNL.Size = new System.Drawing.Size(120, 33);
-            this.KMtxtFecFinalNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KMtxtFecFinalNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KMtxtFecFinalNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecFinalNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KMtxtFecFinalNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KMtxtFecFinalNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KMtxtFecFinalNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KMtxtFecFinalNL.StateCommon.Border.Rounding = 10;
             this.KMtxtFecFinalNL.StateCommon.Border.Width = 2;
+            this.KMtxtFecFinalNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecFinalNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KMtxtFecFinalNL.TabIndex = 91;
             this.KMtxtFecFinalNL.Text = "  /  /";
@@ -1328,14 +1353,15 @@
             this.KMtxtFecComienzoNL.Mask = "00/00/0000";
             this.KMtxtFecComienzoNL.Name = "KMtxtFecComienzoNL";
             this.KMtxtFecComienzoNL.Size = new System.Drawing.Size(120, 33);
-            this.KMtxtFecComienzoNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KMtxtFecComienzoNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KMtxtFecComienzoNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtFecComienzoNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KMtxtFecComienzoNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KMtxtFecComienzoNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KMtxtFecComienzoNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KMtxtFecComienzoNL.StateCommon.Border.Rounding = 10;
             this.KMtxtFecComienzoNL.StateCommon.Border.Width = 2;
+            this.KMtxtFecComienzoNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecComienzoNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KMtxtFecComienzoNL.TabIndex = 90;
             this.KMtxtFecComienzoNL.Text = "  /  /";
@@ -1346,16 +1372,16 @@
             this.KMtxtTiempoLecturaNL.Mask = "00:00:00";
             this.KMtxtTiempoLecturaNL.Name = "KMtxtTiempoLecturaNL";
             this.KMtxtTiempoLecturaNL.Size = new System.Drawing.Size(120, 33);
-            this.KMtxtTiempoLecturaNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KMtxtTiempoLecturaNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KMtxtTiempoLecturaNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KMtxtTiempoLecturaNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KMtxtTiempoLecturaNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KMtxtTiempoLecturaNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KMtxtTiempoLecturaNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KMtxtTiempoLecturaNL.StateCommon.Border.Rounding = 10;
             this.KMtxtTiempoLecturaNL.StateCommon.Border.Width = 2;
-            this.KMtxtTiempoLecturaNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
-            this.KMtxtTiempoLecturaNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F);
+            this.KMtxtTiempoLecturaNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KMtxtTiempoLecturaNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KMtxtTiempoLecturaNL.TabIndex = 89;
             this.KMtxtTiempoLecturaNL.Text = "  :  :";
             // 
@@ -1379,7 +1405,7 @@
             this.LblCapituloActualNL.AutoSize = true;
             this.LblCapituloActualNL.BackColor = System.Drawing.Color.Transparent;
             this.LblCapituloActualNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCapituloActualNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblCapituloActualNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblCapituloActualNL.Location = new System.Drawing.Point(15, 167);
             this.LblCapituloActualNL.Name = "LblCapituloActualNL";
             this.LblCapituloActualNL.Size = new System.Drawing.Size(115, 20);
@@ -1391,14 +1417,15 @@
             this.KNudVecesLeidoNL.Location = new System.Drawing.Point(177, 44);
             this.KNudVecesLeidoNL.Name = "KNudVecesLeidoNL";
             this.KNudVecesLeidoNL.Size = new System.Drawing.Size(179, 33);
-            this.KNudVecesLeidoNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudVecesLeidoNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudVecesLeidoNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudVecesLeidoNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudVecesLeidoNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudVecesLeidoNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudVecesLeidoNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudVecesLeidoNL.StateCommon.Border.Rounding = 10;
             this.KNudVecesLeidoNL.StateCommon.Border.Width = 2;
+            this.KNudVecesLeidoNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudVecesLeidoNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudVecesLeidoNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudVecesLeidoNL.TabIndex = 84;
@@ -1408,7 +1435,7 @@
             this.LblComentarioNL.AutoSize = true;
             this.LblComentarioNL.BackColor = System.Drawing.Color.Transparent;
             this.LblComentarioNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblComentarioNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblComentarioNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblComentarioNL.Location = new System.Drawing.Point(485, 11);
             this.LblComentarioNL.Name = "LblComentarioNL";
             this.LblComentarioNL.Size = new System.Drawing.Size(91, 20);
@@ -1422,15 +1449,15 @@
             this.KTxtComentarioUsuarioNL.Name = "KTxtComentarioUsuarioNL";
             this.KTxtComentarioUsuarioNL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.KTxtComentarioUsuarioNL.Size = new System.Drawing.Size(436, 304);
-            this.KTxtComentarioUsuarioNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtComentarioUsuarioNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtComentarioUsuarioNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtComentarioUsuarioNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtComentarioUsuarioNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtComentarioUsuarioNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtComentarioUsuarioNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtComentarioUsuarioNL.StateCommon.Border.Rounding = 10;
             this.KTxtComentarioUsuarioNL.StateCommon.Border.Width = 2;
-            this.KTxtComentarioUsuarioNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtComentarioUsuarioNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtComentarioUsuarioNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtComentarioUsuarioNL.TabIndex = 82;
             // 
@@ -1454,7 +1481,7 @@
             this.LblFavoritoNL.AutoSize = true;
             this.LblFavoritoNL.BackColor = System.Drawing.Color.Transparent;
             this.LblFavoritoNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFavoritoNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblFavoritoNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblFavoritoNL.Location = new System.Drawing.Point(15, 286);
             this.LblFavoritoNL.Name = "LblFavoritoNL";
             this.LblFavoritoNL.Size = new System.Drawing.Size(65, 20);
@@ -1477,33 +1504,27 @@
             this.KCmbEstadoLecturaNL.StateActive.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbEstadoLecturaNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F);
             this.KCmbEstadoLecturaNL.StateCommon.DropBack.Color1 = System.Drawing.Color.Gainsboro;
             this.KCmbEstadoLecturaNL.StateCommon.DropBack.Color2 = System.Drawing.Color.Gainsboro;
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Back.Color1 = System.Drawing.Color.Silver;
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Back.Color2 = System.Drawing.Color.Silver;
             this.KCmbEstadoLecturaNL.StateCommon.Item.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
             this.KCmbEstadoLecturaNL.StateCommon.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCmbEstadoLecturaNL.StateCommon.Item.Border.Rounding = 1;
             this.KCmbEstadoLecturaNL.StateCommon.Item.Border.Width = 1;
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Content.LongText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Content.LongText.Color2 = System.Drawing.Color.Navy;
             this.KCmbEstadoLecturaNL.StateCommon.Item.Content.LongText.Font = new System.Drawing.Font("Merienda", 8F);
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEstadoLecturaNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KCmbEstadoLecturaNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbEstadoLecturaNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbEstadoLecturaNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F);
             this.KCmbEstadoLecturaNL.TabIndex = 73;
             // 
@@ -1512,7 +1533,7 @@
             this.LblFecFinalNL.AutoSize = true;
             this.LblFecFinalNL.BackColor = System.Drawing.Color.Transparent;
             this.LblFecFinalNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFecFinalNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblFecFinalNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblFecFinalNL.Location = new System.Drawing.Point(15, 247);
             this.LblFecFinalNL.Name = "LblFecFinalNL";
             this.LblFecFinalNL.Size = new System.Drawing.Size(159, 20);
@@ -1524,7 +1545,7 @@
             this.LblFecComiNL.AutoSize = true;
             this.LblFecComiNL.BackColor = System.Drawing.Color.Transparent;
             this.LblFecComiNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFecComiNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblFecComiNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblFecComiNL.Location = new System.Drawing.Point(15, 207);
             this.LblFecComiNL.Name = "LblFecComiNL";
             this.LblFecComiNL.Size = new System.Drawing.Size(144, 20);
@@ -1536,7 +1557,7 @@
             this.LblTiempoLecNL.AutoSize = true;
             this.LblTiempoLecNL.BackColor = System.Drawing.Color.Transparent;
             this.LblTiempoLecNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTiempoLecNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblTiempoLecNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblTiempoLecNL.Location = new System.Drawing.Point(15, 128);
             this.LblTiempoLecNL.Name = "LblTiempoLecNL";
             this.LblTiempoLecNL.Size = new System.Drawing.Size(135, 20);
@@ -1548,14 +1569,15 @@
             this.KNudPuntuacionNL.Location = new System.Drawing.Point(177, 5);
             this.KNudPuntuacionNL.Name = "KNudPuntuacionNL";
             this.KNudPuntuacionNL.Size = new System.Drawing.Size(179, 33);
-            this.KNudPuntuacionNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudPuntuacionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudPuntuacionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudPuntuacionNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudPuntuacionNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudPuntuacionNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudPuntuacionNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudPuntuacionNL.StateCommon.Border.Rounding = 10;
             this.KNudPuntuacionNL.StateCommon.Border.Width = 2;
+            this.KNudPuntuacionNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudPuntuacionNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudPuntuacionNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudPuntuacionNL.TabIndex = 42;
@@ -1565,7 +1587,7 @@
             this.LblOcultarNL.AutoSize = true;
             this.LblOcultarNL.BackColor = System.Drawing.Color.Transparent;
             this.LblOcultarNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOcultarNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblOcultarNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblOcultarNL.Location = new System.Drawing.Point(15, 325);
             this.LblOcultarNL.Name = "LblOcultarNL";
             this.LblOcultarNL.Size = new System.Drawing.Size(60, 20);
@@ -1577,7 +1599,7 @@
             this.LblEstadoLecturaNL.AutoSize = true;
             this.LblEstadoLecturaNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEstadoLecturaNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEstadoLecturaNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblEstadoLecturaNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblEstadoLecturaNL.Location = new System.Drawing.Point(15, 89);
             this.LblEstadoLecturaNL.Name = "LblEstadoLecturaNL";
             this.LblEstadoLecturaNL.Size = new System.Drawing.Size(132, 20);
@@ -1589,7 +1611,7 @@
             this.LblVecesLeidoNL.AutoSize = true;
             this.LblVecesLeidoNL.BackColor = System.Drawing.Color.Transparent;
             this.LblVecesLeidoNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblVecesLeidoNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblVecesLeidoNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblVecesLeidoNL.Location = new System.Drawing.Point(15, 50);
             this.LblVecesLeidoNL.Name = "LblVecesLeidoNL";
             this.LblVecesLeidoNL.Size = new System.Drawing.Size(88, 20);
@@ -1601,7 +1623,7 @@
             this.LblPuntuacionNL.AutoSize = true;
             this.LblPuntuacionNL.BackColor = System.Drawing.Color.Transparent;
             this.LblPuntuacionNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPuntuacionNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblPuntuacionNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblPuntuacionNL.Location = new System.Drawing.Point(15, 11);
             this.LblPuntuacionNL.Name = "LblPuntuacionNL";
             this.LblPuntuacionNL.Size = new System.Drawing.Size(87, 20);
@@ -1613,14 +1635,15 @@
             this.KNudCapiActualNL.Location = new System.Drawing.Point(177, 161);
             this.KNudCapiActualNL.Name = "KNudCapiActualNL";
             this.KNudCapiActualNL.Size = new System.Drawing.Size(179, 33);
-            this.KNudCapiActualNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KNudCapiActualNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KNudCapiActualNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KNudCapiActualNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KNudCapiActualNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KNudCapiActualNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudCapiActualNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KNudCapiActualNL.StateCommon.Border.Rounding = 10;
             this.KNudCapiActualNL.StateCommon.Border.Width = 2;
+            this.KNudCapiActualNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudCapiActualNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudCapiActualNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudCapiActualNL.TabIndex = 86;
@@ -1639,98 +1662,44 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.BtnGuardarNL);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel1.Controls.Add(this.GBtnGuardarLibro);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 729);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1012, 45);
             this.panel1.TabIndex = 1;
             // 
-            // BtnGuardarNL
+            // GBtnGuardarLibro
             // 
-            this.BtnGuardarNL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BtnGuardarNL.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuardarNL.Location = new System.Drawing.Point(809, 5);
-            this.BtnGuardarNL.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnGuardarNL.Name = "BtnGuardarNL";
-            this.BtnGuardarNL.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnGuardarNL.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnGuardarNL.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarNL.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarNL.OverrideDefault.Border.Rounding = 30;
-            this.BtnGuardarNL.OverrideDefault.Border.Width = 2;
-            this.BtnGuardarNL.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarNL.Size = new System.Drawing.Size(174, 35);
-            this.BtnGuardarNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnGuardarNL.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnGuardarNL.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateCommon.Border.ColorAngle = 0F;
-            this.BtnGuardarNL.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarNL.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarNL.StateCommon.Border.Rounding = 30;
-            this.BtnGuardarNL.StateCommon.Border.Width = 2;
-            this.BtnGuardarNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.BtnGuardarNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.BtnGuardarNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarNL.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnGuardarNL.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnGuardarNL.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarNL.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarNL.StateNormal.Border.Rounding = 30;
-            this.BtnGuardarNL.StateNormal.Border.Width = 2;
-            this.BtnGuardarNL.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarNL.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarNL.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.BtnGuardarNL.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.BtnGuardarNL.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarNL.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarNL.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarNL.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarNL.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarNL.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnGuardarNL.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnGuardarNL.TabIndex = 13;
-            this.BtnGuardarNL.Values.Text = "Guardar libro";
-            this.BtnGuardarNL.Click += new System.EventHandler(this.BtnGuardarNL_Click);
+            this.GBtnGuardarLibro.AnimationHoverSpeed = 0.07F;
+            this.GBtnGuardarLibro.AnimationSpeed = 0.03F;
+            this.GBtnGuardarLibro.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnGuardarLibro.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnGuardarLibro.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarLibro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnGuardarLibro.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarLibro.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnGuardarLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnGuardarLibro.Image = null;
+            this.GBtnGuardarLibro.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnGuardarLibro.Location = new System.Drawing.Point(809, 5);
+            this.GBtnGuardarLibro.Name = "GBtnGuardarLibro";
+            this.GBtnGuardarLibro.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnGuardarLibro.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarLibro.OnHoverForeColor = System.Drawing.Color.Black;
+            this.GBtnGuardarLibro.OnHoverImage = null;
+            this.GBtnGuardarLibro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnGuardarLibro.Radius = 15;
+            this.GBtnGuardarLibro.Size = new System.Drawing.Size(174, 35);
+            this.GBtnGuardarLibro.TabIndex = 15;
+            this.GBtnGuardarLibro.Text = "Guardar libro";
+            this.GBtnGuardarLibro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnGuardarLibro.Click += new System.EventHandler(this.GBtnGuardarLibro_Click);
             // 
             // PanTituloTitulos
             // 
-            this.PanTituloTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanTituloTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.PanTituloTitulos.Controls.Add(this.MBtnCerrarTitulos);
             this.PanTituloTitulos.Controls.Add(this.LblTituloForm);
             this.PanTituloTitulos.Controls.Add(this.PcbLogoTitulos);
@@ -1749,8 +1718,9 @@
             this.MBtnCerrarTitulos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.MBtnCerrarTitulos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             this.MBtnCerrarTitulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnCerrarTitulos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.MBtnCerrarTitulos.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
-            this.MBtnCerrarTitulos.IconColor = System.Drawing.Color.Gainsboro;
+            this.MBtnCerrarTitulos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.MBtnCerrarTitulos.IconSize = 40;
             this.MBtnCerrarTitulos.Location = new System.Drawing.Point(980, 0);
             this.MBtnCerrarTitulos.Name = "MBtnCerrarTitulos";
@@ -1764,7 +1734,7 @@
             // 
             this.LblTituloForm.AutoSize = true;
             this.LblTituloForm.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblTituloForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.LblTituloForm.Location = new System.Drawing.Point(54, 9);
             this.LblTituloForm.Name = "LblTituloForm";
             this.LblTituloForm.Size = new System.Drawing.Size(280, 23);
@@ -1849,24 +1819,24 @@
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.KcellTabs.SelectedIndex = 0;
-            this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.Navy;
-            this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.Navy;
-            this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.Gainsboro;
-            this.KcellTabs.StateCommon.CheckButton.Border.Color2 = System.Drawing.Color.Gainsboro;
+            this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KcellTabs.StateCommon.CheckButton.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KcellTabs.StateCommon.CheckButton.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KcellTabs.StateCommon.CheckButton.Border.Rounding = 15;
             this.KcellTabs.StateCommon.CheckButton.Border.Width = 2;
-            this.KcellTabs.StateCommon.CheckButton.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.KcellTabs.StateCommon.CheckButton.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
-            this.KcellTabs.StateCommon.CheckButton.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KcellTabs.StateCommon.HeaderGroup.HeaderBar.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KcellTabs.StateCommon.HeaderGroup.HeaderBar.Back.Color2 = System.Drawing.Color.Navy;
-            this.KcellTabs.StateCommon.Page.Color1 = System.Drawing.Color.Gainsboro;
-            this.KcellTabs.StateCommon.Page.Color2 = System.Drawing.Color.Gainsboro;
-            this.KcellTabs.StateCommon.Panel.Color1 = System.Drawing.Color.Gainsboro;
-            this.KcellTabs.StateCommon.Panel.Color2 = System.Drawing.Color.Gainsboro;
+            this.KcellTabs.StateCommon.CheckButton.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KcellTabs.StateCommon.CheckButton.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KcellTabs.StateCommon.CheckButton.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KcellTabs.StateCommon.HeaderGroup.HeaderBar.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.KcellTabs.StateCommon.HeaderGroup.HeaderBar.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.KcellTabs.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.KcellTabs.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.KcellTabs.StateCommon.Panel.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.KcellTabs.StateCommon.Panel.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KcellTabs.ToolTips.AllowButtonSpecToolTips = true;
             this.KcellTabs.UniqueName = "30315B26FC46427B6499B5FB26E9DACB";
             // 
@@ -1928,12 +1898,11 @@
             this.KPageAcciones.MinimumSize = new System.Drawing.Size(50, 50);
             this.KPageAcciones.Name = "KPageAcciones";
             this.KPageAcciones.Size = new System.Drawing.Size(1010, 639);
-            this.KPageAcciones.StateCommon.Page.Color1 = System.Drawing.Color.Gainsboro;
-            this.KPageAcciones.StateCommon.Page.Color2 = System.Drawing.Color.Gainsboro;
+            this.KPageAcciones.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.KPageAcciones.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KPageAcciones.Text = "Acciones";
             this.KPageAcciones.ToolTipTitle = "Page ToolTip";
             this.KPageAcciones.UniqueName = "5421EBB6F5BF4289E4B0594AADB3F701";
-            this.KPageAcciones.Visible = false;
             // 
             // KGbAccionesNL
             // 
@@ -1951,15 +1920,15 @@
             this.KGbAccionesNL.Size = new System.Drawing.Size(959, 598);
             this.KGbAccionesNL.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.KGbAccionesNL.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.KGbAccionesNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KGbAccionesNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KGbAccionesNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbAccionesNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbAccionesNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KGbAccionesNL.StateCommon.Border.Rounding = 0;
             this.KGbAccionesNL.StateCommon.Border.Width = 2;
-            this.KGbAccionesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KGbAccionesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Navy;
+            this.KGbAccionesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbAccionesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbAccionesNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KGbAccionesNL.TabIndex = 18;
             this.KGbAccionesNL.Values.Heading = "Acciones";
@@ -1970,8 +1939,9 @@
             this.MBtnMasLsvAccionesNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasLsvAccionesNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasLsvAccionesNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasLsvAccionesNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasLsvAccionesNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusBox;
-            this.MBtnMasLsvAccionesNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasLsvAccionesNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasLsvAccionesNL.IconSize = 65;
             this.MBtnMasLsvAccionesNL.Location = new System.Drawing.Point(29, 446);
             this.MBtnMasLsvAccionesNL.Name = "MBtnMasLsvAccionesNL";
@@ -1987,8 +1957,9 @@
             this.MBtnMenosLsvAccionesNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMenosLsvAccionesNL.FlatAppearance.BorderSize = 0;
             this.MBtnMenosLsvAccionesNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosLsvAccionesNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMenosLsvAccionesNL.IconChar = FontAwesome.Sharp.MaterialIcons.MinusBoxOutline;
-            this.MBtnMenosLsvAccionesNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMenosLsvAccionesNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMenosLsvAccionesNL.IconSize = 65;
             this.MBtnMenosLsvAccionesNL.Location = new System.Drawing.Point(86, 446);
             this.MBtnMenosLsvAccionesNL.Name = "MBtnMenosLsvAccionesNL";
@@ -2006,7 +1977,7 @@
             // KGbFicheroEjeNL.Panel
             // 
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.MBtnMasEjecutableNL);
-            this.KGbFicheroEjeNL.Panel.Controls.Add(this.BtnGuardarAccionesNL);
+            this.KGbFicheroEjeNL.Panel.Controls.Add(this.GBtnGuardarAccion);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.LblFicheroNL);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.LblEjecutableNL);
             this.KGbFicheroEjeNL.Panel.Controls.Add(this.IbtnFichero);
@@ -2015,8 +1986,8 @@
             this.KGbFicheroEjeNL.Size = new System.Drawing.Size(463, 236);
             this.KGbFicheroEjeNL.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.KGbFicheroEjeNL.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
-            this.KGbFicheroEjeNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KGbFicheroEjeNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KGbFicheroEjeNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KGbFicheroEjeNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KGbFicheroEjeNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -2032,8 +2003,9 @@
             this.MBtnMasEjecutableNL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MBtnMasEjecutableNL.FlatAppearance.BorderSize = 0;
             this.MBtnMasEjecutableNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasEjecutableNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEjecutableNL.IconChar = FontAwesome.Sharp.MaterialIcons.PlusCircle;
-            this.MBtnMasEjecutableNL.IconColor = System.Drawing.Color.Navy;
+            this.MBtnMasEjecutableNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.MBtnMasEjecutableNL.IconSize = 40;
             this.MBtnMasEjecutableNL.Location = new System.Drawing.Point(379, 114);
             this.MBtnMasEjecutableNL.Name = "MBtnMasEjecutableNL";
@@ -2042,94 +2014,39 @@
             this.MBtnMasEjecutableNL.UseVisualStyleBackColor = false;
             this.MBtnMasEjecutableNL.Click += new System.EventHandler(this.MBtnMasEjecutableNL_Click);
             // 
-            // BtnGuardarAccionesNL
+            // GBtnGuardarAccion
             // 
-            this.BtnGuardarAccionesNL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BtnGuardarAccionesNL.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuardarAccionesNL.Location = new System.Drawing.Point(161, 167);
-            this.BtnGuardarAccionesNL.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnGuardarAccionesNL.Name = "BtnGuardarAccionesNL";
-            this.BtnGuardarAccionesNL.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarAccionesNL.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarAccionesNL.OverrideDefault.Border.Rounding = 30;
-            this.BtnGuardarAccionesNL.OverrideDefault.Border.Width = 2;
-            this.BtnGuardarAccionesNL.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarAccionesNL.Size = new System.Drawing.Size(126, 35);
-            this.BtnGuardarAccionesNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarAccionesNL.StateCommon.Border.Color1 = System.Drawing.Color.Navy;
-            this.BtnGuardarAccionesNL.StateCommon.Border.Color2 = System.Drawing.Color.Navy;
-            this.BtnGuardarAccionesNL.StateCommon.Border.ColorAngle = 0F;
-            this.BtnGuardarAccionesNL.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarAccionesNL.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarAccionesNL.StateCommon.Border.Rounding = 30;
-            this.BtnGuardarAccionesNL.StateCommon.Border.Width = 2;
-            this.BtnGuardarAccionesNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.BtnGuardarAccionesNL.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.BtnGuardarAccionesNL.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarAccionesNL.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnGuardarAccionesNL.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarAccionesNL.StateNormal.Border.Color1 = System.Drawing.Color.Gainsboro;
-            this.BtnGuardarAccionesNL.StateNormal.Border.Color2 = System.Drawing.Color.Gainsboro;
-            this.BtnGuardarAccionesNL.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarAccionesNL.StateNormal.Border.Rounding = 30;
-            this.BtnGuardarAccionesNL.StateNormal.Border.Width = 2;
-            this.BtnGuardarAccionesNL.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarAccionesNL.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.BtnGuardarAccionesNL.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.BtnGuardarAccionesNL.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarAccionesNL.StatePressed.Border.Rounding = 30;
-            this.BtnGuardarAccionesNL.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnGuardarAccionesNL.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnGuardarAccionesNL.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnGuardarAccionesNL.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnGuardarAccionesNL.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnGuardarAccionesNL.TabIndex = 48;
-            this.BtnGuardarAccionesNL.Values.Text = "Guardar";
-            this.BtnGuardarAccionesNL.Click += new System.EventHandler(this.BtnGuardarAccionesNL_Click);
+            this.GBtnGuardarAccion.AnimationHoverSpeed = 0.07F;
+            this.GBtnGuardarAccion.AnimationSpeed = 0.03F;
+            this.GBtnGuardarAccion.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnGuardarAccion.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarAccion.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarAccion.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnGuardarAccion.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarAccion.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnGuardarAccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnGuardarAccion.Image = null;
+            this.GBtnGuardarAccion.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnGuardarAccion.Location = new System.Drawing.Point(161, 167);
+            this.GBtnGuardarAccion.Name = "GBtnGuardarAccion";
+            this.GBtnGuardarAccion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarAccion.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarAccion.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnGuardarAccion.OnHoverImage = null;
+            this.GBtnGuardarAccion.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarAccion.Radius = 15;
+            this.GBtnGuardarAccion.Size = new System.Drawing.Size(126, 35);
+            this.GBtnGuardarAccion.TabIndex = 14;
+            this.GBtnGuardarAccion.Text = "Guardar";
+            this.GBtnGuardarAccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnGuardarAccion.Click += new System.EventHandler(this.GBtnGuardarAccion_Click);
             // 
             // LblFicheroNL
             // 
             this.LblFicheroNL.AutoSize = true;
             this.LblFicheroNL.BackColor = System.Drawing.Color.Transparent;
             this.LblFicheroNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFicheroNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblFicheroNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblFicheroNL.Location = new System.Drawing.Point(33, 12);
             this.LblFicheroNL.Name = "LblFicheroNL";
             this.LblFicheroNL.Size = new System.Drawing.Size(60, 20);
@@ -2141,7 +2058,7 @@
             this.LblEjecutableNL.AutoSize = true;
             this.LblEjecutableNL.BackColor = System.Drawing.Color.Transparent;
             this.LblEjecutableNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEjecutableNL.ForeColor = System.Drawing.Color.Navy;
+            this.LblEjecutableNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblEjecutableNL.Location = new System.Drawing.Point(33, 88);
             this.LblEjecutableNL.Name = "LblEjecutableNL";
             this.LblEjecutableNL.Size = new System.Drawing.Size(82, 20);
@@ -2150,7 +2067,7 @@
             // 
             // IbtnFichero
             // 
-            this.IbtnFichero.BackColor = System.Drawing.Color.Gainsboro;
+            this.IbtnFichero.BackColor = System.Drawing.Color.Transparent;
             this.IbtnFichero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IbtnFichero.FlatAppearance.BorderSize = 0;
             this.IbtnFichero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2171,18 +2088,19 @@
             this.KCmbEjecutableNL.Location = new System.Drawing.Point(37, 112);
             this.KCmbEjecutableNL.Name = "KCmbEjecutableNL";
             this.KCmbEjecutableNL.Size = new System.Drawing.Size(338, 33);
-            this.KCmbEjecutableNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KCmbEjecutableNL.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbEjecutableNL.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Rounding = 10;
             this.KCmbEjecutableNL.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbEjecutableNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Navy;
+            this.KCmbEjecutableNL.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbEjecutableNL.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbEjecutableNL.TabIndex = 41;
             // 
             // KTxtFicheroNL
@@ -2190,26 +2108,27 @@
             this.KTxtFicheroNL.Location = new System.Drawing.Point(33, 35);
             this.KTxtFicheroNL.Name = "KTxtFicheroNL";
             this.KTxtFicheroNL.Size = new System.Drawing.Size(379, 33);
-            this.KTxtFicheroNL.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtFicheroNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtFicheroNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtFicheroNL.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtFicheroNL.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtFicheroNL.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtFicheroNL.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtFicheroNL.StateCommon.Border.Rounding = 10;
             this.KTxtFicheroNL.StateCommon.Border.Width = 2;
-            this.KTxtFicheroNL.StateCommon.Content.Color1 = System.Drawing.Color.Navy;
+            this.KTxtFicheroNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtFicheroNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtFicheroNL.TabIndex = 39;
             // 
             // LsvAccionesNL
             // 
-            this.LsvAccionesNL.BackColor = System.Drawing.Color.Gainsboro;
+            this.LsvAccionesNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.LsvAccionesNL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LsvAccionesNL.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ChFicheroNL,
             this.ChEjecutableNL});
             this.LsvAccionesNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LsvAccionesNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LsvAccionesNL.HideSelection = false;
             this.LsvAccionesNL.Location = new System.Drawing.Point(29, 28);
             this.LsvAccionesNL.MultiSelect = false;
@@ -2230,11 +2149,43 @@
             this.ChEjecutableNL.Text = "Ejecutable";
             this.ChEjecutableNL.Width = 133;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1009, 40);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(3, 689);
+            this.panel2.TabIndex = 148;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(3, 689);
+            this.panel3.TabIndex = 149;
+            // 
+            // LblObligatorio
+            // 
+            this.LblObligatorio.AutoSize = true;
+            this.LblObligatorio.BackColor = System.Drawing.Color.Transparent;
+            this.LblObligatorio.Font = new System.Drawing.Font("Merienda One", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
+            this.LblObligatorio.Name = "LblObligatorio";
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.TabIndex = 158;
+            this.LblObligatorio.Text = "( * ) Campos obligatorios";
+            // 
             // FrmLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 774);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.KworkSpaceNuevoLibro);
             this.Controls.Add(this.PanTituloTitulos);
             this.Controls.Add(this.panel1);
@@ -2372,8 +2323,6 @@
 
      
        
- 
-        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnGuardarNL;
         private System.Windows.Forms.Panel PanTituloTitulos;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarTitulos;
         private System.Windows.Forms.Label LblTituloForm;
@@ -2404,7 +2353,6 @@
         private System.Windows.Forms.ColumnHeader ChFicheroNL;
         private System.Windows.Forms.ColumnHeader ChEjecutableNL;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox KGbFicheroEjeNL;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnGuardarAccionesNL;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasEtiquetasNL;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasSerieNL;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasGenerosNL;
@@ -2422,5 +2370,10 @@
         private Controles.CheckedComboBox KCCPersonasNL;
         private Controles.ToggleButton TBtnMayores18NL;
         private System.Windows.Forms.ToolTip TTnuevoLibro;
+        private Guna.UI.WinForms.GunaButton GBtnGuardarAccion;
+        private Guna.UI.WinForms.GunaButton GBtnGuardarLibro;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label LblObligatorio;
     }
 }

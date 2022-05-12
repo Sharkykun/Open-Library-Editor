@@ -110,25 +110,28 @@
             this.PanBotones.Controls.Add(this.button2);
             this.PanBotones.Controls.Add(this.button1);
             this.PanBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanBotones.Location = new System.Drawing.Point(0, 153);
+            this.PanBotones.Location = new System.Drawing.Point(0, 148);
             this.PanBotones.Name = "PanBotones";
-            this.PanBotones.Size = new System.Drawing.Size(366, 45);
+            this.PanBotones.Size = new System.Drawing.Size(366, 50);
             this.PanBotones.TabIndex = 1;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(240, 6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 33);
-            this.button3.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
-            this.button3.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
+            this.button3.Size = new System.Drawing.Size(108, 41);
+            this.button3.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button3.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button3.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button3.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.button3.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.button3.StateCommon.Border.Rounding = 15;
-            this.button3.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.button3.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
-            this.button3.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.StateCommon.Border.Rounding = 18;
+            this.button3.StateCommon.Border.Width = 2;
+            this.button3.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button3.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button3.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.TabIndex = 5;
             this.button3.Values.Text = "ok";
             // 
@@ -136,53 +139,53 @@
             // 
             this.button2.Location = new System.Drawing.Point(131, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 33);
-            this.button2.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
-            this.button2.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
+            this.button2.Size = new System.Drawing.Size(108, 41);
+            this.button2.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button2.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button2.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button2.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.button2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.button2.StateCommon.Border.Rounding = 15;
-            this.button2.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.button2.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
-            this.button2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.StateCommon.Border.Rounding = 18;
+            this.button2.StateCommon.Border.Width = 2;
+            this.button2.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button2.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.TabIndex = 4;
             this.button2.Values.Text = "ok";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 6);
+            this.button1.Location = new System.Drawing.Point(17, 6);
             this.button1.Name = "button1";
-            this.button1.OverrideDefault.Back.Color1 = System.Drawing.Color.Navy;
-            this.button1.OverrideDefault.Back.Color2 = System.Drawing.Color.Navy;
-            this.button1.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.button1.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
-            this.button1.OverrideFocus.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.button1.OverrideFocus.Back.Color2 = System.Drawing.Color.Gainsboro;
-            this.button1.OverrideFocus.Border.Color1 = System.Drawing.Color.Navy;
-            this.button1.OverrideFocus.Border.Color2 = System.Drawing.Color.Navy;
+            this.button1.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.button1.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.button1.OverrideFocus.Border.Width = 1;
-            this.button1.OverrideFocus.Content.ShortText.Color1 = System.Drawing.Color.Navy;
-            this.button1.OverrideFocus.Content.ShortText.Color2 = System.Drawing.Color.Navy;
-            this.button1.Size = new System.Drawing.Size(108, 33);
-            this.button1.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
-            this.button1.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
+            this.button1.OverrideFocus.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.OverrideFocus.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.Size = new System.Drawing.Size(108, 41);
+            this.button1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.button1.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.button1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.button1.StateCommon.Border.Rounding = 15;
-            this.button1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Gainsboro;
-            this.button1.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Gainsboro;
-            this.button1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.StateNormal.Back.Color1 = System.Drawing.Color.Navy;
-            this.button1.StateNormal.Back.Color2 = System.Drawing.Color.Navy;
-            this.button1.StatePressed.Back.Color1 = System.Drawing.Color.Navy;
-            this.button1.StatePressed.Back.Color2 = System.Drawing.Color.Navy;
-            this.button1.StateTracking.Back.Color1 = System.Drawing.Color.Navy;
-            this.button1.StateTracking.Back.Color2 = System.Drawing.Color.Navy;
+            this.button1.StateCommon.Border.Rounding = 20;
+            this.button1.StateCommon.Border.Width = 2;
+            this.button1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.button1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.TabIndex = 3;
             this.button1.Values.Text = "ok";
             // 
@@ -195,7 +198,7 @@
             this.PanTexto.Location = new System.Drawing.Point(0, 40);
             this.PanTexto.Name = "PanTexto";
             this.PanTexto.Padding = new System.Windows.Forms.Padding(25, 20, 0, 20);
-            this.PanTexto.Size = new System.Drawing.Size(366, 113);
+            this.PanTexto.Size = new System.Drawing.Size(366, 108);
             this.PanTexto.TabIndex = 2;
             // 
             // LblMensaje

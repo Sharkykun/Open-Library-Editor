@@ -84,7 +84,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             libro.Puntuacion = Double.Parse(registro["puntuacion"].ToString());
             libro.VecesLeido = int.Parse(registro["vecesLeido"].ToString());
-            libro.TiempoLectura = DateTime.Parse(registro["tiempoLectura"].ToString());
+            libro.TiempoLectura = TimeSpan.Parse(registro["tiempoLectura"].ToString());
             libro.FechaComienzo = DateTime.Parse(registro["fechaComienzo"].ToString());
             libro.FechaTerminado = DateTime.Parse(registro["fechaTerminado"].ToString());
             libro.Comentario = registro["comentario"].ToString();

@@ -14,6 +14,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
+using System.Globalization;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -26,17 +29,18 @@ namespace OpenLibraryEditor.Forms
 
         private int altoPantalla;
         private int anchoPantalla;
-        private List<Libro> titulos = Biblioteca.biblioteca.ListaLibro;
+        private List<Libro> titulos;
         private Libro libroActual;
       
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-           
+
+            titulos = SacarListaLibro();
             bordeIzqBoton = new Panel();
             bordeIzqBoton.Size = new Size(7, 45);
             PanMenuMain.Controls.Add(bordeIzqBoton);
-            //Quitar borde del formulario y evitar el parpadeo y permitir redimensionar
+            //Quitar borde del formulario, evitar el parpadeo y permitir redimensionar
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
@@ -52,15 +56,23 @@ namespace OpenLibraryEditor.Forms
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
+            KCmbBuscarPorMBI.Items.Add("Título Alternativo");
+            KCmbBuscarPorMBI.Items.Add("Idioma");
+            KCmbBuscarPorMBI.Items.Add("Idioma Original");
+            KCmbBuscarPorMBI.Items.Add("Tipo de Libro");
+            KCmbBuscarPorMBI.Items.Add("Favoritos");
             KCmbBuscarPorMBI.SelectedIndex = 0;
+        }
 
-            //vistaDetallesH.setEditoriales("prueba1, prueba 2");
-
-            //Quitar el texto del borde para que simule que no hay, pero se nota
-            //this.Text = String.Empty;
-            //this.ControlBox = false;
-            //this.DoubleBuffered = true;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        private List<Libro> SacarListaLibro()
+        {
+            List<Libro> libro;
+            if (UsuarioDatos.configuracionUsuario.ContenidoExplicito)
+                libro = Biblioteca.biblioteca.ListaLibro;
+            else
+                libro = Biblioteca.biblioteca.ListaLibro.FindAll(
+                    p => !p.MayorEdad);
+            return libro;
         }
 
         private void GenerarPortadaLibro(Libro libro, Button botonLibro)
@@ -100,14 +112,13 @@ namespace OpenLibraryEditor.Forms
             //RecolocarLibros(false);
             //Dejar marcado mi biblioteca como opción inicial
             MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
-
-
             IdiomaTexto();
         }
         #region Mostrar libros de la biblioteca
         private void ColocarLibrosMosaico()
         {
             PanVistaMosaico.Controls.Clear();
+            PanVistaMosaico.BackColor = Color.FromArgb(231, 243, 254);
             int tamPanel = PanVistaMosaico.Width;
             int altoPanel = PanVistaMosaico.Height;
 
@@ -115,7 +126,7 @@ namespace OpenLibraryEditor.Forms
             int y = 10;
             foreach (Libro libro in titulos)
             {
-                Button botonLibro = new Button();
+                DoubleClickButton botonLibro = new DoubleClickButton();
                 if (x < (tamPanel - 135))
                 {
                     botonLibro.Location = new Point(x, y);
@@ -127,6 +138,7 @@ namespace OpenLibraryEditor.Forms
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
                     botonLibro.Click += new EventHandler(ManejadorLibro_Click);
+                    botonLibro.DoubleClick += new EventHandler(DobleClickLibro);
                     x = x + 135;
                 }
                 else
@@ -142,6 +154,7 @@ namespace OpenLibraryEditor.Forms
                     PanVistaMosaico.Controls.Add(botonLibro);
                     botonLibro.Visible = true;
                     botonLibro.Click += new EventHandler(ManejadorLibro_Click);
+                    botonLibro.DoubleClick += new EventHandler(DobleClickLibro);
                     x = x + 135;
                 }
             }
@@ -153,14 +166,33 @@ namespace OpenLibraryEditor.Forms
             LblEscribirGenero.Text="";
             LblEscribirEditorial.Text = "";
             LblEscribirEtiquetas.Text = "";
-          
+            LblEscribirCapiAct.Text = "";
+            LblEscribirCapitulos.Text = "";
+            LblEscribirEstadoLectura.Text = "";
+            LblEscribirEtiquetas.Text = "";
+            LblEscribirFavorito.Text = "";
+            LblEscribirFecComienzo.Text = "";
+            LblEscribirFecFin.Text = "";
+            LblEscribirFechaPub.Text = "";
+            LblEscribirIdioma.Text = "";
+            LblEscribirIdiOri.Text = "";
+            LblEscribirIs10.Text = "";
+            LblEscribirIs13.Text = "";
+            LblEscribirOculto.Text = "";
+            LblEscribirPag.Text = "";
+            LblEscribirPuntuacion.Text = "";
+            LblEscribirTiempoLec.Text = "";
+            LblEscribirTipoLibro.Text = "";
+            LblEscribirVecesLeido.Text = "";
+            LblFin.Text = "";
         }
         private void ManejadorLibro_Click(object sender, EventArgs e)
         {
-            KTabDetalles.SelectedPage = KpDetalles;
+            //KTabDetalles.SelectedPage = KpDetalles;
             ResetearDetallesLibro();
             Button libroSeleccionado = (Button)sender;
             libroActual = (Libro)libroSeleccionado.Tag;
+
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
@@ -178,19 +210,21 @@ namespace OpenLibraryEditor.Forms
             TxtSinopsis.Text = libroActual.Sinopsis;
             foreach (Editorial ed in libroActual.ListaEditorial)
             {
-                if (libroActual.ListaEditorial.Count > 1)
+                LblEscribirEditorial.AutoSize = true;
+                LblEscribirEditorial.MaximumSize = new Size(109, 0);
+                if (libroActual.ListaEditorial.Count > 1 || LblEscribirEditorial.Width > 109) { 
                     LblEscribirEditorial.Text += ed.Nombre.ToUpper() + "\r\n";
-                //else if(libro.ListaEditorial.Count>1)
-                //    LblEscribirEditorial.Text += ed.Nombre.ToUpper() + ",";
-                else
+                }
+                else { 
                     LblEscribirEditorial.Text += ed.Nombre.ToUpper();
+                }
             }
-            if (libroActual.Isbn_10 == "")
-                LblEscribirIs10.Text ="NO DISPONIBLE";
+            if (String.IsNullOrWhiteSpace(libroActual.Isbn_10))
+                LblEscribirIs10.Text = ControladorIdioma.GetTexto("Main_NoDis");
             else
                 LblEscribirIs10.Text = libroActual.Isbn_10;
-            if (libroActual.Isbn_13 == "")
-                LblEscribirIs13.Text = "NO DISPONIBLE";
+            if (String.IsNullOrWhiteSpace(libroActual.Isbn_13))
+                LblEscribirIs13.Text = ControladorIdioma.GetTexto("Main_NoDis");
             else
                 LblEscribirIs13.Text = libroActual.Isbn_13;
 
@@ -198,19 +232,19 @@ namespace OpenLibraryEditor.Forms
             LblEscribirPag.Text = libroActual.NumeroPaginas.ToString();
             foreach (Genero g in libroActual.ListaGenero)
             {
-                if (libroActual.ListaGenero.Count > 1)
+                LblEscribirGenero.AutoSize = true;
+                LblEscribirGenero.MaximumSize = new Size(109, 0);
+                if (libroActual.ListaGenero.Count > 1 || LblEscribirGenero.Width > 109)
                     LblEscribirGenero.Text += g.Nombre.ToUpper() + "\r\n";
-                //else if (libro.ListaEditorial.Count > 1)
-                //    LblEscribirGenero.Text += g.Nombre.ToUpper() + ",";
                 else
                     LblEscribirGenero.Text += g.Nombre.ToUpper();
             }
             //foreach (Etiqueta et in libro.ListaEtiqueta)
             //{
-            //    if (libro.ListaEtiqueta.Count > 1)
+            //    LblEscribirEtiquetas.AutoSize = true;
+            //    LblEscribirEtiquetas.MaximumSize = new Size(109, 0);
+            //    if (libro.ListaEtiqueta.Count > 1 || LblEscribirEtiquetas.Width > 109)
             //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper() + "\r\n";
-            //    //else if (libro.ListaEditorial.Count > 1)
-            //    //    LblEscribirGenero.Text += g.Nombre.ToUpper() + ",";
             //    else
             //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper();
             //}
@@ -224,29 +258,87 @@ namespace OpenLibraryEditor.Forms
             LblEscribirPuntuacion.Text =libroActual.Puntuacion.ToString();
             LblEscribirVecesLeido.Text =libroActual.VecesLeido.ToString();
             LblEscribirEstadoLectura.Text =libroActual.EstadoLectura;
-            LblEscribirTiempoLec.Text =libroActual.TiempoLectura.ToLongTimeString();
+            LblEscribirTiempoLec.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
             LblEscribirCapiAct.Text =libroActual.CapituloActual.ToString();
             LblEscribirFecComienzo.Text =libroActual.FechaComienzo.ToShortDateString();
             LblEscribirFecFin.Text =libroActual.FechaTerminado.ToShortDateString();
             if (libroActual.Favorito == true)
-                LblEscribirFavorito.Text = "SI";
+                LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_Si");
             else
-                LblEscribirFavorito.Text = "NO";
+                LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_No");
             if (libroActual.Ocultar == true)
-                LblEscribirOculto.Text = "SI";
+                LblEscribirOculto.Text = ControladorIdioma.GetTexto("Main_Si");
             else
-                LblEscribirOculto.Text = "NO";
-           
+                LblEscribirOculto.Text = ControladorIdioma.GetTexto("Main_No");
+
             TxtEscribirComentario.Text = libroActual.Comentario;
             //ColocarLibros();
         }
+
+        private void EsperarHastaFinDeProcesos(List<Process> listaProcesos)
+        {
+            FormWindowState state = this.WindowState;
+            this.WindowState = FormWindowState.Minimized;
+
+            //Calcular tiempo de lectura = lo que tarda en cerrar los procesos
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
+            while (!listaProcesos.All(p => p.HasExited))
+            {
+                Thread.Sleep(100);
+            }
+
+            //Obtener y establecer tiempo de lectura
+            watch.Stop();
+            TimeSpan time;
+            if(libroActual.TiempoLectura != null)
+                time = libroActual.TiempoLectura;
+            else
+                time = new TimeSpan();
+            libroActual.TiempoLectura = time.Add(watch.Elapsed);
+            LblEscribirTiempoLec.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
+
+            //Reactivar ventana y desbloquear
+            Enabled = true;
+            Cursor.Current = Cursors.Default;
+            this.WindowState = state;
+            Activate();
+        }
+
+        private void DobleClickLibro(object sender, EventArgs e)
+        {
+            //Determinar acción en base a configuración de usuario
+            switch (UsuarioDatos.configuracionUsuario.AccionDobleClick)
+            {
+                case 0:
+                    //Ejecutar libro
+                    if (libroActual.ListaAccion.Count > 0)
+                    {
+                        List<Process> listaProcesos = new List<Process>();
+                        //Ocultar ventana y bloquear
+                        Cursor.Current = Cursors.WaitCursor;
+                        Enabled = false;
+
+                        foreach (UsuarioAccion ac in libroActual.ListaAccion)
+                        {
+                            listaProcesos.Add(ac.EjecutarAccion());
+                        }
+                        EsperarHastaFinDeProcesos(listaProcesos);
+                    }
+                    break;
+                case 1:
+                    //Modificar información libro
+                    BtnModificarLibroMsb_ButtonClick(null, null);
+                    break;
+            }
+        }
+
         private void LinkEnlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(libroActual.EnlaceReferencia))
                 System.Diagnostics.Process.Start(libroActual.EnlaceReferencia);
             else
-                //MiMessageBox.Show("No hay ningún enlace guardado","Open Library Editor",MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
-
                 VentanaWindowsComun.MensajeError("No hay ningún enlace guardado");
         }
         private void ManejadorLibroDet_Click(object sender, EventArgs e)
@@ -295,372 +387,7 @@ namespace OpenLibraryEditor.Forms
             //    }
             //}
         }
-        private void PruebaDetalles()
-        {
-            //PanVistaDetalles.Controls.Clear();
-            //int tamPanel = PanVistaDetalles.Width;
-            //int altoPanel = PanVistaDetalles.Height;
-
-            //int x = 10;
-            //int y = 10;
-            //foreach (string s in titulos)
-            //{
-            //    Panel panel = new Panel();
-            //    PanelTransparente transparente = new PanelTransparente();
-            //    PictureBox pic = new PictureBox();
-            //    Label titulo = new Label();
-            //    Label personas = new Label();
-            //    Label editoriales = new Label();
-            //    Label series = new Label();
-            //    Label isbn10 = new Label();
-            //    Label isbn13=new Label();
-            //    Label paginas=new Label();
-            //    Label publicado=new Label();
-            //    Label idioma = new Label();
-            //    Label formato = new Label();
-            //    Label escribirEdi = new Label();
-            //    Label escribirSer = new Label();
-            //    Label escribirIs10 = new Label();
-            //    Label escribirIs13 = new Label();
-            //    Label escribirPag = new Label();
-            //    Label escribirFec = new Label();
-            //    Label escribirIdi = new Label();
-            //    Label escribirFor = new Label();
-            //    if (x < (tamPanel - 419))
-            //    {
-            //        panel.Location = new Point(x, y);
-            //        panel.Size = new Size(419,240);
-            //        panel.BackColor = Color.Gainsboro;
-            //        pic.Size = new Size(120,160);
-            //        pic.SizeMode = PictureBoxSizeMode.StretchImage;
-            //        pic.Location=new Point(5, 59);
-
-            //        titulo.ForeColor = Color.Navy;
-            //        titulo.BackColor = Color.Transparent;
-            //        titulo.Font = new Font("Merienda One",11, FontStyle.Bold);
-            //        titulo.Location = new Point(5,5);
-            //        titulo.Text = s;
-
-            //        personas.ForeColor = Color.Navy;
-            //        personas.BackColor = Color.Transparent;
-            //        personas.Font = new Font("Merienda", 9, FontStyle.Italic);
-            //        personas.Location=new Point(10,33);
-            //        //personas.Text = s.Personas;
-
-            //        editoriales.ForeColor = Color.FromArgb(4,5,214);
-            //        editoriales.BackColor = Color.Transparent;
-            //        editoriales.Text = ControladorIdioma.GetTexto("Main_Edi");
-            //        editoriales.Font = new Font("Merienda",9,FontStyle.Bold);
-            //        editoriales.Location = new Point(137,61);
-            //        escribirEdi.ForeColor = Color.Black;
-            //        escribirEdi.BackColor = Color.Transparent;
-            //        //escribirEdi.Text = s.Editoriales;
-            //        escribirEdi.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirEdi.Location = new Point(210, 61);
-
-            //        series.ForeColor = Color.FromArgb(4, 5, 214);
-            //        series.BackColor = Color.Transparent;
-            //        series.Text = ControladorIdioma.GetTexto("Main_Ser");
-            //        series.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        series.Location = new Point(165, 81);
-            //        escribirSer.ForeColor = Color.Black;
-            //        escribirSer.BackColor = Color.Transparent;
-            //        //escribirSer.Text = s.Series;
-            //        escribirSer.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirSer.Location = new Point(210, 81);
-
-            //        isbn10.ForeColor = Color.FromArgb(4, 5, 214);
-            //        isbn10.BackColor = Color.Transparent;
-            //        isbn10.Text = ControladorIdioma.GetTexto("Main_is10");
-            //        isbn10.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        isbn10.Location = new Point(155, 101);
-            //        escribirIs10.ForeColor = Color.Black;
-            //        escribirIs10.BackColor = Color.Transparent;
-            //        //escribirIs10.Text = s.Isbn10;
-            //        escribirIs10.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirIs10.Location = new Point(210, 101);
-
-            //        isbn13.ForeColor = Color.FromArgb(4, 5, 214);
-            //        isbn13.BackColor = Color.Transparent;
-            //        isbn13.Text = ControladorIdioma.GetTexto("Main_is13");
-            //        isbn13.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        isbn13.Location = new Point(155, 121);
-            //        escribirIs13.ForeColor = Color.Black;
-            //        escribirIs13.BackColor = Color.Transparent;
-            //        //escribirIs13.Text = s.Isbn13;
-            //        escribirIs13.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirIs13.Location = new Point(210, 121);
-
-            //        paginas.ForeColor = Color.FromArgb(4, 5, 214);
-            //        paginas.BackColor = Color.Transparent;
-            //        paginas.Text = ControladorIdioma.GetTexto("Main_Pag");
-            //        paginas.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        paginas.Location = new Point(155, 141);
-            //        escribirPag.ForeColor = Color.Black;
-            //        escribirPag.BackColor = Color.Transparent;
-            //        //escribirPag.Text = s.Paginas;
-            //        escribirPag.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirPag.Location = new Point(210, 141);
-
-            //        publicado.ForeColor = Color.FromArgb(4, 5, 214);
-            //        publicado.BackColor = Color.Transparent;
-            //        publicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
-            //        publicado.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        publicado.Location = new Point(144, 161);
-            //        escribirFec.ForeColor = Color.Black;
-            //        escribirFec.BackColor = Color.Transparent;
-            //        //escribirFec.Text = s.Fecha;
-            //        escribirFec.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirFec.Location = new Point(210, 161);
-
-            //        idioma.ForeColor = Color.FromArgb(4, 5, 214);
-            //        idioma.BackColor = Color.Transparent;
-            //        idioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
-            //        idioma.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        idioma.Location = new Point(162, 181);
-            //        escribirIdi.ForeColor = Color.Black;
-            //        escribirIdi.BackColor = Color.Transparent;
-            //        //escribirIdi.Text = s.Idioma;
-            //        escribirIdi.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirIdi.Location = new Point(210, 181);
-
-            //        formato.ForeColor = Color.FromArgb(4, 5, 214);
-            //        formato.BackColor = Color.Transparent;
-            //        formato.Text = ControladorIdioma.GetTexto("Main_Formato");
-            //        formato.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        formato.Location = new Point(153, 201);
-            //        escribirFor.ForeColor = Color.Black;
-            //        escribirFor.BackColor = Color.Transparent;
-            //        //escribirFor.Text = s.Formato;
-            //        escribirFor.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirFor.Location = new Point(210, 201);
-
-            //        transparente.Location = new Point(x-5, y-5);
-            //        transparente.Size = new Size(429,250);
-            //        transparente.BringToFront();
-            //        transparente.TamBorde = 5;
-            //        transparente.ColorBorde = Color.Navy;
-
-            //        panel.Controls.Add(titulo);
-            //        titulo.Visible = true;
-            //        panel.Controls.Add(personas);
-            //        personas.Visible = true;
-            //        panel.Controls.Add(editoriales);
-            //        editoriales.Visible = true;
-            //        panel.Controls.Add(escribirEdi);
-            //        escribirEdi.Visible = true;
-            //        panel.Controls.Add(series);
-            //        series.Visible = true;
-            //        panel.Controls.Add(escribirSer);
-            //        escribirSer.Visible = true;
-            //        panel.Controls.Add(isbn10);
-            //        isbn10.Visible = true;
-            //        panel.Controls.Add(escribirIs10);
-            //        escribirIs10.Visible = true;
-            //        panel.Controls.Add(isbn13);
-            //        isbn13.Visible = true;
-            //        panel.Controls.Add(escribirIs13);
-            //        escribirIs13.Visible = true;
-            //        panel.Controls.Add(paginas);
-            //        paginas.Visible = true;
-            //        panel.Controls.Add(escribirPag);
-            //        escribirPag.Visible = true;
-            //        panel.Controls.Add(publicado);
-            //        publicado.Visible = true;
-            //        panel.Controls.Add(escribirFec);
-            //        escribirFec.Visible = true;
-            //        panel.Controls.Add(idioma);
-            //        idioma.Visible = true;
-            //        panel.Controls.Add(escribirIdi);
-            //        escribirIdi.Visible = true;
-            //        panel.Controls.Add(formato);
-            //        formato.Visible = true;
-            //        panel.Controls.Add(escribirFor);
-            //        escribirFor.Visible = true;
-
-            //        PanVistaDetalles.Controls.Add(panel);
-            //        panel.Visible = true;
-            //        PanVistaDetalles.Controls.Add(transparente);
-            //        transparente.Visible = true;
-            //        transparente.Click += new EventHandler(ManejadorLibroDet_Click);
-            //        transparente.MouseEnter += new EventHandler(CambiarColorPanel_Enter);
-            //        transparente.MouseLeave += new EventHandler(CambiarColorPanel_Leave);
-            //        x = x + 439;
-            //    }
-            //    else
-            //    {
-            //        x = 10;
-            //        y = y + 255;
-
-            //        panel.Location = new Point(x, y);
-            //        panel.Size = new Size(419, 240);
-            //        panel.BackColor = Color.Gainsboro;
-            //        pic.Size = new Size(120, 160);
-            //        pic.SizeMode = PictureBoxSizeMode.StretchImage;
-            //        pic.Location = new Point(5, 59);
-
-            //        titulo.ForeColor = Color.Navy;
-            //        titulo.BackColor = Color.Transparent;
-            //        titulo.Font = new Font("Merienda One", 11, FontStyle.Bold);
-            //        titulo.Location = new Point(5, 5);
-            //        titulo.Text = s;
-
-            //        personas.ForeColor = Color.Navy;
-            //        personas.BackColor = Color.Transparent;
-            //        personas.Font = new Font("Merienda", 9, FontStyle.Italic);
-            //        personas.Location = new Point(10, 33);
-            //        //personas.Text = s.Personas;
-
-            //        editoriales.ForeColor = Color.FromArgb(4, 5, 214);
-            //        editoriales.BackColor = Color.Transparent;
-            //        editoriales.Text = ControladorIdioma.GetTexto("Main_Edi");
-            //        editoriales.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        editoriales.Location = new Point(137, 61);
-            //        escribirEdi.ForeColor = Color.Black;
-            //        escribirEdi.BackColor = Color.Transparent;
-            //        //escribirEdi.Text = s.Editoriales;
-            //        escribirEdi.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirEdi.Location = new Point(210, 61);
-
-            //        series.ForeColor = Color.FromArgb(4, 5, 214);
-            //        series.BackColor = Color.Transparent;
-            //        series.Text = ControladorIdioma.GetTexto("Main_Ser");
-            //        series.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        series.Location = new Point(165, 81);
-            //        escribirSer.ForeColor = Color.Black;
-            //        escribirSer.BackColor = Color.Transparent;
-            //        //escribirSer.Text = s.Series;
-            //        escribirSer.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirSer.Location = new Point(210, 81);
-
-            //        isbn10.ForeColor = Color.FromArgb(4, 5, 214);
-            //        isbn10.BackColor = Color.Transparent;
-            //        isbn10.Text = ControladorIdioma.GetTexto("Main_is10");
-            //        isbn10.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        isbn10.Location = new Point(155, 101);
-            //        escribirIs10.ForeColor = Color.Black;
-            //        escribirIs10.BackColor = Color.Transparent;
-            //        //escribirIs10.Text = s.Isbn10;
-            //        escribirIs10.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirIs10.Location = new Point(210, 101);
-
-            //        isbn13.ForeColor = Color.FromArgb(4, 5, 214);
-            //        isbn13.BackColor = Color.Transparent;
-            //        isbn13.Text = ControladorIdioma.GetTexto("Main_is13");
-            //        isbn13.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        isbn13.Location = new Point(155, 121);
-            //        escribirIs13.ForeColor = Color.Black;
-            //        escribirIs13.BackColor = Color.Transparent;
-            //        //escribirIs13.Text = s.Isbn13;
-            //        escribirIs13.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirIs13.Location = new Point(210, 121);
-
-            //        paginas.ForeColor = Color.FromArgb(4, 5, 214);
-            //        paginas.BackColor = Color.Transparent;
-            //        paginas.Text = ControladorIdioma.GetTexto("Main_Pag");
-            //        paginas.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        paginas.Location = new Point(155, 141);
-            //        escribirPag.ForeColor = Color.Black;
-            //        escribirPag.BackColor = Color.Transparent;
-            //        //escribirPag.Text = s.Paginas;
-            //        escribirPag.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirPag.Location = new Point(210, 141);
-
-            //        publicado.ForeColor = Color.FromArgb(4, 5, 214);
-            //        publicado.BackColor = Color.Transparent;
-            //        publicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
-            //        publicado.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        publicado.Location = new Point(144, 161);
-            //        escribirFec.ForeColor = Color.Black;
-            //        escribirFec.BackColor = Color.Transparent;
-            //        //escribirFec.Text = s.Fecha;
-            //        escribirFec.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirFec.Location = new Point(210, 161);
-
-            //        idioma.ForeColor = Color.FromArgb(4, 5, 214);
-            //        idioma.BackColor = Color.Transparent;
-            //        idioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
-            //        idioma.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        idioma.Location = new Point(162, 181);
-            //        escribirIdi.ForeColor = Color.Black;
-            //        escribirIdi.BackColor = Color.Transparent;
-            //        //escribirIdi.Text = s.Idioma;
-            //        escribirIdi.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirIdi.Location = new Point(210, 181);
-
-            //        formato.ForeColor = Color.FromArgb(4, 5, 214);
-            //        formato.BackColor = Color.Transparent;
-            //        formato.Text = ControladorIdioma.GetTexto("Main_Formato");
-            //        formato.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        formato.Location = new Point(153, 201);
-            //        escribirFor.ForeColor = Color.Black;
-            //        escribirFor.BackColor = Color.Transparent;
-            //        //escribirFor.Text = s.Formato;
-            //        escribirFor.Font = new Font("Merienda", 9, FontStyle.Bold);
-            //        escribirFor.Location = new Point(210, 201);
-
-            //        transparente.Location = new Point(x - 5, y - 5);
-            //        transparente.Size = new Size(429, 250);
-            //        transparente.BringToFront();
-            //        transparente.TamBorde = 5;
-            //        transparente.ColorBorde = Color.Navy;
-
-            //        panel.Controls.Add(titulo);
-            //        titulo.Visible = true;
-            //        panel.Controls.Add(personas);
-            //        personas.Visible = true;
-            //        panel.Controls.Add(editoriales);
-            //        editoriales.Visible = true;
-            //        panel.Controls.Add(escribirEdi);
-            //        escribirEdi.Visible = true;
-            //        panel.Controls.Add(series);
-            //        series.Visible = true;
-            //        panel.Controls.Add(escribirSer);
-            //        escribirSer.Visible = true;
-            //        panel.Controls.Add(isbn10);
-            //        isbn10.Visible = true;
-            //        panel.Controls.Add(escribirIs10);
-            //        escribirIs10.Visible = true;
-            //        panel.Controls.Add(isbn13);
-            //        isbn13.Visible = true;
-            //        panel.Controls.Add(escribirIs13);
-            //        escribirIs13.Visible = true;
-            //        panel.Controls.Add(paginas);
-            //        paginas.Visible = true;
-            //        panel.Controls.Add(escribirPag);
-            //        escribirPag.Visible = true;
-            //        panel.Controls.Add(publicado);
-            //        publicado.Visible = true;
-            //        panel.Controls.Add(escribirFec);
-            //        escribirFec.Visible = true;
-            //        panel.Controls.Add(idioma);
-            //        idioma.Visible = true;
-            //        panel.Controls.Add(escribirIdi);
-            //        escribirIdi.Visible = true;
-            //        panel.Controls.Add(formato);
-            //        formato.Visible = true;
-            //        panel.Controls.Add(escribirFor);
-            //        escribirFor.Visible = true;
-
-            //        PanVistaDetalles.Controls.Add(panel);
-            //        panel.Visible = true;
-            //        PanVistaDetalles.Controls.Add(transparente);
-            //        transparente.Visible = true;
-            //        transparente.Click += new EventHandler(ManejadorLibroDet_Click);
-            //        transparente.MouseEnter += new EventHandler(CambiarColorPanel_Enter);
-            //        transparente.MouseLeave += new EventHandler(CambiarColorPanel_Leave);
-            //        x = x + 439;
-            //    }
-            //    void CambiarColorPanel_Enter(object sender, EventArgs e)
-            //    {
-            //        panel.BackColor = Color.Silver;
-            //    }
-            //    void CambiarColorPanel_Leave(object sender, EventArgs e)
-            //    {
-            //        panel.BackColor = Color.Gainsboro;
-            //    }
-            //}
-        }
+        
        
         private void TitulosPrueba()
         {
@@ -750,18 +477,18 @@ namespace OpenLibraryEditor.Forms
             BtnAniadirLibroMsb.Text = ControladorIdioma.GetTexto("Main_NuevoLibro");
             BtnModificarLibroMsb.Text = ControladorIdioma.GetTexto("Main_Modificar");
             BtnBorrarLibroMsb.Text = ControladorIdioma.GetTexto("Main_Eliminar");
-            BtnAutoresMsb.Text = ControladorIdioma.GetTexto("Main_Autores");
-            BtnGenerosMsb.Text = ControladorIdioma.GetTexto("Main_Generos");
-            BtnSeriesMsb.Text = ControladorIdioma.GetTexto("Main_Series");
-            BtnEditorialesMsb.Text = ControladorIdioma.GetTexto("Main_Editoriales");
-            BtnTagsMsb.Text = ControladorIdioma.GetTexto("Main_Tags");
+            BtnAutoresMsb.Text = ControladorIdioma.GetTexto("Main_MasAutor");
+            BtnGenerosMsb.Text = ControladorIdioma.GetTexto("Main_MasGenero");
+            BtnSeriesMsb.Text = ControladorIdioma.GetTexto("Main_MasSerie");
+            BtnEditorialesMsb.Text = ControladorIdioma.GetTexto("Main_MasEdi");
+            BtnTagsMsb.Text = ControladorIdioma.GetTexto("Main_MasEtiqueta");
             ToolTipMain.SetToolTip(this.PcbLogoMain, ControladorIdioma.GetTexto("Main_TTLogo"));
             ToolTipMain.SetToolTip(this.LblTituloMain, ControladorIdioma.GetTexto("Main_TTFormTitulo"));
             ToolTipMain.SetToolTip(this.MBtnMinimizarMain, ControladorIdioma.GetTexto("Main_TTMinimizar"));
             ToolTipMain.SetToolTip(this.MBtnMaximizarMain, ControladorIdioma.GetTexto("Main_TTMaximizar"));
             ToolTipMain.SetToolTip(this.MBtnRestaurarMain, ControladorIdioma.GetTexto("Main_TTRestaurar"));
             ToolTipMain.SetToolTip(this.MBtnCerrarMain, ControladorIdioma.GetTexto("Main_TTCerrar"));
-            
+            LblBuscarPorMBI.Text = ControladorIdioma.GetTexto("BuscarPor");
             KpDetalles.Text = ControladorIdioma.GetTexto("Main_DetallesGenerales");
             LblSinopsis.Text = ControladorIdioma.GetTexto("Main_Sinopsis");
             LblEditorial.Text = ControladorIdioma.GetTexto("Main_Editorial");
@@ -776,6 +503,8 @@ namespace OpenLibraryEditor.Forms
             LblTipoLibro.Text = ControladorIdioma.GetTexto("Main_TipoLibro");
             LblPublicado.Text = ControladorIdioma.GetTexto("Main_Publicado");
             LinkEnlace.Text = ControladorIdioma.GetTexto("Main_Enlace");
+            MBtnAdminUsuarios.Text = ControladorIdioma.GetTexto("Adm_Administrar");
+            ToolTipMain.SetToolTip(this.MBtnAdminUsuarios, ControladorIdioma.GetTexto("Adm_Administrar"));
 
             KpUsuario.Text = ControladorIdioma.GetTexto("Main_DetallesUsuario");
             LblPuntuacion.Text = ControladorIdioma.GetTexto("Main_Punt");
@@ -810,6 +539,7 @@ namespace OpenLibraryEditor.Forms
                 bordeIzqBoton.BringToFront();
             }
         }
+        
         private void BotonActivoTool(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -825,27 +555,27 @@ namespace OpenLibraryEditor.Forms
         {
             if (botonActual != null)
             {
-                botonActual.ForeColor = Color.Gainsboro;
+                botonActual.ForeColor = Color.FromArgb(4, 5, 100);
                 botonActual.TextAlign = ContentAlignment.MiddleLeft;
-                botonActual.IconColor = Color.Gainsboro;
+                botonActual.IconColor = Color.FromArgb(4, 5, 100);
                 botonActual.TextImageRelation = TextImageRelation.ImageBeforeText;
                 botonActual.ImageAlign = ContentAlignment.MiddleLeft;
             }
             if (toolSeleccionado!=null)
             {
-                toolSeleccionado.ForeColor = Color.Gainsboro;
-                toolSeleccionado.IconColor = Color.Gainsboro;
+                toolSeleccionado.ForeColor = Color.FromArgb(4, 5, 100);
+                toolSeleccionado.IconColor = Color.FromArgb(4, 5, 100);
             }
         }
-     
+        
         //Estructura colores
         private struct Colores
         {
-            public static Color colorBiblioteca = Color.FromArgb(239, 184, 16);
-            public static Color colorSubmenu = Color.FromArgb(0, 201, 142);
-            public static Color colorBuscar = Color.FromArgb(249, 88, 155);
-            public static Color colorConfi = Color.FromArgb(164, 204, 255);
-            public static Color colorTool = Color.FromArgb(164, 204, 255);
+            public static Color colorBiblioteca = Color.Red;
+            public static Color colorSubmenu = Color.DarkOrange;
+            public static Color colorBuscar = Color.Magenta;
+            public static Color colorConfi = Color.SaddleBrown;
+            //public static Color colorTool = Color.FromArgb(164, 204, 255);
         }
         private void ResetColores()
         {
@@ -879,7 +609,7 @@ namespace OpenLibraryEditor.Forms
             //AbrirFormularios(new FrmMiBiblioteca());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = false;
-            titulos = Biblioteca.biblioteca.ListaLibro;
+            titulos = SacarListaLibro();
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
             MPcbTituloFrm.IconChar = MaterialIcons.BookOpenPageVariant;
             BotonActivo(sender, Colores.colorBiblioteca);
@@ -1016,9 +746,23 @@ namespace OpenLibraryEditor.Forms
             AbrirFormularios(new FrmConfiguracion());
             BotonActivo(sender, Colores.colorConfi);
         }
+        private void MBtnAdminUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios(new FrmAdministrarUsuarios());
+        }
 
         #endregion
         #region botones tool
+        private void ToolStripMain_Paint(object sender, PaintEventArgs e)
+        {
+            MaterialSplitButton btn = (MaterialSplitButton)sender;
+            ControlPaint.DrawBorder(
+                       e.Graphics,
+                       new Rectangle(0, 0, btn.Width, btn.Height),
+                        //btn.ContentRectangle,
+                       Color.Red,
+                       ButtonBorderStyle.Solid);
+        }
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
@@ -1032,7 +776,7 @@ namespace OpenLibraryEditor.Forms
             if (al.EsOk)
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
 
-            BotonActivoTool(sender,Colores.colorBiblioteca);
+            //BotonActivoTool(sender,Colores.colorBiblioteca);
             RecolocarLibros(false);
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
@@ -1042,26 +786,58 @@ namespace OpenLibraryEditor.Forms
             al.FormBorderStyle = FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Modificar");
             al.ShowDialog();
-            BotonActivoTool(sender, Colores.colorBiblioteca);
+            //BotonActivoTool(sender, Colores.colorBiblioteca);
             RecolocarLibros(false);
         }
         private void BtnBorrarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            BotonActivoTool(sender,Colores.colorBiblioteca);
-            if (VentanaWindowsComun.MensajeBorrarObjeto("el libro") == DialogResult.Yes)
+            //BotonActivoTool(sender,Colores.colorBiblioteca);
+            if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.Titulo) == DialogResult.Yes)
             {
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
                 RecolocarLibros(false);
             }
         }
 
+        private void KCmbBuscarPorMBI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (KCmbBuscarPorMBI.SelectedIndex)
+            {
+                case 7:
+                    //Buscar sin nada
+                    MostrarCajaBusqueda(-1);
+                    MBtnBuscarMBI_Click(null, null);
+                    break;
+                default:
+                    MostrarCajaBusqueda(0);
+                    break;
+            }
+            MBtnBuscarMBI_Click(null, null);
+        }
+
+        private void MostrarCajaBusqueda(int tipo)
+        {
+            KTxtBuscarMBI.Text = "";
+            KTxtBuscarMBI.Visible = false;
+            MBtnBuscarMBI.Visible = false;
+            switch (tipo)
+            {
+                case 0:
+                    //Busqueda por texto
+                    KTxtBuscarMBI.Visible = true;
+                    MBtnBuscarMBI.Visible = true;
+                    break;
+            }
+        }
+
         private void MBtnBuscarMBI_Click(object sender, EventArgs e)
         {
+            //Filtrar por categoría si se está usando, si no por la lista completa
             if (PanListViewsOpciones.Visible == true)
                 LsvOpciones_ItemSelectionChanged(null, null);
             else
-                titulos = Biblioteca.biblioteca.ListaLibro;
+                titulos = SacarListaLibro();
 
             if (KCmbBuscarPorMBI.Items[0] == KCmbBuscarPorMBI.SelectedItem)
             {
@@ -1078,31 +854,80 @@ namespace OpenLibraryEditor.Forms
                     p.Subtitulo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                     : false);
             }
-            else
+            else if (KCmbBuscarPorMBI.Items[2] == KCmbBuscarPorMBI.SelectedItem)
             {
-                titulos = titulos
-                    .FindAll(p => p.Subtitulo != null ?
+                //Buscar por ISBN
+                List<Libro> l;
+                l = titulos
+                    .FindAll(p => p.Isbn_10 != null ?
                     p.Isbn_10.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                     : false);
-                titulos.AddRange(Biblioteca.biblioteca.ListaLibro
-                    .FindAll(p => p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1));
+                l.AddRange(titulos
+                    .FindAll(p => p.Isbn_13 != null ?
+                    p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false));
+                titulos = l;
             }
-
-            if (!String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
-                RecolocarLibros(false);
-            else
+            else if (KCmbBuscarPorMBI.Items[3] == KCmbBuscarPorMBI.SelectedItem)
             {
-                titulos = Biblioteca.biblioteca.ListaLibro;
-                RecolocarLibros(false);
+                //Buscar por título alternativo
+                titulos = titulos
+                    .FindAll(p => p.TituloAlternativo != null ?
+                    p.TituloAlternativo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[4] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por idioma
+                titulos = titulos
+                    .FindAll(p => p.Idioma != null ?
+                    p.Idioma.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[5] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por idioma original
+                titulos = titulos
+                    .FindAll(p => p.IdiomaOriginal != null ?
+                    p.IdiomaOriginal.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[6] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por tipo de libro
+                titulos = titulos
+                    .FindAll(p => p.NombreTipo != null ?
+                    p.NombreTipo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[7] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por favorito
+                titulos = titulos.FindAll(p => p.Favorito);
             }
 
+            if(KTxtBuscarMBI.Visible &&
+                !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
+            {
+                titulos = SacarListaLibro();
+            }
+            RecolocarLibros(false);
         }
-
+        private void BtnAniadirLibroMsb_Paint(object sender, PaintEventArgs e)
+        {
+            MaterialSplitButton btn = (MaterialSplitButton)sender;
+            ControlPaint.DrawBorder(
+                       e.Graphics,
+                       new Rectangle(0, 0, btn.Width, btn.Height),
+                       //  btn.ContentRectangle,
+                       Color.Transparent,
+                       ButtonBorderStyle.Outset);
+        }
         private void LsvOpciones_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (LsvOpciones.SelectedItems.Count == 1)
             {
-                titulos = Biblioteca.biblioteca.ListaLibro;
+                titulos = SacarListaLibro();
                 object obj = LsvOpciones.SelectedItems[0].Tag;
                 if(obj.GetType() == typeof(Autor))
                     titulos = titulos.FindAll(p => p.ListaAutor.Contains((Autor)obj));
@@ -1130,7 +955,7 @@ namespace OpenLibraryEditor.Forms
             FrmAutores autores = new FrmAutores(false);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
-            BotonActivoTool(sender,Colores.colorBiblioteca);
+            //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnGenerosMsb_ButtonClick(object sender, EventArgs e)
         {
@@ -1138,7 +963,7 @@ namespace OpenLibraryEditor.Forms
             FrmGeneros generos = new FrmGeneros(false);
             generos.FormBorderStyle = FormBorderStyle.None;
             generos.ShowDialog();
-            BotonActivoTool(sender,Colores.colorBiblioteca);
+            //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnSeriesMsb_ButtonClick(object sender, EventArgs e)
         {
@@ -1146,7 +971,7 @@ namespace OpenLibraryEditor.Forms
             FrmSeries series = new FrmSeries(false);
             series.FormBorderStyle = FormBorderStyle.None;
             series.ShowDialog();
-            BotonActivoTool(sender,Colores.colorBiblioteca);
+           // BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnEditorialesMsb_ButtonClick(object sender, EventArgs e)
         {
@@ -1154,7 +979,7 @@ namespace OpenLibraryEditor.Forms
             FrmEditoriales editoriales = new FrmEditoriales(false);
             editoriales.FormBorderStyle = FormBorderStyle.None;
             editoriales.ShowDialog();
-            BotonActivoTool(sender,Colores.colorBiblioteca);
+            //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnTagsMsb_ButtonClick(object sender, EventArgs e)
         {
@@ -1162,11 +987,12 @@ namespace OpenLibraryEditor.Forms
             FrmTags tags = new FrmTags(false);
             tags.FormBorderStyle = FormBorderStyle.None;
             tags.ShowDialog();
-            BotonActivoTool(sender,Colores.colorBiblioteca);
+            //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         #endregion
         #region Botones minimizar, maximizar, restaurar, redimensionar y salir
-        //Para saber el tamaño y la posicion inicial de la pantalla y poder restaurarla en el centro de la pantalla
+        //Para saber el tamaño y la posicion inicial de la pantalla y poder restaurarla en
+        //el centro de la pantalla
         private int lx, ly;
         private int sw, sh;
         private void MBtnRestaurar_Click(object sender, EventArgs e)
@@ -1219,10 +1045,12 @@ namespace OpenLibraryEditor.Forms
         Rectangle Izquierda { get { return new Rectangle(0, 0, MARGEN, this.ClientSize.Height); } }
         Rectangle Inferior { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, this.ClientSize.Width, MARGEN); } }
         Rectangle Derecha { get { return new Rectangle(this.ClientSize.Width - MARGEN, 0, MARGEN, this.ClientSize.Height); } }
-
         Rectangle SupIzqda { get { return new Rectangle(0, 0, MARGEN, MARGEN); } }
         Rectangle SupDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, 0, MARGEN, MARGEN); } }
         Rectangle InfIzqda { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
+
+        
+
         Rectangle InfDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
 
         protected override void WndProc(ref Message message)
