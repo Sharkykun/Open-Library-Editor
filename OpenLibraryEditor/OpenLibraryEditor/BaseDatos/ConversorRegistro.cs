@@ -38,7 +38,7 @@ namespace OpenLibraryEditor.BaseDatos
             //Si tiene genero padre, sacarlo recursivamente
             Genero generoPadre = null;
             if (registro["generoPadre"].ToString() == null)
-                generoPadre = LecturaBD.SelectGenero(registro["generoPadre"].ToString());
+                generoPadre = LecturaBD.SelectGenero(Convert.ToInt32(registro["generoPadre"]));
 
             Genero g = new Genero(registro["nombreGenero"].ToString(),
                 generoPadre,

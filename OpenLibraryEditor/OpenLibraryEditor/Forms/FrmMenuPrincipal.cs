@@ -184,7 +184,8 @@ namespace OpenLibraryEditor.Forms
                     vista.Location = new Point(x, y);
                     vista.setTituloLibro(libro.Titulo + " " + libro.Subtitulo);
                     vista.Tag = libro;
-                    if (libro.ImagenPortada!=null)
+                    if (libro.ImagenPortada!=null &&
+                        File.Exists(libro.ImagenPortada))
                         vista.setImagen(Image.FromFile(libro.ImagenPortada));
                     else
                         vista.setImagen(Properties.Resources.PortadaLogo);
@@ -231,7 +232,8 @@ namespace OpenLibraryEditor.Forms
                     vista.Location = new Point(x, y);
                     vista.setTituloLibro(libro.Titulo + " " + libro.Subtitulo);
                     vista.Tag = libro;
-                    if (libro.ImagenPortada != null)
+                    if (libro.ImagenPortada != null &&
+                        File.Exists(libro.ImagenPortada))
                         vista.setImagen(Image.FromFile(libro.ImagenPortada));
                     else
                         vista.setImagen(Properties.Resources.PortadaLogo);
