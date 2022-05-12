@@ -490,7 +490,13 @@ namespace OpenLibraryEditor.Forms
         private void LinkEnlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(libroActual.EnlaceReferencia))
-                Process.Start(libroActual.EnlaceReferencia);
+            {
+                FrmWebView wv = new FrmWebView(libroActual.EnlaceReferencia);
+                wv.FormBorderStyle = FormBorderStyle.None;
+                wv.ShowDialog();
+                //Process.Start(libroActual.EnlaceReferencia);
+            }
+
             else
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NoEnlace"));
         }

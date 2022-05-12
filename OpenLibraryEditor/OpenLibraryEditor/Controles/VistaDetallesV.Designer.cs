@@ -29,41 +29,41 @@
         private void InitializeComponent()
         {
             this.PanDatos = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.PanTitulo = new System.Windows.Forms.Panel();
-            this.LblTituloLibro = new System.Windows.Forms.Label();
-            this.PanAutores = new System.Windows.Forms.Panel();
-            this.LblAutores = new System.Windows.Forms.Label();
-            this.PanFoto = new System.Windows.Forms.Panel();
-            this.PcbImgLibro = new System.Windows.Forms.PictureBox();
-            this.PanEditorial = new System.Windows.Forms.Panel();
-            this.LblEditorial = new System.Windows.Forms.Label();
-            this.LblEscribirEditorial = new System.Windows.Forms.Label();
+            this.PanRestoDatos = new System.Windows.Forms.Panel();
+            this.LblEscribirFormato = new System.Windows.Forms.Label();
+            this.LblFormato = new System.Windows.Forms.Label();
+            this.LblEscribirIdioma = new System.Windows.Forms.Label();
+            this.LblIdioma = new System.Windows.Forms.Label();
+            this.LblEscribirFecha = new System.Windows.Forms.Label();
+            this.LblPublicado = new System.Windows.Forms.Label();
+            this.LblEscribirPag = new System.Windows.Forms.Label();
+            this.LblPaginas = new System.Windows.Forms.Label();
+            this.LblEscribirIsbn13 = new System.Windows.Forms.Label();
+            this.LblIsbn13 = new System.Windows.Forms.Label();
+            this.LblEscribirIsbn10 = new System.Windows.Forms.Label();
+            this.LblIsbn10 = new System.Windows.Forms.Label();
             this.PanSeries = new System.Windows.Forms.Panel();
             this.LblEscribirSeries = new System.Windows.Forms.Label();
             this.LblSeries = new System.Windows.Forms.Label();
-            this.PanRestoDatos = new System.Windows.Forms.Panel();
-            this.LblEscribirIsbn10 = new System.Windows.Forms.Label();
-            this.LblIsbn10 = new System.Windows.Forms.Label();
-            this.LblEscribirIsbn13 = new System.Windows.Forms.Label();
-            this.LblIsbn13 = new System.Windows.Forms.Label();
-            this.LblEscribirPag = new System.Windows.Forms.Label();
-            this.LblPaginas = new System.Windows.Forms.Label();
-            this.LblEscribirFecha = new System.Windows.Forms.Label();
-            this.LblPublicado = new System.Windows.Forms.Label();
-            this.LblEscribirIdioma = new System.Windows.Forms.Label();
-            this.LblIdioma = new System.Windows.Forms.Label();
-            this.LblEscribirFormato = new System.Windows.Forms.Label();
-            this.LblFormato = new System.Windows.Forms.Label();
+            this.PanEditorial = new System.Windows.Forms.Panel();
+            this.LblEscribirEditorial = new System.Windows.Forms.Label();
+            this.LblEditorial = new System.Windows.Forms.Label();
+            this.PanFoto = new System.Windows.Forms.Panel();
+            this.PcbImgLibro = new System.Windows.Forms.PictureBox();
+            this.PanAutores = new System.Windows.Forms.Panel();
+            this.LblAutores = new System.Windows.Forms.Label();
+            this.PanTitulo = new System.Windows.Forms.Panel();
+            this.LblTituloLibro = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.PanBorde = new OpenLibraryEditor.Controles.PanelTransparente();
             this.PanDatos.SuspendLayout();
-            this.PanTitulo.SuspendLayout();
-            this.PanAutores.SuspendLayout();
+            this.PanRestoDatos.SuspendLayout();
+            this.PanSeries.SuspendLayout();
+            this.PanEditorial.SuspendLayout();
             this.PanFoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbImgLibro)).BeginInit();
-            this.PanEditorial.SuspendLayout();
-            this.PanSeries.SuspendLayout();
-            this.PanRestoDatos.SuspendLayout();
+            this.PanAutores.SuspendLayout();
+            this.PanTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanDatos
@@ -83,118 +83,182 @@
             this.PanDatos.Size = new System.Drawing.Size(400, 240);
             this.PanDatos.TabIndex = 1;
             // 
-            // flowLayoutPanel3
+            // PanRestoDatos
             // 
-            this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(0, 240);
-            this.flowLayoutPanel3.TabIndex = 5;
+            this.PanRestoDatos.AutoSize = true;
+            this.PanRestoDatos.BackColor = System.Drawing.Color.Transparent;
+            this.PanRestoDatos.Controls.Add(this.LblEscribirFormato);
+            this.PanRestoDatos.Controls.Add(this.LblFormato);
+            this.PanRestoDatos.Controls.Add(this.LblEscribirIdioma);
+            this.PanRestoDatos.Controls.Add(this.LblIdioma);
+            this.PanRestoDatos.Controls.Add(this.LblEscribirFecha);
+            this.PanRestoDatos.Controls.Add(this.LblPublicado);
+            this.PanRestoDatos.Controls.Add(this.LblEscribirPag);
+            this.PanRestoDatos.Controls.Add(this.LblPaginas);
+            this.PanRestoDatos.Controls.Add(this.LblEscribirIsbn13);
+            this.PanRestoDatos.Controls.Add(this.LblIsbn13);
+            this.PanRestoDatos.Controls.Add(this.LblEscribirIsbn10);
+            this.PanRestoDatos.Controls.Add(this.LblIsbn10);
+            this.PanRestoDatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanRestoDatos.Location = new System.Drawing.Point(138, 106);
+            this.PanRestoDatos.Name = "PanRestoDatos";
+            this.PanRestoDatos.Size = new System.Drawing.Size(262, 132);
+            this.PanRestoDatos.TabIndex = 11;
             // 
-            // PanTitulo
+            // LblEscribirFormato
             // 
-            this.PanTitulo.AutoSize = true;
-            this.PanTitulo.Controls.Add(this.LblTituloLibro);
-            this.PanTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanTitulo.Name = "PanTitulo";
-            this.PanTitulo.Size = new System.Drawing.Size(400, 32);
-            this.PanTitulo.TabIndex = 6;
+            this.LblEscribirFormato.AutoSize = true;
+            this.LblEscribirFormato.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirFormato.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirFormato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirFormato.Location = new System.Drawing.Point(86, 114);
+            this.LblEscribirFormato.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.LblEscribirFormato.Name = "LblEscribirFormato";
+            this.LblEscribirFormato.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirFormato.TabIndex = 11;
             // 
-            // LblTituloLibro
+            // LblFormato
             // 
-            this.LblTituloLibro.AutoSize = true;
-            this.LblTituloLibro.BackColor = System.Drawing.Color.Transparent;
-            this.LblTituloLibro.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblTituloLibro.Location = new System.Drawing.Point(10, 10);
-            this.LblTituloLibro.Margin = new System.Windows.Forms.Padding(0);
-            this.LblTituloLibro.Name = "LblTituloLibro";
-            this.LblTituloLibro.Size = new System.Drawing.Size(0, 22);
-            this.LblTituloLibro.TabIndex = 0;
+            this.LblFormato.AutoSize = true;
+            this.LblFormato.BackColor = System.Drawing.Color.Transparent;
+            this.LblFormato.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFormato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblFormato.Location = new System.Drawing.Point(0, 112);
+            this.LblFormato.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.LblFormato.Name = "LblFormato";
+            this.LblFormato.Size = new System.Drawing.Size(61, 17);
+            this.LblFormato.TabIndex = 10;
+            this.LblFormato.Text = "Formato:";
             // 
-            // PanAutores
+            // LblEscribirIdioma
             // 
-            this.PanAutores.AutoSize = true;
-            this.PanAutores.Controls.Add(this.LblAutores);
-            this.PanAutores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanAutores.Location = new System.Drawing.Point(0, 32);
-            this.PanAutores.Name = "PanAutores";
-            this.PanAutores.Size = new System.Drawing.Size(400, 30);
-            this.PanAutores.TabIndex = 7;
+            this.LblEscribirIdioma.AutoSize = true;
+            this.LblEscribirIdioma.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirIdioma.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIdioma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirIdioma.Location = new System.Drawing.Point(86, 92);
+            this.LblEscribirIdioma.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEscribirIdioma.Name = "LblEscribirIdioma";
+            this.LblEscribirIdioma.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirIdioma.TabIndex = 9;
             // 
-            // LblAutores
+            // LblIdioma
             // 
-            this.LblAutores.AutoSize = true;
-            this.LblAutores.BackColor = System.Drawing.Color.Transparent;
-            this.LblAutores.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblAutores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblAutores.Location = new System.Drawing.Point(10, 5);
-            this.LblAutores.Margin = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.LblAutores.Name = "LblAutores";
-            this.LblAutores.Size = new System.Drawing.Size(0, 17);
-            this.LblAutores.TabIndex = 0;
+            this.LblIdioma.AutoSize = true;
+            this.LblIdioma.BackColor = System.Drawing.Color.Transparent;
+            this.LblIdioma.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIdioma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblIdioma.Location = new System.Drawing.Point(0, 90);
+            this.LblIdioma.Margin = new System.Windows.Forms.Padding(0);
+            this.LblIdioma.Name = "LblIdioma";
+            this.LblIdioma.Size = new System.Drawing.Size(52, 17);
+            this.LblIdioma.TabIndex = 8;
+            this.LblIdioma.Text = "Idioma:";
             // 
-            // PanFoto
+            // LblEscribirFecha
             // 
-            this.PanFoto.AutoSize = true;
-            this.PanFoto.Controls.Add(this.PcbImgLibro);
-            this.PanFoto.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanFoto.Location = new System.Drawing.Point(0, 62);
-            this.PanFoto.Name = "PanFoto";
-            this.PanFoto.Size = new System.Drawing.Size(138, 178);
-            this.PanFoto.TabIndex = 8;
+            this.LblEscribirFecha.AutoSize = true;
+            this.LblEscribirFecha.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirFecha.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirFecha.Location = new System.Drawing.Point(86, 70);
+            this.LblEscribirFecha.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEscribirFecha.Name = "LblEscribirFecha";
+            this.LblEscribirFecha.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirFecha.TabIndex = 7;
             // 
-            // PcbImgLibro
+            // LblPublicado
             // 
-            this.PcbImgLibro.Location = new System.Drawing.Point(10, 9);
-            this.PcbImgLibro.Margin = new System.Windows.Forms.Padding(3, 5, 8, 3);
-            this.PcbImgLibro.Name = "PcbImgLibro";
-            this.PcbImgLibro.Size = new System.Drawing.Size(120, 160);
-            this.PcbImgLibro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbImgLibro.TabIndex = 1;
-            this.PcbImgLibro.TabStop = false;
+            this.LblPublicado.AutoSize = true;
+            this.LblPublicado.BackColor = System.Drawing.Color.Transparent;
+            this.LblPublicado.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPublicado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblPublicado.Location = new System.Drawing.Point(0, 68);
+            this.LblPublicado.Margin = new System.Windows.Forms.Padding(0);
+            this.LblPublicado.Name = "LblPublicado";
+            this.LblPublicado.Size = new System.Drawing.Size(70, 17);
+            this.LblPublicado.TabIndex = 6;
+            this.LblPublicado.Text = "Publicado:";
             // 
-            // PanEditorial
+            // LblEscribirPag
             // 
-            this.PanEditorial.AutoSize = true;
-            this.PanEditorial.Controls.Add(this.LblEscribirEditorial);
-            this.PanEditorial.Controls.Add(this.LblEditorial);
-            this.PanEditorial.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanEditorial.Location = new System.Drawing.Point(138, 62);
-            this.PanEditorial.Name = "PanEditorial";
-            this.PanEditorial.Size = new System.Drawing.Size(262, 22);
-            this.PanEditorial.TabIndex = 9;
+            this.LblEscribirPag.AutoSize = true;
+            this.LblEscribirPag.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirPag.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirPag.Location = new System.Drawing.Point(86, 48);
+            this.LblEscribirPag.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEscribirPag.Name = "LblEscribirPag";
+            this.LblEscribirPag.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirPag.TabIndex = 5;
             // 
-            // LblEditorial
+            // LblPaginas
             // 
-            this.LblEditorial.AutoSize = true;
-            this.LblEditorial.BackColor = System.Drawing.Color.Transparent;
-            this.LblEditorial.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEditorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblEditorial.Location = new System.Drawing.Point(0, 5);
-            this.LblEditorial.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEditorial.Name = "LblEditorial";
-            this.LblEditorial.Size = new System.Drawing.Size(64, 17);
-            this.LblEditorial.TabIndex = 0;
-            this.LblEditorial.Text = "Editorial:";
+            this.LblPaginas.AutoSize = true;
+            this.LblPaginas.BackColor = System.Drawing.Color.Transparent;
+            this.LblPaginas.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPaginas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblPaginas.Location = new System.Drawing.Point(0, 46);
+            this.LblPaginas.Margin = new System.Windows.Forms.Padding(0);
+            this.LblPaginas.Name = "LblPaginas";
+            this.LblPaginas.Size = new System.Drawing.Size(59, 17);
+            this.LblPaginas.TabIndex = 4;
+            this.LblPaginas.Text = "Páginas:";
             // 
-            // LblEscribirEditorial
+            // LblEscribirIsbn13
             // 
-            this.LblEscribirEditorial.AutoSize = true;
-            this.LblEscribirEditorial.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirEditorial.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirEditorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirEditorial.Location = new System.Drawing.Point(86, 7);
-            this.LblEscribirEditorial.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirEditorial.TabIndex = 1;
+            this.LblEscribirIsbn13.AutoSize = true;
+            this.LblEscribirIsbn13.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirIsbn13.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIsbn13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirIsbn13.Location = new System.Drawing.Point(86, 26);
+            this.LblEscribirIsbn13.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEscribirIsbn13.Name = "LblEscribirIsbn13";
+            this.LblEscribirIsbn13.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirIsbn13.TabIndex = 3;
+            // 
+            // LblIsbn13
+            // 
+            this.LblIsbn13.AutoSize = true;
+            this.LblIsbn13.BackColor = System.Drawing.Color.Transparent;
+            this.LblIsbn13.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIsbn13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblIsbn13.Location = new System.Drawing.Point(0, 24);
+            this.LblIsbn13.Margin = new System.Windows.Forms.Padding(0);
+            this.LblIsbn13.Name = "LblIsbn13";
+            this.LblIsbn13.Size = new System.Drawing.Size(59, 17);
+            this.LblIsbn13.TabIndex = 2;
+            this.LblIsbn13.Text = "ISBN 13:";
+            // 
+            // LblEscribirIsbn10
+            // 
+            this.LblEscribirIsbn10.AutoSize = true;
+            this.LblEscribirIsbn10.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirIsbn10.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirIsbn10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirIsbn10.Location = new System.Drawing.Point(86, 7);
+            this.LblEscribirIsbn10.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEscribirIsbn10.Name = "LblEscribirIsbn10";
+            this.LblEscribirIsbn10.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirIsbn10.TabIndex = 1;
+            // 
+            // LblIsbn10
+            // 
+            this.LblIsbn10.AutoSize = true;
+            this.LblIsbn10.BackColor = System.Drawing.Color.Transparent;
+            this.LblIsbn10.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblIsbn10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblIsbn10.Location = new System.Drawing.Point(0, 5);
+            this.LblIsbn10.Margin = new System.Windows.Forms.Padding(0);
+            this.LblIsbn10.Name = "LblIsbn10";
+            this.LblIsbn10.Size = new System.Drawing.Size(59, 17);
+            this.LblIsbn10.TabIndex = 0;
+            this.LblIsbn10.Text = "ISBN 10:";
             // 
             // PanSeries
             // 
             this.PanSeries.AutoSize = true;
+            this.PanSeries.BackColor = System.Drawing.Color.Transparent;
             this.PanSeries.Controls.Add(this.LblEscribirSeries);
             this.PanSeries.Controls.Add(this.LblSeries);
             this.PanSeries.Dock = System.Windows.Forms.DockStyle.Top;
@@ -229,176 +293,118 @@
             this.LblSeries.TabIndex = 0;
             this.LblSeries.Text = "Series:";
             // 
-            // PanRestoDatos
+            // PanEditorial
             // 
-            this.PanRestoDatos.AutoSize = true;
-            this.PanRestoDatos.Controls.Add(this.LblEscribirFormato);
-            this.PanRestoDatos.Controls.Add(this.LblFormato);
-            this.PanRestoDatos.Controls.Add(this.LblEscribirIdioma);
-            this.PanRestoDatos.Controls.Add(this.LblIdioma);
-            this.PanRestoDatos.Controls.Add(this.LblEscribirFecha);
-            this.PanRestoDatos.Controls.Add(this.LblPublicado);
-            this.PanRestoDatos.Controls.Add(this.LblEscribirPag);
-            this.PanRestoDatos.Controls.Add(this.LblPaginas);
-            this.PanRestoDatos.Controls.Add(this.LblEscribirIsbn13);
-            this.PanRestoDatos.Controls.Add(this.LblIsbn13);
-            this.PanRestoDatos.Controls.Add(this.LblEscribirIsbn10);
-            this.PanRestoDatos.Controls.Add(this.LblIsbn10);
-            this.PanRestoDatos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanRestoDatos.Location = new System.Drawing.Point(138, 106);
-            this.PanRestoDatos.Name = "PanRestoDatos";
-            this.PanRestoDatos.Size = new System.Drawing.Size(262, 132);
-            this.PanRestoDatos.TabIndex = 11;
+            this.PanEditorial.AutoSize = true;
+            this.PanEditorial.BackColor = System.Drawing.Color.Transparent;
+            this.PanEditorial.Controls.Add(this.LblEscribirEditorial);
+            this.PanEditorial.Controls.Add(this.LblEditorial);
+            this.PanEditorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanEditorial.Location = new System.Drawing.Point(138, 62);
+            this.PanEditorial.Name = "PanEditorial";
+            this.PanEditorial.Size = new System.Drawing.Size(262, 22);
+            this.PanEditorial.TabIndex = 9;
             // 
-            // LblEscribirIsbn10
+            // LblEscribirEditorial
             // 
-            this.LblEscribirIsbn10.AutoSize = true;
-            this.LblEscribirIsbn10.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirIsbn10.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirIsbn10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirIsbn10.Location = new System.Drawing.Point(86, 7);
-            this.LblEscribirIsbn10.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEscribirIsbn10.Name = "LblEscribirIsbn10";
-            this.LblEscribirIsbn10.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirIsbn10.TabIndex = 1;
+            this.LblEscribirEditorial.AutoSize = true;
+            this.LblEscribirEditorial.BackColor = System.Drawing.Color.Transparent;
+            this.LblEscribirEditorial.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEscribirEditorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEscribirEditorial.Location = new System.Drawing.Point(86, 7);
+            this.LblEscribirEditorial.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEscribirEditorial.Name = "LblEscribirEditorial";
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(0, 14);
+            this.LblEscribirEditorial.TabIndex = 1;
             // 
-            // LblIsbn10
+            // LblEditorial
             // 
-            this.LblIsbn10.AutoSize = true;
-            this.LblIsbn10.BackColor = System.Drawing.Color.Transparent;
-            this.LblIsbn10.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIsbn10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblIsbn10.Location = new System.Drawing.Point(0, 5);
-            this.LblIsbn10.Margin = new System.Windows.Forms.Padding(0);
-            this.LblIsbn10.Name = "LblIsbn10";
-            this.LblIsbn10.Size = new System.Drawing.Size(59, 17);
-            this.LblIsbn10.TabIndex = 0;
-            this.LblIsbn10.Text = "ISBN 10:";
+            this.LblEditorial.AutoSize = true;
+            this.LblEditorial.BackColor = System.Drawing.Color.Transparent;
+            this.LblEditorial.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEditorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblEditorial.Location = new System.Drawing.Point(0, 5);
+            this.LblEditorial.Margin = new System.Windows.Forms.Padding(0);
+            this.LblEditorial.Name = "LblEditorial";
+            this.LblEditorial.Size = new System.Drawing.Size(64, 17);
+            this.LblEditorial.TabIndex = 0;
+            this.LblEditorial.Text = "Editorial:";
             // 
-            // LblEscribirIsbn13
+            // PanFoto
             // 
-            this.LblEscribirIsbn13.AutoSize = true;
-            this.LblEscribirIsbn13.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirIsbn13.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirIsbn13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirIsbn13.Location = new System.Drawing.Point(86, 26);
-            this.LblEscribirIsbn13.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEscribirIsbn13.Name = "LblEscribirIsbn13";
-            this.LblEscribirIsbn13.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirIsbn13.TabIndex = 3;
+            this.PanFoto.AutoSize = true;
+            this.PanFoto.BackColor = System.Drawing.Color.Transparent;
+            this.PanFoto.Controls.Add(this.PcbImgLibro);
+            this.PanFoto.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanFoto.Location = new System.Drawing.Point(0, 62);
+            this.PanFoto.Name = "PanFoto";
+            this.PanFoto.Size = new System.Drawing.Size(138, 178);
+            this.PanFoto.TabIndex = 8;
             // 
-            // LblIsbn13
+            // PcbImgLibro
             // 
-            this.LblIsbn13.AutoSize = true;
-            this.LblIsbn13.BackColor = System.Drawing.Color.Transparent;
-            this.LblIsbn13.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIsbn13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblIsbn13.Location = new System.Drawing.Point(0, 24);
-            this.LblIsbn13.Margin = new System.Windows.Forms.Padding(0);
-            this.LblIsbn13.Name = "LblIsbn13";
-            this.LblIsbn13.Size = new System.Drawing.Size(59, 17);
-            this.LblIsbn13.TabIndex = 2;
-            this.LblIsbn13.Text = "ISBN 13:";
+            this.PcbImgLibro.Location = new System.Drawing.Point(10, 9);
+            this.PcbImgLibro.Margin = new System.Windows.Forms.Padding(3, 5, 8, 3);
+            this.PcbImgLibro.Name = "PcbImgLibro";
+            this.PcbImgLibro.Size = new System.Drawing.Size(120, 160);
+            this.PcbImgLibro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbImgLibro.TabIndex = 1;
+            this.PcbImgLibro.TabStop = false;
             // 
-            // LblEscribirPag
+            // PanAutores
             // 
-            this.LblEscribirPag.AutoSize = true;
-            this.LblEscribirPag.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirPag.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirPag.Location = new System.Drawing.Point(86, 48);
-            this.LblEscribirPag.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEscribirPag.Name = "LblEscribirPag";
-            this.LblEscribirPag.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirPag.TabIndex = 5;
+            this.PanAutores.AutoSize = true;
+            this.PanAutores.BackColor = System.Drawing.Color.Transparent;
+            this.PanAutores.Controls.Add(this.LblAutores);
+            this.PanAutores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanAutores.Location = new System.Drawing.Point(0, 32);
+            this.PanAutores.Name = "PanAutores";
+            this.PanAutores.Size = new System.Drawing.Size(400, 30);
+            this.PanAutores.TabIndex = 7;
             // 
-            // LblPaginas
+            // LblAutores
             // 
-            this.LblPaginas.AutoSize = true;
-            this.LblPaginas.BackColor = System.Drawing.Color.Transparent;
-            this.LblPaginas.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPaginas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblPaginas.Location = new System.Drawing.Point(0, 46);
-            this.LblPaginas.Margin = new System.Windows.Forms.Padding(0);
-            this.LblPaginas.Name = "LblPaginas";
-            this.LblPaginas.Size = new System.Drawing.Size(59, 17);
-            this.LblPaginas.TabIndex = 4;
-            this.LblPaginas.Text = "Páginas:";
+            this.LblAutores.AutoSize = true;
+            this.LblAutores.BackColor = System.Drawing.Color.Transparent;
+            this.LblAutores.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAutores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblAutores.Location = new System.Drawing.Point(10, 5);
+            this.LblAutores.Margin = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.LblAutores.Name = "LblAutores";
+            this.LblAutores.Size = new System.Drawing.Size(0, 17);
+            this.LblAutores.TabIndex = 0;
             // 
-            // LblEscribirFecha
+            // PanTitulo
             // 
-            this.LblEscribirFecha.AutoSize = true;
-            this.LblEscribirFecha.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirFecha.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirFecha.Location = new System.Drawing.Point(86, 70);
-            this.LblEscribirFecha.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEscribirFecha.Name = "LblEscribirFecha";
-            this.LblEscribirFecha.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirFecha.TabIndex = 7;
+            this.PanTitulo.AutoSize = true;
+            this.PanTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.PanTitulo.Controls.Add(this.LblTituloLibro);
+            this.PanTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PanTitulo.Name = "PanTitulo";
+            this.PanTitulo.Size = new System.Drawing.Size(400, 32);
+            this.PanTitulo.TabIndex = 6;
             // 
-            // LblPublicado
+            // LblTituloLibro
             // 
-            this.LblPublicado.AutoSize = true;
-            this.LblPublicado.BackColor = System.Drawing.Color.Transparent;
-            this.LblPublicado.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPublicado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblPublicado.Location = new System.Drawing.Point(0, 68);
-            this.LblPublicado.Margin = new System.Windows.Forms.Padding(0);
-            this.LblPublicado.Name = "LblPublicado";
-            this.LblPublicado.Size = new System.Drawing.Size(70, 17);
-            this.LblPublicado.TabIndex = 6;
-            this.LblPublicado.Text = "Publicado:";
+            this.LblTituloLibro.AutoSize = true;
+            this.LblTituloLibro.BackColor = System.Drawing.Color.Transparent;
+            this.LblTituloLibro.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTituloLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblTituloLibro.Location = new System.Drawing.Point(10, 10);
+            this.LblTituloLibro.Margin = new System.Windows.Forms.Padding(0);
+            this.LblTituloLibro.Name = "LblTituloLibro";
+            this.LblTituloLibro.Size = new System.Drawing.Size(0, 22);
+            this.LblTituloLibro.TabIndex = 0;
             // 
-            // LblEscribirIdioma
+            // flowLayoutPanel3
             // 
-            this.LblEscribirIdioma.AutoSize = true;
-            this.LblEscribirIdioma.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirIdioma.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirIdioma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirIdioma.Location = new System.Drawing.Point(86, 92);
-            this.LblEscribirIdioma.Margin = new System.Windows.Forms.Padding(0);
-            this.LblEscribirIdioma.Name = "LblEscribirIdioma";
-            this.LblEscribirIdioma.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirIdioma.TabIndex = 9;
-            // 
-            // LblIdioma
-            // 
-            this.LblIdioma.AutoSize = true;
-            this.LblIdioma.BackColor = System.Drawing.Color.Transparent;
-            this.LblIdioma.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblIdioma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblIdioma.Location = new System.Drawing.Point(0, 90);
-            this.LblIdioma.Margin = new System.Windows.Forms.Padding(0);
-            this.LblIdioma.Name = "LblIdioma";
-            this.LblIdioma.Size = new System.Drawing.Size(52, 17);
-            this.LblIdioma.TabIndex = 8;
-            this.LblIdioma.Text = "Idioma:";
-            // 
-            // LblEscribirFormato
-            // 
-            this.LblEscribirFormato.AutoSize = true;
-            this.LblEscribirFormato.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirFormato.Font = new System.Drawing.Font("Merienda", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirFormato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEscribirFormato.Location = new System.Drawing.Point(86, 114);
-            this.LblEscribirFormato.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.LblEscribirFormato.Name = "LblEscribirFormato";
-            this.LblEscribirFormato.Size = new System.Drawing.Size(0, 14);
-            this.LblEscribirFormato.TabIndex = 11;
-            // 
-            // LblFormato
-            // 
-            this.LblFormato.AutoSize = true;
-            this.LblFormato.BackColor = System.Drawing.Color.Transparent;
-            this.LblFormato.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFormato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblFormato.Location = new System.Drawing.Point(0, 112);
-            this.LblFormato.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.LblFormato.Name = "LblFormato";
-            this.LblFormato.Size = new System.Drawing.Size(61, 17);
-            this.LblFormato.TabIndex = 10;
-            this.LblFormato.Text = "Formato:";
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(0, 240);
+            this.flowLayoutPanel3.TabIndex = 5;
             // 
             // PanBorde
             // 
@@ -412,6 +418,7 @@
             this.PanBorde.TabIndex = 0;
             this.PanBorde.TamBorde = 5;
             this.PanBorde.Click += new System.EventHandler(this.PanBorde_Click);
+            this.PanBorde.DoubleClick += new System.EventHandler(this.PanBorde_DoubleClick);
             this.PanBorde.MouseEnter += new System.EventHandler(this.PanBorde_MouseEnter);
             this.PanBorde.MouseLeave += new System.EventHandler(this.PanBorde_MouseLeave);
             // 
@@ -426,18 +433,18 @@
             this.Load += new System.EventHandler(this.VistaDetallesV_Load);
             this.PanDatos.ResumeLayout(false);
             this.PanDatos.PerformLayout();
-            this.PanTitulo.ResumeLayout(false);
-            this.PanTitulo.PerformLayout();
-            this.PanAutores.ResumeLayout(false);
-            this.PanAutores.PerformLayout();
-            this.PanFoto.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PcbImgLibro)).EndInit();
-            this.PanEditorial.ResumeLayout(false);
-            this.PanEditorial.PerformLayout();
-            this.PanSeries.ResumeLayout(false);
-            this.PanSeries.PerformLayout();
             this.PanRestoDatos.ResumeLayout(false);
             this.PanRestoDatos.PerformLayout();
+            this.PanSeries.ResumeLayout(false);
+            this.PanSeries.PerformLayout();
+            this.PanEditorial.ResumeLayout(false);
+            this.PanEditorial.PerformLayout();
+            this.PanFoto.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PcbImgLibro)).EndInit();
+            this.PanAutores.ResumeLayout(false);
+            this.PanAutores.PerformLayout();
+            this.PanTitulo.ResumeLayout(false);
+            this.PanTitulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

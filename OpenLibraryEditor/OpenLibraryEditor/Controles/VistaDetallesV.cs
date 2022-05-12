@@ -120,17 +120,21 @@ namespace OpenLibraryEditor.Controles
         #region metodos
         private void PanBorde_MouseEnter(object sender, EventArgs e)
         {
-            PanDatos.BackColor = Color.Silver;
+            PanDatos.BackColor = Color.FromArgb(80, 137,205, 250);
         }
 
         private void PanBorde_MouseLeave(object sender, EventArgs e)
         {
-            PanDatos.BackColor = Color.FromArgb(243,249,255);
+            PanDatos.BackColor = Color.FromArgb(243, 249, 255);
         }
 
         private void PanBorde_Click(object sender, EventArgs e)
         {
             this.OnClick(e);
+        }
+        private void PanBorde_DoubleClick(object sender, EventArgs e)
+        {
+            this.OnDoubleClick(e);
         }
         #endregion
         private void VistaDetallesV_Load(object sender, EventArgs e)
@@ -149,8 +153,9 @@ namespace OpenLibraryEditor.Controles
             LblIdioma.Text = ControladorIdioma.GetTexto("Main_Idioma");
             LblFormato.Text = ControladorIdioma.GetTexto("Main_Formato");
         }
+
         #endregion
 
-     
+        
     }
 }

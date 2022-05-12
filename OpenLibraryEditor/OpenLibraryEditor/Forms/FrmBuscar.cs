@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,10 +27,23 @@ namespace OpenLibraryEditor.Forms
          */
 
         private const string NOMBRE_GOOGLE = "Google Books";
+        private int contadorLibros = 0;
+        private List<Libro> titulos;
 
         public FrmBuscar()
         {
             InitializeComponent();
+            titulos = SacarListaLibro();
+        }
+        private List<Libro> SacarListaLibro()
+        {
+            List<Libro> libro;
+            if (UsuarioDatos.configuracionUsuario.ContenidoExplicito)
+                libro = Biblioteca.biblioteca.ListaLibro;
+            else
+                libro = Biblioteca.biblioteca.ListaLibro.FindAll(
+                    p => !p.MayorEdad);
+            return libro;
         }
         private void IdiomaTexto()
         {
@@ -45,7 +59,7 @@ namespace OpenLibraryEditor.Forms
                     query = KTxtBuscarBUS.Text;
                     break;
                 case 1:
-                    query = "inauthor:\""+KTxtBuscarBUS.Text+"\"";
+                    query = "inauthor:\"" + KTxtBuscarBUS.Text + "\"";
                     break;
                 case 2:
                     query = "subject:\"" + KTxtBuscarBUS.Text + "\"";
@@ -63,6 +77,7 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
             KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
+            ponerLibrosRecomendados();
         }
 
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
@@ -78,13 +93,13 @@ namespace OpenLibraryEditor.Forms
                     GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
                         UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
                     //Realizar Query
-                    gBooks.SearchBook(query,10,UsuarioDatos.configuracionUsuario.ContenidoExplicito);
+                    gBooks.SearchBook(query, 10, UsuarioDatos.configuracionUsuario.ContenidoExplicito);
                     //Listar libros
                     foreach (var libro in gBooks.BookCollection.Items)
                     {
                         var info = libro.VolumeInfo;
-                        if (info.ImageLinks != null) 
-                            imglist.Images.Add("image", 
+                        if (info.ImageLinks != null)
+                            imglist.Images.Add("image",
                                 GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
                         else
                             imglist.Images.Add("image",
@@ -94,10 +109,10 @@ namespace OpenLibraryEditor.Forms
 
                         LsvSeriesNS.SmallImageList = imglist;
                         LsvSeriesNS.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
-                        ListViewItem lvi = 
+                        ListViewItem lvi =
                             LsvSeriesNS.Items.Add(info.Title + "\n" +
-                            info.PublishedDate + "\n" + info.Description, 
-                            imglist.Images.Count-1);
+                            info.PublishedDate + "\n" + info.Description,
+                            imglist.Images.Count - 1);
                         lvi.Tag = libro;
 
                     }
@@ -107,7 +122,7 @@ namespace OpenLibraryEditor.Forms
                     break;
             }
 
-            
+
         }
 
         private void KCmbServidoresBUS_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,6 +173,61 @@ namespace OpenLibraryEditor.Forms
                         }
                     }
                     break;
+            }
+        }
+        private void MbtnAtrasLibro_Click(object sender, EventArgs e)
+        {
+            if (contadorLibros < 4)
+            {
+                foreach (PictureBox pc in PanLibrosBuscar.Controls)
+                {
+                    int posX = pc.Location.X;
+                    pc.Location = new Point((posX - 140), 5);
+
+                }
+                contadorLibros++;
+            }
+        }
+
+
+        private void MBtnAvanzarLibro_Click(object sender, EventArgs e)
+        {
+            if (contadorLibros >= 1 && contadorLibros <= 4)
+            {
+                foreach (PictureBox pc in PanLibrosBuscar.Controls)
+                {
+                    int posX = pc.Location.X;
+                    pc.Location = new Point((posX + 140), 5);
+
+                }
+                contadorLibros--;
+            }
+        }
+        private void GenerarPortadaLibro(Libro libro, PictureBox pcb)
+        {
+            if (File.Exists(libro.ImagenPortada))
+            {
+                pcb.Image = Image.FromFile(libro.ImagenPortada);
+            }
+            else
+            {
+                pcb.Image = Properties.Resources.PortadaLogo;
+            }
+        }
+        int contador = 0;
+        private void ponerLibrosRecomendados()
+        {
+            foreach (PictureBox pc in PanLibrosBuscar.Controls)
+            {
+                pc.BorderStyle = BorderStyle.FixedSingle;
+                //pc.Image = null;
+                    foreach (Libro libro in titulos) 
+                    {
+                        GenerarPortadaLibro(libro,pc);
+                        contador++;
+                    }
+                //if (contador == 10)
+                //    return; 
             }
         }
     }
