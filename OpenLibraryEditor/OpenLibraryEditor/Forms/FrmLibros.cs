@@ -234,8 +234,11 @@ namespace OpenLibraryEditor.Forms
 
         private void RellenarEjecutable()
         {
+            KCmbEjecutableNL.Text = "";
             KCmbEjecutableNL.Items.Clear();
             listaEjecutable.ForEach(p => AgregarComboItem(KCmbEjecutableNL, p));
+            if(LsvAccionesNL.SelectedItems.Count == 1)
+                KCmbEjecutableNL.SelectedItem = (LsvAccionesNL.SelectedItems[0].Tag as UsuarioAccion).Ejecutable;
         }
 
         private void RellenarEtiqueta(List<Etiqueta> listaComparador)
@@ -521,14 +524,20 @@ namespace OpenLibraryEditor.Forms
         }
         private void GBtnGuardarAccion_Click(object sender, EventArgs e)
         {
-            //Actualizar libro
-            accionActual.RutaFichero = KTxtFicheroNL.Text;
-            accionActual.Ejecutable = (UsuarioEjecutable)KCmbEjecutableNL.SelectedItem;
+            if (KCmbEjecutableNL.SelectedItem != null &&
+                File.Exists(KTxtFicheroNL.Text))
+            {
+                //Actualizar libro
+                accionActual.RutaFichero = KTxtFicheroNL.Text;
+                accionActual.Ejecutable = (UsuarioEjecutable)KCmbEjecutableNL.SelectedItem;
 
-            //Actualizar listview
-            itemActual.Text = accionActual.RutaFichero;
-            if (accionActual.Ejecutable != null)
-                itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
+                //Actualizar listview
+                itemActual.Text = Path.GetFileName(accionActual.RutaFichero);
+                if (accionActual.Ejecutable != null)
+                    itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
+            }
+            else
+                VentanaWindowsComun.MensajeInformacion("Necesitas una ruta de fichero válida y un ejecutable para guardar.");
         }
         private void IbtnFichero_Click(object sender, EventArgs e)
         {
@@ -537,7 +546,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnMasEjecutableNL_Click(object sender, EventArgs e)
         {
-            FrmEjecutable ejecutable = new FrmEjecutable(true);
+            FrmEjecutable ejecutable = new FrmEjecutable(false);
             ejecutable.FormBorderStyle=FormBorderStyle.None;
             ejecutable.ShowDialog();
             RellenarEjecutable();
@@ -624,7 +633,7 @@ namespace OpenLibraryEditor.Forms
         private void FrmAniadirLibro_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Comparar objetos para preguntar si guardar
-            if (libroActual != null && EsObjetoCambiado())
+            if (libroActual != null && EsObjetoCambiado() && !esOk)
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Al_ElLibro"));
                 if (result == DialogResult.Yes)
