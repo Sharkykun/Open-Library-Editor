@@ -740,7 +740,7 @@ namespace OpenLibraryEditor.Forms
             public static Color colorSubmenu = Color.DarkOrange;
             public static Color colorBuscar = Color.Magenta;
             public static Color colorConfi = Color.SaddleBrown;
-            //public static Color colorTool = Color.FromArgb(164, 204, 255);
+            public static Color colorAdmin = Color.DarkViolet;
         }
         private void ResetColores()
         {
@@ -914,6 +914,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnAdminUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormularios(new FrmAdministrarUsuarios());
+            BotonActivo(sender, Colores.colorAdmin);
         }
 
         #endregion

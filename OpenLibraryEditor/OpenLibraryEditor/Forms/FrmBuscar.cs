@@ -223,11 +223,13 @@ namespace OpenLibraryEditor.Forms
                 //pc.Image = null;
                     foreach (Libro libro in titulos) 
                     {
-                        GenerarPortadaLibro(libro,pc);
+                    //GenerarPortadaLibro(libro,pc);
+                    pc.Image =Image.FromFile(libro.ImagenPortada);
                         contador++;
-                    }
-                //if (contador == 10)
-                //    return; 
+                    if (contador == 10)
+                        return;
+                }
+                
             }
         }
     }
