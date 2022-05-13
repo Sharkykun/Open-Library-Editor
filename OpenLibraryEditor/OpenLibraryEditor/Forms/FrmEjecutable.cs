@@ -161,9 +161,20 @@ namespace OpenLibraryEditor.Forms
             if (LsvEjecutable.SelectedItems.Count == 1 &&
                 VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
             {
+                //Quitar referencias a ejecutable en otros libros y sus acciones
+                Biblioteca.biblioteca.ListaLibro.ForEach(p =>
+                {
+                    p.ListaAccion.ForEach(s =>
+                    {
+                        if (s.Ejecutable == ejecutableActual)
+                            s.Ejecutable = null;
+                    });
+                });
+
                 var item = LsvEjecutable.SelectedItems[0];
                 listaEjecutable.Remove(ejecutableActual);
                 LsvEjecutable.Items.Remove(item);
+                
             }
         }
 

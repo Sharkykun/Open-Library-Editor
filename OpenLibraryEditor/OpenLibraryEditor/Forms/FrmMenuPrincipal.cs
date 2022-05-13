@@ -468,6 +468,7 @@ namespace OpenLibraryEditor.Forms
             {
                 case 0:
                     //Ejecutar libro
+                    
                     if (libroActual.ListaAccion.Count > 0)
                     {
                         List<Process> listaProcesos = new List<Process>();
@@ -477,10 +478,18 @@ namespace OpenLibraryEditor.Forms
 
                         foreach (UsuarioAccion ac in libroActual.ListaAccion)
                         {
-                            listaProcesos.Add(ac.EjecutarAccion());
+                            Process p = ac.EjecutarAccion();
+                            if (p != null)
+                                listaProcesos.Add(p);
+                            else
+                            {
+                                VentanaWindowsComun.MensajeError("No se pudo ejecutar. Compruebe que la ruta del fichero" +
+                                    "\ny el ejecutable son correctas.");
+                            }
                         }
                         EsperarHastaFinDeProcesos(listaProcesos);
                     }
+                    
                     break;
                 case 1:
                     //Modificar información libro
@@ -731,7 +740,7 @@ namespace OpenLibraryEditor.Forms
             public static Color colorSubmenu = Color.DarkOrange;
             public static Color colorBuscar = Color.Magenta;
             public static Color colorConfi = Color.SaddleBrown;
-            //public static Color colorTool = Color.FromArgb(164, 204, 255);
+            public static Color colorAdmin = Color.DarkViolet;
         }
         private void ResetColores()
         {
@@ -905,6 +914,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnAdminUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormularios(new FrmAdministrarUsuarios());
+            BotonActivo(sender, Colores.colorAdmin);
         }
 
         #endregion
