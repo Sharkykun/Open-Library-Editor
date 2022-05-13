@@ -312,3 +312,4 @@ C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEd
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarUsuario.resources
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmInputTxt.resources
 C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmWebView.resources
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarUsuario.resources

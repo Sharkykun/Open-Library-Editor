@@ -62,12 +62,13 @@ namespace OpenLibraryEditor.Forms
                     query = "inauthor:\"" + KTxtBuscarBUS.Text + "\"";
                     break;
                 case 2:
-                    query = "subject:\"" + KTxtBuscarBUS.Text + "\"";
+                    query = "inpublisher:" + KTxtBuscarBUS.Text;
                     break;
                 case 3:
-                    query = "inpublisher:\"" + KTxtBuscarBUS.Text + "\"";
+                    query = "subject:\"" + KTxtBuscarBUS.Text + "\"";
                     break;
             }
+            
             return query;
         }
 
@@ -95,26 +96,29 @@ namespace OpenLibraryEditor.Forms
                     //Realizar Query
                     gBooks.SearchBook(query, 10, UsuarioDatos.configuracionUsuario.ContenidoExplicito);
                     //Listar libros
-                    foreach (var libro in gBooks.BookCollection.Items)
+                    if (gBooks.BookCollection != null)
                     {
-                        var info = libro.VolumeInfo;
-                        if (info.ImageLinks != null)
-                            imglist.Images.Add("image",
-                                GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                        else
-                            imglist.Images.Add("image",
-                                new PictureBox().ErrorImage);
-                        imglist.ColorDepth = ColorDepth.Depth32Bit;
-                        imglist.ImageSize = new Size(150, 200);
+                        foreach (var libro in gBooks.BookCollection.Items)
+                        {
+                            var info = libro.VolumeInfo;
+                            if (info.ImageLinks != null)
+                                imglist.Images.Add("image",
+                                    GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                            else
+                                imglist.Images.Add("image",
+                                    new PictureBox().ErrorImage);
+                            imglist.ColorDepth = ColorDepth.Depth32Bit;
+                            imglist.ImageSize = new Size(150, 200);
 
-                        LsvSeriesNS.SmallImageList = imglist;
-                        LsvSeriesNS.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
-                        ListViewItem lvi =
-                            LsvSeriesNS.Items.Add(info.Title + "\n" +
-                            info.PublishedDate + "\n" + info.Description,
-                            imglist.Images.Count - 1);
-                        lvi.Tag = libro;
+                            LsvSeriesNS.SmallImageList = imglist;
+                            LsvSeriesNS.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
+                            ListViewItem lvi =
+                                LsvSeriesNS.Items.Add(info.Title + "\n" +
+                                info.PublishedDate + "\n" + info.Description,
+                                imglist.Images.Count - 1);
+                            lvi.Tag = libro;
 
+                        }
                     }
                     break;
                 default:
@@ -214,23 +218,26 @@ namespace OpenLibraryEditor.Forms
                 pcb.Image = Properties.Resources.PortadaLogo;
             }
         }
-        int contador = 0;
+    
         private void ponerLibrosRecomendados()
         {
+            int contador = 0;
+
             foreach (PictureBox pc in PanLibrosBuscar.Controls)
             {
                 pc.BorderStyle = BorderStyle.FixedSingle;
-                //pc.Image = null;
-                    foreach (Libro libro in titulos) 
-                    {
-                    //GenerarPortadaLibro(libro,pc);
-                    pc.Image =Image.FromFile(libro.ImagenPortada);
+                pc.Image = Image.FromFile(titulos[contador].ImagenPortada);
+
+            //        foreach (Libro libro in titulos) 
+            //        {
+            //        //GenerarPortadaLibro(libro,pc);
+            //        pc.Image =Image.FromFile(libro.ImagenPortada);
                         contador++;
-                    if (contador == 10)
-                        return;
-                }
-                
-            }
+            //        if (contador == 10)
+            //            return;
+            //    }
+
+             }
         }
     }
 }
