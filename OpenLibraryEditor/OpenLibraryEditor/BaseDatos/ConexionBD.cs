@@ -134,7 +134,7 @@ namespace OpenLibraryEditor.BaseDatos
                 NOMBRE_BD+" .* TO'"+ nombreFinal + "'@'%';", conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
-               NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", conexion);
+                NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT ALL ON " +
                 "mysql .user TO'" + nombreFinal + "'@'%';", conexion);
@@ -142,10 +142,7 @@ namespace OpenLibraryEditor.BaseDatos
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
                 "mysql .user TO'" + nombreFinal + "'@'%';", conexion);
             cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand("GRANT CREATE USER ON " +
-                "*.* TO'" + nombreFinal + "'@'%';", conexion);
-            cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand("GRANT RELOAD ON " +
+            cmd = new MySqlCommand("GRANT CREATE USER, RELOAD ON " +
                 "*.* TO'" + nombreFinal + "'@'%';", conexion);
             cmd.ExecuteNonQuery();
             AplicarPermisosUsuario();
@@ -162,10 +159,12 @@ namespace OpenLibraryEditor.BaseDatos
             cmd.ExecuteNonQuery();
         }
 
-        public static void CrearEditorBD(string nombreUsuario, string contrasenia)
+        public static void CrearEditorBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
             CrearUsuarioBD(nombreFinal, contrasenia);
+            QuitarPrivilegiosUsuarioBD(nombreAntiguo, true);
+            AplicarPermisosUsuario();
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
             ConcederEdicionTabla("UsuarioLibro", nombreFinal);
@@ -181,10 +180,12 @@ namespace OpenLibraryEditor.BaseDatos
             AplicarPermisosUsuario();
         }
 
-        public static void CrearUsuarioComunBD(string nombreUsuario, string contrasenia)
+        public static void CrearUsuarioComunBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
             CrearUsuarioBD(nombreFinal, contrasenia);
+            QuitarPrivilegiosUsuarioBD(nombreAntiguo, false);
+            AplicarPermisosUsuario();
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
             ConcederEdicionTabla("UsuarioLibro", nombreFinal);
@@ -216,6 +217,7 @@ namespace OpenLibraryEditor.BaseDatos
             ConcederLecturaTabla("Editorial", nombreFinal);
             ConcederLecturaTabla("ListaGenero", nombreFinal);
             ConcederLecturaTabla("Genero", nombreFinal);
+            AplicarPermisosUsuario();
         }
 
         private static void CrearUsuarioBD(string nombreUsuario, string contrasenia)
@@ -225,6 +227,63 @@ namespace OpenLibraryEditor.BaseDatos
             {
                 cmd = new MySqlCommand("CREATE USER '" + nombreUsuario + "'@'%' IDENTIFIED BY '" + contrasenia + "'", conexion);
                 cmd.ExecuteNonQuery();
+            }
+        }
+
+        private static void QuitarPrivilegiosUsuarioBD(string nombreUsuario, bool esEditor)
+        {
+            if (esEditor)
+            {
+                QuitarPrivilegios(nombreUsuario, "Biblioteca", false);
+                QuitarPrivilegios(nombreUsuario, "Usuario", false);
+                QuitarPrivilegios(nombreUsuario, "UsuarioLibro", true);
+                QuitarPrivilegios(nombreUsuario, "Libro", true);
+                QuitarPrivilegios(nombreUsuario, "TipoLibro", true);
+                QuitarPrivilegios(nombreUsuario, "ListaAutor", true);
+                QuitarPrivilegios(nombreUsuario, "Autor", true);
+                QuitarPrivilegios(nombreUsuario, "Ocupacion", true);
+                QuitarPrivilegios(nombreUsuario, "ListaEditorial", true);
+                QuitarPrivilegios(nombreUsuario, "Editorial", true);
+                QuitarPrivilegios(nombreUsuario, "ListaGenero", true);
+                QuitarPrivilegios(nombreUsuario, "Genero", true);
+            }
+            else
+            {
+                QuitarPrivilegios(nombreUsuario, "Biblioteca", false);
+                QuitarPrivilegios(nombreUsuario, "Usuario", false);
+                QuitarPrivilegios(nombreUsuario, "UsuarioLibro", true);
+                QuitarPrivilegios(nombreUsuario, "Libro", false);
+                QuitarPrivilegios(nombreUsuario, "TipoLibro", false);
+                QuitarPrivilegios(nombreUsuario, "ListaAutor", false);
+                QuitarPrivilegios(nombreUsuario, "Autor", false);
+                QuitarPrivilegios(nombreUsuario, "Ocupacion", false);
+                QuitarPrivilegios(nombreUsuario, "ListaEditorial", false);
+                QuitarPrivilegios(nombreUsuario, "Editorial", false);
+                QuitarPrivilegios(nombreUsuario, "ListaGenero", false);
+                QuitarPrivilegios(nombreUsuario, "Genero", false);
+            }
+        }
+
+        private static void QuitarPrivilegios(string nombreUsuario, string tabla, bool esEscritura)
+        {
+            try
+            {
+                if (!esEscritura)
+                {
+                    MySqlCommand cmd = new MySqlCommand("REVOKE SELECT ON " +
+                       NOMBRE_BD + "."+tabla+" FROM '" + nombreUsuario + "'@'%';", conexion);
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    MySqlCommand cmd = new MySqlCommand("REVOKE SELECT,INSERT,DELETE,UPDATE ON " +
+                       NOMBRE_BD + ".* FROM '" + nombreUsuario + "'@'%';", conexion);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException)
+            {
+                Console.WriteLine("Sin permisos en la BD para este usuario.");
             }
         }
 

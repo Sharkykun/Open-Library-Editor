@@ -39,13 +39,16 @@ namespace OpenLibraryEditor.Forms
             this.Opacity = 0.0;
             IdiomaTexto();
 
-            // Pruebas de carga de clases en la BD
-            // ConexionBD.CrearBD("localhost", "root","","3306");
-            //ConexionBD.AbrirConexion();
-
-            // Para pruebas de llamads a BD
-
-            //ConexionBD.CerrarConexion();
+            if (!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+            {
+                KTxtUrl.Text = UsuarioDatos.configuracionUsuario.RecordarUrl;
+                KTxtUrl_Enter(null, null);
+                KTxtNombre.Text = UsuarioDatos.configuracionUsuario.RecordarUsuario;
+                KTxtNombre_Enter(null, null);
+                KTxtContra.Text = UsuarioDatos.configuracionUsuario.RecordarContr;
+                KTxtContra_Enter(null, null);
+                ToggleConectado.Checked = true;
+            }
         }
         private void TimerAparecer_Tick(object sender, EventArgs e)
         {
@@ -118,9 +121,11 @@ namespace OpenLibraryEditor.Forms
         {
             txt.StateCommon.Back.Color1 = Color.WhiteSmoke;
 
-            if (txt.Text == s)
+            if (txt.Text == s || 
+                !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
             {
-                txt.Text = "";
+                if (String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+                    txt.Text = "";
                 txt.StateCommon.Content.Color1 = Color.Black;
             }
         }
@@ -130,9 +135,11 @@ namespace OpenLibraryEditor.Forms
             txt.StateCommon.Back.Color1 = Color.WhiteSmoke;
             IpcbMostrarContra.BackColor = Color.WhiteSmoke;
             IpcbOcultarContra.BackColor = Color.WhiteSmoke;
-            if (txt.Text == s)
+            if (txt.Text == s ||
+                !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
             {
-                txt.Text = "";
+                if(String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+                    txt.Text = "";
                 txt.StateCommon.Content.Color1 = Color.Black;
                 txt.UseSystemPasswordChar = true;
             }
@@ -250,6 +257,20 @@ namespace OpenLibraryEditor.Forms
                 this.Hide();
                 ConexionBD.CerrarConexion();
                 ObtenerInfoBD(KTxtNombre.Text);
+                if (ToggleConectado.Checked)
+                {
+                    UsuarioDatos.configuracionUsuario.RecordarUrl = KTxtUrl.Text;
+                    UsuarioDatos.configuracionUsuario.RecordarUsuario = KTxtNombre.Text;
+                    UsuarioDatos.configuracionUsuario.RecordarContr = KTxtContra.Text;
+                    UsuarioDatos.configuracionUsuario.GuardarJson();
+                }
+                else
+                {
+                    UsuarioDatos.configuracionUsuario.RecordarUrl = "";
+                    UsuarioDatos.configuracionUsuario.RecordarUsuario = "";
+                    UsuarioDatos.configuracionUsuario.RecordarContr = "";
+                    UsuarioDatos.configuracionUsuario.GuardarJson();
+                }
             }
             else
             {

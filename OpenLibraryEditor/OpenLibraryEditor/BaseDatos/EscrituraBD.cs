@@ -759,10 +759,12 @@ namespace OpenLibraryEditor.BaseDatos
 
                     //Creamos usuario con permisos en mysql
                     if (usuario.TipoUsuario == "Usuario")
-                        ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia);
+                        ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia, usuario.Nombre);
                     else if (usuario.TipoUsuario == "Editor")
-                        ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia);
+                        ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia, usuario.Nombre);
                 }
+                else
+                    VentanaWindowsComun.MensajeError("El usuario ya existe en la base de datos.");
             }
             catch (Exception ex)
             {
@@ -785,11 +787,19 @@ namespace OpenLibraryEditor.BaseDatos
                 usuario.TipoUsuario), ConexionBD.conexion);
                 tabla.ExecuteNonQuery();
 
+                //Renombramos el usuario de mysql users
+                tabla = new MySqlCommand(@"
+                RENAME USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD + nombreOriginal +
+                "'@'%' TO '"
+                + ConexionBD.ANTENOMBRE_USUARIO_BD + usuario.Nombre + "'@'%';",
+                ConexionBD.conexion);
+                tabla.ExecuteNonQuery();
+
                 //Modificamos permisos de usuario en mysql
                 if (usuario.TipoUsuario == "Usuario")
-                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia);
+                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia, nombreOriginal);
                 else if (usuario.TipoUsuario == "Editor")
-                    ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia);
+                    ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia, nombreOriginal);
             }
             catch (Exception ex)
             {

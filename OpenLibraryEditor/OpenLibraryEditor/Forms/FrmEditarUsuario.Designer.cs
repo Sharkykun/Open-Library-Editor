@@ -37,14 +37,14 @@ namespace OpenLibraryEditor.Forms
             this.LblTitulo = new System.Windows.Forms.Label();
             this.PcbLogoEditUsu = new System.Windows.Forms.PictureBox();
             this.KgbDatosEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.KTxtNombreEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.KCmbTipoEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblTipoEditUsu = new System.Windows.Forms.Label();
             this.KTxtContraEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtEmailEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblContraEditUsu = new System.Windows.Forms.Label();
             this.LblEmailEditUsu = new System.Windows.Forms.Label();
-            this.KTxtNombreEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.PanBtn.SuspendLayout();
             this.PanTituloEditUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditUsu)).BeginInit();
@@ -207,10 +207,38 @@ namespace OpenLibraryEditor.Forms
             this.KgbDatosEditUsu.TabIndex = 159;
             this.KgbDatosEditUsu.Values.Heading = "Datos para registrarse en la aplicación";
             // 
+            // KTxtNombreEditUsu
+            // 
+            this.KTxtNombreEditUsu.Location = new System.Drawing.Point(175, 3);
+            this.KTxtNombreEditUsu.Name = "KTxtNombreEditUsu";
+            this.KTxtNombreEditUsu.Size = new System.Drawing.Size(322, 33);
+            this.KTxtNombreEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtNombreEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombreEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombreEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtNombreEditUsu.StateCommon.Border.Rounding = 10;
+            this.KTxtNombreEditUsu.StateCommon.Border.Width = 2;
+            this.KTxtNombreEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtNombreEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtNombreEditUsu.TabIndex = 166;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.label1.Location = new System.Drawing.Point(20, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 22);
+            this.label1.TabIndex = 167;
+            this.label1.Text = "Nombre:";
+            // 
             // KCmbTipoEditUsu
             // 
+            this.KCmbTipoEditUsu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KCmbTipoEditUsu.DropDownWidth = 228;
-            this.KCmbTipoEditUsu.Enabled = false;
             this.KCmbTipoEditUsu.Location = new System.Drawing.Point(175, 115);
             this.KCmbTipoEditUsu.Name = "KCmbTipoEditUsu";
             this.KCmbTipoEditUsu.Size = new System.Drawing.Size(322, 33);
@@ -295,34 +323,6 @@ namespace OpenLibraryEditor.Forms
             this.LblEmailEditUsu.Size = new System.Drawing.Size(55, 22);
             this.LblEmailEditUsu.TabIndex = 23;
             this.LblEmailEditUsu.Text = "Email:";
-            // 
-            // KTxtNombreEditUsu
-            // 
-            this.KTxtNombreEditUsu.Location = new System.Drawing.Point(175, 3);
-            this.KTxtNombreEditUsu.Name = "KTxtNombreEditUsu";
-            this.KTxtNombreEditUsu.Size = new System.Drawing.Size(322, 33);
-            this.KTxtNombreEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtNombreEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtNombreEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtNombreEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtNombreEditUsu.StateCommon.Border.Rounding = 10;
-            this.KTxtNombreEditUsu.StateCommon.Border.Width = 2;
-            this.KTxtNombreEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtNombreEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreEditUsu.TabIndex = 166;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.label1.Location = new System.Drawing.Point(20, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 22);
-            this.label1.TabIndex = 167;
-            this.label1.Text = "Nombre:";
             // 
             // FrmEditarUsuario
             // 

@@ -85,10 +85,10 @@ namespace OpenLibraryEditor.Forms
             switch(usuario.TipoUsuario)
             {
                 case "Usuario":
-                    KCmbTipoUsu.SelectedIndex = 0;
+                    KCmbTipoUsu.SelectedIndex = 1;
                     break;
                 case "Editor":
-                    KCmbTipoUsu.SelectedIndex = 1;
+                    KCmbTipoUsu.SelectedIndex = 0;
                     break;
                 case "Administrador":
                     KCmbTipoUsu.SelectedIndex = 2;
@@ -131,6 +131,8 @@ namespace OpenLibraryEditor.Forms
                 LblEscribirEmail.Text = usuarioActual.Correo;
                 SeleccionarTipoUsuario(usuarioActual);
             }
+            else
+                KgbDatosUsuario.Visible = false;
         }
 
         private void MBtnBuscar_Click(object sender, EventArgs e)
@@ -173,17 +175,34 @@ namespace OpenLibraryEditor.Forms
         {
             FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
             form.ShowDialog();
+            if (form.EsOk)
+            {
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+            }
         }
 
         private void MBtnEditarUsu_Click(object sender, EventArgs e)
         {
             FrmEditarUsuario form = new FrmEditarUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag, true);
             form.ShowDialog();
+            if (form.EsOk)
+            {
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+            }
         }
 
         private void MBtnMenosUsu_Click(object sender, EventArgs e)
         {
-
+            if (VentanaWindowsComun.MensajeBorrarObjeto("este usuario") == DialogResult.Yes)
+            {
+                ConexionBD.AbrirConexion();
+                EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
+                ConexionBD.CerrarConexion();
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+            }
         }
     }
 }

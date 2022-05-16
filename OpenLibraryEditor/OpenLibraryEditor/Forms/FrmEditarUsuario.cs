@@ -17,6 +17,9 @@ namespace OpenLibraryEditor.Forms
     {
         private bool esEditar;
         private InfoUsuarioBD usuario;
+        private bool esOk = false;
+
+        public bool EsOk { get => esOk; set => esOk = value; }
 
         public FrmEditarUsuario(InfoUsuarioBD usuario, bool esEditar)
         {
@@ -33,10 +36,10 @@ namespace OpenLibraryEditor.Forms
             switch (usuario.TipoUsuario)
             {
                 case "Usuario":
-                    KCmbTipoEditUsu.SelectedIndex = 0;
+                    KCmbTipoEditUsu.SelectedIndex = 1;
                     break;
                 case "Editor":
-                    KCmbTipoEditUsu.SelectedIndex = 1;
+                    KCmbTipoEditUsu.SelectedIndex = 0;
                     break;
             }
         }
@@ -67,6 +70,7 @@ namespace OpenLibraryEditor.Forms
             {
                 if (ConexionBD.AbrirConexion())
                 {
+                    string nombreAntiguo = usuario.Nombre;
                     usuario.Nombre = KTxtNombreEditUsu.Text;
                     usuario.Correo = KTxtEmailEditUsu.Text;
                     if(KCmbTipoEditUsu.SelectedIndex == 0)
@@ -75,13 +79,14 @@ namespace OpenLibraryEditor.Forms
                         usuario.TipoUsuario = "Usuario";
                     if (esEditar)
                     {
-                        EscrituraBD.UpdateUsuario(usuario.Nombre, usuario, KTxtContraEditUsu.Text);
+                        EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
                     }
                     else
                     {
                         EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
                     }
                     ConexionBD.CerrarConexion();
+                    esOk = true;
                     Close();
                 }
             }
