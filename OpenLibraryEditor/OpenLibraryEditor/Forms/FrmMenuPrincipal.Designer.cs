@@ -44,11 +44,11 @@
             this.MBtnSalir = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnConfiguracion = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnBuscar = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnFavoritos = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnTags = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnEditoriales = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnSeries = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnEditoriales = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnGeneros = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnTítulos = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnAutores = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMiBiblioteca = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanFotoUsuario = new System.Windows.Forms.Panel();
@@ -331,11 +331,11 @@
             this.PanMenuMain.Controls.Add(this.MBtnSalir);
             this.PanMenuMain.Controls.Add(this.MBtnConfiguracion);
             this.PanMenuMain.Controls.Add(this.MBtnBuscar);
+            this.PanMenuMain.Controls.Add(this.MBtnFavoritos);
             this.PanMenuMain.Controls.Add(this.MBtnTags);
-            this.PanMenuMain.Controls.Add(this.MBtnEditoriales);
             this.PanMenuMain.Controls.Add(this.MBtnSeries);
+            this.PanMenuMain.Controls.Add(this.MBtnEditoriales);
             this.PanMenuMain.Controls.Add(this.MBtnGeneros);
-            this.PanMenuMain.Controls.Add(this.MBtnTítulos);
             this.PanMenuMain.Controls.Add(this.MBtnAutores);
             this.PanMenuMain.Controls.Add(this.MBtnMiBiblioteca);
             this.PanMenuMain.Controls.Add(this.PanFotoUsuario);
@@ -455,6 +455,31 @@
             this.MBtnBuscar.UseVisualStyleBackColor = false;
             this.MBtnBuscar.Click += new System.EventHandler(this.MBtnBuscar_Click);
             // 
+            // MBtnFavoritos
+            // 
+            this.MBtnFavoritos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.MBtnFavoritos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnFavoritos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MBtnFavoritos.FlatAppearance.BorderSize = 0;
+            this.MBtnFavoritos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.MBtnFavoritos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnFavoritos.Font = new System.Drawing.Font("Merienda One", 11.2F);
+            this.MBtnFavoritos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnFavoritos.IconChar = FontAwesome.Sharp.MaterialIcons.StarCircle;
+            this.MBtnFavoritos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnFavoritos.IconSize = 40;
+            this.MBtnFavoritos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MBtnFavoritos.Location = new System.Drawing.Point(0, 487);
+            this.MBtnFavoritos.Name = "MBtnFavoritos";
+            this.MBtnFavoritos.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
+            this.MBtnFavoritos.Size = new System.Drawing.Size(249, 45);
+            this.MBtnFavoritos.TabIndex = 8;
+            this.MBtnFavoritos.Text = "Favoritos";
+            this.MBtnFavoritos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MBtnFavoritos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MBtnFavoritos.UseVisualStyleBackColor = false;
+            this.MBtnFavoritos.Click += new System.EventHandler(this.MBtnFavoritos_Click);
+            // 
             // MBtnTags
             // 
             this.MBtnTags.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
@@ -469,42 +494,17 @@
             this.MBtnTags.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnTags.IconSize = 40;
             this.MBtnTags.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MBtnTags.Location = new System.Drawing.Point(0, 487);
+            this.MBtnTags.Location = new System.Drawing.Point(0, 442);
             this.MBtnTags.Name = "MBtnTags";
             this.MBtnTags.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
             this.MBtnTags.Size = new System.Drawing.Size(249, 45);
-            this.MBtnTags.TabIndex = 8;
+            this.MBtnTags.TabIndex = 7;
             this.MBtnTags.Text = "Etiquetas";
             this.MBtnTags.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnTags.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnTags.UseVisualStyleBackColor = false;
             this.MBtnTags.Visible = false;
             this.MBtnTags.Click += new System.EventHandler(this.MBtnTags_Click);
-            // 
-            // MBtnEditoriales
-            // 
-            this.MBtnEditoriales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            this.MBtnEditoriales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnEditoriales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MBtnEditoriales.FlatAppearance.BorderSize = 0;
-            this.MBtnEditoriales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            this.MBtnEditoriales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnEditoriales.Font = new System.Drawing.Font("Merienda One", 11.2F);
-            this.MBtnEditoriales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnEditoriales.IconChar = FontAwesome.Sharp.MaterialIcons.BankOutline;
-            this.MBtnEditoriales.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnEditoriales.IconSize = 40;
-            this.MBtnEditoriales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MBtnEditoriales.Location = new System.Drawing.Point(0, 442);
-            this.MBtnEditoriales.Name = "MBtnEditoriales";
-            this.MBtnEditoriales.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
-            this.MBtnEditoriales.Size = new System.Drawing.Size(249, 45);
-            this.MBtnEditoriales.TabIndex = 7;
-            this.MBtnEditoriales.Text = "Editoriales";
-            this.MBtnEditoriales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MBtnEditoriales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MBtnEditoriales.UseVisualStyleBackColor = false;
-            this.MBtnEditoriales.Click += new System.EventHandler(this.MBtnEditoriales_Click);
             // 
             // MBtnSeries
             // 
@@ -532,6 +532,31 @@
             this.MBtnSeries.Visible = false;
             this.MBtnSeries.Click += new System.EventHandler(this.MBtnSeries_Click);
             // 
+            // MBtnEditoriales
+            // 
+            this.MBtnEditoriales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.MBtnEditoriales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnEditoriales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MBtnEditoriales.FlatAppearance.BorderSize = 0;
+            this.MBtnEditoriales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
+            this.MBtnEditoriales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnEditoriales.Font = new System.Drawing.Font("Merienda One", 11.2F);
+            this.MBtnEditoriales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnEditoriales.IconChar = FontAwesome.Sharp.MaterialIcons.BankOutline;
+            this.MBtnEditoriales.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MBtnEditoriales.IconSize = 40;
+            this.MBtnEditoriales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MBtnEditoriales.Location = new System.Drawing.Point(0, 352);
+            this.MBtnEditoriales.Name = "MBtnEditoriales";
+            this.MBtnEditoriales.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
+            this.MBtnEditoriales.Size = new System.Drawing.Size(249, 45);
+            this.MBtnEditoriales.TabIndex = 5;
+            this.MBtnEditoriales.Text = "Editoriales";
+            this.MBtnEditoriales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MBtnEditoriales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MBtnEditoriales.UseVisualStyleBackColor = false;
+            this.MBtnEditoriales.Click += new System.EventHandler(this.MBtnEditoriales_Click);
+            // 
             // MBtnGeneros
             // 
             this.MBtnGeneros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
@@ -546,42 +571,16 @@
             this.MBtnGeneros.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnGeneros.IconSize = 40;
             this.MBtnGeneros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MBtnGeneros.Location = new System.Drawing.Point(0, 352);
+            this.MBtnGeneros.Location = new System.Drawing.Point(0, 307);
             this.MBtnGeneros.Name = "MBtnGeneros";
             this.MBtnGeneros.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
             this.MBtnGeneros.Size = new System.Drawing.Size(249, 45);
-            this.MBtnGeneros.TabIndex = 5;
+            this.MBtnGeneros.TabIndex = 4;
             this.MBtnGeneros.Text = "Géneros";
             this.MBtnGeneros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnGeneros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnGeneros.UseVisualStyleBackColor = false;
             this.MBtnGeneros.Click += new System.EventHandler(this.MBtnGeneros_Click);
-            // 
-            // MBtnTítulos
-            // 
-            this.MBtnTítulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            this.MBtnTítulos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnTítulos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MBtnTítulos.FlatAppearance.BorderSize = 0;
-            this.MBtnTítulos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
-            this.MBtnTítulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnTítulos.Font = new System.Drawing.Font("Merienda One", 11.2F);
-            this.MBtnTítulos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnTítulos.IconChar = FontAwesome.Sharp.MaterialIcons.TextShadow;
-            this.MBtnTítulos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MBtnTítulos.IconSize = 40;
-            this.MBtnTítulos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MBtnTítulos.Location = new System.Drawing.Point(0, 307);
-            this.MBtnTítulos.Name = "MBtnTítulos";
-            this.MBtnTítulos.Padding = new System.Windows.Forms.Padding(45, 0, 20, 0);
-            this.MBtnTítulos.Size = new System.Drawing.Size(249, 45);
-            this.MBtnTítulos.TabIndex = 4;
-            this.MBtnTítulos.Text = "Títulos";
-            this.MBtnTítulos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MBtnTítulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MBtnTítulos.UseVisualStyleBackColor = false;
-            this.MBtnTítulos.Visible = false;
-            this.MBtnTítulos.Click += new System.EventHandler(this.MBtnTitulos_Click);
             // 
             // MBtnAutores
             // 
@@ -911,8 +910,6 @@
             this.PanVistaMosaico.Name = "PanVistaMosaico";
             this.PanVistaMosaico.Size = new System.Drawing.Size(449, 542);
             this.PanVistaMosaico.TabIndex = 2;
-            this.PanVistaMosaico.SizeChanged += new System.EventHandler(this.PanVistaDetalles_SizeChanged);
-            this.PanVistaMosaico.Resize += new System.EventHandler(this.PanVistaMosaico_Resize);
             // 
             // PanListViewsOpciones
             // 
@@ -971,7 +968,6 @@
             this.PanDetallesLibro.Size = new System.Drawing.Size(250, 542);
             this.PanDetallesLibro.TabIndex = 1;
             this.PanDetallesLibro.Visible = false;
-            this.PanDetallesLibro.VisibleChanged += new System.EventHandler(this.PanDetallesLibro_VisibleChanged);
             // 
             // PanMasdatos
             // 
@@ -2026,6 +2022,7 @@
             this.KTxtBuscarMBI.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtBuscarMBI.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtBuscarMBI.TabIndex = 130;
+            this.KTxtBuscarMBI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
             // 
             // MBtnBuscarMBI
             // 
@@ -2053,8 +2050,6 @@
             this.PanVistaDetalles.Name = "PanVistaDetalles";
             this.PanVistaDetalles.Size = new System.Drawing.Size(949, 582);
             this.PanVistaDetalles.TabIndex = 2;
-            this.PanVistaDetalles.SizeChanged += new System.EventHandler(this.PanVistaDetalles_SizeChanged);
-            this.PanVistaDetalles.Resize += new System.EventHandler(this.PanVistaMosaico_Resize);
             // 
             // PanPiePagina
             // 
@@ -2217,10 +2212,10 @@
         private System.Windows.Forms.Panel PanFotoUsuario;
         private AfriCircleImage.AfriCircleImage AciFotoUsuario;
         private System.Windows.Forms.LinkLabel LlLogIn;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnEditoriales;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnTags;
         private FontAwesome.Sharp.Material.MaterialButton MBtnSeries;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnEditoriales;
         private FontAwesome.Sharp.Material.MaterialButton MBtnGeneros;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnTítulos;
         private FontAwesome.Sharp.Material.MaterialButton MBtnAutores;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMiBiblioteca;
         private System.Windows.Forms.ToolStrip ToolStripMain;
@@ -2234,7 +2229,7 @@
         private FontAwesome.Sharp.Material.MaterialSplitButton BtnTagsMsb;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarMain;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMaximizarMain;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnTags;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnFavoritos;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMinimizarMain;
         private FontAwesome.Sharp.Material.MaterialButton MBtnConfiguracion;
         private FontAwesome.Sharp.Material.MaterialButton MBtnBuscar;

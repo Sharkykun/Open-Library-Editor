@@ -522,6 +522,12 @@
   <data name="Bus_libro" xml:space="preserve">
     <value>el libro</value>
   </data>
+  <data name="Bus_Recomendaciones" xml:space="preserve">
+    <value>Recomendaciones</value>
+  </data>
+  <data name="Bus_TTDobleClick" xml:space="preserve">
+    <value>Haz doble click sobre el libro para añadirlo a tu biblioteca</value>
+  </data>
   <data name="CamposObligatorios" xml:space="preserve">
     <value>( * ) Campos obligatorios </value>
   </data>
@@ -590,6 +596,12 @@
   </data>
   <data name="Con_BtnRestaurar" xml:space="preserve">
     <value>Restaurar valores</value>
+  </data>
+  <data name="Con_CmbDobleEditar" xml:space="preserve">
+    <value>Editar Información Libro</value>
+  </data>
+  <data name="Con_CmbDobleEjecutar" xml:space="preserve">
+    <value>Ejecutar Libro</value>
   </data>
   <data name="Con_Descargas" xml:space="preserve">
     <value>Descargas web</value>
@@ -1058,6 +1070,9 @@
   </data>
   <data name="Main_Fav" xml:space="preserve">
     <value>Favorito:</value>
+  </data>
+  <data name="Main_Favoritos" xml:space="preserve">
+    <value>Mis Favoritos</value>
   </data>
   <data name="Main_Fin" xml:space="preserve">
     <value>Fecha fin:</value>

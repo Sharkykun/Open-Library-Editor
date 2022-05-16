@@ -22,6 +22,13 @@ namespace OpenLibraryEditor.DatosLibros
         private int tamañoImagenLibro = 0;
         private List<InfoBaseDatos> listaInfoBD = new List<InfoBaseDatos>();
         private InfoBaseDatos bDActual;
+
+        //Clave original de Sergio
+        //private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
+
+        //Otra clave para hacer mas pruebas
+        //private string googleBooksApiKey = "AIzaSyD7DbgxMkwPI02ku_XhqtIPGAWnctQh4us";
+
         private bool esAdministrador = false;
         private InfoUsuarioBD infoUsuarioActual;
         private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
@@ -29,6 +36,7 @@ namespace OpenLibraryEditor.DatosLibros
         private string recordarUrl;
         private string recordarUsuario;
         private string recordarContr;
+
 
         public const string RUTA_FICHERO = "config.json";
 

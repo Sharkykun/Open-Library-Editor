@@ -12,17 +12,16 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace OpenLibraryEditor.Forms
 {
     public partial class FrmConfiguracion : Form
     {
         /*
-        TODO:
-        - Añadir a doble click con IdiomaTexto los valores: Ejecutar Libro, Editar Información.
-        - Poner idioma al nuevo label para editar IP.
-        - Poner idioma al nuevo label para editar Clave Google Books.
-        */
+       TODO:
+       - Añadir a doble click con IdiomaTexto los valores: Ejecutar Libro, Editar Información.
+       - Poner idioma al nuevo label para editar IP.
+       - Poner idioma al nuevo label para editar Clave Google Books.
+       */
         private UsuarioDatos configuracionUsuario = UsuarioDatos.configuracionUsuario;
         private List<string> idiomas;
         private string ipAnterior = "0.0.0.0";
@@ -109,6 +108,9 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
             GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
             TTConfi.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
+            CmbDobleClick.Items.Clear();
+            CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEjecutar"));
+            CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEditar"));
 
         }
         private void CmbIdiomaConfi_DrawItem(object sender, DrawItemEventArgs e)
@@ -195,9 +197,9 @@ namespace OpenLibraryEditor.Forms
             TxtGoogleBooksClave.Text = configuracionUsuario.GoogleBooksApiKey;
         }
         #endregion
-
         private void FrmConfiguracion_Load(object sender, EventArgs e)
         {
+            //CmbDobleClick.Items.Clear();
             IdiomaTexto();
             CmbIdiomaConfi.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbIdiomaConfi.DrawMode = DrawMode.OwnerDrawFixed;
@@ -206,11 +208,16 @@ namespace OpenLibraryEditor.Forms
             idiomas.Add("English (EEUU)");
             idiomas.Add("Français (French)");
             CmbIdiomaConfi.Items.AddRange(idiomas.ToArray());
-
             CargarConfiguracion();
             CmbIP.Items.AddRange(configuracionUsuario.ListaInfoBD.ToArray());
             //Seleccionar BD si el usuario ha entrado en alguna al iniciar sesion
             CmbIP.SelectedItem = configuracionUsuario.BDActual;
+
+            hScrollBar.Maximum = 300;
+            hScrollBar.Minimum = -40;
+            hScrollBar.Value = 0;
+
+
         }
         private void GBtnRestaurar_Click(object sender, EventArgs e)
         {
@@ -247,7 +254,7 @@ namespace OpenLibraryEditor.Forms
 
         private void CmbIP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbIP.SelectedIndex != -1) 
+            if (CmbIP.SelectedIndex != -1)
             {
                 InfoBaseDatos info = (InfoBaseDatos)CmbIP.SelectedItem;
                 TxtTituloServidorWeb.Text = info.Nombre;
@@ -308,7 +315,7 @@ namespace OpenLibraryEditor.Forms
 
         private void NudPuerto_ValueChanged(object sender, EventArgs e)
         {
-            if(CmbIP.SelectedIndex != -1)
+            if (CmbIP.SelectedIndex != -1)
                 (CmbIP.SelectedItem as InfoBaseDatos).Puerto = (int)NudPuerto.Value;
         }
 
@@ -329,6 +336,22 @@ namespace OpenLibraryEditor.Forms
                     ipAnterior = TxtIP.Text;
                     (CmbIP.SelectedItem as InfoBaseDatos).ServidorIP = TxtIP.Text;
                 }
+            }
+        }
+        private void hScrollBar_ValueChanged(object sender, EventArgs e)
+        {
+            if (PanElementos.Width < 850)
+            {
+                MPcbConfi.Location = new Point(-hScrollBar.Value, MPcbConfi.Location.Y);
+                LblTituloConfi.Location = new Point(-hScrollBar.Value + MPcbConfi.Width, LblTituloConfi.Location.Y);
+                panel1.Location = new Point(-hScrollBar.Value, panel1.Location.Y);
+                KgbGeneral.Location = new Point(-hScrollBar.Value, KgbGeneral.Location.Y);
+                KgbApariencia.Location = new Point(-hScrollBar.Value, KgbApariencia.Location.Y);
+                KgbDescargasWeb.Location = new Point(-hScrollBar.Value, KgbDescargasWeb.Location.Y);
+                KgbServidorWeb.Location = new Point(-hScrollBar.Value, KgbServidorWeb.Location.Y);
+                GBtnRestaurar.Location = new Point(-hScrollBar.Value, GBtnRestaurar.Location.Y);
+                GBtnAceptar.Location = new Point(-hScrollBar.Value + 355 + GBtnCancelar.Width + GBtnRestaurar.Width, GBtnAceptar.Location.Y);
+                GBtnCancelar.Location = new Point(-hScrollBar.Value + 350 + GBtnRestaurar.Width, GBtnCancelar.Location.Y);
             }
         }
         private void GBtnCancelar_Click(object sender, EventArgs e)
