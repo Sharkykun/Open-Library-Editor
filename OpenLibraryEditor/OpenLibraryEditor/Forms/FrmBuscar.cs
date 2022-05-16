@@ -78,7 +78,7 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
             KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
-            ponerLibrosRecomendados();
+            //ponerLibrosRecomendados();
         }
 
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
@@ -233,10 +233,6 @@ namespace OpenLibraryEditor.Forms
             //        //GenerarPortadaLibro(libro,pc);
             //        pc.Image =Image.FromFile(libro.ImagenPortada);
                         contador++;
-            //        if (contador == 10)
-            //            return;
-            //    }
-
              }
         }
     }
