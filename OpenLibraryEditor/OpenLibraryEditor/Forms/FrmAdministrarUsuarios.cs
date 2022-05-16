@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -24,18 +25,20 @@ namespace OpenLibraryEditor.Forms
         private List<InfoUsuarioBD> listaUsuariosFiltrada;
         private InfoUsuarioBD usuarioActual;
         private bool esReverso = false;
-        private bool esAdmin = false;
 
         public FrmAdministrarUsuarios()
         {
             InitializeComponent();
         }
 
-        private void TestUsuarios()
+        private void ObtenerUsuariosBD()
         {
-            listaUsuarios.Add(new InfoUsuarioBD("Pepe","pepe@test.com","Usuario"));
-            listaUsuarios.Add(new InfoUsuarioBD("Jose", "jose@test.com", "Editor"));
-            listaUsuarios.Add(new InfoUsuarioBD("Ana", "ana@test.com", "Administrador"));
+            if (ConexionBD.conexion != null)
+            {
+                ConexionBD.AbrirConexion();
+                listaUsuarios = LecturaBD.SelectUsuariosLista();
+                ConexionBD.CerrarConexion();
+            }
         }
 
         private void FrmAdministrarUsuarios_Load(object sender, EventArgs e)
@@ -51,7 +54,15 @@ namespace OpenLibraryEditor.Forms
             KCmbTipoUsu.Items.Add("Administrador");
 
             //Recoger usuarios de BD compartida
-            TestUsuarios();
+            ObtenerUsuariosBD();
+
+            //Si el usuario es administrador, mostrar botones para editar
+            if (UsuarioDatos.configuracionUsuario.EsAdministrador)
+            {
+                MBtnMasUsu.Visible = true;
+                MBtnEditarUsu.Visible = true;
+                MBtnMenosUsu.Visible = true;
+            }
 
             //Colocar usuarios por nombre
             listaUsuarios.Sort();
@@ -74,10 +85,10 @@ namespace OpenLibraryEditor.Forms
             switch(usuario.TipoUsuario)
             {
                 case "Usuario":
-                    KCmbTipoUsu.SelectedIndex = 0;
+                    KCmbTipoUsu.SelectedIndex = 1;
                     break;
                 case "Editor":
-                    KCmbTipoUsu.SelectedIndex = 1;
+                    KCmbTipoUsu.SelectedIndex = 0;
                     break;
                 case "Administrador":
                     KCmbTipoUsu.SelectedIndex = 2;
@@ -120,6 +131,8 @@ namespace OpenLibraryEditor.Forms
                 LblEscribirEmail.Text = usuarioActual.Correo;
                 SeleccionarTipoUsuario(usuarioActual);
             }
+            else
+                KgbDatosUsuario.Visible = false;
         }
 
         private void MBtnBuscar_Click(object sender, EventArgs e)
@@ -156,6 +169,40 @@ namespace OpenLibraryEditor.Forms
         {
             esReverso = !esReverso;
             MBtnBuscar_Click(null, null);
+        }
+
+        private void MBtnMasUsu_Click(object sender, EventArgs e)
+        {
+            FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
+            form.ShowDialog();
+            if (form.EsOk)
+            {
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+            }
+        }
+
+        private void MBtnEditarUsu_Click(object sender, EventArgs e)
+        {
+            FrmEditarUsuario form = new FrmEditarUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag, true);
+            form.ShowDialog();
+            if (form.EsOk)
+            {
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+            }
+        }
+
+        private void MBtnMenosUsu_Click(object sender, EventArgs e)
+        {
+            if (VentanaWindowsComun.MensajeBorrarObjeto("este usuario") == DialogResult.Yes)
+            {
+                ConexionBD.AbrirConexion();
+                EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
+                ConexionBD.CerrarConexion();
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+            }
         }
     }
 }

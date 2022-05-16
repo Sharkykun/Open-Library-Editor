@@ -37,12 +37,14 @@ namespace OpenLibraryEditor.Forms
             this.LblTitulo = new System.Windows.Forms.Label();
             this.PcbLogoEditUsu = new System.Windows.Forms.PictureBox();
             this.KgbDatosEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.KTxtNombreEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.KCmbTipoEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.LblTipoEditUsu = new System.Windows.Forms.Label();
             this.KTxtContraEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtEmailEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblContraEditUsu = new System.Windows.Forms.Label();
             this.LblEmailEditUsu = new System.Windows.Forms.Label();
-            this.KCmbTipoEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.LblTipoEditUsu = new System.Windows.Forms.Label();
             this.PanBtn.SuspendLayout();
             this.PanTituloEditUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditUsu)).BeginInit();
@@ -90,6 +92,7 @@ namespace OpenLibraryEditor.Forms
             this.GBtnAceptar.TabIndex = 0;
             this.GBtnAceptar.Text = "Aceptar";
             this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
             // 
             // GBtnCancelar
             // 
@@ -117,6 +120,7 @@ namespace OpenLibraryEditor.Forms
             this.GBtnCancelar.TabIndex = 1;
             this.GBtnCancelar.Text = "Cancelar";
             this.GBtnCancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnCancelar.Click += new System.EventHandler(this.GBtnCancelar_Click);
             // 
             // PanTituloEditUsu
             // 
@@ -174,18 +178,20 @@ namespace OpenLibraryEditor.Forms
             // 
             this.KgbDatosEditUsu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbDatosEditUsu.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbDatosEditUsu.Location = new System.Drawing.Point(33, 59);
+            this.KgbDatosEditUsu.Location = new System.Drawing.Point(33, 46);
             this.KgbDatosEditUsu.Name = "KgbDatosEditUsu";
             // 
             // KgbDatosEditUsu.Panel
             // 
+            this.KgbDatosEditUsu.Panel.Controls.Add(this.KTxtNombreEditUsu);
+            this.KgbDatosEditUsu.Panel.Controls.Add(this.label1);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.KCmbTipoEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.LblTipoEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.KTxtContraEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.KTxtEmailEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.LblContraEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.LblEmailEditUsu);
-            this.KgbDatosEditUsu.Size = new System.Drawing.Size(521, 161);
+            this.KgbDatosEditUsu.Size = new System.Drawing.Size(521, 203);
             this.KgbDatosEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosEditUsu.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -201,68 +207,39 @@ namespace OpenLibraryEditor.Forms
             this.KgbDatosEditUsu.TabIndex = 159;
             this.KgbDatosEditUsu.Values.Heading = "Datos para registrarse en la aplicación";
             // 
-            // KTxtContraEditUsu
+            // KTxtNombreEditUsu
             // 
-            this.KTxtContraEditUsu.Location = new System.Drawing.Point(175, 43);
-            this.KTxtContraEditUsu.Name = "KTxtContraEditUsu";
-            this.KTxtContraEditUsu.Size = new System.Drawing.Size(322, 33);
-            this.KTxtContraEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtContraEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtContraEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtContraEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.KTxtNombreEditUsu.Location = new System.Drawing.Point(175, 3);
+            this.KTxtNombreEditUsu.Name = "KTxtNombreEditUsu";
+            this.KTxtNombreEditUsu.Size = new System.Drawing.Size(322, 33);
+            this.KTxtNombreEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtNombreEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombreEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombreEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtContraEditUsu.StateCommon.Border.Rounding = 10;
-            this.KTxtContraEditUsu.StateCommon.Border.Width = 2;
-            this.KTxtContraEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtContraEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtContraEditUsu.TabIndex = 2;
+            this.KTxtNombreEditUsu.StateCommon.Border.Rounding = 10;
+            this.KTxtNombreEditUsu.StateCommon.Border.Width = 2;
+            this.KTxtNombreEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtNombreEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtNombreEditUsu.TabIndex = 166;
             // 
-            // KTxtEmailEditUsu
+            // label1
             // 
-            this.KTxtEmailEditUsu.Location = new System.Drawing.Point(175, 7);
-            this.KTxtEmailEditUsu.Name = "KTxtEmailEditUsu";
-            this.KTxtEmailEditUsu.Size = new System.Drawing.Size(322, 33);
-            this.KTxtEmailEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtEmailEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtEmailEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtEmailEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtEmailEditUsu.StateCommon.Border.Rounding = 10;
-            this.KTxtEmailEditUsu.StateCommon.Border.Width = 2;
-            this.KTxtEmailEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtEmailEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtEmailEditUsu.TabIndex = 1;
-            // 
-            // LblContraEditUsu
-            // 
-            this.LblContraEditUsu.AutoSize = true;
-            this.LblContraEditUsu.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContraEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblContraEditUsu.Location = new System.Drawing.Point(20, 49);
-            this.LblContraEditUsu.Name = "LblContraEditUsu";
-            this.LblContraEditUsu.Size = new System.Drawing.Size(100, 22);
-            this.LblContraEditUsu.TabIndex = 29;
-            this.LblContraEditUsu.Text = "Contraseña:";
-            // 
-            // LblEmailEditUsu
-            // 
-            this.LblEmailEditUsu.AutoSize = true;
-            this.LblEmailEditUsu.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmailEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEmailEditUsu.Location = new System.Drawing.Point(20, 13);
-            this.LblEmailEditUsu.Name = "LblEmailEditUsu";
-            this.LblEmailEditUsu.Size = new System.Drawing.Size(55, 22);
-            this.LblEmailEditUsu.TabIndex = 23;
-            this.LblEmailEditUsu.Text = "Email:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.label1.Location = new System.Drawing.Point(20, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 22);
+            this.label1.TabIndex = 167;
+            this.label1.Text = "Nombre:";
             // 
             // KCmbTipoEditUsu
             // 
             this.KCmbTipoEditUsu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KCmbTipoEditUsu.DropDownWidth = 228;
-            this.KCmbTipoEditUsu.Enabled = false;
-            this.KCmbTipoEditUsu.Location = new System.Drawing.Point(175, 82);
+            this.KCmbTipoEditUsu.Location = new System.Drawing.Point(175, 115);
             this.KCmbTipoEditUsu.Name = "KCmbTipoEditUsu";
             this.KCmbTipoEditUsu.Size = new System.Drawing.Size(322, 33);
             this.KCmbTipoEditUsu.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -285,11 +262,67 @@ namespace OpenLibraryEditor.Forms
             this.LblTipoEditUsu.AutoSize = true;
             this.LblTipoEditUsu.Font = new System.Drawing.Font("Merienda One", 11F);
             this.LblTipoEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblTipoEditUsu.Location = new System.Drawing.Point(19, 89);
+            this.LblTipoEditUsu.Location = new System.Drawing.Point(19, 122);
             this.LblTipoEditUsu.Name = "LblTipoEditUsu";
             this.LblTipoEditUsu.Size = new System.Drawing.Size(130, 22);
             this.LblTipoEditUsu.TabIndex = 164;
             this.LblTipoEditUsu.Text = "Tipo de usuario:";
+            // 
+            // KTxtContraEditUsu
+            // 
+            this.KTxtContraEditUsu.Location = new System.Drawing.Point(175, 76);
+            this.KTxtContraEditUsu.Name = "KTxtContraEditUsu";
+            this.KTxtContraEditUsu.Size = new System.Drawing.Size(322, 33);
+            this.KTxtContraEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtContraEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtContraEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtContraEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtContraEditUsu.StateCommon.Border.Rounding = 10;
+            this.KTxtContraEditUsu.StateCommon.Border.Width = 2;
+            this.KTxtContraEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtContraEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtContraEditUsu.TabIndex = 2;
+            // 
+            // KTxtEmailEditUsu
+            // 
+            this.KTxtEmailEditUsu.Location = new System.Drawing.Point(175, 40);
+            this.KTxtEmailEditUsu.Name = "KTxtEmailEditUsu";
+            this.KTxtEmailEditUsu.Size = new System.Drawing.Size(322, 33);
+            this.KTxtEmailEditUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtEmailEditUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtEmailEditUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtEmailEditUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtEmailEditUsu.StateCommon.Border.Rounding = 10;
+            this.KTxtEmailEditUsu.StateCommon.Border.Width = 2;
+            this.KTxtEmailEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtEmailEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtEmailEditUsu.TabIndex = 1;
+            // 
+            // LblContraEditUsu
+            // 
+            this.LblContraEditUsu.AutoSize = true;
+            this.LblContraEditUsu.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContraEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblContraEditUsu.Location = new System.Drawing.Point(20, 82);
+            this.LblContraEditUsu.Name = "LblContraEditUsu";
+            this.LblContraEditUsu.Size = new System.Drawing.Size(100, 22);
+            this.LblContraEditUsu.TabIndex = 29;
+            this.LblContraEditUsu.Text = "Contraseña:";
+            // 
+            // LblEmailEditUsu
+            // 
+            this.LblEmailEditUsu.AutoSize = true;
+            this.LblEmailEditUsu.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmailEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEmailEditUsu.Location = new System.Drawing.Point(20, 46);
+            this.LblEmailEditUsu.Name = "LblEmailEditUsu";
+            this.LblEmailEditUsu.Size = new System.Drawing.Size(55, 22);
+            this.LblEmailEditUsu.TabIndex = 23;
+            this.LblEmailEditUsu.Text = "Email:";
             // 
             // FrmEditarUsuario
             // 
@@ -334,5 +367,7 @@ namespace OpenLibraryEditor.Forms
         private System.Windows.Forms.Label LblEmailEditUsu;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbTipoEditUsu;
         private System.Windows.Forms.Label LblTipoEditUsu;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreEditUsu;
+        private System.Windows.Forms.Label label1;
     }
 }

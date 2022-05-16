@@ -21,13 +21,22 @@ namespace OpenLibraryEditor.DatosLibros
         private bool[] descargaDetallesLibro = { true, true, true, true, true };
         private int tamañoImagenLibro = 0;
         private List<InfoBaseDatos> listaInfoBD = new List<InfoBaseDatos>();
-        [JsonIgnore]
         private InfoBaseDatos bDActual;
+
         //Clave original de Sergio
-        private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
+        //private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
 
         //Otra clave para hacer mas pruebas
         //private string googleBooksApiKey = "AIzaSyD7DbgxMkwPI02ku_XhqtIPGAWnctQh4us";
+
+        private bool esAdministrador = false;
+        private InfoUsuarioBD infoUsuarioActual;
+        private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
+
+        private string recordarUrl;
+        private string recordarUsuario;
+        private string recordarContr;
+
 
         public const string RUTA_FICHERO = "config.json";
 
@@ -51,7 +60,15 @@ namespace OpenLibraryEditor.DatosLibros
         public bool[] DescargaDetallesLibro { get => descargaDetallesLibro; set => descargaDetallesLibro = value; }
         public int TamañoImagenLibro { get => tamañoImagenLibro; set => tamañoImagenLibro = value; }
         public List<InfoBaseDatos> ListaInfoBD { get => listaInfoBD; set => listaInfoBD = value; }
+        [JsonIgnore]
         public InfoBaseDatos BDActual { get => bDActual; set => bDActual = value; }
+        [JsonIgnore]
+        public bool EsAdministrador { get => esAdministrador; set => esAdministrador = value; }
+        [JsonIgnore]
+        public InfoUsuarioBD InfoUsuarioActual { get => infoUsuarioActual; set => infoUsuarioActual = value; }
+        public string RecordarUrl { get => recordarUrl; set => recordarUrl = value; }
+        public string RecordarUsuario { get => recordarUsuario; set => recordarUsuario = value; }
+        public string RecordarContr { get => recordarContr; set => recordarContr = value; }
 
         public static UsuarioDatos CargarJson()
         {

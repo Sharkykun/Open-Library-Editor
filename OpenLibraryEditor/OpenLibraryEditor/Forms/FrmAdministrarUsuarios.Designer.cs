@@ -47,14 +47,15 @@
             this.ColTipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColCorreo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.KgbDatosUsuario = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.MBtnMasUsu = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnEditarUsu = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnMenosUsu = new FontAwesome.Sharp.Material.MaterialButton();
             this.KCmbTipoUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblEscribirEmail = new System.Windows.Forms.Label();
             this.LblEscribirNombreUsu = new System.Windows.Forms.Label();
             this.LblTipoUsu = new System.Windows.Forms.Label();
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblNombreUsu = new System.Windows.Forms.Label();
-            this.MBtnMenosUsu = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnEditarUsu = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanTituloFormAbierto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbTituloFrm)).BeginInit();
             this.PanBusquedaUsu.SuspendLayout();
@@ -286,6 +287,7 @@
             // 
             // KgbDatosUsuario.Panel
             // 
+            this.KgbDatosUsuario.Panel.Controls.Add(this.MBtnMasUsu);
             this.KgbDatosUsuario.Panel.Controls.Add(this.MBtnEditarUsu);
             this.KgbDatosUsuario.Panel.Controls.Add(this.MBtnMenosUsu);
             this.KgbDatosUsuario.Panel.Controls.Add(this.KCmbTipoUsu);
@@ -310,6 +312,58 @@
             this.KgbDatosUsuario.TabIndex = 144;
             this.KgbDatosUsuario.Values.Heading = "Datos del usuario";
             this.KgbDatosUsuario.Visible = false;
+            // 
+            // MBtnMasUsu
+            // 
+            this.MBtnMasUsu.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnMasUsu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMasUsu.FlatAppearance.BorderSize = 0;
+            this.MBtnMasUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMasUsu.IconChar = FontAwesome.Sharp.MaterialIcons.PlusBoxOutline;
+            this.MBtnMasUsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnMasUsu.IconSize = 45;
+            this.MBtnMasUsu.Location = new System.Drawing.Point(390, 9);
+            this.MBtnMasUsu.Name = "MBtnMasUsu";
+            this.MBtnMasUsu.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.MBtnMasUsu.Size = new System.Drawing.Size(34, 31);
+            this.MBtnMasUsu.TabIndex = 167;
+            this.MBtnMasUsu.UseVisualStyleBackColor = false;
+            this.MBtnMasUsu.Visible = false;
+            this.MBtnMasUsu.Click += new System.EventHandler(this.MBtnMasUsu_Click);
+            // 
+            // MBtnEditarUsu
+            // 
+            this.MBtnEditarUsu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnEditarUsu.FlatAppearance.BorderSize = 0;
+            this.MBtnEditarUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnEditarUsu.IconChar = FontAwesome.Sharp.MaterialIcons.PencilPlus;
+            this.MBtnEditarUsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnEditarUsu.IconSize = 40;
+            this.MBtnEditarUsu.Location = new System.Drawing.Point(431, 11);
+            this.MBtnEditarUsu.Name = "MBtnEditarUsu";
+            this.MBtnEditarUsu.Size = new System.Drawing.Size(30, 30);
+            this.MBtnEditarUsu.TabIndex = 166;
+            this.MBtnEditarUsu.UseVisualStyleBackColor = true;
+            this.MBtnEditarUsu.Visible = false;
+            this.MBtnEditarUsu.Click += new System.EventHandler(this.MBtnEditarUsu_Click);
+            // 
+            // MBtnMenosUsu
+            // 
+            this.MBtnMenosUsu.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnMenosUsu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnMenosUsu.FlatAppearance.BorderSize = 0;
+            this.MBtnMenosUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnMenosUsu.IconChar = FontAwesome.Sharp.MaterialIcons.MinusBoxOutline;
+            this.MBtnMenosUsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnMenosUsu.IconSize = 45;
+            this.MBtnMenosUsu.Location = new System.Drawing.Point(461, 9);
+            this.MBtnMenosUsu.Name = "MBtnMenosUsu";
+            this.MBtnMenosUsu.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.MBtnMenosUsu.Size = new System.Drawing.Size(34, 31);
+            this.MBtnMenosUsu.TabIndex = 165;
+            this.MBtnMenosUsu.UseVisualStyleBackColor = false;
+            this.MBtnMenosUsu.Visible = false;
+            this.MBtnMenosUsu.Click += new System.EventHandler(this.MBtnMenosUsu_Click);
             // 
             // KCmbTipoUsu
             // 
@@ -389,36 +443,6 @@
             this.LblNombreUsu.TabIndex = 21;
             this.LblNombreUsu.Text = "Nombre usuario:";
             // 
-            // MBtnMenosUsu
-            // 
-            this.MBtnMenosUsu.BackColor = System.Drawing.Color.Transparent;
-            this.MBtnMenosUsu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnMenosUsu.FlatAppearance.BorderSize = 0;
-            this.MBtnMenosUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnMenosUsu.IconChar = FontAwesome.Sharp.MaterialIcons.MinusBoxOutline;
-            this.MBtnMenosUsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnMenosUsu.IconSize = 45;
-            this.MBtnMenosUsu.Location = new System.Drawing.Point(461, 9);
-            this.MBtnMenosUsu.Name = "MBtnMenosUsu";
-            this.MBtnMenosUsu.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.MBtnMenosUsu.Size = new System.Drawing.Size(34, 31);
-            this.MBtnMenosUsu.TabIndex = 165;
-            this.MBtnMenosUsu.UseVisualStyleBackColor = false;
-            // 
-            // MBtnEditarUsu
-            // 
-            this.MBtnEditarUsu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnEditarUsu.FlatAppearance.BorderSize = 0;
-            this.MBtnEditarUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnEditarUsu.IconChar = FontAwesome.Sharp.MaterialIcons.PencilPlus;
-            this.MBtnEditarUsu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnEditarUsu.IconSize = 40;
-            this.MBtnEditarUsu.Location = new System.Drawing.Point(431, 11);
-            this.MBtnEditarUsu.Name = "MBtnEditarUsu";
-            this.MBtnEditarUsu.Size = new System.Drawing.Size(30, 30);
-            this.MBtnEditarUsu.TabIndex = 166;
-            this.MBtnEditarUsu.UseVisualStyleBackColor = true;
-            // 
             // FrmAdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,5 +504,6 @@
         private System.Windows.Forms.ColumnHeader ColCorreo;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosUsu;
         private FontAwesome.Sharp.Material.MaterialButton MBtnEditarUsu;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnMasUsu;
     }
 }

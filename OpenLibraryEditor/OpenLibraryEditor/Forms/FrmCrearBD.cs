@@ -14,6 +14,10 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmCrearBD : Form
     {
+        private bool isOk;
+
+        public bool IsOk { get => isOk; set => isOk = value; }
+
         public FrmCrearBD()
         {
             InitializeComponent();
@@ -48,10 +52,17 @@ namespace OpenLibraryEditor.Forms
         private void GBtnCrear_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrWhiteSpace(KTxtUrl.Text) && !String.IsNullOrWhiteSpace(KTxtNombreUSer.Text)
-               && !String.IsNullOrWhiteSpace(KTxtCSer.Text) && !String.IsNullOrWhiteSpace(KNudPuerto.ToString())) 
+              && !String.IsNullOrWhiteSpace(KNudPuerto.ToString())) 
             { 
-                BaseDatos.ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.ToString());
-                //BaseDatos.ConexionBD.AbrirConexion();
+                BaseDatos.ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString());
+                BaseDatos.ConexionBD.AbrirConexion();
+                BaseDatos.ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
+                BaseDatos.ConexionBD.CerrarConexion();
+                FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text);
+                BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, KTxtNombreApp.Text,
+                    KTxtContraApp.Text, KNudPuerto.Value.ToString());
+                isOk = true;
+                Close();
                 //BaseDatos.EscrituraBD.InsertOcupacion("Escritor");
                 //BaseDatos.EscrituraBD.InsertAutor(testA);
                 //testA.Nombre = "Jose";

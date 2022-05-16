@@ -66,8 +66,6 @@ namespace OpenLibraryEditor.Forms
             LblRecomendaciones.Text= ControladorIdioma.GetTexto("Bus_Recomendaciones");
             TTBuscar.SetToolTip(this.PanRecomendaciones, ControladorIdioma.GetTexto("Bus_TTDobleClick"));
             TTBuscar.SetToolTip(this.LsvBuscarLibros, ControladorIdioma.GetTexto("Bus_TTDobleClick"));
-
-
         }
         private string QueryGoogle()
         {
@@ -91,7 +89,9 @@ namespace OpenLibraryEditor.Forms
             return query;
         }
 
-      
+
+     
+
 
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
         {
@@ -319,6 +319,7 @@ namespace OpenLibraryEditor.Forms
             {
                 MBtnBuscarBUS_Click(sender,e);
             }
+
         }
         //private void ponerLibrosRecomendados()
         //{
