@@ -228,6 +228,12 @@
     <Compile Include="Forms\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmConfiguracionMal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmConfiguracionMal.Designer.cs">
+      <DependentUpon>FrmConfiguracionMal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmCrearBD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmConfiguracionMal.resx">
+      <DependentUpon>FrmConfiguracionMal.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmCrearBD.resx">

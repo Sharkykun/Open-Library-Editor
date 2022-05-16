@@ -1267,6 +1267,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Recommandations.
+        /// </summary>
+        internal static string Bus_Recomendaciones {
+            get {
+                return ResourceManager.GetString("Bus_Recomendaciones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Double-cliquez sur le livre pour l&apos;ajouter à votre bibliothèque.
+        /// </summary>
+        internal static string Bus_TTDobleClick {
+            get {
+                return ResourceManager.GetString("Bus_TTDobleClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Chercher:.
         /// </summary>
         internal static string BuscarPor {
@@ -1479,6 +1497,24 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Con_BtnRestaurar {
             get {
                 return ResourceManager.GetString("Con_BtnRestaurar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modifier les informations sur le livre.
+        /// </summary>
+        internal static string Con_CmbDobleEditar {
+            get {
+                return ResourceManager.GetString("Con_CmbDobleEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exécutez le livre.
+        /// </summary>
+        internal static string Con_CmbDobleEjecutar {
+            get {
+                return ResourceManager.GetString("Con_CmbDobleEjecutar", resourceCulture);
             }
         }
         
@@ -2883,6 +2919,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Main_Fav {
             get {
                 return ResourceManager.GetString("Main_Fav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mes Favoris.
+        /// </summary>
+        internal static string Main_Favoritos {
+            get {
+                return ResourceManager.GetString("Main_Favoritos", resourceCulture);
             }
         }
         

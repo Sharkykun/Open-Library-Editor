@@ -23,7 +23,11 @@ namespace OpenLibraryEditor.DatosLibros
         private List<InfoBaseDatos> listaInfoBD = new List<InfoBaseDatos>();
         [JsonIgnore]
         private InfoBaseDatos bDActual;
+        //Clave original de Sergio
         private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
+
+        //Otra clave para hacer mas pruebas
+        //private string googleBooksApiKey = "AIzaSyD7DbgxMkwPI02ku_XhqtIPGAWnctQh4us";
 
         public const string RUTA_FICHERO = "config.json";
 

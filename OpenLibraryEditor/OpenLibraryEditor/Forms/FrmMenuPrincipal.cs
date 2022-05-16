@@ -52,17 +52,8 @@ namespace OpenLibraryEditor.Forms
             PanVistaMosaico.Visible = true;
             PanVistaMosaico.BringToFront();
 
-            //Agregar filtros de libro
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTituAlt"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGIdioma"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGIdiOri"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTipo"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Favoritos"));
-            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGPag"));
-            KCmbBuscarPorMBI.SelectedIndex = 0;
+            
+           
         }
          private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -80,7 +71,9 @@ namespace OpenLibraryEditor.Forms
             PanVistaMosaico.BringToFront();
             //Dejar marcado mi biblioteca como opción inicial
             MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
+            
             IdiomaTexto();
+            
         }
 
         private List<Libro> SacarListaLibro()
@@ -126,7 +119,6 @@ namespace OpenLibraryEditor.Forms
             PanVistaMosaico.Visible = true;
             PanVistaDetalles.Visible = false;
             PanVistaMosaico.Controls.Clear();
-            //PanVistaMosaico.BackColor = Color.FromArgb(231, 243, 254);
             int tamPanel = PanVistaMosaico.Width;
             int altoPanel = PanVistaMosaico.Height;
 
@@ -407,11 +399,6 @@ namespace OpenLibraryEditor.Forms
             TxtEscribirComentario.Text = l.Comentario;
            
         }
-        private void PanDetallesLibro_VisibleChanged(object sender, EventArgs e)
-        {
-            //FormResize();
-            //RecolocarLibros(false);
-        }
         private void ManejadorLibroDet_Click(object sender, EventArgs e)
         {
             //KTabDetalles.SelectedPage = KpDetalles;
@@ -427,7 +414,6 @@ namespace OpenLibraryEditor.Forms
             {
                 MostrarDetallesLibro(libroActual);
             }
-           //MostrarDetallesLibro(libroActual);
         }
 
         private void EsperarHastaFinDeProcesos(List<Process> listaProcesos)
@@ -543,7 +529,6 @@ namespace OpenLibraryEditor.Forms
             PanVistaDetalles.Visible = true;
             PanVistaMosaico.Visible = false;
             PanDetallesLibro.Visible = false;
-            //ColocarLibrosDetalles();
             RecolocarLibros(false);
             PanVistaDetalles.BringToFront();
         }
@@ -565,41 +550,10 @@ namespace OpenLibraryEditor.Forms
             RecolocarLibros(false);
             
         }
-        private void PanVistaMosaico_Resize(object sender, EventArgs e)
-        {
-            //    if (segundosRedimensionar > 0)
-            //    {
-            //        Thread.Sleep(segundosRedimensionar * 5);
-            //        FormResize();
-            //        RecolocarLibros(false);
-            //    }
-            //    else
-            //    {
-            //        RecolocarLibros(false);
-            //    }
-        }
-        private void PanVistaDetalles_SizeChanged(object sender, EventArgs e)
-        {
-            //if (segundosRedimensionar > 0)
-            //{
-            //    Thread.Sleep(segundosRedimensionar * 5);
-            //    //FormResize();
-            //    RecolocarLibros(false);
-            //}
-            //else
-            //{
-            //    RecolocarLibros(false);
-            //}
-        }
 
         private void FrmMenuPrincipal_ResizeEnd(object sender, EventArgs e)
         {   
-            var tiempo = Stopwatch.StartNew();
-            //FormResize();
             RecolocarLibros(false);
-            tiempo.Stop();
-            segundosRedimensionar = Convert.ToInt32(tiempo.ElapsedMilliseconds);
-            //MessageBox.Show(segundosRedimensionar+"");
         }
         private void MBtncerrarDetallesLibro_Click(object sender, EventArgs e)
         {
@@ -607,8 +561,6 @@ namespace OpenLibraryEditor.Forms
             BtnBorrarLibroMsb.Enabled = false;
             BtnModificarLibroMsb.Enabled = false;
             RecolocarLibros(false);
-            //PanVistaMosaico_Resize(null,null);
-            //FrmMenuPrincipal_ResizeEnd(null, null);
         }
 
         #endregion
@@ -622,18 +574,18 @@ namespace OpenLibraryEditor.Forms
             ToolTipMain.SetToolTip(this.MBtnMiBiblioteca, ControladorIdioma.GetTexto("Main_MiBiblioteca"));
             MBtnAutores.Text = ControladorIdioma.GetTexto("Main_Autores");
             ToolTipMain.SetToolTip(this.MBtnAutores, ControladorIdioma.GetTexto("Main_TTAutores"));
-            MBtnTítulos.Text = ControladorIdioma.GetTexto("Main_Titulos");
-            ToolTipMain.SetToolTip(this.MBtnTítulos, ControladorIdioma.GetTexto("Main_TTTitulos"));
             MBtnGeneros.Text = ControladorIdioma.GetTexto("Main_Generos");
             ToolTipMain.SetToolTip(this.MBtnGeneros, ControladorIdioma.GetTexto("Main_TTGeneros"));
-            MBtnSeries.Text = ControladorIdioma.GetTexto("Main_Series");
-            ToolTipMain.SetToolTip(this.MBtnSeries, ControladorIdioma.GetTexto("Main_TTSeries"));
             MBtnEditoriales.Text = ControladorIdioma.GetTexto("Main_Editoriales");
             ToolTipMain.SetToolTip(this.MBtnEditoriales, ControladorIdioma.GetTexto("Main_TTEditoriales"));
+            MBtnSeries.Text = ControladorIdioma.GetTexto("Main_Series");
+            ToolTipMain.SetToolTip(this.MBtnSeries, ControladorIdioma.GetTexto("Main_TTSeries"));
             MBtnTags.Text = ControladorIdioma.GetTexto("Main_Tags");
             ToolTipMain.SetToolTip(this.MBtnTags, ControladorIdioma.GetTexto("Main_TTTags"));
             MBtnBuscar.Text = ControladorIdioma.GetTexto("Main_Buscar");
             ToolTipMain.SetToolTip(this.MBtnBuscar, ControladorIdioma.GetTexto("Main_TTBuscar"));
+            MBtnFavoritos.Text= ControladorIdioma.GetTexto("Favoritos");
+            ToolTipMain.SetToolTip(this.MBtnFavoritos, ControladorIdioma.GetTexto("Main_Favoritos"));
             MBtnConfiguracion.Text = ControladorIdioma.GetTexto("Main_Confi");
             ToolTipMain.SetToolTip(this.MBtnConfiguracion, ControladorIdioma.GetTexto("Main_TTConfi"));
             MBtnSalir.Text = ControladorIdioma.GetTexto("Main_Salir");
@@ -682,6 +634,18 @@ namespace OpenLibraryEditor.Forms
             LblFavorito.Text = ControladorIdioma.GetTexto("Main_Fav");
             LblOculto.Text = ControladorIdioma.GetTexto("Main_Ocu");
             LblComentario.Text = ControladorIdioma.GetTexto("Main_Com");
+            KCmbBuscarPorMBI.Items.Clear();
+            //Agregar filtros de libro
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTitulo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGSubtitulo"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Isbn"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTituAlt"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGIdioma"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGIdiOri"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTipo"));
+            //KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Favoritos"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGPag"));
+            KCmbBuscarPorMBI.SelectedIndex = 0;
         }
         #endregion
         #region Colores boton seleccionado
@@ -771,6 +735,7 @@ namespace OpenLibraryEditor.Forms
         #region Botones menu lateral
         private void MBtnMiBiblioteca_Click(object sender, EventArgs e)
         {
+            KTxtBuscarMBI.Text = "";
             //AbrirFormularios(new FrmMiBiblioteca());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = false;
@@ -778,10 +743,12 @@ namespace OpenLibraryEditor.Forms
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
             MPcbTituloFrm.IconChar = MaterialIcons.BookOpenPageVariant;
             BotonActivo(sender, Colores.colorBiblioteca);
+            MBtncerrarDetallesLibro_Click(sender, e);
             RecolocarLibros(false);
         }
         private void MBtnAutores_Click(object sender, EventArgs e)
         {
+            KTxtBuscarMBI.Text = "";
             //AbrirFormularios(new FrmMisAutores());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
@@ -816,16 +783,10 @@ namespace OpenLibraryEditor.Forms
 
             BotonActivo(sender, Colores.colorSubmenu);
         }
-        private void MBtnTitulos_Click(object sender, EventArgs e)
-        {
-            //PanFormHijos.BringToFront();
-            //PanListViewsOpciones.Visible = true;
-            //LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
-            //MPcbTituloFrm.IconChar = FontAwesome.Sharp.MaterialIcons.AccountGroup;
-            //BotonActivo(sender, Colores.colorSubmenu);
-        }
+     
         private void MBtnGeneros_Click(object sender, EventArgs e)
         {
+            KTxtBuscarMBI.Text = "";
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
             MBtncerrarDetallesLibro_Click(sender, e);
@@ -858,6 +819,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnEditoriales_Click(object sender, EventArgs e)
         {
+            KTxtBuscarMBI.Text = "";
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
             MBtncerrarDetallesLibro_Click(sender, e);
@@ -884,7 +846,7 @@ namespace OpenLibraryEditor.Forms
                     imglist.Images.Add("image",
                         new PictureBox().ErrorImage);
 
-                var i = LsvOpciones.Items.Add(editorial.Nombre, imglist.Images.Count-1);
+                var i = LsvOpciones.Items.Add(editorial.Nombre, imglist.Images.Count - 1);
                 i.Tag = editorial;
             }
             if (LsvOpciones.Items.Count > 0)
@@ -894,6 +856,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnTags_Click(object sender, EventArgs e)
         {
+            KTxtBuscarMBI.Text = "";
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
             MBtncerrarDetallesLibro_Click(sender, e);
@@ -901,6 +864,20 @@ namespace OpenLibraryEditor.Forms
             MPcbTituloFrm.IconChar = MaterialIcons.TagMultiple;
             BotonActivo(sender, Colores.colorSubmenu);
         }
+        private void MBtnFavoritos_Click(object sender, EventArgs e)
+        {
+            KTxtBuscarMBI.Text = "";
+            PanFormHijos.BringToFront();
+            PanListViewsOpciones.Visible = false;
+            MBtncerrarDetallesLibro_Click(sender, e);
+            titulos = SacarListaLibro();
+            titulos = titulos.FindAll(p => p.Favorito);
+            RecolocarLibros(false);
+            LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_Favoritos");
+            MPcbTituloFrm.IconChar = MaterialIcons.StarCircle;
+            BotonActivo(sender, Colores.colorSubmenu);
+        }
+
         private void MBtnBuscar_Click(object sender, EventArgs e)
         {
             AbrirFormularios(new FrmBuscar());
@@ -952,6 +929,7 @@ namespace OpenLibraryEditor.Forms
             al.FormBorderStyle = FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Modificar");
             al.ShowDialog();
+            MBtncerrarDetallesLibro_Click(sender, e);
             //BotonActivoTool(sender, Colores.colorBiblioteca);
             RecolocarLibros(false);
         }
@@ -963,6 +941,7 @@ namespace OpenLibraryEditor.Forms
             {
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
                 RecolocarLibros(false);
+                MBtncerrarDetallesLibro_Click(sender,e);
             }
         }
 
@@ -971,29 +950,32 @@ namespace OpenLibraryEditor.Forms
             switch (KCmbBuscarPorMBI.SelectedIndex)
             {
                 case 7:
-                    //Buscar sin nada
-                    MostrarCajaBusqueda(-1);
-                    //PanNumPaginas.Visible = false;
-                    MBtnBuscarMBI_Click(null, null);
-                    break;
-                case 8:
+                    ////Buscar sin nada
+                    //MostrarCajaBusqueda(-1);
+                    ////PanNumPaginas.Visible = false;
+                    //MBtnBuscarMBI_Click(null, null);
                     //Buscar por número de páginas
                     PanNumPaginas.Visible = true;
                     MBtnBuscarMBI.Visible = true;
                     KTxtBuscarMBI.Visible = false;
                     break;
+                //case 8:
+                //    PanNumPaginas.Visible = true;
+                //    MBtnBuscarMBI.Visible = true;
+                //    KTxtBuscarMBI.Visible = false;
+                //    break;
                 default:
                     MostrarCajaBusqueda(0);
                     break;
             }
-            MBtnBuscarMBI_Click(null, null);
+           // MBtnBuscarMBI_Click(null, null);
         }
 
         private void MostrarCajaBusqueda(int tipo)
         {
             KTxtBuscarMBI.Text = "";
-            KTxtBuscarMBI.Visible = false;
-            MBtnBuscarMBI.Visible = false;
+            //KTxtBuscarMBI.Visible = false;
+            //MBtnBuscarMBI.Visible = false;
             PanNumPaginas.Visible = false;
             switch (tipo)
             {
@@ -1012,86 +994,85 @@ namespace OpenLibraryEditor.Forms
                 LsvOpciones_ItemSelectionChanged(null, null);
             else
                 titulos = SacarListaLibro();
-
-            if (KCmbBuscarPorMBI.Items[0] == KCmbBuscarPorMBI.SelectedItem)
+            if (KTxtBuscarMBI.Visible && !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
             {
+                titulos = SacarListaLibro();
+                if (KCmbBuscarPorMBI.Items[0] == KCmbBuscarPorMBI.SelectedItem)
+                {
                 //Buscar por título
-                titulos = titulos
+                    titulos = titulos
                     .FindAll(p => p.Titulo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1);
                 
-            }
-            else if (KCmbBuscarPorMBI.Items[1] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por subtítulo
-                titulos = titulos
-                    .FindAll(p => p.Subtitulo != null ? 
-                    p.Subtitulo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false);
-            }
-            else if (KCmbBuscarPorMBI.Items[2] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por ISBN
-                List<Libro> l;
-                l = titulos
-                    .FindAll(p => p.Isbn_10 != null ?
-                    p.Isbn_10.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false);
-                l.AddRange(titulos
-                    .FindAll(p => p.Isbn_13 != null ?
-                    p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false));
-                titulos = l;
-            }
-            else if (KCmbBuscarPorMBI.Items[3] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por título alternativo
-                titulos = titulos
-                    .FindAll(p => p.TituloAlternativo != null ?
-                    p.TituloAlternativo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false);
-            }
-            else if (KCmbBuscarPorMBI.Items[4] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por idioma
-                titulos = titulos
-                    .FindAll(p => p.Idioma != null ?
-                    p.Idioma.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false);
-            }
-            else if (KCmbBuscarPorMBI.Items[5] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por idioma original
-                titulos = titulos
-                    .FindAll(p => p.IdiomaOriginal != null ?
-                    p.IdiomaOriginal.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false);
-            }
-            else if (KCmbBuscarPorMBI.Items[6] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por tipo de libro
-                titulos = titulos
-                    .FindAll(p => p.NombreTipo != null ?
-                    p.NombreTipo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
-                    : false);
-            }
+                 }
+                else if (KCmbBuscarPorMBI.Items[1] == KCmbBuscarPorMBI.SelectedItem)
+                {
+                    //Buscar por subtítulo
+                    titulos = titulos
+                        .FindAll(p => p.Subtitulo != null ? 
+                        p.Subtitulo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false);
+                }
+                else if (KCmbBuscarPorMBI.Items[2] == KCmbBuscarPorMBI.SelectedItem)
+                {
+                    //Buscar por ISBN
+                    List<Libro> l;
+                    l = titulos
+                        .FindAll(p => p.Isbn_10 != null ?
+                        p.Isbn_10.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false);
+                    l.AddRange(titulos
+                        .FindAll(p => p.Isbn_13 != null ?
+                        p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false));
+                    titulos = l;
+                }
+                else if (KCmbBuscarPorMBI.Items[3] == KCmbBuscarPorMBI.SelectedItem)
+                {
+                    //Buscar por título alternativo
+                    titulos = titulos
+                        .FindAll(p => p.TituloAlternativo != null ?
+                        p.TituloAlternativo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false);
+                }
+                else if (KCmbBuscarPorMBI.Items[4] == KCmbBuscarPorMBI.SelectedItem)
+                {
+                    //Buscar por idioma
+                    titulos = titulos
+                        .FindAll(p => p.Idioma != null ?
+                        p.Idioma.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false);
+                }
+                else if (KCmbBuscarPorMBI.Items[5] == KCmbBuscarPorMBI.SelectedItem)
+                {
+                    //Buscar por idioma original
+                    titulos = titulos
+                        .FindAll(p => p.IdiomaOriginal != null ?
+                        p.IdiomaOriginal.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false);
+                }
+                else if (KCmbBuscarPorMBI.Items[6] == KCmbBuscarPorMBI.SelectedItem)
+                {
+                    //Buscar por tipo de libro
+                    titulos = titulos
+                        .FindAll(p => p.NombreTipo != null ?
+                        p.NombreTipo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
+                        : false);
+                }
+                }
             else if (KCmbBuscarPorMBI.Items[7] == KCmbBuscarPorMBI.SelectedItem)
-            {
-                //Buscar por favorito
-                titulos = titulos.FindAll(p => p.Favorito);
-            }
-            else if (KCmbBuscarPorMBI.Items[8] == KCmbBuscarPorMBI.SelectedItem)
             {
                 //Buscar por número de páginas
                 titulos=titulos.FindAll(p => p.NumeroPaginas >= KNudPagMin.Value 
                 && p.NumeroPaginas <= KNudPagMax.Value);    
             }
-
-            if (KTxtBuscarMBI.Visible &&
-                !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
-            {
-                titulos = SacarListaLibro();
-            }
             RecolocarLibros(false);
+        }
+        private void KTxtBuscarMBI_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MBtnBuscarMBI_Click(sender,e);
+            }
         }
         private void BtnAniadirLibroMsb_Paint(object sender, PaintEventArgs e)
         {
