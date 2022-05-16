@@ -264,6 +264,11 @@
             this.KNudPuerto.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudPuerto.TabIndex = 1;
             this.KNudPuerto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.KNudPuerto.Value = new decimal(new int[] {
+            3306,
+            0,
+            0,
+            0});
             // 
             // KTxtCSer
             // 
@@ -298,6 +303,7 @@
             this.KTxtNombreUSer.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreUSer.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreUSer.TabIndex = 2;
+            this.KTxtNombreUSer.Text = "root";
             // 
             // KTxtUrl
             // 
@@ -315,6 +321,7 @@
             this.KTxtUrl.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtUrl.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtUrl.TabIndex = 0;
+            this.KTxtUrl.Text = "localhost";
             // 
             // LblContraSer
             // 
@@ -407,6 +414,7 @@
             this.KTxtContraApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtContraApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtContraApp.TabIndex = 2;
+            this.KTxtContraApp.Text = "test";
             // 
             // KTxtEmailApp
             // 
@@ -424,6 +432,7 @@
             this.KTxtEmailApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtEmailApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtEmailApp.TabIndex = 1;
+            this.KTxtEmailApp.Text = "test@gmail.com";
             // 
             // KTxtNombreApp
             // 
@@ -441,6 +450,7 @@
             this.KTxtNombreApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreApp.TabIndex = 0;
+            this.KTxtNombreApp.Text = "test";
             // 
             // LblContraApp
             // 

@@ -19,6 +19,15 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
+		public static int SelectExisteUsuarioBD(string nombreUsuario)
+		{
+			string query = "SELECT count(*) FROM mysql.user where user = '"+nombreUsuario+"'";
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
 		public static int SelectObtenerIdNuevoTabla(string tablaNombre, string campo, int randomId)
 		{
 			string query = "SELECT COUNT(*) FROM "+ tablaNombre+" WHERE "+campo+" like "+ randomId;
@@ -67,7 +76,7 @@ namespace OpenLibraryEditor.BaseDatos
 				using (MySqlDataReader lector = comando.ExecuteReader())
 				{
 
-					if (lector.Read())
+					while (lector.Read())
 					{
 						listaAutores.Add(ConversorRegistro.RegistroAAutor(lector));
 					}
@@ -106,7 +115,7 @@ namespace OpenLibraryEditor.BaseDatos
 				using (MySqlDataReader lector = comando.ExecuteReader())
 				{
 
-					if (lector.Read())
+					while (lector.Read())
 					{
 						listaUsuarios.Add(ConversorRegistro.RegistroAUsuarioInfo(lector));
 					}
@@ -162,7 +171,7 @@ namespace OpenLibraryEditor.BaseDatos
 				using (MySqlDataReader lector = comando.ExecuteReader())
 				{
 
-					if (lector.Read())
+					while (lector.Read())
 					{
 						listaEditoriales.Add(ConversorRegistro.RegistroAEditorial(lector));
 					}
@@ -201,7 +210,7 @@ namespace OpenLibraryEditor.BaseDatos
 				using (MySqlDataReader lector = comando.ExecuteReader())
 				{
 
-					if (lector.Read())
+					while (lector.Read())
 					{
 						listaGeneros.Add(ConversorRegistro.RegistroAGenero(lector));
 					}
@@ -232,7 +241,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Libro> SelectLibrosLista()
 		{
-			string query = "SELEC * FROM Libro";
+			string query = "SELECT * FROM Libro";
 			List<Libro> listaLibros = new List<Libro>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.conexion))
@@ -240,7 +249,7 @@ namespace OpenLibraryEditor.BaseDatos
 				using (MySqlDataReader lector = comando.ExecuteReader())
 				{
 
-					if (lector.Read())
+					while (lector.Read())
 					{
 						listaLibros.Add(ConversorRegistro.RegistroALibro(lector));
 					}

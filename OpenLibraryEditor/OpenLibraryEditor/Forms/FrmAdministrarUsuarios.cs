@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -24,18 +25,20 @@ namespace OpenLibraryEditor.Forms
         private List<InfoUsuarioBD> listaUsuariosFiltrada;
         private InfoUsuarioBD usuarioActual;
         private bool esReverso = false;
-        private bool esAdmin = false;
 
         public FrmAdministrarUsuarios()
         {
             InitializeComponent();
         }
 
-        private void TestUsuarios()
+        private void ObtenerUsuariosBD()
         {
-            listaUsuarios.Add(new InfoUsuarioBD("Pepe","pepe@test.com","Usuario"));
-            listaUsuarios.Add(new InfoUsuarioBD("Jose", "jose@test.com", "Editor"));
-            listaUsuarios.Add(new InfoUsuarioBD("Ana", "ana@test.com", "Administrador"));
+            if (ConexionBD.conexion != null)
+            {
+                ConexionBD.AbrirConexion();
+                listaUsuarios = LecturaBD.SelectUsuariosLista();
+                ConexionBD.CerrarConexion();
+            }
         }
 
         private void FrmAdministrarUsuarios_Load(object sender, EventArgs e)
@@ -51,7 +54,15 @@ namespace OpenLibraryEditor.Forms
             KCmbTipoUsu.Items.Add("Administrador");
 
             //Recoger usuarios de BD compartida
-            TestUsuarios();
+            ObtenerUsuariosBD();
+
+            //Si el usuario es administrador, mostrar botones para editar
+            if (UsuarioDatos.configuracionUsuario.EsAdministrador)
+            {
+                MBtnMasUsu.Visible = true;
+                MBtnEditarUsu.Visible = true;
+                MBtnMenosUsu.Visible = true;
+            }
 
             //Colocar usuarios por nombre
             listaUsuarios.Sort();
@@ -156,6 +167,23 @@ namespace OpenLibraryEditor.Forms
         {
             esReverso = !esReverso;
             MBtnBuscar_Click(null, null);
+        }
+
+        private void MBtnMasUsu_Click(object sender, EventArgs e)
+        {
+            FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
+            form.ShowDialog();
+        }
+
+        private void MBtnEditarUsu_Click(object sender, EventArgs e)
+        {
+            FrmEditarUsuario form = new FrmEditarUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag, true);
+            form.ShowDialog();
+        }
+
+        private void MBtnMenosUsu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

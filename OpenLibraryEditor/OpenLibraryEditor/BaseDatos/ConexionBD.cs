@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.DatosLibros;
 
 namespace OpenLibraryEditor.BaseDatos
 {
@@ -12,6 +14,7 @@ namespace OpenLibraryEditor.BaseDatos
         public static MySqlConnection conexion;
         public static int idBD;
         public const string NOMBRE_BD = "open_library_editor";
+        public const string ANTENOMBRE_USUARIO_BD = "ole_";
 
         public static void CrearBD(string servidor, string usuario, string contrasena, string puerto)
         {
@@ -19,11 +22,7 @@ namespace OpenLibraryEditor.BaseDatos
 
             EstablecerConexion(servidor, usuario, contrasena, puerto);
 
-            try
-            {
-                AbrirConexion();
-            }
-            catch (MySql.Data.MySqlClient.MySqlException)
+            if(!AbrirConexion())
             {
                 Console.WriteLine("No existe la BD. Creando...");
                 EstablecerConexionNueva(servidor, usuario, contrasena, puerto);
@@ -54,6 +53,10 @@ namespace OpenLibraryEditor.BaseDatos
             CrearTablaListaGenero();
             CrearTablaUsuarioLibro();
 
+            //Creamos usuario ole_anon (sin contraseña) que usarán usuarios externos para hacer consultas
+            //Servirá tambien para cargar un tipo de usuario
+            CrearUsuarioExternoBD();
+
             //Generar ID random propio de la BD
             Random rnd = new Random();
             EscrituraBD.InsertarIdBD(rnd.Next());
@@ -69,26 +72,43 @@ namespace OpenLibraryEditor.BaseDatos
             conexion = new MySqlConnection(connString);
         }
 
-        private static void EstablecerConexion(string servidor, string usuario, string contrasena, string puerto)
+        public static bool EstablecerConexion(string servidor, string usuario, string contrasena, string puerto)
         {
             //Iniciar sesion ahora con bd
             string connString = "server=" + servidor + ";database=" + NOMBRE_BD +
                 ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + ";";
             conexion = new MySqlConnection(connString);
+            return true;
         }
 
-        public static void AbrirConexion()
+        public static bool AbrirConexion()
         {
-            Console.WriteLine("Conexion con MySql abierta.");
-            //Abrir conexión
-            conexion.Open();
+            try
+            {
+                Console.WriteLine("Conexion con MySql abierta.");
+                //Abrir conexión
+                conexion.Open();
+                return true;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+                return false;
+            }
         }
 
-        public static void CerrarConexion()
+        public static bool CerrarConexion()
         {
-            //Cerrar conexión
-            Console.WriteLine("Conexion con MySql cerrada.");
-            conexion.Close();
+            try
+            {
+                Console.WriteLine("Conexion con MySql cerrada.");
+                //Cerrar conexión
+                conexion.Close();
+                return true;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+                return false;
+            }
         }
 
         private static void BorrarBD(string servidor, string usuario, string contrasena, string puerto)
@@ -103,6 +123,126 @@ namespace OpenLibraryEditor.BaseDatos
 
             CerrarConexion();
         }
+
+        #region Crear usuarios de BD
+
+        public static void CrearAdminBD(string nombreUsuario, string contrasenia, string email)
+        {
+            string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
+            CrearUsuarioBD(nombreFinal, contrasenia);
+            MySqlCommand cmd = new MySqlCommand("GRANT ALL ON " +
+                NOMBRE_BD+" .* TO'"+ nombreFinal + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
+               NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT ALL ON " +
+                "mysql .user TO'" + nombreFinal + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
+                "mysql .user TO'" + nombreFinal + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT CREATE USER ON " +
+                "*.* TO'" + nombreFinal + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT RELOAD ON " +
+                "*.* TO'" + nombreFinal + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+            AplicarPermisosUsuario();
+
+
+            //Incluir datos en tabla Usuario
+            EscrituraBD.InsertUsuario(new InfoUsuarioBD(nombreUsuario, email, "Administrador"),
+                contrasenia);
+        }
+
+        private static void AplicarPermisosUsuario()
+        {
+            MySqlCommand cmd = new MySqlCommand("FLUSH PRIVILEGES;", conexion);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void CrearEditorBD(string nombreUsuario, string contrasenia)
+        {
+            string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
+            CrearUsuarioBD(nombreFinal, contrasenia);
+            ConcederLecturaTabla("Biblioteca", nombreFinal);
+            ConcederLecturaTabla("Usuario", nombreFinal);
+            ConcederEdicionTabla("UsuarioLibro", nombreFinal);
+            ConcederEdicionTabla("Libro", nombreFinal);
+            ConcederEdicionTabla("TipoLibro", nombreFinal);
+            ConcederEdicionTabla("ListaAutor", nombreFinal);
+            ConcederEdicionTabla("Autor", nombreFinal);
+            ConcederEdicionTabla("Ocupacion", nombreFinal);
+            ConcederEdicionTabla("ListaEditorial", nombreFinal);
+            ConcederEdicionTabla("Editorial", nombreFinal);
+            ConcederEdicionTabla("ListaGenero", nombreFinal);
+            ConcederEdicionTabla("Genero", nombreFinal);
+            AplicarPermisosUsuario();
+        }
+
+        public static void CrearUsuarioComunBD(string nombreUsuario, string contrasenia)
+        {
+            string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
+            CrearUsuarioBD(nombreFinal, contrasenia);
+            ConcederLecturaTabla("Biblioteca", nombreFinal);
+            ConcederLecturaTabla("Usuario", nombreFinal);
+            ConcederEdicionTabla("UsuarioLibro", nombreFinal);
+            ConcederLecturaTabla("Libro", nombreFinal);
+            ConcederLecturaTabla("TipoLibro", nombreFinal);
+            ConcederLecturaTabla("ListaAutor", nombreFinal);
+            ConcederLecturaTabla("Autor", nombreFinal);
+            ConcederLecturaTabla("Ocupacion", nombreFinal);
+            ConcederLecturaTabla("ListaEditorial", nombreFinal);
+            ConcederLecturaTabla("Editorial", nombreFinal);
+            ConcederLecturaTabla("ListaGenero", nombreFinal);
+            ConcederLecturaTabla("Genero", nombreFinal);
+            AplicarPermisosUsuario();
+        }
+
+        public static void CrearUsuarioExternoBD()
+        {
+            string nombreFinal = ANTENOMBRE_USUARIO_BD + "anon";
+            CrearUsuarioBD(nombreFinal, "");
+            ConcederLecturaTabla("Biblioteca", nombreFinal);
+            ConcederLecturaTabla("Usuario", nombreFinal);
+            //ConcederLecturaTabla("UsuarioLibro", nombreFinal);
+            ConcederLecturaTabla("Libro", nombreFinal);
+            ConcederLecturaTabla("TipoLibro", nombreFinal);
+            ConcederLecturaTabla("ListaAutor", nombreFinal);
+            ConcederLecturaTabla("Autor", nombreFinal);
+            ConcederLecturaTabla("Ocupacion", nombreFinal);
+            ConcederLecturaTabla("ListaEditorial", nombreFinal);
+            ConcederLecturaTabla("Editorial", nombreFinal);
+            ConcederLecturaTabla("ListaGenero", nombreFinal);
+            ConcederLecturaTabla("Genero", nombreFinal);
+        }
+
+        private static void CrearUsuarioBD(string nombreUsuario, string contrasenia)
+        {
+            MySqlCommand cmd;
+            if (LecturaBD.SelectExisteUsuarioBD(nombreUsuario) == 0)
+            {
+                cmd = new MySqlCommand("CREATE USER '" + nombreUsuario + "'@'%' IDENTIFIED BY '" + contrasenia + "'", conexion);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private static void ConcederEdicionTabla(string tabla, string nombreUsuario)
+        {
+            MySqlCommand cmd = new MySqlCommand("GRANT SELECT,INSERT,DELETE,UPDATE ON " +
+               NOMBRE_BD + "."+tabla+" TO'" + nombreUsuario + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+        }
+
+        private static void ConcederLecturaTabla(string tabla, string nombreUsuario)
+        {
+            MySqlCommand cmd = new MySqlCommand("GRANT SELECT ON " +
+               NOMBRE_BD + "." + tabla + " TO'" + nombreUsuario + "'@'%';", conexion);
+            cmd.ExecuteNonQuery();
+        }
+
+        #endregion
 
         private static void CrearTablaLibro()
         {
@@ -242,7 +382,6 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `Usuario` (
 	            `correoUsuario` varchar(150) NOT NULL,
 	            `nombreUsuario` varchar(50) NOT NULL,
-	            `contrasenia` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
 	            PRIMARY KEY (`nombreUsuario`)
             );", conexion);

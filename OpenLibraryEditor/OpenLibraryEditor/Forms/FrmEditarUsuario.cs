@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -14,23 +15,17 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmEditarUsuario : Form
     {
-        private bool esAdmin = false;
-        private bool esUsuarioPropio = false;
+        private bool esEditar;
+        private InfoUsuarioBD usuario;
 
-        public FrmEditarUsuario(InfoUsuarioBD usuario, bool esAdmin)
+        public FrmEditarUsuario(InfoUsuarioBD usuario, bool esEditar)
         {
             InitializeComponent();
-            this.esAdmin = esAdmin;
             IdiomaTexto();
-            KTxtEmailEditUsu.Text = usuario.Nombre;
-            //Lo devuelve del servidor si es el usuario propio el que se edita
-            //if(esUsuarioPropio) KTxtContraEditUsu.Text =
-            if (esAdmin)
-            {
-                LblTipoEditUsu.Visible = true;
-                KCmbTipoEditUsu.Visible = true;
-                SeleccionarTipoUsuario(usuario);
-            }
+            this.usuario = usuario;
+            KTxtNombreEditUsu.Text = usuario.Nombre;
+            KTxtEmailEditUsu.Text = usuario.Correo;
+            this.esEditar = esEditar;
         }
 
         private void SeleccionarTipoUsuario(InfoUsuarioBD usuario)
@@ -61,6 +56,42 @@ namespace OpenLibraryEditor.Forms
         {
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Editor"));
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Usu"));
+            SeleccionarTipoUsuario(usuario);
+        }
+
+        private void GBtnAceptar_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(KTxtNombreEditUsu.Text) &&
+                !String.IsNullOrWhiteSpace(KTxtContraEditUsu.Text) &&
+               !String.IsNullOrWhiteSpace(KTxtEmailEditUsu.Text))
+            {
+                if (ConexionBD.AbrirConexion())
+                {
+                    usuario.Nombre = KTxtNombreEditUsu.Text;
+                    usuario.Correo = KTxtEmailEditUsu.Text;
+                    if(KCmbTipoEditUsu.SelectedIndex == 0)
+                        usuario.TipoUsuario = "Editor";
+                    if (KCmbTipoEditUsu.SelectedIndex == 1)
+                        usuario.TipoUsuario = "Usuario";
+                    if (esEditar)
+                    {
+                        EscrituraBD.UpdateUsuario(usuario.Nombre, usuario, KTxtContraEditUsu.Text);
+                    }
+                    else
+                    {
+                        EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
+                    }
+                    ConexionBD.CerrarConexion();
+                    Close();
+                }
+            }
+            else
+                VentanaWindowsComun.MensajeError("Todos los campos deben estar rellenados.");
+        }
+
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

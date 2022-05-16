@@ -539,18 +539,24 @@ namespace OpenLibraryEditor.BaseDatos
         public static void InsertUsuario(InfoUsuarioBD usuario, string contrasenia)
         {
             // Se comprueba primero que el TipoLibro no existe en la bd 
-            MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
-            SELECT COUNT(*) FROM 'Usuario' WHERE nombreUsuario = '" + usuario.Nombre + "'"));
+            MySqlCommand comprobacion = new MySqlCommand("SELECT COUNT(*) FROM Usuario " +
+                "WHERE nombreUsuario = '" + usuario.Nombre + "'", ConexionBD.conexion);
 
             if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
             {
+                //Creamos usuario en tabla con su info
                 MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                INSERT INTO `Usuario` VALUES ('{0}','{1}','{2}','{3}');",
+                INSERT INTO `Usuario` VALUES ('{0}','{1}','{2}');",
                 usuario.Correo,
                 usuario.Nombre,
-                contrasenia,
                 usuario.TipoUsuario), ConexionBD.conexion);
                 tabla.ExecuteNonQuery();
+
+                //Creamos usuario con permisos en mysql
+                if (usuario.TipoUsuario == "Usuario")
+                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia);
+                else if (usuario.TipoUsuario == "Editor")
+                    ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia);
             }
         }
 
@@ -565,14 +571,18 @@ namespace OpenLibraryEditor.BaseDatos
                 MySqlCommand tabla = new MySqlCommand(String.Format(@"
                 UPDATE `Usuario` SET correoUsuario = '{0}',
                 nombreUsuario = '{1}',
-                contrasenia = '{2}',
-                tipoUsuario = '{3}' 
+                tipoUsuario = '{2}' 
                 WHERE nombreUsuario = '" + nombreOriginal + "';",
                 usuario.Correo,
                 usuario.Nombre,
-                contrasenia,
                 usuario.TipoUsuario), ConexionBD.conexion);
                 tabla.ExecuteNonQuery();
+
+                //Modificamos permisos de usuario en mysql
+                if (usuario.TipoUsuario == "Usuario")
+                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia);
+                else if (usuario.TipoUsuario == "Editor")
+                    ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia);
             }
             else
                 MiMessageBox.Show("El usuario no existe en la BD...");
@@ -588,6 +598,13 @@ namespace OpenLibraryEditor.BaseDatos
             {
                 MySqlCommand tabla = new MySqlCommand(@"
                 DELETE FROM `Usuario` WHERE nombreUsuario = '" + usuario.Nombre + "';",
+                ConexionBD.conexion);
+                tabla.ExecuteNonQuery();
+
+                //Borramos el usuario de mysql users
+                tabla = new MySqlCommand(@"
+                DROP USER '"+ConexionBD.ANTENOMBRE_USUARIO_BD +
+                usuario.Nombre+"';",
                 ConexionBD.conexion);
                 tabla.ExecuteNonQuery();
             }

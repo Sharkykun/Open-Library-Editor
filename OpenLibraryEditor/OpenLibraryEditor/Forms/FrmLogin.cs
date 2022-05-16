@@ -74,8 +74,16 @@ namespace OpenLibraryEditor.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-       
+
         #region Metodos propios
+        public static void ObtenerInfoBD(string nombreUsuario)
+        {
+            ConexionBD.AbrirConexion();
+            UsuarioDatos.configuracionUsuario.InfoUsuarioActual = LecturaBD.SelectUsuario(nombreUsuario);
+            ConexionBD.CerrarConexion();
+            UsuarioDatos.configuracionUsuario.EsAdministrador = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario == "Administrador";
+        }
+
         //Método para cambiar el idioma de la aplicación
         private void IdiomaTexto()
         {
@@ -143,6 +151,7 @@ namespace OpenLibraryEditor.Forms
                 txt.UseSystemPasswordChar = false;
             }
         }
+
         private void MostrarMainEntrar(KryptonTextBox text1, KryptonTextBox text2, KryptonTextBox text3, string s1, string s2, string s3,
           string e1, string e2, string e3, string e4)
         {
@@ -161,18 +170,20 @@ namespace OpenLibraryEditor.Forms
                         //    this.Hide();
                         //}
                         //para probarlo
-                        if (KTxtUrl.Text.Equals("Hola") && KTxtNombre.Text.Equals("Yolanda") && KTxtContra.Text.Equals("Yolanda"))
-                        {
-                            FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
-                            mainMenu.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MsgError(e1);
-                            KTxtNombre.Clear();
-                            KTxtContra.Clear();
-                        }
+                        //if (KTxtUrl.Text.Equals("Hola") && KTxtNombre.Text.Equals("Yolanda") && KTxtContra.Text.Equals("Yolanda"))
+                        //{
+                        //    FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                        //    mainMenu.Show();
+                        //    this.Hide();
+                        //}
+                        //else
+                        //{
+                        //    MsgError(e1);
+                        //    KTxtNombre.Clear();
+                        //    KTxtContra.Clear();
+                        //}
+
+                        
                     }
                     else
                         MsgError(e2);
@@ -220,9 +231,33 @@ namespace OpenLibraryEditor.Forms
         }
         private void GBtnEntrar_Click(object sender, EventArgs e)
         {
-            MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, ControladorIdioma.GetTexto("Log_Url"),
-                   ControladorIdioma.GetTexto("Log_Nombre"), ControladorIdioma.GetTexto("Log_Contra"), ControladorIdioma.GetTexto("Log_Error1"),
-                   ControladorIdioma.GetTexto("Log_Error2"), ControladorIdioma.GetTexto("Log_Error3"), ControladorIdioma.GetTexto("Log_Error4"));
+            //MostrarMainEntrar(KTxtUrl, KTxtNombre, KTxtContra, ControladorIdioma.GetTexto("Log_Url"),
+            //       ControladorIdioma.GetTexto("Log_Nombre"), ControladorIdioma.GetTexto("Log_Contra"), ControladorIdioma.GetTexto("Log_Error1"),
+            //       ControladorIdioma.GetTexto("Log_Error2"), ControladorIdioma.GetTexto("Log_Error3"), ControladorIdioma.GetTexto("Log_Error4"));
+            
+            //Obtener puerto en la url, si se especifica
+            string[] s = KTxtUrl.Text.Split(':');
+            string url = s[0];
+            string puerto = s.Length == 2 ? s[1] : "3306";
+
+            ConexionBD.EstablecerConexion(url, 
+                ConexionBD.ANTENOMBRE_USUARIO_BD + KTxtNombre.Text,
+                KTxtContra.Text, puerto);
+            if (ConexionBD.AbrirConexion())
+            {
+                FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                mainMenu.Show();
+                this.Hide();
+                ConexionBD.CerrarConexion();
+                ObtenerInfoBD(KTxtNombre.Text);
+            }
+            else
+            {
+                ConexionBD.CerrarConexion();
+                VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos.\n" +
+                    "Compruebe que todos los campos son correctos\ny que el servidor esté funcionando.");
+                ConexionBD.conexion = null;
+            }
         }
 
         private void GBtnSinConexion_Click(object sender, EventArgs e)
@@ -230,22 +265,20 @@ namespace OpenLibraryEditor.Forms
             FrmMenuPrincipal menu = new FrmMenuPrincipal();
             menu.Show();
             this.Hide();
-
-            Autor testA = new Autor("pepe",
-                "el gafas",
-                "Escritor",
-                new DateTime(),
-                new DateTime(),
-                "",
-                "",
-                "");
-           
         }
         private void GBtnCrearBD_Click(object sender, EventArgs e)
         {
             FrmCrearBD bd=new FrmCrearBD();
             bd.FormBorderStyle=FormBorderStyle.None;
             bd.ShowDialog();
+            if (bd.IsOk)
+            {
+                bd.Close();
+                //Entrar a la app con las credenciales especificadas antes
+                FrmMenuPrincipal menu = new FrmMenuPrincipal();
+                menu.Show();
+                this.Hide();
+            }
         }
         #endregion
         #region Cambiar idioma
@@ -314,12 +347,6 @@ namespace OpenLibraryEditor.Forms
         {
             Application.Exit();
         }
-
-      
-     
-
-
-       
     }
 }
 
