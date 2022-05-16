@@ -38,7 +38,6 @@
             this.TxtUrlReg = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.LblUrlReg = new System.Windows.Forms.Label();
-            this.BtnRegistrarme = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TxtMailReg = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -56,6 +55,10 @@
             this.KTxtContra1Reg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtContraReg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TTRegistro = new System.Windows.Forms.ToolTip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.GBtnRegistrarme = new Guna.UI.WinForms.GunaButton();
             this.PanTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoRegistro)).BeginInit();
             this.PanTexto.SuspendLayout();
@@ -67,7 +70,7 @@
             // 
             // PanTitulo
             // 
-            this.PanTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.PanTitulo.Controls.Add(this.MBtnCerrarRegistro);
             this.PanTitulo.Controls.Add(this.LblTituloFrm);
             this.PanTitulo.Controls.Add(this.PcbLogoRegistro);
@@ -86,7 +89,7 @@
             this.MBtnCerrarRegistro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             this.MBtnCerrarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MBtnCerrarRegistro.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
-            this.MBtnCerrarRegistro.IconColor = System.Drawing.Color.Gainsboro;
+            this.MBtnCerrarRegistro.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.MBtnCerrarRegistro.IconSize = 40;
             this.MBtnCerrarRegistro.Location = new System.Drawing.Point(564, 4);
             this.MBtnCerrarRegistro.Name = "MBtnCerrarRegistro";
@@ -100,7 +103,7 @@
             // 
             this.LblTituloFrm.AutoSize = true;
             this.LblTituloFrm.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloFrm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblTituloFrm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.LblTituloFrm.Location = new System.Drawing.Point(54, 9);
             this.LblTituloFrm.Name = "LblTituloFrm";
             this.LblTituloFrm.Size = new System.Drawing.Size(250, 23);
@@ -120,11 +123,11 @@
             // 
             // PanTexto
             // 
-            this.PanTexto.BackColor = System.Drawing.Color.Gainsboro;
+            this.PanTexto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.PanTexto.Controls.Add(this.GBtnRegistrarme);
             this.PanTexto.Controls.Add(this.TxtUrlReg);
             this.PanTexto.Controls.Add(this.panel5);
             this.PanTexto.Controls.Add(this.LblUrlReg);
-            this.PanTexto.Controls.Add(this.BtnRegistrarme);
             this.PanTexto.Controls.Add(this.TxtMailReg);
             this.PanTexto.Controls.Add(this.panel4);
             this.PanTexto.Controls.Add(this.panel3);
@@ -141,29 +144,30 @@
             this.PanTexto.Controls.Add(this.IpcbOcultarContra1Reg);
             this.PanTexto.Controls.Add(this.KTxtContra1Reg);
             this.PanTexto.Controls.Add(this.KTxtContraReg);
-            this.PanTexto.Location = new System.Drawing.Point(3, 42);
+            this.PanTexto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanTexto.Location = new System.Drawing.Point(0, 40);
             this.PanTexto.Name = "PanTexto";
-            this.PanTexto.Size = new System.Drawing.Size(594, 305);
+            this.PanTexto.Size = new System.Drawing.Size(600, 310);
             this.PanTexto.TabIndex = 2;
             // 
             // TxtUrlReg
             // 
             this.TxtUrlReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtUrlReg.BackColor = System.Drawing.Color.Gainsboro;
+            this.TxtUrlReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.TxtUrlReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtUrlReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUrlReg.Location = new System.Drawing.Point(230, 22);
+            this.TxtUrlReg.Location = new System.Drawing.Point(230, 25);
             this.TxtUrlReg.Name = "TxtUrlReg";
-            this.TxtUrlReg.Size = new System.Drawing.Size(313, 24);
+            this.TxtUrlReg.Size = new System.Drawing.Size(319, 24);
             this.TxtUrlReg.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(58, 48);
+            this.panel5.Location = new System.Drawing.Point(58, 51);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(486, 2);
+            this.panel5.Size = new System.Drawing.Size(492, 2);
             this.panel5.TabIndex = 23;
             // 
             // LblUrlReg
@@ -171,147 +175,68 @@
             this.LblUrlReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblUrlReg.AutoSize = true;
             this.LblUrlReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUrlReg.Location = new System.Drawing.Point(54, 21);
+            this.LblUrlReg.Location = new System.Drawing.Point(54, 24);
             this.LblUrlReg.Name = "LblUrlReg";
             this.LblUrlReg.Size = new System.Drawing.Size(39, 23);
             this.LblUrlReg.TabIndex = 22;
             this.LblUrlReg.Text = "Url:";
             // 
-            // BtnRegistrarme
-            // 
-            this.BtnRegistrarme.Location = new System.Drawing.Point(125, 230);
-            this.BtnRegistrarme.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnRegistrarme.Name = "BtnRegistrarme";
-            this.BtnRegistrarme.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarme.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarme.OverrideDefault.Border.Rounding = 30;
-            this.BtnRegistrarme.OverrideDefault.Border.Width = 2;
-            this.BtnRegistrarme.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnRegistrarme.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnRegistrarme.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarme.Size = new System.Drawing.Size(354, 46);
-            this.BtnRegistrarme.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarme.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateCommon.Border.ColorAngle = 0F;
-            this.BtnRegistrarme.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarme.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarme.StateCommon.Border.Rounding = 30;
-            this.BtnRegistrarme.StateCommon.Border.Width = 2;
-            this.BtnRegistrarme.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.BtnRegistrarme.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnRegistrarme.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnRegistrarme.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.BtnRegistrarme.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarme.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarme.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarme.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarme.StateNormal.Border.Rounding = 30;
-            this.BtnRegistrarme.StateNormal.Border.Width = 2;
-            this.BtnRegistrarme.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnRegistrarme.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnRegistrarme.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarme.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.BtnRegistrarme.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.BtnRegistrarme.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarme.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarme.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarme.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarme.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarme.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnRegistrarme.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnRegistrarme.TabIndex = 5;
-            this.BtnRegistrarme.Values.Text = "Registrarme";
-            this.BtnRegistrarme.Click += new System.EventHandler(this.BtnRegistrarme_Click);
-            // 
             // TxtMailReg
             // 
             this.TxtMailReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtMailReg.BackColor = System.Drawing.Color.Gainsboro;
+            this.TxtMailReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.TxtMailReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtMailReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtMailReg.Location = new System.Drawing.Point(230, 103);
             this.TxtMailReg.Name = "TxtMailReg";
-            this.TxtMailReg.Size = new System.Drawing.Size(313, 24);
+            this.TxtMailReg.Size = new System.Drawing.Size(319, 24);
             this.TxtMailReg.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(58, 207);
+            this.panel4.Location = new System.Drawing.Point(58, 210);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(486, 2);
+            this.panel4.Size = new System.Drawing.Size(492, 2);
             this.panel4.TabIndex = 12;
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(58, 167);
+            this.panel3.Location = new System.Drawing.Point(58, 170);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(486, 2);
+            this.panel3.Size = new System.Drawing.Size(492, 2);
             this.panel3.TabIndex = 13;
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(58, 127);
+            this.panel2.Location = new System.Drawing.Point(58, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(486, 2);
+            this.panel2.Size = new System.Drawing.Size(492, 2);
             this.panel2.TabIndex = 12;
             // 
             // TxtNombreReg
             // 
             this.TxtNombreReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtNombreReg.BackColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.TxtNombreReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtNombreReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombreReg.Location = new System.Drawing.Point(230, 61);
+            this.TxtNombreReg.Location = new System.Drawing.Point(230, 64);
             this.TxtNombreReg.Name = "TxtNombreReg";
-            this.TxtNombreReg.Size = new System.Drawing.Size(313, 24);
+            this.TxtNombreReg.Size = new System.Drawing.Size(319, 24);
             this.TxtNombreReg.TabIndex = 1;
             // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(58, 87);
+            this.panel6.Location = new System.Drawing.Point(58, 90);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(486, 2);
+            this.panel6.Size = new System.Drawing.Size(492, 2);
             this.panel6.TabIndex = 11;
             // 
             // LblContra1Reg
@@ -319,7 +244,7 @@
             this.LblContra1Reg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblContra1Reg.AutoSize = true;
             this.LblContra1Reg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContra1Reg.Location = new System.Drawing.Point(54, 179);
+            this.LblContra1Reg.Location = new System.Drawing.Point(54, 182);
             this.LblContra1Reg.Name = "LblContra1Reg";
             this.LblContra1Reg.Size = new System.Drawing.Size(166, 23);
             this.LblContra1Reg.TabIndex = 10;
@@ -330,7 +255,7 @@
             this.LblContraReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblContraReg.AutoSize = true;
             this.LblContraReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContraReg.Location = new System.Drawing.Point(54, 141);
+            this.LblContraReg.Location = new System.Drawing.Point(54, 144);
             this.LblContraReg.Name = "LblContraReg";
             this.LblContraReg.Size = new System.Drawing.Size(106, 23);
             this.LblContraReg.TabIndex = 9;
@@ -341,7 +266,7 @@
             this.LblMailReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblMailReg.AutoSize = true;
             this.LblMailReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblMailReg.Location = new System.Drawing.Point(54, 101);
+            this.LblMailReg.Location = new System.Drawing.Point(54, 104);
             this.LblMailReg.Name = "LblMailReg";
             this.LblMailReg.Size = new System.Drawing.Size(59, 23);
             this.LblMailReg.TabIndex = 8;
@@ -352,7 +277,7 @@
             this.LblNombreReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblNombreReg.AutoSize = true;
             this.LblNombreReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreReg.Location = new System.Drawing.Point(54, 60);
+            this.LblNombreReg.Location = new System.Drawing.Point(54, 63);
             this.LblNombreReg.Name = "LblNombreReg";
             this.LblNombreReg.Size = new System.Drawing.Size(173, 23);
             this.LblNombreReg.TabIndex = 7;
@@ -442,7 +367,7 @@
             this.KTxtContra1Reg.Name = "KTxtContra1Reg";
             this.KTxtContra1Reg.PasswordChar = '●';
             this.KTxtContra1Reg.Size = new System.Drawing.Size(313, 31);
-            this.KTxtContra1Reg.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtContra1Reg.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KTxtContra1Reg.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.KTxtContra1Reg.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
             this.KTxtContra1Reg.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -464,7 +389,7 @@
             this.KTxtContraReg.Name = "KTxtContraReg";
             this.KTxtContraReg.PasswordChar = '●';
             this.KTxtContraReg.Size = new System.Drawing.Size(313, 31);
-            this.KTxtContraReg.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtContraReg.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KTxtContraReg.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
             this.KTxtContraReg.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
             this.KTxtContraReg.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -480,14 +405,71 @@
             this.KTxtContraReg.TabIndex = 3;
             this.KTxtContraReg.UseSystemPasswordChar = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(3, 310);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(150)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(3, 347);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(597, 3);
+            this.panel7.TabIndex = 29;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(150)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(597, 40);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(3, 307);
+            this.panel8.TabIndex = 30;
+            // 
+            // GBtnRegistrarme
+            // 
+            this.GBtnRegistrarme.AnimationHoverSpeed = 0.07F;
+            this.GBtnRegistrarme.AnimationSpeed = 0.03F;
+            this.GBtnRegistrarme.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnRegistrarme.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.BorderSize = 2;
+            this.GBtnRegistrarme.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnRegistrarme.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnRegistrarme.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnRegistrarme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnRegistrarme.Image = null;
+            this.GBtnRegistrarme.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnRegistrarme.Location = new System.Drawing.Point(125, 230);
+            this.GBtnRegistrarme.Name = "GBtnRegistrarme";
+            this.GBtnRegistrarme.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnRegistrarme.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.OnHoverImage = null;
+            this.GBtnRegistrarme.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnRegistrarme.Radius = 18;
+            this.GBtnRegistrarme.Size = new System.Drawing.Size(355, 39);
+            this.GBtnRegistrarme.TabIndex = 28;
+            this.GBtnRegistrarme.Text = "Registrarme";
+            this.GBtnRegistrarme.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FrmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(600, 350);
-            this.Controls.Add(this.PanTitulo);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanTexto);
+            this.Controls.Add(this.PanTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistro";
@@ -516,7 +498,6 @@
         private System.Windows.Forms.TextBox TxtUrlReg;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label LblUrlReg;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnRegistrarme;
         private System.Windows.Forms.TextBox TxtMailReg;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
@@ -535,5 +516,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtContra1Reg;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarRegistro;
         private System.Windows.Forms.ToolTip TTRegistro;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private Guna.UI.WinForms.GunaButton GBtnRegistrarme;
     }
 }

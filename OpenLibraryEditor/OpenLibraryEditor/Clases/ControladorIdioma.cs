@@ -12,6 +12,10 @@ namespace OpenLibraryEditor.Clases
     {
         public static string idioma = "Strings_es_ES";
 
+        public const string IDIOMA_ESPANOL = "Strings_es_ES";
+        public const string IDIOMA_INGLES = "Strings_en_US";
+        public const string IDIOMA_FRANCES = "Strings_fr_FR";
+
         public static string GetTexto(string claveIdioma)
         {
             var assembly = Assembly.GetExecutingAssembly();

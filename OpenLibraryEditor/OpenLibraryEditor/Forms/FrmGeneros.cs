@@ -2,13 +2,7 @@
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OpenLibraryEditor.Forms
@@ -16,10 +10,10 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmGeneros : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "el género";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Ge_Gen");
         private bool setNew;
         private Genero generoNuevo;
-        private List<Genero> listaGenero = UsuarioDatos.listaGenero;
+        private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
         private Genero generoActual;
         private ListViewItem itemActual;
         private BindingSource generoBinding = new BindingSource();
@@ -67,10 +61,10 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.KCmbGeneroPadreGe, ControladorIdioma.GetTexto("Ge_TTGenero"));
             LblComentarioGe.Text = ControladorIdioma.GetTexto("Ge_Comentario");
             TTGeneros.SetToolTip(this.KTxtComentarioGe, ControladorIdioma.GetTexto("Ge_TTComentario"));
-            KBtnCancelarGe.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTGeneros.SetToolTip(this.KBtnCancelarGe, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarGe.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTGeneros.SetToolTip(this.KBtnAceptarGe, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTGeneros.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTGeneros.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar")); 
         }
         private void ActualizarGeneroPadre()
@@ -99,12 +93,25 @@ namespace OpenLibraryEditor.Forms
             else
                 return true;
         }
+
+        private void ComprobarGuardado()
+        {
+            //Comparar objetos para preguntar si guardar
+            if (generoActual != null && EsObjetoCambiado())
+            {
+                //VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    GBtnAceptar_Click(null, null);
+            }
+        }
         #endregion
         private void MBtnCerrarGeneros_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void KBtnCancelarGe_Click(object sender, EventArgs e)
+
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -125,13 +132,8 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvGeneroNG_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && generoActual != null && EsObjetoCambiado())
-            {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
-                    KBtnAceptarGe_Click(null, null);
-            }
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvGeneroNG.SelectedItems.Count == 1)
@@ -151,7 +153,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnMasLsvNG_Click(object sender, EventArgs e)
         {
-            Genero gen = new Genero("Nuevo Género");
+            Genero gen = new Genero(ControladorIdioma.GetTexto("Ge_NuevoGen"));
             listaGenero.Add(gen);
             var item = AniadirGenero(gen);
             item.Selected = true;
@@ -161,7 +163,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMenosLsvNG_Click(object sender, EventArgs e)
         {
             if (LsvGeneroNG.SelectedItems.Count == 1 &&
-               VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
+               VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Ge_Gen")) == DialogResult.Yes)
             {
                 var item = LsvGeneroNG.SelectedItems[0];
                 listaGenero.Remove(generoActual);
@@ -170,26 +172,38 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void KBtnAceptarGe_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesGE.Visible == true) { 
-                //Actualizar etiqueta
-                generoActual.Nombre = KTxtNombreGe.Text;
-                generoActual.GeneroPadre = (Genero)KCmbGeneroPadreGe.SelectedItem;
-                generoActual.Comentario = KTxtComentarioGe.Text;
-
-                //Actualizar listview
-                itemActual.Text = KTxtNombreGe.Text;
-                foreach (ListViewItem item in LsvGeneroNG.Items)
+            if (PanOpcionesGE.Visible == true)
+            {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text) &&
+                KCmbGeneroPadreGe.SelectedItem != generoActual)
                 {
-                    if (item.Tag == generoActual)
-                        item.SubItems[1].Text = generoActual.GeneroPadre.Nombre;
-                }
+                    //Actualizar etiqueta
+                    generoActual.Nombre = KTxtNombreGe.Text;
+                    generoActual.GeneroPadre = (Genero)KCmbGeneroPadreGe.SelectedItem;
+                    generoActual.Comentario = KTxtComentarioGe.Text;
 
-                ActualizarGeneroPadre();
+                    //Actualizar listview
+                    itemActual.Text = KTxtNombreGe.Text;
+                    itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
+                    foreach (ListViewItem item in LsvGeneroNG.Items)
+                    {
+                        Genero gp = (item.Tag as Genero).GeneroPadre;
+                        if (gp == generoActual && gp != null)
+                            item.SubItems[1].Text = generoActual.Nombre;
+                    }
+
+                    ActualizarGeneroPadre();
+                }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Genero"));
             }
         }
 
-       
+        private void FrmGeneros_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
     }
 }

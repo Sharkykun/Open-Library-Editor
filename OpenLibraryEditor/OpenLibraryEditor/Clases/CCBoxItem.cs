@@ -37,11 +37,12 @@ namespace OpenLibraryEditor.Clases
         {
             this.name = name;
             this.value = value;
+            this.item = item;
         }
 
         public override string ToString()
         {
-            return string.Format("name: '{0}', item: {1}", name, value);
+            return name;
         }
     }
 }

@@ -13,12 +13,17 @@ using System.Windows.Forms;
 
 namespace OpenLibraryEditor.Forms
 {
+    /*
+     TODO:
+    - Añadir tooltip para argumentos, en el que explique que si usa "{file}" sirve para cargar el fichero en esa posición.
+    Ej.:     -f {file} -b
+     */
     public partial class FrmEjecutable : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "el ejecutable";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Ej_ElEjecutable");
         private bool setNew;
-        private List<UsuarioEjecutable> listaEjecutable = UsuarioDatos.listaEjecutable;
+        private List<UsuarioEjecutable> listaEjecutable = Biblioteca.biblioteca.ListaEjecutable;
         private UsuarioEjecutable ejecutableActual;
         private ListViewItem itemActual;
         #endregion
@@ -44,7 +49,7 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarEJ_Click(object sender, EventArgs e)
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -80,10 +85,10 @@ namespace OpenLibraryEditor.Forms
             TTEjecutable.SetToolTip(this.IBtnBuscarRutaEJ, ControladorIdioma.GetTexto("Ej_TTRuta"));
             LblArgumentosEJ.Text = ControladorIdioma.GetTexto("Ej_Argumentos");
             TTEjecutable.SetToolTip(this.KTxtArgumentosEJ, ControladorIdioma.GetTexto("Ej_TTArgumentos"));
-            KBtnCancelarEJ.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTEjecutable.SetToolTip(this.KBtnCancelarEJ, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarEJ.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTEjecutable.SetToolTip(this.KBtnAceptarEJ, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTEjecutable.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTEjecutable.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTEjecutable.SetToolTip(this.MBtnCerrarEjecutable, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirEjecutable(UsuarioEjecutable ejecutable)
@@ -107,16 +112,22 @@ namespace OpenLibraryEditor.Forms
                 return true;
         }
 
-        #endregion
-        private void LsvEjecutable_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void ComprobarGuardado()
         {
             //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && ejecutableActual != null && EsObjetoCambiado())
+            if (ejecutableActual != null && EsObjetoCambiado())
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
-                    KBtnAceptarEJ_Click(null, null);
+                    GBtnAceptar_Click(null, null);
             }
+        }
+
+        #endregion
+        private void LsvEjecutable_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvEjecutable.SelectedItems.Count == 1)
@@ -138,7 +149,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasLsvEJ_Click(object sender, EventArgs e)
         {
-            UsuarioEjecutable ej = new UsuarioEjecutable("Nuevo Ejecutable");
+            UsuarioEjecutable ej = new UsuarioEjecutable(ControladorIdioma.GetTexto("Ej_NuevoEjecutable"));
             listaEjecutable.Add(ej);
             var item = AniadirEjecutable(ej);
             item.Selected = true;
@@ -146,12 +157,24 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMenosLsvEJ_Click(object sender, EventArgs e)
         {
+            //VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO)
             if (LsvEjecutable.SelectedItems.Count == 1 &&
                 VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
             {
+                //Quitar referencias a ejecutable en otros libros y sus acciones
+                Biblioteca.biblioteca.ListaLibro.ForEach(p =>
+                {
+                    p.ListaAccion.ForEach(s =>
+                    {
+                        if (s.Ejecutable == ejecutableActual)
+                            s.Ejecutable = null;
+                    });
+                });
+
                 var item = LsvEjecutable.SelectedItems[0];
                 listaEjecutable.Remove(ejecutableActual);
                 LsvEjecutable.Items.Remove(item);
+                
             }
         }
 
@@ -159,13 +182,11 @@ namespace OpenLibraryEditor.Forms
         {
             KTxtRutaEJ.Text = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_TODO);
         }
-
-        private void KBtnAceptarEJ_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (PanOpcionesEJ.Visible == true) { 
-                if (String.IsNullOrWhiteSpace(KTxtNombreEJ.Text) &&
-                    String.IsNullOrWhiteSpace(KTxtExtensionEJ.Text) &&
-                    String.IsNullOrWhiteSpace(KTxtRutaEJ.Text))
+                if (!String.IsNullOrWhiteSpace(KTxtNombreEJ.Text) &&
+                    !String.IsNullOrWhiteSpace(KTxtRutaEJ.Text))
                 {
                     //Actualizar etiqueta
                     ejecutableActual.NombreEjecutable = KTxtNombreEJ.Text;
@@ -177,8 +198,12 @@ namespace OpenLibraryEditor.Forms
                     itemActual.Text = KTxtNombreEJ.Text;
                     itemActual.SubItems[1].Text = KTxtExtensionEJ.Text;
                 }
-                else VentanaWindowsComun.MensajeError("El nombre, extensión y ruta no pueden estar vacíos.");
+                else VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_CamposVacios"));
             }
+        }
+        private void FrmEjecutable_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
         }
     }
 }

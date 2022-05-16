@@ -40,7 +40,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idSerie = rnd.Next();
-            } while (UsuarioDatos.listaSerie.
+            } while (Biblioteca.biblioteca.ListaSerie.
                 FindIndex(p => idSerie == p.idSerie) != -1);
         }
 

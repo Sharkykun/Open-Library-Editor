@@ -11,10 +11,6 @@ namespace OpenLibraryEditor.DatosLibros
         private string comentario = "";
         private string nombreCategoria = "";
 
-        //Lista estática de ocupaciones
-        [JsonIgnore]
-        public static List<string> categoriaLista = new List<string>();
-
         public Etiqueta()
         {
         }
@@ -55,7 +51,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idEtiqueta = rnd.Next();
-            } while (UsuarioDatos.listaEtiqueta.
+            } while (Biblioteca.biblioteca.ListaEtiqueta.
                 FindIndex(p => idEtiqueta == p.idEtiqueta) != -1);
         }
 

@@ -17,15 +17,15 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmSeries : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "la serie";
+        //private const string NOMBRE_OBJETO = "la serie";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Se_LaSerie");
         private bool setNew;
         private Serie serieNueva;
-        private List<Serie> listaSerie = UsuarioDatos.listaSerie;
+        private List<Serie> listaSerie = Biblioteca.biblioteca.ListaSerie;
         private Serie serieActual;
         private ListViewItem itemSerieActual;
         private List<RelacionSerie> listaTempRelacion;
         private RelacionSerie relacionActual;
-        private ListViewItem itemRelacionActual;
 
         private string rutaImagen;
 
@@ -41,7 +41,7 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarSe_Click(object sender, EventArgs e)
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -100,11 +100,11 @@ namespace OpenLibraryEditor.Forms
             TTSeries.SetToolTip(this.MBtnMasRelacionNS, ControladorIdioma.GetTexto("Se_RMas"));
             TTSeries.SetToolTip(this.MBtnMenosRelacionNS, ControladorIdioma.GetTexto("Se_RMenos"));
             MBtnEditarRS.Text = ControladorIdioma.GetTexto("Se_REditar");
-            TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_TTEditar"));
-            KBtnCancelarSe.Text = ControladorIdioma.GetTexto("Cancelar");
-            TTSeries.SetToolTip(this.KBtnCancelarSe, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarSe.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTSeries.SetToolTip(this.KBtnAceptarSe, ControladorIdioma.GetTexto("Aceptar"));
+            TTSeries.SetToolTip(this.MBtnEditarRS, ControladorIdioma.GetTexto("Se_RTTEditar"));
+            GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTSeries.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTSeries.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTSeries.SetToolTip(this.MBtnCerrarSeries, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirSerie(Serie serie)
@@ -161,9 +161,21 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
+        private void ComprobarGuardado()
+        {
+            //Comparar objetos para preguntar si guardar
+            if (serieActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    GBtnAceptar_Click(null, null);
+            }
+        }
+
         private FrmEditarRelacionSerie CrearFormularioRelacion(RelacionSerie relacion)
         {
             FrmEditarRelacionSerie form = new FrmEditarRelacionSerie(relacion, LsvSeriesNS, serieActual);
+            form.FormBorderStyle = FormBorderStyle.None;
             form.ShowDialog();
             return form;
         }
@@ -173,13 +185,8 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvSeriesNS_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && serieActual != null && EsObjetoCambiado())
-            {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
-                    KBtnAceptarSe_Click(null, null);
-            }
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvSeriesNS.SelectedItems.Count == 1)
@@ -210,7 +217,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasLsvNS_Click(object sender, EventArgs e)
         {
             //Aqui salta un error de que no puede ser 0
-            Serie s = new Serie("Nueva Serie", KCmbEstadoSe.Items[0].ToString());
+            Serie s = new Serie(ControladorIdioma.GetTexto("Se_NuevaSerie"), KCmbEstadoSe.Items[0].ToString());
             listaSerie.Add(s);
             var item = AniadirSerie(s);
             item.Selected = true;
@@ -273,7 +280,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMenosRelacionNS_Click(object sender, EventArgs e)
         {
             if (LsvRelacionSeriesNS.SelectedItems.Count == 1 &&
-               VentanaWindowsComun.MensajeBorrarObjeto("la relación") == DialogResult.Yes)
+               VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Se_LaRelacion")) == DialogResult.Yes)
             {
                 int i = relacionActual.Serie.ListaRelacionSerie.FindIndex(p => p.Serie == serieActual);
                 relacionActual.Serie.ListaRelacionSerie.RemoveAt(i);
@@ -289,27 +296,36 @@ namespace OpenLibraryEditor.Forms
                 relacionActual.NombreTipoRelacionSerie = relacion.NombreTipoRelacionSerie;
             }
         }
-        private void KBtnAceptarSe_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesSE.Visible == true) { 
-                //Actualizar serie
-                serieActual.Nombre = KTxtNombreSe.Text;
-                serieActual.Estado = KCmbEstadoSe.Text;
-                serieActual.Comentario = KTxtComentarioSe.Text;
-                serieActual.ListaRelacionSerie = listaTempRelacion;
-                if (rutaImagen != serieActual.Imagen)
+            if (PanOpcionesSE.Visible == true)
+            {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreSe.Text))
                 {
-                    serieActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                        ControladorImagen.RUTA_SERIE, serieActual.IdSerie.ToString());
-                    rutaImagen = serieActual.Imagen;
-                }
+                    //Actualizar serie
+                    serieActual.Nombre = KTxtNombreSe.Text;
+                    serieActual.Estado = KCmbEstadoSe.Text;
+                    serieActual.Comentario = KTxtComentarioSe.Text;
+                    serieActual.ListaRelacionSerie = listaTempRelacion;
+                    if (rutaImagen != serieActual.Imagen)
+                    {
+                        serieActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                            ControladorImagen.RUTA_SERIE, serieActual.IdSerie.ToString());
+                        rutaImagen = serieActual.Imagen;
+                    }
 
-                //Actualizar listview
-                itemSerieActual.Text = KTxtNombreSe.Text;
-                itemSerieActual.SubItems[1].Text = KCmbEstadoSe.Text;
+                    //Actualizar listview
+                    itemSerieActual.Text = KTxtNombreSe.Text;
+                    itemSerieActual.SubItems[1].Text = KCmbEstadoSe.Text;
+                }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
 
-      
+        private void FrmSeries_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
     }
 }

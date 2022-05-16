@@ -8,6 +8,7 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class Genero : IComparable<Genero>
     {
+        private List<string> listaIdCompartido = new List<string>();
         private int idGenero;
         private string nombre = "";
         private Genero generoPadre;
@@ -22,10 +23,18 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
+        public Genero(string nombre, Genero generoPadre, string comentario)
+        {
+            this.nombre = nombre;
+            this.generoPadre = generoPadre;
+            this.comentario = comentario;
+        }
+
         public int IdGenero { get => idGenero; set => idGenero = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public Genero GeneroPadre { get => generoPadre; set => generoPadre = value; }
         public string Comentario { get => comentario; set => comentario = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
 
         public int CompareTo(Genero otro)
         {
@@ -45,7 +54,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idGenero = rnd.Next();
-            } while (UsuarioDatos.listaGenero.
+            } while (Biblioteca.biblioteca.ListaGenero.
                 FindIndex(p => idGenero == p.idGenero) != -1);
         }
 

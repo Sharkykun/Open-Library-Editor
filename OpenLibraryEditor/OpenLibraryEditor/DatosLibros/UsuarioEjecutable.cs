@@ -13,6 +13,8 @@ namespace OpenLibraryEditor.DatosLibros
         private string rutaEjecutable = "";
         private string argumentos = "";
 
+        public const string CLAVE_FICHERO = "{file}";
+
         public UsuarioEjecutable(string nombreEjecutable)
         {
             this.nombreEjecutable = nombreEjecutable;

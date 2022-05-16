@@ -13,11 +13,18 @@ using System.Threading.Tasks;
 
 namespace OpenLibraryEditor.Clases
 {
+    /*
+     - OPCIONAL: Añadir buscar más de 40 libros. Lanzaría varias consultas.
+     */
     public class GoogleBooksController
     {
         private BooksService service;
 
-        public Volumes bookCollection; //Lista de libros al realizar busqueda
+        private const int MAX_QUERY_RESULT = 40;
+
+        private Volumes bookCollection; //Lista de libros al realizar busqueda
+
+        public Volumes BookCollection { get => bookCollection; set => bookCollection = value; }
 
         /// <summary>
         /// Instancia e inicia el servicio de Google Books.
@@ -49,80 +56,89 @@ namespace OpenLibraryEditor.Clases
         /// <param name="matureBooks">Marca si debe buscar o no libros para mayores de edad.</param>
         public void SearchBook(string bookName, int count, bool matureBooks)
         {
-            //Crear Query para buscar libros
-            var query = service.Volumes.List(bookName);
-            if (count > 0) query.MaxResults = count;
-            if (matureBooks) query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.MATURE;
-            else query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.NotMature;
-
-            var result = service.Volumes.List(bookName).Execute();
-            if (result != null && result.Items != null)
+            try
             {
-                bookCollection = result;
+                //Crear Query para buscar libros
+                var query = service.Volumes.List(bookName);
+                if (count > 0) query.MaxResults = count;
+                if (matureBooks) query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.MATURE;
+                else query.MaxAllowedMaturityRating = VolumesResource.ListRequest.MaxAllowedMaturityRatingEnum.NotMature;
+
+                var result = query.Execute();
+                if (result != null && result.Items != null)
+                {
+                    bookCollection = result;
+                }
+                else
+                    bookCollection = null;
             }
-            bookCollection = null;
+            catch (Google.GoogleApiException)
+            {
+                VentanaWindowsComun.MensajeError("La busqueda en Google Books falló.\nCompruebe que su clave privada es correcta\ny que ha escrito algo para poder buscar.");
+                bookCollection = null;
+            }
         }
 
         /// <summary>
         /// Convierte los datos de un libro de Google Books a un libro de esta app.
         /// </summary>
         /// <param name="volume">Libro de Google Books a convertir.</param>
-        /// <param name="bookInfoOnly">Indica si solo debe convertir la información general del libro, sin tener en cuenta autores, géneros...</param>
         /// <returns>Libro convertido. Retorna excepción si el ISBN del libro ya existe en el listado.</returns>
-        public Libro ParseBook(Volume volume, bool sacarPersonas, bool sacarEditorial, bool sacarGeneros)
+        public static Libro ParseBook(Volume volume, bool sacarPersonas, bool sacarEditorial, bool sacarGeneros)
         {
             //Sacar ISBN y comprobar si existe
+            //volInfo.PreviewLink para sacar el enlace del libro
             var volInfo = volume.VolumeInfo;
             string isbn13 = volInfo.IndustryIdentifiers.FirstOrDefault(p => p.Type == "ISBN_13").Identifier;
             string isbn10 = volInfo.IndustryIdentifiers.FirstOrDefault(p => p.Type == "ISBN_10").Identifier;
 
-            if (UsuarioDatos.biblioteca.ListaLibro.Any(p => p.Isbn_13 == isbn13))
+            if (Biblioteca.biblioteca.ListaLibro.Any(p => p.Isbn_13 == isbn13))
             {
                 throw new Libro.IdRepetidoException("El ISBN del libro ya existe en la biblioteca.");
             }
 
             Libro book = new Libro();
 
-            if (sacarPersonas)
+            if (sacarPersonas && volInfo.Authors != null && volInfo.Authors.Count > 0)
             {
                 //Sacar personas
-                List<Persona> peopleList = new List<Persona>();
+                List<Autor> peopleList = new List<Autor>();
 
                 foreach (var auth in volInfo.Authors)
                 {
                     //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                    Persona pers = UsuarioDatos.listaPersona.FirstOrDefault(p => p.Nombre == auth);
+                    Autor pers = Biblioteca.biblioteca.ListaAutor.FirstOrDefault(p => p.Nombre == auth);
                     if (pers == null)
                     {
-                        pers = new Persona(auth);
-                        UsuarioDatos.listaPersona.Add(pers);
+                        pers = new Autor(auth);
+                        Biblioteca.biblioteca.ListaAutor.Add(pers);
                     }
 
                     peopleList.Add(pers);
                 }
 
-                book.ListaPersona = peopleList;
+                book.ListaAutor = peopleList;
             }
 
-            if (sacarEditorial)
+            if (sacarEditorial && !String.IsNullOrWhiteSpace(volInfo.Publisher))
             {
 
                 //Sacar editorial
                 List<Editorial> editorialList = new List<Editorial>();
 
                 //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                Editorial edi = UsuarioDatos.listaEditorial.FirstOrDefault(p => p.Nombre == volInfo.Publisher);
+                Editorial edi = Biblioteca.biblioteca.ListaEditorial.FirstOrDefault(p => p.Nombre == volInfo.Publisher);
                 if (edi == null)
                 {
                     edi = new Editorial(volInfo.Publisher);
-                    UsuarioDatos.listaEditorial.Add(edi);
+                    Biblioteca.biblioteca.ListaEditorial.Add(edi);
                 }
 
                 editorialList.Add(edi);
                 book.ListaEditorial = editorialList;
             }
 
-            if (sacarGeneros)
+            if (sacarGeneros && volInfo.Categories != null && volInfo.Categories.Count > 0)
             {
                 //Sacar géneros
                 List<Genero> generoLista = new List<Genero>();
@@ -130,11 +146,11 @@ namespace OpenLibraryEditor.Clases
                 foreach (var cat in volInfo.Categories)
                 {
                     //Si existe lo añade. Si no, crea uno nuevo y lo añade.
-                    Genero gen = UsuarioDatos.listaGenero.FirstOrDefault(p => p.Nombre == cat);
+                    Genero gen = Biblioteca.biblioteca.ListaGenero.FirstOrDefault(p => p.Nombre == cat);
                     if (gen == null)
                     {
                         gen = new Genero(cat);
-                        UsuarioDatos.listaGenero.Add(gen);
+                        Biblioteca.biblioteca.ListaGenero.Add(gen);
                     }
 
                     generoLista.Add(gen);
@@ -149,13 +165,29 @@ namespace OpenLibraryEditor.Clases
             book.Titulo = volInfo.Title;
             book.Subtitulo = volInfo.Subtitle;
             book.Sinopsis = volInfo.Description;
-            book.NumeroPaginas = (int)volInfo.PageCount;
-            book.FechaPublicacion = DateTime.Parse(volInfo.PublishedDate);
-            book.NumeroVolumen = Double.Parse(volInfo.SeriesInfo.BookDisplayNumber);
+            if(volInfo.PageCount != null)
+                book.NumeroPaginas = (int)volInfo.PageCount;
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(volInfo.PublishedDate))
+                    book.FechaPublicacion = DateTime.Parse(volInfo.PublishedDate);
+            }
+            catch (FormatException){; }
+
+            if(volInfo.SeriesInfo != null)
+                book.NumeroVolumen = 
+                    Double.Parse(volInfo.SeriesInfo.BookDisplayNumber);
             if (volInfo.ImageLinks != null)
-                book.ImagenPortada = volInfo.ImageLinks.Medium;
+            {
+                book.ImagenPortada = ControladorImagen.RUTA_LIBRO+isbn13+"_c.png";
+                SaveImageFromURL(volInfo.ImageLinks.Thumbnail).Save(book.ImagenPortada);
+            }
             if (volInfo.MaturityRating == "MATURE")
                 book.MayorEdad = true;
+
+            //Poner enlace a leer libro en enlace de referencia si tiene
+            if (!String.IsNullOrWhiteSpace(volInfo.PreviewLink))
+                book.EnlaceReferencia = volInfo.PreviewLink;
 
             return book;
         }
@@ -165,7 +197,7 @@ namespace OpenLibraryEditor.Clases
         /// </summary>
         /// <param name="imageUrl">URL de imagen.</param>
         /// <returns>Bitmap que contiene la imagen descargada.</returns>
-        public Bitmap SaveImageFromURL(string imageUrl)
+        public static Bitmap SaveImageFromURL(string imageUrl)
         {
             WebClient client = new WebClient();
             Stream stream = client.OpenRead(imageUrl);

@@ -17,8 +17,9 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmEditoriales : Form
     {
         #region atributos
-        private const string NOMBRE_OBJETO = "la editorial";
-        private List<Editorial> listaEditorial = UsuarioDatos.listaEditorial;
+        //private const string NOMBRE_OBJETO = "la editorial";
+        private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("ED_LaEditorial");
+        private List<Editorial> listaEditorial = Biblioteca.biblioteca.ListaEditorial;
         private Editorial editorialActual;
         private ListViewItem itemActual;
 
@@ -38,7 +39,7 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
-        private void KBtnCancelarEd_Click(object sender, EventArgs e)
+        private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -74,10 +75,10 @@ namespace OpenLibraryEditor.Forms
             TTEditorial.SetToolTip(this.MBtnAniadirImagenEd, ControladorIdioma.GetTexto("ED_TTMasImg"));
             TTEditorial.SetToolTip(this.MBtnBorrarImagenEd, ControladorIdioma.GetTexto("ED_TTMenosImg"));
             TTEditorial.SetToolTip(this.PcbLogoEditoriales, ControladorIdioma.GetTexto("Main_TTLogo"));
-            KBtnCancelarEd.Text= ControladorIdioma.GetTexto("Cancelar");
-            TTEditorial.SetToolTip(this.KBtnCancelarEd, ControladorIdioma.GetTexto("Cancelar"));
-            KBtnAceptarEd.Text = ControladorIdioma.GetTexto("Aceptar");
-            TTEditorial.SetToolTip(this.KBtnAceptarEd, ControladorIdioma.GetTexto("Aceptar"));
+            GBtnCancelar.Text= ControladorIdioma.GetTexto("Cancelar");
+            TTEditorial.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
+            GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
+            TTEditorial.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTEditorial.SetToolTip(this.MBtnCerrarEditoriales, ControladorIdioma.GetTexto("Cerrar"));
         }
         private ListViewItem AniadirEditorial(Editorial editorial)
@@ -114,6 +115,17 @@ namespace OpenLibraryEditor.Forms
                 PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
             }
         }
+
+        private void ComprobarGuardado()
+        {
+            //Comparar objetos para preguntar si guardar
+            if (editorialActual != null && EsObjetoCambiado())
+            {
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
+                if (result == DialogResult.Yes)
+                    GBtnAceptar_Click(null, null);
+            }
+        }
         #endregion
 
         #region mover formulario
@@ -133,13 +145,8 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvEditorialNE_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            //Comparar objetos para preguntar si guardar
-            if (!e.IsSelected && editorialActual != null && EsObjetoCambiado())
-            {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
-                    KBtnAceptarEd_Click(null, null);
-            }
+            if (!e.IsSelected)
+                ComprobarGuardado();
 
             //Comprobar selección item
             if (e.IsSelected && LsvEditorialNE.SelectedItems.Count == 1)
@@ -162,7 +169,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasLsvNE_Click(object sender, EventArgs e)
         {
-            Editorial p = new Editorial("Nueva Editorial");
+            Editorial p = new Editorial(ControladorIdioma.GetTexto("ED_NuevaEdi"));
             listaEditorial.Add(p);
             var item = AniadirEditorial(p);
             item.Selected = true;
@@ -192,25 +199,32 @@ namespace OpenLibraryEditor.Forms
         {
             PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
         }
-
-        private void KBtnAceptarEd_Click(object sender, EventArgs e)
+        private void GBtnAceptar_Click(object sender, EventArgs e)
         {
-            if (PanOpcionesED.Visible == true) { 
-                //Actualizar etiqueta
-                editorialActual.Nombre = KTxtNombreEd.Text;
-                editorialActual.Comentario = KTxtComentarioEd.Text;
-                if (rutaImagen != editorialActual.Imagen)
+            if (PanOpcionesED.Visible == true)
+            {
+                if (!String.IsNullOrWhiteSpace(KTxtNombreEd.Text))
                 {
-                    editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
-                        ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
-                    rutaImagen = editorialActual.Imagen;
-                }
+                    //Actualizar etiqueta
+                    editorialActual.Nombre = KTxtNombreEd.Text;
+                    editorialActual.Comentario = KTxtComentarioEd.Text;
+                    if (rutaImagen != editorialActual.Imagen)
+                    {
+                        editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
+                            ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
+                        rutaImagen = editorialActual.Imagen;
+                    }
 
-                //Actualizar listview
-                itemActual.Text = KTxtNombreEd.Text;
+                    //Actualizar listview
+                    itemActual.Text = KTxtNombreEd.Text;
+                }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
-
-       
+        private void FrmEditoriales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
     }
 }

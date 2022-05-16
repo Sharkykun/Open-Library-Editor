@@ -5,6 +5,7 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class Editorial : IComparable<Editorial>
     {
+        private List<string> listaIdCompartido = new List<string>();
         private int idEditorial;
         private string nombre = "";
         private string comentario = "";
@@ -20,11 +21,19 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
+        public Editorial(string nombre, string comentario, string imagen)
+        {
+            this.nombre = nombre;
+            this.comentario = comentario;
+            this.imagen = imagen;
+        }
+
         #region Get y Set
         public int IdEditorial { get => idEditorial; set => idEditorial = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Comentario { get => comentario; set => comentario = value; }
         public string Imagen { get => imagen; set => imagen = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
         #endregion
 
         private void SetRandomId()
@@ -33,7 +42,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idEditorial = rnd.Next();
-            } while (UsuarioDatos.listaEditorial.
+            } while (Biblioteca.biblioteca.ListaEditorial.
                 FindIndex(p => idEditorial == p.idEditorial) != -1);
         }
 

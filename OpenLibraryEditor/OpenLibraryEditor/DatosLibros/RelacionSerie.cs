@@ -12,8 +12,6 @@ namespace OpenLibraryEditor.DatosLibros
         private Serie serie; //Identificador de la serie a la que aplicar la relación
         private string nombreTipoRelacionSerie = ""; //Tipo de relación desde serie base. Sacada de lista de tipos de relación establecida por el usuario.
 
-        //Lista estática de ocupaciones
-        public static List<string> tipoRelacionLista = new List<string>();
 
         public RelacionSerie()
         {

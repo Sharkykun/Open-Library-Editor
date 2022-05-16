@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,29 +10,73 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class Biblioteca
     {
-        private int idBiblioteca;
-        private string nombre;
+        public static Biblioteca biblioteca = new Biblioteca();
+
+        private List<string> listaTipoLibro = new List<string>();
+        private List<string> listaOcupacion = new List<string>();
+        private List<string> listaCategoria = new List<string>();
+        private List<string> listaTipoRelacion = new List<string>();
+        private List<Editorial> listaEditorial = new List<Editorial>();
+        private List<Genero> listaGenero = new List<Genero>();
+        private List<Autor> listaAutor = new List<Autor>();
+        private List<Serie> listaSerie = new List<Serie>();
+        private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
+        private List<Idioma> listaIdioma = new List<Idioma>();
+        private List<UsuarioEjecutable> listaEjecutable = new List<UsuarioEjecutable>();
         private List<Libro> listaLibro = new List<Libro>();
-        private string imagen;
 
-        public Biblioteca()
-        {
-        }
+        public const string RUTA_FICHERO = "biblioteca.json";
 
-        public Biblioteca(int idBiblioteca, string nombre)
-        {
-            this.idBiblioteca = idBiblioteca;
-            this.nombre = nombre;
-        }
 
-        public int IdBiblioteca { get => idBiblioteca; set => idBiblioteca = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
+        public List<string> ListaTipoLibro { get => listaTipoLibro; set => listaTipoLibro = value; }
+        public List<string> ListaOcupacion { get => listaOcupacion; set => listaOcupacion = value; }
+        public List<string> ListaCategoria { get => listaCategoria; set => listaCategoria = value; }
+        public List<string> ListaTipoRelacion { get => listaTipoRelacion; set => listaTipoRelacion = value; }
+        public List<Idioma> ListaIdioma { get => listaIdioma; set => listaIdioma = value; }
+
+        public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
+        public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
+        public List<Autor> ListaAutor { get => listaAutor; set => listaAutor = value; }
+        public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
+        public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
+        public List<UsuarioEjecutable> ListaEjecutable { get => listaEjecutable; set => listaEjecutable = value; }
         public List<Libro> ListaLibro { get => listaLibro; set => listaLibro = value; }
-        public string Imagen { get => imagen; set => imagen = value; }
+        
 
         override public string ToString()
         {
-            return nombre;
+            return "Nº de libros: "+ listaLibro.Count;
+        }
+
+        public static Biblioteca CargarJson()
+        {
+            if (File.Exists(RUTA_FICHERO))
+            {
+                string json = String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.UbicacionBD) ? 
+                    File.ReadAllText(RUTA_FICHERO) :
+                    File.ReadAllText(UsuarioDatos.configuracionUsuario.UbicacionBD +
+                        "\\" + RUTA_FICHERO);
+                Biblioteca obj = (Biblioteca)JsonConvert.DeserializeObject(json, typeof(Biblioteca), new JsonSerializerSettings
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.All
+                });
+                return obj;
+            }
+            else
+                return new Biblioteca();
+        }
+
+        public void GuardarJson()
+        {
+            string jsonString = JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.All
+            });
+            if(!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.UbicacionBD))
+                File.WriteAllText(UsuarioDatos.configuracionUsuario.UbicacionBD+
+                    "\\"+RUTA_FICHERO, jsonString);
+            else
+                File.WriteAllText(RUTA_FICHERO, jsonString);
         }
     }
 }
