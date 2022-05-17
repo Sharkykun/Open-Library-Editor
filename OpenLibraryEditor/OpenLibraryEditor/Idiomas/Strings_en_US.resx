@@ -1266,6 +1266,9 @@
   <data name="Ms_Si" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="NuevoLibro" xml:space="preserve">
+    <value>New Book</value>
+  </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>Sign me up</value>
   </data>

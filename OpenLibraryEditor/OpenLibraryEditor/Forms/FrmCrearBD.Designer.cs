@@ -245,7 +245,7 @@
             // 
             this.KNudPuerto.Location = new System.Drawing.Point(175, 51);
             this.KNudPuerto.Maximum = new decimal(new int[] {
-            1000000000,
+            65536,
             0,
             0,
             0});

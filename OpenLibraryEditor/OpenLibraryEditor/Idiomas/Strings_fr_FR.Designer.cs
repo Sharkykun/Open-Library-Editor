@@ -3508,6 +3508,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nouvelle Livre.
+        /// </summary>
+        internal static string NuevoLibro {
+            get {
+                return ResourceManager.GetString("NuevoLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a S&apos;inscrire.
         /// </summary>
         internal static string Reg_BtnRegistro {

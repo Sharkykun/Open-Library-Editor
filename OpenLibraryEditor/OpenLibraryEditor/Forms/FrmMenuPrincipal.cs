@@ -67,14 +67,29 @@ namespace OpenLibraryEditor.Forms
 
             //TitulosPrueba();
             //RecolocarLibros(false);
-            PanVistaDetalles.Visible = false;
-            PanVistaMosaico.Visible = true;
-            PanVistaMosaico.BringToFront();
+            SeleccionarVista();
+
+
             //Dejar marcado mi biblioteca como opción inicial
             MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
             
             IdiomaTexto();
             
+        }
+        private void SeleccionarVista()
+        {
+            if (UsuarioDatos.configuracionUsuario.TipoVista == 0)
+            {
+                PanVistaMosaico.Visible = true;
+                PanVistaDetalles.Visible = false;
+                PanVistaMosaico.BringToFront();
+            }
+            else
+            {
+                PanVistaMosaico.Visible = false;
+                PanVistaDetalles.Visible = true;
+                PanVistaDetalles.BringToFront();
+            }
         }
 
         private List<Libro> SacarListaLibro()
@@ -105,7 +120,8 @@ namespace OpenLibraryEditor.Forms
         }
 
         private void RecolocarLibros(bool ignorarOrdenar) {
-            if(!ignorarOrdenar)
+            SeleccionarVista();
+            if (!ignorarOrdenar)
                 titulos.Sort();
             if (PanVistaMosaico.Visible == true)
                 ColocarLibrosMosaico();
@@ -910,7 +926,7 @@ namespace OpenLibraryEditor.Forms
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
             ResetColores();
-            Libro nuevoLibro = new Libro("Nuevo Libro");
+            Libro nuevoLibro = new Libro(ControladorIdioma.GetTexto("NuevoLibro"));
             FrmLibros al = new FrmLibros(nuevoLibro);
             al.FormBorderStyle=FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Titulo");
@@ -951,32 +967,20 @@ namespace OpenLibraryEditor.Forms
             switch (KCmbBuscarPorMBI.SelectedIndex)
             {
                 case 7:
-                    ////Buscar sin nada
-                    //MostrarCajaBusqueda(-1);
-                    ////PanNumPaginas.Visible = false;
-                    //MBtnBuscarMBI_Click(null, null);
                     //Buscar por número de páginas
                     PanNumPaginas.Visible = true;
                     MBtnBuscarMBI.Visible = true;
                     KTxtBuscarMBI.Visible = false;
                     break;
-                //case 8:
-                //    PanNumPaginas.Visible = true;
-                //    MBtnBuscarMBI.Visible = true;
-                //    KTxtBuscarMBI.Visible = false;
-                //    break;
                 default:
                     MostrarCajaBusqueda(0);
                     break;
             }
-           // MBtnBuscarMBI_Click(null, null);
         }
 
         private void MostrarCajaBusqueda(int tipo)
         {
             KTxtBuscarMBI.Text = "";
-            //KTxtBuscarMBI.Visible = false;
-            //MBtnBuscarMBI.Visible = false;
             PanNumPaginas.Visible = false;
             switch (tipo)
             {
@@ -995,9 +999,7 @@ namespace OpenLibraryEditor.Forms
                 LsvOpciones_ItemSelectionChanged(null, null);
             else
                 titulos = SacarListaLibro();
-            if (KTxtBuscarMBI.Visible && !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
-            {
-                titulos = SacarListaLibro();
+         
                 if (KCmbBuscarPorMBI.Items[0] == KCmbBuscarPorMBI.SelectedItem)
                 {
                 //Buscar por título
@@ -1022,7 +1024,7 @@ namespace OpenLibraryEditor.Forms
                         p.Isbn_10.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                         : false);
                     l.AddRange(titulos
-                        .FindAll(p => p.Isbn_13 != null ?
+                        .FindAll(p => p.Isbn_13 != null && !l.Contains(p) ?
                         p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                         : false));
                     titulos = l;
@@ -1059,13 +1061,17 @@ namespace OpenLibraryEditor.Forms
                         p.NombreTipo.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                         : false);
                 }
-                }
+              
             else if (KCmbBuscarPorMBI.Items[7] == KCmbBuscarPorMBI.SelectedItem)
             {
                 //Buscar por número de páginas
                 titulos=titulos.FindAll(p => p.NumeroPaginas >= KNudPagMin.Value 
                 && p.NumeroPaginas <= KNudPagMax.Value);    
-            }
+            }   
+            //if (KTxtBuscarMBI.Visible && !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
+            //{
+            //    titulos = SacarListaLibro();
+            //}
             RecolocarLibros(false);
         }
         private void KTxtBuscarMBI_KeyDown(object sender, KeyEventArgs e)
@@ -1074,6 +1080,11 @@ namespace OpenLibraryEditor.Forms
             {
                 MBtnBuscarMBI_Click(sender,e);
             }
+        }
+        private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
+        {
+            KTxtBuscarMBI.Text = "";
+            MBtnBuscarMBI_Click(sender, e);
         }
         private void BtnAniadirLibroMsb_Paint(object sender, PaintEventArgs e)
         {
@@ -1151,6 +1162,7 @@ namespace OpenLibraryEditor.Forms
             tags.ShowDialog();
             //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
+      
         #endregion
         #region Botones minimizar, maximizar, restaurar, redimensionar y salir
         //Para saber el tamaño y la posicion inicial de la pantalla y poder restaurarla en
@@ -1228,7 +1240,6 @@ namespace OpenLibraryEditor.Forms
                 else if (SupDcha.Contains(cursor)) message.Result = (IntPtr)SUPERIORDCHA;
                 else if (InfIzqda.Contains(cursor)) message.Result = (IntPtr)INFERIORIZQDA;
                 else if (InfDcha.Contains(cursor)) message.Result = (IntPtr)INFERIORDCHA;
-
                 else if (Superior.Contains(cursor)) message.Result = (IntPtr)SUPERIOR;
                 else if (Izquierda.Contains(cursor)) message.Result = (IntPtr)IZQUIERDA;
                 else if (Derecha.Contains(cursor)) message.Result = (IntPtr)DERECHA;
@@ -1274,6 +1285,5 @@ namespace OpenLibraryEditor.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-
     }
 }

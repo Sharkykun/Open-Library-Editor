@@ -114,14 +114,21 @@ namespace OpenLibraryEditor.BaseDatos
         private static void BorrarBD(string servidor, string usuario, string contrasena, string puerto)
         {
             EstablecerConexion(servidor, usuario, contrasena, puerto);
-            AbrirConexion();
+            try
+            {
+                AbrirConexion();
 
-            //Para pruebas
-            MySqlCommand borrar_test = new MySqlCommand(@"
-                DROP Database if exists "+NOMBRE_BD+";", conexion);
-            borrar_test.ExecuteNonQuery();
+                //Para pruebas
+                MySqlCommand borrar_test = new MySqlCommand(@"
+                DROP Database if exists " + NOMBRE_BD + ";", conexion);
+                borrar_test.ExecuteNonQuery();
 
-            CerrarConexion();
+                CerrarConexion();
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("No existe la BD para borrarla.");
+            }
         }
 
         #region Crear usuarios de BD
