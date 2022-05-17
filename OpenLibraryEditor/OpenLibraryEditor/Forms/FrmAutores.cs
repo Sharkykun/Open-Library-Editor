@@ -17,6 +17,11 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmAutores : Form
     {
+        /*
+         To Do: Eliminar la imagen del autor no funciona, la quita pero no guarda el cambio
+                pasa lo mismo en editorial
+         */
+
         #region atributos
         //private const string NOMBRE_OBJETO = "el autor";
         private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Au_ElAutor");
@@ -36,6 +41,13 @@ namespace OpenLibraryEditor.Forms
         {
             InitializeComponent();
             this.setNew = setNew;
+        }
+        public FrmAutores(bool setNew, Autor autorActual)
+        {
+            InitializeComponent();
+            this.setNew = setNew;
+            this.autorActual = autorActual;
+            EditarAutorDesdeMain();
         }
 
         private void MBtnCerrarAutores_Click(object sender, EventArgs e)
@@ -78,10 +90,25 @@ namespace OpenLibraryEditor.Forms
                 MBtnMasLsvNA_Click(null, null);
                 personaNueva = autorActual;
             }
+            
         }
 
         #region metodos propios
 
+        private void EditarAutorDesdeMain()
+        {
+            PanOpcionesNA.Visible = true;
+            KTxtNombreAu.Text = autorActual.Nombre;
+            KTxtComentarioAu.Text = autorActual.Comentario;
+            KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion == "" ?
+                null : autorActual.NombreOcupacion;
+            KtxtAliasAu.Text = autorActual.Alias;
+            KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
+            rutaImagen = autorActual.Imagen;
+            CargarImagen(rutaImagen);
+            KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
+            KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
+        }
         private void IdiomaTexto()
         {
             LblTituloAutores.Text = ControladorIdioma.GetTexto("Au_TituloFrm");
@@ -158,13 +185,13 @@ namespace OpenLibraryEditor.Forms
             }
             catch (FileNotFoundException)
             {
-                PcbAutorNA.Image = PcbAutorNA.ErrorImage;
-                //PcbAutorNA.Image = OpenLibraryEditor.Properties.Resources.silueta;
+                //PcbAutorNA.Image = PcbAutorNA.ErrorImage;
+                PcbAutorNA.Image = Properties.Resources.silueta;
             }
             catch (ArgumentException)
             {
-                //PcbAutorNA.Image = OpenLibraryEditor.Properties.Resources.silueta;
-                PcbAutorNA.Image = PcbAutorNA.ErrorImage;
+                PcbAutorNA.Image = Properties.Resources.silueta;
+                //PcbAutorNA.Image = PcbAutorNA.ErrorImage;
             }
         }
 
@@ -175,7 +202,11 @@ namespace OpenLibraryEditor.Forms
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
+                {
                     GBtnAceptar_Click(null, null);
+                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
+                }
+                    
             }
         }
         #endregion
@@ -224,6 +255,7 @@ namespace OpenLibraryEditor.Forms
                 var item = LsvAutoresNA.SelectedItems[0];
                 listaPersona.Remove(autorActual);
                 LsvAutoresNA.Items.Remove(item);
+                VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO+ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
         }
        
@@ -283,7 +315,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnBorrarImagenAu_Click(object sender, EventArgs e)
         {
-             PcbAutorNA.Image = PcbAutorNA.ErrorImage;
+             PcbAutorNA.Image = Properties.Resources.silueta;
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
@@ -309,6 +341,8 @@ namespace OpenLibraryEditor.Forms
                     //Actualizar listview
                     itemActual.Text = KTxtNombreAu.Text;
                     itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+                    //VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
+
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));

@@ -61,7 +61,7 @@ namespace OpenLibraryEditor.Forms
             this.PanBtn.Controls.Add(this.GBtnAceptar);
             this.PanBtn.Controls.Add(this.GBtnCancelar);
             this.PanBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanBtn.Location = new System.Drawing.Point(0, 255);
+            this.PanBtn.Location = new System.Drawing.Point(0, 268);
             this.PanBtn.Name = "PanBtn";
             this.PanBtn.Size = new System.Drawing.Size(591, 45);
             this.PanBtn.TabIndex = 158;
@@ -133,6 +133,7 @@ namespace OpenLibraryEditor.Forms
             this.PanTituloEditUsu.Name = "PanTituloEditUsu";
             this.PanTituloEditUsu.Size = new System.Drawing.Size(591, 40);
             this.PanTituloEditUsu.TabIndex = 157;
+            this.PanTituloEditUsu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditUsu_MouseMove);
             // 
             // MBtnCerrarEditUsu
             // 
@@ -151,6 +152,7 @@ namespace OpenLibraryEditor.Forms
             this.MBtnCerrarEditUsu.Size = new System.Drawing.Size(32, 40);
             this.MBtnCerrarEditUsu.TabIndex = 28;
             this.MBtnCerrarEditUsu.UseVisualStyleBackColor = false;
+            this.MBtnCerrarEditUsu.Click += new System.EventHandler(this.MBtnCerrarEditUsu_Click);
             // 
             // LblTitulo
             // 
@@ -239,7 +241,7 @@ namespace OpenLibraryEditor.Forms
             // 
             this.KCmbTipoEditUsu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KCmbTipoEditUsu.DropDownWidth = 228;
-            this.KCmbTipoEditUsu.Location = new System.Drawing.Point(175, 115);
+            this.KCmbTipoEditUsu.Location = new System.Drawing.Point(175, 114);
             this.KCmbTipoEditUsu.Name = "KCmbTipoEditUsu";
             this.KCmbTipoEditUsu.Size = new System.Drawing.Size(322, 33);
             this.KCmbTipoEditUsu.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -262,7 +264,7 @@ namespace OpenLibraryEditor.Forms
             this.LblTipoEditUsu.AutoSize = true;
             this.LblTipoEditUsu.Font = new System.Drawing.Font("Merienda One", 11F);
             this.LblTipoEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblTipoEditUsu.Location = new System.Drawing.Point(19, 122);
+            this.LblTipoEditUsu.Location = new System.Drawing.Point(19, 119);
             this.LblTipoEditUsu.Name = "LblTipoEditUsu";
             this.LblTipoEditUsu.Size = new System.Drawing.Size(130, 22);
             this.LblTipoEditUsu.TabIndex = 164;
@@ -329,7 +331,7 @@ namespace OpenLibraryEditor.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(591, 300);
+            this.ClientSize = new System.Drawing.Size(591, 313);
             this.Controls.Add(this.KgbDatosEditUsu);
             this.Controls.Add(this.PanBtn);
             this.Controls.Add(this.PanTituloEditUsu);

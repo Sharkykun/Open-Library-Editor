@@ -520,6 +520,9 @@
   <ItemGroup>
     <None Include="Resources\question-mark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libros.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

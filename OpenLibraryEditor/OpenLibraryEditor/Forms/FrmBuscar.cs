@@ -26,6 +26,8 @@ namespace OpenLibraryEditor.Forms
         - Añadir más criterios de busqueda para Google Books (Autor, género).
         - OPCIONAL: Añadir recomendaciones en base a lo que predomina en tu lista local.
         La lista sería creada con una busqueda a la BD/API elegida en el Combo.
+
+        Al cambiar de formulario antes de que termine de cargar el hilo salta excepcion. Controlar
          */
 
         private const string NOMBRE_GOOGLE = "Google Books";

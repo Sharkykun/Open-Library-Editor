@@ -150,6 +150,7 @@
             this.KNudPagMax = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.KNudPagMin = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.KTxtBuscarMBI = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.MbtnBorrarTxtBuscar = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanVistaDetalles = new System.Windows.Forms.Panel();
             this.PanPiePagina = new System.Windows.Forms.Panel();
@@ -161,7 +162,6 @@
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanHijos = new System.Windows.Forms.Panel();
             this.TimeRedimensionar = new System.Windows.Forms.Timer(this.components);
-            this.MbtnBorrarTxtBuscar = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -943,6 +943,7 @@
             this.LsvOpciones.UseCompatibleStateImageBehavior = false;
             this.LsvOpciones.View = System.Windows.Forms.View.Details;
             this.LsvOpciones.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvOpciones_ItemSelectionChanged);
+            this.LsvOpciones.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LsvOpciones_MouseDoubleClick);
             // 
             // ImgListLsvGrande
             // 
@@ -2026,6 +2027,24 @@
             this.KTxtBuscarMBI.TabIndex = 130;
             this.KTxtBuscarMBI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
             // 
+            // MbtnBorrarTxtBuscar
+            // 
+            this.MbtnBorrarTxtBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MbtnBorrarTxtBuscar.FlatAppearance.BorderSize = 0;
+            this.MbtnBorrarTxtBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MbtnBorrarTxtBuscar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.MbtnBorrarTxtBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.Close;
+            this.MbtnBorrarTxtBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.MbtnBorrarTxtBuscar.IconSize = 35;
+            this.MbtnBorrarTxtBuscar.Location = new System.Drawing.Point(900, 8);
+            this.MbtnBorrarTxtBuscar.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.MbtnBorrarTxtBuscar.Name = "MbtnBorrarTxtBuscar";
+            this.MbtnBorrarTxtBuscar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.MbtnBorrarTxtBuscar.Size = new System.Drawing.Size(22, 24);
+            this.MbtnBorrarTxtBuscar.TabIndex = 134;
+            this.MbtnBorrarTxtBuscar.UseVisualStyleBackColor = true;
+            this.MbtnBorrarTxtBuscar.Click += new System.EventHandler(this.MbtnBorrarTxtBuscar_Click);
+            // 
             // MBtnBuscarMBI
             // 
             this.MBtnBuscarMBI.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2128,24 +2147,6 @@
             this.PanHijos.Name = "PanHijos";
             this.PanHijos.Size = new System.Drawing.Size(949, 693);
             this.PanHijos.TabIndex = 5;
-            // 
-            // MbtnBorrarTxtBuscar
-            // 
-            this.MbtnBorrarTxtBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MbtnBorrarTxtBuscar.FlatAppearance.BorderSize = 0;
-            this.MbtnBorrarTxtBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MbtnBorrarTxtBuscar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.MbtnBorrarTxtBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.Close;
-            this.MbtnBorrarTxtBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MbtnBorrarTxtBuscar.IconSize = 35;
-            this.MbtnBorrarTxtBuscar.Location = new System.Drawing.Point(900, 8);
-            this.MbtnBorrarTxtBuscar.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.MbtnBorrarTxtBuscar.Name = "MbtnBorrarTxtBuscar";
-            this.MbtnBorrarTxtBuscar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MbtnBorrarTxtBuscar.Size = new System.Drawing.Size(22, 24);
-            this.MbtnBorrarTxtBuscar.TabIndex = 134;
-            this.MbtnBorrarTxtBuscar.UseVisualStyleBackColor = true;
-            this.MbtnBorrarTxtBuscar.Click += new System.EventHandler(this.MbtnBorrarTxtBuscar_Click);
             // 
             // FrmMenuPrincipal
             // 

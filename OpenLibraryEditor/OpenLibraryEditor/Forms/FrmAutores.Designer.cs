@@ -117,6 +117,7 @@
             this.LblTituloAutores.Size = new System.Drawing.Size(282, 23);
             this.LblTituloAutores.TabIndex = 4;
             this.LblTituloAutores.Text = "Open Library Editor - Nuevo Autor";
+            this.LblTituloAutores.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTituloAutores_MouseDown);
             // 
             // PcbLogoAutores
             // 
@@ -128,6 +129,7 @@
             this.PcbLogoAutores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoAutores.TabIndex = 3;
             this.PcbLogoAutores.TabStop = false;
+            this.PcbLogoAutores.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTituloAutores_MouseDown);
             // 
             // PanBtnAu
             // 

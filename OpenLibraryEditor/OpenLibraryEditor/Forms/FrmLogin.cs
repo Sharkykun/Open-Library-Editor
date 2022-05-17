@@ -275,8 +275,7 @@ namespace OpenLibraryEditor.Forms
             else
             {
                 ConexionBD.CerrarConexion();
-                VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos.\n" +
-                    "Compruebe que todos los campos son correctos\ny que el servidor esté funcionando.");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
                 ConexionBD.conexion = null;
             }
         }

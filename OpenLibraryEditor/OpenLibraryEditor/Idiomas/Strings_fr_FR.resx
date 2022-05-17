@@ -120,11 +120,14 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Accepter</value>
   </data>
+  <data name="Adm_Adm" xml:space="preserve">
+    <value>Administrateur</value>
+  </data>
   <data name="Adm_Administrar" xml:space="preserve">
     <value>Gérer les utilisateurs</value>
   </data>
   <data name="Adm_CmbTipo" xml:space="preserve">
-    <value>Nom d'utilisateur</value>
+    <value>Type d'utilisateur</value>
   </data>
   <data name="Adm_DatosUsu" xml:space="preserve">
     <value>Données d'utilisateur</value>
@@ -132,14 +135,20 @@
   <data name="Adm_Editor" xml:space="preserve">
     <value>Éditeur</value>
   </data>
+  <data name="Adm_Editor1" xml:space="preserve">
+    <value>Éditeur</value>
+  </data>
   <data name="Adm_Email" xml:space="preserve">
     <value>E-mail</value>
+  </data>
+  <data name="Adm_EsteUsu" xml:space="preserve">
+    <value>cet utilisateur</value>
   </data>
   <data name="Adm_FrmTitulo" xml:space="preserve">
     <value>Utilisateurs de ma base de données</value>
   </data>
   <data name="Adm_Nombre" xml:space="preserve">
-    <value>Nombre de usuario</value>
+    <value>Nom d'utilisateur</value>
   </data>
   <data name="Adm_NombreUsu" xml:space="preserve">
     <value>Nom d'utilisateur:</value>
@@ -420,6 +429,12 @@
   <data name="Al_TTVolumen" xml:space="preserve">
     <value>Définit le volume du livre</value>
   </data>
+  <data name="AutorNoExiste" xml:space="preserve">
+    <value>L'auteur n'existe pas dans la base de données</value>
+  </data>
+  <data name="AutorRepetido" xml:space="preserve">
+    <value>L'auteur existe déjà dans la base de données</value>
+  </data>
   <data name="Au_Alias" xml:space="preserve">
     <value>Alias</value>
   </data>
@@ -512,6 +527,9 @@
   </data>
   <data name="BD_Url" xml:space="preserve">
     <value>Url:</value>
+  </data>
+  <data name="BorradoCorrectamente" xml:space="preserve">
+    <value>a été supprimé avec succès</value>
   </data>
   <data name="BuscarPor" xml:space="preserve">
     <value>Chercher:</value>
@@ -708,6 +726,12 @@
   <data name="Crear" xml:space="preserve">
     <value>Créer</value>
   </data>
+  <data name="EditorialNoExiste" xml:space="preserve">
+    <value>L'éditeur n'existe pas dans la base de données</value>
+  </data>
+  <data name="EditorialRepetida" xml:space="preserve">
+    <value>L'éditeur existe déjà dans la base de données</value>
+  </data>
   <data name="ED_Comentario" xml:space="preserve">
     <value>Commentaire</value>
   </data>
@@ -801,6 +825,12 @@
   <data name="ErrorCamposVacios" xml:space="preserve">
     <value>Tous les champs sont requis</value>
   </data>
+  <data name="ErrorConexion" xml:space="preserve">
+    <value>Impossible de se connecter à la base de données. Vérifiez que tous les champs sont corrects et que le serveur est opérationnel</value>
+  </data>
+  <data name="ErrorConexionBD" xml:space="preserve">
+    <value>Erreur de connexion à la base de données. Erreur:</value>
+  </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>Le nom, l'extension et le chemin ne peuvent pas être vides.</value>
   </data>
@@ -879,6 +909,12 @@
   <data name="FormatoFecha" xml:space="preserve">
     <value>Format DD/MM/YYYY</value>
   </data>
+  <data name="GeneroNoExiste" xml:space="preserve">
+    <value>Le genre n'existe pas dans la base de données</value>
+  </data>
+  <data name="GeneroRepetido" xml:space="preserve">
+    <value>Le genre existe déjà dans la base de données</value>
+  </data>
   <data name="Ge_Comentario" xml:space="preserve">
     <value>Commentaire</value>
   </data>
@@ -918,6 +954,9 @@
   <data name="Ge_TTNombre" xml:space="preserve">
     <value>Écrivez ici le nom du genre</value>
   </data>
+  <data name="GuardadoCorrectamente" xml:space="preserve">
+    <value>a été enregistré avec succès</value>
+  </data>
   <data name="Guardar" xml:space="preserve">
     <value>Garder</value>
   </data>
@@ -950,6 +989,9 @@
   </data>
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
+  </data>
+  <data name="LibroRepetido" xml:space="preserve">
+    <value>Le livre est déjà dans la base de données</value>
   </data>
   <data name="Log_BtnCrearBD" xml:space="preserve">
     <value>Créer une base de données</value>
@@ -1266,8 +1308,20 @@
   <data name="Ms_Si" xml:space="preserve">
     <value>Oui</value>
   </data>
+  <data name="NoExisteLibro" xml:space="preserve">
+    <value>Le livre que vous essayez de mettre à jour n'existe pas dans la base de données</value>
+  </data>
+  <data name="NoRegistroUsuarioLibro" xml:space="preserve">
+    <value>L'enregistrement de l'utilisateur du livre n'existe pas dans la base de données</value>
+  </data>
   <data name="NuevoLibro" xml:space="preserve">
     <value>Nouvelle Livre</value>
+  </data>
+  <data name="OcupacionNoExiste" xml:space="preserve">
+    <value>La profession n'existe pas dans la base de données</value>
+  </data>
+  <data name="OcupacionRepetida" xml:space="preserve">
+    <value>La profession existe déjà dans la base de données</value>
   </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>S'inscrire</value>
@@ -1425,6 +1479,24 @@
   <data name="ShowDialogCerrar" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir sortir?</value>
   </data>
+  <data name="TipoLibroNoExiste" xml:space="preserve">
+    <value>Le type de livre n'existe pas dans la base de données</value>
+  </data>
+  <data name="TipoLibroRepetido" xml:space="preserve">
+    <value>Le type de livre existe déjà dans la base de données</value>
+  </data>
+  <data name="TituloObli" xml:space="preserve">
+    <value>Titre *</value>
+  </data>
+  <data name="TodosCamposRellenos" xml:space="preserve">
+    <value>Vous ne pouvez pas laisser de champs vides</value>
+  </data>
+  <data name="UsuarioModificado" xml:space="preserve">
+    <value>L'utilisateur a été modifié avec succès</value>
+  </data>
+  <data name="UsuarioRepetido" xml:space="preserve">
+    <value>L'utilisateur existe déjà dans la base de données</value>
+  </data>
   <data name="VWC_Advertencia" xml:space="preserve">
     <value>Caveat</value>
   </data>
@@ -1437,11 +1509,17 @@
   <data name="VWC_Error" xml:space="preserve">
     <value>Erreur</value>
   </data>
+  <data name="VWC_Guardado" xml:space="preserve">
+    <value>enregistré correctement</value>
+  </data>
   <data name="VWC_Guardar" xml:space="preserve">
     <value>Voulez-vous économiser</value>
   </data>
   <data name="VWC_Informacion" xml:space="preserve">
     <value>Information</value>
+  </data>
+  <data name="VWC_Modificado" xml:space="preserve">
+    <value>modifié avec succès</value>
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>
