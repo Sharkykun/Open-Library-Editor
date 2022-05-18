@@ -51,6 +51,8 @@ namespace OpenLibraryEditor.Forms
             MBtnAvanzarLibro.Enabled = false;
             Thread th = new Thread(() => ColocarLibrosRecomendados());
             th.Start();
+            
+            
             //ponerLibrosRecomendados();
         }
         private List<Libro> SacarListaLibro()
@@ -226,7 +228,7 @@ namespace OpenLibraryEditor.Forms
             for (int i = 0; i < autores.Count; i++)
             {
                 query = "inauthor:\"" + autores[i] + "\"";
-                
+
                 ImageList imglist = new ImageList();
                 GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
                        UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
@@ -236,9 +238,9 @@ namespace OpenLibraryEditor.Forms
                 if (gBooks.BookCollection != null)
                 {
                     var libro = gBooks.BookCollection.Items[0];
-                    
-                        var info = libro.VolumeInfo;
-                        if (info.ImageLinks != null) {
+
+                    var info = libro.VolumeInfo;
+                    if (info.ImageLinks != null) {
                         DoubleClickButton dcb = new DoubleClickButton();
                         dcb.Size = new Size(105, 135);
                         dcb.Location = new Point(x, y);
@@ -247,11 +249,19 @@ namespace OpenLibraryEditor.Forms
                         dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
                         //dcb.ImageList = imglist;
                         dcb.Tag = libro;
-                        Invoke(new Action(() => PanLibrosBuscar.Controls.Add(dcb)));
-                        Invoke(new Action(() => dcb.Visible = true));
-                        Invoke(new Action(() => dcb.DoubleClick += new EventHandler(DobleClickLibro)));
-                        x = x + 115;
-                       
+                        try
+                        {
+                            Invoke(new Action(() => PanLibrosBuscar.Controls.Add(dcb)));
+                            Invoke(new Action(() => dcb.Visible = true));
+                            Invoke(new Action(() => dcb.DoubleClick += new EventHandler(DobleClickLibro)));
+                            x = x + 115;
+                        }
+                        catch (Exception ex) {
+                            Console.WriteLine(ex.Message);
+                        }
+
+
+
                     }
 
                     //foreach (var libro in gBooks.BookCollection.Items)
@@ -268,8 +278,13 @@ namespace OpenLibraryEditor.Forms
 
                 }
             }
-            Invoke(new Action(() => MbtnAtrasLibro.Enabled = true));
-            Invoke(new Action(() => MBtnAvanzarLibro.Enabled = true));
+           try{ 
+                Invoke(new Action(() => MbtnAtrasLibro.Enabled = true));
+                Invoke(new Action(() => MBtnAvanzarLibro.Enabled = true));
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
         private void DobleClickLibro(object sender, EventArgs e)

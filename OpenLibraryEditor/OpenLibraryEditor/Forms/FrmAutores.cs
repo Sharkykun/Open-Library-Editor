@@ -204,7 +204,6 @@ namespace OpenLibraryEditor.Forms
                 if (result == DialogResult.Yes)
                 {
                     GBtnAceptar_Click(null, null);
-                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                     
             }
@@ -315,7 +314,8 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnBorrarImagenAu_Click(object sender, EventArgs e)
         {
-             PcbAutorNA.Image = Properties.Resources.silueta;
+            PcbAutorNA.Image = Properties.Resources.silueta;
+            rutaImagen = null;
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
@@ -332,17 +332,26 @@ namespace OpenLibraryEditor.Forms
                     autorActual.FechaDefuncion = DateTime.Parse(KMtxtFecMuerteNA.Text);
                     autorActual.FechaNacimiento = DateTime.Parse(KMtxtFecNacimientoNA.Text);
                     if (rutaImagen != autorActual.Imagen)
-                    {
+                    { 
                         autorActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
                             ControladorImagen.RUTA_PERSONA, autorActual.IdAutor.ToString());
                         rutaImagen = autorActual.Imagen;
+                    }
+                    else
+                    {
+                        string file = ControladorImagen.RUTA_BASE +
+                        ControladorImagen.RUTA_PERSONA + autorActual.IdAutor.ToString();
+                        if (File.Exists(file))
+                        {
+                            File.Delete(file);
+                        }
                     }
 
                     //Actualizar listview
                     itemActual.Text = KTxtNombreAu.Text;
                     itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
-                    //VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
-
+                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
+                   
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));

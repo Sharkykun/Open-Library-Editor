@@ -526,7 +526,7 @@
     <value>Url:</value>
   </data>
   <data name="BorradoCorrectamente" xml:space="preserve">
-    <value>was successfully deleted</value>
+    <value> was successfully deleted</value>
   </data>
   <data name="BuscarPor" xml:space="preserve">
     <value>Look for:</value>
@@ -952,7 +952,7 @@
     <value>Write the name of the genre here</value>
   </data>
   <data name="GuardadoCorrectamente" xml:space="preserve">
-    <value>has been saved successfully</value>
+    <value> has been saved successfully</value>
   </data>
   <data name="Guardar" xml:space="preserve">
     <value>Save</value>
@@ -1516,7 +1516,7 @@
     <value>Information</value>
   </data>
   <data name="VWC_Modificado" xml:space="preserve">
-    <value>successfully modified</value>
+    <value> successfully modified</value>
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>

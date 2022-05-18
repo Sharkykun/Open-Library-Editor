@@ -529,7 +529,7 @@
     <value>Url:</value>
   </data>
   <data name="BorradoCorrectamente" xml:space="preserve">
-    <value>a été supprimé avec succès</value>
+    <value> a été supprimé avec succès</value>
   </data>
   <data name="BuscarPor" xml:space="preserve">
     <value>Chercher:</value>
@@ -955,7 +955,7 @@
     <value>Écrivez ici le nom du genre</value>
   </data>
   <data name="GuardadoCorrectamente" xml:space="preserve">
-    <value>a été enregistré avec succès</value>
+    <value> a été enregistré avec succès</value>
   </data>
   <data name="Guardar" xml:space="preserve">
     <value>Garder</value>
@@ -1519,7 +1519,7 @@
     <value>Information</value>
   </data>
   <data name="VWC_Modificado" xml:space="preserve">
-    <value>modifié avec succès</value>
+    <value> modifié avec succès</value>
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>

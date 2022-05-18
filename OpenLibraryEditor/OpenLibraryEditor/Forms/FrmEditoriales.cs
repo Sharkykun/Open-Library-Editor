@@ -123,11 +123,11 @@ namespace OpenLibraryEditor.Forms
             }
             catch (FileNotFoundException)
             {
-                PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
+                PcbEditorialesEd.Image = Properties.Resources.libros;
             }
             catch (ArgumentException)
             {
-                PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
+                PcbEditorialesEd.Image = Properties.Resources.libros;
             }
         }
 
@@ -140,7 +140,6 @@ namespace OpenLibraryEditor.Forms
                 if (result == DialogResult.Yes) 
                 {
                     GBtnAceptar_Click(null, null);
-                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                     
             }
@@ -218,6 +217,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnBorrarImagenEd_Click(object sender, EventArgs e)
         {
             PcbEditorialesEd.Image = Properties.Resources.libros;
+            rutaImagen = null;
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
@@ -234,9 +234,19 @@ namespace OpenLibraryEditor.Forms
                             ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
                         rutaImagen = editorialActual.Imagen;
                     }
+                    else
+                    {
+                        string file = ControladorImagen.RUTA_BASE +
+                        ControladorImagen.RUTA_EDITORIAL + editorialActual.IdEditorial.ToString();
+                        if (File.Exists(file))
+                        {
+                            File.Delete(file);
+                        }
+                    }
 
                     //Actualizar listview
                     itemActual.Text = KTxtNombreEd.Text;
+                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));

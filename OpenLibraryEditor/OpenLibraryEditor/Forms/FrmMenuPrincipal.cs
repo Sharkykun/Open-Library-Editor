@@ -783,7 +783,7 @@ namespace OpenLibraryEditor.Forms
             imglist.ImageSize = new Size(50, 70);
 
             LsvOpciones.SmallImageList = imglist;
-            var col = LsvOpciones.Columns.Add("Nombre");
+            var col = LsvOpciones.Columns.Add(ControladorIdioma.GetTexto("Se_LsvNombre"));
             col.Width = 200;
             foreach (Autor autor in Biblioteca.biblioteca.ListaAutor)
             {
@@ -979,6 +979,7 @@ namespace OpenLibraryEditor.Forms
             FrmAutores autores = new FrmAutores(false);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
+            MBtnAutores_Click(MBtnAutores, null);
             //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnGenerosMsb_ButtonClick(object sender, EventArgs e)
@@ -987,6 +988,7 @@ namespace OpenLibraryEditor.Forms
             FrmGeneros generos = new FrmGeneros(false);
             generos.FormBorderStyle = FormBorderStyle.None;
             generos.ShowDialog();
+            MBtnGeneros_Click(MBtnGeneros, null);
             //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnSeriesMsb_ButtonClick(object sender, EventArgs e)
@@ -995,6 +997,7 @@ namespace OpenLibraryEditor.Forms
             FrmSeries series = new FrmSeries(false);
             series.FormBorderStyle = FormBorderStyle.None;
             series.ShowDialog();
+            MBtnSeries_Click(MBtnSeries, null);
             // BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnEditorialesMsb_ButtonClick(object sender, EventArgs e)
@@ -1003,6 +1006,7 @@ namespace OpenLibraryEditor.Forms
             FrmEditoriales editoriales = new FrmEditoriales(false);
             editoriales.FormBorderStyle = FormBorderStyle.None;
             editoriales.ShowDialog();
+            MBtnEditoriales_Click(MBtnEditoriales, null);
             //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnTagsMsb_ButtonClick(object sender, EventArgs e)
@@ -1011,6 +1015,7 @@ namespace OpenLibraryEditor.Forms
             FrmTags tags = new FrmTags(false);
             tags.FormBorderStyle = FormBorderStyle.None;
             tags.ShowDialog();
+            MBtnTags_Click(MBtnTags, null);
             //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         #endregion
@@ -1172,7 +1177,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void LsvOpciones_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ////// Al hacer doble click en un elemento del listview
+            // Al hacer doble click en un elemento del listview
             ListViewHitTestInfo info = LsvOpciones.HitTest(e.X, e.Y);
             ListViewItem item = info.Item;
 
@@ -1184,18 +1189,21 @@ namespace OpenLibraryEditor.Forms
                     FrmAutores au = new FrmAutores(false, (Autor)item.Tag);
                     au.FormBorderStyle = FormBorderStyle.None;
                     au.ShowDialog();
+                    MBtnAutores_Click(MBtnAutores, null);
                 }
                 else if (obj.GetType() == typeof(Genero))
                 {
                     FrmGeneros ge = new FrmGeneros(false, (Genero)item.Tag);
                     ge.FormBorderStyle = FormBorderStyle.None;
                     ge.ShowDialog();
+                    MBtnGeneros_Click(MBtnGeneros, null);
                 }
                 else if (obj.GetType() == typeof(Editorial))
                 {
                     FrmEditoriales ed = new FrmEditoriales(false, (Editorial)item.Tag);
                     ed.FormBorderStyle = FormBorderStyle.None;
                     ed.ShowDialog();
+                    MBtnEditoriales_Click(MBtnEditoriales, null);
                 }
             }
         }

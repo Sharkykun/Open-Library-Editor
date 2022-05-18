@@ -4210,7 +4210,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a modificado correctamente.
+        ///   Busca una cadena traducida similar a  modificado correctamente.
         /// </summary>
         internal static string VWC_Modificado {
             get {

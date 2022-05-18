@@ -1501,7 +1501,7 @@
     <value>Información</value>
   </data>
   <data name="VWC_Modificado" xml:space="preserve">
-    <value>modificado correctamente</value>
+    <value> modificado correctamente</value>
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>

@@ -118,7 +118,6 @@ namespace OpenLibraryEditor.Forms
                 if (result == DialogResult.Yes)
                 {
                     GBtnAceptar_Click(null, null);
-                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }   
             }
         }
@@ -213,6 +212,8 @@ namespace OpenLibraryEditor.Forms
                     }
 
                     ActualizarGeneroPadre();
+                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
+
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Genero"));

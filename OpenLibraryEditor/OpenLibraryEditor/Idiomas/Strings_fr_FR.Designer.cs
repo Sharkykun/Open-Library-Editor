@@ -1294,7 +1294,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a a été supprimé avec succès.
+        ///   Busca una cadena traducida similar a  a été supprimé avec succès.
         /// </summary>
         internal static string BorradoCorrectamente {
             get {
@@ -2572,7 +2572,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a a été enregistré avec succès.
+        ///   Busca una cadena traducida similar a  a été enregistré avec succès.
         /// </summary>
         internal static string GuardadoCorrectamente {
             get {
@@ -4264,7 +4264,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a modifié avec succès.
+        ///   Busca una cadena traducida similar a  modifié avec succès.
         /// </summary>
         internal static string VWC_Modificado {
             get {

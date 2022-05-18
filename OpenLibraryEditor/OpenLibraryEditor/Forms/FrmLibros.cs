@@ -129,6 +129,7 @@ namespace OpenLibraryEditor.Forms
             LblFavoritoNL.Text = ControladorIdioma.GetTexto("Al_DUFav");
             TTnuevoLibro.SetToolTip(this.TBtnFavNL, ControladorIdioma.GetTexto("Al_TTFav"));
             LblOcultarNL.Text = ControladorIdioma.GetTexto("Al_DUOcultar");
+            LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
             TTnuevoLibro.SetToolTip(this.TBtnOcultarNL, ControladorIdioma.GetTexto("Al_TTOcu"));
             LblComentarioNL.Text = ControladorIdioma.GetTexto("Al_DUComentario");
             TTnuevoLibro.SetToolTip(this.KTxtComentarioUsuarioNL, ControladorIdioma.GetTexto("Al_TTCome"));
