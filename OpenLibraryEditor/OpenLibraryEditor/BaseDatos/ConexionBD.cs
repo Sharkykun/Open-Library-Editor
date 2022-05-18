@@ -11,8 +11,8 @@ namespace OpenLibraryEditor.BaseDatos
 {
     public class ConexionBD
     {
-        public static MySqlConnection conexion;
-        public static int idBD;
+        public static MySqlConnection Conexion;
+        public static int IdBD;
         public const string NOMBRE_BD = "open_library_editor";
         public const string ANTENOMBRE_USUARIO_BD = "ole_";
 
@@ -29,7 +29,7 @@ namespace OpenLibraryEditor.BaseDatos
                 AbrirConexion();
 
                 //Crear base de datos si no existe
-                MySqlCommand cmd = new MySqlCommand("create database if not exists " + NOMBRE_BD, conexion);
+                MySqlCommand cmd = new MySqlCommand("create database if not exists " + NOMBRE_BD, Conexion);
                 cmd.ExecuteNonQuery();
 
                 CerrarConexion();
@@ -60,7 +60,7 @@ namespace OpenLibraryEditor.BaseDatos
             //Generar ID random propio de la BD
             Random rnd = new Random();
             EscrituraBD.InsertarIdBD(rnd.Next());
-            idBD = LecturaBD.SelectObtenerIdBD();
+            IdBD = LecturaBD.SelectObtenerIdBD();
 
             CerrarConexion();
         }
@@ -69,7 +69,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             //Iniciar sesion con ip, usuario y contraseña
             string connString = "server=" + servidor + ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + ";";
-            conexion = new MySqlConnection(connString);
+            Conexion = new MySqlConnection(connString);
         }
 
         public static bool EstablecerConexion(string servidor, string usuario, string contrasena, string puerto)
@@ -77,7 +77,8 @@ namespace OpenLibraryEditor.BaseDatos
             //Iniciar sesion ahora con bd
             string connString = "server=" + servidor + ";database=" + NOMBRE_BD +
                 ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + ";";
-            conexion = new MySqlConnection(connString);
+            Conexion = new MySqlConnection(connString);
+            
             return true;
         }
 
@@ -87,7 +88,7 @@ namespace OpenLibraryEditor.BaseDatos
             {
                 Console.WriteLine("Conexion con MySql abierta.");
                 //Abrir conexión
-                conexion.Open();
+                Conexion.Open();
                 return true;
             }
             catch (MySql.Data.MySqlClient.MySqlException)
@@ -102,7 +103,7 @@ namespace OpenLibraryEditor.BaseDatos
             {
                 Console.WriteLine("Conexion con MySql cerrada.");
                 //Cerrar conexión
-                conexion.Close();
+                Conexion.Close();
                 return true;
             }
             catch (MySql.Data.MySqlClient.MySqlException)
@@ -114,14 +115,21 @@ namespace OpenLibraryEditor.BaseDatos
         private static void BorrarBD(string servidor, string usuario, string contrasena, string puerto)
         {
             EstablecerConexion(servidor, usuario, contrasena, puerto);
-            AbrirConexion();
+            try
+            {
+                AbrirConexion();
 
-            //Para pruebas
-            MySqlCommand borrar_test = new MySqlCommand(@"
-                DROP Database if exists "+NOMBRE_BD+";", conexion);
-            borrar_test.ExecuteNonQuery();
+                //Para pruebas
+                MySqlCommand borrar_test = new MySqlCommand(@"
+                DROP Database if exists " + NOMBRE_BD + ";", Conexion);
+                borrar_test.ExecuteNonQuery();
 
-            CerrarConexion();
+                CerrarConexion();
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("No se pudo borrar la BD.");
+            }
         }
 
         #region Crear usuarios de BD
@@ -131,19 +139,19 @@ namespace OpenLibraryEditor.BaseDatos
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
             CrearUsuarioBD(nombreFinal, contrasenia);
             MySqlCommand cmd = new MySqlCommand("GRANT ALL ON " +
-                NOMBRE_BD+" .* TO'"+ nombreFinal + "'@'%';", conexion);
+                NOMBRE_BD+" .* TO'"+ nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
-                NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", conexion);
+                NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT ALL ON " +
-                "mysql .user TO'" + nombreFinal + "'@'%';", conexion);
+                "mysql .user TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
-                "mysql .user TO'" + nombreFinal + "'@'%';", conexion);
+                "mysql .user TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT CREATE USER, RELOAD ON " +
-                "*.* TO'" + nombreFinal + "'@'%';", conexion);
+                "*.* TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             AplicarPermisosUsuario();
 
@@ -155,7 +163,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         private static void AplicarPermisosUsuario()
         {
-            MySqlCommand cmd = new MySqlCommand("FLUSH PRIVILEGES;", conexion);
+            MySqlCommand cmd = new MySqlCommand("FLUSH PRIVILEGES;", Conexion);
             cmd.ExecuteNonQuery();
         }
 
@@ -225,7 +233,7 @@ namespace OpenLibraryEditor.BaseDatos
             MySqlCommand cmd;
             if (LecturaBD.SelectExisteUsuarioBD(nombreUsuario) == 0)
             {
-                cmd = new MySqlCommand("CREATE USER '" + nombreUsuario + "'@'%' IDENTIFIED BY '" + contrasenia + "'", conexion);
+                cmd = new MySqlCommand("CREATE USER '" + nombreUsuario + "'@'%' IDENTIFIED BY '" + contrasenia + "'", Conexion);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -271,13 +279,13 @@ namespace OpenLibraryEditor.BaseDatos
                 if (!esEscritura)
                 {
                     MySqlCommand cmd = new MySqlCommand("REVOKE SELECT ON " +
-                       NOMBRE_BD + "."+tabla+" FROM '" + nombreUsuario + "'@'%';", conexion);
+                       NOMBRE_BD + "."+tabla+" FROM '" + nombreUsuario + "'@'%';", Conexion);
                     cmd.ExecuteNonQuery();
                 }
                 else
                 {
                     MySqlCommand cmd = new MySqlCommand("REVOKE SELECT,INSERT,DELETE,UPDATE ON " +
-                       NOMBRE_BD + ".* FROM '" + nombreUsuario + "'@'%';", conexion);
+                       NOMBRE_BD + ".* FROM '" + nombreUsuario + "'@'%';", Conexion);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -290,14 +298,14 @@ namespace OpenLibraryEditor.BaseDatos
         private static void ConcederEdicionTabla(string tabla, string nombreUsuario)
         {
             MySqlCommand cmd = new MySqlCommand("GRANT SELECT,INSERT,DELETE,UPDATE ON " +
-               NOMBRE_BD + "."+tabla+" TO'" + nombreUsuario + "'@'%';", conexion);
+               NOMBRE_BD + "."+tabla+" TO'" + nombreUsuario + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
         }
 
         private static void ConcederLecturaTabla(string tabla, string nombreUsuario)
         {
             MySqlCommand cmd = new MySqlCommand("GRANT SELECT ON " +
-               NOMBRE_BD + "." + tabla + " TO'" + nombreUsuario + "'@'%';", conexion);
+               NOMBRE_BD + "." + tabla + " TO'" + nombreUsuario + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
         }
 
@@ -329,7 +337,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `enlaceReferencia` varchar(256),
                 PRIMARY KEY (`idLibro`),
                 FOREIGN KEY (`nombreTipoLibro`) REFERENCES `TipoLibro`(`nombreTipoLibro`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -339,7 +347,7 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `TipoLibro` (
 	            `nombreTipoLibro` varchar(40) NOT NULL,
 	            PRIMARY KEY (`nombreTipoLibro`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
         private static void CrearTablaEditorial()
@@ -351,7 +359,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `comentario` varchar(300),
 	            `imagen` varchar(256),
 	            PRIMARY KEY (`idEditorial`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
         private static void CrearTablaListaEditorial()
@@ -363,7 +371,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            PRIMARY KEY (`idEditorial`,`idLibro`),
                 FOREIGN KEY (`idEditorial`) REFERENCES `Editorial`(`idEditorial`),
                 FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
         private static void CrearTablaAutor()
@@ -381,7 +389,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `imagen` varchar(256),
 	            PRIMARY KEY (`idAutor`),
                 FOREIGN KEY (`nombreOcupacion`) REFERENCES `Ocupacion`(`nombreOcupacion`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -391,7 +399,7 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `Ocupacion` (
 	            `nombreOcupacion` varchar(75) NOT NULL,
 	            PRIMARY KEY (`nombreOcupacion`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -404,7 +412,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            PRIMARY KEY (`idAutor`,`idLibro`),
                 FOREIGN KEY (`idAutor`) REFERENCES `Autor`(`idAutor`),
                 FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -418,7 +426,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `comentario` varchar(300),
 	            PRIMARY KEY (`idGenero`),
                 FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`idGenero`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -431,7 +439,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            PRIMARY KEY (`idGenero`,`idLibro`),
                 FOREIGN KEY (`idGenero`) REFERENCES `Genero`(`idGenero`),
                 FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -443,7 +451,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `nombreUsuario` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
 	            PRIMARY KEY (`nombreUsuario`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -466,7 +474,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            PRIMARY KEY (`nombreUsuario`,`idLibro`),
                 FOREIGN KEY (`nombreUsuario`) REFERENCES `Usuario`(`nombreUsuario`),
                 FOREIGN KEY (`idLibro`) REFERENCES `Libro`(`idLibro`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
 
@@ -476,7 +484,7 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `Biblioteca` (
 	            `idBD` INT NOT NULL,
 	            PRIMARY KEY (`idBD`)
-            );", conexion);
+            );", Conexion);
             tabla.ExecuteNonQuery();
         }
     }

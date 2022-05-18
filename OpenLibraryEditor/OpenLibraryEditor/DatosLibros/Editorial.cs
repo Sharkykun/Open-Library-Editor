@@ -1,9 +1,10 @@
-﻿using System;
+﻿using OpenLibraryEditor.BaseDatos;
+using System;
 using System.Collections.Generic;
 
 namespace OpenLibraryEditor.DatosLibros
 {
-    public class Editorial : IComparable<Editorial>
+    public class Editorial : IComparable<Editorial>, IOperacionesBD
     {
         private List<string> listaIdCompartido = new List<string>();
         private int idEditorial;
@@ -61,6 +62,32 @@ namespace OpenLibraryEditor.DatosLibros
         override public string ToString()
         {
             return nombre;
+        }
+
+        public void MeterEnBDCompartida()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
+                {
+                    EscrituraBD.UpdateEditorial(this);
+                }
+                else
+                {
+                    EscrituraBD.InsertEditorial(this);
+                }
+
+                ConexionBD.CerrarConexion();
+            }
+        }
+
+        public void BorraDeBDCompartida()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                EscrituraBD.DeleteEditorial(this);
+                ConexionBD.CerrarConexion();
+            }
         }
     }
 }

@@ -255,6 +255,7 @@ namespace OpenLibraryEditor.Forms
                 FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
                 mainMenu.Show();
                 this.Hide();
+                ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
                 ConexionBD.CerrarConexion();
                 ObtenerInfoBD(KTxtNombre.Text);
                 if (ToggleConectado.Checked)
@@ -277,7 +278,7 @@ namespace OpenLibraryEditor.Forms
                 ConexionBD.CerrarConexion();
                 VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos.\n" +
                     "Compruebe que todos los campos son correctos\ny que el servidor esté funcionando.");
-                ConexionBD.conexion = null;
+                ConexionBD.Conexion = null;
             }
         }
 

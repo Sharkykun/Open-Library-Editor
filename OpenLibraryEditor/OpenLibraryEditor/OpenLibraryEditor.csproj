@@ -197,6 +197,7 @@
     <Compile Include="DatosLibros\Idioma.cs" />
     <Compile Include="DatosLibros\InfoBaseDatos.cs" />
     <Compile Include="DatosLibros\InfoUsuarioBD.cs" />
+    <Compile Include="DatosLibros\IOperacionesBD.cs" />
     <Compile Include="DatosLibros\Libro.cs" />
     <Compile Include="DatosLibros\Autor.cs" />
     <Compile Include="DatosLibros\RelacionSerie.cs" />

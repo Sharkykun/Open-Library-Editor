@@ -41,9 +41,13 @@ namespace OpenLibraryEditor.Clases
 
         public static string RenombrarImagen(string nombreOriginal, string nombreNuevo)
         {
-            string[] ruta = nombreOriginal.Split('\\');
-            ruta[ruta.Length - 1] = nombreNuevo;
-            return Path.Combine(ruta);
+            if (File.Exists(nombreOriginal))
+            {
+                string[] ruta = nombreOriginal.Split('\\');
+                ruta[ruta.Length - 1] = nombreNuevo;
+                return Path.Combine(ruta);
+            }
+            else return null;
         }
     }
 }

@@ -1022,7 +1022,7 @@ namespace OpenLibraryEditor.Forms
                         p.Isbn_10.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                         : false);
                     l.AddRange(titulos
-                        .FindAll(p => p.Isbn_13 != null ?
+                        .FindAll(p => p.Isbn_13 != null && !l.Contains(p)?
                         p.Isbn_13.IndexOf(KTxtBuscarMBI.Text, StringComparison.OrdinalIgnoreCase) > -1
                         : false));
                     titulos = l;
@@ -1117,6 +1117,7 @@ namespace OpenLibraryEditor.Forms
             FrmAutores autores = new FrmAutores(false);
             autores.FormBorderStyle = FormBorderStyle.None;
             autores.ShowDialog();
+            MBtnAutores_Click(MBtnAutores, null);
             //BotonActivoTool(sender,Colores.colorBiblioteca);
         }
         private void BtnGenerosMsb_ButtonClick(object sender, EventArgs e)

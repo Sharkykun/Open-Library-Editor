@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
@@ -17,6 +18,11 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmAutores : Form
     {
+        /*
+         TODO:
+        Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
+         */
+
         #region atributos
         //private const string NOMBRE_OBJETO = "el autor";
         private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Au_ElAutor");
@@ -221,6 +227,17 @@ namespace OpenLibraryEditor.Forms
             if (LsvAutoresNA.SelectedItems.Count == 1 &&
                VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
             {
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                {
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este autor en la BD?")
+                        == DialogResult.Yes)
+                    {
+                        autorActual.BorraDeBDCompartida();
+                    }
+                }
+
                 var item = LsvAutoresNA.SelectedItems[0];
                 listaPersona.Remove(autorActual);
                 LsvAutoresNA.Items.Remove(item);
@@ -283,7 +300,12 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnBorrarImagenAu_Click(object sender, EventArgs e)
         {
-             PcbAutorNA.Image = PcbAutorNA.ErrorImage;
+            
+            {
+                
+                rutaImagen = null;
+            }
+             
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
@@ -304,6 +326,24 @@ namespace OpenLibraryEditor.Forms
                         autorActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
                             ControladorImagen.RUTA_PERSONA, autorActual.IdAutor.ToString());
                         rutaImagen = autorActual.Imagen;
+                    }
+                    else
+                    {
+                        string file = ControladorImagen.RUTA_BASE +
+                            ControladorImagen.RUTA_PERSONA + autorActual.IdAutor.ToString();
+                        if (File.Exists(file))
+                            File.Delete(file);
+                    }
+
+                    //Actualizar en BD compartida si se puede
+                    if (ConexionBD.Conexion != null &&
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                    {
+                        if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este autor en la BD compartida?")
+                            == DialogResult.Yes)
+                        {
+                            autorActual.MeterEnBDCompartida();
+                        }
                     }
 
                     //Actualizar listview

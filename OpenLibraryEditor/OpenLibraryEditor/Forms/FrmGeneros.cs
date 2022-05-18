@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,10 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmGeneros : Form
     {
+        /*
+         TODO:
+         - Corregir problema de quitar genero padre al borrarlo en los hijos. Se descuadra, y pregunta si quieres guardar en cada uno que cambia
+         */
         #region atributos
         private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Ge_Gen");
         private bool setNew;
@@ -165,6 +170,17 @@ namespace OpenLibraryEditor.Forms
             if (LsvGeneroNG.SelectedItems.Count == 1 &&
                VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Ge_Gen")) == DialogResult.Yes)
             {
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                {
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este género en la BD?")
+                        == DialogResult.Yes)
+                    {
+                        generoActual.BorraDeBDCompartida();
+                    }
+                }
+
                 var item = LsvGeneroNG.SelectedItems[0];
                 listaGenero.Remove(generoActual);
                 LsvGeneroNG.Items.Remove(item);
@@ -183,6 +199,17 @@ namespace OpenLibraryEditor.Forms
                     generoActual.Nombre = KTxtNombreGe.Text;
                     generoActual.GeneroPadre = (Genero)KCmbGeneroPadreGe.SelectedItem;
                     generoActual.Comentario = KTxtComentarioGe.Text;
+
+                    //Actualizar en BD compartida si se puede
+                    if (ConexionBD.Conexion != null &&
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                    {
+                        if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este género en la BD compartida?")
+                            == DialogResult.Yes)
+                        {
+                            generoActual.MeterEnBDCompartida();
+                        }
+                    }
 
                     //Actualizar listview
                     itemActual.Text = KTxtNombreGe.Text;
