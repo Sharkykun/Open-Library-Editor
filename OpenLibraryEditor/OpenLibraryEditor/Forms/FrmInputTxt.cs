@@ -84,6 +84,7 @@ namespace OpenLibraryEditor.Forms
         {
             tipo = KTxtNombreTipo.Text;
             editable = false;
+            VentanaWindowsComun.MensajeInformacion(tipo + " " + ControladorIdioma.GetTexto("VWC_Guardado"));
             this.Close();
         }
 
@@ -91,6 +92,7 @@ namespace OpenLibraryEditor.Forms
         {
             tipo=KTxtNombreTipo.Text;
             editable = true;
+            VentanaWindowsComun.MensajeInformacion(tipo + " " + ControladorIdioma.GetTexto("VWC_Modificado"));
             this.Close();
         }
 
@@ -98,10 +100,12 @@ namespace OpenLibraryEditor.Forms
         {
             if (VentanaWindowsComun.MensajeBorrarObjeto(KTxtNombreTipo.Text) == DialogResult.Yes)
             {
+                VentanaWindowsComun.MensajeInformacion(tipo + " " + ControladorIdioma.GetTexto("VWC_Borrado"));
                 tipo = null;
                 this.Close();
+                
             }
-            VentanaWindowsComun.MensajeInformacion(tipo+ ControladorIdioma.GetTexto("VWC_Borrado"));
+            
         }
     }
 }

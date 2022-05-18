@@ -34,8 +34,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n " 
-                    + "Mensaje error: "+ ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -50,8 +49,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -69,8 +67,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
 
            
@@ -87,8 +84,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (FormatException ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                + "Mensaje error: " + ex.Message); 
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
 
             return 0;
@@ -106,8 +102,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
 
                 return "NULL";
             }
@@ -163,15 +158,14 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    // --------------------------------------------------
-                    MiMessageBox.Show("El libro ya se encuentra en la BD");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("LibroRepetido"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
-            
+
         }
 
         public static void UpdateLibro(Libro libro)
@@ -227,12 +221,11 @@ namespace OpenLibraryEditor.BaseDatos
 
                 }
                 else
-                    MiMessageBox.Show("No exixte el libro a hacer el updat en la BD");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoExisteLibro"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -255,15 +248,15 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    MiMessageBox.Show("No exixte el libro a hacer el updat en la BD");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoExisteLibro"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
 
-            
+
 
         }
         #endregion
@@ -312,12 +305,14 @@ namespace OpenLibraryEditor.BaseDatos
                     autor.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    MiMessageBox.Show("El autor ya exite en la BD");
+                    
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AutorRepetido"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -356,12 +351,13 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("El autor no existe en la BD");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AutorNoExiste"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -384,12 +380,13 @@ namespace OpenLibraryEditor.BaseDatos
                     autor.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    MiMessageBox.Show("Autor no exite en BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AutorNoExiste"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
         #endregion
@@ -437,12 +434,12 @@ namespace OpenLibraryEditor.BaseDatos
                     genero.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    MiMessageBox.Show("El genero ha insertar ya existe en la BD...");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("GeneroRepetido"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -469,12 +466,13 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("El genero no exite en la BD");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("GeneroNoExiste"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -502,12 +500,14 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                     genero.ListaIdCompartido.Remove(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("GeneroNoExiste"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
-            }  
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
         }
         #endregion
 
@@ -542,12 +542,11 @@ namespace OpenLibraryEditor.BaseDatos
                     editorial.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD()+"-"+id.ToString());
                 }
                 else
-                    MiMessageBox.Show("Ya existe la editorial en la BD");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("EditorialRepetida"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -572,12 +571,12 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("La editorial no existe en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("EditorialNoExiste"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -598,15 +597,15 @@ namespace OpenLibraryEditor.BaseDatos
                     editorial.ListaIdCompartido.Remove(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    MiMessageBox.Show("La editorial no existe en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("EditorialNoExiste"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
 
-             
+
         }
         #endregion
 
@@ -632,11 +631,14 @@ namespace OpenLibraryEditor.BaseDatos
                     INSERT INTO `Ocupacion` VALUES ('" + ocupacion + "');", ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                 }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("OcupacionRepetida"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -662,12 +664,12 @@ namespace OpenLibraryEditor.BaseDatos
                     ComprobarFK(true);
                 }
                 else
-                    MiMessageBox.Show("No existe esa ocupacion en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("OcupacionNoExiste"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -689,13 +691,13 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("No existe la ocupacion en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("OcupacionNoExiste"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
-            }    
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
         }
         #endregion
 
@@ -722,13 +724,14 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("El tipo libro ya existe en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("TipoLibroRepetido"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
-            } 
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
         }
 
         public static void UpdateTipoLibro(string tipoLibroOriginal, string tipoLibroNuevo)
@@ -753,12 +756,11 @@ namespace OpenLibraryEditor.BaseDatos
                     ComprobarFK(true);
                 }
                 else
-                    MiMessageBox.Show("La existencia inexistente del tipo de libro hay en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("TipoLibroRepetido"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -780,12 +782,12 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("El tipo libro no existe en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("TipoLibroNoExiste"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
         #endregion
@@ -822,12 +824,11 @@ namespace OpenLibraryEditor.BaseDatos
                         ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia, usuario.Nombre);
                 }
                 else
-                    VentanaWindowsComun.MensajeError("El usuario ya existe en la base de datos.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("UsuarioRepetido"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -861,8 +862,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
 
@@ -884,8 +884,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
         #endregion
@@ -929,12 +929,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
-
-            
-            
         }
         
         public static void UpdateUsuarioLibro(string nombreOriginal, Libro libro, InfoUsuarioBD usuario)
@@ -978,12 +974,12 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("no existe el registro usuarioLibro en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoRegistroUsuarioLibro"));
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -1002,12 +998,13 @@ namespace OpenLibraryEditor.BaseDatos
                     tabla.ExecuteNonQuery();
                 }
                 else
-                    MiMessageBox.Show("no existe el registro usuarioLibro en la BD...");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoRegistroUsuarioLibro"));
+
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
         #endregion
@@ -1062,8 +1059,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -1085,8 +1082,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -1108,8 +1105,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -1131,8 +1128,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -1154,8 +1151,8 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
             }
         }
 
@@ -1177,9 +1174,9 @@ namespace OpenLibraryEditor.BaseDatos
             }
             catch (Exception ex)
             {
-                MiMessageBox.Show("Error de conexion a BD... \n "
-                    + "Mensaje error: " + ex.Message);
-            } 
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
         }
         #endregion
     }

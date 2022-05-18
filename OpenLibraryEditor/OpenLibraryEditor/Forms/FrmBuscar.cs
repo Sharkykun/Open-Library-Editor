@@ -11,7 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using static OpenLibraryEditor.DatosLibros.Libro;
 
@@ -26,6 +26,8 @@ namespace OpenLibraryEditor.Forms
         - Añadir más criterios de busqueda para Google Books (Autor, género).
         - OPCIONAL: Añadir recomendaciones en base a lo que predomina en tu lista local.
         La lista sería creada con una busqueda a la BD/API elegida en el Combo.
+
+        Al cambiar de formulario antes de que termine de cargar el hilo salta excepcion. Controlar
          */
 
         private const string NOMBRE_GOOGLE = "Google Books";
@@ -45,8 +47,12 @@ namespace OpenLibraryEditor.Forms
             KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
             AniadirAutores();
-            ColocarLibrosRecomendados();
-
+            MbtnAtrasLibro.Enabled = false;
+            MBtnAvanzarLibro.Enabled = false;
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
+            
+            
             //ponerLibrosRecomendados();
         }
         private List<Libro> SacarListaLibro()
@@ -216,17 +222,13 @@ namespace OpenLibraryEditor.Forms
         }
         private void ColocarLibrosRecomendados()
         {
-           
             int x = 5;
             int y = 5;
             string query = "";
             for (int i = 0; i < autores.Count; i++)
             {
                 query = "inauthor:\"" + autores[i] + "\"";
-                DoubleClickButton dcb = new DoubleClickButton();
-                dcb.Size = new Size(105,135);
-                dcb.Location = new Point(x, y);
-                dcb.BackgroundImageLayout = ImageLayout.Stretch;
+
                 ImageList imglist = new ImageList();
                 GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
                        UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
@@ -235,23 +237,55 @@ namespace OpenLibraryEditor.Forms
                 //Listar libros
                 if (gBooks.BookCollection != null)
                 {
-                    foreach (var libro in gBooks.BookCollection.Items)
-                    {
-                        var info = libro.VolumeInfo;
-                        if (info.ImageLinks != null) { 
-                            imglist.Images.Add("image",GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                            dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                            dcb.ImageList = imglist;
-                        }
+                    var libro = gBooks.BookCollection.Items[0];
+
+                    var info = libro.VolumeInfo;
+                    if (info.ImageLinks != null) {
+                        DoubleClickButton dcb = new DoubleClickButton();
+                        dcb.Size = new Size(105, 135);
+                        dcb.Location = new Point(x, y);
+                        dcb.BackgroundImageLayout = ImageLayout.Stretch;
+                        //imglist.Images.Add("image",GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                        dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                        //dcb.ImageList = imglist;
                         dcb.Tag = libro;
+                        try
+                        {
+                            Invoke(new Action(() => PanLibrosBuscar.Controls.Add(dcb)));
+                            Invoke(new Action(() => dcb.Visible = true));
+                            Invoke(new Action(() => dcb.DoubleClick += new EventHandler(DobleClickLibro)));
+                            x = x + 115;
+                        }
+                        catch (Exception ex) {
+                            Console.WriteLine(ex.Message);
+                        }
+
+
+
                     }
+
+                    //foreach (var libro in gBooks.BookCollection.Items)
+                    //{
+                    //    var info = libro.VolumeInfo;
+                    //    if (info.ImageLinks != null)
+                    //    {
+                    //        //imglist.Images.Add("image",GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                    //        dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                    //        //dcb.ImageList = imglist;
+                    //    }
+                    //    dcb.Tag = libro;
+                    //}
+
                 }
-                PanLibrosBuscar.Controls.Add(dcb);
-                dcb.Visible = true;
-                dcb.DoubleClick += new EventHandler(DobleClickLibro);
-                x = x + 115;
             }
-            
+           try{ 
+                Invoke(new Action(() => MbtnAtrasLibro.Enabled = true));
+                Invoke(new Action(() => MBtnAvanzarLibro.Enabled = true));
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
         private void DobleClickLibro(object sender, EventArgs e)
         {
@@ -275,7 +309,8 @@ namespace OpenLibraryEditor.Forms
 
         private void MbtnAtrasLibro_Click(object sender, EventArgs e)
         {
-            int posicion = PanLibrosBuscar.Controls[PanLibrosBuscar.Controls.Count - 19].Location.X;
+            int posicion = PanLibrosBuscar.Controls[0].Location.X;
+            //Point posicion = new Point(110,5);
             if ((posicion + 70) < PanLibrosBuscar.Width && contadorLibros >= 1)
             {
                 foreach (DoubleClickButton dcb in PanLibrosBuscar.Controls)

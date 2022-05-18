@@ -60,7 +60,7 @@ namespace OpenLibraryEditor.Forms
             LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Titulo");
             KpageDatosGenerales.Text = ControladorIdioma.GetTexto("Al_TabDatosGen");
             KgbDatosGeneralesNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabDatosGen");
-            LblTituloNL.Text = ControladorIdioma.GetTexto("Al_DGTitulo");
+            LblTituloNL.Text = ControladorIdioma.GetTexto("TituloObli");
             TTnuevoLibro.SetToolTip(this.KTxtTituloNL, ControladorIdioma.GetTexto("Al_TTTxtTitulo"));
             LblSubtituloNL.Text = ControladorIdioma.GetTexto("Al_DGSubtitulo");
             TTnuevoLibro.SetToolTip(this.KTxtSubtituloNL, ControladorIdioma.GetTexto("Al_TTTxtSubti"));
@@ -129,6 +129,7 @@ namespace OpenLibraryEditor.Forms
             LblFavoritoNL.Text = ControladorIdioma.GetTexto("Al_DUFav");
             TTnuevoLibro.SetToolTip(this.TBtnFavNL, ControladorIdioma.GetTexto("Al_TTFav"));
             LblOcultarNL.Text = ControladorIdioma.GetTexto("Al_DUOcultar");
+            LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
             TTnuevoLibro.SetToolTip(this.TBtnOcultarNL, ControladorIdioma.GetTexto("Al_TTOcu"));
             LblComentarioNL.Text = ControladorIdioma.GetTexto("Al_DUComentario");
             TTnuevoLibro.SetToolTip(this.KTxtComentarioUsuarioNL, ControladorIdioma.GetTexto("Al_TTCome"));
@@ -619,6 +620,7 @@ namespace OpenLibraryEditor.Forms
                     libroActual.ListaAccion.Add((UsuarioAccion)c.Tag);
 
                 esOk = true;
+                VentanaWindowsComun.MensajeInformacion(libroActual.Titulo +" " +ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 Close();
             }
             else

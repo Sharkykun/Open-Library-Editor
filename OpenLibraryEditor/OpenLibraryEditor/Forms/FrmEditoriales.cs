@@ -36,6 +36,13 @@ namespace OpenLibraryEditor.Forms
             InitializeComponent();
             this.setNew = setNew;
         }
+        public FrmEditoriales(bool setNew, Editorial editorialActual)
+        {
+            InitializeComponent();
+            this.setNew = setNew;
+            this.editorialActual = editorialActual;
+            EditarEditorialDesdeMain();
+        }
         private void MBtnCerrarEditoriales_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -60,6 +67,14 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #region metodos propios
+        private void EditarEditorialDesdeMain()
+        {
+            PanOpcionesED.Visible = true;
+            KTxtNombreEd.Text = editorialActual.Nombre;
+            KTxtComentarioEd.Text = editorialActual.Comentario;
+            rutaImagen = editorialActual.Imagen;
+            CargarImagen(rutaImagen);
+        }
         private void IdiomaTexto()
         {
             LblTituloEditoriales.Text = ControladorIdioma.GetTexto("ED_TituloFrm");
@@ -109,11 +124,11 @@ namespace OpenLibraryEditor.Forms
             }
             catch (FileNotFoundException)
             {
-                PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
+                PcbEditorialesEd.Image = Properties.Resources.libros;
             }
             catch (ArgumentException)
             {
-                PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
+                PcbEditorialesEd.Image = Properties.Resources.libros;
             }
         }
 
@@ -123,8 +138,11 @@ namespace OpenLibraryEditor.Forms
             if (editorialActual != null && EsObjetoCambiado())
             {
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
-                if (result == DialogResult.Yes)
+                if (result == DialogResult.Yes) 
+                {
                     GBtnAceptar_Click(null, null);
+                }
+                    
             }
         }
         #endregion
@@ -195,6 +213,7 @@ namespace OpenLibraryEditor.Forms
                 var item = LsvEditorialNE.SelectedItems[0];
                 listaEditorial.Remove(editorialActual);
                 LsvEditorialNE.Items.Remove(item);
+                VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
         }
 
@@ -209,7 +228,8 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnBorrarImagenEd_Click(object sender, EventArgs e)
         {
-            PcbEditorialesEd.Image = PcbEditorialesEd.ErrorImage;
+            PcbEditorialesEd.Image = Properties.Resources.libros;
+            rutaImagen = null;
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
@@ -226,6 +246,15 @@ namespace OpenLibraryEditor.Forms
                             ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
                         rutaImagen = editorialActual.Imagen;
                     }
+                    else
+                    {
+                        string file = ControladorImagen.RUTA_BASE +
+                        ControladorImagen.RUTA_EDITORIAL + editorialActual.IdEditorial.ToString();
+                        if (File.Exists(file))
+                        {
+                            File.Delete(file);
+                        }
+                    }
 
                     //Actualizar en BD compartida si se puede
                     if (ConexionBD.Conexion != null &&
@@ -240,6 +269,7 @@ namespace OpenLibraryEditor.Forms
 
                     //Actualizar listview
                     itemActual.Text = KTxtNombreEd.Text;
+                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));

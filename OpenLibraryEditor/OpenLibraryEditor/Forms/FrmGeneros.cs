@@ -30,6 +30,13 @@ namespace OpenLibraryEditor.Forms
             InitializeComponent();
             this.setNew=setNew;
         }
+        public FrmGeneros(bool setNew, Genero generoActual)
+        {
+            InitializeComponent();
+            this.setNew = setNew;
+            this.generoActual = generoActual;
+            EditarGeneroDesdeMain();
+        }
         private void FrmGeneros_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
@@ -50,6 +57,13 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #region metodos propios
+        private void EditarGeneroDesdeMain()
+        {
+            PanOpcionesGE.Visible = true;
+            KTxtNombreGe.Text = generoActual.Nombre;
+            KTxtComentarioGe.Text = generoActual.Comentario;
+            KCmbGeneroPadreGe.SelectedItem = generoActual.GeneroPadre;
+        }
         private void IdiomaTexto()
         {
             TTGeneros.SetToolTip(this.PcbLogoGeneros,ControladorIdioma.GetTexto("Main_TTLogo"));
@@ -107,7 +121,9 @@ namespace OpenLibraryEditor.Forms
                 //VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 var result = VentanaWindowsComun.MensajeGuardarObjeto(NOMBRE_OBJETO);
                 if (result == DialogResult.Yes)
+                {
                     GBtnAceptar_Click(null, null);
+                }   
             }
         }
         #endregion
@@ -185,6 +201,7 @@ namespace OpenLibraryEditor.Forms
                 listaGenero.Remove(generoActual);
                 LsvGeneroNG.Items.Remove(item);
                 ActualizarGeneroPadre();
+                VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
         }
 
@@ -222,6 +239,8 @@ namespace OpenLibraryEditor.Forms
                     }
 
                     ActualizarGeneroPadre();
+                    VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
+
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Genero"));

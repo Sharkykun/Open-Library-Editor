@@ -364,6 +364,11 @@
             this.NudPuerto.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NudPuerto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.NudPuerto.Location = new System.Drawing.Point(110, 90);
+            this.NudPuerto.Maximum = new decimal(new int[] {
+            65536,
+            0,
+            0,
+            0});
             this.NudPuerto.Name = "NudPuerto";
             this.NudPuerto.Size = new System.Drawing.Size(98, 27);
             this.NudPuerto.TabIndex = 32;

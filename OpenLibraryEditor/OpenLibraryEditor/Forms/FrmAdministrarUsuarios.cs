@@ -44,15 +44,6 @@ namespace OpenLibraryEditor.Forms
         private void FrmAdministrarUsuarios_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
-            KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Nombre"));
-            KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Email"));
-            KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_CmbTipo"));
-            KCmbBuscarPorUsu.SelectedIndex = 0;
-
-            KCmbTipoUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Editor"));
-            KCmbTipoUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Usu"));
-            KCmbTipoUsu.Items.Add("Administrador");
-
             //Recoger usuarios de BD compartida
             ObtenerUsuariosBD();
 
@@ -76,12 +67,24 @@ namespace OpenLibraryEditor.Forms
             KgbDatosUsuario.Values.Heading = ControladorIdioma.GetTexto("Adm_DatosUsu");
             LblNombreUsu.Text = ControladorIdioma.GetTexto("Adm_NombreUsu");
             LblEmail.Text= ControladorIdioma.GetTexto("Reg_Email");
+            LsvUsuariosBD.Columns[0].Text = ControladorIdioma.GetTexto("Au_LsvNombre");
+            LsvUsuariosBD.Columns[1].Text = ControladorIdioma.GetTexto("Adm_CmbTipo");
+            LsvUsuariosBD.Columns[2].Text = ControladorIdioma.GetTexto("Adm_Email");
             //LblContra.Text= ControladorIdioma.GetTexto("Reg_Contra");
             LblTipoUsu.Text = ControladorIdioma.GetTexto("Adm_Tipo");
+            KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Nombre"));
+            KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_CmbTipo"));
+            KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Email"));
+            KCmbBuscarPorUsu.SelectedIndex = 0;
+
+            KCmbTipoUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Editor"));
+            KCmbTipoUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Usu"));
+            KCmbTipoUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Adm"));
         }
 
         private void SeleccionarTipoUsuario(InfoUsuarioBD usuario)
         {
+            //Duda si los case cambian según el idioma
             switch(usuario.TipoUsuario)
             {
                 case "Usuario":
@@ -174,6 +177,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasUsu_Click(object sender, EventArgs e)
         {
             FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
+            form.FormBorderStyle = FormBorderStyle.None;
             form.ShowDialog();
             if (form.EsOk)
             {
@@ -185,6 +189,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnEditarUsu_Click(object sender, EventArgs e)
         {
             FrmEditarUsuario form = new FrmEditarUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag, true);
+            form.FormBorderStyle = FormBorderStyle.None;
             form.ShowDialog();
             if (form.EsOk)
             {
@@ -195,7 +200,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMenosUsu_Click(object sender, EventArgs e)
         {
-            if (VentanaWindowsComun.MensajeBorrarObjeto("este usuario") == DialogResult.Yes)
+            if (VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Adm_EsteUsu")) == DialogResult.Yes)
             {
                 ConexionBD.AbrirConexion();
                 EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
@@ -203,6 +208,12 @@ namespace OpenLibraryEditor.Forms
                 ObtenerUsuariosBD();
                 ColocarUsuarios(listaUsuarios);
             }
+        }
+
+        private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
+        {
+            KTxtBuscarUsu.Text = "";
+            MBtnBuscar_Click(sender, e);
         }
     }
 }
