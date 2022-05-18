@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenLibraryEditor.BaseDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OpenLibraryEditor.DatosLibros
 {
-    public class Genero : IComparable<Genero>
+    public class Genero : IComparable<Genero>, IOperacionesBD
     {
         private List<string> listaIdCompartido = new List<string>();
         private int idGenero;
@@ -61,6 +62,32 @@ namespace OpenLibraryEditor.DatosLibros
         override public string ToString()
         {
             return nombre;
+        }
+
+        public void MeterEnBDCompartida()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
+                {
+                    EscrituraBD.UpdateGenero(this);
+                }
+                else
+                {
+                    EscrituraBD.InsertGenero(this);
+                }
+
+                ConexionBD.CerrarConexion();
+            }
+        }
+
+        public void BorraDeBDCompartida()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                EscrituraBD.DeleteGenero(this);
+                ConexionBD.CerrarConexion();
+            }
         }
     }
 }

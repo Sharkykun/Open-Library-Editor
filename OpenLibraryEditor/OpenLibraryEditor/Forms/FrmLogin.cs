@@ -255,6 +255,7 @@ namespace OpenLibraryEditor.Forms
                 FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
                 mainMenu.Show();
                 this.Hide();
+                ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
                 ConexionBD.CerrarConexion();
                 ObtenerInfoBD(KTxtNombre.Text);
                 if (ToggleConectado.Checked)
@@ -276,7 +277,7 @@ namespace OpenLibraryEditor.Forms
             {
                 ConexionBD.CerrarConexion();
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
-                ConexionBD.conexion = null;
+                ConexionBD.Conexion = null;
             }
         }
 

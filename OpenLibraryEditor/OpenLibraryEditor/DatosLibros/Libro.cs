@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenLibraryEditor.BaseDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OpenLibraryEditor.DatosLibros
 {
-    public class Libro : IComparable<Libro>
+    public class Libro : IComparable<Libro>, IOperacionesBD
     {
         //Datos de libro comunes
         private List<string> listaIdCompartido = new List<string>();
@@ -127,6 +128,69 @@ namespace OpenLibraryEditor.DatosLibros
                 else return -1;
             }
             else return -1;
+        }
+
+        private void InsertarListasBD()
+        {
+            //Pasar autores del libro a BD
+            foreach (Autor autor in listaAutor)
+            {
+                autor.MeterEnBDCompartida();
+                EscrituraBD.InsertListaAutor(this, autor);
+            }
+
+            //Pasar genero del libro a BD
+            foreach (Genero genero in listaGenero)
+            {
+                genero.MeterEnBDCompartida();
+                EscrituraBD.InsertListaGenero(this, genero);
+            }
+
+            //Pasar editorial del libro a BD
+            foreach (Editorial editorial in listaEditorial)
+            {
+                editorial.MeterEnBDCompartida();
+                EscrituraBD.InsertListaEditorial(this, editorial);
+            }
+        }
+
+        public void MeterEnBDCompartida()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                //Comprobar si no existe Ocupacion para añadirlo
+                if (!String.IsNullOrWhiteSpace(nombreTipo) &&
+                    LecturaBD.SelectOcupacion(nombreTipo) == null)
+                    EscrituraBD.InsertOcupacion(nombreTipo);
+
+                if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
+                {
+                    EscrituraBD.UpdateLibro(this);
+                    InsertarListasBD();
+                }
+                else
+                {
+                    EscrituraBD.InsertLibro(this);
+                    InsertarListasBD();
+                }
+
+                ConexionBD.CerrarConexion();
+            }
+        }
+
+        public void BorraDeBDCompartida()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                //Pensar como borrar las listas
+                //Comprobar si ningun autor que queda tiene la Ocupacion
+                if (!String.IsNullOrWhiteSpace(nombreTipo) &&
+                    LecturaBD.SelectTipoLibroCantidadPorLibro(nombreTipo) == 0)
+                    EscrituraBD.DeleteOcupacion(nombreTipo);
+
+                EscrituraBD.DeleteLibro(this);
+                ConexionBD.CerrarConexion();
+            }
         }
 
         [Serializable]

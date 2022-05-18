@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
@@ -18,8 +19,13 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmAutores : Form
     {
         /*
+<<<<<<< HEAD
+         TODO:
+        Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
+=======
          To Do: Eliminar la imagen del autor no funciona, la quita pero no guarda el cambio
                 pasa lo mismo en editorial
+>>>>>>> 16c21630765d34b80da5712343450e84ab6a07c2
          */
 
         #region atributos
@@ -251,6 +257,17 @@ namespace OpenLibraryEditor.Forms
             if (LsvAutoresNA.SelectedItems.Count == 1 &&
                VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
             {
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                {
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este autor en la BD?")
+                        == DialogResult.Yes)
+                    {
+                        autorActual.BorraDeBDCompartida();
+                    }
+                }
+
                 var item = LsvAutoresNA.SelectedItems[0];
                 listaPersona.Remove(autorActual);
                 LsvAutoresNA.Items.Remove(item);
@@ -340,10 +357,19 @@ namespace OpenLibraryEditor.Forms
                     else
                     {
                         string file = ControladorImagen.RUTA_BASE +
-                        ControladorImagen.RUTA_PERSONA + autorActual.IdAutor.ToString();
+                            ControladorImagen.RUTA_PERSONA + autorActual.IdAutor.ToString();
                         if (File.Exists(file))
-                        {
                             File.Delete(file);
+                    }
+
+                    //Actualizar en BD compartida si se puede
+                    if (ConexionBD.Conexion != null &&
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                    {
+                        if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este autor en la BD compartida?")
+                            == DialogResult.Yes)
+                        {
+                            autorActual.MeterEnBDCompartida();
                         }
                     }
 

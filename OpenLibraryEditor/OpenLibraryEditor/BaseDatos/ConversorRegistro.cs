@@ -20,7 +20,7 @@ namespace OpenLibraryEditor.BaseDatos
                 registro["enlaceReferencia"].ToString(),
                 registro["comentario"].ToString(),
                 registro["imagen"].ToString());
-            a.ListaIdCompartido.Add(ConexionBD.idBD+"-"+registro["idAutor"].ToString());
+            a.ListaIdCompartido.Add(ConexionBD.IdBD+"-"+registro["idAutor"].ToString());
             return a;
         }
 
@@ -29,7 +29,7 @@ namespace OpenLibraryEditor.BaseDatos
             Editorial e = new Editorial(registro["nombreEditorial"].ToString(),
                 registro["comentario"].ToString(),
                 registro["imagen"].ToString());
-            e.ListaIdCompartido.Add(ConexionBD.idBD + "-" + registro["idEditorial"].ToString());
+            e.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idEditorial"].ToString());
             return e;
         }
 
@@ -43,7 +43,7 @@ namespace OpenLibraryEditor.BaseDatos
             Genero g = new Genero(registro["nombreGenero"].ToString(),
                 generoPadre,
                 registro["comentario"].ToString());
-            g.ListaIdCompartido.Add(ConexionBD.idBD + "-" + registro["idGenero"].ToString());
+            g.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idGenero"].ToString());
             return g;
         }
 
@@ -76,7 +76,7 @@ namespace OpenLibraryEditor.BaseDatos
             libro.MayorEdad = bool.Parse(registro["mayorEdad"].ToString());
             libro.NumeroCapitulos = int.Parse(registro["numeroCapitulos"].ToString());
             libro.EnlaceReferencia = registro["enlaceReferencia"].ToString();
-            libro.ListaIdCompartido.Add(ConexionBD.idBD + "-" + registro["idLibro"].ToString());
+            libro.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idLibro"].ToString());
             return libro;
         }
 

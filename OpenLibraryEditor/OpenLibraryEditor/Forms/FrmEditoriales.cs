@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -198,6 +199,17 @@ namespace OpenLibraryEditor.Forms
             if (LsvEditorialNE.SelectedItems.Count == 1 &&
               VentanaWindowsComun.MensajeBorrarObjeto(NOMBRE_OBJETO) == DialogResult.Yes)
             {
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                {
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar esta editorial en la BD?")
+                        == DialogResult.Yes)
+                    {
+                        editorialActual.BorraDeBDCompartida();
+                    }
+                }
+
                 var item = LsvEditorialNE.SelectedItems[0];
                 listaEditorial.Remove(editorialActual);
                 LsvEditorialNE.Items.Remove(item);
@@ -241,6 +253,17 @@ namespace OpenLibraryEditor.Forms
                         if (File.Exists(file))
                         {
                             File.Delete(file);
+                        }
+                    }
+
+                    //Actualizar en BD compartida si se puede
+                    if (ConexionBD.Conexion != null &&
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                    {
+                        if(VentanaWindowsComun.MensajePregunta("¿Quieres guardar esta editorial en la BD compartida?")
+                            == DialogResult.Yes)
+                        {
+                            editorialActual.MeterEnBDCompartida();
                         }
                     }
 

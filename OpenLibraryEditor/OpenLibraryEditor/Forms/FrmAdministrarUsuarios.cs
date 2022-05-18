@@ -33,7 +33,7 @@ namespace OpenLibraryEditor.Forms
 
         private void ObtenerUsuariosBD()
         {
-            if (ConexionBD.conexion != null)
+            if (ConexionBD.Conexion != null)
             {
                 ConexionBD.AbrirConexion();
                 listaUsuarios = LecturaBD.SelectUsuariosLista();

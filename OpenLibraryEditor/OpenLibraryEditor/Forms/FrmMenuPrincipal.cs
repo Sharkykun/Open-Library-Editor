@@ -1159,7 +1159,7 @@ namespace OpenLibraryEditor.Forms
         #region listview
         private void LsvOpciones_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (LsvOpciones.SelectedItems.Count == 1)
+           if (LsvOpciones.SelectedItems.Count == 1)
             {
                 titulos = SacarListaLibro();
                 object obj = LsvOpciones.SelectedItems[0].Tag;

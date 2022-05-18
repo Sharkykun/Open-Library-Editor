@@ -27,6 +27,12 @@ namespace OpenLibraryEditor.Clases
                 ControladorIdioma.GetTexto("VWC_Pregunta"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
+        public static DialogResult MensajePregunta(string texto)
+        {
+            return MiMessageBox.Show(texto, ControladorIdioma.GetTexto("VWC_Informacion"), 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+        }
+
         public static DialogResult MensajeInformacion(string texto)
         {
             return MiMessageBox.Show(texto, ControladorIdioma.GetTexto("VWC_Informacion"), MessageBoxButtons.OK, MessageBoxIcon.Information);
