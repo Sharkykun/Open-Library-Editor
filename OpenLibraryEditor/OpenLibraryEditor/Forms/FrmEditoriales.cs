@@ -206,7 +206,11 @@ namespace OpenLibraryEditor.Forms
                     if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar esta editorial en la BD?")
                         == DialogResult.Yes)
                     {
-                        editorialActual.BorraDeBDCompartida();
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            editorialActual.BorraDeBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
                     }
                 }
 
@@ -263,7 +267,11 @@ namespace OpenLibraryEditor.Forms
                         if(VentanaWindowsComun.MensajePregunta("¿Quieres guardar esta editorial en la BD compartida?")
                             == DialogResult.Yes)
                         {
-                            editorialActual.MeterEnBDCompartida();
+                            if (ConexionBD.AbrirConexion())
+                            {
+                                editorialActual.MeterEnBDCompartida();
+                                ConexionBD.CerrarConexion();
+                            }
                         }
                     }
 

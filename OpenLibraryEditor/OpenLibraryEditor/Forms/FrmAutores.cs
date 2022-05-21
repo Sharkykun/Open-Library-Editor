@@ -19,13 +19,10 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmAutores : Form
     {
         /*
-<<<<<<< HEAD
          TODO:
-        Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
-=======
+         Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
          To Do: Eliminar la imagen del autor no funciona, la quita pero no guarda el cambio
                 pasa lo mismo en editorial
->>>>>>> 16c21630765d34b80da5712343450e84ab6a07c2
          */
 
         #region atributos
@@ -264,7 +261,11 @@ namespace OpenLibraryEditor.Forms
                     if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este autor en la BD?")
                         == DialogResult.Yes)
                     {
-                        autorActual.BorraDeBDCompartida();
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            autorActual.BorraDeBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
                     }
                 }
 
@@ -369,7 +370,11 @@ namespace OpenLibraryEditor.Forms
                         if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este autor en la BD compartida?")
                             == DialogResult.Yes)
                         {
-                            autorActual.MeterEnBDCompartida();
+                            if (ConexionBD.AbrirConexion())
+                            {
+                                autorActual.MeterEnBDCompartida();
+                                ConexionBD.CerrarConexion();
+                            }
                         }
                     }
 

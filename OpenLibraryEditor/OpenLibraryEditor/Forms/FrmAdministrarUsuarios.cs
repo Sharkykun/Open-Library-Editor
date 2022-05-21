@@ -202,11 +202,16 @@ namespace OpenLibraryEditor.Forms
         {
             if (VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Adm_EsteUsu")) == DialogResult.Yes)
             {
-                ConexionBD.AbrirConexion();
-                EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
-                ConexionBD.CerrarConexion();
-                ObtenerUsuariosBD();
-                ColocarUsuarios(listaUsuarios);
+                if (ConexionBD.AbrirConexion())
+                {
+                    //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
+                    EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
+
+                    EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
+                    ConexionBD.CerrarConexion();
+                    ObtenerUsuariosBD();
+                    ColocarUsuarios(listaUsuarios);
+                }
             }
         }
 

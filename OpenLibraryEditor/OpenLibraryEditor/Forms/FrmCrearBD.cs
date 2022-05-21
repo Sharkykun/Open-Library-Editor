@@ -58,7 +58,7 @@ namespace OpenLibraryEditor.Forms
                 BaseDatos.ConexionBD.AbrirConexion();
                 BaseDatos.ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
                 BaseDatos.ConexionBD.CerrarConexion();
-                FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text);
+                FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
                 BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, KTxtNombreApp.Text,
                     KTxtContraApp.Text, KNudPuerto.Value.ToString());
                 isOk = true;

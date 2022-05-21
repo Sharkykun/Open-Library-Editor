@@ -958,6 +958,41 @@ namespace OpenLibraryEditor.Forms
             //BotonActivoTool(sender,Colores.colorBiblioteca);
             if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.Titulo) == DialogResult.Yes)
             {
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                {
+                    //-----------------
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este libro en la BD compartida?")
+                        == DialogResult.Yes)
+                    {
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            libroActual.BorraDeBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
+                    }
+                }
+
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != null)
+                {
+                    if (ConexionBD.AbrirConexion() && LecturaBD.SelectUsuarioLibroExiste(
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre,
+                        libroActual) > 0)
+                    {
+                        if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar tus detalles de usuario\ndel libro en la BD compartida?")
+                        == DialogResult.Yes)
+                        {
+                            //-----------------------
+                            libroActual.BorrarUsuarioLibroEnBDCompartida();
+                            ConexionBD.CerrarConexion();
+
+                        }
+                    }
+                }
+
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
                 RecolocarLibros(false);
                 MBtncerrarDetallesLibro_Click(sender,e);

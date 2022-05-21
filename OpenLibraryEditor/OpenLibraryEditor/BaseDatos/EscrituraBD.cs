@@ -78,11 +78,12 @@ namespace OpenLibraryEditor.BaseDatos
         {
             try
             {
-                if(listaIdCompartido.Count > 0)
-                    return int.Parse(listaIdCompartido.Find(p =>
-                    p.Contains(ConexionBD.IdBD.ToString())).Split('-')[1]);
+                if(listaIdCompartido.Count > 0 && listaIdCompartido.Exists(p =>
+                    p.Contains(ConexionBD.IdBD.ToString())))
+                        return int.Parse(listaIdCompartido.Find(p =>
+                        p.Contains(ConexionBD.IdBD.ToString())).Split('-')[1]);
             }
-            catch (FormatException ex)
+            catch (Exception ex)
             {
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
@@ -133,7 +134,7 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = SetRandomId("Libro", "idLibro");
                     MySqlCommand insertLibro = new MySqlCommand(String.Format(@"
                     INSERT INTO `Libro` VALUES ('{0}','{1}','{2}','{3}','{4}','{5}',{6},'{7}',
-                    '{8}',{9},{10},'{11}','{12}','{13}','{14}','{15}','{16}',{17},{18},'{19}');",
+                    '{8}',{9},{10},'{11}','{12}','{13}','{14}','{15}',{16},{17},{18},'{19}');",
                     id,
                     libro.Isbn_13,
                     libro.Titulo,
@@ -150,7 +151,7 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.Isbn_10,
                     ControladorImagen.RenombrarImagen(libro.ImagenPortada, id.ToString()),
                     ControladorImagen.RenombrarImagen(libro.ImagenContraportada, id.ToString()),
-                    libro.NombreTipo,
+                    String.IsNullOrWhiteSpace(libro.NombreTipo) ? "NULL" : "'" + libro.NombreTipo + "'",
                     libro.MayorEdad,
                     libro.NumeroCapitulos,
                     libro.EnlaceReferencia), ConexionBD.Conexion);
@@ -193,11 +194,11 @@ namespace OpenLibraryEditor.BaseDatos
                     isbn10 = '{12}',
                     imagenPortada = '{13}',
                     imagenContraportada = '{14}',
-                    nombreTipoLibro = '{15}',
+                    nombreTipoLibro = {15},
                     mayorEdad = {16},
                     numeroCapitulos = {17},
-                    enlaceReferencia = '{18}',
-                    WHERE idLibro = '" + id + "';",
+                    enlaceReferencia = '{18}'
+                    WHERE idLibro = " + id + ";",
                     libro.Isbn_13,
                     libro.Titulo,
                     libro.Subtitulo,
@@ -213,7 +214,7 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.Isbn_10,
                     ControladorImagen.RenombrarImagen(libro.ImagenPortada, id.ToString()),
                     ControladorImagen.RenombrarImagen(libro.ImagenContraportada, id.ToString()),
-                    libro.NombreTipo,
+                    String.IsNullOrWhiteSpace(libro.NombreTipo) ? "NULL" : "'" + libro.NombreTipo + "'",
                     libro.MayorEdad,
                     libro.NumeroCapitulos,
                     libro.EnlaceReferencia), ConexionBD.Conexion);
@@ -332,7 +333,7 @@ namespace OpenLibraryEditor.BaseDatos
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `Autor` SET nombreAutor = '{0}',
                     alias = '{1}',
-                    nombreOcupacion = '{2}',
+                    nombreOcupacion = {2},
                     fechaNacimiento = '{3}',
                     fechaDefuncion = '{4}',
                     enlaceReferencia = '{5}',
@@ -341,7 +342,7 @@ namespace OpenLibraryEditor.BaseDatos
                     WHERE idAutor = '" + id + "';",
                     autor.Nombre,
                     autor.Alias,
-                    String.IsNullOrWhiteSpace(autor.NombreOcupacion) ? null : autor.NombreOcupacion,
+                    String.IsNullOrWhiteSpace(autor.NombreOcupacion) ? "NULL" : "'" + autor.NombreOcupacion + "'",
                     autor.FechaNacimiento.ToShortDateString(),
                     autor.FechaDefuncion.ToShortDateString(),
                     autor.EnlaceReferencia,
@@ -484,9 +485,9 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
-                    //Quitar referencia de genero a borrar en los hijos
                     int id = GetObjetoIdDeLocal(genero.ListaIdCompartido);
 
+                    //Quitar referencia de genero a borrar en los hijos
                     MySqlCommand tabla = new MySqlCommand(@"
                     UPDATE `Genero` SET generoPadre = NULL
                     WHERE generoPadre = " + id + ";",
@@ -836,7 +837,14 @@ namespace OpenLibraryEditor.BaseDatos
         {
             try
             {
-                MySqlCommand tabla = new MySqlCommand(String.Format(@"
+                ComprobarFK(false);
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla = new MySqlCommand(@"
+                    UPDATE `UsuarioLibro` SET nombreUsuario = '" + usuario.Nombre +
+                    "' WHERE nombreUsuario='" + nombreOriginal + "' ", ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+                
+                tabla = new MySqlCommand(String.Format(@"
                 UPDATE `Usuario` SET correoUsuario = '{0}',
                 nombreUsuario = '{1}',
                 tipoUsuario = '{2}' 
@@ -844,6 +852,14 @@ namespace OpenLibraryEditor.BaseDatos
                 usuario.Correo,
                 usuario.Nombre,
                 usuario.TipoUsuario), ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+                ComprobarFK(true);
+
+                //Quitamos, por si acaso, el usuario con el nuevo nombre si existiera en mysql.user
+                tabla = new MySqlCommand(@"
+                DROP USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD +
+                nombreOriginal + "';",
+                ConexionBD.Conexion);
                 tabla.ExecuteNonQuery();
 
                 //Renombramos el usuario de mysql users
@@ -937,9 +953,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             try
             {
-                // Se comprueba primero que el TipoLibro no existe en la bd 
-                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
-                SELECT COUNT(*) FROM UsuarioLibro WHERE nombreUsuario = '" + usuario.Nombre + "' AND idLibro ='" + libro.IdLibro + "'"), ConexionBD.Conexion);
+                MySqlCommand comprobacion = ComprobarUsuarioLibroExiste(libro, usuario);
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
@@ -1007,45 +1021,71 @@ namespace OpenLibraryEditor.BaseDatos
 
             }
         }
+
+        public static void DeleteUsuarioLibroDesdeLibro(Libro libro)
+        {
+            try
+            {
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM UsuarioLibro WHERE idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido)
+                ), ConexionBD.Conexion);
+
+                if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
+                {
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    DELETE FROM `UsuarioLibro` WHERE idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido),
+                    ConexionBD.Conexion);
+                    tabla.ExecuteNonQuery();
+                }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoRegistroUsuarioLibro"));
+
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
+        }
+
+        public static void DeleteUsuarioLibroDesdeUsuario(InfoUsuarioBD usuario)
+        {
+            try
+            {
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM UsuarioLibro WHERE nombreUsuario = '" + usuario.Nombre + "'"
+                ), ConexionBD.Conexion);
+
+                if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
+                {
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    DELETE FROM `UsuarioLibro` WHERE nombreUsuario = '" + usuario.Nombre + "'"
+                    , ConexionBD.Conexion);
+                    tabla.ExecuteNonQuery();
+                }
+                else
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoRegistroUsuarioLibro"));
+
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
+        }
         #endregion
 
         #region Listas
         // NOTA: Comprobaciones correspondientes de lista hechas y probadas en la BD en local...
-        private static MySqlCommand ComprobarListaEditorialExiste(Libro libro, Editorial editorial)
-        {
-            // Se comprueba primero que el no existe la entrdad en BD 
-            return new MySqlCommand(String.Format(@"
-                SELECT COUNT(*) FROM ListaEditorial WHERE idEditorial = "
-            + GetObjetoIdDeLocal(editorial.ListaIdCompartido)
-            + " AND idLibro = "
-            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
-        }
-
-        private static MySqlCommand ComprobarListaAutorExiste(Libro libro, Autor autor)
-        {
-            // Se comprueba primero que el no existe la entrdad en BD 
-            return new MySqlCommand(String.Format(@"
-                SELECT COUNT(*) FROM ListaAutor WHERE idAutor =  "
-            + GetObjetoIdDeLocal(autor.ListaIdCompartido)
-            + " AND idLibro = "
-            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
-        }
-
-        private static MySqlCommand ComprobarListaGeneroExiste(Libro libro, Genero genero)
-        {
-            // Se comprueba primero que el no existe la entrdad en BD 
-            return new MySqlCommand(String.Format(@"
-                SELECT COUNT(*) FROM ListaGenero WHERE idGenero = "
-            + GetObjetoIdDeLocal(genero.ListaIdCompartido)
-            + " AND idLibro = "
-            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
-        }
-
         public static void InsertListaEditorial(Libro libro, Editorial editorial)
         {
             try
             {
-                MySqlCommand comprobacion = ComprobarListaEditorialExiste(libro, editorial);
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaEditorial WHERE idEditorial = "
+                    + GetObjetoIdDeLocal(editorial.ListaIdCompartido)
+                    + " AND idLibro = "
+                    + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
@@ -1064,18 +1104,42 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteListaEditorial(Libro libro, Editorial editorial)
+        public static void DeleteListaEditorialDesdeLibro(Libro libro)
         {
             try
             {
-                MySqlCommand comprobacion = ComprobarListaEditorialExiste(libro, editorial);
+                // Se comprueba primero que el no existe la entrdad en BD 
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaEditorial WHERE idLibro = "
+            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
                     MySqlCommand tabla = new MySqlCommand(@"
-                    DELETE FROM `ListaEditorial` WHERE idEditorial = " + GetObjetoIdDeLocal(editorial.ListaIdCompartido)
-                    + " and " +
-                    "idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido),
+                    DELETE FROM `ListaEditorial` WHERE idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido),
+                    ConexionBD.Conexion);
+                    tabla.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
+        }
+
+        public static void DeleteListaEditorialDesdeEditorial(Editorial editorial)
+        {
+            try
+            {
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaEditorial WHERE idEditorial = "
+            + GetObjetoIdDeLocal(editorial.ListaIdCompartido)), ConexionBD.Conexion);
+
+                if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
+                {
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    DELETE FROM `ListaEditorial` WHERE idEditorial = " + GetObjetoIdDeLocal(editorial.ListaIdCompartido),
                     ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                 }
@@ -1091,7 +1155,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             try
             {
-                MySqlCommand comprobacion = ComprobarListaAutorExiste(libro, autor);
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaAutor WHERE idAutor =  "
+            + GetObjetoIdDeLocal(autor.ListaIdCompartido)
+            + " AND idLibro = "
+            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
@@ -1110,18 +1178,41 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteListaAutor(Libro libro, Autor autor)
+        public static void DeleteListaAutorDesdeLibro(Libro libro)
         {
             try
             {
-                MySqlCommand comprobacion = ComprobarListaAutorExiste(libro, autor);
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaAutor WHERE idLibro = "
+                + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
                     MySqlCommand tabla = new MySqlCommand(@"
-                    DELETE FROM `ListaAutor` WHERE idAutor = " + GetObjetoIdDeLocal(autor.ListaIdCompartido)
-                    + " and " +
-                    "idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido),
+                    DELETE FROM `ListaAutor` WHERE idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido),
+                    ConexionBD.Conexion);
+                    tabla.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
+        }
+
+        public static void DeleteListaAutorDesdeAutor(Autor autor)
+        {
+            try
+            {
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaAutor WHERE idAutor =  "
+            + GetObjetoIdDeLocal(autor.ListaIdCompartido)), ConexionBD.Conexion);
+
+                if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
+                {
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    DELETE FROM `ListaAutor` WHERE idAutor = " + GetObjetoIdDeLocal(autor.ListaIdCompartido),
                     ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                 }
@@ -1137,7 +1228,11 @@ namespace OpenLibraryEditor.BaseDatos
         {
             try
             {
-                MySqlCommand comprobacion = ComprobarListaGeneroExiste(libro, genero);
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaGenero WHERE idGenero = "
+            + GetObjetoIdDeLocal(genero.ListaIdCompartido)
+            + " AND idLibro = "
+            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
@@ -1156,18 +1251,41 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteListaGenero(Libro libro, Genero genero)
+        public static void DeleteListaGeneroDesdeLibro(Libro libro)
         {
             try
             {
-                MySqlCommand comprobacion = ComprobarListaGeneroExiste(libro, genero);
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaGenero WHERE idLibro = "
+            + GetObjetoIdDeLocal(libro.ListaIdCompartido)), ConexionBD.Conexion);
 
-                if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
+                if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
+                {
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    DELETE FROM `ListaGenero` WHERE idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido)
+                    , ConexionBD.Conexion);
+                    tabla.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+
+            }
+        }
+
+        public static void DeleteListaGeneroDesdeGenero(Genero genero)
+        {
+            try
+            {
+                MySqlCommand comprobacion = new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM ListaGenero WHERE idGenero = "
+            + GetObjetoIdDeLocal(genero.ListaIdCompartido)), ConexionBD.Conexion);
+
+                if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
                     MySqlCommand tabla = new MySqlCommand(@"
                     DELETE FROM `ListaGenero` WHERE idGenero = " + GetObjetoIdDeLocal(genero.ListaIdCompartido)
-                    + " and " +
-                    "idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido)
                     , ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                 }

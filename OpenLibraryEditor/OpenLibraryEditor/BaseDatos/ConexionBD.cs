@@ -76,7 +76,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             //Iniciar sesion ahora con bd
             string connString = "server=" + servidor + ";database=" + NOMBRE_BD +
-                ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + ";";
+                ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + "; Convert Zero Datetime=True;";
             Conexion = new MySqlConnection(connString);
             
             return true;
@@ -138,7 +138,12 @@ namespace OpenLibraryEditor.BaseDatos
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
             CrearUsuarioBD(nombreFinal, contrasenia);
-            MySqlCommand cmd = new MySqlCommand("GRANT ALL ON " +
+            //Arreglar problema de corrupcion de una tabla que no sé el motivo
+            //Esto lo deja bien, sin romper nada que hubiera.
+            MySqlCommand cmd = new MySqlCommand("REPAIR TABLE mysql.db USE_FRM;",
+                Conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT ALL ON " +
                 NOMBRE_BD+" .* TO'"+ nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
@@ -215,7 +220,7 @@ namespace OpenLibraryEditor.BaseDatos
             CrearUsuarioBD(nombreFinal, "");
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
-            //ConcederLecturaTabla("UsuarioLibro", nombreFinal);
+            ConcederLecturaTabla("UsuarioLibro", nombreFinal);
             ConcederLecturaTabla("Libro", nombreFinal);
             ConcederLecturaTabla("TipoLibro", nombreFinal);
             ConcederLecturaTabla("ListaAutor", nombreFinal);

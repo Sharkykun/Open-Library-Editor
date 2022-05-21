@@ -98,7 +98,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(365, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(366, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Usuarios de mi base de datos";
             // 
@@ -449,6 +449,7 @@
             this.LsvUsuariosBD.TabIndex = 0;
             this.LsvUsuariosBD.UseCompatibleStateImageBehavior = false;
             this.LsvUsuariosBD.View = System.Windows.Forms.View.Details;
+            this.LsvUsuariosBD.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvUsuariosBD_ItemSelectionChanged);
             // 
             // ColNombre
             // 

@@ -193,7 +193,11 @@ namespace OpenLibraryEditor.Forms
                     if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este género en la BD?")
                         == DialogResult.Yes)
                     {
-                        generoActual.BorraDeBDCompartida();
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            generoActual.BorraDeBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
                     }
                 }
 
@@ -224,7 +228,11 @@ namespace OpenLibraryEditor.Forms
                         if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este género en la BD compartida?")
                             == DialogResult.Yes)
                         {
-                            generoActual.MeterEnBDCompartida();
+                            if (ConexionBD.AbrirConexion())
+                            {
+                               generoActual.MeterEnBDCompartida();
+                                ConexionBD.CerrarConexion();
+                            }
                         }
                     }
 

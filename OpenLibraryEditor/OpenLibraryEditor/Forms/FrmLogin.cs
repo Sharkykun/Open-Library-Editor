@@ -79,12 +79,15 @@ namespace OpenLibraryEditor.Forms
         #endregion
 
         #region Metodos propios
-        public static void ObtenerInfoBD(string nombreUsuario)
+        public static void ObtenerInfoBD(string nombreUsuario, string url, int puerto)
         {
-            ConexionBD.AbrirConexion();
-            UsuarioDatos.configuracionUsuario.InfoUsuarioActual = LecturaBD.SelectUsuario(nombreUsuario);
-            ConexionBD.CerrarConexion();
-            UsuarioDatos.configuracionUsuario.EsAdministrador = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario == "Administrador";
+            if (ConexionBD.AbrirConexion())
+            {
+                UsuarioDatos.configuracionUsuario.InfoUsuarioActual = LecturaBD.SelectUsuario(nombreUsuario);
+                ConexionBD.CerrarConexion();
+                UsuarioDatos.configuracionUsuario.BDActual = new InfoBaseDatos("Base de datos Actual",url,puerto);
+                UsuarioDatos.configuracionUsuario.EsAdministrador = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario == "Administrador";
+            }
         }
 
         //Método para cambiar el idioma de la aplicación
@@ -245,11 +248,14 @@ namespace OpenLibraryEditor.Forms
             //Obtener puerto en la url, si se especifica
             string[] s = KTxtUrl.Text.Split(':');
             string url = s[0];
-            string puerto = s.Length == 2 ? s[1] : "3306";
+            string p = s.Length == 2 ? s[1] : "3306";
+            int puerto;
+            if (!int.TryParse(p, out puerto))
+                puerto = 3306;
 
             ConexionBD.EstablecerConexion(url, 
                 ConexionBD.ANTENOMBRE_USUARIO_BD + KTxtNombre.Text,
-                KTxtContra.Text, puerto);
+                KTxtContra.Text, puerto.ToString());
             if (ConexionBD.AbrirConexion())
             {
                 FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
@@ -257,7 +263,7 @@ namespace OpenLibraryEditor.Forms
                 this.Hide();
                 ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
                 ConexionBD.CerrarConexion();
-                ObtenerInfoBD(KTxtNombre.Text);
+                ObtenerInfoBD(KTxtNombre.Text, KTxtUrl.Text, puerto);
                 if (ToggleConectado.Checked)
                 {
                     UsuarioDatos.configuracionUsuario.RecordarUrl = KTxtUrl.Text;

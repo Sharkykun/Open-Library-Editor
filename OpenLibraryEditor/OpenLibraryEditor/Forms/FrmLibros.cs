@@ -17,6 +17,7 @@ using ComponentFactory.Krypton.Toolkit;
 using Microsoft.VisualBasic;
 using ComponentFactory.Krypton.Navigator;
 using System.Globalization;
+using OpenLibraryEditor.BaseDatos;
 
 namespace OpenLibraryEditor.Forms
 {
@@ -618,6 +619,38 @@ namespace OpenLibraryEditor.Forms
                 libroActual.ListaAccion.Clear();
                 foreach (ListViewItem c in LsvAccionesNL.Items)
                     libroActual.ListaAccion.Add((UsuarioAccion)c.Tag);
+
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
+                {
+                    //-------------------------
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este libro en la BD compartida?")
+                        == DialogResult.Yes)
+                    {
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            libroActual.MeterEnBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
+                    }
+                }
+
+                //Actualizar info personal en BD compartida si se puede
+                if (ConexionBD.Conexion != null &&
+                   UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != null)
+                {
+                    //-------------------------
+                    if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar tus detalles de usuario \nde este libro en la BD compartida?")
+                        == DialogResult.Yes)
+                    {
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            libroActual.MeterUsuarioLibroEnBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
+                    }
+                }
 
                 esOk = true;
                 VentanaWindowsComun.MensajeInformacion(libroActual.Titulo +" " +ControladorIdioma.GetTexto("GuardadoCorrectamente"));

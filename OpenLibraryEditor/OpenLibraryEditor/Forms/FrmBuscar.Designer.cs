@@ -135,7 +135,7 @@
             this.LblTituloBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloBuscar.Location = new System.Drawing.Point(75, 18);
             this.LblTituloBuscar.Name = "LblTituloBuscar";
-            this.LblTituloBuscar.Size = new System.Drawing.Size(95, 32);
+            this.LblTituloBuscar.Size = new System.Drawing.Size(96, 32);
             this.LblTituloBuscar.TabIndex = 10;
             this.LblTituloBuscar.Text = "Buscar";
             // 
