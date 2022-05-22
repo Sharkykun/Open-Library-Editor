@@ -164,11 +164,11 @@ namespace OpenLibraryEditor.Forms
 
         private void LsvEditorialNE_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (!e.IsSelected)
+            if (e == null || !e.IsSelected)
                 ComprobarGuardado();
 
             //Comprobar selección item
-            if (e.IsSelected && LsvEditorialNE.SelectedItems.Count == 1)
+            if (e == null || (e.IsSelected && LsvEditorialNE.SelectedItems.Count == 1))
             {
                 PanOpcionesED.Visible = true;
                 itemActual = LsvEditorialNE.SelectedItems[0];
@@ -275,8 +275,7 @@ namespace OpenLibraryEditor.Forms
                         }
                     }
 
-                    //Actualizar listview
-                    itemActual.Text = KTxtNombreEd.Text;
+                    ActualizarListView();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                 else
@@ -286,6 +285,35 @@ namespace OpenLibraryEditor.Forms
         private void FrmEditoriales_FormClosing(object sender, FormClosingEventArgs e)
         {
             ComprobarGuardado();
+        }
+
+        private void GBtnActualizar_Click(object sender, EventArgs e)
+        {
+            //Actualizar en BD compartida si se puede
+            if (ConexionBD.Conexion != null)
+            {
+                //-----------------
+                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este autor?")
+                    == DialogResult.Yes)
+                {
+                    if (ConexionBD.AbrirConexion())
+                    {
+                        Editorial editorial = LecturaBD.SelectEditorial(EscrituraBD.GetObjetoIdDeLocal(
+                            editorialActual.ListaIdCompartido));
+                        ConexionBD.CerrarConexion();
+                        editorialActual.Nombre = editorial.Nombre;
+                        editorialActual.Comentario = editorial.Nombre;
+                        LsvEditorialNE_ItemSelectionChanged(null, null);
+                        ActualizarListView();
+                    }
+                }
+            }
+        }
+
+        private void ActualizarListView()
+        {
+            //Actualizar listview
+            itemActual.Text = KTxtNombreEd.Text;
         }
     }
 }

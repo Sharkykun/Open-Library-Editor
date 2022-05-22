@@ -34,34 +34,36 @@
             this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
             this.GBtnCancelar = new Guna.UI.WinForms.GunaButton();
             this.PanTituloEditoriales = new System.Windows.Forms.Panel();
+            this.MBtnCerrarEditoriales = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblTituloEditoriales = new System.Windows.Forms.Label();
+            this.PcbLogoEditoriales = new System.Windows.Forms.PictureBox();
             this.LsvEditorialNE = new System.Windows.Forms.ListView();
             this.ChNombreNE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanOpcionesED = new System.Windows.Forms.Panel();
             this.LblNombreEd = new System.Windows.Forms.Label();
             this.KTxtNombreEd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.MBtnAniadirImagenEd = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnBorrarImagenEd = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblComentarioEd = new System.Windows.Forms.Label();
             this.KTxtComentarioEd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.PcbEditorialesEd = new System.Windows.Forms.PictureBox();
             this.TTEditorial = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MBtnMasLsvNE = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosLsvNE = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnCerrarEditoriales = new FontAwesome.Sharp.Material.MaterialButton();
-            this.PcbLogoEditoriales = new System.Windows.Forms.PictureBox();
-            this.MBtnAniadirImagenEd = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnBorrarImagenEd = new FontAwesome.Sharp.Material.MaterialButton();
-            this.PcbEditorialesEd = new System.Windows.Forms.PictureBox();
+            this.GBtnActualizar = new Guna.UI.WinForms.GunaButton();
             this.PanBtnEd.SuspendLayout();
             this.PanTituloEditoriales.SuspendLayout();
-            this.PanOpcionesED.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditoriales)).BeginInit();
+            this.PanOpcionesED.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbEditorialesEd)).BeginInit();
             this.SuspendLayout();
             // 
             // PanBtnEd
             // 
             this.PanBtnEd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.PanBtnEd.Controls.Add(this.GBtnActualizar);
             this.PanBtnEd.Controls.Add(this.GBtnAceptar);
             this.PanBtnEd.Controls.Add(this.GBtnCancelar);
             this.PanBtnEd.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -110,7 +112,7 @@
             this.GBtnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnCancelar.Image = null;
             this.GBtnCancelar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnCancelar.Location = new System.Drawing.Point(532, 5);
+            this.GBtnCancelar.Location = new System.Drawing.Point(406, 5);
             this.GBtnCancelar.Name = "GBtnCancelar";
             this.GBtnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnCancelar.OnHoverBorderColor = System.Drawing.Color.Empty;
@@ -137,6 +139,25 @@
             this.PanTituloEditoriales.TabIndex = 117;
             this.PanTituloEditoriales.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditoriales_MouseDown);
             // 
+            // MBtnCerrarEditoriales
+            // 
+            this.MBtnCerrarEditoriales.BackColor = System.Drawing.Color.Transparent;
+            this.MBtnCerrarEditoriales.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MBtnCerrarEditoriales.FlatAppearance.BorderSize = 0;
+            this.MBtnCerrarEditoriales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.MBtnCerrarEditoriales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
+            this.MBtnCerrarEditoriales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnCerrarEditoriales.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
+            this.MBtnCerrarEditoriales.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.MBtnCerrarEditoriales.IconSize = 40;
+            this.MBtnCerrarEditoriales.Location = new System.Drawing.Point(773, 0);
+            this.MBtnCerrarEditoriales.Name = "MBtnCerrarEditoriales";
+            this.MBtnCerrarEditoriales.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.MBtnCerrarEditoriales.Size = new System.Drawing.Size(32, 40);
+            this.MBtnCerrarEditoriales.TabIndex = 28;
+            this.MBtnCerrarEditoriales.UseVisualStyleBackColor = false;
+            this.MBtnCerrarEditoriales.Click += new System.EventHandler(this.MBtnCerrarEditoriales_Click);
+            // 
             // LblTituloEditoriales
             // 
             this.LblTituloEditoriales.AutoSize = true;
@@ -147,6 +168,17 @@
             this.LblTituloEditoriales.Size = new System.Drawing.Size(307, 23);
             this.LblTituloEditoriales.TabIndex = 4;
             this.LblTituloEditoriales.Text = "Open Library Editor - Nueva Editorial";
+            // 
+            // PcbLogoEditoriales
+            // 
+            this.PcbLogoEditoriales.BackColor = System.Drawing.Color.Transparent;
+            this.PcbLogoEditoriales.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
+            this.PcbLogoEditoriales.Location = new System.Drawing.Point(5, 2);
+            this.PcbLogoEditoriales.Name = "PcbLogoEditoriales";
+            this.PcbLogoEditoriales.Size = new System.Drawing.Size(36, 36);
+            this.PcbLogoEditoriales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbLogoEditoriales.TabIndex = 3;
+            this.PcbLogoEditoriales.TabStop = false;
             // 
             // LsvEditorialNE
             // 
@@ -214,6 +246,36 @@
             this.KTxtNombreEd.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreEd.TabIndex = 131;
             // 
+            // MBtnAniadirImagenEd
+            // 
+            this.MBtnAniadirImagenEd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnAniadirImagenEd.FlatAppearance.BorderSize = 0;
+            this.MBtnAniadirImagenEd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnAniadirImagenEd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnAniadirImagenEd.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
+            this.MBtnAniadirImagenEd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnAniadirImagenEd.Location = new System.Drawing.Point(400, 238);
+            this.MBtnAniadirImagenEd.Name = "MBtnAniadirImagenEd";
+            this.MBtnAniadirImagenEd.Size = new System.Drawing.Size(30, 30);
+            this.MBtnAniadirImagenEd.TabIndex = 127;
+            this.MBtnAniadirImagenEd.UseVisualStyleBackColor = true;
+            this.MBtnAniadirImagenEd.Click += new System.EventHandler(this.MBtnAniadirImagenEd_Click);
+            // 
+            // MBtnBorrarImagenEd
+            // 
+            this.MBtnBorrarImagenEd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnBorrarImagenEd.FlatAppearance.BorderSize = 0;
+            this.MBtnBorrarImagenEd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnBorrarImagenEd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnBorrarImagenEd.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
+            this.MBtnBorrarImagenEd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnBorrarImagenEd.Location = new System.Drawing.Point(440, 238);
+            this.MBtnBorrarImagenEd.Name = "MBtnBorrarImagenEd";
+            this.MBtnBorrarImagenEd.Size = new System.Drawing.Size(30, 30);
+            this.MBtnBorrarImagenEd.TabIndex = 128;
+            this.MBtnBorrarImagenEd.UseVisualStyleBackColor = true;
+            this.MBtnBorrarImagenEd.Click += new System.EventHandler(this.MBtnBorrarImagenEd_Click);
+            // 
             // LblComentarioEd
             // 
             this.LblComentarioEd.AutoSize = true;
@@ -243,6 +305,16 @@
             this.KTxtComentarioEd.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtComentarioEd.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtComentarioEd.TabIndex = 129;
+            // 
+            // PcbEditorialesEd
+            // 
+            this.PcbEditorialesEd.Image = global::OpenLibraryEditor.Properties.Resources.libros;
+            this.PcbEditorialesEd.Location = new System.Drawing.Point(353, 31);
+            this.PcbEditorialesEd.Name = "PcbEditorialesEd";
+            this.PcbEditorialesEd.Size = new System.Drawing.Size(162, 191);
+            this.PcbEditorialesEd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcbEditorialesEd.TabIndex = 126;
+            this.PcbEditorialesEd.TabStop = false;
             // 
             // panel2
             // 
@@ -298,75 +370,32 @@
             this.MBtnMenosLsvNE.UseVisualStyleBackColor = false;
             this.MBtnMenosLsvNE.Click += new System.EventHandler(this.MBtnMenosLsvNE_Click);
             // 
-            // MBtnCerrarEditoriales
+            // GBtnActualizar
             // 
-            this.MBtnCerrarEditoriales.BackColor = System.Drawing.Color.Transparent;
-            this.MBtnCerrarEditoriales.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MBtnCerrarEditoriales.FlatAppearance.BorderSize = 0;
-            this.MBtnCerrarEditoriales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.MBtnCerrarEditoriales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
-            this.MBtnCerrarEditoriales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnCerrarEditoriales.IconChar = FontAwesome.Sharp.MaterialIcons.CloseCircle;
-            this.MBtnCerrarEditoriales.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.MBtnCerrarEditoriales.IconSize = 40;
-            this.MBtnCerrarEditoriales.Location = new System.Drawing.Point(773, 0);
-            this.MBtnCerrarEditoriales.Name = "MBtnCerrarEditoriales";
-            this.MBtnCerrarEditoriales.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.MBtnCerrarEditoriales.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarEditoriales.TabIndex = 28;
-            this.MBtnCerrarEditoriales.UseVisualStyleBackColor = false;
-            this.MBtnCerrarEditoriales.Click += new System.EventHandler(this.MBtnCerrarEditoriales_Click);
-            // 
-            // PcbLogoEditoriales
-            // 
-            this.PcbLogoEditoriales.BackColor = System.Drawing.Color.Transparent;
-            this.PcbLogoEditoriales.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
-            this.PcbLogoEditoriales.Location = new System.Drawing.Point(5, 2);
-            this.PcbLogoEditoriales.Name = "PcbLogoEditoriales";
-            this.PcbLogoEditoriales.Size = new System.Drawing.Size(36, 36);
-            this.PcbLogoEditoriales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbLogoEditoriales.TabIndex = 3;
-            this.PcbLogoEditoriales.TabStop = false;
-            // 
-            // MBtnAniadirImagenEd
-            // 
-            this.MBtnAniadirImagenEd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnAniadirImagenEd.FlatAppearance.BorderSize = 0;
-            this.MBtnAniadirImagenEd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnAniadirImagenEd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnAniadirImagenEd.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
-            this.MBtnAniadirImagenEd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnAniadirImagenEd.Location = new System.Drawing.Point(400, 238);
-            this.MBtnAniadirImagenEd.Name = "MBtnAniadirImagenEd";
-            this.MBtnAniadirImagenEd.Size = new System.Drawing.Size(30, 30);
-            this.MBtnAniadirImagenEd.TabIndex = 127;
-            this.MBtnAniadirImagenEd.UseVisualStyleBackColor = true;
-            this.MBtnAniadirImagenEd.Click += new System.EventHandler(this.MBtnAniadirImagenEd_Click);
-            // 
-            // MBtnBorrarImagenEd
-            // 
-            this.MBtnBorrarImagenEd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnBorrarImagenEd.FlatAppearance.BorderSize = 0;
-            this.MBtnBorrarImagenEd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnBorrarImagenEd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnBorrarImagenEd.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
-            this.MBtnBorrarImagenEd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnBorrarImagenEd.Location = new System.Drawing.Point(440, 238);
-            this.MBtnBorrarImagenEd.Name = "MBtnBorrarImagenEd";
-            this.MBtnBorrarImagenEd.Size = new System.Drawing.Size(30, 30);
-            this.MBtnBorrarImagenEd.TabIndex = 128;
-            this.MBtnBorrarImagenEd.UseVisualStyleBackColor = true;
-            this.MBtnBorrarImagenEd.Click += new System.EventHandler(this.MBtnBorrarImagenEd_Click);
-            // 
-            // PcbEditorialesEd
-            // 
-            this.PcbEditorialesEd.Image = global::OpenLibraryEditor.Properties.Resources.libros;
-            this.PcbEditorialesEd.Location = new System.Drawing.Point(353, 31);
-            this.PcbEditorialesEd.Name = "PcbEditorialesEd";
-            this.PcbEditorialesEd.Size = new System.Drawing.Size(162, 191);
-            this.PcbEditorialesEd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PcbEditorialesEd.TabIndex = 126;
-            this.PcbEditorialesEd.TabStop = false;
+            this.GBtnActualizar.AnimationHoverSpeed = 0.07F;
+            this.GBtnActualizar.AnimationSpeed = 0.03F;
+            this.GBtnActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnActualizar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnActualizar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnActualizar.Image = null;
+            this.GBtnActualizar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnActualizar.Location = new System.Drawing.Point(538, 5);
+            this.GBtnActualizar.Name = "GBtnActualizar";
+            this.GBtnActualizar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnActualizar.OnHoverImage = null;
+            this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.Radius = 15;
+            this.GBtnActualizar.Size = new System.Drawing.Size(126, 35);
+            this.GBtnActualizar.TabIndex = 6;
+            this.GBtnActualizar.Text = "Actualizar con BD";
+            this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnActualizar.Click += new System.EventHandler(this.GBtnActualizar_Click);
             // 
             // FrmEditoriales
             // 
@@ -391,9 +420,9 @@
             this.PanBtnEd.ResumeLayout(false);
             this.PanTituloEditoriales.ResumeLayout(false);
             this.PanTituloEditoriales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditoriales)).EndInit();
             this.PanOpcionesED.ResumeLayout(false);
             this.PanOpcionesED.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditoriales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PcbEditorialesEd)).EndInit();
             this.ResumeLayout(false);
 
@@ -422,5 +451,6 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaButton GBtnAceptar;
         private Guna.UI.WinForms.GunaButton GBtnCancelar;
+        private Guna.UI.WinForms.GunaButton GBtnActualizar;
     }
 }

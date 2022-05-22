@@ -162,6 +162,7 @@
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanHijos = new System.Windows.Forms.Panel();
             this.TimeRedimensionar = new System.Windows.Forms.Timer(this.components);
+            this.BtnActualizarLibroMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -686,6 +687,7 @@
             this.BtnAniadirLibroMsb,
             this.BtnModificarLibroMsb,
             this.BtnBorrarLibroMsb,
+            this.BtnActualizarLibroMsb,
             this.toolStripSeparator1,
             this.BtnAutoresMsb,
             this.BtnGenerosMsb,
@@ -868,7 +870,7 @@
             this.BtnTagsMsb.Name = "BtnTagsMsb";
             this.BtnTagsMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.BtnTagsMsb.Rotation = 0D;
-            this.BtnTagsMsb.Size = new System.Drawing.Size(91, 63);
+            this.BtnTagsMsb.Size = new System.Drawing.Size(91, 56);
             this.BtnTagsMsb.Text = "Etiquetas";
             this.BtnTagsMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnTagsMsb.Visible = false;
@@ -1427,7 +1429,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(109, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(110, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "prueba de tamaño";
             // 
@@ -2119,7 +2121,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 
@@ -2147,6 +2149,28 @@
             this.PanHijos.Name = "PanHijos";
             this.PanHijos.Size = new System.Drawing.Size(949, 693);
             this.PanHijos.TabIndex = 5;
+            // 
+            // BtnActualizarLibroMsb
+            // 
+            this.BtnActualizarLibroMsb.BackColor = System.Drawing.Color.Transparent;
+            this.BtnActualizarLibroMsb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnActualizarLibroMsb.DropDownButtonWidth = 0;
+            this.BtnActualizarLibroMsb.Enabled = false;
+            this.BtnActualizarLibroMsb.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnActualizarLibroMsb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnActualizarLibroMsb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.BtnActualizarLibroMsb.IconChar = FontAwesome.Sharp.MaterialIcons.BookArrowDown;
+            this.BtnActualizarLibroMsb.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.BtnActualizarLibroMsb.IconSize = 48;
+            this.BtnActualizarLibroMsb.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnActualizarLibroMsb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.BtnActualizarLibroMsb.Name = "BtnActualizarLibroMsb";
+            this.BtnActualizarLibroMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.BtnActualizarLibroMsb.Rotation = 0D;
+            this.BtnActualizarLibroMsb.Size = new System.Drawing.Size(129, 63);
+            this.BtnActualizarLibroMsb.Text = "Actualizar libro";
+            this.BtnActualizarLibroMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnActualizarLibroMsb.ButtonClick += new System.EventHandler(this.BtnActualizarLibroMsb_ButtonClick);
             // 
             // FrmMenuPrincipal
             // 
@@ -2357,5 +2381,6 @@
         private System.Windows.Forms.Label LblBuscarPorMBI;
         private System.Windows.Forms.Timer TimeRedimensionar;
         private FontAwesome.Sharp.Material.MaterialButton MbtnBorrarTxtBuscar;
+        private FontAwesome.Sharp.Material.MaterialSplitButton BtnActualizarLibroMsb;
     }
 }

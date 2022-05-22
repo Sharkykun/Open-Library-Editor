@@ -331,6 +331,7 @@ namespace OpenLibraryEditor.Forms
             PanDetallesLibro.Visible = true;
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
+            BtnActualizarLibroMsb.Enabled = true;
             //PanVistaMosaico_Resize(null,null);
 
             if (File.Exists(l.ImagenPortada))
@@ -579,6 +580,7 @@ namespace OpenLibraryEditor.Forms
             PanDetallesLibro.Visible = false;
             BtnBorrarLibroMsb.Enabled = false;
             BtnModificarLibroMsb.Enabled = false;
+            BtnActualizarLibroMsb.Enabled = false;
             RecolocarLibros(false);
         }
     
@@ -612,6 +614,7 @@ namespace OpenLibraryEditor.Forms
             BtnAniadirLibroMsb.Text = ControladorIdioma.GetTexto("Main_NuevoLibro");
             BtnModificarLibroMsb.Text = ControladorIdioma.GetTexto("Main_Modificar");
             BtnBorrarLibroMsb.Text = ControladorIdioma.GetTexto("Main_Eliminar");
+            //--------------------Meter el de libro actualizar aqui
             BtnAutoresMsb.Text = ControladorIdioma.GetTexto("Main_MasAutor");
             BtnGenerosMsb.Text = ControladorIdioma.GetTexto("Main_MasGenero");
             BtnSeriesMsb.Text = ControladorIdioma.GetTexto("Main_MasSerie");
@@ -998,6 +1001,28 @@ namespace OpenLibraryEditor.Forms
                 MBtncerrarDetallesLibro_Click(sender,e);
             }
         }
+
+        private void BtnActualizarLibroMsb_ButtonClick(object sender, EventArgs e)
+        {
+            //Actualizar en BD compartida si se puede
+            if (ConexionBD.Conexion != null)
+            {
+                //-----------------
+                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este autor?")
+                    == DialogResult.Yes)
+                {
+                    if (ConexionBD.AbrirConexion())
+                    {
+                        Libro libro = LecturaBD.SelectLibro(EscrituraBD.GetObjetoIdDeLocal(
+                            libroActual.ListaIdCompartido),
+                            UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                        ConexionBD.CerrarConexion();
+                        //Reemplazar info de libro encontrado
+                    }
+                }
+            }
+        }
+
         private void BtnAniadirLibroMsb_Paint(object sender, PaintEventArgs e)
         {
             MaterialSplitButton btn = (MaterialSplitButton)sender;

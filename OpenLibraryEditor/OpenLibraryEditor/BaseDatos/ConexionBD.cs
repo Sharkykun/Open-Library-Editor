@@ -56,6 +56,7 @@ namespace OpenLibraryEditor.BaseDatos
             //Creamos usuario ole_anon (sin contraseña) que usarán usuarios externos para hacer consultas
             //Servirá tambien para cargar un tipo de usuario
             CrearUsuarioExternoBD();
+            CrearUsuarioRegistroBD();
 
             //Generar ID random propio de la BD
             Random rnd = new Random();
@@ -119,10 +120,14 @@ namespace OpenLibraryEditor.BaseDatos
             {
                 AbrirConexion();
 
-                //Para pruebas
                 MySqlCommand borrar_test = new MySqlCommand(@"
                 DROP Database if exists " + NOMBRE_BD + ";", Conexion);
                 borrar_test.ExecuteNonQuery();
+
+                MySqlCommand comando = new MySqlCommand(@"
+                DROP USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD + "%';",
+                ConexionBD.Conexion);
+                comando.ExecuteNonQuery();
 
                 CerrarConexion();
             }
@@ -230,6 +235,32 @@ namespace OpenLibraryEditor.BaseDatos
             ConcederLecturaTabla("Editorial", nombreFinal);
             ConcederLecturaTabla("ListaGenero", nombreFinal);
             ConcederLecturaTabla("Genero", nombreFinal);
+            AplicarPermisosUsuario();
+        }
+
+        public static void CrearUsuarioRegistroBD()
+        {
+            string nombreFinal = ANTENOMBRE_USUARIO_BD + "register";
+            CrearUsuarioBD(nombreFinal, "ole123Ole");
+            MySqlCommand cmd = new MySqlCommand("REPAIR TABLE mysql.db USE_FRM;",
+                Conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT SELECT ON " +
+                NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", Conexion);
+            cmd.ExecuteNonQuery();
+            ConcederEdicionTabla("UsuarioLibro", nombreFinal);
+            cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
+                NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", Conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT ALL ON " +
+                "mysql .user TO'" + nombreFinal + "'@'%';", Conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
+                "mysql .user TO'" + nombreFinal + "'@'%';", Conexion);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand("GRANT CREATE USER, RELOAD ON " +
+                "*.* TO'" + nombreFinal + "'@'%';", Conexion);
+            cmd.ExecuteNonQuery();
             AplicarPermisosUsuario();
         }
 

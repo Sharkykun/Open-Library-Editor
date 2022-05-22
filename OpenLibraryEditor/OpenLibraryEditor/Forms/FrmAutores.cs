@@ -214,11 +214,11 @@ namespace OpenLibraryEditor.Forms
         #endregion
         private void LsvAutoresNA_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (!e.IsSelected)
+            if (e != null && !e.IsSelected)
                 ComprobarGuardado();
 
             //Comprobar selección item
-            if (e.IsSelected && LsvAutoresNA.SelectedItems.Count == 1)
+            if (e == null || (e.IsSelected && LsvAutoresNA.SelectedItems.Count == 1))
             {
                 PanOpcionesNA.Visible = true;
                 itemActual = LsvAutoresNA.SelectedItems[0];
@@ -367,6 +367,7 @@ namespace OpenLibraryEditor.Forms
                     if (ConexionBD.Conexion != null &&
                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                     {
+                        //-----------------
                         if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este autor en la BD compartida?")
                             == DialogResult.Yes)
                         {
@@ -378,9 +379,7 @@ namespace OpenLibraryEditor.Forms
                         }
                     }
 
-                    //Actualizar listview
-                    itemActual.Text = KTxtNombreAu.Text;
-                    itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+                    ActualizarListView();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                    
                 }
@@ -394,6 +393,40 @@ namespace OpenLibraryEditor.Forms
             ComprobarGuardado();
         }
 
-      
+        private void GBtnActualizar_Click(object sender, EventArgs e)
+        {
+            //Actualizar en BD compartida si se puede
+            if (ConexionBD.Conexion != null)
+            {
+                //-----------------
+                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este autor?")
+                    == DialogResult.Yes)
+                {
+                    if (ConexionBD.AbrirConexion())
+                    {
+                        Autor autor = LecturaBD.SelectAutor(EscrituraBD.GetObjetoIdDeLocal(
+                            autorActual.ListaIdCompartido));
+                        ConexionBD.CerrarConexion();
+                        autorActual.Nombre = autor.Nombre;
+                        autorActual.Alias = autor.Alias;
+                        autorActual.Comentario = autor.Comentario;
+                        autorActual.EnlaceReferencia = autor.EnlaceReferencia;
+                        autorActual.FechaDefuncion = autor.FechaDefuncion;
+                        autorActual.FechaNacimiento = autor.FechaNacimiento;
+                        autorActual.Imagen = autor.Imagen;
+                        autorActual.NombreOcupacion = autor.NombreOcupacion;
+                        LsvAutoresNA_ItemSelectionChanged(null, null);
+                        ActualizarListView();
+                    }
+                }
+            }
+        }
+
+        private void ActualizarListView()
+        {
+            //Actualizar listview
+            itemActual.Text = KTxtNombreAu.Text;
+            itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+        }
     }
 }

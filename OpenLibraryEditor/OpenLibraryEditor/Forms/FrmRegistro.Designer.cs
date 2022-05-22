@@ -35,6 +35,7 @@
             this.LblTituloFrm = new System.Windows.Forms.Label();
             this.PcbLogoRegistro = new System.Windows.Forms.PictureBox();
             this.PanTexto = new System.Windows.Forms.Panel();
+            this.GBtnRegistrarme = new Guna.UI.WinForms.GunaButton();
             this.TxtUrlReg = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.LblUrlReg = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.GBtnRegistrarme = new Guna.UI.WinForms.GunaButton();
             this.PanTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoRegistro)).BeginInit();
             this.PanTexto.SuspendLayout();
@@ -149,6 +149,34 @@
             this.PanTexto.Name = "PanTexto";
             this.PanTexto.Size = new System.Drawing.Size(600, 310);
             this.PanTexto.TabIndex = 2;
+            // 
+            // GBtnRegistrarme
+            // 
+            this.GBtnRegistrarme.AnimationHoverSpeed = 0.07F;
+            this.GBtnRegistrarme.AnimationSpeed = 0.03F;
+            this.GBtnRegistrarme.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnRegistrarme.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.BorderSize = 2;
+            this.GBtnRegistrarme.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnRegistrarme.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnRegistrarme.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnRegistrarme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnRegistrarme.Image = null;
+            this.GBtnRegistrarme.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnRegistrarme.Location = new System.Drawing.Point(125, 230);
+            this.GBtnRegistrarme.Name = "GBtnRegistrarme";
+            this.GBtnRegistrarme.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnRegistrarme.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistrarme.OnHoverImage = null;
+            this.GBtnRegistrarme.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnRegistrarme.Radius = 18;
+            this.GBtnRegistrarme.Size = new System.Drawing.Size(355, 39);
+            this.GBtnRegistrarme.TabIndex = 28;
+            this.GBtnRegistrarme.Text = "Registrarme";
+            this.GBtnRegistrarme.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnRegistrarme.Click += new System.EventHandler(this.GBtnRegistrarme_Click);
             // 
             // TxtUrlReg
             // 
@@ -431,33 +459,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(3, 307);
             this.panel8.TabIndex = 30;
-            // 
-            // GBtnRegistrarme
-            // 
-            this.GBtnRegistrarme.AnimationHoverSpeed = 0.07F;
-            this.GBtnRegistrarme.AnimationSpeed = 0.03F;
-            this.GBtnRegistrarme.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnRegistrarme.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistrarme.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistrarme.BorderSize = 2;
-            this.GBtnRegistrarme.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnRegistrarme.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnRegistrarme.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnRegistrarme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnRegistrarme.Image = null;
-            this.GBtnRegistrarme.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnRegistrarme.Location = new System.Drawing.Point(125, 230);
-            this.GBtnRegistrarme.Name = "GBtnRegistrarme";
-            this.GBtnRegistrarme.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnRegistrarme.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistrarme.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistrarme.OnHoverImage = null;
-            this.GBtnRegistrarme.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnRegistrarme.Radius = 18;
-            this.GBtnRegistrarme.Size = new System.Drawing.Size(355, 39);
-            this.GBtnRegistrarme.TabIndex = 28;
-            this.GBtnRegistrarme.Text = "Registrarme";
-            this.GBtnRegistrarme.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmRegistro
             // 

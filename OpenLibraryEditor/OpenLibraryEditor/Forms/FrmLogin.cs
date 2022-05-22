@@ -281,7 +281,6 @@ namespace OpenLibraryEditor.Forms
             }
             else
             {
-                ConexionBD.CerrarConexion();
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
                 ConexionBD.Conexion = null;
             }

@@ -1,4 +1,5 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.Metodos;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,56 @@ namespace OpenLibraryEditor.Forms
 
         }
 
-        
+        private void GBtnRegistrarme_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(TxtUrlReg.Text) &&
+                !String.IsNullOrWhiteSpace(TxtNombreReg.Text) &&
+                !String.IsNullOrWhiteSpace(TxtMailReg.Text) &&
+                !String.IsNullOrWhiteSpace(KTxtContra1Reg.Text) &&
+                !String.IsNullOrWhiteSpace(KTxtContraReg.Text))
+            {
+                if (KTxtContra1Reg.Text == KTxtContraReg.Text)
+                {
+                    //Obtener puerto en la url, si se especifica
+                    string[] s = TxtUrlReg.Text.Split(':');
+                    string url = s[0];
+                    string p = s.Length == 2 ? s[1] : "3306";
+                    int puerto;
+                    if (!int.TryParse(p, out puerto))
+                        puerto = 3306;
+
+                    ConexionBD.EstablecerConexion(url, "ole_register", "ole123Ole", puerto.ToString());
+                    if (ConexionBD.AbrirConexion())
+                    {
+                        //Crear usuario con ole_register
+                        ConexionBD.CrearUsuarioComunBD(TxtNombreReg.Text, KTxtContraReg.Text, TxtNombreReg.Text);
+                        ConexionBD.CerrarConexion();
+
+                        //Iniciar sesion y menu principal
+                        ConexionBD.EstablecerConexion(url, ConexionBD.ANTENOMBRE_USUARIO_BD +
+                            TxtNombreReg.Text, KTxtContraReg.Text, puerto.ToString());
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                            mainMenu.Show();
+                            this.Hide();
+                            ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
+                            ConexionBD.CerrarConexion();
+                            FrmLogin.ObtenerInfoBD(TxtNombreReg.Text, TxtUrlReg.Text, puerto);
+                        }
+                    }
+                }
+                else
+                {
+                    //----------------
+                    VentanaWindowsComun.MensajeError("La contraseña no coincide.");
+                }
+            }
+            else
+            {
+                //----------------
+                VentanaWindowsComun.MensajeError("Rellena todos los campos.");
+            }
+        }
     }
 }
