@@ -70,6 +70,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Update with DB.
+        /// </summary>
+        internal static string ActualizarConBD {
+            get {
+                return ResourceManager.GetString("ActualizarConBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Administrator.
         /// </summary>
         internal static string Adm_Adm {
@@ -1128,6 +1137,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Au_TituloFrm {
             get {
                 return ResourceManager.GetString("Au_TituloFrm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click to update with the database.
+        /// </summary>
+        internal static string Au_TTActualizar {
+            get {
+                return ResourceManager.GetString("Au_TTActualizar", resourceCulture);
             }
         }
         
@@ -2815,7 +2833,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Username or Email address.
+        ///   Busca una cadena traducida similar a Username.
         /// </summary>
         internal static string Log_Nombre {
             get {
@@ -2887,11 +2905,29 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Update book.
+        /// </summary>
+        internal static string Main_Actualizar {
+            get {
+                return ResourceManager.GetString("Main_Actualizar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Authors.
         /// </summary>
         internal static string Main_Autores {
             get {
                 return ResourceManager.GetString("Main_Autores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome.
+        /// </summary>
+        internal static string Main_Bienvenido {
+            get {
+                return ResourceManager.GetString("Main_Bienvenido", resourceCulture);
             }
         }
         
@@ -3697,6 +3733,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Passwords do not match.
+        /// </summary>
+        internal static string Reg_ContraNoCoincide {
+            get {
+                return ResourceManager.GetString("Reg_ContraNoCoincide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Email address:.
         /// </summary>
         internal static string Reg_Email {
@@ -4192,6 +4237,42 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this author from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarAutor {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarAutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this author from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarAutorBD {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarAutorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this editorial from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarEditorialBD {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarEditorialBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this genre from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarGeneroBD {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarGeneroBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Warning.
         /// </summary>
         internal static string VWC_Advertencia {
@@ -4215,6 +4296,51 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string VWC_Borrar {
             get {
                 return ResourceManager.GetString("VWC_Borrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this author from the shared database?.
+        /// </summary>
+        internal static string VWC_BorrarAutorBD {
+            get {
+                return ResourceManager.GetString("VWC_BorrarAutorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete your book user details in the shared database?.
+        /// </summary>
+        internal static string VWC_BorrarDatosUsu {
+            get {
+                return ResourceManager.GetString("VWC_BorrarDatosUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this editorial in the database?.
+        /// </summary>
+        internal static string VWC_BorrarEditorialBD {
+            get {
+                return ResourceManager.GetString("VWC_BorrarEditorialBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this genre in the database?.
+        /// </summary>
+        internal static string VWC_BorrarGeneroBD {
+            get {
+                return ResourceManager.GetString("VWC_BorrarGeneroBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this book in the shared database?.
+        /// </summary>
+        internal static string VWC_BorrarLibroBdCompartida {
+            get {
+                return ResourceManager.GetString("VWC_BorrarLibroBdCompartida", resourceCulture);
             }
         }
         
@@ -4246,6 +4372,33 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save this author in the shared database?.
+        /// </summary>
+        internal static string VWC_GuardarAutorBD {
+            get {
+                return ResourceManager.GetString("VWC_GuardarAutorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save this editorial in the shared database?.
+        /// </summary>
+        internal static string VWC_GuardarEditorialBD {
+            get {
+                return ResourceManager.GetString("VWC_GuardarEditorialBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save this genre in the shared database?.
+        /// </summary>
+        internal static string VWC_GuardarGeneroBD {
+            get {
+                return ResourceManager.GetString("VWC_GuardarGeneroBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Information.
         /// </summary>
         internal static string VWC_Informacion {
@@ -4260,6 +4413,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string VWC_Modificado {
             get {
                 return ResourceManager.GetString("VWC_Modificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Could not execute. Check that the path of the file and the executable are correct..
+        /// </summary>
+        internal static string VWC_NoEjecutar {
+            get {
+                return ResourceManager.GetString("VWC_NoEjecutar", resourceCulture);
             }
         }
         

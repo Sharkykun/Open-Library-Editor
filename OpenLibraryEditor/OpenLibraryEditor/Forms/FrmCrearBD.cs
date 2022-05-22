@@ -1,4 +1,5 @@
 ﻿using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.Metodos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,6 +97,24 @@ namespace OpenLibraryEditor.Forms
             //Para poder mover el formulario por la pantalla
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+        #region mostrar/ocultar password
+        private void IpcbMostrarContraSer_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtCSer, true, false, IpcbOcultarContraSer, IpcbMostrarContraSer);
+        }
+        private void IpcbOcultarContraSer_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtCSer, false, true, IpcbMostrarContraSer, IpcbOcultarContraSer);
+        }
+        private void IpcbMostrarContraUsu_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtContraApp, true, false, IpcbOcultarContraUsu, IpcbMostrarContraUsu);
+        }
+        private void IpcbOcultarContraUsu_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtContraApp, false, true, IpcbMostrarContraUsu, IpcbOcultarContraUsu);
         }
         #endregion
 

@@ -140,10 +140,10 @@
             this.PanTexto.Controls.Add(this.LblNombreReg);
             this.PanTexto.Controls.Add(this.IpcbMostrarContraReg);
             this.PanTexto.Controls.Add(this.IpcbOcultarContraReg);
+            this.PanTexto.Controls.Add(this.KTxtContraReg);
             this.PanTexto.Controls.Add(this.IpcbMostrarContra1Reg);
             this.PanTexto.Controls.Add(this.IpcbOcultarContra1Reg);
             this.PanTexto.Controls.Add(this.KTxtContra1Reg);
-            this.PanTexto.Controls.Add(this.KTxtContraReg);
             this.PanTexto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanTexto.Location = new System.Drawing.Point(0, 40);
             this.PanTexto.Name = "PanTexto";
@@ -173,7 +173,7 @@
             this.GBtnRegistrarme.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnRegistrarme.Radius = 18;
             this.GBtnRegistrarme.Size = new System.Drawing.Size(355, 39);
-            this.GBtnRegistrarme.TabIndex = 28;
+            this.GBtnRegistrarme.TabIndex = 5;
             this.GBtnRegistrarme.Text = "Registrarme";
             this.GBtnRegistrarme.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnRegistrarme.Click += new System.EventHandler(this.GBtnRegistrarme_Click);
@@ -215,7 +215,7 @@
             this.TxtMailReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.TxtMailReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtMailReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMailReg.Location = new System.Drawing.Point(230, 103);
+            this.TxtMailReg.Location = new System.Drawing.Point(230, 104);
             this.TxtMailReg.Name = "TxtMailReg";
             this.TxtMailReg.Size = new System.Drawing.Size(319, 24);
             this.TxtMailReg.TabIndex = 2;
@@ -321,7 +321,7 @@
             this.IpcbMostrarContraReg.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbMostrarContraReg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContraReg.IconSize = 30;
-            this.IpcbMostrarContraReg.Location = new System.Drawing.Point(513, 136);
+            this.IpcbMostrarContraReg.Location = new System.Drawing.Point(513, 138);
             this.IpcbMostrarContraReg.Name = "IpcbMostrarContraReg";
             this.IpcbMostrarContraReg.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
             this.IpcbMostrarContraReg.Size = new System.Drawing.Size(30, 30);
@@ -340,7 +340,7 @@
             this.IpcbOcultarContraReg.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbOcultarContraReg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContraReg.IconSize = 30;
-            this.IpcbOcultarContraReg.Location = new System.Drawing.Point(513, 136);
+            this.IpcbOcultarContraReg.Location = new System.Drawing.Point(513, 138);
             this.IpcbOcultarContraReg.Name = "IpcbOcultarContraReg";
             this.IpcbOcultarContraReg.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
             this.IpcbOcultarContraReg.Size = new System.Drawing.Size(30, 30);
@@ -360,7 +360,7 @@
             this.IpcbMostrarContra1Reg.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbMostrarContra1Reg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContra1Reg.IconSize = 30;
-            this.IpcbMostrarContra1Reg.Location = new System.Drawing.Point(513, 176);
+            this.IpcbMostrarContra1Reg.Location = new System.Drawing.Point(513, 178);
             this.IpcbMostrarContra1Reg.Name = "IpcbMostrarContra1Reg";
             this.IpcbMostrarContra1Reg.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
             this.IpcbMostrarContra1Reg.Size = new System.Drawing.Size(30, 30);
@@ -379,7 +379,7 @@
             this.IpcbOcultarContra1Reg.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbOcultarContra1Reg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContra1Reg.IconSize = 30;
-            this.IpcbOcultarContra1Reg.Location = new System.Drawing.Point(513, 176);
+            this.IpcbOcultarContra1Reg.Location = new System.Drawing.Point(513, 178);
             this.IpcbOcultarContra1Reg.Name = "IpcbOcultarContra1Reg";
             this.IpcbOcultarContra1Reg.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
             this.IpcbOcultarContra1Reg.Size = new System.Drawing.Size(30, 30);
@@ -391,7 +391,7 @@
             // 
             // KTxtContra1Reg
             // 
-            this.KTxtContra1Reg.Location = new System.Drawing.Point(230, 175);
+            this.KTxtContra1Reg.Location = new System.Drawing.Point(230, 177);
             this.KTxtContra1Reg.Name = "KTxtContra1Reg";
             this.KTxtContra1Reg.PasswordChar = '●';
             this.KTxtContra1Reg.Size = new System.Drawing.Size(313, 31);
@@ -413,7 +413,7 @@
             // 
             // KTxtContraReg
             // 
-            this.KTxtContraReg.Location = new System.Drawing.Point(230, 135);
+            this.KTxtContraReg.Location = new System.Drawing.Point(230, 137);
             this.KTxtContraReg.Name = "KTxtContraReg";
             this.KTxtContraReg.PasswordChar = '●';
             this.KTxtContraReg.Size = new System.Drawing.Size(313, 31);

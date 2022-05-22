@@ -124,10 +124,10 @@ namespace OpenLibraryEditor.BaseDatos
                 DROP Database if exists " + NOMBRE_BD + ";", Conexion);
                 borrar_test.ExecuteNonQuery();
 
-                MySqlCommand comando = new MySqlCommand(@"
-                DROP USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD + "%';",
-                ConexionBD.Conexion);
-                comando.ExecuteNonQuery();
+                //MySqlCommand comando = new MySqlCommand(@"
+                //DROP USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD + "%';",
+                //ConexionBD.Conexion);
+                //comando.ExecuteNonQuery();
 
                 CerrarConexion();
             }
@@ -248,6 +248,7 @@ namespace OpenLibraryEditor.BaseDatos
             cmd = new MySqlCommand("GRANT SELECT ON " +
                 NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
+            ConcederEdicionTabla("Usuario", nombreFinal);
             ConcederEdicionTabla("UsuarioLibro", nombreFinal);
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
                 NOMBRE_BD + " .* TO'" + nombreFinal + "'@'%';", Conexion);

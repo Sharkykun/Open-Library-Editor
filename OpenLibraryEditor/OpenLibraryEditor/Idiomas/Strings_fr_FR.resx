@@ -120,6 +120,9 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Accepter</value>
   </data>
+  <data name="ActualizarConBD" xml:space="preserve">
+    <value>Actualiser avec BD</value>
+  </data>
   <data name="Adm_Adm" xml:space="preserve">
     <value>Administrateur</value>
   </data>
@@ -482,6 +485,9 @@
   </data>
   <data name="Au_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Auteurs</value>
+  </data>
+  <data name="Au_TTActualizar" xml:space="preserve">
+    <value>Cliquez pour mettre à jour avec la base de données</value>
   </data>
   <data name="Au_TTAlias" xml:space="preserve">
     <value>Écrivez le pseudonyme de la personne (le cas échéant)</value>
@@ -1039,7 +1045,7 @@
     <value>Avez-vous oublié votre mot de passe? Cliquez ici</value>
   </data>
   <data name="Log_Nombre" xml:space="preserve">
-    <value>Nom d'utilisateur ou email</value>
+    <value>Nom d'utilisateur</value>
   </data>
   <data name="Log_TTContra" xml:space="preserve">
     <value>Tapez votre mot de passe</value>
@@ -1062,8 +1068,14 @@
   <data name="Log_Url" xml:space="preserve">
     <value>URL de la base de données</value>
   </data>
+  <data name="Main_Actualizar" xml:space="preserve">
+    <value>Actualiser Livre</value>
+  </data>
   <data name="Main_Autores" xml:space="preserve">
     <value>Auteurs</value>
+  </data>
+  <data name="Main_Bienvenido" xml:space="preserve">
+    <value>Bienvenue</value>
   </data>
   <data name="Main_Buscar" xml:space="preserve">
     <value>Chercher</value>
@@ -1332,6 +1344,9 @@
   <data name="Reg_Contra1" xml:space="preserve">
     <value>Répéter le mot de passe:</value>
   </data>
+  <data name="Reg_ContraNoCoincide" xml:space="preserve">
+    <value>Les mots de passe ne correspondent pas</value>
+  </data>
   <data name="Reg_Email" xml:space="preserve">
     <value>E-mail:</value>
   </data>
@@ -1497,6 +1512,18 @@
   <data name="UsuarioRepetido" xml:space="preserve">
     <value>L'utilisateur existe déjà dans la base de données</value>
   </data>
+  <data name="VWC_ActualizarAutor" xml:space="preserve">
+    <value>Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?</value>
+  </data>
+  <data name="VWC_ActualizarAutorBD" xml:space="preserve">
+    <value>Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?</value>
+  </data>
+  <data name="VWC_ActualizarEditorialBD" xml:space="preserve">
+    <value>Vous souhaitez mettre à jour cet éditorial depuis la base de données partagée?</value>
+  </data>
+  <data name="VWC_ActualizarGeneroBD" xml:space="preserve">
+    <value>Voulez-vous mettre à jour ce genre depuis la base de données partagée?</value>
+  </data>
   <data name="VWC_Advertencia" xml:space="preserve">
     <value>Caveat</value>
   </data>
@@ -1505,6 +1532,21 @@
   </data>
   <data name="VWC_Borrar" xml:space="preserve">
     <value>Voulez-vous supprimer</value>
+  </data>
+  <data name="VWC_BorrarAutorBD" xml:space="preserve">
+    <value>Voulez-vous supprimer cet auteur de la base de données partagée?</value>
+  </data>
+  <data name="VWC_BorrarDatosUsu" xml:space="preserve">
+    <value>Voulez-vous supprimer les détails de l'utilisateur de votre livre dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_BorrarEditorialBD" xml:space="preserve">
+    <value>Voulez-vous supprimer cet éditorial de la base de données?</value>
+  </data>
+  <data name="VWC_BorrarGeneroBD" xml:space="preserve">
+    <value>Voulez-vous supprimer ce genre dans la base de données?</value>
+  </data>
+  <data name="VWC_BorrarLibroBdCompartida" xml:space="preserve">
+    <value>Voulez-vous supprimer ce livre de la base de données partagée?</value>
   </data>
   <data name="VWC_Error" xml:space="preserve">
     <value>Erreur</value>
@@ -1515,11 +1557,23 @@
   <data name="VWC_Guardar" xml:space="preserve">
     <value>Voulez-vous économiser</value>
   </data>
+  <data name="VWC_GuardarAutorBD" xml:space="preserve">
+    <value>Voulez-vous enregistrer cet auteur dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_GuardarEditorialBD" xml:space="preserve">
+    <value>Souhaitez-vous enregistrer cet éditorial dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_GuardarGeneroBD" xml:space="preserve">
+    <value>Voulez-vous enregistrer ce genre dans la base de données partagée?</value>
+  </data>
   <data name="VWC_Informacion" xml:space="preserve">
     <value>Information</value>
   </data>
   <data name="VWC_Modificado" xml:space="preserve">
     <value> modifié avec succès</value>
+  </data>
+  <data name="VWC_NoEjecutar" xml:space="preserve">
+    <value>Impossible d'exécuter. Vérifiez que le chemin du fichier et l'exécutable sont corrects.</value>
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>

@@ -77,6 +77,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnCerrarAutores_Click(object sender, EventArgs e)
         {
+            tipo = "";
             this.Close();
         }
 

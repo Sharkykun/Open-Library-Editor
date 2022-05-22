@@ -54,6 +54,7 @@
             this.MbtnAtrasLibro = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanLsvBusqueda = new System.Windows.Forms.Panel();
             this.TTBuscar = new System.Windows.Forms.ToolTip(this.components);
+            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).BeginInit();
             this.PanTituloBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbBuscar)).BeginInit();
@@ -90,7 +91,7 @@
             // 
             // KTxtBuscarBUS
             // 
-            this.KTxtBuscarBUS.Location = new System.Drawing.Point(446, 3);
+            this.KTxtBuscarBUS.Location = new System.Drawing.Point(0, 45);
             this.KTxtBuscarBUS.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.KTxtBuscarBUS.Name = "KTxtBuscarBUS";
             this.KTxtBuscarBUS.Size = new System.Drawing.Size(349, 33);
@@ -105,6 +106,7 @@
             this.KTxtBuscarBUS.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtBuscarBUS.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtBuscarBUS.TabIndex = 125;
+            this.KTxtBuscarBUS.Visible = false;
             this.KTxtBuscarBUS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarBUS_KeyDown);
             // 
             // PanTituloBuscar
@@ -135,7 +137,7 @@
             this.LblTituloBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloBuscar.Location = new System.Drawing.Point(75, 18);
             this.LblTituloBuscar.Name = "LblTituloBuscar";
-            this.LblTituloBuscar.Size = new System.Drawing.Size(96, 32);
+            this.LblTituloBuscar.Size = new System.Drawing.Size(95, 32);
             this.LblTituloBuscar.TabIndex = 10;
             this.LblTituloBuscar.Text = "Buscar";
             // 
@@ -167,7 +169,7 @@
             this.LsvBuscarLibros.Location = new System.Drawing.Point(15, 6);
             this.LsvBuscarLibros.MultiSelect = false;
             this.LsvBuscarLibros.Name = "LsvBuscarLibros";
-            this.LsvBuscarLibros.Size = new System.Drawing.Size(918, 316);
+            this.LsvBuscarLibros.Size = new System.Drawing.Size(918, 278);
             this.LsvBuscarLibros.TabIndex = 140;
             this.LsvBuscarLibros.UseCompatibleStateImageBehavior = false;
             this.LsvBuscarLibros.View = System.Windows.Forms.View.Details;
@@ -239,12 +241,13 @@
             this.FlPanBuscar.Controls.Add(this.LblBuscarPorBUS);
             this.FlPanBuscar.Controls.Add(this.KCmbServidoresBUS);
             this.FlPanBuscar.Controls.Add(this.KCmbTipoBusquedaBUS);
-            this.FlPanBuscar.Controls.Add(this.KTxtBuscarBUS);
+            this.FlPanBuscar.Controls.Add(this.TxtBusqueda);
             this.FlPanBuscar.Controls.Add(this.MBtnBuscarBUS);
+            this.FlPanBuscar.Controls.Add(this.KTxtBuscarBUS);
             this.FlPanBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.FlPanBuscar.Location = new System.Drawing.Point(0, 64);
             this.FlPanBuscar.Name = "FlPanBuscar";
-            this.FlPanBuscar.Size = new System.Drawing.Size(948, 40);
+            this.FlPanBuscar.Size = new System.Drawing.Size(948, 78);
             this.FlPanBuscar.TabIndex = 142;
             // 
             // MBtnBuscarBUS
@@ -256,7 +259,7 @@
             this.MBtnBuscarBUS.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarBUS.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnBuscarBUS.IconSize = 45;
-            this.MBtnBuscarBUS.Location = new System.Drawing.Point(798, 3);
+            this.MBtnBuscarBUS.Location = new System.Drawing.Point(718, 3);
             this.MBtnBuscarBUS.Name = "MBtnBuscarBUS";
             this.MBtnBuscarBUS.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarBUS.Size = new System.Drawing.Size(34, 34);
@@ -269,7 +272,7 @@
             this.PanRecomendaciones.Controls.Add(this.LblRecomendaciones);
             this.PanRecomendaciones.Controls.Add(this.panel3);
             this.PanRecomendaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanRecomendaciones.Location = new System.Drawing.Point(0, 104);
+            this.PanRecomendaciones.Location = new System.Drawing.Point(0, 142);
             this.PanRecomendaciones.Name = "PanRecomendaciones";
             this.PanRecomendaciones.Size = new System.Drawing.Size(948, 214);
             this.PanRecomendaciones.TabIndex = 144;
@@ -364,10 +367,19 @@
             // 
             this.PanLsvBusqueda.Controls.Add(this.LsvBuscarLibros);
             this.PanLsvBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanLsvBusqueda.Location = new System.Drawing.Point(0, 318);
+            this.PanLsvBusqueda.Location = new System.Drawing.Point(0, 356);
             this.PanLsvBusqueda.Name = "PanLsvBusqueda";
-            this.PanLsvBusqueda.Size = new System.Drawing.Size(948, 328);
+            this.PanLsvBusqueda.Size = new System.Drawing.Size(948, 290);
             this.PanLsvBusqueda.TabIndex = 145;
+            // 
+            // TxtBusqueda
+            // 
+            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.TxtBusqueda.Location = new System.Drawing.Point(449, 3);
+            this.TxtBusqueda.Name = "TxtBusqueda";
+            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
+            this.TxtBusqueda.TabIndex = 128;
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarBUS_KeyDown);
             // 
             // FrmBuscar
             // 
@@ -429,5 +441,6 @@
         private System.Windows.Forms.Label LblRecomendaciones;
         private System.Windows.Forms.Panel PanLibrosBuscar;
         private System.Windows.Forms.ToolTip TTBuscar;
+        private Controles.TxtBusqueda TxtBusqueda;
     }
 }

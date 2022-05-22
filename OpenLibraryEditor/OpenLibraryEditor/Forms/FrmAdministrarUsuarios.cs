@@ -58,6 +58,9 @@ namespace OpenLibraryEditor.Forms
             //Colocar usuarios por nombre
             listaUsuarios.Sort();
             ColocarUsuarios(listaUsuarios);
+
+            TxtBusqueda.MbtnBorrar().Click += MbtnBorrarTxtBuscar_Click;
+            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarUsu_KeyDown;
         }
 
         private void IdiomaTexto()
@@ -145,24 +148,24 @@ namespace OpenLibraryEditor.Forms
                 case 0:
                     listaUsuariosFiltrada = 
                         listaUsuarios.FindAll(p => p.Nombre != null ?
-                    p.Nombre.IndexOf(KTxtBuscarUsu.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    p.Nombre.IndexOf(TxtBusqueda.getTextobuscar(), StringComparison.OrdinalIgnoreCase) > -1
                     : false);
                     break;
                 case 1:
                     listaUsuariosFiltrada = 
                         listaUsuarios.FindAll(p => p.Correo != null ?
-                    p.Correo.IndexOf(KTxtBuscarUsu.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    p.Correo.IndexOf(TxtBusqueda.getTextobuscar(), StringComparison.OrdinalIgnoreCase) > -1
                     : false);
                     break;
                 case 2:
                     listaUsuariosFiltrada = 
                         listaUsuarios.FindAll(p => p.TipoUsuario != null ?
-                    p.TipoUsuario.IndexOf(KTxtBuscarUsu.Text, StringComparison.OrdinalIgnoreCase) > -1
+                    p.TipoUsuario.IndexOf(TxtBusqueda.getTextobuscar(), StringComparison.OrdinalIgnoreCase) > -1
                     : false);
                     break;
             }
 
-            if (String.IsNullOrWhiteSpace(KTxtBuscarUsu.Text))
+            if (String.IsNullOrWhiteSpace(TxtBusqueda.getTextobuscar()))
                 ColocarUsuarios(listaUsuarios);
             else
                 ColocarUsuarios(listaUsuariosFiltrada);
@@ -217,8 +220,16 @@ namespace OpenLibraryEditor.Forms
 
         private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
         {
-            KTxtBuscarUsu.Text = "";
+            TxtBusqueda.setTextobuscar("");
             MBtnBuscar_Click(sender, e);
+        }
+
+        private void KTxtBuscarUsu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MBtnBuscar_Click(sender, e);
+            }
         }
     }
 }

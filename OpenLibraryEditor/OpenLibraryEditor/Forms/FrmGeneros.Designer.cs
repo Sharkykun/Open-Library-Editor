@@ -35,11 +35,12 @@
             this.LblTituloGeneros = new System.Windows.Forms.Label();
             this.PcbLogoGeneros = new System.Windows.Forms.PictureBox();
             this.PanBtnGe = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
+            this.GBtnActualizar = new Guna.UI.WinForms.GunaButton();
             this.GBtnCancelar = new Guna.UI.WinForms.GunaButton();
             this.LsvGeneroNG = new System.Windows.Forms.ListView();
             this.ChNombreNG = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChGeneroPadreNG = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MBtnMasLsvNG = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosLsvNG = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanOpcionesGE = new System.Windows.Forms.Panel();
@@ -52,10 +53,11 @@
             this.TTGeneros = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.GBtnActualizar = new Guna.UI.WinForms.GunaButton();
+            this.ChGeneroPadre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanTituloGeneros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).BeginInit();
             this.PanBtnGe.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.PanOpcionesGE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbGeneroPadreGe)).BeginInit();
             this.SuspendLayout();
@@ -117,14 +119,24 @@
             // PanBtnGe
             // 
             this.PanBtnGe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.PanBtnGe.Controls.Add(this.GBtnActualizar);
-            this.PanBtnGe.Controls.Add(this.GBtnAceptar);
-            this.PanBtnGe.Controls.Add(this.GBtnCancelar);
+            this.PanBtnGe.Controls.Add(this.flowLayoutPanel1);
             this.PanBtnGe.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PanBtnGe.Location = new System.Drawing.Point(0, 454);
             this.PanBtnGe.Name = "PanBtnGe";
             this.PanBtnGe.Size = new System.Drawing.Size(805, 45);
             this.PanBtnGe.TabIndex = 98;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.GBtnAceptar);
+            this.flowLayoutPanel1.Controls.Add(this.GBtnActualizar);
+            this.flowLayoutPanel1.Controls.Add(this.GBtnCancelar);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(232, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(573, 45);
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
             // GBtnAceptar
             // 
@@ -139,7 +151,8 @@
             this.GBtnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnAceptar.Image = null;
             this.GBtnAceptar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnAceptar.Location = new System.Drawing.Point(670, 5);
+            this.GBtnAceptar.Location = new System.Drawing.Point(439, 5);
+            this.GBtnAceptar.Margin = new System.Windows.Forms.Padding(3, 5, 8, 3);
             this.GBtnAceptar.Name = "GBtnAceptar";
             this.GBtnAceptar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnAceptar.OnHoverBorderColor = System.Drawing.Color.Empty;
@@ -152,6 +165,35 @@
             this.GBtnAceptar.Text = "Aceptar";
             this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
+            // 
+            // GBtnActualizar
+            // 
+            this.GBtnActualizar.AnimationHoverSpeed = 0.07F;
+            this.GBtnActualizar.AnimationSpeed = 0.03F;
+            this.GBtnActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnActualizar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnActualizar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnActualizar.Image = null;
+            this.GBtnActualizar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnActualizar.Location = new System.Drawing.Point(263, 5);
+            this.GBtnActualizar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.GBtnActualizar.Name = "GBtnActualizar";
+            this.GBtnActualizar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnActualizar.OnHoverImage = null;
+            this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.Radius = 15;
+            this.GBtnActualizar.Size = new System.Drawing.Size(170, 35);
+            this.GBtnActualizar.TabIndex = 6;
+            this.GBtnActualizar.Text = "Actualizar con BD";
+            this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnActualizar.Visible = false;
+            this.GBtnActualizar.Click += new System.EventHandler(this.GBtnActualizar_Click);
             // 
             // GBtnCancelar
             // 
@@ -166,7 +208,8 @@
             this.GBtnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnCancelar.Image = null;
             this.GBtnCancelar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnCancelar.Location = new System.Drawing.Point(406, 5);
+            this.GBtnCancelar.Location = new System.Drawing.Point(131, 5);
+            this.GBtnCancelar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.GBtnCancelar.Name = "GBtnCancelar";
             this.GBtnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnCancelar.OnHoverBorderColor = System.Drawing.Color.Empty;
@@ -186,7 +229,7 @@
             this.LsvGeneroNG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LsvGeneroNG.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ChNombreNG,
-            this.ChGeneroPadreNG});
+            this.ChGeneroPadre});
             this.LsvGeneroNG.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvGeneroNG.HideSelection = false;
             this.LsvGeneroNG.Location = new System.Drawing.Point(25, 70);
@@ -202,11 +245,6 @@
             // 
             this.ChNombreNG.Text = "Nombre";
             this.ChNombreNG.Width = 107;
-            // 
-            // ChGeneroPadreNG
-            // 
-            this.ChGeneroPadreNG.Text = "Género Padre";
-            this.ChGeneroPadreNG.Width = 113;
             // 
             // MBtnMasLsvNG
             // 
@@ -252,14 +290,14 @@
             this.PanOpcionesGE.Controls.Add(this.KTxtComentarioGe);
             this.PanOpcionesGE.Location = new System.Drawing.Point(351, 60);
             this.PanOpcionesGE.Name = "PanOpcionesGE";
-            this.PanOpcionesGE.Size = new System.Drawing.Size(442, 354);
+            this.PanOpcionesGE.Size = new System.Drawing.Size(442, 374);
             this.PanOpcionesGE.TabIndex = 139;
             this.PanOpcionesGE.Visible = false;
             // 
             // KCmbGeneroPadreGe
             // 
             this.KCmbGeneroPadreGe.DropDownWidth = 228;
-            this.KCmbGeneroPadreGe.Location = new System.Drawing.Point(14, 92);
+            this.KCmbGeneroPadreGe.Location = new System.Drawing.Point(8, 348);
             this.KCmbGeneroPadreGe.Name = "KCmbGeneroPadreGe";
             this.KCmbGeneroPadreGe.Size = new System.Drawing.Size(402, 33);
             this.KCmbGeneroPadreGe.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -276,17 +314,19 @@
             this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbGeneroPadreGe.TabIndex = 116;
+            this.KCmbGeneroPadreGe.Visible = false;
             // 
             // LblGeneroPadreGe
             // 
             this.LblGeneroPadreGe.AutoSize = true;
             this.LblGeneroPadreGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblGeneroPadreGe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblGeneroPadreGe.Location = new System.Drawing.Point(14, 69);
+            this.LblGeneroPadreGe.Location = new System.Drawing.Point(8, 325);
             this.LblGeneroPadreGe.Name = "LblGeneroPadreGe";
             this.LblGeneroPadreGe.Size = new System.Drawing.Size(105, 20);
             this.LblGeneroPadreGe.TabIndex = 115;
             this.LblGeneroPadreGe.Text = "Género Padre";
+            this.LblGeneroPadreGe.Visible = false;
             // 
             // LblNombreGe
             // 
@@ -321,7 +361,7 @@
             this.LblComentarioGe.AutoSize = true;
             this.LblComentarioGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblComentarioGe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblComentarioGe.Location = new System.Drawing.Point(14, 165);
+            this.LblComentarioGe.Location = new System.Drawing.Point(14, 78);
             this.LblComentarioGe.Name = "LblComentarioGe";
             this.LblComentarioGe.Size = new System.Drawing.Size(91, 20);
             this.LblComentarioGe.TabIndex = 112;
@@ -329,11 +369,11 @@
             // 
             // KTxtComentarioGe
             // 
-            this.KTxtComentarioGe.Location = new System.Drawing.Point(14, 188);
+            this.KTxtComentarioGe.Location = new System.Drawing.Point(14, 101);
             this.KTxtComentarioGe.Multiline = true;
             this.KTxtComentarioGe.Name = "KTxtComentarioGe";
             this.KTxtComentarioGe.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.KTxtComentarioGe.Size = new System.Drawing.Size(402, 135);
+            this.KTxtComentarioGe.Size = new System.Drawing.Size(402, 222);
             this.KTxtComentarioGe.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.KTxtComentarioGe.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtComentarioGe.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -364,32 +404,10 @@
             this.panel1.Size = new System.Drawing.Size(3, 414);
             this.panel1.TabIndex = 149;
             // 
-            // GBtnActualizar
+            // ChGeneroPadre
             // 
-            this.GBtnActualizar.AnimationHoverSpeed = 0.07F;
-            this.GBtnActualizar.AnimationSpeed = 0.03F;
-            this.GBtnActualizar.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnActualizar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnActualizar.BorderColor = System.Drawing.Color.Empty;
-            this.GBtnActualizar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnActualizar.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnActualizar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.GBtnActualizar.Image = null;
-            this.GBtnActualizar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnActualizar.Location = new System.Drawing.Point(538, 5);
-            this.GBtnActualizar.Name = "GBtnActualizar";
-            this.GBtnActualizar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnActualizar.OnHoverBorderColor = System.Drawing.Color.Empty;
-            this.GBtnActualizar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnActualizar.OnHoverImage = null;
-            this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnActualizar.Radius = 15;
-            this.GBtnActualizar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnActualizar.TabIndex = 6;
-            this.GBtnActualizar.Text = "Actualizar con BD";
-            this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnActualizar.Click += new System.EventHandler(this.GBtnActualizar_Click);
+            this.ChGeneroPadre.Text = "Género padre";
+            this.ChGeneroPadre.Width = 113;
             // 
             // FrmGeneros
             // 
@@ -415,6 +433,7 @@
             this.PanTituloGeneros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).EndInit();
             this.PanBtnGe.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.PanOpcionesGE.ResumeLayout(false);
             this.PanOpcionesGE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbGeneroPadreGe)).EndInit();
@@ -433,7 +452,6 @@
         private System.Windows.Forms.ColumnHeader ChNombreNG;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasLsvNG;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosLsvNG;
-        private System.Windows.Forms.ColumnHeader ChGeneroPadreNG;
         private System.Windows.Forms.Panel PanOpcionesGE;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbGeneroPadreGe;
         private System.Windows.Forms.Label LblGeneroPadreGe;
@@ -447,5 +465,7 @@
         private Guna.UI.WinForms.GunaButton GBtnAceptar;
         private Guna.UI.WinForms.GunaButton GBtnCancelar;
         private Guna.UI.WinForms.GunaButton GBtnActualizar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ColumnHeader ChGeneroPadre;
     }
 }

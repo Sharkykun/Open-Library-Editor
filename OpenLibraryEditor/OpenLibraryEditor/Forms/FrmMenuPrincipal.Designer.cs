@@ -52,12 +52,14 @@
             this.MBtnAutores = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMiBiblioteca = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanFotoUsuario = new System.Windows.Forms.Panel();
-            this.LlLogIn = new System.Windows.Forms.LinkLabel();
+            this.lblNombreUsuConectado = new System.Windows.Forms.Label();
+            this.LblBienvenido = new System.Windows.Forms.Label();
             this.AciFotoUsuario = new AfriCircleImage.AfriCircleImage();
             this.ToolStripMain = new System.Windows.Forms.ToolStrip();
             this.BtnAniadirLibroMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.BtnModificarLibroMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.BtnBorrarLibroMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
+            this.BtnActualizarLibroMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnAutoresMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
             this.BtnGenerosMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
@@ -149,8 +151,6 @@
             this.LblPaginasEntre = new System.Windows.Forms.Label();
             this.KNudPagMax = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.KNudPagMin = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.KTxtBuscarMBI = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.MbtnBorrarTxtBuscar = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanVistaDetalles = new System.Windows.Forms.Panel();
             this.PanPiePagina = new System.Windows.Forms.Panel();
@@ -162,7 +162,7 @@
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanHijos = new System.Windows.Forms.Panel();
             this.TimeRedimensionar = new System.Windows.Forms.Timer(this.components);
-            this.BtnActualizarLibroMsb = new FontAwesome.Sharp.Material.MaterialSplitButton();
+            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -369,6 +369,7 @@
             this.MBtnAdminUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MBtnAdminUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MBtnAdminUsuarios.UseVisualStyleBackColor = false;
+            this.MBtnAdminUsuarios.Visible = false;
             this.MBtnAdminUsuarios.Click += new System.EventHandler(this.MBtnAdminUsuarios_Click);
             // 
             // PanSeparadorMain
@@ -637,7 +638,8 @@
             // PanFotoUsuario
             // 
             this.PanFotoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.PanFotoUsuario.Controls.Add(this.LlLogIn);
+            this.PanFotoUsuario.Controls.Add(this.lblNombreUsuConectado);
+            this.PanFotoUsuario.Controls.Add(this.LblBienvenido);
             this.PanFotoUsuario.Controls.Add(this.AciFotoUsuario);
             this.PanFotoUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanFotoUsuario.Location = new System.Drawing.Point(0, 0);
@@ -645,20 +647,29 @@
             this.PanFotoUsuario.Size = new System.Drawing.Size(249, 217);
             this.PanFotoUsuario.TabIndex = 0;
             // 
-            // LlLogIn
+            // lblNombreUsuConectado
             // 
-            this.LlLogIn.AutoSize = true;
-            this.LlLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LlLogIn.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LlLogIn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LlLogIn.LinkColor = System.Drawing.Color.Gainsboro;
-            this.LlLogIn.Location = new System.Drawing.Point(65, 168);
-            this.LlLogIn.Name = "LlLogIn";
-            this.LlLogIn.Size = new System.Drawing.Size(117, 23);
-            this.LlLogIn.TabIndex = 2;
-            this.LlLogIn.TabStop = true;
-            this.LlLogIn.Text = "Iniciar sesión";
-            this.LlLogIn.Visible = false;
+            this.lblNombreUsuConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.lblNombreUsuConectado.Location = new System.Drawing.Point(15, 185);
+            this.lblNombreUsuConectado.Name = "lblNombreUsuConectado";
+            this.lblNombreUsuConectado.Size = new System.Drawing.Size(218, 17);
+            this.lblNombreUsuConectado.TabIndex = 4;
+            this.lblNombreUsuConectado.Text = "Bienvenid@";
+            this.lblNombreUsuConectado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNombreUsuConectado.Visible = false;
+            // 
+            // LblBienvenido
+            // 
+            this.LblBienvenido.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblBienvenido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblBienvenido.Location = new System.Drawing.Point(19, 158);
+            this.LblBienvenido.Name = "LblBienvenido";
+            this.LblBienvenido.Size = new System.Drawing.Size(214, 23);
+            this.LblBienvenido.TabIndex = 3;
+            this.LblBienvenido.Text = "Bienvenid@";
+            this.LblBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblBienvenido.Visible = false;
             // 
             // AciFotoUsuario
             // 
@@ -757,7 +768,7 @@
             this.BtnBorrarLibroMsb.IconSize = 48;
             this.BtnBorrarLibroMsb.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnBorrarLibroMsb.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnBorrarLibroMsb.Margin = new System.Windows.Forms.Padding(0, 0, 4, 2);
+            this.BtnBorrarLibroMsb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.BtnBorrarLibroMsb.Name = "BtnBorrarLibroMsb";
             this.BtnBorrarLibroMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.BtnBorrarLibroMsb.Rotation = 0D;
@@ -766,6 +777,29 @@
             this.BtnBorrarLibroMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnBorrarLibroMsb.ButtonClick += new System.EventHandler(this.BtnBorrarLibroMsb_ButtonClick);
             this.BtnBorrarLibroMsb.Paint += new System.Windows.Forms.PaintEventHandler(this.BtnAniadirLibroMsb_Paint);
+            // 
+            // BtnActualizarLibroMsb
+            // 
+            this.BtnActualizarLibroMsb.BackColor = System.Drawing.Color.Transparent;
+            this.BtnActualizarLibroMsb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnActualizarLibroMsb.DropDownButtonWidth = 0;
+            this.BtnActualizarLibroMsb.Enabled = false;
+            this.BtnActualizarLibroMsb.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnActualizarLibroMsb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnActualizarLibroMsb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.BtnActualizarLibroMsb.IconChar = FontAwesome.Sharp.MaterialIcons.BookArrowDown;
+            this.BtnActualizarLibroMsb.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.BtnActualizarLibroMsb.IconSize = 48;
+            this.BtnActualizarLibroMsb.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnActualizarLibroMsb.Margin = new System.Windows.Forms.Padding(0, 0, 4, 2);
+            this.BtnActualizarLibroMsb.Name = "BtnActualizarLibroMsb";
+            this.BtnActualizarLibroMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.BtnActualizarLibroMsb.Rotation = 0D;
+            this.BtnActualizarLibroMsb.Size = new System.Drawing.Size(129, 63);
+            this.BtnActualizarLibroMsb.Text = "Actualizar libro";
+            this.BtnActualizarLibroMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnActualizarLibroMsb.ButtonClick += new System.EventHandler(this.BtnActualizarLibroMsb_ButtonClick);
+            this.BtnActualizarLibroMsb.Paint += new System.Windows.Forms.PaintEventHandler(this.BtnAniadirLibroMsb_Paint);
             // 
             // toolStripSeparator1
             // 
@@ -870,7 +904,7 @@
             this.BtnTagsMsb.Name = "BtnTagsMsb";
             this.BtnTagsMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.BtnTagsMsb.Rotation = 0D;
-            this.BtnTagsMsb.Size = new System.Drawing.Size(91, 56);
+            this.BtnTagsMsb.Size = new System.Drawing.Size(91, 63);
             this.BtnTagsMsb.Text = "Etiquetas";
             this.BtnTagsMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnTagsMsb.Visible = false;
@@ -909,9 +943,9 @@
             this.PanVistaMosaico.AutoScroll = true;
             this.PanVistaMosaico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.PanVistaMosaico.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanVistaMosaico.Location = new System.Drawing.Point(250, 80);
+            this.PanVistaMosaico.Location = new System.Drawing.Point(250, 82);
             this.PanVistaMosaico.Name = "PanVistaMosaico";
-            this.PanVistaMosaico.Size = new System.Drawing.Size(449, 502);
+            this.PanVistaMosaico.Size = new System.Drawing.Size(449, 500);
             this.PanVistaMosaico.TabIndex = 2;
             // 
             // PanListViewsOpciones
@@ -919,9 +953,9 @@
             this.PanListViewsOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.PanListViewsOpciones.Controls.Add(this.LsvOpciones);
             this.PanListViewsOpciones.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanListViewsOpciones.Location = new System.Drawing.Point(0, 80);
+            this.PanListViewsOpciones.Location = new System.Drawing.Point(0, 82);
             this.PanListViewsOpciones.Name = "PanListViewsOpciones";
-            this.PanListViewsOpciones.Size = new System.Drawing.Size(250, 502);
+            this.PanListViewsOpciones.Size = new System.Drawing.Size(250, 500);
             this.PanListViewsOpciones.TabIndex = 1;
             this.PanListViewsOpciones.Visible = false;
             // 
@@ -939,7 +973,7 @@
             this.LsvOpciones.Location = new System.Drawing.Point(10, 10);
             this.LsvOpciones.MultiSelect = false;
             this.LsvOpciones.Name = "LsvOpciones";
-            this.LsvOpciones.Size = new System.Drawing.Size(230, 482);
+            this.LsvOpciones.Size = new System.Drawing.Size(230, 480);
             this.LsvOpciones.SmallImageList = this.ImgListLsvPeque;
             this.LsvOpciones.TabIndex = 0;
             this.LsvOpciones.UseCompatibleStateImageBehavior = false;
@@ -967,9 +1001,9 @@
             this.PanDetallesLibro.Controls.Add(this.PanFotoTitulo);
             this.PanDetallesLibro.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanDetallesLibro.ForeColor = System.Drawing.Color.Gainsboro;
-            this.PanDetallesLibro.Location = new System.Drawing.Point(699, 80);
+            this.PanDetallesLibro.Location = new System.Drawing.Point(699, 82);
             this.PanDetallesLibro.Name = "PanDetallesLibro";
-            this.PanDetallesLibro.Size = new System.Drawing.Size(250, 502);
+            this.PanDetallesLibro.Size = new System.Drawing.Size(250, 500);
             this.PanDetallesLibro.TabIndex = 1;
             this.PanDetallesLibro.Visible = false;
             // 
@@ -981,7 +1015,7 @@
             this.PanMasdatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanMasdatos.Location = new System.Drawing.Point(0, 220);
             this.PanMasdatos.Name = "PanMasdatos";
-            this.PanMasdatos.Size = new System.Drawing.Size(250, 282);
+            this.PanMasdatos.Size = new System.Drawing.Size(250, 280);
             this.PanMasdatos.TabIndex = 1;
             // 
             // KTabDetalles
@@ -1014,7 +1048,7 @@
             this.KTabDetalles.Palette = this.kryptonPalette1;
             this.KTabDetalles.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.KTabDetalles.SelectedIndex = 0;
-            this.KTabDetalles.Size = new System.Drawing.Size(250, 282);
+            this.KTabDetalles.Size = new System.Drawing.Size(250, 280);
             this.KTabDetalles.TabIndex = 0;
             // 
             // KpDetalles
@@ -1035,7 +1069,7 @@
             this.KpDetalles.LastVisibleSet = true;
             this.KpDetalles.MinimumSize = new System.Drawing.Size(50, 50);
             this.KpDetalles.Name = "KpDetalles";
-            this.KpDetalles.Size = new System.Drawing.Size(248, 256);
+            this.KpDetalles.Size = new System.Drawing.Size(248, 254);
             this.KpDetalles.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(238)))));
             this.KpDetalles.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(238)))));
             this.KpDetalles.Text = "Detalles generales";
@@ -1429,7 +1463,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(110, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(109, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "prueba de tamaño";
             // 
@@ -1847,13 +1881,12 @@
             this.FlPanBuscar.Controls.Add(this.LblBuscarPorMBI);
             this.FlPanBuscar.Controls.Add(this.KCmbBuscarPorMBI);
             this.FlPanBuscar.Controls.Add(this.PanNumPaginas);
-            this.FlPanBuscar.Controls.Add(this.KTxtBuscarMBI);
-            this.FlPanBuscar.Controls.Add(this.MbtnBorrarTxtBuscar);
+            this.FlPanBuscar.Controls.Add(this.TxtBusqueda);
             this.FlPanBuscar.Controls.Add(this.MBtnBuscarMBI);
             this.FlPanBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.FlPanBuscar.Location = new System.Drawing.Point(0, 0);
             this.FlPanBuscar.Name = "FlPanBuscar";
-            this.FlPanBuscar.Size = new System.Drawing.Size(949, 80);
+            this.FlPanBuscar.Size = new System.Drawing.Size(949, 82);
             this.FlPanBuscar.TabIndex = 0;
             // 
             // MBtnOrdenMBI
@@ -1865,10 +1898,10 @@
             this.MBtnOrdenMBI.IconChar = FontAwesome.Sharp.MaterialIcons.OrderAlphabeticalAscending;
             this.MBtnOrdenMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnOrdenMBI.IconSize = 40;
-            this.MBtnOrdenMBI.Location = new System.Drawing.Point(3, 3);
+            this.MBtnOrdenMBI.Location = new System.Drawing.Point(15, 3);
+            this.MBtnOrdenMBI.Margin = new System.Windows.Forms.Padding(15, 3, 20, 3);
             this.MBtnOrdenMBI.Name = "MBtnOrdenMBI";
-            this.MBtnOrdenMBI.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.MBtnOrdenMBI.Size = new System.Drawing.Size(45, 34);
+            this.MBtnOrdenMBI.Size = new System.Drawing.Size(34, 34);
             this.MBtnOrdenMBI.TabIndex = 132;
             this.MBtnOrdenMBI.UseVisualStyleBackColor = true;
             this.MBtnOrdenMBI.Click += new System.EventHandler(this.MBtnOrdenMBI_Click);
@@ -1881,7 +1914,7 @@
             this.MBtnVistaDetallesMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewList;
             this.MBtnVistaDetallesMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnVistaDetallesMBI.IconSize = 50;
-            this.MBtnVistaDetallesMBI.Location = new System.Drawing.Point(54, 3);
+            this.MBtnVistaDetallesMBI.Location = new System.Drawing.Point(72, 3);
             this.MBtnVistaDetallesMBI.Name = "MBtnVistaDetallesMBI";
             this.MBtnVistaDetallesMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnVistaDetallesMBI.Size = new System.Drawing.Size(34, 34);
@@ -1897,7 +1930,7 @@
             this.MBtnVistaMosaicoMBI.IconChar = FontAwesome.Sharp.MaterialIcons.ViewGridOutline;
             this.MBtnVistaMosaicoMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnVistaMosaicoMBI.IconSize = 45;
-            this.MBtnVistaMosaicoMBI.Location = new System.Drawing.Point(94, 3);
+            this.MBtnVistaMosaicoMBI.Location = new System.Drawing.Point(112, 3);
             this.MBtnVistaMosaicoMBI.Name = "MBtnVistaMosaicoMBI";
             this.MBtnVistaMosaicoMBI.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
             this.MBtnVistaMosaicoMBI.Size = new System.Drawing.Size(34, 34);
@@ -1910,7 +1943,7 @@
             this.LblBuscarPorMBI.AutoSize = true;
             this.LblBuscarPorMBI.Font = new System.Drawing.Font("Merienda One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBuscarPorMBI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblBuscarPorMBI.Location = new System.Drawing.Point(134, 0);
+            this.LblBuscarPorMBI.Location = new System.Drawing.Point(152, 0);
             this.LblBuscarPorMBI.Name = "LblBuscarPorMBI";
             this.LblBuscarPorMBI.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.LblBuscarPorMBI.Size = new System.Drawing.Size(83, 28);
@@ -1920,7 +1953,7 @@
             // KCmbBuscarPorMBI
             // 
             this.KCmbBuscarPorMBI.DropDownWidth = 160;
-            this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(223, 3);
+            this.KCmbBuscarPorMBI.Location = new System.Drawing.Point(241, 3);
             this.KCmbBuscarPorMBI.Name = "KCmbBuscarPorMBI";
             this.KCmbBuscarPorMBI.Size = new System.Drawing.Size(207, 33);
             this.KCmbBuscarPorMBI.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
@@ -1945,9 +1978,9 @@
             this.PanNumPaginas.Controls.Add(this.LblPaginasEntre);
             this.PanNumPaginas.Controls.Add(this.KNudPagMax);
             this.PanNumPaginas.Controls.Add(this.KNudPagMin);
-            this.PanNumPaginas.Location = new System.Drawing.Point(436, 3);
+            this.PanNumPaginas.Location = new System.Drawing.Point(454, 3);
             this.PanNumPaginas.Name = "PanNumPaginas";
-            this.PanNumPaginas.Size = new System.Drawing.Size(244, 34);
+            this.PanNumPaginas.Size = new System.Drawing.Size(221, 34);
             this.PanNumPaginas.TabIndex = 129;
             this.PanNumPaginas.Visible = false;
             // 
@@ -1964,14 +1997,14 @@
             // 
             // KNudPagMax
             // 
-            this.KNudPagMax.Location = new System.Drawing.Point(160, 0);
+            this.KNudPagMax.Location = new System.Drawing.Point(147, 0);
             this.KNudPagMax.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.KNudPagMax.Name = "KNudPagMax";
-            this.KNudPagMax.Size = new System.Drawing.Size(83, 33);
+            this.KNudPagMax.Size = new System.Drawing.Size(71, 33);
             this.KNudPagMax.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.KNudPagMax.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudPagMax.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -1995,7 +2028,7 @@
             0,
             0});
             this.KNudPagMin.Name = "KNudPagMin";
-            this.KNudPagMin.Size = new System.Drawing.Size(83, 33);
+            this.KNudPagMin.Size = new System.Drawing.Size(71, 33);
             this.KNudPagMin.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.KNudPagMin.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KNudPagMin.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -2010,43 +2043,6 @@
             this.KNudPagMin.TabIndex = 127;
             this.KNudPagMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // KTxtBuscarMBI
-            // 
-            this.KTxtBuscarMBI.Location = new System.Drawing.Point(688, 4);
-            this.KTxtBuscarMBI.Margin = new System.Windows.Forms.Padding(5, 4, 0, 0);
-            this.KTxtBuscarMBI.Name = "KTxtBuscarMBI";
-            this.KTxtBuscarMBI.Size = new System.Drawing.Size(212, 33);
-            this.KTxtBuscarMBI.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.KTxtBuscarMBI.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarMBI.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarMBI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtBuscarMBI.StateCommon.Border.Rounding = 10;
-            this.KTxtBuscarMBI.StateCommon.Border.Width = 2;
-            this.KTxtBuscarMBI.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarMBI.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtBuscarMBI.TabIndex = 130;
-            this.KTxtBuscarMBI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
-            // 
-            // MbtnBorrarTxtBuscar
-            // 
-            this.MbtnBorrarTxtBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MbtnBorrarTxtBuscar.FlatAppearance.BorderSize = 0;
-            this.MbtnBorrarTxtBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MbtnBorrarTxtBuscar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.MbtnBorrarTxtBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.Close;
-            this.MbtnBorrarTxtBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MbtnBorrarTxtBuscar.IconSize = 35;
-            this.MbtnBorrarTxtBuscar.Location = new System.Drawing.Point(900, 8);
-            this.MbtnBorrarTxtBuscar.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.MbtnBorrarTxtBuscar.Name = "MbtnBorrarTxtBuscar";
-            this.MbtnBorrarTxtBuscar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MbtnBorrarTxtBuscar.Size = new System.Drawing.Size(22, 24);
-            this.MbtnBorrarTxtBuscar.TabIndex = 134;
-            this.MbtnBorrarTxtBuscar.UseVisualStyleBackColor = true;
-            this.MbtnBorrarTxtBuscar.Click += new System.EventHandler(this.MbtnBorrarTxtBuscar_Click);
-            // 
             // MBtnBuscarMBI
             // 
             this.MBtnBuscarMBI.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2056,7 +2052,7 @@
             this.MBtnBuscarMBI.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnBuscarMBI.IconSize = 45;
-            this.MBtnBuscarMBI.Location = new System.Drawing.Point(3, 43);
+            this.MBtnBuscarMBI.Location = new System.Drawing.Point(3, 45);
             this.MBtnBuscarMBI.Name = "MBtnBuscarMBI";
             this.MBtnBuscarMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarMBI.Size = new System.Drawing.Size(34, 34);
@@ -2121,7 +2117,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 
@@ -2150,27 +2146,14 @@
             this.PanHijos.Size = new System.Drawing.Size(949, 693);
             this.PanHijos.TabIndex = 5;
             // 
-            // BtnActualizarLibroMsb
+            // TxtBusqueda
             // 
-            this.BtnActualizarLibroMsb.BackColor = System.Drawing.Color.Transparent;
-            this.BtnActualizarLibroMsb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnActualizarLibroMsb.DropDownButtonWidth = 0;
-            this.BtnActualizarLibroMsb.Enabled = false;
-            this.BtnActualizarLibroMsb.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.BtnActualizarLibroMsb.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnActualizarLibroMsb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.BtnActualizarLibroMsb.IconChar = FontAwesome.Sharp.MaterialIcons.BookArrowDown;
-            this.BtnActualizarLibroMsb.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.BtnActualizarLibroMsb.IconSize = 48;
-            this.BtnActualizarLibroMsb.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnActualizarLibroMsb.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.BtnActualizarLibroMsb.Name = "BtnActualizarLibroMsb";
-            this.BtnActualizarLibroMsb.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.BtnActualizarLibroMsb.Rotation = 0D;
-            this.BtnActualizarLibroMsb.Size = new System.Drawing.Size(129, 63);
-            this.BtnActualizarLibroMsb.Text = "Actualizar libro";
-            this.BtnActualizarLibroMsb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnActualizarLibroMsb.ButtonClick += new System.EventHandler(this.BtnActualizarLibroMsb_ButtonClick);
+            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.TxtBusqueda.Location = new System.Drawing.Point(681, 3);
+            this.TxtBusqueda.Name = "TxtBusqueda";
+            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
+            this.TxtBusqueda.TabIndex = 135;
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
             // 
             // FrmMenuPrincipal
             // 
@@ -2196,7 +2179,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).EndInit();
             this.PanMenuMain.ResumeLayout(false);
             this.PanFotoUsuario.ResumeLayout(false);
-            this.PanFotoUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AciFotoUsuario)).EndInit();
             this.ToolStripMain.ResumeLayout(false);
             this.ToolStripMain.PerformLayout();
@@ -2256,7 +2238,6 @@
         private System.Windows.Forms.Panel PanButtons;
         private System.Windows.Forms.Panel PanFotoUsuario;
         private AfriCircleImage.AfriCircleImage AciFotoUsuario;
-        private System.Windows.Forms.LinkLabel LlLogIn;
         private FontAwesome.Sharp.Material.MaterialButton MBtnTags;
         private FontAwesome.Sharp.Material.MaterialButton MBtnSeries;
         private FontAwesome.Sharp.Material.MaterialButton MBtnEditoriales;
@@ -2375,12 +2356,13 @@
         private System.Windows.Forms.Label LblPaginasEntre;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPagMax;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPagMin;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtBuscarMBI;
         private FontAwesome.Sharp.Material.MaterialButton MBtnBuscarMBI;
         private FontAwesome.Sharp.Material.MaterialButton MBtnOrdenMBI;
         private System.Windows.Forms.Label LblBuscarPorMBI;
         private System.Windows.Forms.Timer TimeRedimensionar;
-        private FontAwesome.Sharp.Material.MaterialButton MbtnBorrarTxtBuscar;
         private FontAwesome.Sharp.Material.MaterialSplitButton BtnActualizarLibroMsb;
+        private System.Windows.Forms.Label lblNombreUsuConectado;
+        private System.Windows.Forms.Label LblBienvenido;
+        private Controles.TxtBusqueda TxtBusqueda;
     }
 }

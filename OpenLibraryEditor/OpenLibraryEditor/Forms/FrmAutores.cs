@@ -37,6 +37,7 @@ namespace OpenLibraryEditor.Forms
         private BindingSource ocupacionBinding = new BindingSource();
 
         private string rutaImagen;
+        private bool puedeEditar;
 
         public Autor PersonaNueva { get => personaNueva; set => personaNueva = value; }
         #endregion
@@ -45,11 +46,18 @@ namespace OpenLibraryEditor.Forms
             InitializeComponent();
             this.setNew = setNew;
         }
-        public FrmAutores(bool setNew, Autor autorActual)
+        public FrmAutores(bool setNew, bool puedeEditar)
+        {
+            InitializeComponent();
+            this.setNew = setNew;
+            this.puedeEditar = puedeEditar;
+        }
+        public FrmAutores(bool setNew, Autor autorActual, bool puedeEditar)
         {
             InitializeComponent();
             this.setNew = setNew;
             this.autorActual = autorActual;
+            this.puedeEditar = puedeEditar;
             EditarAutorDesdeMain();
         }
 
@@ -92,6 +100,10 @@ namespace OpenLibraryEditor.Forms
             {
                 MBtnMasLsvNA_Click(null, null);
                 personaNueva = autorActual;
+            }
+            if (puedeEditar)
+            {
+                GBtnActualizar.Visible = true;
             }
             
         }
@@ -146,6 +158,8 @@ namespace OpenLibraryEditor.Forms
             TTAutores.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             LblSigueVivo.Text = ControladorIdioma.GetTexto("Au_Vivo");
             TTAutores.SetToolTip(this.TBtnVivo, ControladorIdioma.GetTexto("Au_TTVivo"));
+            GBtnActualizar.Text = ControladorIdioma.GetTexto("ActualizarConBD");
+            TTAutores.SetToolTip(this.GBtnActualizar,ControladorIdioma.GetTexto("Au_TTActualizar"));
         }
         private void ActualizarOcupacion()
         {
@@ -258,7 +272,7 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                 {
-                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este autor en la BD?")
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarAutorBD"))
                         == DialogResult.Yes)
                     {
                         if (ConexionBD.AbrirConexion())
@@ -367,8 +381,7 @@ namespace OpenLibraryEditor.Forms
                     if (ConexionBD.Conexion != null &&
                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                     {
-                        //-----------------
-                        if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este autor en la BD compartida?")
+                        if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarAutorBD"))
                             == DialogResult.Yes)
                         {
                             if (ConexionBD.AbrirConexion())
@@ -398,8 +411,7 @@ namespace OpenLibraryEditor.Forms
             //Actualizar en BD compartida si se puede
             if (ConexionBD.Conexion != null)
             {
-                //-----------------
-                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este autor?")
+                if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarAutorBD"))
                     == DialogResult.Yes)
                 {
                     if (ConexionBD.AbrirConexion())

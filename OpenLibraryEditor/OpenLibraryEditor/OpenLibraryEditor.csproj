@@ -167,6 +167,7 @@
     <Compile Include="Clases\ControladorImagen.cs" />
     <Compile Include="Clases\GoogleBooksController.cs" />
     <Compile Include="Clases\MiMessageBox.cs" />
+    <Compile Include="Clases\ValidarEmail.cs" />
     <Compile Include="Clases\VentanaWindowsComun.cs" />
     <Compile Include="Controles\CheckedComboBox.cs" />
     <Compile Include="Controles\DoubleClickButton.cs">
@@ -177,6 +178,12 @@
     </Compile>
     <Compile Include="Controles\ToggleButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\TxtBusqueda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\TxtBusqueda.Designer.cs">
+      <DependentUpon>TxtBusqueda.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\VistaDetallesH.cs">
       <SubType>UserControl</SubType>
@@ -355,6 +362,9 @@
     <Compile Include="Metodos\MetodosComunes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controles\TxtBusqueda.resx">
+      <DependentUpon>TxtBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles\VistaDetallesH.resx">
       <DependentUpon>VistaDetallesH.cs</DependentUpon>
     </EmbeddedResource>

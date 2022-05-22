@@ -1,5 +1,6 @@
 ﻿using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
+using OpenLibraryEditor.DatosLibros;
 using OpenLibraryEditor.Metodos;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,11 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmRegistro : Form
     {
-     
+
+        private bool isOk;
+
+        public bool IsOk { get => isOk; set => isOk = value; }
+
         public FrmRegistro()
         {
             InitializeComponent();
@@ -26,6 +31,7 @@ namespace OpenLibraryEditor.Forms
         private void FrmRegistro_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
+            TxtUrlReg.Focus();
         }
 
         private void IdiomaTexto()
@@ -116,6 +122,9 @@ namespace OpenLibraryEditor.Forms
                     {
                         //Crear usuario con ole_register
                         ConexionBD.CrearUsuarioComunBD(TxtNombreReg.Text, KTxtContraReg.Text, TxtNombreReg.Text);
+                        EscrituraBD.InsertUsuario(new InfoUsuarioBD(TxtNombreReg.Text,
+                             TxtMailReg.Text,
+                             "Usuario"), KTxtContraReg.Text);
                         ConexionBD.CerrarConexion();
 
                         //Iniciar sesion y menu principal
@@ -123,25 +132,24 @@ namespace OpenLibraryEditor.Forms
                             TxtNombreReg.Text, KTxtContraReg.Text, puerto.ToString());
                         if (ConexionBD.AbrirConexion())
                         {
-                            FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
-                            mainMenu.Show();
-                            this.Hide();
                             ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
                             ConexionBD.CerrarConexion();
                             FrmLogin.ObtenerInfoBD(TxtNombreReg.Text, TxtUrlReg.Text, puerto);
+                            FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                            mainMenu.Show();
+                            isOk = true;
+                            this.Close();
                         }
                     }
                 }
                 else
                 {
-                    //----------------
-                    VentanaWindowsComun.MensajeError("La contraseña no coincide.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Reg_ContraNoCoincide"));
                 }
             }
             else
             {
-                //----------------
-                VentanaWindowsComun.MensajeError("Rellena todos los campos.");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Log_Error4"));
             }
         }
     }

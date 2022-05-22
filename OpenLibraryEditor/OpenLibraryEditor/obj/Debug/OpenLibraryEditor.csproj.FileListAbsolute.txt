@@ -315,3 +315,4 @@ C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEd
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarUsuario.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmConfiguracionMal.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmConfiguracionMal.resources
+C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Controles.TxtBusqueda.resources

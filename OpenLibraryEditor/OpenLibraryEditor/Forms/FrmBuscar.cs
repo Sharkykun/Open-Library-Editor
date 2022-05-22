@@ -54,8 +54,9 @@ namespace OpenLibraryEditor.Forms
             MBtnAvanzarLibro.Enabled = false;
             Thread th = new Thread(() => ColocarLibrosRecomendados());
             th.Start();
-            
-            
+            TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
+            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
+
             //ponerLibrosRecomendados();
         }
         private List<Libro> SacarListaLibro()
@@ -82,16 +83,16 @@ namespace OpenLibraryEditor.Forms
             switch (KCmbTipoBusquedaBUS.SelectedIndex)
             {
                 case 0:
-                    query = KTxtBuscarBUS.Text;
+                    query = TxtBusqueda.getTextobuscar();
                     break;
                 case 1:
-                    query = "inauthor:\"" + KTxtBuscarBUS.Text + "\"";
+                    query = "inauthor:\"" + TxtBusqueda.getTextobuscar() + "\"";
                     break;
                 case 2:
-                    query = "inpublisher:" + KTxtBuscarBUS.Text;
+                    query = "inpublisher:" + TxtBusqueda.getTextobuscar();
                     break;
                 case 3:
-                    query = "subject:\"" + KTxtBuscarBUS.Text + "\"";
+                    query = "subject:\"" + TxtBusqueda.getTextobuscar() + "\"";
                     break;
             }
             
@@ -99,7 +100,12 @@ namespace OpenLibraryEditor.Forms
         }
 
 
-     
+        private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
+        {
+            //KTxtBuscarMBI.Text = "";
+            TxtBusqueda.setTextobuscar("");
+            MBtnBuscarBUS_Click(sender, e);
+        }
 
 
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
@@ -162,25 +168,25 @@ namespace OpenLibraryEditor.Forms
                             {
                                 case 0:
                                     listaLibro = LecturaBD.SelectBuscarLibro(
-                                        "titulo",KTxtBuscarBUS.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                        "titulo",TxtBusqueda.getTextobuscar(), UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
                                     break;
                                 case 1:
                                     listaLibro = LecturaBD.SelectBuscarLibro(
-                                        "isbn13", KTxtBuscarBUS.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                        "isbn13", TxtBusqueda.getTextobuscar(), UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
                                     break;
                                 case 2:
-                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(KTxtBuscarBUS.Text, "Autor",
+                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(TxtBusqueda.getTextobuscar(), "Autor",
                                         "idAutor", "nombreAutor",
                                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
                                     break;
                                 case 3:
                                     listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
-                                        KTxtBuscarBUS.Text, "Editorial", "idEditorial", "nombreEditorial",
+                                        TxtBusqueda.getTextobuscar(), "Editorial", "idEditorial", "nombreEditorial",
                                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
                                     break;
                                 case 4:
                                     listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
-                                        KTxtBuscarBUS.Text, "Genero", "idGenero", "nombreGenero",
+                                        TxtBusqueda.getTextobuscar(), "Genero", "idGenero", "nombreGenero",
                                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
                                     break;
                             }

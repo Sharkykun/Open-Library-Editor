@@ -33,17 +33,16 @@
             this.PanLogin = new System.Windows.Forms.Panel();
             this.GBtnCrearBD = new Guna.UI.WinForms.GunaButton();
             this.GBtnEntrar = new Guna.UI.WinForms.GunaButton();
+            this.GBtnRegistro = new Guna.UI.WinForms.GunaButton();
             this.GBtnSinConexion = new Guna.UI.WinForms.GunaButton();
             this.LblError = new System.Windows.Forms.Label();
             this.LblSesionIniciada = new System.Windows.Forms.Label();
-            this.ToggleConectado = new OpenLibraryEditor.Controles.ToggleButton();
             this.KTxtNombre = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtUrl = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LlblRecuperar = new System.Windows.Forms.LinkLabel();
             this.IpcbMostrarContra = new FontAwesome.Sharp.IconPictureBox();
             this.IpcbOcultarContra = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtContra = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.GBtnRegistro = new Guna.UI.WinForms.GunaButton();
             this.PcbLogo = new System.Windows.Forms.PictureBox();
             this.ToolIdiomas = new System.Windows.Forms.ToolStrip();
             this.BtnSpain = new System.Windows.Forms.ToolStripButton();
@@ -52,6 +51,7 @@
             this.TimerAparecer = new System.Windows.Forms.Timer(this.components);
             this.MBtnCerrarLogin = new FontAwesome.Sharp.Material.MaterialButton();
             this.TTLogin = new System.Windows.Forms.ToolTip(this.components);
+            this.ToggleConectado = new OpenLibraryEditor.Controles.ToggleButton();
             this.PanLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra)).BeginInit();
@@ -125,7 +125,7 @@
             this.GBtnEntrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnEntrar.Image = null;
             this.GBtnEntrar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnEntrar.Location = new System.Drawing.Point(192, 281);
+            this.GBtnEntrar.Location = new System.Drawing.Point(196, 282);
             this.GBtnEntrar.Name = "GBtnEntrar";
             this.GBtnEntrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnEntrar.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -133,11 +133,39 @@
             this.GBtnEntrar.OnHoverImage = null;
             this.GBtnEntrar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnEntrar.Radius = 18;
-            this.GBtnEntrar.Size = new System.Drawing.Size(178, 39);
+            this.GBtnEntrar.Size = new System.Drawing.Size(174, 39);
             this.GBtnEntrar.TabIndex = 24;
             this.GBtnEntrar.Text = "Entrar";
             this.GBtnEntrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnEntrar.Click += new System.EventHandler(this.GBtnEntrar_Click);
+            // 
+            // GBtnRegistro
+            // 
+            this.GBtnRegistro.AnimationHoverSpeed = 0.07F;
+            this.GBtnRegistro.AnimationSpeed = 0.03F;
+            this.GBtnRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnRegistro.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.BorderSize = 2;
+            this.GBtnRegistro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnRegistro.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnRegistro.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.Image = null;
+            this.GBtnRegistro.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnRegistro.Location = new System.Drawing.Point(15, 282);
+            this.GBtnRegistro.Name = "GBtnRegistro";
+            this.GBtnRegistro.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.OnHoverImage = null;
+            this.GBtnRegistro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.Radius = 18;
+            this.GBtnRegistro.Size = new System.Drawing.Size(174, 39);
+            this.GBtnRegistro.TabIndex = 23;
+            this.GBtnRegistro.Text = "Registrarse";
+            this.GBtnRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnRegistro.Click += new System.EventHandler(this.GBtnRegistro_Click);
             // 
             // GBtnSinConexion
             // 
@@ -192,22 +220,6 @@
             this.LblSesionIniciada.Size = new System.Drawing.Size(186, 20);
             this.LblSesionIniciada.TabIndex = 8;
             this.LblSesionIniciada.Text = "Mantener sesión iniciada";
-            // 
-            // ToggleConectado
-            // 
-            this.ToggleConectado.AutoSize = true;
-            this.ToggleConectado.BackColor = System.Drawing.Color.Gainsboro;
-            this.ToggleConectado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ToggleConectado.Location = new System.Drawing.Point(251, 182);
-            this.ToggleConectado.MinimumSize = new System.Drawing.Size(45, 22);
-            this.ToggleConectado.Name = "ToggleConectado";
-            this.ToggleConectado.OffBackColor = System.Drawing.Color.DarkGray;
-            this.ToggleConectado.OffToggleColor = System.Drawing.Color.Black;
-            this.ToggleConectado.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.ToggleConectado.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.ToggleConectado.Size = new System.Drawing.Size(45, 22);
-            this.ToggleConectado.TabIndex = 4;
-            this.ToggleConectado.UseVisualStyleBackColor = false;
             // 
             // KTxtNombre
             // 
@@ -321,34 +333,6 @@
             this.KTxtContra.Enter += new System.EventHandler(this.KTxtContra_Enter);
             this.KTxtContra.Leave += new System.EventHandler(this.KTxtContra_Leave);
             // 
-            // GBtnRegistro
-            // 
-            this.GBtnRegistro.AnimationHoverSpeed = 0.07F;
-            this.GBtnRegistro.AnimationSpeed = 0.03F;
-            this.GBtnRegistro.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnRegistro.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.GBtnRegistro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.BorderSize = 2;
-            this.GBtnRegistro.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnRegistro.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnRegistro.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.Image = null;
-            this.GBtnRegistro.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnRegistro.Location = new System.Drawing.Point(15, 282);
-            this.GBtnRegistro.Name = "GBtnRegistro";
-            this.GBtnRegistro.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.GBtnRegistro.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.OnHoverImage = null;
-            this.GBtnRegistro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.GBtnRegistro.Radius = 18;
-            this.GBtnRegistro.Size = new System.Drawing.Size(171, 39);
-            this.GBtnRegistro.TabIndex = 23;
-            this.GBtnRegistro.Text = "Registrarse";
-            this.GBtnRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnRegistro.Click += new System.EventHandler(this.GBtnRegistro_Click);
-            // 
             // PcbLogo
             // 
             this.PcbLogo.BackColor = System.Drawing.Color.Transparent;
@@ -431,6 +415,23 @@
             this.MBtnCerrarLogin.TabIndex = 16;
             this.MBtnCerrarLogin.UseVisualStyleBackColor = false;
             this.MBtnCerrarLogin.Click += new System.EventHandler(this.MBtnCerrarLogin_Click);
+            // 
+            // ToggleConectado
+            // 
+            this.ToggleConectado.AutoSize = true;
+            this.ToggleConectado.BackColor = System.Drawing.Color.Gainsboro;
+            this.ToggleConectado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ToggleConectado.Location = new System.Drawing.Point(251, 182);
+            this.ToggleConectado.MinimumSize = new System.Drawing.Size(45, 22);
+            this.ToggleConectado.Name = "ToggleConectado";
+            this.ToggleConectado.OffBackColor = System.Drawing.Color.DarkGray;
+            this.ToggleConectado.OffToggleColor = System.Drawing.Color.Black;
+            this.ToggleConectado.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.ToggleConectado.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.ToggleConectado.Size = new System.Drawing.Size(45, 22);
+            this.ToggleConectado.TabIndex = 4;
+            this.ToggleConectado.UseVisualStyleBackColor = false;
+            this.ToggleConectado.CheckedChanged += new System.EventHandler(this.ToggleConectado_CheckedChanged);
             // 
             // FrmLogin
             // 

@@ -28,6 +28,7 @@ namespace OpenLibraryEditor.Forms
 
         private bool setNew;
         private Editorial editorialNueva;
+        private bool puedeEditar;
 
         public Editorial EditorialNueva { get => editorialNueva; set => editorialNueva = value; }
         #endregion
@@ -36,11 +37,18 @@ namespace OpenLibraryEditor.Forms
             InitializeComponent();
             this.setNew = setNew;
         }
-        public FrmEditoriales(bool setNew, Editorial editorialActual)
+        public FrmEditoriales(bool setNew, bool puedeEditar)
+        {
+            InitializeComponent();
+            this.setNew = setNew;
+            this.puedeEditar = puedeEditar;
+        }
+        public FrmEditoriales(bool setNew, Editorial editorialActual, bool puedeEditar)
         {
             InitializeComponent();
             this.setNew = setNew;
             this.editorialActual = editorialActual;
+            this.puedeEditar = puedeEditar;
             EditarEditorialDesdeMain();
         }
         private void MBtnCerrarEditoriales_Click(object sender, EventArgs e)
@@ -64,6 +72,10 @@ namespace OpenLibraryEditor.Forms
             {
                 MBtnMasLsvNE_Click(null, null);
                 editorialNueva = editorialActual;
+            }
+            if (puedeEditar)
+            {
+                GBtnActualizar.Visible = true;
             }
         }
         #region metodos propios
@@ -203,7 +215,7 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                 {
-                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar esta editorial en la BD?")
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarEditorialBD"))
                         == DialogResult.Yes)
                     {
                         if (ConexionBD.AbrirConexion())
@@ -264,7 +276,7 @@ namespace OpenLibraryEditor.Forms
                     if (ConexionBD.Conexion != null &&
                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                     {
-                        if(VentanaWindowsComun.MensajePregunta("¿Quieres guardar esta editorial en la BD compartida?")
+                        if(VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarEditorialBD"))
                             == DialogResult.Yes)
                         {
                             if (ConexionBD.AbrirConexion())
@@ -292,8 +304,8 @@ namespace OpenLibraryEditor.Forms
             //Actualizar en BD compartida si se puede
             if (ConexionBD.Conexion != null)
             {
-                //-----------------
-                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este autor?")
+
+                if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarEditorialBD"))
                     == DialogResult.Yes)
                 {
                     if (ConexionBD.AbrirConexion())

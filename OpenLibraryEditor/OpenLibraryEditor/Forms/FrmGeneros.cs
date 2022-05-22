@@ -22,6 +22,7 @@ namespace OpenLibraryEditor.Forms
         private Genero generoActual;
         private ListViewItem itemActual;
         private BindingSource generoBinding = new BindingSource();
+        private bool puedeEditar;
 
         public Genero GeneroNuevo { get => generoNuevo; set => generoNuevo = value; }
         #endregion
@@ -30,11 +31,18 @@ namespace OpenLibraryEditor.Forms
             InitializeComponent();
             this.setNew=setNew;
         }
-        public FrmGeneros(bool setNew, Genero generoActual)
+        public FrmGeneros(bool setNew, bool puedeEditar)
+        {
+            InitializeComponent();
+            this.setNew = setNew;
+            this.puedeEditar = puedeEditar;
+        }
+        public FrmGeneros(bool setNew, Genero generoActual, bool puedeEditar)
         {
             InitializeComponent();
             this.setNew = setNew;
             this.generoActual = generoActual;
+            this.puedeEditar = puedeEditar;
             EditarGeneroDesdeMain();
         }
         private void FrmGeneros_Load(object sender, EventArgs e)
@@ -54,6 +62,10 @@ namespace OpenLibraryEditor.Forms
             {
                 MBtnMasLsvNG_Click(null, null);
                 generoNuevo = generoActual;
+            }
+            if (puedeEditar)
+            {
+                GBtnActualizar.Visible = true;
             }
         }
         #region metodos propios
@@ -100,6 +112,7 @@ namespace OpenLibraryEditor.Forms
             item.Tag = genero;
             if (generoActual == genero) item.Selected = true;
             return item;
+
         }
 
         private bool EsObjetoCambiado()
@@ -190,7 +203,7 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                 {
-                    if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este género en la BD?")
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarGeneroBD"))
                         == DialogResult.Yes)
                     {
                         if (ConexionBD.AbrirConexion())
@@ -225,7 +238,7 @@ namespace OpenLibraryEditor.Forms
                     if (ConexionBD.Conexion != null &&
                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                     {
-                        if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este género en la BD compartida?")
+                        if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarGeneroBD"))
                             == DialogResult.Yes)
                         {
                             if (ConexionBD.AbrirConexion())
@@ -255,8 +268,8 @@ namespace OpenLibraryEditor.Forms
             //Actualizar en BD compartida si se puede
             if (ConexionBD.Conexion != null)
             {
-                //-----------------
-                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este género?")
+
+                if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarGeneroBD"))
                     == DialogResult.Yes)
                 {
                     if (ConexionBD.AbrirConexion())

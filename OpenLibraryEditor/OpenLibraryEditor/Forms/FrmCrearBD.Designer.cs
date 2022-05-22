@@ -39,15 +39,19 @@
             this.LblTitulo = new System.Windows.Forms.Label();
             this.PcbLogoAutores = new System.Windows.Forms.PictureBox();
             this.KgbDatosServidor = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.IpcbMostrarContraSer = new FontAwesome.Sharp.IconPictureBox();
             this.KNudPuerto = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.KTxtCSer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtNombreUSer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtUrl = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblContraSer = new System.Windows.Forms.Label();
             this.LblNombreSer = new System.Windows.Forms.Label();
             this.LblPuerto = new System.Windows.Forms.Label();
             this.LblUrl = new System.Windows.Forms.Label();
+            this.IpcbOcultarContraSer = new FontAwesome.Sharp.IconPictureBox();
+            this.KTxtCSer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KgbDatosApp = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.IpcbMostrarContraUsu = new FontAwesome.Sharp.IconPictureBox();
+            this.IpcbOcultarContraUsu = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtContraApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtEmailApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtNombreApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -61,10 +65,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosServidor.Panel)).BeginInit();
             this.KgbDatosServidor.Panel.SuspendLayout();
             this.KgbDatosServidor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContraSer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContraSer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosApp.Panel)).BeginInit();
             this.KgbDatosApp.Panel.SuspendLayout();
             this.KgbDatosApp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContraUsu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContraUsu)).BeginInit();
             this.SuspendLayout();
             // 
             // PanBtn
@@ -218,13 +226,15 @@
             // KgbDatosServidor.Panel
             // 
             this.KgbDatosServidor.Panel.Controls.Add(this.KNudPuerto);
-            this.KgbDatosServidor.Panel.Controls.Add(this.KTxtCSer);
             this.KgbDatosServidor.Panel.Controls.Add(this.KTxtNombreUSer);
             this.KgbDatosServidor.Panel.Controls.Add(this.KTxtUrl);
             this.KgbDatosServidor.Panel.Controls.Add(this.LblContraSer);
             this.KgbDatosServidor.Panel.Controls.Add(this.LblNombreSer);
             this.KgbDatosServidor.Panel.Controls.Add(this.LblPuerto);
             this.KgbDatosServidor.Panel.Controls.Add(this.LblUrl);
+            this.KgbDatosServidor.Panel.Controls.Add(this.IpcbMostrarContraSer);
+            this.KgbDatosServidor.Panel.Controls.Add(this.IpcbOcultarContraSer);
+            this.KgbDatosServidor.Panel.Controls.Add(this.KTxtCSer);
             this.KgbDatosServidor.Size = new System.Drawing.Size(521, 211);
             this.KgbDatosServidor.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosServidor.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
@@ -240,6 +250,25 @@
             this.KgbDatosServidor.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbDatosServidor.TabIndex = 157;
             this.KgbDatosServidor.Values.Heading = "Datos del servidor";
+            // 
+            // IpcbMostrarContraSer
+            // 
+            this.IpcbMostrarContraSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbMostrarContraSer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbMostrarContraSer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbMostrarContraSer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraSer.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.IpcbMostrarContraSer.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraSer.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbMostrarContraSer.IconSize = 23;
+            this.IpcbMostrarContraSer.Location = new System.Drawing.Point(462, 127);
+            this.IpcbMostrarContraSer.Name = "IpcbMostrarContraSer";
+            this.IpcbMostrarContraSer.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
+            this.IpcbMostrarContraSer.Size = new System.Drawing.Size(23, 23);
+            this.IpcbMostrarContraSer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbMostrarContraSer.TabIndex = 31;
+            this.IpcbMostrarContraSer.TabStop = false;
+            this.IpcbMostrarContraSer.Click += new System.EventHandler(this.IpcbMostrarContraSer_Click);
             // 
             // KNudPuerto
             // 
@@ -269,23 +298,6 @@
             0,
             0,
             0});
-            // 
-            // KTxtCSer
-            // 
-            this.KTxtCSer.Location = new System.Drawing.Point(175, 123);
-            this.KTxtCSer.Name = "KTxtCSer";
-            this.KTxtCSer.Size = new System.Drawing.Size(322, 33);
-            this.KTxtCSer.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtCSer.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtCSer.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtCSer.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtCSer.StateCommon.Border.Rounding = 10;
-            this.KTxtCSer.StateCommon.Border.Width = 2;
-            this.KTxtCSer.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtCSer.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtCSer.TabIndex = 3;
             // 
             // KTxtNombreUSer
             // 
@@ -367,6 +379,45 @@
             this.LblUrl.TabIndex = 21;
             this.LblUrl.Text = "Url:";
             // 
+            // IpcbOcultarContraSer
+            // 
+            this.IpcbOcultarContraSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbOcultarContraSer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbOcultarContraSer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbOcultarContraSer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContraSer.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.IpcbOcultarContraSer.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContraSer.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbOcultarContraSer.IconSize = 23;
+            this.IpcbOcultarContraSer.Location = new System.Drawing.Point(462, 127);
+            this.IpcbOcultarContraSer.Name = "IpcbOcultarContraSer";
+            this.IpcbOcultarContraSer.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.IpcbOcultarContraSer.Size = new System.Drawing.Size(23, 23);
+            this.IpcbOcultarContraSer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbOcultarContraSer.TabIndex = 32;
+            this.IpcbOcultarContraSer.TabStop = false;
+            this.IpcbOcultarContraSer.Visible = false;
+            this.IpcbOcultarContraSer.Click += new System.EventHandler(this.IpcbOcultarContraSer_Click);
+            // 
+            // KTxtCSer
+            // 
+            this.KTxtCSer.Location = new System.Drawing.Point(175, 123);
+            this.KTxtCSer.Name = "KTxtCSer";
+            this.KTxtCSer.PasswordChar = '●';
+            this.KTxtCSer.Size = new System.Drawing.Size(322, 33);
+            this.KTxtCSer.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtCSer.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtCSer.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtCSer.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtCSer.StateCommon.Border.Rounding = 10;
+            this.KTxtCSer.StateCommon.Border.Width = 2;
+            this.KTxtCSer.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtCSer.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtCSer.TabIndex = 3;
+            this.KTxtCSer.UseSystemPasswordChar = true;
+            // 
             // KgbDatosApp
             // 
             this.KgbDatosApp.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -376,12 +427,14 @@
             // 
             // KgbDatosApp.Panel
             // 
-            this.KgbDatosApp.Panel.Controls.Add(this.KTxtContraApp);
             this.KgbDatosApp.Panel.Controls.Add(this.KTxtEmailApp);
             this.KgbDatosApp.Panel.Controls.Add(this.KTxtNombreApp);
             this.KgbDatosApp.Panel.Controls.Add(this.LblContraApp);
             this.KgbDatosApp.Panel.Controls.Add(this.LblEmailApp);
             this.KgbDatosApp.Panel.Controls.Add(this.LblNombreApp);
+            this.KgbDatosApp.Panel.Controls.Add(this.IpcbMostrarContraUsu);
+            this.KgbDatosApp.Panel.Controls.Add(this.IpcbOcultarContraUsu);
+            this.KgbDatosApp.Panel.Controls.Add(this.KTxtContraApp);
             this.KgbDatosApp.Size = new System.Drawing.Size(521, 178);
             this.KgbDatosApp.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosApp.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
@@ -398,10 +451,50 @@
             this.KgbDatosApp.TabIndex = 158;
             this.KgbDatosApp.Values.Heading = "Datos para registrarse en la aplicación";
             // 
+            // IpcbMostrarContraUsu
+            // 
+            this.IpcbMostrarContraUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbMostrarContraUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbMostrarContraUsu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbMostrarContraUsu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraUsu.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.IpcbMostrarContraUsu.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraUsu.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbMostrarContraUsu.IconSize = 23;
+            this.IpcbMostrarContraUsu.Location = new System.Drawing.Point(462, 91);
+            this.IpcbMostrarContraUsu.Name = "IpcbMostrarContraUsu";
+            this.IpcbMostrarContraUsu.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
+            this.IpcbMostrarContraUsu.Size = new System.Drawing.Size(23, 23);
+            this.IpcbMostrarContraUsu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbMostrarContraUsu.TabIndex = 33;
+            this.IpcbMostrarContraUsu.TabStop = false;
+            this.IpcbMostrarContraUsu.Click += new System.EventHandler(this.IpcbMostrarContraUsu_Click);
+            // 
+            // IpcbOcultarContraUsu
+            // 
+            this.IpcbOcultarContraUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbOcultarContraUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbOcultarContraUsu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbOcultarContraUsu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContraUsu.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.IpcbOcultarContraUsu.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContraUsu.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbOcultarContraUsu.IconSize = 23;
+            this.IpcbOcultarContraUsu.Location = new System.Drawing.Point(462, 91);
+            this.IpcbOcultarContraUsu.Name = "IpcbOcultarContraUsu";
+            this.IpcbOcultarContraUsu.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.IpcbOcultarContraUsu.Size = new System.Drawing.Size(23, 23);
+            this.IpcbOcultarContraUsu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbOcultarContraUsu.TabIndex = 33;
+            this.IpcbOcultarContraUsu.TabStop = false;
+            this.IpcbOcultarContraUsu.Visible = false;
+            this.IpcbOcultarContraUsu.Click += new System.EventHandler(this.IpcbOcultarContraUsu_Click);
+            // 
             // KTxtContraApp
             // 
             this.KTxtContraApp.Location = new System.Drawing.Point(175, 87);
             this.KTxtContraApp.Name = "KTxtContraApp";
+            this.KTxtContraApp.PasswordChar = '●';
             this.KTxtContraApp.Size = new System.Drawing.Size(322, 33);
             this.KTxtContraApp.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.KTxtContraApp.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -415,6 +508,7 @@
             this.KTxtContraApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtContraApp.TabIndex = 2;
             this.KTxtContraApp.Text = "test";
+            this.KTxtContraApp.UseSystemPasswordChar = true;
             // 
             // KTxtEmailApp
             // 
@@ -511,11 +605,15 @@
             this.KgbDatosServidor.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosServidor)).EndInit();
             this.KgbDatosServidor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContraSer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContraSer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosApp.Panel)).EndInit();
             this.KgbDatosApp.Panel.ResumeLayout(false);
             this.KgbDatosApp.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosApp)).EndInit();
             this.KgbDatosApp.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContraUsu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContraUsu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,5 +645,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtEmailApp;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreApp;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPuerto;
+        private FontAwesome.Sharp.IconPictureBox IpcbMostrarContraSer;
+        private FontAwesome.Sharp.IconPictureBox IpcbOcultarContraSer;
+        private FontAwesome.Sharp.IconPictureBox IpcbOcultarContraUsu;
+        private FontAwesome.Sharp.IconPictureBox IpcbMostrarContraUsu;
     }
 }

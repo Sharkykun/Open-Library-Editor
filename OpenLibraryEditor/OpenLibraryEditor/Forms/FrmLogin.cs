@@ -21,7 +21,6 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmLogin : Form
     {
         private int contador = 0;
-        
         public FrmLogin()
         {
             InitializeComponent();
@@ -38,17 +37,18 @@ namespace OpenLibraryEditor.Forms
             TimerAparecer.Start();
             this.Opacity = 0.0;
             IdiomaTexto();
+            RecordarUsuario();
+            //if (!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+            //{
+            //    KTxtUrl.Text = UsuarioDatos.configuracionUsuario.RecordarUrl;
+            //    KTxtUrl_Enter(null, null);
+            //    KTxtNombre.Text = UsuarioDatos.configuracionUsuario.RecordarUsuario;
+            //    KTxtNombre_Enter(null, null);
+            //    KTxtContra.Text = UsuarioDatos.configuracionUsuario.RecordarContr;
+            //    KTxtContra_Enter(null, null);
+            //    ToggleConectado.Checked = true;
+            //}
 
-            if (!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
-            {
-                KTxtUrl.Text = UsuarioDatos.configuracionUsuario.RecordarUrl;
-                KTxtUrl_Enter(null, null);
-                KTxtNombre.Text = UsuarioDatos.configuracionUsuario.RecordarUsuario;
-                KTxtNombre_Enter(null, null);
-                KTxtContra.Text = UsuarioDatos.configuracionUsuario.RecordarContr;
-                KTxtContra_Enter(null, null);
-                ToggleConectado.Checked = true;
-            }
         }
         private void TimerAparecer_Tick(object sender, EventArgs e)
         {
@@ -88,6 +88,21 @@ namespace OpenLibraryEditor.Forms
                 UsuarioDatos.configuracionUsuario.BDActual = new InfoBaseDatos("Base de datos Actual",url,puerto);
                 UsuarioDatos.configuracionUsuario.EsAdministrador = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario == "Administrador";
             }
+        }
+        private void RecordarUsuario()
+        {
+            if (!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+            {
+                KTxtUrl.Text = UsuarioDatos.configuracionUsuario.RecordarUrl;
+                KTxtUrl_Enter(null, null);
+                KTxtNombre.Text = UsuarioDatos.configuracionUsuario.RecordarUsuario;
+                KTxtNombre_Enter(null, null);
+                KTxtContra.Text = UsuarioDatos.configuracionUsuario.RecordarContr;
+                KTxtContra_Enter(null, null);
+                ToggleConectado.Checked = true;
+            }
+            else
+                Reset(KTxtUrl, KTxtNombre, KTxtContra);
         }
 
         //Método para cambiar el idioma de la aplicación
@@ -171,15 +186,16 @@ namespace OpenLibraryEditor.Forms
                 {
                     if (text3.Text != s3)
                     {
+                        //UsuarioDatos.configuracionUsuario.BDActual;
                         //ClaseDatosUsuario user = new ClaseDatosUsuario();
                         //var validLogin = user.Metodo(TxtUrlDataBase.Text, TxtUserStart.Text, TxtPassStart.Text);
                         //if (validLogin == true)
                         //{
-                        //    FrmMainMenu mainMenu = new FrmMainMenu("spanish");
+                        //    FrmMainMenu mainMenu = new FrmMainMenu();
                         //    mainMenu.Show();
                         //    this.Hide();
                         //}
-                        //para probarlo
+                        ////para probarlo
                         //if (KTxtUrl.Text.Equals("Hola") && KTxtNombre.Text.Equals("Yolanda") && KTxtContra.Text.Equals("Yolanda"))
                         //{
                         //    FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
@@ -193,7 +209,7 @@ namespace OpenLibraryEditor.Forms
                         //    KTxtContra.Clear();
                         //}
 
-                        
+
                     }
                     else
                         MsgError(e2);
@@ -238,6 +254,10 @@ namespace OpenLibraryEditor.Forms
         {
             FrmRegistro registro = new FrmRegistro();
             registro.ShowDialog();
+            if (registro.IsOk)
+            {
+                this.Hide();
+            }
         }
         private void GBtnEntrar_Click(object sender, EventArgs e)
         {
@@ -258,9 +278,6 @@ namespace OpenLibraryEditor.Forms
                 KTxtContra.Text, puerto.ToString());
             if (ConexionBD.AbrirConexion())
             {
-                FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
-                mainMenu.Show();
-                this.Hide();
                 ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
                 ConexionBD.CerrarConexion();
                 ObtenerInfoBD(KTxtNombre.Text, KTxtUrl.Text, puerto);
@@ -278,6 +295,9 @@ namespace OpenLibraryEditor.Forms
                     UsuarioDatos.configuracionUsuario.RecordarContr = "";
                     UsuarioDatos.configuracionUsuario.GuardarJson();
                 }
+                FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                mainMenu.Show();
+                this.Hide();
             }
             else
             {
@@ -314,7 +334,8 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.GuardarJson();
             ControladorIdioma.idioma = "Strings_es_ES";
             IdiomaTexto();
-            Reset(KTxtUrl, KTxtNombre, KTxtContra);
+            RecordarUsuario();
+
         }
         private void BtnUsa_Click(object sender, EventArgs e)
         {
@@ -322,7 +343,8 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.GuardarJson();
             ControladorIdioma.idioma = "Strings_en_US";
             IdiomaTexto();
-            Reset(KTxtUrl, KTxtNombre, KTxtContra);
+            RecordarUsuario();
+
         }
 
         private void BtnFrancia_Click(object sender, EventArgs e)
@@ -331,7 +353,7 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.GuardarJson();
             ControladorIdioma.idioma = "Strings_fr_FR";
             IdiomaTexto();
-            Reset(KTxtUrl, KTxtNombre, KTxtContra);
+            RecordarUsuario();
 
         }
         #endregion
@@ -372,6 +394,23 @@ namespace OpenLibraryEditor.Forms
         private void MBtnCerrarLogin_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ToggleConectado_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (ToggleConectado.Checked)
+            //{
+            //    RecordarUsuario();
+            //}
+            //else
+            //{
+            //    //IdiomaTexto();
+            //    UsuarioDatos.configuracionUsuario.RecordarUrl = "";
+            //    UsuarioDatos.configuracionUsuario.RecordarUsuario = "";
+            //    UsuarioDatos.configuracionUsuario.RecordarContr = "";
+            //    Reset(KTxtUrl, KTxtNombre, KTxtContra);
+            //}
+            
         }
     }
 }
