@@ -84,38 +84,33 @@ namespace OpenLibraryEditor.DatosLibros
 
         public void MeterEnBDCompartida()
         {
-            if (ConexionBD.AbrirConexion())
+            //Comprobar si no existe Ocupacion para añadirlo
+            if (!String.IsNullOrWhiteSpace(NombreOcupacion) && 
+                LecturaBD.SelectOcupacion(NombreOcupacion) == null)
+                EscrituraBD.InsertOcupacion(NombreOcupacion);
+
+            if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
             {
-                //Comprobar si no existe Ocupacion para añadirlo
-                if (!String.IsNullOrWhiteSpace(NombreOcupacion) && 
-                    LecturaBD.SelectOcupacion(NombreOcupacion) == null)
-                    EscrituraBD.InsertOcupacion(NombreOcupacion);
-
-                if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
-                {
-                    EscrituraBD.UpdateAutor(this);
-                }
-                else
-                {
-                    EscrituraBD.InsertAutor(this);
-                }
-
-                ConexionBD.CerrarConexion();
+                EscrituraBD.UpdateAutor(this);
+            }
+            else
+            {
+                EscrituraBD.InsertAutor(this);
             }
         }
 
         public void BorraDeBDCompartida()
         {
-            if (ConexionBD.AbrirConexion())
-            {
-                //Comprobar si ningun autor que queda tiene la Ocupacion
-                if (!String.IsNullOrWhiteSpace(NombreOcupacion) &&
-                    LecturaBD.SelectOcupacionCantidadPorAutor(this.NombreOcupacion) == 0)
-                    EscrituraBD.DeleteOcupacion(this.NombreOcupacion);
+            //Borrar referencia con libros, si existe
+            EscrituraBD.DeleteListaAutorDesdeAutor(this);
 
-                EscrituraBD.DeleteAutor(this);
-                ConexionBD.CerrarConexion();
-            }
+            //Comprobar si ningun autor que queda tiene la Ocupacion
+            if (!String.IsNullOrWhiteSpace(NombreOcupacion) &&
+                LecturaBD.SelectOcupacionCantidadPorAutor(this.NombreOcupacion) == 0)
+                EscrituraBD.DeleteOcupacion(this.NombreOcupacion);
+
+            EscrituraBD.DeleteAutor(this);
+            ConexionBD.CerrarConexion();
         }
     }
 }

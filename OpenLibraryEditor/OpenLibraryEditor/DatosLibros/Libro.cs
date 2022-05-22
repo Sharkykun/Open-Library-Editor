@@ -156,41 +156,65 @@ namespace OpenLibraryEditor.DatosLibros
 
         public void MeterEnBDCompartida()
         {
-            if (ConexionBD.AbrirConexion())
+            LimpiadoDeListasBDCompartida();
+
+            //Comprobar si no existe Ocupacion para añadirlo
+            if (!String.IsNullOrWhiteSpace(nombreTipo) &&
+                LecturaBD.SelectTipoLibro(nombreTipo) == null)
+                EscrituraBD.InsertTipoLibro(nombreTipo);
+
+            if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
             {
-                //Comprobar si no existe Ocupacion para añadirlo
-                if (!String.IsNullOrWhiteSpace(nombreTipo) &&
-                    LecturaBD.SelectOcupacion(nombreTipo) == null)
-                    EscrituraBD.InsertOcupacion(nombreTipo);
-
-                if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
-                {
-                    EscrituraBD.UpdateLibro(this);
-                    InsertarListasBD();
-                }
-                else
-                {
-                    EscrituraBD.InsertLibro(this);
-                    InsertarListasBD();
-                }
-
-                ConexionBD.CerrarConexion();
+                EscrituraBD.UpdateLibro(this);
+                InsertarListasBD();
+            }
+            else
+            {
+                EscrituraBD.InsertLibro(this);
+                InsertarListasBD();
             }
         }
 
         public void BorraDeBDCompartida()
         {
-            if (ConexionBD.AbrirConexion())
-            {
-                //Pensar como borrar las listas
-                //Comprobar si ningun autor que queda tiene la Ocupacion
-                if (!String.IsNullOrWhiteSpace(nombreTipo) &&
-                    LecturaBD.SelectTipoLibroCantidadPorLibro(nombreTipo) == 0)
-                    EscrituraBD.DeleteOcupacion(nombreTipo);
+            LimpiadoDeListasBDCompartida();
 
-                EscrituraBD.DeleteLibro(this);
-                ConexionBD.CerrarConexion();
+            //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
+            EscrituraBD.DeleteUsuarioLibroDesdeLibro(this);
+
+            //Comprobar si ningun libro que queda tiene el tipo de libro
+            if (!String.IsNullOrWhiteSpace(nombreTipo) &&
+                LecturaBD.SelectTipoLibroCantidadPorLibro(nombreTipo) == 0)
+                EscrituraBD.DeleteTipoLibro(nombreTipo);
+
+            EscrituraBD.DeleteLibro(this);
+        }
+
+        private void LimpiadoDeListasBDCompartida()
+        {
+            //Borramos desde Libro todas las relaciones con Autores, Generos y Editoriales
+            EscrituraBD.DeleteListaAutorDesdeLibro(this);
+            EscrituraBD.DeleteListaEditorialDesdeLibro(this);
+            EscrituraBD.DeleteListaGeneroDesdeLibro(this);
+        }
+
+        public void MeterUsuarioLibroEnBDCompartida()
+        {
+            var usuario = UsuarioDatos.configuracionUsuario.InfoUsuarioActual;
+            if (LecturaBD.SelectUsuarioLibroExiste(usuario.Nombre, this) > 0)
+            {
+                EscrituraBD.UpdateUsuarioLibro(usuario.Nombre, this, usuario);
             }
+            else
+            {
+                EscrituraBD.InsertUsuarioLibro(this, usuario);
+            }
+        }
+
+        public void BorrarUsuarioLibroEnBDCompartida()
+        {
+            EscrituraBD.DeleteUsuarioLibro(this, 
+                UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
         }
 
         [Serializable]

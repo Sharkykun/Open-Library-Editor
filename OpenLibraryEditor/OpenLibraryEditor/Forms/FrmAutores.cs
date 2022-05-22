@@ -19,13 +19,10 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmAutores : Form
     {
         /*
-<<<<<<< HEAD
          TODO:
-        Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
-=======
+         Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
          To Do: Eliminar la imagen del autor no funciona, la quita pero no guarda el cambio
                 pasa lo mismo en editorial
->>>>>>> 16c21630765d34b80da5712343450e84ab6a07c2
          */
 
         #region atributos
@@ -217,11 +214,11 @@ namespace OpenLibraryEditor.Forms
         #endregion
         private void LsvAutoresNA_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (!e.IsSelected)
+            if (e != null && !e.IsSelected)
                 ComprobarGuardado();
 
             //Comprobar selección item
-            if (e.IsSelected && LsvAutoresNA.SelectedItems.Count == 1)
+            if (e == null || (e.IsSelected && LsvAutoresNA.SelectedItems.Count == 1))
             {
                 PanOpcionesNA.Visible = true;
                 itemActual = LsvAutoresNA.SelectedItems[0];
@@ -264,7 +261,11 @@ namespace OpenLibraryEditor.Forms
                     if (VentanaWindowsComun.MensajePregunta("¿Quieres borrar este autor en la BD?")
                         == DialogResult.Yes)
                     {
-                        autorActual.BorraDeBDCompartida();
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            autorActual.BorraDeBDCompartida();
+                            ConexionBD.CerrarConexion();
+                        }
                     }
                 }
 
@@ -366,16 +367,19 @@ namespace OpenLibraryEditor.Forms
                     if (ConexionBD.Conexion != null &&
                         UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                     {
+                        //-----------------
                         if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este autor en la BD compartida?")
                             == DialogResult.Yes)
                         {
-                            autorActual.MeterEnBDCompartida();
+                            if (ConexionBD.AbrirConexion())
+                            {
+                                autorActual.MeterEnBDCompartida();
+                                ConexionBD.CerrarConexion();
+                            }
                         }
                     }
 
-                    //Actualizar listview
-                    itemActual.Text = KTxtNombreAu.Text;
-                    itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+                    ActualizarListView();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                    
                 }
@@ -389,6 +393,40 @@ namespace OpenLibraryEditor.Forms
             ComprobarGuardado();
         }
 
-      
+        private void GBtnActualizar_Click(object sender, EventArgs e)
+        {
+            //Actualizar en BD compartida si se puede
+            if (ConexionBD.Conexion != null)
+            {
+                //-----------------
+                if (VentanaWindowsComun.MensajePregunta("¿Quieres actualizar desde la BD compartida este autor?")
+                    == DialogResult.Yes)
+                {
+                    if (ConexionBD.AbrirConexion())
+                    {
+                        Autor autor = LecturaBD.SelectAutor(EscrituraBD.GetObjetoIdDeLocal(
+                            autorActual.ListaIdCompartido));
+                        ConexionBD.CerrarConexion();
+                        autorActual.Nombre = autor.Nombre;
+                        autorActual.Alias = autor.Alias;
+                        autorActual.Comentario = autor.Comentario;
+                        autorActual.EnlaceReferencia = autor.EnlaceReferencia;
+                        autorActual.FechaDefuncion = autor.FechaDefuncion;
+                        autorActual.FechaNacimiento = autor.FechaNacimiento;
+                        autorActual.Imagen = autor.Imagen;
+                        autorActual.NombreOcupacion = autor.NombreOcupacion;
+                        LsvAutoresNA_ItemSelectionChanged(null, null);
+                        ActualizarListView();
+                    }
+                }
+            }
+        }
+
+        private void ActualizarListView()
+        {
+            //Actualizar listview
+            itemActual.Text = KTxtNombreAu.Text;
+            itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+        }
     }
 }

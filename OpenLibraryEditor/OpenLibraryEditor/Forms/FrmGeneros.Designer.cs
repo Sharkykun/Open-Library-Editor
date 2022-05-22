@@ -35,6 +35,8 @@
             this.LblTituloGeneros = new System.Windows.Forms.Label();
             this.PcbLogoGeneros = new System.Windows.Forms.PictureBox();
             this.PanBtnGe = new System.Windows.Forms.Panel();
+            this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
+            this.GBtnCancelar = new Guna.UI.WinForms.GunaButton();
             this.LsvGeneroNG = new System.Windows.Forms.ListView();
             this.ChNombreNG = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChGeneroPadreNG = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,8 +52,7 @@
             this.TTGeneros = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
-            this.GBtnCancelar = new Guna.UI.WinForms.GunaButton();
+            this.GBtnActualizar = new Guna.UI.WinForms.GunaButton();
             this.PanTituloGeneros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).BeginInit();
             this.PanBtnGe.SuspendLayout();
@@ -116,6 +117,7 @@
             // PanBtnGe
             // 
             this.PanBtnGe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.PanBtnGe.Controls.Add(this.GBtnActualizar);
             this.PanBtnGe.Controls.Add(this.GBtnAceptar);
             this.PanBtnGe.Controls.Add(this.GBtnCancelar);
             this.PanBtnGe.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -123,6 +125,60 @@
             this.PanBtnGe.Name = "PanBtnGe";
             this.PanBtnGe.Size = new System.Drawing.Size(805, 45);
             this.PanBtnGe.TabIndex = 98;
+            // 
+            // GBtnAceptar
+            // 
+            this.GBtnAceptar.AnimationHoverSpeed = 0.07F;
+            this.GBtnAceptar.AnimationSpeed = 0.03F;
+            this.GBtnAceptar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnAceptar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnAceptar.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnAceptar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnAceptar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnAceptar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnAceptar.Image = null;
+            this.GBtnAceptar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnAceptar.Location = new System.Drawing.Point(670, 5);
+            this.GBtnAceptar.Name = "GBtnAceptar";
+            this.GBtnAceptar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnAceptar.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnAceptar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnAceptar.OnHoverImage = null;
+            this.GBtnAceptar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnAceptar.Radius = 15;
+            this.GBtnAceptar.Size = new System.Drawing.Size(126, 35);
+            this.GBtnAceptar.TabIndex = 5;
+            this.GBtnAceptar.Text = "Aceptar";
+            this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
+            // 
+            // GBtnCancelar
+            // 
+            this.GBtnCancelar.AnimationHoverSpeed = 0.07F;
+            this.GBtnCancelar.AnimationSpeed = 0.03F;
+            this.GBtnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnCancelar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnCancelar.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnCancelar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnCancelar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnCancelar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnCancelar.Image = null;
+            this.GBtnCancelar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnCancelar.Location = new System.Drawing.Point(406, 5);
+            this.GBtnCancelar.Name = "GBtnCancelar";
+            this.GBtnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnCancelar.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnCancelar.OnHoverForeColor = System.Drawing.Color.Black;
+            this.GBtnCancelar.OnHoverImage = null;
+            this.GBtnCancelar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnCancelar.Radius = 15;
+            this.GBtnCancelar.Size = new System.Drawing.Size(126, 35);
+            this.GBtnCancelar.TabIndex = 4;
+            this.GBtnCancelar.Text = "Cancelar";
+            this.GBtnCancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnCancelar.Click += new System.EventHandler(this.GBtnCancelar_Click);
             // 
             // LsvGeneroNG
             // 
@@ -308,59 +364,32 @@
             this.panel1.Size = new System.Drawing.Size(3, 414);
             this.panel1.TabIndex = 149;
             // 
-            // GBtnAceptar
+            // GBtnActualizar
             // 
-            this.GBtnAceptar.AnimationHoverSpeed = 0.07F;
-            this.GBtnAceptar.AnimationSpeed = 0.03F;
-            this.GBtnAceptar.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnAceptar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnAceptar.BorderColor = System.Drawing.Color.Empty;
-            this.GBtnAceptar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnAceptar.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnAceptar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.GBtnAceptar.Image = null;
-            this.GBtnAceptar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnAceptar.Location = new System.Drawing.Point(670, 5);
-            this.GBtnAceptar.Name = "GBtnAceptar";
-            this.GBtnAceptar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnAceptar.OnHoverBorderColor = System.Drawing.Color.Empty;
-            this.GBtnAceptar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnAceptar.OnHoverImage = null;
-            this.GBtnAceptar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnAceptar.Radius = 15;
-            this.GBtnAceptar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnAceptar.TabIndex = 5;
-            this.GBtnAceptar.Text = "Aceptar";
-            this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
-            // 
-            // GBtnCancelar
-            // 
-            this.GBtnCancelar.AnimationHoverSpeed = 0.07F;
-            this.GBtnCancelar.AnimationSpeed = 0.03F;
-            this.GBtnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnCancelar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnCancelar.BorderColor = System.Drawing.Color.Empty;
-            this.GBtnCancelar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnCancelar.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnCancelar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.GBtnCancelar.Image = null;
-            this.GBtnCancelar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnCancelar.Location = new System.Drawing.Point(532, 5);
-            this.GBtnCancelar.Name = "GBtnCancelar";
-            this.GBtnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnCancelar.OnHoverBorderColor = System.Drawing.Color.Empty;
-            this.GBtnCancelar.OnHoverForeColor = System.Drawing.Color.Black;
-            this.GBtnCancelar.OnHoverImage = null;
-            this.GBtnCancelar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnCancelar.Radius = 15;
-            this.GBtnCancelar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnCancelar.TabIndex = 4;
-            this.GBtnCancelar.Text = "Cancelar";
-            this.GBtnCancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnCancelar.Click += new System.EventHandler(this.GBtnCancelar_Click);
+            this.GBtnActualizar.AnimationHoverSpeed = 0.07F;
+            this.GBtnActualizar.AnimationSpeed = 0.03F;
+            this.GBtnActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnActualizar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnActualizar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnActualizar.Image = null;
+            this.GBtnActualizar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnActualizar.Location = new System.Drawing.Point(538, 5);
+            this.GBtnActualizar.Name = "GBtnActualizar";
+            this.GBtnActualizar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnActualizar.OnHoverImage = null;
+            this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.Radius = 15;
+            this.GBtnActualizar.Size = new System.Drawing.Size(126, 35);
+            this.GBtnActualizar.TabIndex = 6;
+            this.GBtnActualizar.Text = "Actualizar con BD";
+            this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnActualizar.Click += new System.EventHandler(this.GBtnActualizar_Click);
             // 
             // FrmGeneros
             // 
@@ -417,5 +446,6 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaButton GBtnAceptar;
         private Guna.UI.WinForms.GunaButton GBtnCancelar;
+        private Guna.UI.WinForms.GunaButton GBtnActualizar;
     }
 }

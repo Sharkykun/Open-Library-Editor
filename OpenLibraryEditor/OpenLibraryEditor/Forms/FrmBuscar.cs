@@ -1,4 +1,6 @@
 ﻿using Google.Apis.Books.v1.Data;
+using MySql.Data.MySqlClient;
+using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.Controles;
 using OpenLibraryEditor.DatosLibros;
@@ -43,6 +45,7 @@ namespace OpenLibraryEditor.Forms
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
             KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
+            KCmbServidoresBUS.Items.Add(UsuarioDatos.configuracionUsuario.BDActual);
             UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
             KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
@@ -102,12 +105,13 @@ namespace OpenLibraryEditor.Forms
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
         {
             string query;
+            ImageList imglist = new ImageList();
+            LsvBuscarLibros.Items.Clear();
+
             switch (KCmbServidoresBUS.SelectedItem)
             {
                 case NOMBRE_GOOGLE:
                     query = QueryGoogle();
-                    ImageList imglist = new ImageList();
-                    LsvBuscarLibros.Items.Clear();
                     //Iniciar API
                     GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
                         UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
@@ -140,7 +144,66 @@ namespace OpenLibraryEditor.Forms
                     }
                     break;
                 default:
-                    //Lanzar sentencia SQL adecuada según el Combo de tipo
+                    if (KCmbServidoresBUS.SelectedItem != null)
+                    {
+                        //Lanzar sentencia SQL adecuada según el Combo de tipo
+                        //Respaldar conexión actual
+                        MySqlConnection conexionCopia = ConexionBD.Conexion;
+
+                        //Establecer conexión en anonimo a la BD compartida elegida
+                        InfoBaseDatos bdInfo = (InfoBaseDatos)KCmbServidoresBUS.SelectedItem;
+                        ConexionBD.EstablecerConexion(bdInfo.ServidorIP, "ole_anon", "", bdInfo.Puerto.ToString());
+
+                        //Conectarse y sacar libros según el criterio de busqueda
+                        List<Libro> listaLibro = new List<Libro>();
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            switch (KCmbTipoBusquedaBUS.SelectedIndex)
+                            {
+                                case 0:
+                                    listaLibro = LecturaBD.SelectBuscarLibro(
+                                        "titulo",KTxtBuscarBUS.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                    break;
+                                case 1:
+                                    listaLibro = LecturaBD.SelectBuscarLibro(
+                                        "isbn13", KTxtBuscarBUS.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                    break;
+                                case 2:
+                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(KTxtBuscarBUS.Text, "Autor",
+                                        "idAutor", "nombreAutor",
+                                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                    break;
+                                case 3:
+                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
+                                        KTxtBuscarBUS.Text, "Editorial", "idEditorial", "nombreEditorial",
+                                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                    break;
+                                case 4:
+                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
+                                        KTxtBuscarBUS.Text, "Genero", "idGenero", "nombreGenero",
+                                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                    break;
+                            }
+
+                            //Recorremos lista para meter en Listview
+                            LsvBuscarLibros.SmallImageList = imglist;
+                            LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
+                            foreach (Libro libro in listaLibro)
+                            {
+                                //El salto de línea funcionará cuando tengan foto
+                                ListViewItem lvi =
+                                    LsvBuscarLibros.Items.Add(libro.Titulo + "\n" +
+                                    libro.FechaPublicacion.Date.ToShortDateString()
+                                    + "\n" + libro.Sinopsis);
+                                lvi.Tag = libro;
+                            }
+
+                            ConexionBD.CerrarConexion();
+                        }
+
+                        //Recuperar conexión con nuestra BD
+                        ConexionBD.Conexion = conexionCopia;
+                    }
                     break;
             }
 
@@ -188,6 +251,21 @@ namespace OpenLibraryEditor.Forms
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+                        }
+                        catch (IdRepetidoException)
+                        {
+                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_LibroExiste"));
+                        }
+                    }
+                    break;
+                default:
+                    //Pregunta si añadir libro a la lista local,
+                    //y convertir en caso afirmativo
+                    if (VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Bus_libro")) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            Biblioteca.biblioteca.ListaLibro.Add((Libro)LsvBuscarLibros.SelectedItems[0].Tag);
                         }
                         catch (IdRepetidoException)
                         {

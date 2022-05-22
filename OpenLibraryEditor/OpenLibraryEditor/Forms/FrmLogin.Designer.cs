@@ -33,7 +33,6 @@
             this.PanLogin = new System.Windows.Forms.Panel();
             this.GBtnCrearBD = new Guna.UI.WinForms.GunaButton();
             this.GBtnEntrar = new Guna.UI.WinForms.GunaButton();
-            this.GBtnRegistro = new Guna.UI.WinForms.GunaButton();
             this.GBtnSinConexion = new Guna.UI.WinForms.GunaButton();
             this.LblError = new System.Windows.Forms.Label();
             this.LblSesionIniciada = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.IpcbMostrarContra = new FontAwesome.Sharp.IconPictureBox();
             this.IpcbOcultarContra = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtContra = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.GBtnRegistro = new Guna.UI.WinForms.GunaButton();
             this.PcbLogo = new System.Windows.Forms.PictureBox();
             this.ToolIdiomas = new System.Windows.Forms.ToolStrip();
             this.BtnSpain = new System.Windows.Forms.ToolStripButton();
@@ -66,6 +66,7 @@
             this.PanLogin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PanLogin.Controls.Add(this.GBtnCrearBD);
             this.PanLogin.Controls.Add(this.GBtnEntrar);
+            this.PanLogin.Controls.Add(this.GBtnRegistro);
             this.PanLogin.Controls.Add(this.GBtnSinConexion);
             this.PanLogin.Controls.Add(this.LblError);
             this.PanLogin.Controls.Add(this.LblSesionIniciada);
@@ -124,7 +125,7 @@
             this.GBtnEntrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnEntrar.Image = null;
             this.GBtnEntrar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnEntrar.Location = new System.Drawing.Point(15, 282);
+            this.GBtnEntrar.Location = new System.Drawing.Point(192, 281);
             this.GBtnEntrar.Name = "GBtnEntrar";
             this.GBtnEntrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnEntrar.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -132,40 +133,11 @@
             this.GBtnEntrar.OnHoverImage = null;
             this.GBtnEntrar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnEntrar.Radius = 18;
-            this.GBtnEntrar.Size = new System.Drawing.Size(353, 39);
+            this.GBtnEntrar.Size = new System.Drawing.Size(178, 39);
             this.GBtnEntrar.TabIndex = 24;
             this.GBtnEntrar.Text = "Entrar";
             this.GBtnEntrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnEntrar.Click += new System.EventHandler(this.GBtnEntrar_Click);
-            // 
-            // GBtnRegistro
-            // 
-            this.GBtnRegistro.AnimationHoverSpeed = 0.07F;
-            this.GBtnRegistro.AnimationSpeed = 0.03F;
-            this.GBtnRegistro.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnRegistro.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.GBtnRegistro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.BorderSize = 2;
-            this.GBtnRegistro.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnRegistro.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnRegistro.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.Image = null;
-            this.GBtnRegistro.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnRegistro.Location = new System.Drawing.Point(897, 571);
-            this.GBtnRegistro.Name = "GBtnRegistro";
-            this.GBtnRegistro.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.GBtnRegistro.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.GBtnRegistro.OnHoverImage = null;
-            this.GBtnRegistro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.GBtnRegistro.Radius = 18;
-            this.GBtnRegistro.Size = new System.Drawing.Size(175, 39);
-            this.GBtnRegistro.TabIndex = 23;
-            this.GBtnRegistro.Text = "Registrarse";
-            this.GBtnRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnRegistro.Visible = false;
-            this.GBtnRegistro.Click += new System.EventHandler(this.GBtnRegistro_Click);
             // 
             // GBtnSinConexion
             // 
@@ -349,6 +321,34 @@
             this.KTxtContra.Enter += new System.EventHandler(this.KTxtContra_Enter);
             this.KTxtContra.Leave += new System.EventHandler(this.KTxtContra_Leave);
             // 
+            // GBtnRegistro
+            // 
+            this.GBtnRegistro.AnimationHoverSpeed = 0.07F;
+            this.GBtnRegistro.AnimationSpeed = 0.03F;
+            this.GBtnRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnRegistro.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.BorderSize = 2;
+            this.GBtnRegistro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnRegistro.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnRegistro.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.Image = null;
+            this.GBtnRegistro.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnRegistro.Location = new System.Drawing.Point(15, 282);
+            this.GBtnRegistro.Name = "GBtnRegistro";
+            this.GBtnRegistro.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.OnHoverImage = null;
+            this.GBtnRegistro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.Radius = 18;
+            this.GBtnRegistro.Size = new System.Drawing.Size(171, 39);
+            this.GBtnRegistro.TabIndex = 23;
+            this.GBtnRegistro.Text = "Registrarse";
+            this.GBtnRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnRegistro.Click += new System.EventHandler(this.GBtnRegistro_Click);
+            // 
             // PcbLogo
             // 
             this.PcbLogo.BackColor = System.Drawing.Color.Transparent;
@@ -442,7 +442,6 @@
             this.ClientSize = new System.Drawing.Size(1200, 800);
             this.Controls.Add(this.MBtnCerrarLogin);
             this.Controls.Add(this.ToolIdiomas);
-            this.Controls.Add(this.GBtnRegistro);
             this.Controls.Add(this.PcbLogo);
             this.Controls.Add(this.PanLogin);
             this.DoubleBuffered = true;

@@ -66,9 +66,10 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static List<Autor> SelectAutoresLista()
+		public static List<Autor> SelectAutoresDesdeListaAutor(int idLibro)
 		{
-			string query = "SELECT * FROM Autor";
+			string query = "SELECT * FROM Autor WHERE idAutor = " +
+				"(SELECT idAutor FROM ListaAutor WHERE idLibro = "+ idLibro+")";
 			List<Autor> listaAutores = new List<Autor>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
@@ -146,7 +147,8 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static void SelectUsuarioLibro(string nombreUsuario, Libro libro)
 		{
-			string query = "SELECT * FROM UsuarioLibro WHERE nombreUsuario = '" + nombreUsuario + "'";
+			string query = "SELECT * FROM UsuarioLibro WHERE nombreUsuario = '" + nombreUsuario + "'"
+				+ " AND idLibro = "+EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido);
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
 			{
@@ -161,10 +163,24 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static List<Editorial> SelectEditorialesLista()
+		public static int SelectUsuarioLibroExiste(string nombreUsuario, Libro libro)
 		{
-			string query = "SELECT * FROM Editorial";
-			List<Editorial> listaEditoriales = new List<Editorial>();
+			string query = String.Format(@"
+                SELECT COUNT(*) FROM UsuarioLibro WHERE nombreUsuario = '" + 
+				nombreUsuario + "' AND idLibro ='" 
+				+ EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido) 
+				+ "'");
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
+		public static List<Editorial> SelectEditorialesDesdeListaEditorial(int idLibro)
+		{
+			string query = "SELECT * FROM Editorial WHERE idEditorial = " +
+				"(SELECT idEditorial FROM ListaEditorial WHERE idLibro = " + idLibro + ")";
+			List<Editorial> listaEditorial = new List<Editorial>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
 			{
@@ -173,10 +189,10 @@ namespace OpenLibraryEditor.BaseDatos
 
 					while (lector.Read())
 					{
-						listaEditoriales.Add(ConversorRegistro.RegistroAEditorial(lector));
+						listaEditorial.Add(ConversorRegistro.RegistroAEditorial(lector));
 					}
 
-					return listaEditoriales;
+					return listaEditorial;
 				}
 			}
 		}
@@ -200,9 +216,10 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static List<Genero> SelectGenerosLista()
+		public static List<Genero> SelectGenerosDesdeListaGenero(int idLibro)
 		{
-			string query = "SELECT * FROM Genero";
+			string query = "SELECT * FROM Genero WHERE idGenero = " +
+				"(SELECT idGenero FROM ListaGenero WHERE idLibro = " + idLibro + ")";
 			List<Genero> listaGeneros = new List<Genero>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
@@ -259,9 +276,10 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-		public static Libro SelectLibro(int idLibro)
+		public static Libro SelectLibro(int idLibro, InfoUsuarioBD usuario)
 		{
 			string query = "SELECT * FROM Libro WHERE idLibro = '" + idLibro + "'";
+			Libro libro = null;
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
 			{
@@ -270,12 +288,25 @@ namespace OpenLibraryEditor.BaseDatos
 
 					if (lector.Read())
 					{
-						return ConversorRegistro.RegistroALibro(lector);
+						libro = ConversorRegistro.RegistroALibro(lector);
 					}
-
-					return null;
 				}
 			}
+
+			if (libro != null)
+			{
+				//Recuperar listas
+				libro.ListaAutor.AddRange(SelectAutoresDesdeListaAutor(
+							EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
+				libro.ListaEditorial.AddRange(SelectEditorialesDesdeListaEditorial(
+							EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
+				libro.ListaGenero.AddRange(SelectGenerosDesdeListaGenero(
+							EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
+				if (usuario != null)
+					LecturaBD.SelectUsuarioLibro(usuario.Nombre,libro);
+			}
+
+			return libro;
 		}
 
 		public static string SelectTipoLibro(string tipoLibro)
@@ -305,6 +336,84 @@ namespace OpenLibraryEditor.BaseDatos
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());
 			}
+		}
+
+		public static List<Libro> SelectBuscarLibro(string campo, string texto, InfoUsuarioBD usuario)
+		{
+			string query = "SELECT * FROM Libro WHERE "+campo+" LIKE '%" + texto + "%'";
+			List<int> listaIds = new List<int>();
+			List<Libro> listaLibros = new List<Libro>();
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					while (lector.Read())
+					{
+						listaIds.Add(int.Parse(lector["idLibro"].ToString()));
+					}
+				}
+			}
+
+			foreach (int id in listaIds)
+			{
+				listaLibros.Add(SelectLibro(id, usuario));
+			}
+
+			return listaLibros;
+		}
+
+		public static List<Libro> SelectBuscarElementoPorNombre(string texto, string tabla, string campoId, string nombreCampo, InfoUsuarioBD usuario)
+		{
+			string query = "SELECT "+ campoId + " FROM "+tabla+" WHERE "+nombreCampo+" LIKE '%" + texto + "%'";
+			List<int> listaIds = new List<int>();
+			List<Libro> listaLibros = new List<Libro>();
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					while (lector.Read())
+					{
+						listaIds.Add(int.Parse(lector[campoId].ToString()));
+					}
+				}
+			}
+
+			foreach (int id in listaIds)
+			{
+				listaLibros.AddRange(SelectBuscarLibrosDesdeLista(tabla, campoId, id, usuario));
+			}
+
+			return listaLibros;
+		}
+
+		private static List<Libro> SelectBuscarLibrosDesdeLista(string tabla, string campo, int idElemento, InfoUsuarioBD usuario)
+		{
+			string query = "SELECT * FROM Lista"+tabla+" WHERE "+campo+" = " + idElemento;
+			List<int> listaIds = new List<int>();
+			List<Libro> listaLibros = new List<Libro>();
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					while (lector.Read())
+					{
+						listaIds.Add(int.Parse(lector["idLibro"].ToString()));
+					}
+				}
+			}
+
+			foreach (int id in listaIds)
+			{
+				listaLibros.Add(SelectLibro(id, usuario));
+			}
+
+			return listaLibros;
 		}
 	}
 }

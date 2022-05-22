@@ -66,28 +66,22 @@ namespace OpenLibraryEditor.DatosLibros
 
         public void MeterEnBDCompartida()
         {
-            if (ConexionBD.AbrirConexion())
+            if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
             {
-                if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
-                {
-                    EscrituraBD.UpdateGenero(this);
-                }
-                else
-                {
-                    EscrituraBD.InsertGenero(this);
-                }
-
-                ConexionBD.CerrarConexion();
+                EscrituraBD.UpdateGenero(this);
+            }
+            else
+            {
+                EscrituraBD.InsertGenero(this);
             }
         }
 
         public void BorraDeBDCompartida()
         {
-            if (ConexionBD.AbrirConexion())
-            {
-                EscrituraBD.DeleteGenero(this);
-                ConexionBD.CerrarConexion();
-            }
+            //Borrar referencia con libros, si existe
+            EscrituraBD.DeleteListaGeneroDesdeGenero(this);
+
+            EscrituraBD.DeleteGenero(this);
         }
     }
 }
