@@ -160,6 +160,7 @@ namespace OpenLibraryEditor.Clases
             }
 
             //Sacar datos de libro
+            book.SetRandomId();
             book.Isbn_10 = isbn10;
             book.Isbn_13 = isbn13;
             book.Titulo = volInfo.Title;
@@ -179,7 +180,7 @@ namespace OpenLibraryEditor.Clases
                     Double.Parse(volInfo.SeriesInfo.BookDisplayNumber);
             if (volInfo.ImageLinks != null)
             {
-                book.ImagenPortada = ControladorImagen.RUTA_LIBRO+isbn13+"_c.png";
+                book.ImagenPortada = ControladorImagen.RUTA_LIBRO+book.IdLibro+"_c.png";
                 SaveImageFromURL(volInfo.ImageLinks.Thumbnail).Save(book.ImagenPortada);
             }
             if (volInfo.MaturityRating == "MATURE")

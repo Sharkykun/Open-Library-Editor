@@ -1,6 +1,8 @@
-﻿using OpenLibraryEditor.BaseDatos;
+﻿using Newtonsoft.Json;
+using OpenLibraryEditor.BaseDatos;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -32,6 +34,8 @@ namespace OpenLibraryEditor.DatosLibros
         private List<Autor> listaAutor = new List<Autor>();
         private string imagenPortada;
         private string imagenContraportada;
+        private byte[] portadaTemp;
+        private byte[] contraportadaTemp;
         private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
         private string nombreTipo; //novela, manga, novela web...
         private bool mayorEdad;
@@ -101,6 +105,10 @@ namespace OpenLibraryEditor.DatosLibros
         public List<UsuarioAccion> ListaAccion { get => listaAccion; set => listaAccion = value; }
         public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
         public int IdLibro { get => idLibro; set => idLibro = value; }
+        [JsonIgnore]
+        public byte[] PortadaTemp { get => portadaTemp; set => portadaTemp = value; }
+        [JsonIgnore]
+        public byte[] ContraportadaTemp { get => contraportadaTemp; set => contraportadaTemp = value; }
         #endregion
 
         override public string ToString()
@@ -108,7 +116,7 @@ namespace OpenLibraryEditor.DatosLibros
             return titulo;
         }
 
-        private void SetRandomId()
+        public void SetRandomId()
         {
             Random rnd = new Random();
             do

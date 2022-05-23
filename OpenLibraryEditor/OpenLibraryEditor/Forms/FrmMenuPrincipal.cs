@@ -1041,8 +1041,64 @@ namespace OpenLibraryEditor.Forms
                         Libro libro = LecturaBD.SelectLibro(EscrituraBD.GetObjetoIdDeLocal(
                             libroActual.ListaIdCompartido),
                             UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                        
+                        if (libro != null)
+                        {
+                            //info comun
+                            libro.IdLibro = libroActual.IdLibro;
+                            libroActual.Isbn_13 = libro.Isbn_13;
+                            libroActual.Titulo = libro.Titulo;
+                            libroActual.Subtitulo = libro.Subtitulo;
+                            libroActual.TituloAlternativo = libro.TituloAlternativo;
+                            libroActual.Sinopsis = libro.Sinopsis;
+                            libroActual.NumeroPaginas = libro.NumeroPaginas;
+                            libroActual.FechaPublicacion = libro.FechaPublicacion;
+                            libroActual.FechaAdicionBD = libro.FechaAdicionBD;
+                            libroActual.Edicion = libro.Edicion;
+                            libroActual.NumeroVolumen = libro.NumeroVolumen;
+                            libroActual.Idioma = libro.Idioma;
+                            libroActual.IdiomaOriginal = libro.IdiomaOriginal;
+                            libroActual.Isbn_10 = libro.Isbn_10;
+                            libroActual.ImagenPortada = libro.ImagenPortada;
+                            libroActual.ImagenContraportada = libro.ImagenContraportada;
+                            libroActual.NombreTipo = libro.NombreTipo;
+                            libroActual.MayorEdad = libro.MayorEdad;
+                            libroActual.NumeroCapitulos = libro.NumeroCapitulos;
+                            libroActual.EnlaceReferencia = libro.EnlaceReferencia;
+                            libroActual.ImagenPortada = libro.PortadaTemp == null ? null :
+                                ControladorImagen.RUTA_LIBRO + libroActual.IdLibro+"_c";
+                            libroActual.ImagenContraportada = libro.ContraportadaTemp == null ? null :
+                                ControladorImagen.RUTA_LIBRO + libroActual.IdLibro + "_b";
+                            if (libroActual.ImagenPortada != null)
+                            {
+                                File.Delete(libroActual.ImagenPortada);
+                                File.WriteAllBytes(libroActual.ImagenPortada, libro.PortadaTemp);
+                            }
+                            if (libroActual.ImagenContraportada != null)
+                            {
+                                File.Delete(libroActual.ImagenPortada);
+                                File.WriteAllBytes(libroActual.ImagenPortada, libro.ContraportadaTemp);
+                            }
+
+                            //obtener info usuariolibro si existe
+                            if (LecturaBD.SelectUsuarioLibroExiste(
+                                UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre,
+                                libro) > 0)
+                            {
+                                libroActual.Puntuacion = libro.Puntuacion;
+                                libroActual.VecesLeido = libro.VecesLeido;
+                                libroActual.EstadoLectura = libro.EstadoLectura;
+                                libroActual.TiempoLectura = libro.TiempoLectura;
+                                libroActual.Comentario = libro.Comentario;
+                                libroActual.CapituloActual = libro.CapituloActual;
+                                libroActual.FechaComienzo = libro.FechaComienzo;
+                                libroActual.FechaTerminado = libro.FechaTerminado;
+                                libroActual.Ocultar = libro.Ocultar;
+                                libroActual.Favorito = libro.Favorito;
+                            }
+                        }
                         ConexionBD.CerrarConexion();
-                        //Reemplazar info de libro encontrado
+                        RecolocarLibros(false);
                     }
                 }
             }
