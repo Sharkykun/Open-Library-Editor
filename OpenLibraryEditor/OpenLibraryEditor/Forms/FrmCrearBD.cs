@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.Forms
         private bool isOk;
 
         public bool IsOk { get => isOk; set => isOk = value; }
-
+        private int numero = 0;
         public FrmCrearBD()
         {
             InitializeComponent();
@@ -53,17 +53,35 @@ namespace OpenLibraryEditor.Forms
         private void GBtnCrear_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrWhiteSpace(KTxtUrl.Text) && !String.IsNullOrWhiteSpace(KTxtNombreUSer.Text)
-              && !String.IsNullOrWhiteSpace(KNudPuerto.ToString())) 
-            { 
-                BaseDatos.ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString());
-                BaseDatos.ConexionBD.AbrirConexion();
-                BaseDatos.ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
-                BaseDatos.ConexionBD.CerrarConexion();
-                FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
-                BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, KTxtNombreApp.Text,
-                    KTxtContraApp.Text, KNudPuerto.Value.ToString());
-                isOk = true;
-                Close();
+              && !String.IsNullOrWhiteSpace(KNudPuerto.ToString()) && !String.IsNullOrWhiteSpace(KTxtNombreApp.Text)
+              && !String.IsNullOrWhiteSpace(KTxtEmailApp.Text) && !String.IsNullOrWhiteSpace(KTxtContraApp.Text)) 
+            {
+                DialogResult result = DialogResult.No;
+                do
+                {
+                    ValidarEmail mail = new ValidarEmail();
+                    numero = mail.Send("openlibraryeditor@gmail.com", "oleOLEole", KTxtEmailApp.Text);
+
+                    if (numero == 0)
+                    {
+                        VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ReenviarMail"));
+                    }
+                } while (result == DialogResult.Yes);
+                FrmVerificacionMail verificar = new FrmVerificacionMail(numero);
+                verificar.FormBorderStyle = FormBorderStyle.None;
+                verificar.ShowDialog();
+                if (verificar.MailVerificado)
+                {
+                    BaseDatos.ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString());
+                    BaseDatos.ConexionBD.AbrirConexion();
+                    BaseDatos.ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
+                    BaseDatos.ConexionBD.CerrarConexion();
+                    FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
+                    BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, KTxtNombreApp.Text,
+                        KTxtContraApp.Text, KNudPuerto.Value.ToString());
+                    isOk = true;
+                    Close();
+                }
                 //BaseDatos.EscrituraBD.InsertOcupacion("Escritor");
                 //BaseDatos.EscrituraBD.InsertAutor(testA);
                 //testA.Nombre = "Jose";

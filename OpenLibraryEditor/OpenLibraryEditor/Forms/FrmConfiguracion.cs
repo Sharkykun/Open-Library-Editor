@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualBasic;
+using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
+using OpenLibraryEditor.Metodos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,16 +14,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace OpenLibraryEditor.Forms
 {
     public partial class FrmConfiguracion : Form
     {
-        /*
-       TODO:
-       - Añadir a doble click con IdiomaTexto los valores: Ejecutar Libro, Editar Información.
-       - Poner idioma al nuevo label para editar IP.
-       - Poner idioma al nuevo label para editar Clave Google Books.
-       */
         private UsuarioDatos configuracionUsuario = UsuarioDatos.configuracionUsuario;
         private List<string> idiomas;
         private string ipAnterior = "0.0.0.0";
@@ -29,19 +26,71 @@ namespace OpenLibraryEditor.Forms
         private const string IDIOMA_ESPANOL = "Español de España (European Spanish)";
         private const string IDIOMA_INGLES = "English (EEUU)";
         private const string IDIOMA_FRANCES = "Français (French)";
+
+        private bool usuRegistrado;
         public FrmConfiguracion()
         {
             InitializeComponent();
+        }
+        public FrmConfiguracion(bool usuRegistrado)
+        {
+            InitializeComponent();
+            this.usuRegistrado = usuRegistrado;
+        }
+
+        private void FrmPruebaConfi_Load(object sender, EventArgs e)
+        {
+            IdiomaTexto();
+            //PosicionInicial();
+            CmbIdiomaConfi.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbIdiomaConfi.DrawMode = DrawMode.OwnerDrawFixed;
+            idiomas = new List<string>();
+            idiomas.Add("Español de España (European Spanish)");
+            idiomas.Add("English (EEUU)");
+            idiomas.Add("Français (French)");
+            CmbIdiomaConfi.Items.AddRange(idiomas.ToArray());
+            CargarConfiguracion();
+            CmbIP.Items.AddRange(configuracionUsuario.ListaInfoBD.ToArray());
+            //Seleccionar BD si el usuario ha entrado en alguna al iniciar sesion
+            CmbIP.SelectedItem = configuracionUsuario.BDActual;
+            
+            gunaHScrollBar1.Maximum = 250;
+            gunaHScrollBar1.Minimum = -60;
+            gunaHScrollBar1.Value = 0;
+
+            if (usuRegistrado)
+            {
+                PanDatosUsu.Visible = true;
+                TxtMailActual.Text = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo;
+            }
+            else
+            {
+                KgbDatosUsu.Visible = false;
+            }
         }
 
         #region metodos propios
         private void IdiomaTexto()
         {
             LblTituloConfi.Text = ControladorIdioma.GetTexto("Con_Titulo");
+            KgbDatosUsu.Values.Heading = ControladorIdioma.GetTexto("Con_DatosUsu");
+            LblMailActual.Text = ControladorIdioma.GetTexto("Con_MailActual");
+            TTConfi.SetToolTip(this.TxtMailActual, ControladorIdioma.GetTexto("Con_TTMailA"));
+            LblMailNuevo.Text = ControladorIdioma.GetTexto("Con_MailNuevo");
+            TTConfi.SetToolTip(this.TxtMailNuevo, ControladorIdioma.GetTexto("Con_TTMailN"));
+            LblNuevaPass.Text = ControladorIdioma.GetTexto("Con_ContraNueva");
+            TTConfi.SetToolTip(this.KTxtContraNueva, ControladorIdioma.GetTexto("Con_TTContraNueva"));
+            LblRepetrirContra.Text = ControladorIdioma.GetTexto("Con_RepetirContra");
+            TTConfi.SetToolTip(this.KTxtRepetirContra, ControladorIdioma.GetTexto("Con_TTRepetirContra"));
+            GBtnActualizarMail.Text = ControladorIdioma.GetTexto("Actualizar");
+            TTConfi.SetToolTip(this.GBtnActualizarMail, ControladorIdioma.GetTexto("Con_TTActualizar"));
+            GBtnModificarPass.Text = ControladorIdioma.GetTexto("Modificar");
+            TTConfi.SetToolTip(this.GBtnModificarPass, ControladorIdioma.GetTexto("Con_TTModificar"));
+
             KgbGeneral.Values.Heading = ControladorIdioma.GetTexto("Con_General");
-            LblUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GCargar");
-            TxtSubtituloUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GRecordar");
-            TTConfi.SetToolTip(this.TBtnUltimaBBDD, ControladorIdioma.GetTexto("Con_GTTCargar"));
+            //LblUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GCargar");
+            //TxtSubtituloUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GRecordar");
+            //TTConfi.SetToolTip(this.TBtnUltimaBBDD, ControladorIdioma.GetTexto("Con_GTTCargar"));
             LblUbicacion.Text = ControladorIdioma.GetTexto("Con_GUbicacion");
             TxtSubtituloUbicacion.Text = ControladorIdioma.GetTexto("Con_Gruta");
             TTConfi.SetToolTip(this.IBtnOpenFile, ControladorIdioma.GetTexto("Con_GTTRuta"));
@@ -62,12 +111,12 @@ namespace OpenLibraryEditor.Forms
             LblDobleClick.Text = ControladorIdioma.GetTexto("Con_ADoble");
             TxtSubtituloDobleClick.Text = ControladorIdioma.GetTexto("Con_AConfiDoble");
             TTConfi.SetToolTip(this.CmbDobleClick, ControladorIdioma.GetTexto("Con_ATTCmbDoble"));
-            LblTema.Text = ControladorIdioma.GetTexto("Con_ATema");
-            TxtSubtituloTema.Text = ControladorIdioma.GetTexto("Con_AEstTema");
-            RbtnClaro.Text = ControladorIdioma.GetTexto("Con_AClaro");
-            TTConfi.SetToolTip(this.RbtnClaro, ControladorIdioma.GetTexto("Con_AClaro"));
-            RbtnOscuro.Text = ControladorIdioma.GetTexto("Con_AOscuro");
-            TTConfi.SetToolTip(this.RbtnOscuro, ControladorIdioma.GetTexto("Con_AOscuro"));
+            //LblTema.Text = ControladorIdioma.GetTexto("Con_ATema");
+            //TxtSubtituloTema.Text = ControladorIdioma.GetTexto("Con_AEstTema");
+            //RbtnClaro.Text = ControladorIdioma.GetTexto("Con_AClaro");
+            //TTConfi.SetToolTip(this.RbtnClaro, ControladorIdioma.GetTexto("Con_AClaro"));
+            //RbtnOscuro.Text = ControladorIdioma.GetTexto("Con_AOscuro");
+            //TTConfi.SetToolTip(this.RbtnOscuro, ControladorIdioma.GetTexto("Con_AOscuro"));
 
             KgbDescargasWeb.Values.Heading = ControladorIdioma.GetTexto("Con_Descargas");
             LblCamposActualizar.Text = ControladorIdioma.GetTexto("Con_DWSelecciona");
@@ -82,13 +131,13 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.ChkEditoriales, ControladorIdioma.GetTexto("Con_DWEditoriales"));
             ChkTags.Text = ControladorIdioma.GetTexto("Con_DWEtiquetas");
             TTConfi.SetToolTip(this.ChkTags, ControladorIdioma.GetTexto("Con_DWEtiquetas"));
-            KgbImagenesLibro.Values.Heading = ControladorIdioma.GetTexto("Con_DWTam");
-            RbtnMiniatura.Text = ControladorIdioma.GetTexto("Con_DWMini");
-            TTConfi.SetToolTip(this.RbtnMiniatura, ControladorIdioma.GetTexto("Con_DWMini"));
-            RbtnMediana.Text = ControladorIdioma.GetTexto("Con_DWMedi");
-            TTConfi.SetToolTip(this.RbtnMediana, ControladorIdioma.GetTexto("Con_DWMedi"));
-            RbtnGrande.Text = ControladorIdioma.GetTexto("Con_DWGrande");
-            TTConfi.SetToolTip(this.RbtnGrande, ControladorIdioma.GetTexto("Con_DWGrande"));
+            //KgbImagenesLibro.Values.Heading = ControladorIdioma.GetTexto("Con_DWTam");
+            //RbtnMiniatura.Text = ControladorIdioma.GetTexto("Con_DWMini");
+            //TTConfi.SetToolTip(this.RbtnMiniatura, ControladorIdioma.GetTexto("Con_DWMini"));
+            //RbtnMediana.Text = ControladorIdioma.GetTexto("Con_DWMedi");
+            //TTConfi.SetToolTip(this.RbtnMediana, ControladorIdioma.GetTexto("Con_DWMedi"));
+            //RbtnGrande.Text = ControladorIdioma.GetTexto("Con_DWGrande");
+            //TTConfi.SetToolTip(this.RbtnGrande, ControladorIdioma.GetTexto("Con_DWGrande"));
 
             KgbServidorWeb.Values.Heading = ControladorIdioma.GetTexto("Con_Servidor");
             LblTituloServidorWeb.Text = ControladorIdioma.GetTexto("Con_SWTitulo");
@@ -113,6 +162,26 @@ namespace OpenLibraryEditor.Forms
             CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEditar"));
 
         }
+        private void gunaHScrollBar1_ValueChanged(object sender, EventArgs e)
+        {
+            
+                if (PanElementos.Width < 850) 
+                {
+                    MPcbConfi.Location = new Point(-gunaHScrollBar1.Value, MPcbConfi.Location.Y);
+                    LblTituloConfi.Location = new Point(-gunaHScrollBar1.Value + MPcbConfi.Width, LblTituloConfi.Location.Y);
+                    KgbDatosUsu.Location = new Point(-gunaHScrollBar1.Value, KgbDatosUsu.Location.Y);
+                    KgbGeneral.Location = new Point(-gunaHScrollBar1.Value, KgbGeneral.Location.Y);
+                    KgbApariencia.Location = new Point(-gunaHScrollBar1.Value, KgbApariencia.Location.Y);
+                    KgbDescargasWeb.Location = new Point(-gunaHScrollBar1.Value, KgbDescargasWeb.Location.Y);
+                    KgbServidorWeb.Location = new Point(-gunaHScrollBar1.Value, KgbServidorWeb.Location.Y);
+                    //GBtnRestaurar.Location = new Point(-gunaHScrollBar1.Value, GBtnRestaurar.Location.Y);
+                    //GBtnAceptar.Location = new Point(-gunaHScrollBar1.Value + 355 + GBtnCancelar.Width + GBtnRestaurar.Width, GBtnAceptar.Location.Y);
+                    //GBtnCancelar.Location = new Point(-gunaHScrollBar1.Value + 350 + GBtnRestaurar.Width, GBtnCancelar.Location.Y);
+                }
+        }
+
+      
+
         private void CmbIdiomaConfi_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
@@ -163,7 +232,7 @@ namespace OpenLibraryEditor.Forms
         private void CargarConfiguracion()
         {
             //Cargar datos de usuario local
-            TBtnUltimaBBDD.Checked = configuracionUsuario.CargaUltimaBD;
+            //TBtnUltimaBBDD.Checked = configuracionUsuario.CargaUltimaBD;
             TxtUbicacionBBDD.Text = configuracionUsuario.UbicacionBD;
             TBtnContenidoExp.Checked = configuracionUsuario.ContenidoExplicito;
             CmbIdiomaConfi.SelectedItem = CargarIdioma(configuracionUsuario.IdiomaIntefaz);
@@ -173,51 +242,28 @@ namespace OpenLibraryEditor.Forms
                 RbtnDetalles.Checked = true;
             if (configuracionUsuario.AccionDobleClick < CmbDobleClick.Items.Count)
                 CmbDobleClick.SelectedIndex = configuracionUsuario.AccionDobleClick;
-            if (configuracionUsuario.TemaOscuro)
-                RbtnOscuro.Checked = true;
-            else
-                RbtnClaro.Checked = true;
+            //if (configuracionUsuario.TemaOscuro)
+            //    RbtnOscuro.Checked = true;
+            //else
+            //    RbtnClaro.Checked = true;
             ChkAutores.Checked = configuracionUsuario.DescargaDetallesLibro[0];
             ChkGeneros.Checked = configuracionUsuario.DescargaDetallesLibro[1];
             ChkSeries.Checked = configuracionUsuario.DescargaDetallesLibro[2];
             ChkEditoriales.Checked = configuracionUsuario.DescargaDetallesLibro[3];
             ChkTags.Checked = configuracionUsuario.DescargaDetallesLibro[4];
-            switch (configuracionUsuario.TamañoImagenLibro)
-            {
-                case 0:
-                    RbtnMiniatura.Checked = true;
-                    break;
-                case 1:
-                    RbtnMediana.Checked = true;
-                    break;
-                case 2:
-                    RbtnGrande.Checked = true;
-                    break;
-            }
+            //switch (configuracionUsuario.TamanioImagenLibro)
+            //{
+            //    case 0:
+            //        RbtnMiniatura.Checked = true;
+            //        break;
+            //    case 1:
+            //        RbtnMediana.Checked = true;
+            //        break;
+            //    case 2:
+            //        RbtnGrande.Checked = true;
+            //        break;
+            //}
             TxtGoogleBooksClave.Text = configuracionUsuario.GoogleBooksApiKey;
-        }
-        #endregion
-        private void FrmConfiguracion_Load(object sender, EventArgs e)
-        {
-            //CmbDobleClick.Items.Clear();
-            IdiomaTexto();
-            CmbIdiomaConfi.DropDownStyle = ComboBoxStyle.DropDownList;
-            CmbIdiomaConfi.DrawMode = DrawMode.OwnerDrawFixed;
-            idiomas = new List<string>();
-            idiomas.Add("Español de España (European Spanish)");
-            idiomas.Add("English (EEUU)");
-            idiomas.Add("Français (French)");
-            CmbIdiomaConfi.Items.AddRange(idiomas.ToArray());
-            CargarConfiguracion();
-            CmbIP.Items.AddRange(configuracionUsuario.ListaInfoBD.ToArray());
-            //Seleccionar BD si el usuario ha entrado en alguna al iniciar sesion
-            CmbIP.SelectedItem = configuracionUsuario.BDActual;
-
-            hScrollBar.Maximum = 300;
-            hScrollBar.Minimum = -40;
-            hScrollBar.Value = 0;
-
-
         }
         private void GBtnRestaurar_Click(object sender, EventArgs e)
         {
@@ -265,7 +311,7 @@ namespace OpenLibraryEditor.Forms
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             //Guardar datos en objeto
-            configuracionUsuario.CargaUltimaBD = TBtnUltimaBBDD.Checked;
+            //configuracionUsuario.CargaUltimaBD = TBtnUltimaBBDD.Checked;
             configuracionUsuario.UbicacionBD = TxtUbicacionBBDD.Text;
             configuracionUsuario.ContenidoExplicito = TBtnContenidoExp.Checked;
             configuracionUsuario.IdiomaIntefaz = GuardarIdioma(CmbIdiomaConfi.SelectedItem.ToString());
@@ -274,18 +320,18 @@ namespace OpenLibraryEditor.Forms
             else
                 configuracionUsuario.TipoVista = 1;
             configuracionUsuario.AccionDobleClick = CmbDobleClick.SelectedIndex;
-            configuracionUsuario.TemaOscuro = RbtnOscuro.Checked;
+            //configuracionUsuario.TemaOscuro = RbtnOscuro.Checked;
             configuracionUsuario.DescargaDetallesLibro[0] = ChkAutores.Checked;
             configuracionUsuario.DescargaDetallesLibro[1] = ChkGeneros.Checked;
             configuracionUsuario.DescargaDetallesLibro[2] = ChkSeries.Checked;
             configuracionUsuario.DescargaDetallesLibro[3] = ChkEditoriales.Checked;
             configuracionUsuario.DescargaDetallesLibro[4] = ChkTags.Checked;
-            if (RbtnMiniatura.Checked)
-                configuracionUsuario.TamañoImagenLibro = 0;
-            else if (RbtnGrande.Checked)
-                configuracionUsuario.TamañoImagenLibro = 2;
-            else
-                configuracionUsuario.TamañoImagenLibro = 1;
+            //if (RbtnMiniatura.Checked)
+            //    configuracionUsuario.TamanioImagenLibro = 0;
+            //else if (RbtnGrande.Checked)
+            //    configuracionUsuario.TamanioImagenLibro = 2;
+            //else
+                configuracionUsuario.TamanioImagenLibro = 1;
             configuracionUsuario.GoogleBooksApiKey = TxtGoogleBooksClave.Text;
             configuracionUsuario.ListaInfoBD.Clear();
             foreach (InfoBaseDatos info in CmbIP.Items)
@@ -338,26 +384,50 @@ namespace OpenLibraryEditor.Forms
                 }
             }
         }
-        private void hScrollBar_ValueChanged(object sender, EventArgs e)
+        #endregion
+
+        #region usuario registrado
+
+        #region mostrar/ocultar password
+        private void IpcbMostrarContra_Click(object sender, EventArgs e)
         {
-            if (PanElementos.Width < 850)
+            MetodosComunes.MostrarOcultarContra(KTxtContraNueva, true, false, IpcbOcultarContra, IpcbMostrarContra);
+        }
+
+        private void IpcbOcultarContra_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtContraNueva, false, true, IpcbMostrarContra, IpcbOcultarContra);
+        }
+
+        private void IpcbMostrarContra1_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtRepetirContra, true, false, IpcbOcultarContra1, IpcbMostrarContra1);
+        }
+
+        private void IpcbOcultarContra1_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtRepetirContra, false, true, IpcbMostrarContra1, IpcbOcultarContra1);
+        }
+        #endregion
+        private void GBtnActualizarMail_Click(object sender, EventArgs e)
+        {
+            //UpdateUsuario(string nombreOriginal, InfoUsuarioBD usuario, string contrasenia)
+            try
             {
-                MPcbConfi.Location = new Point(-hScrollBar.Value, MPcbConfi.Location.Y);
-                LblTituloConfi.Location = new Point(-hScrollBar.Value + MPcbConfi.Width, LblTituloConfi.Location.Y);
-                panel1.Location = new Point(-hScrollBar.Value, panel1.Location.Y);
-                KgbGeneral.Location = new Point(-hScrollBar.Value, KgbGeneral.Location.Y);
-                KgbApariencia.Location = new Point(-hScrollBar.Value, KgbApariencia.Location.Y);
-                KgbDescargasWeb.Location = new Point(-hScrollBar.Value, KgbDescargasWeb.Location.Y);
-                KgbServidorWeb.Location = new Point(-hScrollBar.Value, KgbServidorWeb.Location.Y);
-                GBtnRestaurar.Location = new Point(-hScrollBar.Value, GBtnRestaurar.Location.Y);
-                GBtnAceptar.Location = new Point(-hScrollBar.Value + 355 + GBtnCancelar.Width + GBtnRestaurar.Width, GBtnAceptar.Location.Y);
-                GBtnCancelar.Location = new Point(-hScrollBar.Value + 350 + GBtnRestaurar.Width, GBtnCancelar.Location.Y);
+                EscrituraBD.UpdateMailUsuario(TxtMailNuevo.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                MiMessageBox.Show("Mail cambiado correctamente");
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            //UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo = TxtMailNuevo.Text;
         }
-        private void GBtnCancelar_Click(object sender, EventArgs e)
+
+        private void GBtnModificarPass_Click(object sender, EventArgs e)
         {
 
         }
-
+        #endregion
     }
 }

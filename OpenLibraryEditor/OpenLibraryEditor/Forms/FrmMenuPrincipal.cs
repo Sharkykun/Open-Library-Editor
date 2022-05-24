@@ -23,6 +23,7 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmMenuPrincipal : Form
     {
+        #region atributos
         private MaterialButton botonActual;
         private MaterialSplitButton toolSeleccionado;
         private Panel bordeIzqBoton;
@@ -32,13 +33,16 @@ namespace OpenLibraryEditor.Forms
         private int anchoPantalla;
         private List<Libro> titulos;
         private Libro libroActual;
+        private string rutaImagen;
         private bool puedeEditar;
         public bool PuedeEditar { get => puedeEditar; set => puedeEditar = value; }
-
+        #endregion
+        #region constructor y load
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-            titulos = SacarListaLibro();
+           
+        
             bordeIzqBoton = new Panel();
             bordeIzqBoton.Size = new Size(7, 45);
             PanMenuMain.Controls.Add(bordeIzqBoton);
@@ -53,16 +57,20 @@ namespace OpenLibraryEditor.Forms
             PanVistaDetalles.Visible = false;
             PanVistaMosaico.Visible = true;
             PanVistaMosaico.BringToFront();
-           
         }
          private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            //if (ControladorIdioma.idioma.Equals("Strings_fr_FR"))
-            //    LlLogIn.Location = new Point(30,168);
-            //else if (ControladorIdioma.idioma.Equals("Strings_en_US"))
-            //    LlLogIn.Location = new Point(88, 168);
-            //else
-            //    LlLogIn.Location = new Point(65, 168);
+            titulos = SacarListaLibro();
+            if (titulos.Count == 0)
+            {
+                AbrirFormularios(new FrmMiBiblioteca());
+            }
+            else
+            {
+                //Dejar marcado mi biblioteca como opción inicial
+                MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
+            
+            }
             if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual != null) { 
 
                 if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
@@ -73,6 +81,8 @@ namespace OpenLibraryEditor.Forms
                     MBtnAdminUsuarios.Visible = true;
                     BtnActualizarLibroMsb.Visible = true;
                     puedeEditar = true;
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario")+ ControladorIdioma.GetTexto("Adm_Adm");
+                    MBtnCambiarFotoPerfil.Visible = true;
                 }
                 else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario") ||
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
@@ -81,7 +91,16 @@ namespace OpenLibraryEditor.Forms
                     lblNombreUsuConectado.Text = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre;
                     lblNombreUsuConectado.Visible = true;
                     BtnActualizarLibroMsb.Visible = true;
+                    MBtnCambiarFotoPerfil.Visible = true;
                     puedeEditar = true;
+                    if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario"))
+                    {
+                        LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Usu");
+                    }
+                    else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
+                    {
+                        LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
+                    }
                 }
             }
             else
@@ -90,21 +109,31 @@ namespace OpenLibraryEditor.Forms
                 BtnActualizarLibroMsb.Visible = false;
                 lblNombreUsuConectado.Visible = false;
                 MBtnAdminUsuarios.Visible = false;
+                MBtnCambiarFotoPerfil.Visible = false;
                 puedeEditar = false;
+                LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("ModoSinConexion");
             }
 
             //TitulosPrueba();
             //RecolocarLibros(false);
             SeleccionarVista();
-
-
-            //Dejar marcado mi biblioteca como opción inicial
-            MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
-            
             IdiomaTexto();
             TxtBusqueda.MbtnBorrar().Click += MbtnBorrarTxtBuscar_Click;
             TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarMBI_KeyDown;
             
+        }
+        #endregion
+        #region Mostrar libros de la biblioteca
+
+        private List<Libro> SacarListaLibro()
+        {
+            List<Libro> libro;
+            if (UsuarioDatos.configuracionUsuario.ContenidoExplicito)
+                libro = Biblioteca.biblioteca.ListaLibro;
+            else
+                libro = Biblioteca.biblioteca.ListaLibro.FindAll(
+                    p => !p.MayorEdad);
+            return libro;
         }
         private void SeleccionarVista()
         {
@@ -121,18 +150,6 @@ namespace OpenLibraryEditor.Forms
                 PanVistaDetalles.BringToFront();
             }
         }
-
-        private List<Libro> SacarListaLibro()
-        {
-            List<Libro> libro;
-            if (UsuarioDatos.configuracionUsuario.ContenidoExplicito)
-                libro = Biblioteca.biblioteca.ListaLibro;
-            else
-                libro = Biblioteca.biblioteca.ListaLibro.FindAll(
-                    p => !p.MayorEdad);
-            return libro;
-        }
-
         private void GenerarPortadaLibro(Libro libro, Button botonLibro)
         {
             if (File.Exists(libro.ImagenPortada))
@@ -149,7 +166,8 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void RecolocarLibros(bool ignorarOrdenar) {
+        private void RecolocarLibros(bool ignorarOrdenar)
+        {
             SeleccionarVista();
             if (!ignorarOrdenar)
                 titulos.Sort();
@@ -158,8 +176,6 @@ namespace OpenLibraryEditor.Forms
             else
                 ColocarLibrosDetalles();
         }
-       
-        #region Mostrar libros de la biblioteca
         private void ColocarLibrosMosaico()
         {
             //PanVistaMosaico.BringToFront();
@@ -695,6 +711,8 @@ namespace OpenLibraryEditor.Forms
             //KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Favoritos"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGPag"));
             KCmbBuscarPorMBI.SelectedIndex = 0;
+
+            
         }
         #endregion
         #region Colores boton seleccionado
@@ -782,6 +800,36 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
         #region Botones menu lateral
+        private void MBtnCambiarFotoPerfil_Click(object sender, EventArgs e)
+        {
+            string s = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_IMAGEN);
+            if (s != "")
+            {
+                rutaImagen = s;
+                CargarImagen(rutaImagen);
+            }
+            else
+            {
+                AciFotoUsuario.Image = Properties.Resources.desconocido;
+            }
+        }
+        private void CargarImagen(string rutaImagen)
+        {
+            try
+            {
+                AciFotoUsuario.Image = Image.FromFile(rutaImagen);
+            }
+            catch (FileNotFoundException)
+            {
+                //PcbAutorNA.Image = PcbAutorNA.ErrorImage;
+                AciFotoUsuario.Image = Properties.Resources.desconocido;
+            }
+            catch (ArgumentException)
+            {
+                AciFotoUsuario.Image = Properties.Resources.desconocido;
+                //PcbAutorNA.Image = PcbAutorNA.ErrorImage;
+            }
+        }
         private void MBtnMiBiblioteca_Click(object sender, EventArgs e)
         {
             TxtBusqueda.setTextobuscar("");
@@ -791,6 +839,8 @@ namespace OpenLibraryEditor.Forms
             titulos = SacarListaLibro();
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
             MPcbTituloFrm.IconChar = MaterialIcons.BookOpenPageVariant;
+            LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
+            LblNumLibros.Visible = true;
             BotonActivo(sender, Colores.colorBiblioteca);
             MBtncerrarDetallesLibro_Click(sender, e);
             RecolocarLibros(false);
@@ -804,7 +854,8 @@ namespace OpenLibraryEditor.Forms
             MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTAutores");
             MPcbTituloFrm.IconChar = MaterialIcons.AccountGroup;
-
+            LblNumeroLsv.Text = ControladorIdioma.GetTexto("NumAutores") + Biblioteca.biblioteca.ListaAutor.Count;
+            LblNumLibros.Visible = false;
             //Añadir autores a la listview
             LsvOpciones.Items.Clear();
             LsvOpciones.Columns.Clear();
@@ -841,7 +892,8 @@ namespace OpenLibraryEditor.Forms
             MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTGeneros");
             MPcbTituloFrm.IconChar = MaterialIcons.DramaMasks;
-
+            LblNumeroLsv.Text = ControladorIdioma.GetTexto("NumGeneros") + Biblioteca.biblioteca.ListaGenero.Count;
+            LblNumLibros.Visible = false;
             //Añadir generos a la listview
             LsvOpciones.Items.Clear();
             LsvOpciones.Columns.Clear();
@@ -874,7 +926,8 @@ namespace OpenLibraryEditor.Forms
             MBtncerrarDetallesLibro_Click(sender, e);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_TTEditoriales");
             MPcbTituloFrm.IconChar = MaterialIcons.BankOutline;
-
+            LblNumeroLsv.Text = ControladorIdioma.GetTexto("NumEditoriales") + Biblioteca.biblioteca.ListaEditorial.Count;
+            LblNumLibros.Visible = false;
             //Añadir editoriales a la listview
             LsvOpciones.Items.Clear();
             LsvOpciones.Columns.Clear();
@@ -924,6 +977,8 @@ namespace OpenLibraryEditor.Forms
             RecolocarLibros(false);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_Favoritos");
             MPcbTituloFrm.IconChar = MaterialIcons.StarCircle;
+            LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
+            LblNumLibros.Visible = true;
             BotonActivo(sender, Colores.colorSubmenu);
         }
 
@@ -934,7 +989,12 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnConfiguracion_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmConfiguracion());
+            if (PuedeEditar)
+                AbrirFormularios(new FrmConfiguracion(true));
+            else
+                AbrirFormularios(new FrmConfiguracion());
+
+            
             BotonActivo(sender, Colores.colorConfi);
         }
         private void MBtnAdminUsuarios_Click(object sender, EventArgs e)
@@ -963,12 +1023,17 @@ namespace OpenLibraryEditor.Forms
             al.FormBorderStyle=FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Titulo");
             al.ShowDialog();
-
+            
             //Comprobar si el libro se ha aceptado o no para guardarlo
             if (al.EsOk)
+            {
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
+                MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
+            }
+                
 
             //BotonActivoTool(sender,Colores.colorBiblioteca);
+            
             RecolocarLibros(false);
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
@@ -978,6 +1043,10 @@ namespace OpenLibraryEditor.Forms
             al.FormBorderStyle = FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Modificar");
             al.ShowDialog();
+            if (LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
+            {
+                MBtnFavoritos_Click(MBtnFavoritos, null);
+            }
             MBtncerrarDetallesLibro_Click(sender, e);
             //BotonActivoTool(sender, Colores.colorBiblioteca);
             RecolocarLibros(false);
@@ -1000,6 +1069,7 @@ namespace OpenLibraryEditor.Forms
                             libroActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
                         }
+                        
                     }
                 }
 
@@ -1014,14 +1084,17 @@ namespace OpenLibraryEditor.Forms
                         if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarDatosUsu"))
                         == DialogResult.Yes)
                         {
-                            libroActual.BorrarUsuarioLibroEnBDCompartida();
-                            ConexionBD.CerrarConexion();
-
+                                libroActual.BorrarUsuarioLibroEnBDCompartida();
+                                
                         }
+                        
                     }
+                    ConexionBD.CerrarConexion();
+
                 }
 
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
+                MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
                 RecolocarLibros(false);
                 MBtncerrarDetallesLibro_Click(sender,e);
             }

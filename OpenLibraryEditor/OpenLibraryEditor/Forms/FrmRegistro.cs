@@ -22,11 +22,19 @@ namespace OpenLibraryEditor.Forms
 
         public bool IsOk { get => isOk; set => isOk = value; }
 
+        //private bool mailVerificado;
+
+        
         public FrmRegistro()
         {
             InitializeComponent();
         }
-       
+        //public FrmRegistro(bool mailVerificado)
+        //{
+        //    InitializeComponent();
+        //    this.mailVerificado = mailVerificado;
+        //}
+
 
         private void FrmRegistro_Load(object sender, EventArgs e)
         {
@@ -62,10 +70,6 @@ namespace OpenLibraryEditor.Forms
             this.Close();
         }
 
-        private void BtnRegistrarme_Click(object sender, EventArgs e)
-        {
-
-        }
         #region mover formulario
         //Para poder mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -98,7 +102,7 @@ namespace OpenLibraryEditor.Forms
             MetodosComunes.MostrarOcultarContra(KTxtContra1Reg,false,true,IpcbMostrarContra1Reg,IpcbOcultarContra1Reg);
 
         }
-
+        int numero = 0;
         private void GBtnRegistrarme_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(TxtUrlReg.Text) &&
@@ -109,38 +113,56 @@ namespace OpenLibraryEditor.Forms
             {
                 if (KTxtContra1Reg.Text == KTxtContraReg.Text)
                 {
-                    //Obtener puerto en la url, si se especifica
-                    string[] s = TxtUrlReg.Text.Split(':');
-                    string url = s[0];
-                    string p = s.Length == 2 ? s[1] : "3306";
-                    int puerto;
-                    if (!int.TryParse(p, out puerto))
-                        puerto = 3306;
-
-                    ConexionBD.EstablecerConexion(url, "ole_register", "ole123Ole", puerto.ToString());
-                    if (ConexionBD.AbrirConexion())
+                    DialogResult result = DialogResult.No;
+                    do
                     {
-                        //Crear usuario con ole_register
-                        ConexionBD.CrearUsuarioComunBD(TxtNombreReg.Text, KTxtContraReg.Text, TxtNombreReg.Text);
-                        EscrituraBD.InsertUsuario(new InfoUsuarioBD(TxtNombreReg.Text,
-                             TxtMailReg.Text,
-                             "Usuario"), KTxtContraReg.Text);
-                        ConexionBD.CerrarConexion();
+                        ValidarEmail mail = new ValidarEmail();
+                        numero = mail.Send("openlibraryeditor@gmail.com", "oleOLEole", TxtMailReg.Text);
 
-                        //Iniciar sesion y menu principal
-                        ConexionBD.EstablecerConexion(url, ConexionBD.ANTENOMBRE_USUARIO_BD +
-                            TxtNombreReg.Text, KTxtContraReg.Text, puerto.ToString());
+                        if (numero == 0)
+                        {
+                            VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ReenviarMail"));
+                        }
+                    } while (result == DialogResult.Yes);
+                    FrmVerificacionMail verificar = new FrmVerificacionMail(numero);
+                    verificar.FormBorderStyle = FormBorderStyle.None;
+                    verificar.ShowDialog();
+                    if (verificar.MailVerificado) 
+                    {
+                        //Obtener puerto en la url, si se especifica
+                        string[] s = TxtUrlReg.Text.Split(':');
+                        string url = s[0];
+                        string p = s.Length == 2 ? s[1] : "3306";
+                        int puerto;
+                        if (!int.TryParse(p, out puerto))
+                            puerto = 3306;
+
+                        ConexionBD.EstablecerConexion(url, "ole_register", "ole123Ole", puerto.ToString());
                         if (ConexionBD.AbrirConexion())
                         {
-                            ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
+                            //Crear usuario con ole_register
+                            ConexionBD.CrearUsuarioComunBD(TxtNombreReg.Text, KTxtContraReg.Text, TxtNombreReg.Text);
+                            EscrituraBD.InsertUsuario(new InfoUsuarioBD(TxtNombreReg.Text,
+                                 TxtMailReg.Text,
+                                 "Usuario"), KTxtContraReg.Text);
                             ConexionBD.CerrarConexion();
-                            FrmLogin.ObtenerInfoBD(TxtNombreReg.Text, TxtUrlReg.Text, puerto);
-                            FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
-                            mainMenu.Show();
-                            isOk = true;
-                            this.Close();
+
+                            //Iniciar sesion y menu principal
+                            ConexionBD.EstablecerConexion(url, ConexionBD.ANTENOMBRE_USUARIO_BD +
+                                TxtNombreReg.Text, KTxtContraReg.Text, puerto.ToString());
+                            if (ConexionBD.AbrirConexion())
+                            {
+                                ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
+                                ConexionBD.CerrarConexion();
+                                FrmLogin.ObtenerInfoBD(TxtNombreReg.Text, TxtUrlReg.Text, puerto);
+                                FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                                mainMenu.Show();
+                                isOk = true;
+                                this.Close();
+                            }
                         }
-                    }
+                    } 
+                    
                 }
                 else
                 {
@@ -151,6 +173,7 @@ namespace OpenLibraryEditor.Forms
             {
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Log_Error4"));
             }
+            }
         }
     }
-}
+

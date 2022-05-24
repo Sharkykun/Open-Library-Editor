@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.DatosLibros
         private int accionDobleClick;
         private bool temaOscuro;
         private bool[] descargaDetallesLibro = { true, true, true, true, true };
-        private int tamañoImagenLibro = 0;
+        private int tamanioImagenLibro = 0;
         private List<InfoBaseDatos> listaInfoBD = new List<InfoBaseDatos>();
         private InfoBaseDatos bDActual;
 
@@ -58,7 +58,7 @@ namespace OpenLibraryEditor.DatosLibros
         public int AccionDobleClick { get => accionDobleClick; set => accionDobleClick = value; }
         public bool TemaOscuro { get => temaOscuro; set => temaOscuro = value; }
         public bool[] DescargaDetallesLibro { get => descargaDetallesLibro; set => descargaDetallesLibro = value; }
-        public int TamañoImagenLibro { get => tamañoImagenLibro; set => tamañoImagenLibro = value; }
+        public int TamanioImagenLibro { get => tamanioImagenLibro; set => tamanioImagenLibro = value; }
         public List<InfoBaseDatos> ListaInfoBD { get => listaInfoBD; set => listaInfoBD = value; }
         [JsonIgnore]
         public InfoBaseDatos BDActual { get => bDActual; set => bDActual = value; }

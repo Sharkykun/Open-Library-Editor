@@ -16,9 +16,9 @@ namespace OpenLibraryEditor.Clases
             int numero = rnd.Next(100000, 1000000);
             MailMessage msg = new MailMessage();
             msg.To.Add(receptor);
-            msg.Subject = "Correo de verificación";
+            msg.Subject = ControladorIdioma.GetTexto("Mail_Subject");
             msg.SubjectEncoding = Encoding.UTF8;
-            msg.Body = "Bienvenido a Open Library Editor.\nSu código de verificación es:" + numero + ".";
+            msg.Body = ControladorIdioma.GetTexto("Mail_Body") + numero; //"Bienvenido a Open Library Editor. Su código de verificación es:" + numero + ".";
             msg.BodyEncoding = Encoding.UTF8;
             msg.IsBodyHtml = true;
             msg.From = new MailAddress(emisor);
@@ -33,7 +33,7 @@ namespace OpenLibraryEditor.Clases
             }
             catch (Exception)
             {
-                VentanaWindowsComun.MensajeError("No se pudo enviar el correo");
+                VentanaWindowsComun.MensajeError("Mail_Error");
             }
             return numero;
         }

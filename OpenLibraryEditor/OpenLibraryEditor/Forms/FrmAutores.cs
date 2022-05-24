@@ -19,10 +19,7 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmAutores : Form
     {
         /*
-         TODO:
-         Al cerrar el formulario de añadir categoria con la X, en vez de cancelar, se añade el elemento seleccionado.
-         To Do: Eliminar la imagen del autor no funciona, la quita pero no guarda el cambio
-                pasa lo mismo en editorial
+         ToDo
          */
 
         #region atributos

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscar));
             this.KCmbTipoBusquedaBUS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.KTxtBuscarBUS = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanTituloBuscar = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblTituloBuscar = new System.Windows.Forms.Label();
@@ -71,7 +70,8 @@
             // KCmbTipoBusquedaBUS
             // 
             this.KCmbTipoBusquedaBUS.DropDownWidth = 160;
-            this.KCmbTipoBusquedaBUS.Location = new System.Drawing.Point(282, 3);
+            this.KCmbTipoBusquedaBUS.Location = new System.Drawing.Point(282, 4);
+            this.KCmbTipoBusquedaBUS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.KCmbTipoBusquedaBUS.Name = "KCmbTipoBusquedaBUS";
             this.KCmbTipoBusquedaBUS.Size = new System.Drawing.Size(161, 33);
             this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
@@ -88,26 +88,6 @@
             this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoBusquedaBUS.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KCmbTipoBusquedaBUS.TabIndex = 127;
-            // 
-            // KTxtBuscarBUS
-            // 
-            this.KTxtBuscarBUS.Location = new System.Drawing.Point(0, 45);
-            this.KTxtBuscarBUS.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.KTxtBuscarBUS.Name = "KTxtBuscarBUS";
-            this.KTxtBuscarBUS.Size = new System.Drawing.Size(349, 33);
-            this.KTxtBuscarBUS.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.KTxtBuscarBUS.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarBUS.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarBUS.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtBuscarBUS.StateCommon.Border.Rounding = 10;
-            this.KTxtBuscarBUS.StateCommon.Border.Width = 2;
-            this.KTxtBuscarBUS.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarBUS.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtBuscarBUS.TabIndex = 125;
-            this.KTxtBuscarBUS.Visible = false;
-            this.KTxtBuscarBUS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarBUS_KeyDown);
             // 
             // PanTituloBuscar
             // 
@@ -169,7 +149,7 @@
             this.LsvBuscarLibros.Location = new System.Drawing.Point(15, 6);
             this.LsvBuscarLibros.MultiSelect = false;
             this.LsvBuscarLibros.Name = "LsvBuscarLibros";
-            this.LsvBuscarLibros.Size = new System.Drawing.Size(918, 278);
+            this.LsvBuscarLibros.Size = new System.Drawing.Size(918, 314);
             this.LsvBuscarLibros.TabIndex = 140;
             this.LsvBuscarLibros.UseCompatibleStateImageBehavior = false;
             this.LsvBuscarLibros.View = System.Windows.Forms.View.Details;
@@ -202,7 +182,8 @@
             // KCmbServidoresBUS
             // 
             this.KCmbServidoresBUS.DropDownWidth = 160;
-            this.KCmbServidoresBUS.Location = new System.Drawing.Point(115, 3);
+            this.KCmbServidoresBUS.Location = new System.Drawing.Point(115, 4);
+            this.KCmbServidoresBUS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.KCmbServidoresBUS.Name = "KCmbServidoresBUS";
             this.KCmbServidoresBUS.Size = new System.Drawing.Size(161, 33);
             this.KCmbServidoresBUS.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
@@ -243,11 +224,10 @@
             this.FlPanBuscar.Controls.Add(this.KCmbTipoBusquedaBUS);
             this.FlPanBuscar.Controls.Add(this.TxtBusqueda);
             this.FlPanBuscar.Controls.Add(this.MBtnBuscarBUS);
-            this.FlPanBuscar.Controls.Add(this.KTxtBuscarBUS);
             this.FlPanBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.FlPanBuscar.Location = new System.Drawing.Point(0, 64);
             this.FlPanBuscar.Name = "FlPanBuscar";
-            this.FlPanBuscar.Size = new System.Drawing.Size(948, 78);
+            this.FlPanBuscar.Size = new System.Drawing.Size(948, 42);
             this.FlPanBuscar.TabIndex = 142;
             // 
             // MBtnBuscarBUS
@@ -272,7 +252,7 @@
             this.PanRecomendaciones.Controls.Add(this.LblRecomendaciones);
             this.PanRecomendaciones.Controls.Add(this.panel3);
             this.PanRecomendaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanRecomendaciones.Location = new System.Drawing.Point(0, 142);
+            this.PanRecomendaciones.Location = new System.Drawing.Point(0, 106);
             this.PanRecomendaciones.Name = "PanRecomendaciones";
             this.PanRecomendaciones.Size = new System.Drawing.Size(948, 214);
             this.PanRecomendaciones.TabIndex = 144;
@@ -367,9 +347,9 @@
             // 
             this.PanLsvBusqueda.Controls.Add(this.LsvBuscarLibros);
             this.PanLsvBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanLsvBusqueda.Location = new System.Drawing.Point(0, 356);
+            this.PanLsvBusqueda.Location = new System.Drawing.Point(0, 320);
             this.PanLsvBusqueda.Name = "PanLsvBusqueda";
-            this.PanLsvBusqueda.Size = new System.Drawing.Size(948, 290);
+            this.PanLsvBusqueda.Size = new System.Drawing.Size(948, 326);
             this.PanLsvBusqueda.TabIndex = 145;
             // 
             // TxtBusqueda
@@ -417,7 +397,6 @@
         }
 
         #endregion
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtBuscarBUS;
         private System.Windows.Forms.Panel PanTituloBuscar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label LblTituloBuscar;

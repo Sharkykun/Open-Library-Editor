@@ -120,6 +120,9 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Accepter</value>
   </data>
+  <data name="Actualizar" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
   <data name="ActualizarConBD" xml:space="preserve">
     <value>Actualiser avec BD</value>
   </data>
@@ -308,6 +311,12 @@
   </data>
   <data name="Al_TT18" xml:space="preserve">
     <value>Livre adapté uniquement aux plus de 18 ans</value>
+  </data>
+  <data name="Al_TTBorrarContra" xml:space="preserve">
+    <value>Cliquez pour supprimer l'image de la couverture arrière du livre</value>
+  </data>
+  <data name="Al_TTBorrarPortada" xml:space="preserve">
+    <value>Cliquez pour supprimer l'image de couverture du livre</value>
   </data>
   <data name="Al_TTBtnBuscarFichero" xml:space="preserve">
     <value>Cliquez pour parcourir le chemin du fichier</value>
@@ -534,6 +543,9 @@
   <data name="BD_Url" xml:space="preserve">
     <value>Url:</value>
   </data>
+  <data name="Bienvenido" xml:space="preserve">
+    <value>Bienvenue à Open Library Editor</value>
+  </data>
   <data name="BorradoCorrectamente" xml:space="preserve">
     <value> a été supprimé avec succès</value>
   </data>
@@ -627,6 +639,12 @@
   <data name="Con_CmbDobleEjecutar" xml:space="preserve">
     <value>Exécutez le livre</value>
   </data>
+  <data name="Con_ContraNueva" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="Con_DatosUsu" xml:space="preserve">
+    <value>Modifier les données d'accès</value>
+  </data>
   <data name="Con_Descargas" xml:space="preserve">
     <value>Téléchargements Web</value>
   </data>
@@ -699,6 +717,15 @@
   <data name="Con_InfoServidor" xml:space="preserve">
     <value>les informations du serveur</value>
   </data>
+  <data name="Con_MailActual" xml:space="preserve">
+    <value>Email actuel</value>
+  </data>
+  <data name="Con_MailNuevo" xml:space="preserve">
+    <value>Nouveau email</value>
+  </data>
+  <data name="Con_RepetirContra" xml:space="preserve">
+    <value>Répéter le mot de passe</value>
+  </data>
   <data name="Con_Servidor" xml:space="preserve">
     <value>Serveur Web</value>
   </data>
@@ -728,6 +755,24 @@
   </data>
   <data name="Con_Titulo" xml:space="preserve">
     <value>Configuration</value>
+  </data>
+  <data name="Con_TTActualizar" xml:space="preserve">
+    <value>Cliquez pour mettre à jour votre email dans la base de données</value>
+  </data>
+  <data name="Con_TTContraNueva" xml:space="preserve">
+    <value>Écrivez votre nouveau mot de passe ici</value>
+  </data>
+  <data name="Con_TTMailA" xml:space="preserve">
+    <value>Ceci est votre email actuel enregistré dans la base de données</value>
+  </data>
+  <data name="Con_TTMailN" xml:space="preserve">
+    <value>Écrivez votre nouvel e-mail ici</value>
+  </data>
+  <data name="Con_TTModificar" xml:space="preserve">
+    <value>Cliquez ici pour modifier votre mot de passe pour accéder à l'application</value>
+  </data>
+  <data name="Con_TTRepetirContra" xml:space="preserve">
+    <value>Retapez votre nouveau mot de passe ici</value>
   </data>
   <data name="Crear" xml:space="preserve">
     <value>Créer</value>
@@ -1068,6 +1113,15 @@
   <data name="Log_Url" xml:space="preserve">
     <value>URL de la base de données</value>
   </data>
+  <data name="Mail_Body" xml:space="preserve">
+    <value>Bienvenue dans Open Library Editor. Votre code de vérification est :</value>
+  </data>
+  <data name="Mail_Error" xml:space="preserve">
+    <value>Le courrier n'a pas pu être envoyé</value>
+  </data>
+  <data name="Mail_Subject" xml:space="preserve">
+    <value>Correo de verificación</value>
+  </data>
   <data name="Main_Actualizar" xml:space="preserve">
     <value>Actualiser Livre</value>
   </data>
@@ -1296,6 +1350,12 @@
   <data name="Main_VecesLeido" xml:space="preserve">
     <value>Fois lire:</value>
   </data>
+  <data name="Modificar" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="ModoSinConexion" xml:space="preserve">
+    <value>Vous êtes en mode déconnecté</value>
+  </data>
   <data name="Ms_Abortar" xml:space="preserve">
     <value>Avorter</value>
   </data>
@@ -1323,11 +1383,26 @@
   <data name="NoExisteLibro" xml:space="preserve">
     <value>Le livre que vous essayez de mettre à jour n'existe pas dans la base de données</value>
   </data>
+  <data name="NoLibros" xml:space="preserve">
+    <value>Il n'y a pas de livres dans votre bibliothèque</value>
+  </data>
   <data name="NoRegistroUsuarioLibro" xml:space="preserve">
     <value>L'enregistrement de l'utilisateur du livre n'existe pas dans la base de données</value>
   </data>
   <data name="NuevoLibro" xml:space="preserve">
     <value>Nouvelle Livre</value>
+  </data>
+  <data name="NumAutores" xml:space="preserve">
+    <value>Nombre d'auteurs: </value>
+  </data>
+  <data name="NumEditoriales" xml:space="preserve">
+    <value>Nombre d'éditeurs: </value>
+  </data>
+  <data name="NumGeneros" xml:space="preserve">
+    <value>Nombre de genres: </value>
+  </data>
+  <data name="NumLibros" xml:space="preserve">
+    <value>Nombre de livres: </value>
   </data>
   <data name="OcupacionNoExiste" xml:space="preserve">
     <value>La profession n'existe pas dans la base de données</value>
@@ -1500,6 +1575,9 @@
   <data name="TipoLibroRepetido" xml:space="preserve">
     <value>Le type de livre existe déjà dans la base de données</value>
   </data>
+  <data name="TipoUsuario" xml:space="preserve">
+    <value>Type d'utilisateur connecté: </value>
+  </data>
   <data name="TituloObli" xml:space="preserve">
     <value>Titre *</value>
   </data>
@@ -1511,6 +1589,21 @@
   </data>
   <data name="UsuarioRepetido" xml:space="preserve">
     <value>L'utilisateur existe déjà dans la base de données</value>
+  </data>
+  <data name="Verificar_btn" xml:space="preserve">
+    <value>Vérifier</value>
+  </data>
+  <data name="Verificar_lbl" xml:space="preserve">
+    <value>Entrez le code que nous vous avons envoyé</value>
+  </data>
+  <data name="Verificar_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Vérifiez votre adresse e-mail</value>
+  </data>
+  <data name="Verificar_TTbtn" xml:space="preserve">
+    <value>Cliquez pour vérifier votre email</value>
+  </data>
+  <data name="Verificar_TTMask" xml:space="preserve">
+    <value>Écrivez ici le code reçu dans votre email</value>
   </data>
   <data name="VWC_ActualizarAutor" xml:space="preserve">
     <value>Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?</value>
@@ -1526,6 +1619,9 @@
   </data>
   <data name="VWC_Advertencia" xml:space="preserve">
     <value>Caveat</value>
+  </data>
+  <data name="VWC_Bienvenido" xml:space="preserve">
+    <value>Bienvenue dans Open Library Editor</value>
   </data>
   <data name="VWC_Borrado" xml:space="preserve">
     <value>Effacé avec succès.</value>
@@ -1548,8 +1644,17 @@
   <data name="VWC_BorrarLibroBdCompartida" xml:space="preserve">
     <value>Voulez-vous supprimer ce livre de la base de données partagée?</value>
   </data>
+  <data name="VWC_CaracteresMal" xml:space="preserve">
+    <value>Les caractères saisis ne sont pas valides</value>
+  </data>
+  <data name="VWC_CodigoMal" xml:space="preserve">
+    <value>Le code saisi n'est pas correct</value>
+  </data>
   <data name="VWC_Error" xml:space="preserve">
     <value>Erreur</value>
+  </data>
+  <data name="VWC_ErrorImg" xml:space="preserve">
+    <value>L'image ne s'est pas chargée correctement</value>
   </data>
   <data name="VWC_Guardado" xml:space="preserve">
     <value>enregistré correctement</value>
@@ -1577,5 +1682,8 @@
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>
+  </data>
+  <data name="VWC_ReenviarMail" xml:space="preserve">
+    <value>Voulez-vous renvoyer l'e-mail ?</value>
   </data>
 </root>
