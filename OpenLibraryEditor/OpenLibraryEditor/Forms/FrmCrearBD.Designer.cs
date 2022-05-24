@@ -39,7 +39,6 @@
             this.LblTitulo = new System.Windows.Forms.Label();
             this.PcbLogoAutores = new System.Windows.Forms.PictureBox();
             this.KgbDatosServidor = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.IpcbMostrarContraSer = new FontAwesome.Sharp.IconPictureBox();
             this.KNudPuerto = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.KTxtNombreUSer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtUrl = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -47,17 +46,18 @@
             this.LblNombreSer = new System.Windows.Forms.Label();
             this.LblPuerto = new System.Windows.Forms.Label();
             this.LblUrl = new System.Windows.Forms.Label();
+            this.IpcbMostrarContraSer = new FontAwesome.Sharp.IconPictureBox();
             this.IpcbOcultarContraSer = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtCSer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KgbDatosApp = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.IpcbMostrarContraUsu = new FontAwesome.Sharp.IconPictureBox();
-            this.IpcbOcultarContraUsu = new FontAwesome.Sharp.IconPictureBox();
-            this.KTxtContraApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtEmailApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtNombreApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblContraApp = new System.Windows.Forms.Label();
             this.LblEmailApp = new System.Windows.Forms.Label();
             this.LblNombreApp = new System.Windows.Forms.Label();
+            this.IpcbMostrarContraUsu = new FontAwesome.Sharp.IconPictureBox();
+            this.IpcbOcultarContraUsu = new FontAwesome.Sharp.IconPictureBox();
+            this.KTxtContraApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanBtn.SuspendLayout();
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
@@ -251,25 +251,6 @@
             this.KgbDatosServidor.TabIndex = 157;
             this.KgbDatosServidor.Values.Heading = "Datos del servidor";
             // 
-            // IpcbMostrarContraSer
-            // 
-            this.IpcbMostrarContraSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.IpcbMostrarContraSer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.IpcbMostrarContraSer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContraSer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbMostrarContraSer.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContraSer.IconColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbMostrarContraSer.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbMostrarContraSer.IconSize = 23;
-            this.IpcbMostrarContraSer.Location = new System.Drawing.Point(462, 127);
-            this.IpcbMostrarContraSer.Name = "IpcbMostrarContraSer";
-            this.IpcbMostrarContraSer.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
-            this.IpcbMostrarContraSer.Size = new System.Drawing.Size(23, 23);
-            this.IpcbMostrarContraSer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.IpcbMostrarContraSer.TabIndex = 31;
-            this.IpcbMostrarContraSer.TabStop = false;
-            this.IpcbMostrarContraSer.Click += new System.EventHandler(this.IpcbMostrarContraSer_Click);
-            // 
             // KNudPuerto
             // 
             this.KNudPuerto.Location = new System.Drawing.Point(175, 51);
@@ -315,7 +296,6 @@
             this.KTxtNombreUSer.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreUSer.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreUSer.TabIndex = 2;
-            this.KTxtNombreUSer.Text = "root";
             // 
             // KTxtUrl
             // 
@@ -333,7 +313,6 @@
             this.KTxtUrl.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtUrl.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtUrl.TabIndex = 0;
-            this.KTxtUrl.Text = "localhost";
             // 
             // LblContraSer
             // 
@@ -378,6 +357,25 @@
             this.LblUrl.Size = new System.Drawing.Size(36, 22);
             this.LblUrl.TabIndex = 21;
             this.LblUrl.Text = "Url:";
+            // 
+            // IpcbMostrarContraSer
+            // 
+            this.IpcbMostrarContraSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbMostrarContraSer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbMostrarContraSer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbMostrarContraSer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraSer.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.IpcbMostrarContraSer.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraSer.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbMostrarContraSer.IconSize = 23;
+            this.IpcbMostrarContraSer.Location = new System.Drawing.Point(462, 127);
+            this.IpcbMostrarContraSer.Name = "IpcbMostrarContraSer";
+            this.IpcbMostrarContraSer.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
+            this.IpcbMostrarContraSer.Size = new System.Drawing.Size(23, 23);
+            this.IpcbMostrarContraSer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbMostrarContraSer.TabIndex = 31;
+            this.IpcbMostrarContraSer.TabStop = false;
+            this.IpcbMostrarContraSer.Click += new System.EventHandler(this.IpcbMostrarContraSer_Click);
             // 
             // IpcbOcultarContraSer
             // 
@@ -451,6 +449,73 @@
             this.KgbDatosApp.TabIndex = 158;
             this.KgbDatosApp.Values.Heading = "Datos para registrarse en la aplicación";
             // 
+            // KTxtEmailApp
+            // 
+            this.KTxtEmailApp.Location = new System.Drawing.Point(175, 51);
+            this.KTxtEmailApp.Name = "KTxtEmailApp";
+            this.KTxtEmailApp.Size = new System.Drawing.Size(322, 33);
+            this.KTxtEmailApp.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtEmailApp.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtEmailApp.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtEmailApp.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtEmailApp.StateCommon.Border.Rounding = 10;
+            this.KTxtEmailApp.StateCommon.Border.Width = 2;
+            this.KTxtEmailApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtEmailApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtEmailApp.TabIndex = 1;
+            // 
+            // KTxtNombreApp
+            // 
+            this.KTxtNombreApp.Location = new System.Drawing.Point(175, 15);
+            this.KTxtNombreApp.Name = "KTxtNombreApp";
+            this.KTxtNombreApp.Size = new System.Drawing.Size(322, 33);
+            this.KTxtNombreApp.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtNombreApp.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombreApp.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombreApp.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtNombreApp.StateCommon.Border.Rounding = 10;
+            this.KTxtNombreApp.StateCommon.Border.Width = 2;
+            this.KTxtNombreApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.KTxtNombreApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtNombreApp.TabIndex = 0;
+            // 
+            // LblContraApp
+            // 
+            this.LblContraApp.AutoSize = true;
+            this.LblContraApp.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContraApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblContraApp.Location = new System.Drawing.Point(20, 93);
+            this.LblContraApp.Name = "LblContraApp";
+            this.LblContraApp.Size = new System.Drawing.Size(100, 22);
+            this.LblContraApp.TabIndex = 29;
+            this.LblContraApp.Text = "Contraseña:";
+            // 
+            // LblEmailApp
+            // 
+            this.LblEmailApp.AutoSize = true;
+            this.LblEmailApp.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmailApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblEmailApp.Location = new System.Drawing.Point(20, 57);
+            this.LblEmailApp.Name = "LblEmailApp";
+            this.LblEmailApp.Size = new System.Drawing.Size(55, 22);
+            this.LblEmailApp.TabIndex = 23;
+            this.LblEmailApp.Text = "Email:";
+            // 
+            // LblNombreApp
+            // 
+            this.LblNombreApp.AutoSize = true;
+            this.LblNombreApp.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblNombreApp.Location = new System.Drawing.Point(20, 21);
+            this.LblNombreApp.Name = "LblNombreApp";
+            this.LblNombreApp.Size = new System.Drawing.Size(135, 22);
+            this.LblNombreApp.TabIndex = 21;
+            this.LblNombreApp.Text = "Nombre usuario:";
+            // 
             // IpcbMostrarContraUsu
             // 
             this.IpcbMostrarContraUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -507,77 +572,7 @@
             this.KTxtContraApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtContraApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtContraApp.TabIndex = 2;
-            this.KTxtContraApp.Text = "test";
             this.KTxtContraApp.UseSystemPasswordChar = true;
-            // 
-            // KTxtEmailApp
-            // 
-            this.KTxtEmailApp.Location = new System.Drawing.Point(175, 51);
-            this.KTxtEmailApp.Name = "KTxtEmailApp";
-            this.KTxtEmailApp.Size = new System.Drawing.Size(322, 33);
-            this.KTxtEmailApp.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtEmailApp.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtEmailApp.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtEmailApp.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtEmailApp.StateCommon.Border.Rounding = 10;
-            this.KTxtEmailApp.StateCommon.Border.Width = 2;
-            this.KTxtEmailApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtEmailApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtEmailApp.TabIndex = 1;
-            this.KTxtEmailApp.Text = "test@gmail.com";
-            // 
-            // KTxtNombreApp
-            // 
-            this.KTxtNombreApp.Location = new System.Drawing.Point(175, 15);
-            this.KTxtNombreApp.Name = "KTxtNombreApp";
-            this.KTxtNombreApp.Size = new System.Drawing.Size(322, 33);
-            this.KTxtNombreApp.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtNombreApp.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtNombreApp.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtNombreApp.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtNombreApp.StateCommon.Border.Rounding = 10;
-            this.KTxtNombreApp.StateCommon.Border.Width = 2;
-            this.KTxtNombreApp.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtNombreApp.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreApp.TabIndex = 0;
-            this.KTxtNombreApp.Text = "test";
-            // 
-            // LblContraApp
-            // 
-            this.LblContraApp.AutoSize = true;
-            this.LblContraApp.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContraApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblContraApp.Location = new System.Drawing.Point(20, 93);
-            this.LblContraApp.Name = "LblContraApp";
-            this.LblContraApp.Size = new System.Drawing.Size(100, 22);
-            this.LblContraApp.TabIndex = 29;
-            this.LblContraApp.Text = "Contraseña:";
-            // 
-            // LblEmailApp
-            // 
-            this.LblEmailApp.AutoSize = true;
-            this.LblEmailApp.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmailApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblEmailApp.Location = new System.Drawing.Point(20, 57);
-            this.LblEmailApp.Name = "LblEmailApp";
-            this.LblEmailApp.Size = new System.Drawing.Size(55, 22);
-            this.LblEmailApp.TabIndex = 23;
-            this.LblEmailApp.Text = "Email:";
-            // 
-            // LblNombreApp
-            // 
-            this.LblNombreApp.AutoSize = true;
-            this.LblNombreApp.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblNombreApp.Location = new System.Drawing.Point(20, 21);
-            this.LblNombreApp.Name = "LblNombreApp";
-            this.LblNombreApp.Size = new System.Drawing.Size(135, 22);
-            this.LblNombreApp.TabIndex = 21;
-            this.LblNombreApp.Text = "Nombre usuario:";
             // 
             // FrmCrearBD
             // 
