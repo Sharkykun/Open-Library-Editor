@@ -593,9 +593,14 @@ namespace OpenLibraryEditor.Forms
                 libroActual.Isbn_10 = KTxtIsbn10.Text;
                 libroActual.Isbn_13 = KTxtIsbn13.Text;
                 //Comprobar la máscara y validar
-                libroActual.FechaPublicacion = DateTime.Parse(KMtxtFecPublicacionNL.Text);
-               
-                libroActual.FechaAdicionBD = DateTime.Parse(KMtxtInclusionbbddNL.Text);
+                if (KMtxtFecPublicacionNL.MaskCompleted)
+                {
+                    libroActual.FechaPublicacion = DateTime.Parse(KMtxtFecPublicacionNL.Text);
+                }
+                if (KMtxtInclusionbbddNL.MaskCompleted)
+                {
+                    libroActual.FechaAdicionBD = DateTime.Parse(KMtxtInclusionbbddNL.Text);
+                }
                 libroActual.MayorEdad = TBtnMayores18NL.Checked;
                 libroActual.EnlaceReferencia = KTxtEnlaceNL.Text;
                 libroActual.ListaAutor.Clear();
@@ -619,6 +624,14 @@ namespace OpenLibraryEditor.Forms
                 libroActual.EstadoLectura = KCmbEstadoLecturaNL.Text;
                 libroActual.TiempoLectura = TimeSpan.Parse(KMtxtTiempoLecturaNL.Text);
                 libroActual.CapituloActual = (int)KNudCapiActualNL.Value;
+                if (KMtxtFecComienzoNL.MaskCompleted)
+                {
+                    libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
+                }
+                if (KMtxtFecFinalNL.MaskCompleted)
+                {
+                    libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
+                }
                 libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
                 libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
                 libroActual.Ocultar = TBtnOcultarNL.Checked;
@@ -673,15 +686,14 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != null)
                 {
-                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarDetallesBD"))
+                    if (ConexionBD.AbrirConexion() && 
+                        EscrituraBD.GetObjetoIdDeLocal(libroActual.ListaIdCompartido) > 0 && 
+                        VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarDetallesBD"))
                         == DialogResult.Yes)
                     {
-                        if (ConexionBD.AbrirConexion())
-                        {
-                            libroActual.MeterUsuarioLibroEnBDCompartida();
-                            ConexionBD.CerrarConexion();
-                        }
+                        libroActual.MeterUsuarioLibroEnBDCompartida();
                     }
+                    ConexionBD.CerrarConexion();
                 }
 
                 esOk = true;

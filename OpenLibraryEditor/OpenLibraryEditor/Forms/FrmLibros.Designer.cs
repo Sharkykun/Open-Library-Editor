@@ -293,7 +293,7 @@
             this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
             this.LblObligatorio.Name = "LblObligatorio";
-            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.Size = new System.Drawing.Size(151, 16);
             this.LblObligatorio.TabIndex = 158;
             this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
