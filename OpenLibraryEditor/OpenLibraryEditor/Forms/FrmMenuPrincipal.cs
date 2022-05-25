@@ -83,6 +83,7 @@ namespace OpenLibraryEditor.Forms
                     puedeEditar = true;
                     LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario")+ ControladorIdioma.GetTexto("Adm_Adm");
                     MBtnCambiarFotoPerfil.Visible = true;
+                    CargarFotoUsuarioBD();
                 }
                 else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario") ||
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
@@ -92,6 +93,7 @@ namespace OpenLibraryEditor.Forms
                     lblNombreUsuConectado.Visible = true;
                     BtnActualizarLibroMsb.Visible = true;
                     MBtnCambiarFotoPerfil.Visible = true;
+                    CargarFotoUsuarioBD();
                     puedeEditar = true;
                     if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario"))
                     {
@@ -121,6 +123,20 @@ namespace OpenLibraryEditor.Forms
             TxtBusqueda.MbtnBorrar().Click += MbtnBorrarTxtBuscar_Click;
             TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarMBI_KeyDown;
             
+        }
+
+        private void CargarFotoUsuarioBD()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                Image img = ControladorImagen.ObtenerImagenStream(LecturaBD.SelectUsuarioFotoPerfil(
+                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre));
+                if (img != null)
+                    AciFotoUsuario.Image = img;
+                else
+                    AciFotoUsuario.Image = Properties.Resources.desconocido;
+                ConexionBD.CerrarConexion();
+            }
         }
         #endregion
         #region Mostrar libros de la biblioteca
@@ -807,6 +823,16 @@ namespace OpenLibraryEditor.Forms
             {
                 rutaImagen = s;
                 CargarImagen(rutaImagen);
+                MySql.Data.MySqlClient.MySqlConnection conCopia = ConexionBD.Conexion;
+                ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorIP, 
+                    "ole_register", "ole123Ole", UsuarioDatos.configuracionUsuario.BDActual.Puerto.ToString());
+                if (ConexionBD.AbrirConexion())
+                {
+                    EscrituraBD.UpdateFotoUsuario(File.ReadAllBytes(rutaImagen),
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                    ConexionBD.CerrarConexion();
+                }
+                ConexionBD.Conexion = conCopia;
             }
             else
             {
@@ -817,7 +843,7 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                AciFotoUsuario.Image = Image.FromFile(rutaImagen);
+                AciFotoUsuario.Image = ControladorImagen.ObtenerImagenStream(rutaImagen);
             }
             catch (FileNotFoundException)
             {

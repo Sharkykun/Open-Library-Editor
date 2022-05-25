@@ -4,6 +4,7 @@ using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.Controles;
 using OpenLibraryEditor.DatosLibros;
+using OpenLibraryEditor.Properties;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,14 +23,8 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmBuscar : Form
     {
         /*TODO:
-        - Añadir creación de paneles, uno por cada resultado de la busqueda.
-        El doble click hará una pregunta al usuario de si quieres añadir ese libro a su lista de libro actual.
-        - Crear llamadas a busqueda SQL para las BDs de este programa
-        - Añadir más criterios de busqueda para Google Books (Autor, género).
-        - OPCIONAL: Añadir recomendaciones en base a lo que predomina en tu lista local.
-        La lista sería creada con una busqueda a la BD/API elegida en el Combo.
-
-        Al cambiar de formulario antes de que termine de cargar el hilo salta excepcion. Controlar
+        - Al añadir libro, generar autores y otras cosas en la BD. Creo que no lo hice.
+        - Algunas imágenes, entiendo que por el tamaño, no cargan en el listview, pero se descargan bien al añadir el libro.
          */
 
         private const string NOMBRE_GOOGLE = "Google Books";
@@ -130,7 +125,7 @@ namespace OpenLibraryEditor.Forms
                                     GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
                             else
                                 imglist.Images.Add("image",
-                                    new PictureBox().ErrorImage);
+                                    Resources.portada);
                             imglist.ColorDepth = ColorDepth.Depth32Bit;
                             imglist.ImageSize = new Size(150, 200);
 
@@ -192,11 +187,19 @@ namespace OpenLibraryEditor.Forms
                             LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
                             foreach (Libro libro in listaLibro)
                             {
-                                //El salto de línea funcionará cuando tengan foto
+                                if (libro.PortadaTemp != null)
+                                    imglist.Images.Add("image",
+                                        ControladorImagen.ObtenerImagenStream(libro.PortadaTemp));
+                                else
+                                    imglist.Images.Add("image",
+                                        new Bitmap(Resources.portada));
+                                imglist.ColorDepth = ColorDepth.Depth32Bit;
+                                imglist.ImageSize = new Size(150, 200);
+
                                 ListViewItem lvi =
                                     LsvBuscarLibros.Items.Add(libro.Titulo + "\n" +
                                     libro.FechaPublicacion.Date.ToShortDateString()
-                                    + "\n" + libro.Sinopsis);
+                                    + "\n" + libro.Sinopsis, imglist.Images.Count - 1);
                                 lvi.Tag = libro;
                             }
 
@@ -267,7 +270,21 @@ namespace OpenLibraryEditor.Forms
                     {
                         try
                         {
-                            Biblioteca.biblioteca.ListaLibro.Add((Libro)LsvBuscarLibros.SelectedItems[0].Tag);
+                            Libro libro = (Libro)LsvBuscarLibros.SelectedItems[0].Tag;
+                            libro.SetRandomId();
+                            Biblioteca.biblioteca.ListaLibro.Add(libro);
+                            libro.ImagenPortada = libro.PortadaTemp == null ? null :
+                                ControladorImagen.RUTA_LIBRO + libro.IdLibro + "_c";
+                            libro.ImagenContraportada = libro.ContraportadaTemp == null ? null :
+                                ControladorImagen.RUTA_LIBRO + libro.IdLibro + "_b";
+                            if (libro.ImagenPortada != null)
+                            {
+                                File.WriteAllBytes(libro.ImagenPortada, libro.PortadaTemp);
+                            }
+                            if (libro.ImagenContraportada != null)
+                            {
+                                File.WriteAllBytes(libro.ImagenPortada, libro.ContraportadaTemp);
+                            }
                         }
                         catch (IdRepetidoException)
                         {

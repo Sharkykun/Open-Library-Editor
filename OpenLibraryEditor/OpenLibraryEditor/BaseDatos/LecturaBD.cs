@@ -145,6 +145,26 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
+		public static byte[] SelectUsuarioFotoPerfil(string nombreUsuario)
+		{
+			string query = "SELECT * FROM Usuario WHERE nombreUsuario = '" + nombreUsuario + "'";
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					if (lector.Read())
+					{
+						if (lector["imagenPerfil"].GetType() != typeof(System.DBNull))
+							return (byte[])lector["imagenPerfil"];
+					}
+
+					return null;
+				}
+			}
+		}
+
 		public static void SelectUsuarioLibro(string nombreUsuario, Libro libro)
 		{
 			string query = "SELECT * FROM UsuarioLibro WHERE nombreUsuario = '" + nombreUsuario + "'"
