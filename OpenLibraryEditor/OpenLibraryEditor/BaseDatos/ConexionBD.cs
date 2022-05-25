@@ -459,10 +459,8 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `Genero` (
                 `idGenero` INT NOT NULL,
 	            `nombreGenero` varchar(75) NOT NULL,
-	            `generoPadre` INT,
 	            `comentario` varchar(300),
-	            PRIMARY KEY (`idGenero`),
-                FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`idGenero`)
+	            PRIMARY KEY (`idGenero`)
             );", Conexion);
             tabla.ExecuteNonQuery();
         }

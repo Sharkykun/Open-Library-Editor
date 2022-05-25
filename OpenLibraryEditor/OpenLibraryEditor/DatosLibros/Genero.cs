@@ -12,7 +12,6 @@ namespace OpenLibraryEditor.DatosLibros
         private List<string> listaIdCompartido = new List<string>();
         private int idGenero;
         private string nombre = "";
-        private Genero generoPadre;
         private string comentario = "";
 
         public Genero()
@@ -24,16 +23,14 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
-        public Genero(string nombre, Genero generoPadre, string comentario)
+        public Genero(string nombre, string comentario)
         {
             this.nombre = nombre;
-            this.generoPadre = generoPadre;
             this.comentario = comentario;
         }
 
         public int IdGenero { get => idGenero; set => idGenero = value; }
         public string Nombre { get => nombre; set => nombre = value; }
-        public Genero GeneroPadre { get => generoPadre; set => generoPadre = value; }
         public string Comentario { get => comentario; set => comentario = value; }
         public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
 

@@ -42,13 +42,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static Genero RegistroAGenero(MySqlDataReader registro)
         {
-            //Si tiene genero padre, sacarlo recursivamente
-            Genero generoPadre = null;
-            if (registro["generoPadre"].ToString() == null)
-                generoPadre = LecturaBD.SelectGenero(Convert.ToInt32(registro["generoPadre"]));
-
             Genero g = new Genero(registro["nombreGenero"].ToString(),
-                generoPadre,
                 registro["comentario"].ToString());
             g.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idGenero"].ToString());
             return g;

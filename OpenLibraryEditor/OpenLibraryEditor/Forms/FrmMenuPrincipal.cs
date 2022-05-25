@@ -137,7 +137,7 @@ namespace OpenLibraryEditor.Forms
         {
             if (File.Exists(libro.ImagenPortada))
             {
-                botonLibro.BackgroundImage = Image.FromFile(libro.ImagenPortada);
+                botonLibro.BackgroundImage = ControladorImagen.ObtenerImagenStream(libro.ImagenPortada);
             }
             else
             {
@@ -225,7 +225,7 @@ namespace OpenLibraryEditor.Forms
                     vista.Tag = libro;
                     if (libro.ImagenPortada!=null &&
                         File.Exists(libro.ImagenPortada))
-                        vista.setImagen(Image.FromFile(libro.ImagenPortada));
+                        vista.setImagen(ControladorImagen.ObtenerImagenStream(libro.ImagenPortada));
                     else
                         vista.setImagen(Properties.Resources.PortadaLogo);
 
@@ -273,7 +273,7 @@ namespace OpenLibraryEditor.Forms
                     vista.Tag = libro;
                     if (libro.ImagenPortada != null &&
                         File.Exists(libro.ImagenPortada))
-                        vista.setImagen(Image.FromFile(libro.ImagenPortada));
+                        vista.setImagen(ControladorImagen.ObtenerImagenStream(libro.ImagenPortada));
                     else
                         vista.setImagen(Properties.Resources.PortadaLogo);
 
@@ -365,7 +365,7 @@ namespace OpenLibraryEditor.Forms
             //PanVistaMosaico_Resize(null,null);
 
             if (File.Exists(l.ImagenPortada))
-                PcbLibro.Image = Image.FromFile(l.ImagenPortada);
+                PcbLibro.Image = ControladorImagen.ObtenerImagenStream(l.ImagenPortada);
             else
                 PcbLibro.Image = Properties.Resources.PortadaLogo;
 
@@ -819,7 +819,7 @@ namespace OpenLibraryEditor.Forms
             {
                 if (!String.IsNullOrWhiteSpace(autor.Imagen))
                     imglist.Images.Add("image",
-                        Image.FromFile(autor.Imagen));
+                        ControladorImagen.ObtenerImagenStream(autor.Imagen));
                 else
                     imglist.Images.Add("image",
                         Properties.Resources.silueta);
@@ -890,7 +890,7 @@ namespace OpenLibraryEditor.Forms
             {
                 if (!String.IsNullOrWhiteSpace(editorial.Imagen))
                     imglist.Images.Add("image",
-                        Image.FromFile(editorial.Imagen));
+                        ControladorImagen.ObtenerImagenStream(editorial.Imagen));
                 else
                     imglist.Images.Add("image",
                         Properties.Resources.libros);

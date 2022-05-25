@@ -199,7 +199,7 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                PcbAutorNA.Image = Image.FromFile(rutaImagen);
+                PcbAutorNA.Image = ControladorImagen.ObtenerImagenStream(rutaImagen);
             }
             catch (FileNotFoundException)
             {
@@ -366,14 +366,12 @@ namespace OpenLibraryEditor.Forms
                     autorActual.FechaNacimiento = DateTime.Parse(KMtxtFecNacimientoNA.Text);
                     if (rutaImagen != autorActual.Imagen)
                     {
-                        PcbAutorNA.Image.Dispose();
-                        //PcbAutorNA.Image = null;
                         //if (File.Exists(autorActual.Imagen))
                         //    File.Delete(autorActual.Imagen);
                         autorActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
                             ControladorImagen.RUTA_PERSONA, autorActual.IdAutor.ToString());
                         rutaImagen = autorActual.Imagen;
-                        //CargarImagen(autorActual.Imagen);
+                        CargarImagen(autorActual.Imagen);
                     }
                     else
                     {
@@ -438,12 +436,10 @@ namespace OpenLibraryEditor.Forms
                             autorActual.NombreOcupacion = autor.NombreOcupacion;
                             if (autorActual.Imagen != null)
                             {
-                                PcbAutorNA.Image.Dispose();
-                                //PcbAutorNA.Image = null;
                                 //Thread.Sleep(10);
                                 File.Delete(autorActual.Imagen);
                                 File.WriteAllBytes(autorActual.Imagen, autor.ImagenTemp);
-                                //CargarImagen(autorActual.Imagen);
+                                CargarImagen(autorActual.Imagen);
                             }
                             LsvAutoresNA_ItemSelectionChanged(null, null);
                             ActualizarListView();

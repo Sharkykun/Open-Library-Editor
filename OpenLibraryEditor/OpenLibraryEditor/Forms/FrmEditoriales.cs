@@ -132,7 +132,7 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                PcbEditorialesEd.Image = Image.FromFile(rutaImagen);
+                PcbEditorialesEd.Image = ControladorImagen.ObtenerImagenStream(rutaImagen);
             }
             catch (FileNotFoundException)
             {

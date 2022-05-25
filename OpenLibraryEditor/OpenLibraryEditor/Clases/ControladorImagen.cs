@@ -40,6 +40,16 @@ namespace OpenLibraryEditor.Clases
             return "";
         }
 
+        public static Bitmap ObtenerImagenStream(string rutaImagen)
+        { 
+            Bitmap bmp = null;
+            using (MemoryStream ms = new MemoryStream(File.ReadAllBytes(rutaImagen)))
+            {
+                bmp = new Bitmap(ms);
+            }
+            return bmp;
+        }
+
         public static string RenombrarImagen(string nombreOriginal, string nombreNuevo)
         {
             if (File.Exists(nombreOriginal))

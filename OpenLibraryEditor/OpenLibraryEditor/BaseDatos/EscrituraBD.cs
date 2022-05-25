@@ -90,25 +90,6 @@ namespace OpenLibraryEditor.BaseDatos
 
             return 0;
         }
-
-        private static string GetGeneroPadreIdObjeto(Genero genero)
-        {
-            try
-            {
-                //Obtener genero padre Id si no es null
-                if (genero.GeneroPadre != null)
-                    return GetObjetoIdDeLocal(genero.GeneroPadre.ListaIdCompartido).ToString();
-                else
-                    return "NULL";
-            }
-            catch (Exception ex)
-            {
-                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
-
-                return "NULL";
-            }
-            
-        }
         #endregion
 
         #region Libro
@@ -426,16 +407,12 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
-                    //Meter al género padre primero si no está
-                    InsertGeneroPadre(genero.GeneroPadre);
-
                     int id = SetRandomId("Genero", "idGenero");
                     
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Genero` VALUES ({0},'{1}',{2},'{3}');",
+                    INSERT INTO `Genero` VALUES ({0},'{1}','{2}');",
                     id,
                     genero.Nombre,
-                    GetGeneroPadreIdObjeto(genero),
                     genero.Comentario), ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                     genero.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
@@ -458,17 +435,12 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
-                    //Meter al género padre primero si no está
-                    InsertGeneroPadre(genero.GeneroPadre);
-
                     int id = GetObjetoIdDeLocal(genero.ListaIdCompartido);
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `Genero` SET nombreGenero = '{0}',
-                    generoPadre = {1},
-                    comentario = '{2}'
+                    comentario = '{1}'
                     WHERE idGenero = " + id + ";",
                     genero.Nombre,
-                    GetGeneroPadreIdObjeto(genero),
                     genero.Comentario), ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                 }
