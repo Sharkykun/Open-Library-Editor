@@ -125,12 +125,12 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.ChkAutores, ControladorIdioma.GetTexto("Con_DWAutores"));
             ChkGeneros.Text = ControladorIdioma.GetTexto("Con_DWGeneros");
             TTConfi.SetToolTip(this.ChkGeneros, ControladorIdioma.GetTexto("Con_DWGeneros"));
-            ChkSeries.Text = ControladorIdioma.GetTexto("Con_DWSeries");
-            TTConfi.SetToolTip(this.ChkSeries, ControladorIdioma.GetTexto("Con_DWSeries"));
+            //ChkSeries.Text = ControladorIdioma.GetTexto("Con_DWSeries");
+            //TTConfi.SetToolTip(this.ChkSeries, ControladorIdioma.GetTexto("Con_DWSeries"));
             ChkEditoriales.Text = ControladorIdioma.GetTexto("Con_DWEditoriales");
             TTConfi.SetToolTip(this.ChkEditoriales, ControladorIdioma.GetTexto("Con_DWEditoriales"));
-            ChkTags.Text = ControladorIdioma.GetTexto("Con_DWEtiquetas");
-            TTConfi.SetToolTip(this.ChkTags, ControladorIdioma.GetTexto("Con_DWEtiquetas"));
+            //ChkTags.Text = ControladorIdioma.GetTexto("Con_DWEtiquetas");
+            //TTConfi.SetToolTip(this.ChkTags, ControladorIdioma.GetTexto("Con_DWEtiquetas"));
             //KgbImagenesLibro.Values.Heading = ControladorIdioma.GetTexto("Con_DWTam");
             //RbtnMiniatura.Text = ControladorIdioma.GetTexto("Con_DWMini");
             //TTConfi.SetToolTip(this.RbtnMiniatura, ControladorIdioma.GetTexto("Con_DWMini"));
@@ -248,9 +248,9 @@ namespace OpenLibraryEditor.Forms
             //    RbtnClaro.Checked = true;
             ChkAutores.Checked = configuracionUsuario.DescargaDetallesLibro[0];
             ChkGeneros.Checked = configuracionUsuario.DescargaDetallesLibro[1];
-            ChkSeries.Checked = configuracionUsuario.DescargaDetallesLibro[2];
+            //ChkSeries.Checked = configuracionUsuario.DescargaDetallesLibro[2];
             ChkEditoriales.Checked = configuracionUsuario.DescargaDetallesLibro[3];
-            ChkTags.Checked = configuracionUsuario.DescargaDetallesLibro[4];
+            //ChkTags.Checked = configuracionUsuario.DescargaDetallesLibro[4];
             //switch (configuracionUsuario.TamanioImagenLibro)
             //{
             //    case 0:
@@ -323,9 +323,9 @@ namespace OpenLibraryEditor.Forms
             //configuracionUsuario.TemaOscuro = RbtnOscuro.Checked;
             configuracionUsuario.DescargaDetallesLibro[0] = ChkAutores.Checked;
             configuracionUsuario.DescargaDetallesLibro[1] = ChkGeneros.Checked;
-            configuracionUsuario.DescargaDetallesLibro[2] = ChkSeries.Checked;
+            //configuracionUsuario.DescargaDetallesLibro[2] = ChkSeries.Checked;
             configuracionUsuario.DescargaDetallesLibro[3] = ChkEditoriales.Checked;
-            configuracionUsuario.DescargaDetallesLibro[4] = ChkTags.Checked;
+            //configuracionUsuario.DescargaDetallesLibro[4] = ChkTags.Checked;
             //if (RbtnMiniatura.Checked)
             //    configuracionUsuario.TamanioImagenLibro = 0;
             //else if (RbtnGrande.Checked)

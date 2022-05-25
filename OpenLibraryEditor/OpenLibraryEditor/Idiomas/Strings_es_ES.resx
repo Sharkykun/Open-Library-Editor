@@ -1368,6 +1368,9 @@
   <data name="NoLibros" xml:space="preserve">
     <value>No hay ningún libro en tu biblioteca</value>
   </data>
+  <data name="NoPuedeBorrarLibro" xml:space="preserve">
+    <value>El libro que intenta borrar no existe en la base de datos</value>
+  </data>
   <data name="NoRegistroUsuarioLibro" xml:space="preserve">
     <value>No existe el registro usuario libro en la base de datos</value>
   </data>
@@ -1588,7 +1591,7 @@
     <value>Escribe aquí el código recibido en su email</value>
   </data>
   <data name="VWC_ActualizarAutor" xml:space="preserve">
-    <value>¿Quieres actualizar desde la base de datos compartida este autor?</value>
+    <value>¿Quieres actualizar desde la base de datos compartida este libro?</value>
   </data>
   <data name="VWC_ActualizarAutorBD" xml:space="preserve">
     <value>¿Quieres actualizar desde la base de datos compartida este autor?</value>

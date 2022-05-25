@@ -30,34 +30,51 @@ namespace OpenLibraryEditor.Forms
         private const string NOMBRE_GOOGLE = "Google Books";
         private int contadorLibros = 0;
         private ArrayList autores = new ArrayList();
-
+        private bool puedeEditar;
         public FrmBuscar()
         {
             InitializeComponent();
             
         }
+        public FrmBuscar(bool puedeEditar)
+        {
+            InitializeComponent();
+            this.puedeEditar = puedeEditar;
+
+        }
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
-            try
-            {
-                KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
-                KCmbServidoresBUS.Items.Add(UsuarioDatos.configuracionUsuario.BDActual);
-                UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
-                KCmbServidoresBUS.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            IdiomaTexto();
-                AniadirAutores();
-                MbtnAtrasLibro.Enabled = false;
-                MBtnAvanzarLibro.Enabled = false;
-                Thread th = new Thread(() => ColocarLibrosRecomendados());
-                th.Start();
-                TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
-                TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
             
+            KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
+             if(UsuarioDatos.configuracionUsuario.BDActual!=null)
+                 KCmbServidoresBUS.Items.Add(UsuarioDatos.configuracionUsuario.BDActual);
+            UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
+            KCmbServidoresBUS.SelectedIndex = 0;
+ 
+            IdiomaTexto();
+            AniadirAutores();
+            MbtnAtrasLibro.Enabled = false;
+            MBtnAvanzarLibro.Enabled = false;
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
+            TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
+            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
+            if (puedeEditar)
+            {
+                LblTipoUsuarioConectado.Visible = true;
+                if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
+                {
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Adm");
+                }
+                else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario"))
+                {
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Usu");
+                }
+                else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
+                {
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
+                }
+            }
             //ponerLibrosRecomendados();
         }
         private void IdiomaTexto()

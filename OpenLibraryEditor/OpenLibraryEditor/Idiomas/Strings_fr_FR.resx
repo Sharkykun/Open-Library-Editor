@@ -1386,6 +1386,9 @@
   <data name="NoLibros" xml:space="preserve">
     <value>Il n'y a pas de livres dans votre bibliothèque</value>
   </data>
+  <data name="NoPuedeBorrarLibro" xml:space="preserve">
+    <value>Le livre que vous essayez de supprimer n'existe pas dans la base de données</value>
+  </data>
   <data name="NoRegistroUsuarioLibro" xml:space="preserve">
     <value>L'enregistrement de l'utilisateur du livre n'existe pas dans la base de données</value>
   </data>
@@ -1606,7 +1609,7 @@
     <value>Écrivez ici le code reçu dans votre email</value>
   </data>
   <data name="VWC_ActualizarAutor" xml:space="preserve">
-    <value>Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?</value>
+    <value>Voulez-vous mettre à jour cet livre à partir de la base de données partagée?</value>
   </data>
   <data name="VWC_ActualizarAutorBD" xml:space="preserve">
     <value>Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?</value>

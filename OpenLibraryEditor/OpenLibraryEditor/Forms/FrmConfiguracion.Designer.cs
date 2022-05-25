@@ -55,9 +55,7 @@
             this.TxtSubtituloGoogleBooksClave = new System.Windows.Forms.TextBox();
             this.LblGoogleBooksClave = new System.Windows.Forms.Label();
             this.KgbDetallesLibro = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.ChkTags = new System.Windows.Forms.CheckBox();
             this.ChkEditoriales = new System.Windows.Forms.CheckBox();
-            this.ChkSeries = new System.Windows.Forms.CheckBox();
             this.ChkGeneros = new System.Windows.Forms.CheckBox();
             this.ChkAutores = new System.Windows.Forms.CheckBox();
             this.LblCamposActualizar = new System.Windows.Forms.Label();
@@ -76,6 +74,7 @@
             this.LblVisuConfi = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.KgbGeneral = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.LblContenidoExpConfi = new System.Windows.Forms.Label();
             this.TxtSubtituloUbicacion = new System.Windows.Forms.TextBox();
             this.LblUbicacion = new System.Windows.Forms.Label();
@@ -84,20 +83,20 @@
             this.TxtSubtituloContenidoExp = new System.Windows.Forms.TextBox();
             this.PanDatosUsu = new System.Windows.Forms.Panel();
             this.KgbDatosUsu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.IpcbMostrarContra1 = new FontAwesome.Sharp.IconPictureBox();
-            this.IpcbOcultarContra1 = new FontAwesome.Sharp.IconPictureBox();
             this.GBtnModificarPass = new Guna.UI.WinForms.GunaButton();
-            this.KTxtRepetirContra = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblRepetrirContra = new System.Windows.Forms.Label();
-            this.IpcbMostrarContra = new FontAwesome.Sharp.IconPictureBox();
-            this.IpcbOcultarContra = new FontAwesome.Sharp.IconPictureBox();
-            this.KTxtContraNueva = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.GBtnActualizarMail = new Guna.UI.WinForms.GunaButton();
             this.TxtMailNuevo = new System.Windows.Forms.TextBox();
             this.LblMailNuevo = new System.Windows.Forms.Label();
             this.LblNuevaPass = new System.Windows.Forms.Label();
             this.LblMailActual = new System.Windows.Forms.Label();
             this.TxtMailActual = new System.Windows.Forms.TextBox();
+            this.IpcbMostrarContra = new FontAwesome.Sharp.IconPictureBox();
+            this.IpcbOcultarContra = new FontAwesome.Sharp.IconPictureBox();
+            this.KTxtContraNueva = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.IpcbMostrarContra1 = new FontAwesome.Sharp.IconPictureBox();
+            this.IpcbOcultarContra1 = new FontAwesome.Sharp.IconPictureBox();
+            this.KTxtRepetirContra = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanDatosGenerales = new System.Windows.Forms.Panel();
             this.PanTitulo = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -106,7 +105,6 @@
             this.MPcbConfi = new FontAwesome.Sharp.Material.MaterialPictureBox();
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
             this.ImlIdiomas = new System.Windows.Forms.ImageList(this.components);
-            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.panel1.SuspendLayout();
             this.PanElementos.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -140,10 +138,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsu.Panel)).BeginInit();
             this.KgbDatosUsu.Panel.SuspendLayout();
             this.KgbDatosUsu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra1)).BeginInit();
             this.PanTitulo.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbConfi)).BeginInit();
@@ -568,9 +566,7 @@
             // 
             // KgbDetallesLibro.Panel
             // 
-            this.KgbDetallesLibro.Panel.Controls.Add(this.ChkTags);
             this.KgbDetallesLibro.Panel.Controls.Add(this.ChkEditoriales);
-            this.KgbDetallesLibro.Panel.Controls.Add(this.ChkSeries);
             this.KgbDetallesLibro.Panel.Controls.Add(this.ChkGeneros);
             this.KgbDetallesLibro.Panel.Controls.Add(this.ChkAutores);
             this.KgbDetallesLibro.Size = new System.Drawing.Size(741, 100);
@@ -589,44 +585,18 @@
             this.KgbDetallesLibro.TabIndex = 18;
             this.KgbDetallesLibro.Values.Heading = "Detalles del libro";
             // 
-            // ChkTags
-            // 
-            this.ChkTags.AutoSize = true;
-            this.ChkTags.BackColor = System.Drawing.Color.Transparent;
-            this.ChkTags.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkTags.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.ChkTags.Location = new System.Drawing.Point(602, 20);
-            this.ChkTags.Name = "ChkTags";
-            this.ChkTags.Size = new System.Drawing.Size(80, 24);
-            this.ChkTags.TabIndex = 9;
-            this.ChkTags.Text = "Autores";
-            this.ChkTags.UseVisualStyleBackColor = false;
-            // 
             // ChkEditoriales
             // 
             this.ChkEditoriales.AutoSize = true;
             this.ChkEditoriales.BackColor = System.Drawing.Color.Transparent;
             this.ChkEditoriales.Font = new System.Drawing.Font("Merienda", 10F);
             this.ChkEditoriales.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.ChkEditoriales.Location = new System.Drawing.Point(445, 20);
+            this.ChkEditoriales.Location = new System.Drawing.Point(301, 20);
             this.ChkEditoriales.Name = "ChkEditoriales";
             this.ChkEditoriales.Size = new System.Drawing.Size(80, 24);
             this.ChkEditoriales.TabIndex = 8;
             this.ChkEditoriales.Text = "Autores";
             this.ChkEditoriales.UseVisualStyleBackColor = false;
-            // 
-            // ChkSeries
-            // 
-            this.ChkSeries.AutoSize = true;
-            this.ChkSeries.BackColor = System.Drawing.Color.Transparent;
-            this.ChkSeries.Font = new System.Drawing.Font("Merienda", 10F);
-            this.ChkSeries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.ChkSeries.Location = new System.Drawing.Point(301, 20);
-            this.ChkSeries.Name = "ChkSeries";
-            this.ChkSeries.Size = new System.Drawing.Size(80, 24);
-            this.ChkSeries.TabIndex = 7;
-            this.ChkSeries.Text = "Autores";
-            this.ChkSeries.UseVisualStyleBackColor = false;
             // 
             // ChkGeneros
             // 
@@ -906,6 +876,22 @@
             this.KgbGeneral.TabIndex = 13;
             this.KgbGeneral.Values.Heading = " General";
             // 
+            // TBtnContenidoExp
+            // 
+            this.TBtnContenidoExp.AutoSize = true;
+            this.TBtnContenidoExp.Checked = true;
+            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TBtnContenidoExp.Location = new System.Drawing.Point(434, 102);
+            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
+            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.TabIndex = 30;
+            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
+            // 
             // LblContenidoExpConfi
             // 
             this.LblContenidoExpConfi.AutoSize = true;
@@ -1039,45 +1025,6 @@
             this.KgbDatosUsu.TabIndex = 14;
             this.KgbDatosUsu.Values.Heading = "Modificar datos de acceso";
             // 
-            // IpcbMostrarContra1
-            // 
-            this.IpcbMostrarContra1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.IpcbMostrarContra1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.IpcbMostrarContra1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContra1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbMostrarContra1.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContra1.IconColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbMostrarContra1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbMostrarContra1.IconSize = 18;
-            this.IpcbMostrarContra1.Location = new System.Drawing.Point(610, 113);
-            this.IpcbMostrarContra1.Name = "IpcbMostrarContra1";
-            this.IpcbMostrarContra1.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.IpcbMostrarContra1.Size = new System.Drawing.Size(18, 18);
-            this.IpcbMostrarContra1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.IpcbMostrarContra1.TabIndex = 39;
-            this.IpcbMostrarContra1.TabStop = false;
-            this.IpcbMostrarContra1.Click += new System.EventHandler(this.IpcbMostrarContra1_Click);
-            // 
-            // IpcbOcultarContra1
-            // 
-            this.IpcbOcultarContra1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.IpcbOcultarContra1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.IpcbOcultarContra1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbOcultarContra1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbOcultarContra1.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.IpcbOcultarContra1.IconColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbOcultarContra1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbOcultarContra1.IconSize = 18;
-            this.IpcbOcultarContra1.Location = new System.Drawing.Point(610, 113);
-            this.IpcbOcultarContra1.Name = "IpcbOcultarContra1";
-            this.IpcbOcultarContra1.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.IpcbOcultarContra1.Size = new System.Drawing.Size(18, 18);
-            this.IpcbOcultarContra1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.IpcbOcultarContra1.TabIndex = 40;
-            this.IpcbOcultarContra1.TabStop = false;
-            this.IpcbOcultarContra1.Visible = false;
-            this.IpcbOcultarContra1.Click += new System.EventHandler(this.IpcbOcultarContra1_Click);
-            // 
             // GBtnModificarPass
             // 
             this.GBtnModificarPass.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -1106,30 +1053,6 @@
             this.GBtnModificarPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnModificarPass.Click += new System.EventHandler(this.GBtnModificarPass_Click);
             // 
-            // KTxtRepetirContra
-            // 
-            this.KTxtRepetirContra.Location = new System.Drawing.Point(359, 111);
-            this.KTxtRepetirContra.Name = "KTxtRepetirContra";
-            this.KTxtRepetirContra.PasswordChar = '●';
-            this.KTxtRepetirContra.Size = new System.Drawing.Size(276, 25);
-            this.KTxtRepetirContra.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtRepetirContra.StateCommon.Border.Color1 = System.Drawing.Color.Black;
-            this.KTxtRepetirContra.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.KTxtRepetirContra.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtRepetirContra.StateCommon.Border.Rounding = 1;
-            this.KTxtRepetirContra.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtRepetirContra.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F);
-            this.KTxtRepetirContra.StateNormal.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtRepetirContra.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
-            this.KTxtRepetirContra.StateNormal.Border.Color2 = System.Drawing.Color.Transparent;
-            this.KTxtRepetirContra.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtRepetirContra.TabIndex = 37;
-            this.KTxtRepetirContra.UseSystemPasswordChar = true;
-            // 
             // LblRepetrirContra
             // 
             this.LblRepetrirContra.AutoSize = true;
@@ -1140,69 +1063,6 @@
             this.LblRepetrirContra.Size = new System.Drawing.Size(182, 26);
             this.LblRepetrirContra.TabIndex = 36;
             this.LblRepetrirContra.Text = "Repetir contraseña";
-            // 
-            // IpcbMostrarContra
-            // 
-            this.IpcbMostrarContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.IpcbMostrarContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.IpcbMostrarContra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContra.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbMostrarContra.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContra.IconColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbMostrarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbMostrarContra.IconSize = 18;
-            this.IpcbMostrarContra.Location = new System.Drawing.Point(274, 113);
-            this.IpcbMostrarContra.Name = "IpcbMostrarContra";
-            this.IpcbMostrarContra.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.IpcbMostrarContra.Size = new System.Drawing.Size(18, 18);
-            this.IpcbMostrarContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.IpcbMostrarContra.TabIndex = 34;
-            this.IpcbMostrarContra.TabStop = false;
-            this.IpcbMostrarContra.Click += new System.EventHandler(this.IpcbMostrarContra_Click);
-            // 
-            // IpcbOcultarContra
-            // 
-            this.IpcbOcultarContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.IpcbOcultarContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.IpcbOcultarContra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbOcultarContra.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbOcultarContra.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.IpcbOcultarContra.IconColor = System.Drawing.SystemColors.ControlText;
-            this.IpcbOcultarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbOcultarContra.IconSize = 18;
-            this.IpcbOcultarContra.Location = new System.Drawing.Point(274, 113);
-            this.IpcbOcultarContra.Name = "IpcbOcultarContra";
-            this.IpcbOcultarContra.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.IpcbOcultarContra.Size = new System.Drawing.Size(18, 18);
-            this.IpcbOcultarContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.IpcbOcultarContra.TabIndex = 35;
-            this.IpcbOcultarContra.TabStop = false;
-            this.IpcbOcultarContra.Visible = false;
-            this.IpcbOcultarContra.Click += new System.EventHandler(this.IpcbOcultarContra_Click);
-            // 
-            // KTxtContraNueva
-            // 
-            this.KTxtContraNueva.Location = new System.Drawing.Point(22, 111);
-            this.KTxtContraNueva.Name = "KTxtContraNueva";
-            this.KTxtContraNueva.PasswordChar = '●';
-            this.KTxtContraNueva.Size = new System.Drawing.Size(276, 25);
-            this.KTxtContraNueva.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KTxtContraNueva.StateCommon.Border.Color1 = System.Drawing.Color.Black;
-            this.KTxtContraNueva.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.KTxtContraNueva.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtContraNueva.StateCommon.Border.Rounding = 1;
-            this.KTxtContraNueva.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KTxtContraNueva.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F);
-            this.KTxtContraNueva.StateNormal.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtContraNueva.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
-            this.KTxtContraNueva.StateNormal.Border.Color2 = System.Drawing.Color.Transparent;
-            this.KTxtContraNueva.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtContraNueva.TabIndex = 33;
-            this.KTxtContraNueva.UseSystemPasswordChar = true;
             // 
             // GBtnActualizarMail
             // 
@@ -1288,6 +1148,132 @@
             this.TxtMailActual.Size = new System.Drawing.Size(276, 25);
             this.TxtMailActual.TabIndex = 27;
             // 
+            // IpcbMostrarContra
+            // 
+            this.IpcbMostrarContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbMostrarContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbMostrarContra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbMostrarContra.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContra.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.IpcbMostrarContra.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbMostrarContra.IconSize = 18;
+            this.IpcbMostrarContra.Location = new System.Drawing.Point(274, 113);
+            this.IpcbMostrarContra.Name = "IpcbMostrarContra";
+            this.IpcbMostrarContra.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.IpcbMostrarContra.Size = new System.Drawing.Size(18, 18);
+            this.IpcbMostrarContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbMostrarContra.TabIndex = 34;
+            this.IpcbMostrarContra.TabStop = false;
+            this.IpcbMostrarContra.Click += new System.EventHandler(this.IpcbMostrarContra_Click);
+            // 
+            // IpcbOcultarContra
+            // 
+            this.IpcbOcultarContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbOcultarContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbOcultarContra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbOcultarContra.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContra.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.IpcbOcultarContra.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbOcultarContra.IconSize = 18;
+            this.IpcbOcultarContra.Location = new System.Drawing.Point(274, 113);
+            this.IpcbOcultarContra.Name = "IpcbOcultarContra";
+            this.IpcbOcultarContra.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.IpcbOcultarContra.Size = new System.Drawing.Size(18, 18);
+            this.IpcbOcultarContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbOcultarContra.TabIndex = 35;
+            this.IpcbOcultarContra.TabStop = false;
+            this.IpcbOcultarContra.Visible = false;
+            this.IpcbOcultarContra.Click += new System.EventHandler(this.IpcbOcultarContra_Click);
+            // 
+            // KTxtContraNueva
+            // 
+            this.KTxtContraNueva.Location = new System.Drawing.Point(22, 111);
+            this.KTxtContraNueva.Name = "KTxtContraNueva";
+            this.KTxtContraNueva.PasswordChar = '●';
+            this.KTxtContraNueva.Size = new System.Drawing.Size(276, 25);
+            this.KTxtContraNueva.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtContraNueva.StateCommon.Border.Color1 = System.Drawing.Color.Black;
+            this.KTxtContraNueva.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.KTxtContraNueva.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtContraNueva.StateCommon.Border.Rounding = 1;
+            this.KTxtContraNueva.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtContraNueva.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F);
+            this.KTxtContraNueva.StateNormal.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtContraNueva.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
+            this.KTxtContraNueva.StateNormal.Border.Color2 = System.Drawing.Color.Transparent;
+            this.KTxtContraNueva.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtContraNueva.TabIndex = 33;
+            this.KTxtContraNueva.UseSystemPasswordChar = true;
+            // 
+            // IpcbMostrarContra1
+            // 
+            this.IpcbMostrarContra1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbMostrarContra1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbMostrarContra1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbMostrarContra1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContra1.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.IpcbMostrarContra1.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContra1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbMostrarContra1.IconSize = 18;
+            this.IpcbMostrarContra1.Location = new System.Drawing.Point(610, 113);
+            this.IpcbMostrarContra1.Name = "IpcbMostrarContra1";
+            this.IpcbMostrarContra1.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.IpcbMostrarContra1.Size = new System.Drawing.Size(18, 18);
+            this.IpcbMostrarContra1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbMostrarContra1.TabIndex = 39;
+            this.IpcbMostrarContra1.TabStop = false;
+            this.IpcbMostrarContra1.Click += new System.EventHandler(this.IpcbMostrarContra1_Click);
+            // 
+            // IpcbOcultarContra1
+            // 
+            this.IpcbOcultarContra1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.IpcbOcultarContra1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IpcbOcultarContra1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IpcbOcultarContra1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContra1.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.IpcbOcultarContra1.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContra1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.IpcbOcultarContra1.IconSize = 18;
+            this.IpcbOcultarContra1.Location = new System.Drawing.Point(610, 113);
+            this.IpcbOcultarContra1.Name = "IpcbOcultarContra1";
+            this.IpcbOcultarContra1.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.IpcbOcultarContra1.Size = new System.Drawing.Size(18, 18);
+            this.IpcbOcultarContra1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.IpcbOcultarContra1.TabIndex = 40;
+            this.IpcbOcultarContra1.TabStop = false;
+            this.IpcbOcultarContra1.Visible = false;
+            this.IpcbOcultarContra1.Click += new System.EventHandler(this.IpcbOcultarContra1_Click);
+            // 
+            // KTxtRepetirContra
+            // 
+            this.KTxtRepetirContra.Location = new System.Drawing.Point(359, 111);
+            this.KTxtRepetirContra.Name = "KTxtRepetirContra";
+            this.KTxtRepetirContra.PasswordChar = '●';
+            this.KTxtRepetirContra.Size = new System.Drawing.Size(276, 25);
+            this.KTxtRepetirContra.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.KTxtRepetirContra.StateCommon.Border.Color1 = System.Drawing.Color.Black;
+            this.KTxtRepetirContra.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.KTxtRepetirContra.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtRepetirContra.StateCommon.Border.Rounding = 1;
+            this.KTxtRepetirContra.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtRepetirContra.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F);
+            this.KTxtRepetirContra.StateNormal.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtRepetirContra.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
+            this.KTxtRepetirContra.StateNormal.Border.Color2 = System.Drawing.Color.Transparent;
+            this.KTxtRepetirContra.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtRepetirContra.TabIndex = 37;
+            this.KTxtRepetirContra.UseSystemPasswordChar = true;
+            // 
             // PanDatosGenerales
             // 
             this.PanDatosGenerales.AutoSize = true;
@@ -1366,22 +1352,6 @@
             this.ImlIdiomas.Images.SetKeyName(1, "estados-unidos-de-america.png");
             this.ImlIdiomas.Images.SetKeyName(2, "francia.png");
             // 
-            // TBtnContenidoExp
-            // 
-            this.TBtnContenidoExp.AutoSize = true;
-            this.TBtnContenidoExp.Checked = true;
-            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnContenidoExp.Location = new System.Drawing.Point(434, 102);
-            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
-            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.TabIndex = 30;
-            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
-            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1436,10 +1406,10 @@
             this.KgbDatosUsu.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsu)).EndInit();
             this.KgbDatosUsu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra1)).EndInit();
             this.PanTitulo.ResumeLayout(false);
             this.PanTitulo.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1490,9 +1460,7 @@
         private System.Windows.Forms.TextBox TxtSubtituloGoogleBooksClave;
         private System.Windows.Forms.Label LblGoogleBooksClave;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox KgbDetallesLibro;
-        private System.Windows.Forms.CheckBox ChkTags;
         private System.Windows.Forms.CheckBox ChkEditoriales;
-        private System.Windows.Forms.CheckBox ChkSeries;
         private System.Windows.Forms.CheckBox ChkGeneros;
         private System.Windows.Forms.CheckBox ChkAutores;
         private System.Windows.Forms.Label LblCamposActualizar;

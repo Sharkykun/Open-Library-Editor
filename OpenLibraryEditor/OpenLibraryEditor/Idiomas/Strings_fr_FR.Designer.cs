@@ -3868,6 +3868,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Le livre que vous essayez de supprimer n&apos;existe pas dans la base de données.
+        /// </summary>
+        internal static string NoPuedeBorrarLibro {
+            get {
+                return ResourceManager.GetString("NoPuedeBorrarLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a L&apos;enregistrement de l&apos;utilisateur du livre n&apos;existe pas dans la base de données.
         /// </summary>
         internal static string NoRegistroUsuarioLibro {
@@ -4525,7 +4534,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?.
+        ///   Busca una cadena traducida similar a Voulez-vous mettre à jour cet livre à partir de la base de données partagée?.
         /// </summary>
         internal static string VWC_ActualizarAutor {
             get {

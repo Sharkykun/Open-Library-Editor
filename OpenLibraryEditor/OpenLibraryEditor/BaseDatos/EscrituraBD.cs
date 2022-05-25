@@ -234,7 +234,7 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
                 else
-                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoExisteLibro"));
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoPuedeBorrarLibro"));
             }
             catch (Exception ex)
             {
