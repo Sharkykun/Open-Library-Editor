@@ -24,7 +24,7 @@ namespace OpenLibraryEditor.Forms
     {
         /*TODO:
         - Al añadir libro, generar autores y otras cosas en la BD. Creo que no lo hice.
-        - Algunas imágenes, entiendo que por el tamaño, no cargan en el listview, pero se descargan bien al añadir el libro.
+        - La primera imagen no carga en el listview, pero se descargan bien al añadir el libro.
          */
 
         private const string NOMBRE_GOOGLE = "Google Books";
@@ -38,25 +38,20 @@ namespace OpenLibraryEditor.Forms
         }
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
-            try
-            {
-                KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
+            
+            KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
+            if(UsuarioDatos.configuracionUsuario.BDActual != null)
                 KCmbServidoresBUS.Items.Add(UsuarioDatos.configuracionUsuario.BDActual);
-                UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
-                KCmbServidoresBUS.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
+            KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
-                AniadirAutores();
-                MbtnAtrasLibro.Enabled = false;
-                MBtnAvanzarLibro.Enabled = false;
-                Thread th = new Thread(() => ColocarLibrosRecomendados());
-                th.Start();
-                TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
-                TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
+            AniadirAutores();
+            MbtnAtrasLibro.Enabled = false;
+            MBtnAvanzarLibro.Enabled = false;
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
+            TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
+            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
             
             //ponerLibrosRecomendados();
         }

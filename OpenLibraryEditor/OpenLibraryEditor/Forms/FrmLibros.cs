@@ -671,15 +671,14 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != null)
                 {
-                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarDetallesBD"))
+                    if (ConexionBD.AbrirConexion() && 
+                        EscrituraBD.GetObjetoIdDeLocal(libroActual.ListaIdCompartido) > 0 && 
+                        VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarDetallesBD"))
                         == DialogResult.Yes)
                     {
-                        if (ConexionBD.AbrirConexion())
-                        {
-                            libroActual.MeterUsuarioLibroEnBDCompartida();
-                            ConexionBD.CerrarConexion();
-                        }
+                        libroActual.MeterUsuarioLibroEnBDCompartida();
                     }
+                    ConexionBD.CerrarConexion();
                 }
 
                 esOk = true;
