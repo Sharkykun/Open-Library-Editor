@@ -47,11 +47,78 @@ namespace OpenLibraryEditor.Forms
 
         public bool EsOk { get => esOk; set => esOk = value; }
         #endregion
+        #region constructor y load
         public FrmLibros(Libro libro)
         {
             InitializeComponent();
             libroActual = libro;
         }
+        private void FrmAniadirLibro_Load(object sender, EventArgs e)
+        {
+            IdiomaTexto();
+            if (this.Text.Equals(ControladorIdioma.GetTexto("Al_Titulo")))
+            {
+                LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Titulo");
+            }
+            else
+            {
+                LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Modificar");
+            }
+            KcellTabs.SelectedPage = KpageDatosGenerales;
+            //Agregar valores de listas
+            RellenarEditorial(libroActual.ListaEditorial);
+            RellenarEjecutable();
+            RellenarEtiqueta(libroActual.ListaEtiqueta);
+            RellenarGenero(libroActual.ListaGenero);
+            RellenarSerie(libroActual.ListaSerie);
+            listaIdioma.ForEach(p => {
+                AgregarComboItem(KCmbIdiomaNL, p);
+                AgregarComboItem(KCmbIdiomaOriginalNL, p);
+            });
+            RellenarPersona(libroActual.ListaAutor);
+
+            //Vincular lista de tipo libro con Combobox
+            tipoBinding.DataSource = listaTipoLibro;
+            KCmbTipoNL.DataSource = tipoBinding;
+
+            //Cargar valores de libro
+            KTxtTituloNL.Text = libroActual.Titulo;
+            KTxtSubtituloNL.Text = libroActual.Subtitulo;
+            KTxtTituAlternativoNL.Text = libroActual.TituloAlternativo;
+            KNudEdicionNL.Value = libroActual.Edicion;
+            KNudVolumenNL.Value = (decimal)libroActual.NumeroVolumen;
+            KCmbTipoNL.Text = libroActual.NombreTipo;
+            KNudNumCapNL.Value = libroActual.NumeroCapitulos;
+            KNudNumPagNL.Value = libroActual.NumeroPaginas;
+            KTxtIsbn10.Text = libroActual.Isbn_10;
+            KTxtSinopsisNL.Text = libroActual.Sinopsis;
+            KTxtIsbn13.Text = libroActual.Isbn_13;
+            KMtxtFecPublicacionNL.Text = libroActual.FechaPublicacion.Date.ToShortDateString();
+            KMtxtInclusionbbddNL.Text = libroActual.FechaAdicionBD.Date.ToShortDateString();
+            TBtnMayores18NL.Checked = libroActual.MayorEdad;
+            KTxtEnlaceNL.Text = libroActual.EnlaceReferencia;
+            KCmbIdiomaOriginalNL.SelectedItem = libroActual.IdiomaOriginal;
+            KCmbIdiomaNL.SelectedItem = libroActual.Idioma;
+            KNudPuntuacionNL.Value = (decimal)libroActual.Puntuacion;
+            KNudVecesLeidoNL.Value = libroActual.VecesLeido;
+            KCmbEstadoLecturaNL.Text = libroActual.EstadoLectura;
+            KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
+            KNudCapiActualNL.Value = libroActual.CapituloActual;
+            KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
+            KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
+            TBtnOcultarNL.Checked = libroActual.Ocultar;
+            TBtnFavNL.Checked = libroActual.Favorito;
+            KTxtComentarioUsuarioNL.Text = libroActual.Comentario;
+            rutaImagenPortada = libroActual.ImagenPortada;
+            CargarImagen(PcbImgPortadaNL, rutaImagenPortada);
+            rutaImagenContraportada = libroActual.ImagenContraportada;
+            CargarImagen(PcbImgContraNL, rutaImagenContraportada);
+            libroActual.ListaAccion.ForEach(p => {
+                var item = AniadirAccion(p);
+                item.Selected = true;
+            });
+        }
+        #endregion
         #region metodos propios
 
         private void IdiomaTexto()
@@ -138,9 +205,11 @@ namespace OpenLibraryEditor.Forms
             KPageImagenes.Text = ControladorIdioma.GetTexto("Al_TabImg");
             KGbImagenesNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabImg");
             LblImgPortadaNL.Text = ControladorIdioma.GetTexto("Al_IMPortada");
-            TTnuevoLibro.SetToolTip(this.IBtnPortadaNL, ControladorIdioma.GetTexto("Al_TTBtnPortada"));
+            TTnuevoLibro.SetToolTip(this.MBtnAniadirPortada, ControladorIdioma.GetTexto("Al_TTBtnPortada"));
+            TTnuevoLibro.SetToolTip(this.MBtnBorrarPortada, ControladorIdioma.GetTexto("Al_TTBorrarPortada"));
             LblImgContraNL.Text = ControladorIdioma.GetTexto("Al_IMContra");
-            TTnuevoLibro.SetToolTip(this.IBtnContraportadaNL, ControladorIdioma.GetTexto("Al_TTBtnContra"));
+            TTnuevoLibro.SetToolTip(this.MBtnAniadirContraPortada, ControladorIdioma.GetTexto("Al_TTBtnContra"));
+            TTnuevoLibro.SetToolTip(this.MBtnBorrarContraPortada, ControladorIdioma.GetTexto("Al_TTBorrarContra"));
 
             KPageAcciones.Text = ControladorIdioma.GetTexto("Al_TabAcciones");
             KGbAccionesNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabAcciones");
@@ -285,71 +354,7 @@ namespace OpenLibraryEditor.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-        private void FrmAniadirLibro_Load(object sender, EventArgs e)
-        {
-            IdiomaTexto();
-            if (this.Text.Equals(ControladorIdioma.GetTexto("Al_Titulo")))
-            {
-                LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Titulo");
-            }
-            else
-            {
-                LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Modificar");
-            }
-            KcellTabs.SelectedPage = KpageDatosGenerales;
-            //Agregar valores de listas
-            RellenarEditorial(libroActual.ListaEditorial);
-            RellenarEjecutable();
-            RellenarEtiqueta(libroActual.ListaEtiqueta);
-            RellenarGenero(libroActual.ListaGenero);
-            RellenarSerie(libroActual.ListaSerie);
-            listaIdioma.ForEach(p => {
-                AgregarComboItem(KCmbIdiomaNL, p);
-                AgregarComboItem(KCmbIdiomaOriginalNL, p);
-            });
-            RellenarPersona(libroActual.ListaAutor);
-
-            //Vincular lista de tipo libro con Combobox
-            tipoBinding.DataSource = listaTipoLibro;
-            KCmbTipoNL.DataSource = tipoBinding;
-
-            //Cargar valores de libro
-            KTxtTituloNL.Text = libroActual.Titulo;
-            KTxtSubtituloNL.Text = libroActual.Subtitulo;
-            KTxtTituAlternativoNL.Text = libroActual.TituloAlternativo;
-            KNudEdicionNL.Value = libroActual.Edicion;
-            KNudVolumenNL.Value = (decimal)libroActual.NumeroVolumen;
-            KCmbTipoNL.Text = libroActual.NombreTipo;
-            KNudNumCapNL.Value = libroActual.NumeroCapitulos;
-            KNudNumPagNL.Value = libroActual.NumeroPaginas;
-            KTxtIsbn10.Text = libroActual.Isbn_10;
-            KTxtSinopsisNL.Text = libroActual.Sinopsis;
-            KTxtIsbn13.Text = libroActual.Isbn_13;
-            KMtxtFecPublicacionNL.Text = libroActual.FechaPublicacion.Date.ToShortDateString();
-            KMtxtInclusionbbddNL.Text = libroActual.FechaAdicionBD.Date.ToShortDateString();
-            TBtnMayores18NL.Checked = libroActual.MayorEdad;
-            KTxtEnlaceNL.Text = libroActual.EnlaceReferencia;
-            KCmbIdiomaOriginalNL.SelectedItem = libroActual.IdiomaOriginal;
-            KCmbIdiomaNL.SelectedItem = libroActual.Idioma;
-            KNudPuntuacionNL.Value = (decimal)libroActual.Puntuacion;
-            KNudVecesLeidoNL.Value = libroActual.VecesLeido;
-            KCmbEstadoLecturaNL.Text = libroActual.EstadoLectura;
-            KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
-            KNudCapiActualNL.Value = libroActual.CapituloActual;
-            KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
-            KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
-            TBtnOcultarNL.Checked = libroActual.Ocultar;
-            TBtnFavNL.Checked = libroActual.Favorito;
-            KTxtComentarioUsuarioNL.Text = libroActual.Comentario;
-            rutaImagenPortada = libroActual.ImagenPortada;
-            CargarImagen(PcbImgPortadaNL, rutaImagenPortada);
-            rutaImagenContraportada = libroActual.ImagenContraportada;
-            CargarImagen(PcbImgContraNL, rutaImagenContraportada);
-            libroActual.ListaAccion.ForEach(p => {
-                var item = AniadirAccion(p);
-                item.Selected = true;
-            });
-        }
+      
         #region Datos generales
         private void MBtnMasEditorialNL_Click(object sender, EventArgs e)
         {
@@ -459,7 +464,7 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
         #region Imagenes
-        private void IBtnPortadaNL_Click(object sender, EventArgs e)
+        private void MBtnAniadirPortada_Click(object sender, EventArgs e)
         {
             string s = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_IMAGEN);
             if (s != "")
@@ -469,7 +474,13 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void IBtnContraportadaNL_Click(object sender, EventArgs e)
+        private void MBtnBorrarPortada_Click(object sender, EventArgs e)
+        {
+            PcbImgPortadaNL.Image = Properties.Resources.PortadaLogo;
+            rutaImagenPortada = null;
+        }
+
+        private void MBtnAniadirContraPortada_Click(object sender, EventArgs e)
         {
             string s = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_IMAGEN);
             if (s != "")
@@ -477,6 +488,12 @@ namespace OpenLibraryEditor.Forms
                 rutaImagenContraportada = s;
                 CargarImagen(PcbImgContraNL, rutaImagenContraportada);
             }
+        }
+
+        private void MBtnBorrarContraPortada_Click(object sender, EventArgs e)
+        {
+            PcbImgContraNL.Image = Properties.Resources.PortadaLogo;
+            rutaImagenContraportada = null;
         }
         #endregion
         #region Acciones
@@ -555,6 +572,7 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
 
+        #region guardar y cerrar
         private void GBtnGuardarLibro_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
@@ -610,11 +628,25 @@ namespace OpenLibraryEditor.Forms
                         ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_c");
                     rutaImagenPortada = libroActual.ImagenPortada;
                 }
+                else
+                {
+                    string file = ControladorImagen.RUTA_BASE +
+                        ControladorImagen.RUTA_LIBRO + libroActual.IdLibro + "_c";
+                    if (File.Exists(file))
+                        File.Delete(file);
+                }
                 if (rutaImagenContraportada != libroActual.ImagenContraportada)
                 {
                     libroActual.ImagenContraportada = ControladorImagen.GuardarImagen(rutaImagenContraportada,
                         ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_b");
                     rutaImagenContraportada = libroActual.ImagenContraportada;
+                }
+                else
+                {
+                    string file = ControladorImagen.RUTA_BASE +
+                        ControladorImagen.RUTA_LIBRO + libroActual.IdLibro + "_b";
+                    if (File.Exists(file))
+                        File.Delete(file);
                 }
                 libroActual.ListaAccion.Clear();
                 foreach (ListViewItem c in LsvAccionesNL.Items)
@@ -624,8 +656,7 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != "Usuario")
                 {
-                    //-------------------------
-                    if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar este libro en la BD compartida?")
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarLibroBD"))
                         == DialogResult.Yes)
                     {
                         if (ConexionBD.AbrirConexion())
@@ -640,8 +671,7 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.Conexion != null &&
                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != null)
                 {
-                    //-------------------------
-                    if (VentanaWindowsComun.MensajePregunta("¿Quieres guardar tus detalles de usuario \nde este libro en la BD compartida?")
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_GuardarDetallesBD"))
                         == DialogResult.Yes)
                     {
                         if (ConexionBD.AbrirConexion())
@@ -675,6 +705,7 @@ namespace OpenLibraryEditor.Forms
                     GBtnGuardarLibro_Click(null, null);
             }
         }
+        #endregion
 
     }
 }

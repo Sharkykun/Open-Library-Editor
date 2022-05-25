@@ -120,6 +120,9 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="Actualizar" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
   <data name="ActualizarConBD" xml:space="preserve">
     <value>Actualizar con BD</value>
   </data>
@@ -305,6 +308,12 @@
   </data>
   <data name="Al_TT18" xml:space="preserve">
     <value>Libro apto solo para mayores de 18 años</value>
+  </data>
+  <data name="Al_TTBorrarContra" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de la contraportada del libro</value>
+  </data>
+  <data name="Al_TTBorrarPortada" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de portada del libro</value>
   </data>
   <data name="Al_TTBtnBuscarFichero" xml:space="preserve">
     <value>Haz click para buscar la ruta del fichero</value>
@@ -531,6 +540,9 @@
   <data name="BD_Url" xml:space="preserve">
     <value>Url:</value>
   </data>
+  <data name="Bienvenido" xml:space="preserve">
+    <value>Bienvenid@ a Open Library Editor</value>
+  </data>
   <data name="BorradoCorrectamente" xml:space="preserve">
     <value> fue borrado correctamente</value>
   </data>
@@ -624,6 +636,12 @@
   <data name="Con_CmbDobleEjecutar" xml:space="preserve">
     <value>Ejecutar Libro</value>
   </data>
+  <data name="Con_ContraNueva" xml:space="preserve">
+    <value>Contraseña nueva</value>
+  </data>
+  <data name="Con_DatosUsu" xml:space="preserve">
+    <value>Modificar datos de acceso</value>
+  </data>
   <data name="Con_Descargas" xml:space="preserve">
     <value>Descargas web</value>
   </data>
@@ -696,6 +714,15 @@
   <data name="Con_InfoServidor" xml:space="preserve">
     <value>la información del servidor</value>
   </data>
+  <data name="Con_MailActual" xml:space="preserve">
+    <value>Email actual</value>
+  </data>
+  <data name="Con_MailNuevo" xml:space="preserve">
+    <value>Email nuevo</value>
+  </data>
+  <data name="Con_RepetirContra" xml:space="preserve">
+    <value>Repetir contraseña</value>
+  </data>
   <data name="Con_Servidor" xml:space="preserve">
     <value>Servidor web</value>
   </data>
@@ -725,6 +752,24 @@
   </data>
   <data name="Con_Titulo" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="Con_TTActualizar" xml:space="preserve">
+    <value>Haz click para actualizar tu email en la base de datos</value>
+  </data>
+  <data name="Con_TTContraNueva" xml:space="preserve">
+    <value>Escribe aquí tu nueva contraseña</value>
+  </data>
+  <data name="Con_TTMailA" xml:space="preserve">
+    <value>Este es tu email actual guardado en la base de datos</value>
+  </data>
+  <data name="Con_TTMailN" xml:space="preserve">
+    <value>Escribe aquí tu nuevo email</value>
+  </data>
+  <data name="Con_TTModificar" xml:space="preserve">
+    <value>Haz click aquí para modificar tu contraseña de acceso a la aplicación</value>
+  </data>
+  <data name="Con_TTRepetirContra" xml:space="preserve">
+    <value>Vuelve a escribir tu nueva contraseña aquí</value>
   </data>
   <data name="Crear" xml:space="preserve">
     <value>Crear</value>
@@ -1065,6 +1110,15 @@
   <data name="Log_Url" xml:space="preserve">
     <value>Url base de datos</value>
   </data>
+  <data name="Mail_Body" xml:space="preserve">
+    <value>Bienvenido a Open Library Editor. Su código de verificación es: </value>
+  </data>
+  <data name="Mail_Error" xml:space="preserve">
+    <value>No se pudo enviar el correo</value>
+  </data>
+  <data name="Mail_Subject" xml:space="preserve">
+    <value>Correo de verificación</value>
+  </data>
   <data name="Main_Actualizar" xml:space="preserve">
     <value>Actualizar libro</value>
   </data>
@@ -1278,6 +1332,12 @@
   <data name="Main_VecesLeido" xml:space="preserve">
     <value>Veces leído:</value>
   </data>
+  <data name="Modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="ModoSinConexion" xml:space="preserve">
+    <value>Estás en modo sin conexión</value>
+  </data>
   <data name="Ms_Abortar" xml:space="preserve">
     <value>Abortar</value>
   </data>
@@ -1305,11 +1365,26 @@
   <data name="NoExisteLibro" xml:space="preserve">
     <value>El libro que intenta actualizar no existe en la base de datos</value>
   </data>
+  <data name="NoLibros" xml:space="preserve">
+    <value>No hay ningún libro en tu biblioteca</value>
+  </data>
   <data name="NoRegistroUsuarioLibro" xml:space="preserve">
     <value>No existe el registro usuario libro en la base de datos</value>
   </data>
   <data name="NuevoLibro" xml:space="preserve">
     <value>Nuevo libro</value>
+  </data>
+  <data name="NumAutores" xml:space="preserve">
+    <value>Número de autores: </value>
+  </data>
+  <data name="NumEditoriales" xml:space="preserve">
+    <value>Número de editoriales: </value>
+  </data>
+  <data name="NumGeneros" xml:space="preserve">
+    <value>Número de géneros: </value>
+  </data>
+  <data name="NumLibros" xml:space="preserve">
+    <value>Número de libros: </value>
   </data>
   <data name="OcupacionNoExiste" xml:space="preserve">
     <value>La ocupación no existe en la base de datos</value>
@@ -1482,6 +1557,9 @@
   <data name="TipoLibroRepetido" xml:space="preserve">
     <value>El tipo de libro ya existe en la base de datos</value>
   </data>
+  <data name="TipoUsuario" xml:space="preserve">
+    <value>Tipo de usuario conectado: </value>
+  </data>
   <data name="TituloObli" xml:space="preserve">
     <value>Título *</value>
   </data>
@@ -1493,6 +1571,21 @@
   </data>
   <data name="UsuarioRepetido" xml:space="preserve">
     <value>El usuario ya existe en la base de datos</value>
+  </data>
+  <data name="Verificar_btn" xml:space="preserve">
+    <value>Verificar</value>
+  </data>
+  <data name="Verificar_lbl" xml:space="preserve">
+    <value>Introduzca el código que le hemos enviado</value>
+  </data>
+  <data name="Verificar_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Verifica tu email</value>
+  </data>
+  <data name="Verificar_TTbtn" xml:space="preserve">
+    <value>Haz click para verificar tu email</value>
+  </data>
+  <data name="Verificar_TTMask" xml:space="preserve">
+    <value>Escribe aquí el código recibido en su email</value>
   </data>
   <data name="VWC_ActualizarAutor" xml:space="preserve">
     <value>¿Quieres actualizar desde la base de datos compartida este autor?</value>
@@ -1508,6 +1601,9 @@
   </data>
   <data name="VWC_Advertencia" xml:space="preserve">
     <value>Advertencia</value>
+  </data>
+  <data name="VWC_Bienvenido" xml:space="preserve">
+    <value>Bienvenido a Open Library Editor</value>
   </data>
   <data name="VWC_Borrado" xml:space="preserve">
     <value>borrado correctamente.</value>
@@ -1530,8 +1626,17 @@
   <data name="VWC_BorrarLibroBdCompartida" xml:space="preserve">
     <value>¿Quieres borrar este libro en la base de datos compartida?</value>
   </data>
+  <data name="VWC_CaracteresMal" xml:space="preserve">
+    <value>Los caracteres introducidos no son válidos</value>
+  </data>
+  <data name="VWC_CodigoMal" xml:space="preserve">
+    <value>El código introducido no es correcto</value>
+  </data>
   <data name="VWC_Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="VWC_ErrorImg" xml:space="preserve">
+    <value>No se cargó la imagen correctamente</value>
   </data>
   <data name="VWC_Guardado" xml:space="preserve">
     <value>guardado correctamente</value>
@@ -1542,11 +1647,17 @@
   <data name="VWC_GuardarAutorBD" xml:space="preserve">
     <value>¿Quieres guardar este autor en la base de datos compartida?</value>
   </data>
+  <data name="VWC_GuardarDetallesBD" xml:space="preserve">
+    <value>¿Quieres guardar tus detalles de usuario de este libro en la base de datos compartida?</value>
+  </data>
   <data name="VWC_GuardarEditorialBD" xml:space="preserve">
     <value>¿Quieres guardar esta editorial en la base de datos compartida?</value>
   </data>
   <data name="VWC_GuardarGeneroBD" xml:space="preserve">
     <value>¿Quieres guardar este género en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_GuardarLibroBD" xml:space="preserve">
+    <value>¿Quieres guardar este libro en la base de datos compartida?</value>
   </data>
   <data name="VWC_Informacion" xml:space="preserve">
     <value>Información</value>
@@ -1559,5 +1670,8 @@
   </data>
   <data name="VWC_Pregunta" xml:space="preserve">
     <value>Open Library Editor</value>
+  </data>
+  <data name="VWC_ReenviarMail" xml:space="preserve">
+    <value>¿Desea reenviar el correo?</value>
   </data>
 </root>

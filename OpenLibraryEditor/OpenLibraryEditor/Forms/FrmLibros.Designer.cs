@@ -87,10 +87,8 @@
             this.KGbImagenesNL = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.PcbImgContraNL = new System.Windows.Forms.PictureBox();
             this.PcbImgPortadaNL = new System.Windows.Forms.PictureBox();
-            this.IBtnContraportadaNL = new FontAwesome.Sharp.IconButton();
             this.LblImgContraNL = new System.Windows.Forms.Label();
             this.LblImgPortadaNL = new System.Windows.Forms.Label();
-            this.IBtnPortadaNL = new FontAwesome.Sharp.IconButton();
             this.KGbDatosUsuarioNL = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.KMtxtFecFinalNL = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.KMtxtFecComienzoNL = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
@@ -142,6 +140,10 @@
             this.TTnuevoLibro = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.MBtnAniadirPortada = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnBorrarPortada = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnAniadirContraPortada = new FontAwesome.Sharp.Material.MaterialButton();
+            this.MBtnBorrarContraPortada = new FontAwesome.Sharp.Material.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL.Panel)).BeginInit();
             this.KgbDatosGeneralesNL.Panel.SuspendLayout();
@@ -307,7 +309,7 @@
             this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
             this.LblObligatorio.Name = "LblObligatorio";
-            this.LblObligatorio.Size = new System.Drawing.Size(151, 16);
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
             this.LblObligatorio.TabIndex = 158;
             this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
@@ -1189,12 +1191,14 @@
             // 
             // KGbImagenesNL.Panel
             // 
+            this.KGbImagenesNL.Panel.Controls.Add(this.MBtnAniadirContraPortada);
+            this.KGbImagenesNL.Panel.Controls.Add(this.MBtnBorrarContraPortada);
+            this.KGbImagenesNL.Panel.Controls.Add(this.MBtnAniadirPortada);
+            this.KGbImagenesNL.Panel.Controls.Add(this.MBtnBorrarPortada);
             this.KGbImagenesNL.Panel.Controls.Add(this.PcbImgContraNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.PcbImgPortadaNL);
-            this.KGbImagenesNL.Panel.Controls.Add(this.IBtnContraportadaNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.LblImgContraNL);
             this.KGbImagenesNL.Panel.Controls.Add(this.LblImgPortadaNL);
-            this.KGbImagenesNL.Panel.Controls.Add(this.IBtnPortadaNL);
             this.KGbImagenesNL.Size = new System.Drawing.Size(959, 598);
             this.KGbImagenesNL.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.KGbImagenesNL.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
@@ -1235,31 +1239,13 @@
             this.PcbImgPortadaNL.TabIndex = 46;
             this.PcbImgPortadaNL.TabStop = false;
             // 
-            // IBtnContraportadaNL
-            // 
-            this.IBtnContraportadaNL.BackColor = System.Drawing.Color.Transparent;
-            this.IBtnContraportadaNL.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IBtnContraportadaNL.FlatAppearance.BorderSize = 0;
-            this.IBtnContraportadaNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IBtnContraportadaNL.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.IBtnContraportadaNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.IBtnContraportadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnContraportadaNL.IconSize = 35;
-            this.IBtnContraportadaNL.Location = new System.Drawing.Point(550, 72);
-            this.IBtnContraportadaNL.Name = "IBtnContraportadaNL";
-            this.IBtnContraportadaNL.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.IBtnContraportadaNL.Size = new System.Drawing.Size(30, 30);
-            this.IBtnContraportadaNL.TabIndex = 44;
-            this.IBtnContraportadaNL.UseVisualStyleBackColor = false;
-            this.IBtnContraportadaNL.Click += new System.EventHandler(this.IBtnContraportadaNL_Click);
-            // 
             // LblImgContraNL
             // 
             this.LblImgContraNL.AutoSize = true;
             this.LblImgContraNL.BackColor = System.Drawing.Color.Transparent;
             this.LblImgContraNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblImgContraNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblImgContraNL.Location = new System.Drawing.Point(586, 78);
+            this.LblImgContraNL.Location = new System.Drawing.Point(611, 78);
             this.LblImgContraNL.Name = "LblImgContraNL";
             this.LblImgContraNL.Size = new System.Drawing.Size(198, 20);
             this.LblImgContraNL.TabIndex = 43;
@@ -1271,29 +1257,11 @@
             this.LblImgPortadaNL.BackColor = System.Drawing.Color.Transparent;
             this.LblImgPortadaNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblImgPortadaNL.ForeColor = System.Drawing.Color.Navy;
-            this.LblImgPortadaNL.Location = new System.Drawing.Point(173, 78);
+            this.LblImgPortadaNL.Location = new System.Drawing.Point(200, 78);
             this.LblImgPortadaNL.Name = "LblImgPortadaNL";
             this.LblImgPortadaNL.Size = new System.Drawing.Size(152, 20);
             this.LblImgPortadaNL.TabIndex = 40;
             this.LblImgPortadaNL.Text = "Seleccionar portada";
-            // 
-            // IBtnPortadaNL
-            // 
-            this.IBtnPortadaNL.BackColor = System.Drawing.Color.Transparent;
-            this.IBtnPortadaNL.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IBtnPortadaNL.FlatAppearance.BorderSize = 0;
-            this.IBtnPortadaNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IBtnPortadaNL.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.IBtnPortadaNL.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.IBtnPortadaNL.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnPortadaNL.IconSize = 35;
-            this.IBtnPortadaNL.Location = new System.Drawing.Point(140, 72);
-            this.IBtnPortadaNL.Name = "IBtnPortadaNL";
-            this.IBtnPortadaNL.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.IBtnPortadaNL.Size = new System.Drawing.Size(30, 30);
-            this.IBtnPortadaNL.TabIndex = 30;
-            this.IBtnPortadaNL.UseVisualStyleBackColor = false;
-            this.IBtnPortadaNL.Click += new System.EventHandler(this.IBtnPortadaNL_Click);
             // 
             // KGbDatosUsuarioNL
             // 
@@ -1830,7 +1798,7 @@
             this.KPageAcciones});
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KcellTabs.SelectedIndex = 0;
+            this.KcellTabs.SelectedIndex = 2;
             this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -2179,6 +2147,66 @@
             this.panel3.Size = new System.Drawing.Size(3, 689);
             this.panel3.TabIndex = 149;
             // 
+            // MBtnAniadirPortada
+            // 
+            this.MBtnAniadirPortada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnAniadirPortada.FlatAppearance.BorderSize = 0;
+            this.MBtnAniadirPortada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnAniadirPortada.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
+            this.MBtnAniadirPortada.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnAniadirPortada.IconSize = 35;
+            this.MBtnAniadirPortada.Location = new System.Drawing.Point(140, 77);
+            this.MBtnAniadirPortada.Name = "MBtnAniadirPortada";
+            this.MBtnAniadirPortada.Size = new System.Drawing.Size(25, 25);
+            this.MBtnAniadirPortada.TabIndex = 151;
+            this.MBtnAniadirPortada.UseVisualStyleBackColor = true;
+            this.MBtnAniadirPortada.Click += new System.EventHandler(this.MBtnAniadirPortada_Click);
+            // 
+            // MBtnBorrarPortada
+            // 
+            this.MBtnBorrarPortada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnBorrarPortada.FlatAppearance.BorderSize = 0;
+            this.MBtnBorrarPortada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnBorrarPortada.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
+            this.MBtnBorrarPortada.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnBorrarPortada.IconSize = 35;
+            this.MBtnBorrarPortada.Location = new System.Drawing.Point(169, 77);
+            this.MBtnBorrarPortada.Name = "MBtnBorrarPortada";
+            this.MBtnBorrarPortada.Size = new System.Drawing.Size(25, 25);
+            this.MBtnBorrarPortada.TabIndex = 152;
+            this.MBtnBorrarPortada.UseVisualStyleBackColor = true;
+            this.MBtnBorrarPortada.Click += new System.EventHandler(this.MBtnBorrarPortada_Click);
+            // 
+            // MBtnAniadirContraPortada
+            // 
+            this.MBtnAniadirContraPortada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnAniadirContraPortada.FlatAppearance.BorderSize = 0;
+            this.MBtnAniadirContraPortada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnAniadirContraPortada.IconChar = FontAwesome.Sharp.MaterialIcons.FileImagePlusOutline;
+            this.MBtnAniadirContraPortada.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnAniadirContraPortada.IconSize = 35;
+            this.MBtnAniadirContraPortada.Location = new System.Drawing.Point(551, 77);
+            this.MBtnAniadirContraPortada.Name = "MBtnAniadirContraPortada";
+            this.MBtnAniadirContraPortada.Size = new System.Drawing.Size(25, 25);
+            this.MBtnAniadirContraPortada.TabIndex = 153;
+            this.MBtnAniadirContraPortada.UseVisualStyleBackColor = true;
+            this.MBtnAniadirContraPortada.Click += new System.EventHandler(this.MBtnAniadirContraPortada_Click);
+            // 
+            // MBtnBorrarContraPortada
+            // 
+            this.MBtnBorrarContraPortada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MBtnBorrarContraPortada.FlatAppearance.BorderSize = 0;
+            this.MBtnBorrarContraPortada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtnBorrarContraPortada.IconChar = FontAwesome.Sharp.MaterialIcons.FileImageMinus;
+            this.MBtnBorrarContraPortada.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.MBtnBorrarContraPortada.IconSize = 35;
+            this.MBtnBorrarContraPortada.Location = new System.Drawing.Point(580, 77);
+            this.MBtnBorrarContraPortada.Name = "MBtnBorrarContraPortada";
+            this.MBtnBorrarContraPortada.Size = new System.Drawing.Size(25, 25);
+            this.MBtnBorrarContraPortada.TabIndex = 154;
+            this.MBtnBorrarContraPortada.UseVisualStyleBackColor = true;
+            this.MBtnBorrarContraPortada.Click += new System.EventHandler(this.MBtnBorrarContraPortada_Click);
+            // 
             // FrmLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2295,10 +2323,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox KGbImagenesNL;
         private System.Windows.Forms.PictureBox PcbImgContraNL;
         private System.Windows.Forms.PictureBox PcbImgPortadaNL;
-        private FontAwesome.Sharp.IconButton IBtnContraportadaNL;
         private System.Windows.Forms.Label LblImgContraNL;
         private System.Windows.Forms.Label LblImgPortadaNL;
-        private FontAwesome.Sharp.IconButton IBtnPortadaNL;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox KGbDatosUsuarioNL;
         private Controles.ToggleButton TBtnOcultarNL;
         private System.Windows.Forms.Label LblCapituloActualNL;
@@ -2375,5 +2401,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label LblObligatorio;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnAniadirContraPortada;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnBorrarContraPortada;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnAniadirPortada;
+        private FontAwesome.Sharp.Material.MaterialButton MBtnBorrarPortada;
     }
 }

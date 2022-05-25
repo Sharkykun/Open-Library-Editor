@@ -34,7 +34,7 @@ namespace OpenLibraryEditor.Clases
                 }
                 catch (FileNotFoundException)
                 {
-                    VentanaWindowsComun.MensajeError("No se cargó la imagen correctamente.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorImg"));
                 }
             }
             return "";

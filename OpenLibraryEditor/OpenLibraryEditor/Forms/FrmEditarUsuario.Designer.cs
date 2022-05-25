@@ -45,6 +45,8 @@ namespace OpenLibraryEditor.Forms
             this.KTxtEmailEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblContraEditUsu = new System.Windows.Forms.Label();
             this.LblEmailEditUsu = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PanBtn.SuspendLayout();
             this.PanTituloEditUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditUsu)).BeginInit();
@@ -326,12 +328,32 @@ namespace OpenLibraryEditor.Forms
             this.LblEmailEditUsu.TabIndex = 23;
             this.LblEmailEditUsu.Text = "Email:";
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(150)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(588, 40);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(3, 228);
+            this.panel8.TabIndex = 161;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(3, 228);
+            this.panel1.TabIndex = 160;
+            // 
             // FrmEditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(591, 313);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.KgbDatosEditUsu);
             this.Controls.Add(this.PanBtn);
             this.Controls.Add(this.PanTituloEditUsu);
@@ -371,5 +393,7 @@ namespace OpenLibraryEditor.Forms
         private System.Windows.Forms.Label LblTipoEditUsu;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreEditUsu;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel1;
     }
 }

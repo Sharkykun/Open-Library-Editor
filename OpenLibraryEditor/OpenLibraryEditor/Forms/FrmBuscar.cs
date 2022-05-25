@@ -34,40 +34,36 @@ namespace OpenLibraryEditor.Forms
 
         private const string NOMBRE_GOOGLE = "Google Books";
         private int contadorLibros = 0;
-        private List<Libro> titulos;
         private ArrayList autores = new ArrayList();
 
         public FrmBuscar()
         {
             InitializeComponent();
-            titulos = SacarListaLibro();
+            
         }
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
-            KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
-            KCmbServidoresBUS.Items.Add(UsuarioDatos.configuracionUsuario.BDActual);
-            UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
-            KCmbServidoresBUS.SelectedIndex = 0;
+            try
+            {
+                KCmbServidoresBUS.Items.Add(NOMBRE_GOOGLE);
+                KCmbServidoresBUS.Items.Add(UsuarioDatos.configuracionUsuario.BDActual);
+                UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
+                KCmbServidoresBUS.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             IdiomaTexto();
-            AniadirAutores();
-            MbtnAtrasLibro.Enabled = false;
-            MBtnAvanzarLibro.Enabled = false;
-            Thread th = new Thread(() => ColocarLibrosRecomendados());
-            th.Start();
-            TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
-            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
-
+                AniadirAutores();
+                MbtnAtrasLibro.Enabled = false;
+                MBtnAvanzarLibro.Enabled = false;
+                Thread th = new Thread(() => ColocarLibrosRecomendados());
+                th.Start();
+                TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
+                TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
+            
             //ponerLibrosRecomendados();
-        }
-        private List<Libro> SacarListaLibro()
-        {
-            List<Libro> libro;
-            if (UsuarioDatos.configuracionUsuario.ContenidoExplicito)
-                libro = Biblioteca.biblioteca.ListaLibro;
-            else
-                libro = Biblioteca.biblioteca.ListaLibro.FindAll(
-                    p => !p.MayorEdad);
-            return libro;
         }
         private void IdiomaTexto()
         {

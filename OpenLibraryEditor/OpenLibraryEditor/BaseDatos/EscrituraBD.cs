@@ -861,6 +861,27 @@ namespace OpenLibraryEditor.BaseDatos
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
+        public static void UpdateMailUsuario(string mail, InfoUsuarioBD usuario)
+        {
+            try
+            {
+                ConexionBD.AbrirConexion();
+                ComprobarFK(false);
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla =new MySqlCommand(String.Format(@"
+                UPDATE `Usuario` SET correoUsuario = '{0}'
+                WHERE correoUsuario = '" + usuario.Correo + "';",
+                mail), ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+                ComprobarFK(true);
+                ConexionBD.CerrarConexion();
+               
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+            }
+        }
 
         public static void DeleteUsuario(InfoUsuarioBD usuario)
         {
