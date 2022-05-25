@@ -485,6 +485,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `correoUsuario` varchar(150) NOT NULL,
 	            `nombreUsuario` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
+                `imagenPerfil` MEDIUMBLOB,
 	            PRIMARY KEY (`nombreUsuario`)
             );", Conexion);
             tabla.ExecuteNonQuery();

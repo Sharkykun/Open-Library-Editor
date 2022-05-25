@@ -792,7 +792,7 @@ namespace OpenLibraryEditor.BaseDatos
                 {
                     //Creamos usuario en tabla con su info
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Usuario` VALUES ('{0}','{1}','{2}');",
+                    INSERT INTO `Usuario` VALUES ('{0}','{1}','{2}',NULL);",
                     usuario.Correo,
                     usuario.Nombre,
                     usuario.TipoUsuario), ConexionBD.Conexion);
@@ -866,16 +866,33 @@ namespace OpenLibraryEditor.BaseDatos
             try
             {
                 ConexionBD.AbrirConexion();
-                ComprobarFK(false);
                 //Cambiar la referencia en todos los autores
                 MySqlCommand tabla =new MySqlCommand(String.Format(@"
                 UPDATE `Usuario` SET correoUsuario = '{0}'
                 WHERE correoUsuario = '" + usuario.Correo + "';",
                 mail), ConexionBD.Conexion);
                 tabla.ExecuteNonQuery();
-                ComprobarFK(true);
                 ConexionBD.CerrarConexion();
                
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+            }
+        }
+
+        public static void UpdateFotoUsuario(byte[] img, InfoUsuarioBD usuario)
+        {
+            try
+            {
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla = new MySqlCommand(@"
+                UPDATE `Usuario` SET imagenPerfil = @imagen
+                WHERE nombreUsuario = '" + usuario.Nombre + "';",
+                ConexionBD.Conexion);
+                tabla.Parameters.Add("@imagen", MySqlDbType.MediumBlob, img == null ? 0 : img.Length).Value = img;
+                tabla.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
