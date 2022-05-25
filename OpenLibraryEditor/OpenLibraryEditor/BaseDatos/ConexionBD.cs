@@ -366,8 +366,8 @@ namespace OpenLibraryEditor.BaseDatos
 	            `idioma` varchar(75),
 	            `idiomaOriginal` varchar(75),
 	            `isbn10` varchar(10),
-	            `imagenPortada` varchar(256),
-	            `imagenContraportada` varchar(256),
+	            `imagenPortada` MEDIUMBLOB,
+	            `imagenContraportada` MEDIUMBLOB,
 	            `nombreTipoLibro` varchar(40),
 	            `mayorEdad` BOOLEAN NOT NULL,
 	            `numeroCapitulos` INT,
@@ -394,7 +394,7 @@ namespace OpenLibraryEditor.BaseDatos
                 `idEditorial` INT NOT NULL,
 	            `nombreEditorial` varchar(75) NOT NULL,
 	            `comentario` varchar(300),
-	            `imagen` varchar(256),
+	            `imagen` MEDIUMBLOB,
 	            PRIMARY KEY (`idEditorial`)
             );", Conexion);
             tabla.ExecuteNonQuery();
@@ -423,7 +423,7 @@ namespace OpenLibraryEditor.BaseDatos
 	            `fechaDefuncion` DATE,
 	            `enlaceReferencia` varchar(256),
 	            `comentario` varchar(300),
-	            `imagen` varchar(256),
+	            `imagen` MEDIUMBLOB,
 	            PRIMARY KEY (`idAutor`),
                 FOREIGN KEY (`nombreOcupacion`) REFERENCES `Ocupacion`(`nombreOcupacion`)
             );", Conexion);
@@ -459,10 +459,8 @@ namespace OpenLibraryEditor.BaseDatos
             CREATE TABLE `Genero` (
                 `idGenero` INT NOT NULL,
 	            `nombreGenero` varchar(75) NOT NULL,
-	            `generoPadre` INT,
 	            `comentario` varchar(300),
-	            PRIMARY KEY (`idGenero`),
-                FOREIGN KEY (`generoPadre`) REFERENCES `Genero`(`idGenero`)
+	            PRIMARY KEY (`idGenero`)
             );", Conexion);
             tabla.ExecuteNonQuery();
         }

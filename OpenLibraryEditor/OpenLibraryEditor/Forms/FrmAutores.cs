@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -195,7 +196,7 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                PcbAutorNA.Image = Image.FromFile(rutaImagen);
+                PcbAutorNA.Image = ControladorImagen.ObtenerImagenStream(rutaImagen);
             }
             catch (FileNotFoundException)
             {
@@ -361,10 +362,13 @@ namespace OpenLibraryEditor.Forms
                     autorActual.FechaDefuncion = DateTime.Parse(KMtxtFecMuerteNA.Text);
                     autorActual.FechaNacimiento = DateTime.Parse(KMtxtFecNacimientoNA.Text);
                     if (rutaImagen != autorActual.Imagen)
-                    { 
+                    {
+                        //if (File.Exists(autorActual.Imagen))
+                        //    File.Delete(autorActual.Imagen);
                         autorActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
                             ControladorImagen.RUTA_PERSONA, autorActual.IdAutor.ToString());
                         rutaImagen = autorActual.Imagen;
+                        CargarImagen(autorActual.Imagen);
                     }
                     else
                     {
@@ -416,16 +420,30 @@ namespace OpenLibraryEditor.Forms
                         Autor autor = LecturaBD.SelectAutor(EscrituraBD.GetObjetoIdDeLocal(
                             autorActual.ListaIdCompartido));
                         ConexionBD.CerrarConexion();
-                        autorActual.Nombre = autor.Nombre;
-                        autorActual.Alias = autor.Alias;
-                        autorActual.Comentario = autor.Comentario;
-                        autorActual.EnlaceReferencia = autor.EnlaceReferencia;
-                        autorActual.FechaDefuncion = autor.FechaDefuncion;
-                        autorActual.FechaNacimiento = autor.FechaNacimiento;
-                        autorActual.Imagen = autor.Imagen;
-                        autorActual.NombreOcupacion = autor.NombreOcupacion;
-                        LsvAutoresNA_ItemSelectionChanged(null, null);
-                        ActualizarListView();
+                        if (autor != null)
+                        {
+                            autorActual.Nombre = autor.Nombre;
+                            autorActual.Alias = autor.Alias;
+                            autorActual.Comentario = autor.Comentario;
+                            autorActual.EnlaceReferencia = autor.EnlaceReferencia;
+                            autorActual.FechaDefuncion = autor.FechaDefuncion;
+                            autorActual.FechaNacimiento = autor.FechaNacimiento;
+                            autorActual.Imagen = autor.ImagenTemp == null ? null :
+                                ControladorImagen.RUTA_PERSONA + autorActual.IdAutor;
+                            autorActual.NombreOcupacion = autor.NombreOcupacion;
+                            if (autorActual.Imagen != null)
+                            {
+                                //Thread.Sleep(10);
+                                File.Delete(autorActual.Imagen);
+                                File.WriteAllBytes(autorActual.Imagen, autor.ImagenTemp);
+                                CargarImagen(autorActual.Imagen);
+                            }
+                            LsvAutoresNA_ItemSelectionChanged(null, null);
+                            ActualizarListView();
+                        }
+                        else
+                            //----------------------
+                            VentanaWindowsComun.MensajeError("El autor no se encuentra en la BD compartida.");
                     }
                 }
             }

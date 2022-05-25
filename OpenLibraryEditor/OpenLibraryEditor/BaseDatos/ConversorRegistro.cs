@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,9 @@ namespace OpenLibraryEditor.BaseDatos
                 DateTime.Parse(registro["fechaDefuncion"].ToString()),
                 registro["enlaceReferencia"].ToString(),
                 registro["comentario"].ToString(),
-                registro["imagen"].ToString());
+                null);
+            if(registro["imagen"].GetType() != typeof(System.DBNull))
+                a.ImagenTemp = (byte[])registro["imagen"];
             a.ListaIdCompartido.Add(ConexionBD.IdBD+"-"+registro["idAutor"].ToString());
             return a;
         }
@@ -29,20 +32,17 @@ namespace OpenLibraryEditor.BaseDatos
         {
             Editorial e = new Editorial(registro["nombreEditorial"].ToString(),
                 registro["comentario"].ToString(),
-                registro["imagen"].ToString());
+                null);
+            if (registro["imagen"].GetType() != typeof(System.DBNull))
+                e.ImagenTemp = (byte[])registro["imagen"];
+            e.Imagen = ControladorImagen.RUTA_EDITORIAL + e.IdEditorial;
             e.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idEditorial"].ToString());
             return e;
         }
 
         public static Genero RegistroAGenero(MySqlDataReader registro)
         {
-            //Si tiene genero padre, sacarlo recursivamente
-            Genero generoPadre = null;
-            if (registro["generoPadre"].ToString() == null)
-                generoPadre = LecturaBD.SelectGenero(Convert.ToInt32(registro["generoPadre"]));
-
             Genero g = new Genero(registro["nombreGenero"].ToString(),
-                generoPadre,
                 registro["comentario"].ToString());
             g.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idGenero"].ToString());
             return g;
@@ -57,9 +57,8 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static Libro RegistroALibro(MySqlDataReader registro)
         {
-            Libro libro = new Libro();
+            Libro libro = new Libro(registro["titulo"].ToString());
             libro.Isbn_13 = registro["isbn13"].ToString();
-            libro.Titulo = registro["titulo"].ToString();
             libro.Subtitulo = registro["subtitulo"].ToString();
             libro.TituloAlternativo = registro["tituloAlternativo"].ToString();
             libro.Sinopsis = registro["sinopsis"].ToString();
@@ -71,13 +70,17 @@ namespace OpenLibraryEditor.BaseDatos
             libro.Idioma = registro["idioma"].ToString();
             libro.IdiomaOriginal = registro["idiomaOriginal"].ToString();
             libro.Isbn_10 = registro["isbn10"].ToString();
-            libro.ImagenPortada = registro["imagenPortada"].ToString();
-            libro.ImagenContraportada = registro["imagenContraportada"].ToString();
             libro.NombreTipo = registro["nombreTipoLibro"].ToString();
             libro.MayorEdad = bool.Parse(registro["mayorEdad"].ToString());
             libro.NumeroCapitulos = int.Parse(registro["numeroCapitulos"].ToString());
             libro.EnlaceReferencia = registro["enlaceReferencia"].ToString();
             libro.ListaIdCompartido.Add(ConexionBD.IdBD + "-" + registro["idLibro"].ToString());
+            libro.ImagenPortada = ControladorImagen.RUTA_EDITORIAL + libro.IdLibro+"_c";
+            libro.ImagenContraportada = ControladorImagen.RUTA_EDITORIAL + libro.ImagenContraportada+ "_b";
+            if (registro["imagenPortada"].GetType() != typeof(System.DBNull))
+                libro.PortadaTemp = (byte[])registro["imagenPortada"];
+            if (registro["imagenContraportada"].GetType() != typeof(System.DBNull))
+                libro.ContraportadaTemp = (byte[])registro["imagenContraportada"];
             return libro;
         }
 

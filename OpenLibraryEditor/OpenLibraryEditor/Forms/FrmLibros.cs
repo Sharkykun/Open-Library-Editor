@@ -271,7 +271,7 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                pictureBox.Image = Image.FromFile(rutaImagen);
+                pictureBox.Image = ControladorImagen.ObtenerImagenStream(rutaImagen);
             }
             catch (FileNotFoundException)
             {

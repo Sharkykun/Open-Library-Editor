@@ -74,7 +74,6 @@ namespace OpenLibraryEditor.Forms
             PanOpcionesGE.Visible = true;
             KTxtNombreGe.Text = generoActual.Nombre;
             KTxtComentarioGe.Text = generoActual.Comentario;
-            KCmbGeneroPadreGe.SelectedItem = generoActual.GeneroPadre;
         }
         private void IdiomaTexto()
         {
@@ -98,17 +97,10 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar")); 
         }
-        private void ActualizarGeneroPadre()
-        {
-            generoBinding.ResetBindings(false);
-            KCmbGeneroPadreGe.SelectedItem = generoActual.GeneroPadre;
-        }
-
+        
         private ListViewItem AniadirGenero(Genero genero)
         {
             var item = LsvGeneroNG.Items.Add(genero.Nombre);
-            string nombre = genero.GeneroPadre == null ? "" : genero.GeneroPadre.Nombre;
-            item.SubItems.Add(nombre);
             item.Tag = genero;
             if (generoActual == genero) item.Selected = true;
             return item;
@@ -119,8 +111,7 @@ namespace OpenLibraryEditor.Forms
         {
             //Comprobar si el objeto actual tiene algo cambiado
             if (KTxtNombreGe.Text == generoActual.Nombre &&
-                KTxtComentarioGe.Text == generoActual.Comentario &&
-                KCmbGeneroPadreGe.SelectedItem == generoActual.GeneroPadre)
+                KTxtComentarioGe.Text == generoActual.Comentario)
                 return false;
             else
                 return true;
@@ -177,7 +168,6 @@ namespace OpenLibraryEditor.Forms
                 generoActual = (Genero)itemActual.Tag;
                 KTxtNombreGe.Text = generoActual.Nombre;
                 KTxtComentarioGe.Text = generoActual.Comentario;
-                KCmbGeneroPadreGe.SelectedItem = generoActual.GeneroPadre;
             }
             else
             {
@@ -191,7 +181,6 @@ namespace OpenLibraryEditor.Forms
             listaGenero.Add(gen);
             var item = AniadirGenero(gen);
             item.Selected = true;
-            ActualizarGeneroPadre();
         }
 
         private void MBtnMenosLsvNG_Click(object sender, EventArgs e)
@@ -217,7 +206,6 @@ namespace OpenLibraryEditor.Forms
                 var item = LsvGeneroNG.SelectedItems[0];
                 listaGenero.Remove(generoActual);
                 LsvGeneroNG.Items.Remove(item);
-                ActualizarGeneroPadre();
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
         }
@@ -231,7 +219,6 @@ namespace OpenLibraryEditor.Forms
                 {
                     //Actualizar etiqueta
                     generoActual.Nombre = KTxtNombreGe.Text;
-                    generoActual.GeneroPadre = (Genero)KCmbGeneroPadreGe.SelectedItem;
                     generoActual.Comentario = KTxtComentarioGe.Text;
 
                     //Actualizar en BD compartida si se puede
@@ -278,7 +265,6 @@ namespace OpenLibraryEditor.Forms
                             generoActual.ListaIdCompartido));
                         ConexionBD.CerrarConexion();
                         generoActual.Comentario = genero.Comentario;
-                        generoActual.GeneroPadre = genero.GeneroPadre;
                         generoActual.Nombre = genero.Nombre;
                         LsvGeneroNG_ItemSelectionChanged(null, null);
                         ActualizarListView();
@@ -292,14 +278,6 @@ namespace OpenLibraryEditor.Forms
             //Actualizar listview
             itemActual.Text = KTxtNombreGe.Text;
             itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
-            foreach (ListViewItem item in LsvGeneroNG.Items)
-            {
-                Genero gp = (item.Tag as Genero).GeneroPadre;
-                if (gp == generoActual && gp != null)
-                    item.SubItems[1].Text = generoActual.Nombre;
-            }
-
-            ActualizarGeneroPadre();
         }
     }
 }

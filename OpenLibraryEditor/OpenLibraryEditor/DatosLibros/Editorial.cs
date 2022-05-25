@@ -1,6 +1,8 @@
-﻿using OpenLibraryEditor.BaseDatos;
+﻿using Newtonsoft.Json;
+using OpenLibraryEditor.BaseDatos;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace OpenLibraryEditor.DatosLibros
 {
@@ -11,6 +13,7 @@ namespace OpenLibraryEditor.DatosLibros
         private string nombre = "";
         private string comentario = "";
         private string imagen = "";
+        private byte[] imagenTemp;
 
         public Editorial()
         {
@@ -35,6 +38,8 @@ namespace OpenLibraryEditor.DatosLibros
         public string Comentario { get => comentario; set => comentario = value; }
         public string Imagen { get => imagen; set => imagen = value; }
         public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
+        [JsonIgnore]
+        public byte[] ImagenTemp { get => imagenTemp; set => imagenTemp = value; }
         #endregion
 
         private void SetRandomId()

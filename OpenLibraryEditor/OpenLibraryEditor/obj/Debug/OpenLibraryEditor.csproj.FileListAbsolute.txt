@@ -315,5 +315,11 @@ C:\Users\shark\Documents\PFG\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEd
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarUsuario.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmConfiguracionMal.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Controles.TxtBusqueda.resources
+<<<<<<< HEAD
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Controles.TxtBusqueda.resources
+=======
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmConfiguracionViejo.resources
 C:\Users\Yolanda\Documents\Yolanda\DAM\ProyectoFinal\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmVerificacionMail.resources
+>>>>>>> 43a343432e6a7ed4de57371724771c1100e3b13f
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmConfiguracionViejo.resources
+E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmVerificacionMail.resources

@@ -199,7 +199,7 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static Editorial SelectEditorial(int idEditorial)
 		{
-			string query = "SELECT * FROM Editorial WHERE id = '" + idEditorial + "'";
+			string query = "SELECT * FROM Editorial WHERE idEditorial = '" + idEditorial + "'";
 			
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
 			{

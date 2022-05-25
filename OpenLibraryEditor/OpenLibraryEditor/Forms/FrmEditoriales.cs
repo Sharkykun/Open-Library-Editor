@@ -132,7 +132,7 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                PcbEditorialesEd.Image = Image.FromFile(rutaImagen);
+                PcbEditorialesEd.Image = ControladorImagen.ObtenerImagenStream(rutaImagen);
             }
             catch (FileNotFoundException)
             {
@@ -258,6 +258,7 @@ namespace OpenLibraryEditor.Forms
                     editorialActual.Comentario = KTxtComentarioEd.Text;
                     if (rutaImagen != editorialActual.Imagen)
                     {
+                        PcbEditorialesEd.Image.Dispose();
                         editorialActual.Imagen = ControladorImagen.GuardarImagen(rutaImagen,
                             ControladorImagen.RUTA_EDITORIAL, editorialActual.IdEditorial.ToString());
                         rutaImagen = editorialActual.Imagen;
@@ -315,6 +316,17 @@ namespace OpenLibraryEditor.Forms
                         ConexionBD.CerrarConexion();
                         editorialActual.Nombre = editorial.Nombre;
                         editorialActual.Comentario = editorial.Nombre;
+                        editorialActual.Imagen = editorial.ImagenTemp == null ? null :
+                                ControladorImagen.RUTA_EDITORIAL + editorialActual.IdEditorial;
+                        if (editorialActual.Imagen != null)
+                        {
+                            PcbEditorialesEd.Image.Dispose();
+                            //PcbAutorNA.Image = null;
+                            //Thread.Sleep(10);
+                            File.Delete(editorialActual.Imagen);
+                            File.WriteAllBytes(editorialActual.Imagen, editorial.ImagenTemp);
+                            //CargarImagen(autorActual.Imagen);
+                        }
                         LsvEditorialNE_ItemSelectionChanged(null, null);
                         ActualizarListView();
                     }
