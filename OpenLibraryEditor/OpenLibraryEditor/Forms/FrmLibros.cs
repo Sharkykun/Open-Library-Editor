@@ -167,12 +167,12 @@ namespace OpenLibraryEditor.Forms
             LblGenerosNL.Text = ControladorIdioma.GetTexto("Al_DGGeneros");
             TTnuevoLibro.SetToolTip(this.KCCGenerosNL, ControladorIdioma.GetTexto("Al_TTGeneros"));
             TTnuevoLibro.SetToolTip(this.MBtnMasGenerosNL, ControladorIdioma.GetTexto("Al_TTBtnMasGen"));
-            LblSerieNL.Text = ControladorIdioma.GetTexto("Al_DGSerie");
-            TTnuevoLibro.SetToolTip(this.KCCSerieNL, ControladorIdioma.GetTexto("Al_TTSerie"));
-            TTnuevoLibro.SetToolTip(this.MBtnMasSerieNL, ControladorIdioma.GetTexto("Al_TTBtnMasSer"));
-            LblEtiquetasNL.Text = ControladorIdioma.GetTexto("Al_DGEtiquetas");
-            TTnuevoLibro.SetToolTip(this.KCCEtiquetaNL, ControladorIdioma.GetTexto("Al_TTEtiquetas"));
-            TTnuevoLibro.SetToolTip(this.MBtnMasEtiquetasNL, ControladorIdioma.GetTexto("Al_TTBtnMasEti"));
+            //LblSerieNL.Text = ControladorIdioma.GetTexto("Al_DGSerie");
+            //TTnuevoLibro.SetToolTip(this.KCCSerieNL, ControladorIdioma.GetTexto("Al_TTSerie"));
+            //TTnuevoLibro.SetToolTip(this.MBtnMasSerieNL, ControladorIdioma.GetTexto("Al_TTBtnMasSer"));
+            //LblEtiquetasNL.Text = ControladorIdioma.GetTexto("Al_DGEtiquetas");
+            //TTnuevoLibro.SetToolTip(this.KCCEtiquetaNL, ControladorIdioma.GetTexto("Al_TTEtiquetas"));
+            //TTnuevoLibro.SetToolTip(this.MBtnMasEtiquetasNL, ControladorIdioma.GetTexto("Al_TTBtnMasEti"));
             LblIdiomaOriginalNL.Text = ControladorIdioma.GetTexto("Al_DGIdiOri");
             TTnuevoLibro.SetToolTip(this.KCmbIdiomaOriginalNL, ControladorIdioma.GetTexto("Al_TTIdiOri"));
             LblIdiomaNL.Text = ControladorIdioma.GetTexto("Al_DGIdioma");
@@ -314,12 +314,12 @@ namespace OpenLibraryEditor.Forms
 
         private void RellenarEtiqueta(List<Etiqueta> listaComparador)
         {
-            KCCEtiquetaNL.Items.Clear();
-            listaEtiqueta.ForEach(p =>
-            {
-                int i = AgregarComboCheckItem(KCCEtiquetaNL, p);
-                if (listaComparador.Contains(p)) KCCEtiquetaNL.SetItemChecked(i, true);
-            });
+            //KCCEtiquetaNL.Items.Clear();
+            //listaEtiqueta.ForEach(p =>
+            //{
+            //    int i = AgregarComboCheckItem(KCCEtiquetaNL, p);
+            //    if (listaComparador.Contains(p)) KCCEtiquetaNL.SetItemChecked(i, true);
+            //});
         }
 
         private void RellenarGenero(List<Genero> listaComparador)
@@ -334,12 +334,12 @@ namespace OpenLibraryEditor.Forms
 
         private void RellenarSerie(List<Serie> listaComparador)
         {
-            KCCSerieNL.Items.Clear();
-            listaSerie.ForEach(p =>
-            {
-                int i = AgregarComboCheckItem(KCCSerieNL, p);
-                if (listaComparador.Contains(p)) KCCSerieNL.SetItemChecked(i, true);
-            });
+        //    KCCSerieNL.Items.Clear();
+        //    listaSerie.ForEach(p =>
+        //    {
+        //        int i = AgregarComboCheckItem(KCCSerieNL, p);
+        //        if (listaComparador.Contains(p)) KCCSerieNL.SetItemChecked(i, true);
+        //    });
         }
         #endregion
         #region mover formulario
@@ -396,28 +396,28 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasSerieNL_Click(object sender, EventArgs e)
         {
-            FrmSeries series = new FrmSeries(true);
-            series.FormBorderStyle = FormBorderStyle.None;
-            series.ShowDialog();
-            List<Serie> temp = new List<Serie>();
-            foreach (CCBoxItem p in KCCSerieNL.CheckedItems)
-            {
-                temp.Add((Serie)p.Item);
-            }
-            RellenarSerie(temp);
+            //FrmSeries series = new FrmSeries(true);
+            //series.FormBorderStyle = FormBorderStyle.None;
+            //series.ShowDialog();
+            //List<Serie> temp = new List<Serie>();
+            //foreach (CCBoxItem p in KCCSerieNL.CheckedItems)
+            //{
+            //    temp.Add((Serie)p.Item);
+            //}
+            //RellenarSerie(temp);
         }
 
         private void MBtnMasEtiquetasNL_Click(object sender, EventArgs e)
         {
-            FrmTags tags = new FrmTags(true);
-            tags.FormBorderStyle = FormBorderStyle.None;
-            tags.ShowDialog();
-            List<Etiqueta> temp = new List<Etiqueta>();
-            foreach (CCBoxItem p in KCCEtiquetaNL.CheckedItems)
-            {
-                temp.Add((Etiqueta)p.Item);
-            }
-            RellenarEtiqueta(temp);
+            //FrmTags tags = new FrmTags(true);
+            //tags.FormBorderStyle = FormBorderStyle.None;
+            //tags.ShowDialog();
+            //List<Etiqueta> temp = new List<Etiqueta>();
+            //foreach (CCBoxItem p in KCCEtiquetaNL.CheckedItems)
+            //{
+            //    temp.Add((Etiqueta)p.Item);
+            //}
+            //RellenarEtiqueta(temp);
         }
         private void MBtnMasTipoLibroNL_Click(object sender, EventArgs e)
         {
@@ -592,8 +592,15 @@ namespace OpenLibraryEditor.Forms
                 libroActual.NumeroPaginas = (int)KNudNumPagNL.Value;
                 libroActual.Isbn_10 = KTxtIsbn10.Text;
                 libroActual.Isbn_13 = KTxtIsbn13.Text;
-                libroActual.FechaPublicacion = DateTime.Parse(KMtxtFecPublicacionNL.Text);
-                libroActual.FechaAdicionBD = DateTime.Parse(KMtxtInclusionbbddNL.Text);
+                //Comprobar la máscara y validar
+                if (KMtxtFecPublicacionNL.MaskCompleted)
+                {
+                    libroActual.FechaPublicacion = DateTime.Parse(KMtxtFecPublicacionNL.Text);
+                }
+                if (KMtxtInclusionbbddNL.MaskCompleted)
+                {
+                    libroActual.FechaAdicionBD = DateTime.Parse(KMtxtInclusionbbddNL.Text);
+                }
                 libroActual.MayorEdad = TBtnMayores18NL.Checked;
                 libroActual.EnlaceReferencia = KTxtEnlaceNL.Text;
                 libroActual.ListaAutor.Clear();
@@ -603,11 +610,11 @@ namespace OpenLibraryEditor.Forms
                 foreach (var c in KCCGenerosNL.CheckedItems)
                     libroActual.ListaGenero.Add((Genero)(c as CCBoxItem).Item);
                 libroActual.ListaEtiqueta.Clear();
-                foreach (var c in KCCEtiquetaNL.CheckedItems)
-                    libroActual.ListaEtiqueta.Add((Etiqueta)(c as CCBoxItem).Item);
-                libroActual.ListaSerie.Clear();
-                foreach (var c in KCCSerieNL.CheckedItems)
-                    libroActual.ListaSerie.Add((Serie)(c as CCBoxItem).Item);
+                //foreach (var c in KCCEtiquetaNL.CheckedItems)
+                //    libroActual.ListaEtiqueta.Add((Etiqueta)(c as CCBoxItem).Item);
+                //libroActual.ListaSerie.Clear();
+                //foreach (var c in KCCSerieNL.CheckedItems)
+                //    libroActual.ListaSerie.Add((Serie)(c as CCBoxItem).Item);
                 if (KCmbIdiomaOriginalNL.SelectedIndex != -1)
                     libroActual.IdiomaOriginal = KCmbIdiomaOriginalNL.SelectedItem.ToString();
                 if (KCmbIdiomaNL.SelectedIndex != -1)
@@ -617,6 +624,14 @@ namespace OpenLibraryEditor.Forms
                 libroActual.EstadoLectura = KCmbEstadoLecturaNL.Text;
                 libroActual.TiempoLectura = TimeSpan.Parse(KMtxtTiempoLecturaNL.Text);
                 libroActual.CapituloActual = (int)KNudCapiActualNL.Value;
+                if (KMtxtFecComienzoNL.MaskCompleted)
+                {
+                    libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
+                }
+                if (KMtxtFecFinalNL.MaskCompleted)
+                {
+                    libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
+                }
                 libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
                 libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
                 libroActual.Ocultar = TBtnOcultarNL.Checked;

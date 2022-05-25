@@ -3859,6 +3859,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The book you are trying to delete does not exist in the database.
+        /// </summary>
+        internal static string NoPuedeBorrarLibro {
+            get {
+                return ResourceManager.GetString("NoPuedeBorrarLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The book user record does not exist in the database.
         /// </summary>
         internal static string NoRegistroUsuarioLibro {
@@ -4516,7 +4525,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Do you want to update this author from the shared database?.
+        ///   Busca una cadena traducida similar a Do you want to update this book from the shared database?.
         /// </summary>
         internal static string VWC_ActualizarAutor {
             get {

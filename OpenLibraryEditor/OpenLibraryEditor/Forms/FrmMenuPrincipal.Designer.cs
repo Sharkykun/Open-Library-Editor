@@ -1141,8 +1141,8 @@
             this.KpDetalles.MinimumSize = new System.Drawing.Size(50, 50);
             this.KpDetalles.Name = "KpDetalles";
             this.KpDetalles.Size = new System.Drawing.Size(248, 254);
-            this.KpDetalles.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(238)))));
-            this.KpDetalles.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(238)))));
+            this.KpDetalles.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KpDetalles.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KpDetalles.Text = "Detalles generales";
             this.KpDetalles.ToolTipTitle = "Page ToolTip";
             this.KpDetalles.UniqueName = "3C62194E06FD43B78FA94E74917D8D6E";

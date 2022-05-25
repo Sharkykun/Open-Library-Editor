@@ -186,11 +186,8 @@ namespace OpenLibraryEditor.DatosLibros
         public void BorraDeBDCompartida()
         {
             LimpiadoDeListasBDCompartida();
-
-            //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
-            if(LecturaBD.SelectUsuarioLibroExiste(
-                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre,
-                        this) > 0)
+            if (LecturaBD.SelectUsuarioLibroExiste(UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre,this) > 0)
+                //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
                 EscrituraBD.DeleteUsuarioLibroDesdeLibro(this);
 
             //Comprobar si ningun libro que queda tiene el tipo de libro

@@ -3814,6 +3814,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El libro que intenta borrar no existe en la base de datos.
+        /// </summary>
+        internal static string NoPuedeBorrarLibro {
+            get {
+                return ResourceManager.GetString("NoPuedeBorrarLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No existe el registro usuario libro en la base de datos.
         /// </summary>
         internal static string NoRegistroUsuarioLibro {
@@ -4471,7 +4480,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¿Quieres actualizar desde la base de datos compartida este autor?.
+        ///   Busca una cadena traducida similar a ¿Quieres actualizar desde la base de datos compartida este libro?.
         /// </summary>
         internal static string VWC_ActualizarAutor {
             get {

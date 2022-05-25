@@ -42,6 +42,7 @@
             this.KCmbServidoresBUS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblBuscarPorBUS = new System.Windows.Forms.Label();
             this.FlPanBuscar = new System.Windows.Forms.FlowLayoutPanel();
+            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.MBtnBuscarBUS = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanRecomendaciones = new System.Windows.Forms.Panel();
             this.LblRecomendaciones = new System.Windows.Forms.Label();
@@ -53,7 +54,8 @@
             this.MbtnAtrasLibro = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanLsvBusqueda = new System.Windows.Forms.Panel();
             this.TTBuscar = new System.Windows.Forms.ToolTip(this.components);
-            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).BeginInit();
             this.PanTituloBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbBuscar)).BeginInit();
@@ -65,6 +67,7 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.PanLsvBusqueda.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // KCmbTipoBusquedaBUS
@@ -163,6 +166,7 @@
             // PanPiePagina
             // 
             this.PanPiePagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.PanPiePagina.Controls.Add(this.panel4);
             this.PanPiePagina.Controls.Add(this.panel1);
             this.PanPiePagina.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PanPiePagina.Location = new System.Drawing.Point(0, 646);
@@ -229,6 +233,15 @@
             this.FlPanBuscar.Name = "FlPanBuscar";
             this.FlPanBuscar.Size = new System.Drawing.Size(948, 42);
             this.FlPanBuscar.TabIndex = 142;
+            // 
+            // TxtBusqueda
+            // 
+            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.TxtBusqueda.Location = new System.Drawing.Point(449, 3);
+            this.TxtBusqueda.Name = "TxtBusqueda";
+            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
+            this.TxtBusqueda.TabIndex = 128;
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarBUS_KeyDown);
             // 
             // MBtnBuscarBUS
             // 
@@ -352,14 +365,25 @@
             this.PanLsvBusqueda.Size = new System.Drawing.Size(948, 326);
             this.PanLsvBusqueda.TabIndex = 145;
             // 
-            // TxtBusqueda
+            // panel4
             // 
-            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.TxtBusqueda.Location = new System.Drawing.Point(449, 3);
-            this.TxtBusqueda.Name = "TxtBusqueda";
-            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
-            this.TxtBusqueda.TabIndex = 128;
-            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarBUS_KeyDown);
+            this.panel4.Controls.Add(this.LblTipoUsuarioConectado);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(550, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(398, 43);
+            this.panel4.TabIndex = 5;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 12);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
+            this.LblTipoUsuarioConectado.TabIndex = 2;
+            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
+            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmBuscar
             // 
@@ -391,6 +415,7 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.PanLsvBusqueda.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,5 +446,7 @@
         private System.Windows.Forms.Panel PanLibrosBuscar;
         private System.Windows.Forms.ToolTip TTBuscar;
         private Controles.TxtBusqueda TxtBusqueda;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label LblTipoUsuarioConectado;
     }
 }

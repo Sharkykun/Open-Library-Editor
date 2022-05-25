@@ -439,10 +439,14 @@ namespace OpenLibraryEditor.Forms
             {
                 LblEscribirGenero.AutoSize = true;
                 LblEscribirGenero.MaximumSize = new Size(109, 0);
-                if (l.ListaGenero.Count > 1 || LblEscribirGenero.Width > 109)
-                    LblEscribirGenero.Text += g.Nombre.ToUpper() + "\r\n";
-                else
-                    LblEscribirGenero.Text += g.Nombre.ToUpper();
+                if (g != null)
+                {
+                    if (l.ListaGenero.Count > 1 || LblEscribirGenero.Width > 109)
+                        LblEscribirGenero.Text += g.Nombre.ToUpper() + "\r\n";
+                    else
+                        LblEscribirGenero.Text += g.Nombre.ToUpper();
+                }
+                    
             }
             //foreach (Etiqueta et in libro.ListaEtiqueta)
             //{
@@ -1010,7 +1014,11 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnBuscar_Click(object sender, EventArgs e)
         {
-            AbrirFormularios(new FrmBuscar());
+            if (puedeEditar)
+                AbrirFormularios(new FrmBuscar(true));
+            else
+                AbrirFormularios(new FrmBuscar());
+            
             BotonActivo(sender, Colores.colorBuscar);
         }
         private void MBtnConfiguracion_Click(object sender, EventArgs e)
@@ -1328,7 +1336,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnBuscarMBI_Click(object sender, EventArgs e)
         {
             //Filtrar por categoría si se está usando, si no por la lista completa
-            if (PanListViewsOpciones.Visible == true)
+            if (PanListViewsOpciones.Visible == true || LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
                 LsvOpciones_ItemSelectionChanged(null, null);
             else
                 titulos = SacarListaLibro();
@@ -1417,8 +1425,17 @@ namespace OpenLibraryEditor.Forms
         private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
         {
             //KTxtBuscarMBI.Text = "";
-            TxtBusqueda.setTextobuscar("");
-            MBtnBuscarMBI_Click(sender, e);
+            if (LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
+            {
+                MBtnFavoritos_Click(MBtnFavoritos, null);
+                TxtBusqueda.setTextobuscar("");
+            }
+            else
+            {
+                TxtBusqueda.setTextobuscar("");
+                MBtnBuscarMBI_Click(sender, e);
+            }
+            
         }
       
         private void MBtnOrdenMBI_Click(object sender, EventArgs e)
