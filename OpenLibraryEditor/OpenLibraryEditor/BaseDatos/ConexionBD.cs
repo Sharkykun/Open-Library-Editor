@@ -85,6 +85,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static bool AbrirConexion()
         {
+            //No poner mensaje de error en ventana aquí
             try
             {
                 Console.WriteLine("Conexion con MySql abierta.");
@@ -100,6 +101,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static bool CerrarConexion()
         {
+            //No poner mensaje de error en ventana aquí
             try
             {
                 Console.WriteLine("Conexion con MySql cerrada.");
@@ -180,6 +182,11 @@ namespace OpenLibraryEditor.BaseDatos
         public static void CrearEditorBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
+            //Borramos el usuario de mysql users
+            MySqlCommand tabla = new MySqlCommand(@"
+                    DROP USER IF EXIST '" + nombreFinal+"';",
+            ConexionBD.Conexion);
+            tabla.ExecuteNonQuery();
             CrearUsuarioBD(nombreFinal, contrasenia);
             QuitarPrivilegiosUsuarioBD(nombreAntiguo, true);
             AplicarPermisosUsuario();
@@ -482,7 +489,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Usuario` (
-	            `correoUsuario` varchar(150) NOT NULL,
+	            `correoUsuario` varchar(150) UNIQUE NOT NULL,
 	            `nombreUsuario` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
                 `imagenPerfil` MEDIUMBLOB,

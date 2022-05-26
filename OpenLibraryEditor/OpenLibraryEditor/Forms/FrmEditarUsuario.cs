@@ -77,26 +77,35 @@ namespace OpenLibraryEditor.Forms
             {
                 if (ConexionBD.AbrirConexion())
                 {
-                    string nombreAntiguo = usuario.Nombre;
-                    usuario.Nombre = KTxtNombreEditUsu.Text;
-                    usuario.Correo = KTxtEmailEditUsu.Text;
-                    if(KCmbTipoEditUsu.SelectedIndex == 0)
-                        usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Editor");
-                    if (KCmbTipoEditUsu.SelectedIndex == 1)
-                        usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Usu");
-                    if (esEditar)
+                    if (LecturaBD.SelectUsuarioCorreo(KTxtEmailEditUsu.Text) == 0)
                     {
-                        EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
+                        string nombreAntiguo = usuario.Nombre;
+                        usuario.Nombre = KTxtNombreEditUsu.Text;
+                        usuario.Correo = KTxtEmailEditUsu.Text;
+                        if (KCmbTipoEditUsu.SelectedIndex == 0)
+                            usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Editor");
+                        if (KCmbTipoEditUsu.SelectedIndex == 1)
+                            usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Usu");
+                        if (esEditar)
+                        {
+                            EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
+                        }
+                        else
+                        {
+                            EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
+                        }
+                        esOk = true;
+                        VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
+                        Close();
                     }
                     else
-                    {
-                        EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
-                    }
+                        //---------
+                        VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
                     ConexionBD.CerrarConexion();
-                    esOk = true;
-                    VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
-                    Close();
                 }
+                else
+                    //--------
+                    VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos");
             }
             else
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("TodosCamposRellenos"));

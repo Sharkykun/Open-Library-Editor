@@ -145,6 +145,16 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
+		public static int SelectUsuarioCorreo(string correoUsuario)
+		{
+			string query = "SELECT count(*) FROM Usuario WHERE correoUsuario = '" + correoUsuario + "'";
+			
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
 		public static byte[] SelectUsuarioFotoPerfil(string nombreUsuario)
 		{
 			string query = "SELECT * FROM Usuario WHERE nombreUsuario = '" + nombreUsuario + "'";
