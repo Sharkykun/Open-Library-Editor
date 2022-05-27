@@ -412,6 +412,13 @@ namespace OpenLibraryEditor.Forms
             //}
             
         }
+
+        private void LlblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRecuperarContra recuperar=new FrmRecuperarContra();
+            recuperar.FormBorderStyle = FormBorderStyle.None;
+            recuperar.ShowDialog();
+        }
     }
 }
 

@@ -26,17 +26,25 @@ namespace OpenLibraryEditor.Forms
         {
             try
             {
-                int resultado = Convert.ToInt32(KMaskTxt.Text);
-                if (resultado == numero)
+                if (KMaskTxt.MaskCompleted)
                 {
-                    VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("VWC_Bienvenido"));
-                    MailVerificado = true;
-                    this.Close();
+                    int resultado = Convert.ToInt32(KMaskTxt.Text);
+                    if (resultado == numero)
+                    {
+                        VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("VWC_Bienvenido"));
+                        MailVerificado = true;
+                        this.Close();
+                    }
+                    else
+                    {
+                        VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_CodigoMal"));
+                    }
                 }
                 else
                 {
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_CodigoMal"));
                 }
+                
             }
             catch (Exception)
             {
@@ -62,6 +70,7 @@ namespace OpenLibraryEditor.Forms
             TTVerificar.SetToolTip(this.KMaskTxt, ControladorIdioma.GetTexto("Verificar_TTMask"));
             GBtnVerificar.Text = ControladorIdioma.GetTexto("Verificar_btn");
             TTVerificar.SetToolTip(this.GBtnVerificar, ControladorIdioma.GetTexto("Verificar_TTbtn"));
+            LblMirarSpam.Text=ControladorIdioma.GetTexto("Verificar_Spam");
         }
 
         #region mover formulario

@@ -777,11 +777,17 @@
   <data name="Crear" xml:space="preserve">
     <value>Créer</value>
   </data>
+  <data name="CrearUsuario" xml:space="preserve">
+    <value>Open Library Editor - Créer des utilisateurs</value>
+  </data>
   <data name="EditorialNoExiste" xml:space="preserve">
     <value>L'éditeur n'existe pas dans la base de données</value>
   </data>
   <data name="EditorialRepetida" xml:space="preserve">
     <value>L'éditeur existe déjà dans la base de données</value>
+  </data>
+  <data name="Edit_Nombre" xml:space="preserve">
+    <value>Nom:</value>
   </data>
   <data name="ED_Comentario" xml:space="preserve">
     <value>Commentaire</value>
@@ -1113,14 +1119,47 @@
   <data name="Log_Url" xml:space="preserve">
     <value>URL de la base de données</value>
   </data>
+  <data name="MailCambiadoOk" xml:space="preserve">
+    <value>Le courrier a été modifié avec succès</value>
+  </data>
+  <data name="MailNoValido" xml:space="preserve">
+    <value>Entrer un email valide</value>
+  </data>
+  <data name="MailNuevaContra" xml:space="preserve">
+    <value>Nous vous avons envoyé un email avec votre nouveau mot de passe</value>
+  </data>
+  <data name="Mail_Bienvenido" xml:space="preserve">
+    <value>Bienvenue à</value>
+  </data>
   <data name="Mail_Body" xml:space="preserve">
-    <value>Bienvenue dans Open Library Editor. Votre code de vérification est :</value>
+    <value>Votre code de vérification est :</value>
+  </data>
+  <data name="Mail_CambieContra" xml:space="preserve">
+    <value>Par sécurité changez votre mot de passe à la première connexion</value>
+  </data>
+  <data name="Mail_DatosAcceso" xml:space="preserve">
+    <value>Vos données d'accès à l'application sont:</value>
   </data>
   <data name="Mail_Error" xml:space="preserve">
     <value>Le courrier n'a pas pu être envoyé</value>
   </data>
+  <data name="Mail_foot" xml:space="preserve">
+    <value>App faite par 3 étudiants DAM en projet de fin d'études</value>
+  </data>
+  <data name="Mail_NuevaContra" xml:space="preserve">
+    <value>Votre nouveau mot de passe est:</value>
+  </data>
+  <data name="Mail_PerRegistradora" xml:space="preserve">
+    <value>Vous avez été enregistré dans Open Library Editor</value>
+  </data>
+  <data name="Mail_Recuperar" xml:space="preserve">
+    <value>Récupération de mot de passe</value>
+  </data>
+  <data name="Mail_saludo" xml:space="preserve">
+    <value>Salut</value>
+  </data>
   <data name="Mail_Subject" xml:space="preserve">
-    <value>Correo de verificación</value>
+    <value>Courriel de vérification</value>
   </data>
   <data name="Main_Actualizar" xml:space="preserve">
     <value>Actualiser Livre</value>
@@ -1413,6 +1452,15 @@
   <data name="OcupacionRepetida" xml:space="preserve">
     <value>La profession existe déjà dans la base de données</value>
   </data>
+  <data name="Recuperar" xml:space="preserve">
+    <value>Récupérer</value>
+  </data>
+  <data name="Recu_Error" xml:space="preserve">
+    <value>L'email saisi n'est pas enregistré dans la base de données</value>
+  </data>
+  <data name="Recu_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Récupérer le mot de passe</value>
+  </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>S'inscrire</value>
   </data>
@@ -1599,6 +1647,9 @@
   <data name="Verificar_lbl" xml:space="preserve">
     <value>Entrez le code que nous vous avons envoyé</value>
   </data>
+  <data name="Verificar_Spam" xml:space="preserve">
+    <value>Si vous n'avez pas reçu l'e-mail, vérifiez vos spams</value>
+  </data>
   <data name="Verificar_Titulo" xml:space="preserve">
     <value>Open Library Editor - Vérifiez votre adresse e-mail</value>
   </data>
@@ -1655,6 +1706,9 @@
   </data>
   <data name="VWC_Error" xml:space="preserve">
     <value>Erreur</value>
+  </data>
+  <data name="VWC_ErrorAdm" xml:space="preserve">
+    <value>Il ne peut y avoir qu'un seul administrateur</value>
   </data>
   <data name="VWC_ErrorImg" xml:space="preserve">
     <value>L'image ne s'est pas chargée correctement</value>

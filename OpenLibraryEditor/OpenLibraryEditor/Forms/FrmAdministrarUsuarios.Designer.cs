@@ -33,7 +33,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblTituloFormAbierto = new System.Windows.Forms.Label();
             this.MPcbTituloFrm = new FontAwesome.Sharp.Material.MaterialPictureBox();
-            this.KTxtBuscarUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KCmbBuscarPorUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.PanPiePagina = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,6 +49,7 @@
             this.MBtnOrdenMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblBuscarPor = new System.Windows.Forms.Label();
             this.MbtnBorrarTxtBuscar = new FontAwesome.Sharp.Material.MaterialButton();
+            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanListViewsOpciones = new System.Windows.Forms.Panel();
             this.MBtnMasUsu = new FontAwesome.Sharp.Material.MaterialButton();
@@ -57,7 +57,9 @@
             this.ColNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColTipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColCorreo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
+            this.GBtnGuardarCambios = new Guna.UI.WinForms.GunaButton();
             this.PanTituloFormAbierto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbTituloFrm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbBuscarPorUsu)).BeginInit();
@@ -69,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoUsu)).BeginInit();
             this.FlPanBuscar.SuspendLayout();
             this.PanListViewsOpciones.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanTituloFormAbierto
@@ -116,25 +119,6 @@
             this.MPcbTituloFrm.TabIndex = 12;
             this.MPcbTituloFrm.TabStop = false;
             // 
-            // KTxtBuscarUsu
-            // 
-            this.KTxtBuscarUsu.Location = new System.Drawing.Point(379, 3);
-            this.KTxtBuscarUsu.Name = "KTxtBuscarUsu";
-            this.KTxtBuscarUsu.Size = new System.Drawing.Size(235, 33);
-            this.KTxtBuscarUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.KTxtBuscarUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarUsu.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarUsu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtBuscarUsu.StateCommon.Border.Rounding = 10;
-            this.KTxtBuscarUsu.StateCommon.Border.Width = 2;
-            this.KTxtBuscarUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KTxtBuscarUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtBuscarUsu.TabIndex = 125;
-            this.KTxtBuscarUsu.Visible = false;
-            this.KTxtBuscarUsu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarUsu_KeyDown);
-            // 
             // KCmbBuscarPorUsu
             // 
             this.KCmbBuscarPorUsu.DropDownWidth = 160;
@@ -159,6 +143,7 @@
             // PanPiePagina
             // 
             this.PanPiePagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.PanPiePagina.Controls.Add(this.panel5);
             this.PanPiePagina.Controls.Add(this.panel1);
             this.PanPiePagina.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PanPiePagina.Location = new System.Drawing.Point(0, 646);
@@ -184,6 +169,7 @@
             // 
             // KgbDatosUsuario.Panel
             // 
+            this.KgbDatosUsuario.Panel.Controls.Add(this.GBtnGuardarCambios);
             this.KgbDatosUsuario.Panel.Controls.Add(this.MBtnEditarUsu);
             this.KgbDatosUsuario.Panel.Controls.Add(this.KCmbTipoUsu);
             this.KgbDatosUsuario.Panel.Controls.Add(this.LblEscribirEmail);
@@ -191,7 +177,7 @@
             this.KgbDatosUsuario.Panel.Controls.Add(this.LblTipoUsu);
             this.KgbDatosUsuario.Panel.Controls.Add(this.LblEmail);
             this.KgbDatosUsuario.Panel.Controls.Add(this.LblNombreUsu);
-            this.KgbDatosUsuario.Size = new System.Drawing.Size(475, 191);
+            this.KgbDatosUsuario.Size = new System.Drawing.Size(475, 259);
             this.KgbDatosUsuario.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosUsuario.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosUsuario.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -228,10 +214,9 @@
             // 
             this.KCmbTipoUsu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KCmbTipoUsu.DropDownWidth = 228;
-            this.KCmbTipoUsu.Enabled = false;
             this.KCmbTipoUsu.Location = new System.Drawing.Point(196, 96);
             this.KCmbTipoUsu.Name = "KCmbTipoUsu";
-            this.KCmbTipoUsu.Size = new System.Drawing.Size(230, 33);
+            this.KCmbTipoUsu.Size = new System.Drawing.Size(212, 33);
             this.KCmbTipoUsu.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.KCmbTipoUsu.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KCmbTipoUsu.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -328,7 +313,6 @@
             this.FlPanBuscar.Controls.Add(this.MBtnOrdenMBI);
             this.FlPanBuscar.Controls.Add(this.LblBuscarPor);
             this.FlPanBuscar.Controls.Add(this.KCmbBuscarPorUsu);
-            this.FlPanBuscar.Controls.Add(this.KTxtBuscarUsu);
             this.FlPanBuscar.Controls.Add(this.MbtnBorrarTxtBuscar);
             this.FlPanBuscar.Controls.Add(this.TxtBusqueda);
             this.FlPanBuscar.Controls.Add(this.MBtnBuscarMBI);
@@ -376,7 +360,7 @@
             this.MbtnBorrarTxtBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.Close;
             this.MbtnBorrarTxtBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MbtnBorrarTxtBuscar.IconSize = 35;
-            this.MbtnBorrarTxtBuscar.Location = new System.Drawing.Point(617, 8);
+            this.MbtnBorrarTxtBuscar.Location = new System.Drawing.Point(376, 8);
             this.MbtnBorrarTxtBuscar.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.MbtnBorrarTxtBuscar.Name = "MbtnBorrarTxtBuscar";
             this.MbtnBorrarTxtBuscar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -385,6 +369,15 @@
             this.MbtnBorrarTxtBuscar.UseVisualStyleBackColor = true;
             this.MbtnBorrarTxtBuscar.Visible = false;
             this.MbtnBorrarTxtBuscar.Click += new System.EventHandler(this.MbtnBorrarTxtBuscar_Click);
+            // 
+            // TxtBusqueda
+            // 
+            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.TxtBusqueda.Location = new System.Drawing.Point(401, 3);
+            this.TxtBusqueda.Name = "TxtBusqueda";
+            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
+            this.TxtBusqueda.TabIndex = 135;
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarUsu_KeyDown);
             // 
             // MBtnBuscarMBI
             // 
@@ -395,7 +388,7 @@
             this.MBtnBuscarMBI.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnBuscarMBI.IconSize = 45;
-            this.MBtnBuscarMBI.Location = new System.Drawing.Point(911, 3);
+            this.MBtnBuscarMBI.Location = new System.Drawing.Point(670, 3);
             this.MBtnBuscarMBI.Name = "MBtnBuscarMBI";
             this.MBtnBuscarMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarMBI.Size = new System.Drawing.Size(34, 34);
@@ -471,14 +464,54 @@
             this.ColCorreo.Text = "Email";
             this.ColCorreo.Width = 132;
             // 
-            // TxtBusqueda
+            // panel5
             // 
-            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.TxtBusqueda.Location = new System.Drawing.Point(642, 3);
-            this.TxtBusqueda.Name = "TxtBusqueda";
-            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
-            this.TxtBusqueda.TabIndex = 135;
-            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarUsu_KeyDown);
+            this.panel5.Controls.Add(this.LblTipoUsuarioConectado);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(550, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(398, 43);
+            this.panel5.TabIndex = 5;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 13);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
+            this.LblTipoUsuarioConectado.TabIndex = 2;
+            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
+            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GBtnGuardarCambios
+            // 
+            this.GBtnGuardarCambios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GBtnGuardarCambios.AnimationHoverSpeed = 0.07F;
+            this.GBtnGuardarCambios.AnimationSpeed = 0.03F;
+            this.GBtnGuardarCambios.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnGuardarCambios.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarCambios.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarCambios.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnGuardarCambios.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarCambios.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnGuardarCambios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnGuardarCambios.Image = null;
+            this.GBtnGuardarCambios.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnGuardarCambios.Location = new System.Drawing.Point(282, 170);
+            this.GBtnGuardarCambios.Margin = new System.Windows.Forms.Padding(3, 5, 8, 3);
+            this.GBtnGuardarCambios.Name = "GBtnGuardarCambios";
+            this.GBtnGuardarCambios.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarCambios.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarCambios.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnGuardarCambios.OnHoverImage = null;
+            this.GBtnGuardarCambios.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarCambios.Radius = 15;
+            this.GBtnGuardarCambios.Size = new System.Drawing.Size(126, 35);
+            this.GBtnGuardarCambios.TabIndex = 167;
+            this.GBtnGuardarCambios.Text = "Guardar";
+            this.GBtnGuardarCambios.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnGuardarCambios.Click += new System.EventHandler(this.GBtnGuardarCambios_Click);
             // 
             // FrmAdministrarUsuarios
             // 
@@ -509,6 +542,7 @@
             this.FlPanBuscar.ResumeLayout(false);
             this.FlPanBuscar.PerformLayout();
             this.PanListViewsOpciones.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,7 +554,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label LblTituloFormAbierto;
         private FontAwesome.Sharp.Material.MaterialPictureBox MPcbTituloFrm;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtBuscarUsu;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbBuscarPorUsu;
         private System.Windows.Forms.Panel PanPiePagina;
         private System.Windows.Forms.Panel panel1;
@@ -545,5 +578,8 @@
         private System.Windows.Forms.ColumnHeader ColCorreo;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasUsu;
         private Controles.TxtBusqueda TxtBusqueda;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label LblTipoUsuarioConectado;
+        private Guna.UI.WinForms.GunaButton GBtnGuardarCambios;
     }
 }

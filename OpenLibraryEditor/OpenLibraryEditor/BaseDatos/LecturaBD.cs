@@ -144,6 +144,24 @@ namespace OpenLibraryEditor.BaseDatos
 				}
 			}
 		}
+		public static InfoUsuarioBD SelectUsuarioSegunMail(string mail)
+		{
+			string query = "SELECT * FROM Usuario WHERE correoUsuario = '" + mail + "'";
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					if (lector.Read())
+					{
+						return ConversorRegistro.RegistroAUsuarioInfo(lector);
+					}
+
+					return null;
+				}
+			}
+		}
 
 		public static byte[] SelectUsuarioFotoPerfil(string nombreUsuario)
 		{

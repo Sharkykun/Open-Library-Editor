@@ -41,6 +41,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TTVerificar = new System.Windows.Forms.ToolTip(this.components);
+            this.LblMirarSpam = new System.Windows.Forms.Label();
             this.PanTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoRegistro)).BeginInit();
             this.panel1.SuspendLayout();
@@ -105,6 +106,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.panel1.Controls.Add(this.LblMirarSpam);
             this.panel1.Controls.Add(this.KMaskTxt);
             this.panel1.Controls.Add(this.Lblcodigo);
             this.panel1.Controls.Add(this.GBtnVerificar);
@@ -158,7 +160,7 @@
             this.GBtnVerificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnVerificar.Image = null;
             this.GBtnVerificar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnVerificar.Location = new System.Drawing.Point(49, 131);
+            this.GBtnVerificar.Location = new System.Drawing.Point(49, 134);
             this.GBtnVerificar.Name = "GBtnVerificar";
             this.GBtnVerificar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.GBtnVerificar.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -199,6 +201,17 @@
             this.panel2.Size = new System.Drawing.Size(3, 197);
             this.panel2.TabIndex = 31;
             // 
+            // LblMirarSpam
+            // 
+            this.LblMirarSpam.Font = new System.Drawing.Font("Merienda", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMirarSpam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblMirarSpam.Location = new System.Drawing.Point(13, 108);
+            this.LblMirarSpam.Name = "LblMirarSpam";
+            this.LblMirarSpam.Size = new System.Drawing.Size(435, 23);
+            this.LblMirarSpam.TabIndex = 37;
+            this.LblMirarSpam.Text = "Si no ha recibido el email revise su correo no deseado";
+            this.LblMirarSpam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmVerificacionMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,5 +246,6 @@
         private System.Windows.Forms.Label Lblcodigo;
         private Guna.UI.WinForms.GunaButton GBtnVerificar;
         private System.Windows.Forms.ToolTip TTVerificar;
+        private System.Windows.Forms.Label LblMirarSpam;
     }
 }

@@ -782,6 +782,14 @@ namespace OpenLibraryEditor.BaseDatos
                 SELECT COUNT(*) FROM Usuario WHERE nombreUsuario = '" + usuario.Nombre + "'"),
                 ConexionBD.Conexion);
         }
+        public static MySqlCommand ComprobarMailExiste(string mail)
+        {
+            // Se comprueba primero que el TipoLibro no existe en la bd 
+            return new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM Usuario WHERE correoUsuario = '" + mail + "'"),
+                ConexionBD.Conexion);
+        }
+
         public static void InsertUsuario(InfoUsuarioBD usuario, string contrasenia)
         {
             try 
@@ -880,6 +888,46 @@ namespace OpenLibraryEditor.BaseDatos
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
             }
         }
+        public static bool UpdatePasswordUsuario(string password, InfoUsuarioBD usuario)
+        {
+            try
+            {
+                //HACER EL UPDATE DE LA TABLA USER
+                //ConexionBD.AbrirConexion();
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla = new MySqlCommand(String.Format(@"
+                ALTER USER '"+ConexionBD.ANTENOMBRE_USUARIO_BD+usuario.Nombre+"'@'%' IDENTIFIED BY '"+password+"';"),
+                ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+                return true;
+                //ConexionBD.CerrarConexion();
+
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+                return false;
+            }
+        }
+        public static void UpdateTipoUsuario(string tipoNuevo, InfoUsuarioBD usuario)
+        {
+            try
+            {
+                ConexionBD.AbrirConexion();
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla = new MySqlCommand(String.Format(@"
+                UPDATE `Usuario` SET tipoUsuario = '{0}'
+                WHERE tipoUsuario = '" + usuario.TipoUsuario + "';",
+                tipoNuevo), ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+                ConexionBD.CerrarConexion();
+
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+            }
+        }
 
         public static void UpdateFotoUsuario(byte[] img, InfoUsuarioBD usuario)
         {
@@ -925,7 +973,7 @@ namespace OpenLibraryEditor.BaseDatos
         #endregion
 
         #region UsuarioLibro
-        // NOTA: Comporbaciones hechas y funcionamiento correcto.
+        // NOTA: Comprobaciones hechas y funcionamiento correcto.
         private static MySqlCommand ComprobarUsuarioLibroExiste(Libro libro, InfoUsuarioBD usuario)
         {
             // Se comprueba primero que el TipoLibro no existe en la bd 

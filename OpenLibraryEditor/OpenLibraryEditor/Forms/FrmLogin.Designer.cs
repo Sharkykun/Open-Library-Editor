@@ -37,6 +37,7 @@
             this.GBtnSinConexion = new Guna.UI.WinForms.GunaButton();
             this.LblError = new System.Windows.Forms.Label();
             this.LblSesionIniciada = new System.Windows.Forms.Label();
+            this.ToggleConectado = new OpenLibraryEditor.Controles.ToggleButton();
             this.KTxtNombre = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.KTxtUrl = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LlblRecuperar = new System.Windows.Forms.LinkLabel();
@@ -51,7 +52,6 @@
             this.TimerAparecer = new System.Windows.Forms.Timer(this.components);
             this.MBtnCerrarLogin = new FontAwesome.Sharp.Material.MaterialButton();
             this.TTLogin = new System.Windows.Forms.ToolTip(this.components);
-            this.ToggleConectado = new OpenLibraryEditor.Controles.ToggleButton();
             this.PanLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbMostrarContra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IpcbOcultarContra)).BeginInit();
@@ -221,6 +221,23 @@
             this.LblSesionIniciada.TabIndex = 8;
             this.LblSesionIniciada.Text = "Mantener sesión iniciada";
             // 
+            // ToggleConectado
+            // 
+            this.ToggleConectado.AutoSize = true;
+            this.ToggleConectado.BackColor = System.Drawing.Color.Gainsboro;
+            this.ToggleConectado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ToggleConectado.Location = new System.Drawing.Point(251, 182);
+            this.ToggleConectado.MinimumSize = new System.Drawing.Size(45, 22);
+            this.ToggleConectado.Name = "ToggleConectado";
+            this.ToggleConectado.OffBackColor = System.Drawing.Color.DarkGray;
+            this.ToggleConectado.OffToggleColor = System.Drawing.Color.Black;
+            this.ToggleConectado.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.ToggleConectado.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.ToggleConectado.Size = new System.Drawing.Size(45, 22);
+            this.ToggleConectado.TabIndex = 4;
+            this.ToggleConectado.UseVisualStyleBackColor = false;
+            this.ToggleConectado.CheckedChanged += new System.EventHandler(this.ToggleConectado_CheckedChanged);
+            // 
             // KTxtNombre
             // 
             this.KTxtNombre.Location = new System.Drawing.Point(15, 94);
@@ -273,6 +290,7 @@
             this.LlblRecuperar.TabIndex = 0;
             this.LlblRecuperar.TabStop = true;
             this.LlblRecuperar.Text = "¿Ha olvidado su contraseña? Haga click aquí";
+            this.LlblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblRecuperar_LinkClicked);
             // 
             // IpcbMostrarContra
             // 
@@ -415,23 +433,6 @@
             this.MBtnCerrarLogin.TabIndex = 16;
             this.MBtnCerrarLogin.UseVisualStyleBackColor = false;
             this.MBtnCerrarLogin.Click += new System.EventHandler(this.MBtnCerrarLogin_Click);
-            // 
-            // ToggleConectado
-            // 
-            this.ToggleConectado.AutoSize = true;
-            this.ToggleConectado.BackColor = System.Drawing.Color.Gainsboro;
-            this.ToggleConectado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ToggleConectado.Location = new System.Drawing.Point(251, 182);
-            this.ToggleConectado.MinimumSize = new System.Drawing.Size(45, 22);
-            this.ToggleConectado.Name = "ToggleConectado";
-            this.ToggleConectado.OffBackColor = System.Drawing.Color.DarkGray;
-            this.ToggleConectado.OffToggleColor = System.Drawing.Color.Black;
-            this.ToggleConectado.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.ToggleConectado.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.ToggleConectado.Size = new System.Drawing.Size(45, 22);
-            this.ToggleConectado.TabIndex = 4;
-            this.ToggleConectado.UseVisualStyleBackColor = false;
-            this.ToggleConectado.CheckedChanged += new System.EventHandler(this.ToggleConectado_CheckedChanged);
             // 
             // FrmLogin
             // 
