@@ -1,4 +1,6 @@
-﻿using OpenLibraryEditor.Clases;
+﻿using MySql.Data.MySqlClient;
+using OpenLibraryEditor.BaseDatos;
+using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.Metodos;
 using System;
 using System.Collections.Generic;
@@ -79,20 +81,11 @@ namespace OpenLibraryEditor.Forms
                         BaseDatos.ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
                         BaseDatos.ConexionBD.CerrarConexion();
                         FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
-                        BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, KTxtNombreApp.Text,
+                        BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD+KTxtNombreApp.Text,
                             KTxtContraApp.Text, KNudPuerto.Value.ToString());
                         isOk = true;
                         Close();
                     }
-                    //BaseDatos.EscrituraBD.InsertOcupacion("Escritor");
-                    //BaseDatos.EscrituraBD.InsertAutor(testA);
-                    //testA.Nombre = "Jose";
-                    //BaseDatos.EscrituraBD.UpdateOcupacion("Escritor", "Escritor/a");
-                    //BaseDatos.EscrituraBD.UpdateAutor("pepe", testA);
-                    //BaseDatos.EscrituraBD.DeleteAutor(testA);
-                    //BaseDatos.EscrituraBD.UpdateOcupacion("Escritor", "Escritor/a");
-                    //BaseDatos.EscrituraBD.DeleteOcupacion("Escritor/a");
-                    //BaseDatos.ConexionBD.CerrarConexion();
                 }
                 else
                 {

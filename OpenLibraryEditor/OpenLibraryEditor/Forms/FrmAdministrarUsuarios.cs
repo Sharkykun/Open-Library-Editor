@@ -120,7 +120,19 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem AniadirElementoUsuario(InfoUsuarioBD usuario)
         {
             var item = LsvUsuariosBD.Items.Add(usuario.Nombre);
-            item.SubItems.Add(usuario.TipoUsuario);
+            switch(usuario.TipoUsuario)
+            {
+                case "Administrador":
+                    item.SubItems.Add(ControladorIdioma.GetTexto("Adm_Adm"));
+                    break;
+                case "Editor":
+                    item.SubItems.Add(ControladorIdioma.GetTexto("Adm_Editor"));
+                    break;
+                case "Usuario":
+                    item.SubItems.Add(ControladorIdioma.GetTexto("Adm_Usu"));
+                    break;
+            }
+            
             item.SubItems.Add(usuario.Correo);
             item.Tag = usuario;
             return item;
@@ -213,12 +225,14 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.AbrirConexion())
                 {
                     //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
-                    EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
+                    if(LecturaBD.SelectUsuarioLibroPorUsuario(usuarioActual.Nombre) > 0)
+                        EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
 
-                    EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
+                    EscrituraBD.DeleteUsuario(usuarioActual);
                     ConexionBD.CerrarConexion();
                     ObtenerUsuariosBD();
                     ColocarUsuarios(listaUsuarios);
+                    KgbDatosUsuario.Visible = false;
                 }
             }
         }
@@ -245,7 +259,14 @@ namespace OpenLibraryEditor.Forms
             }
             else
             {
-                EscrituraBD.UpdateTipoUsuario(KCmbTipoUsu.SelectedItem.ToString(), usuarioActual);
+                if (KCmbTipoUsu.SelectedIndex == 0)
+                    usuarioActual.TipoUsuario = "Editor";
+                if (KCmbTipoUsu.SelectedIndex == 1)
+                {
+                    usuarioActual.TipoUsuario = "Usuario";
+                }
+
+                EscrituraBD.UpdateTipoUsuario(usuarioActual.TipoUsuario, usuarioActual);
                 ObtenerUsuariosBD();
                 ColocarUsuarios(listaUsuarios);
                 VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));

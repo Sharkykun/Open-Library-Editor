@@ -80,38 +80,45 @@ namespace OpenLibraryEditor.Forms
         {
             if (!String.IsNullOrWhiteSpace(KTxtNombreEditUsu.Text) &&
                 !String.IsNullOrWhiteSpace(KTxtContraEditUsu.Text) &&
-               !String.IsNullOrWhiteSpace(KTxtEmailEditUsu.Text) 
-               && KCmbTipoEditUsu.SelectedIndex!=-1)
+               !String.IsNullOrWhiteSpace(KTxtEmailEditUsu.Text)
+               && KCmbTipoEditUsu.SelectedIndex != -1)
             {
                 if (MetodosComunes.EsEmailValido(KTxtEmailEditUsu.Text))
                 {
+
                     if (ConexionBD.AbrirConexion())
                     {
-                        //usuario = new InfoUsuarioBD();
-                        string nombreAntiguo = usuario.Nombre;
-                        usuario.Nombre = KTxtNombreEditUsu.Text;
-                        usuario.Correo = KTxtEmailEditUsu.Text;
-
-                        if (KCmbTipoEditUsu.SelectedIndex == 0)
-                            usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Editor");
-                        if (KCmbTipoEditUsu.SelectedIndex == 1)
+                        if (LecturaBD.SelectUsuarioCorreo(KTxtEmailEditUsu.Text) == 0)
                         {
-                            usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Usu");
-                        }
-                            
-                        //if (esEditar)
-                        //{
-                        //    EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
-                        //}
-                        //else
-                        //{
+                            //usuario = new InfoUsuarioBD();
+                            string nombreAntiguo = usuario.Nombre;
+                            usuario.Nombre = KTxtNombreEditUsu.Text;
+                            usuario.Correo = KTxtEmailEditUsu.Text;
+
+                            if (KCmbTipoEditUsu.SelectedIndex == 0)
+                                usuario.TipoUsuario = "Editor";
+                            if (KCmbTipoEditUsu.SelectedIndex == 1)
+                            {
+                                usuario.TipoUsuario = "Usuario";
+                            }
+
+                            //if (esEditar)
+                            //{
+                            //    EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
+                            //}
+                            //else
+                            //{
                             EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
-                        //}
+                            //}
+                            esOk = true;
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
+                            Close();
+                            EnvioEmail.RegistrarUsuario("openlibraryeditor@gmail.com", "oleOLEole", KTxtEmailEditUsu.Text, KTxtNombreEditUsu.Text, KTxtContraEditUsu.Text, usuario.TipoUsuario, UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre + " (" + UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo + ") ");
+                        }
+                        else
+                            //---------
+                            VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
                         ConexionBD.CerrarConexion();
-                        esOk = true;
-                        VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
-                        Close();
-                        EnvioEmail.RegistrarUsuario("openlibraryeditor@gmail.com", "oleOLEole",KTxtEmailEditUsu.Text,KTxtNombreEditUsu.Text,KTxtContraEditUsu.Text, usuario.TipoUsuario, UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre+" ("+ UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo+") "); 
                     }
                 }
                 else

@@ -111,60 +111,66 @@ namespace OpenLibraryEditor.Forms
                 !String.IsNullOrWhiteSpace(KTxtContra1Reg.Text) &&
                 !String.IsNullOrWhiteSpace(KTxtContraReg.Text))
             {
-                if (MetodosComunes.EsEmailValido(TxtMailReg.Text)) 
+                if (MetodosComunes.EsEmailValido(TxtMailReg.Text))
                 {
                     if (KTxtContra1Reg.Text == KTxtContraReg.Text)
                     {
-                        DialogResult result = DialogResult.No;
-                        do
+                        //Obtener puerto en la url, si se especifica
+                        string[] s = TxtUrlReg.Text.Split(':');
+                        string url = s[0];
+                        string p = s.Length == 2 ? s[1] : "3306";
+                        int puerto;
+                        if (!int.TryParse(p, out puerto))
+                            puerto = 3306;
+
+                        ConexionBD.EstablecerConexion(url, "ole_register", "ole123Ole", puerto.ToString());
+                        if (ConexionBD.AbrirConexion())
                         {
-                            EnvioEmail mail = new EnvioEmail();
-                            numero = mail.Send("openlibraryeditor@gmail.com", "oleOLEole", TxtMailReg.Text);
-
-                            if (numero == 0)
+                            if (LecturaBD.SelectUsuarioCorreo(TxtMailReg.Text) == 0)
                             {
-                                VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ReenviarMail"));
-                            }
-                        } while (result == DialogResult.Yes);
-                        FrmVerificacionMail verificar = new FrmVerificacionMail(numero);
-                        verificar.FormBorderStyle = FormBorderStyle.None;
-                        verificar.ShowDialog();
-                        if (verificar.MailVerificado)
-                        {
-                            //Obtener puerto en la url, si se especifica
-                            string[] s = TxtUrlReg.Text.Split(':');
-                            string url = s[0];
-                            string p = s.Length == 2 ? s[1] : "3306";
-                            int puerto;
-                            if (!int.TryParse(p, out puerto))
-                                puerto = 3306;
-
-                            ConexionBD.EstablecerConexion(url, "ole_register", "ole123Ole", puerto.ToString());
-                            if (ConexionBD.AbrirConexion())
-                            {
-                                //Crear usuario con ole_register
-                                ConexionBD.CrearUsuarioComunBD(TxtNombreReg.Text, KTxtContraReg.Text, TxtNombreReg.Text);
-                                EscrituraBD.InsertUsuario(new InfoUsuarioBD(TxtNombreReg.Text,
-                                     TxtMailReg.Text,
-                                     "Usuario"), KTxtContraReg.Text);
-                                ConexionBD.CerrarConexion();
-
-                                //Iniciar sesion y menu principal
-                                ConexionBD.EstablecerConexion(url, ConexionBD.ANTENOMBRE_USUARIO_BD +
-                                    TxtNombreReg.Text, KTxtContraReg.Text, puerto.ToString());
-                                if (ConexionBD.AbrirConexion())
+                                DialogResult result = DialogResult.No;
+                                do
                                 {
-                                    ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
+                                    EnvioEmail mail = new EnvioEmail();
+                                    numero = mail.Send("openlibraryeditor@gmail.com", "oleOLEole", TxtMailReg.Text);
+
+                                    if (numero == 0)
+                                    {
+                                        VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ReenviarMail"));
+                                    }
+                                } while (result == DialogResult.Yes);
+                                FrmVerificacionMail verificar = new FrmVerificacionMail(numero);
+                                verificar.FormBorderStyle = FormBorderStyle.None;
+                                verificar.ShowDialog();
+                                if (verificar.MailVerificado)
+                                {
+                                    //Crear usuario con ole_register
+                                    ConexionBD.CrearUsuarioComunBD(TxtNombreReg.Text, KTxtContraReg.Text, TxtNombreReg.Text);
+                                    EscrituraBD.InsertUsuario(new InfoUsuarioBD(TxtNombreReg.Text,
+                                            TxtMailReg.Text,
+                                            "Usuario"), KTxtContraReg.Text);
                                     ConexionBD.CerrarConexion();
-                                    FrmLogin.ObtenerInfoBD(TxtNombreReg.Text, TxtUrlReg.Text, puerto);
-                                    FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
-                                    mainMenu.Show();
-                                    isOk = true;
-                                    this.Close();
+
+                                    //Iniciar sesion y menu principal
+                                    ConexionBD.EstablecerConexion(url, ConexionBD.ANTENOMBRE_USUARIO_BD +
+                                        TxtNombreReg.Text, KTxtContraReg.Text, puerto.ToString());
+                                    if (ConexionBD.AbrirConexion())
+                                    {
+                                        ConexionBD.IdBD = LecturaBD.SelectObtenerIdBD();
+                                        ConexionBD.CerrarConexion();
+                                        FrmLogin.ObtenerInfoBD(TxtNombreReg.Text, TxtUrlReg.Text, puerto);
+                                        FrmMenuPrincipal mainMenu = new FrmMenuPrincipal();
+                                        mainMenu.Show();
+                                        isOk = true;
+                                        this.Close();
+                                    }
                                 }
                             }
+                            else
+                                //-------------
+                                VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
                         }
-
+                        ConexionBD.CerrarConexion();
                     }
                     else
                     {
@@ -175,13 +181,13 @@ namespace OpenLibraryEditor.Forms
                 {
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));
                 }
-                
+
             }
             else
             {
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Log_Error4"));
             }
-            }
+        }
     }
     }
 

@@ -163,6 +163,16 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
+		public static int SelectUsuarioCorreo(string correoUsuario)
+		{
+			string query = "SELECT count(*) FROM Usuario WHERE correoUsuario = '" + correoUsuario + "'";
+			
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
 		public static byte[] SelectUsuarioFotoPerfil(string nombreUsuario)
 		{
 			string query = "SELECT * FROM Usuario WHERE nombreUsuario = '" + nombreUsuario + "'";
@@ -208,6 +218,17 @@ namespace OpenLibraryEditor.BaseDatos
 				nombreUsuario + "' AND idLibro ='" 
 				+ EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido) 
 				+ "'");
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
+		public static int SelectUsuarioLibroPorUsuario(string nombreUsuario)
+		{
+			string query = String.Format(@"
+                SELECT COUNT(*) FROM UsuarioLibro WHERE nombreUsuario = '" +
+				nombreUsuario + "'");
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());

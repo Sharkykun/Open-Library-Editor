@@ -85,6 +85,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static bool AbrirConexion()
         {
+            //No poner mensaje de error en ventana aquí
             try
             {
                 Console.WriteLine("Conexion con MySql abierta.");
@@ -100,6 +101,7 @@ namespace OpenLibraryEditor.BaseDatos
 
         public static bool CerrarConexion()
         {
+            //No poner mensaje de error en ventana aquí
             try
             {
                 Console.WriteLine("Conexion con MySql cerrada.");
@@ -180,8 +182,9 @@ namespace OpenLibraryEditor.BaseDatos
         public static void CrearEditorBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
-            CrearUsuarioBD(nombreFinal, contrasenia);
-            QuitarPrivilegiosUsuarioBD(nombreAntiguo, true);
+            if (contrasenia != null)
+                CrearUsuarioBD(nombreFinal, contrasenia);
+            QuitarPrivilegiosUsuarioBD(nombreAntiguo, false);
             AplicarPermisosUsuario();
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
@@ -201,8 +204,9 @@ namespace OpenLibraryEditor.BaseDatos
         public static void CrearUsuarioComunBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
-            CrearUsuarioBD(nombreFinal, contrasenia);
-            QuitarPrivilegiosUsuarioBD(nombreAntiguo, false);
+            if(contrasenia != null)
+                CrearUsuarioBD(nombreFinal, contrasenia);
+            QuitarPrivilegiosUsuarioBD(nombreAntiguo, true);
             AplicarPermisosUsuario();
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
@@ -259,7 +263,7 @@ namespace OpenLibraryEditor.BaseDatos
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
                 "mysql .user TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand("GRANT CREATE USER, RELOAD ON " +
+            cmd = new MySqlCommand("GRANT CREATE USER, RELOAD, ALTER ON " +
                 "*.* TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             AplicarPermisosUsuario();
@@ -321,8 +325,8 @@ namespace OpenLibraryEditor.BaseDatos
                 }
                 else
                 {
-                    MySqlCommand cmd = new MySqlCommand("REVOKE SELECT,INSERT,DELETE,UPDATE ON " +
-                       NOMBRE_BD + ".* FROM '" + nombreUsuario + "'@'%';", Conexion);
+                    MySqlCommand cmd = new MySqlCommand("REVOKE SELECT,INSERT,UPDATE,DELETE ON " +
+                       NOMBRE_BD + "." + tabla +" FROM '" + nombreUsuario + "'@'%';", Conexion);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -482,7 +486,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Usuario` (
-	            `correoUsuario` varchar(150) NOT NULL,
+	            `correoUsuario` varchar(150) UNIQUE NOT NULL,
 	            `nombreUsuario` varchar(50) NOT NULL,
                 `tipoUsuario` varchar(40) NOT NULL,
                 `imagenPerfil` MEDIUMBLOB,
