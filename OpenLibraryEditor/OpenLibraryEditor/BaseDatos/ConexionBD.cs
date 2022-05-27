@@ -266,7 +266,7 @@ namespace OpenLibraryEditor.BaseDatos
             cmd = new MySqlCommand("GRANT GRANT OPTION ON " +
                 "mysql .user TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand("GRANT CREATE USER, RELOAD ON " +
+            cmd = new MySqlCommand("GRANT CREATE USER, RELOAD, ALTER ON " +
                 "*.* TO'" + nombreFinal + "'@'%';", Conexion);
             cmd.ExecuteNonQuery();
             AplicarPermisosUsuario();
