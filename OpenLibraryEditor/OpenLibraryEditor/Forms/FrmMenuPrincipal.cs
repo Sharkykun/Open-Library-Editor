@@ -1118,8 +1118,7 @@ namespace OpenLibraryEditor.Forms
                         if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarDatosUsu"))
                         == DialogResult.Yes)
                         {
-                                libroActual.BorrarUsuarioLibroEnBDCompartida();
-                                
+                                libroActual.BorrarUsuarioLibroEnBDCompartida();   
                         }
                         
                     }

@@ -2041,6 +2041,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Créer des utilisateurs.
+        /// </summary>
+        internal static string CrearUsuario {
+            get {
+                return ResourceManager.GetString("CrearUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Commentaire.
         /// </summary>
         internal static string ED_Comentario {
@@ -2163,6 +2172,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string ED_TTPcb {
             get {
                 return ResourceManager.GetString("ED_TTPcb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nom:.
+        /// </summary>
+        internal static string Edit_Nombre {
+            get {
+                return ResourceManager.GetString("Edit_Nombre", resourceCulture);
             }
         }
         
@@ -3049,11 +3067,38 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Bienvenue dans Open Library Editor. Votre code de vérification est :.
+        ///   Busca una cadena traducida similar a Bienvenue à.
+        /// </summary>
+        internal static string Mail_Bienvenido {
+            get {
+                return ResourceManager.GetString("Mail_Bienvenido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Votre code de vérification est :.
         /// </summary>
         internal static string Mail_Body {
             get {
                 return ResourceManager.GetString("Mail_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Par sécurité changez votre mot de passe à la première connexion.
+        /// </summary>
+        internal static string Mail_CambieContra {
+            get {
+                return ResourceManager.GetString("Mail_CambieContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Vos données d&apos;accès à l&apos;application sont:.
+        /// </summary>
+        internal static string Mail_DatosAcceso {
+            get {
+                return ResourceManager.GetString("Mail_DatosAcceso", resourceCulture);
             }
         }
         
@@ -3067,11 +3112,83 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Correo de verificación.
+        ///   Busca una cadena traducida similar a App faite par 3 étudiants DAM en projet de fin d&apos;études.
+        /// </summary>
+        internal static string Mail_foot {
+            get {
+                return ResourceManager.GetString("Mail_foot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Votre nouveau mot de passe est:.
+        /// </summary>
+        internal static string Mail_NuevaContra {
+            get {
+                return ResourceManager.GetString("Mail_NuevaContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Vous avez été enregistré dans Open Library Editor.
+        /// </summary>
+        internal static string Mail_PerRegistradora {
+            get {
+                return ResourceManager.GetString("Mail_PerRegistradora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Récupération de mot de passe.
+        /// </summary>
+        internal static string Mail_Recuperar {
+            get {
+                return ResourceManager.GetString("Mail_Recuperar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Salut.
+        /// </summary>
+        internal static string Mail_saludo {
+            get {
+                return ResourceManager.GetString("Mail_saludo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Courriel de vérification.
         /// </summary>
         internal static string Mail_Subject {
             get {
                 return ResourceManager.GetString("Mail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Le courrier a été modifié avec succès.
+        /// </summary>
+        internal static string MailCambiadoOk {
+            get {
+                return ResourceManager.GetString("MailCambiadoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Entrer un email valide.
+        /// </summary>
+        internal static string MailNoValido {
+            get {
+                return ResourceManager.GetString("MailNoValido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nous vous avons envoyé un email avec votre nouveau mot de passe.
+        /// </summary>
+        internal static string MailNuevaContra {
+            get {
+                return ResourceManager.GetString("MailNuevaContra", resourceCulture);
             }
         }
         
@@ -3949,6 +4066,33 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a L&apos;email saisi n&apos;est pas enregistré dans la base de données.
+        /// </summary>
+        internal static string Recu_Error {
+            get {
+                return ResourceManager.GetString("Recu_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Récupérer le mot de passe.
+        /// </summary>
+        internal static string Recu_Titulo {
+            get {
+                return ResourceManager.GetString("Recu_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Récupérer.
+        /// </summary>
+        internal static string Recuperar {
+            get {
+                return ResourceManager.GetString("Recuperar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a S&apos;inscrire.
         /// </summary>
         internal static string Reg_BtnRegistro {
@@ -4507,6 +4651,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Si vous n&apos;avez pas reçu l&apos;e-mail, vérifiez vos spams.
+        /// </summary>
+        internal static string Verificar_Spam {
+            get {
+                return ResourceManager.GetString("Verificar_Spam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Open Library Editor - Vérifiez votre adresse e-mail.
         /// </summary>
         internal static string Verificar_Titulo {
@@ -4674,6 +4827,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string VWC_Error {
             get {
                 return ResourceManager.GetString("VWC_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Il ne peut y avoir qu&apos;un seul administrateur.
+        /// </summary>
+        internal static string VWC_ErrorAdm {
+            get {
+                return ResourceManager.GetString("VWC_ErrorAdm", resourceCulture);
             }
         }
         

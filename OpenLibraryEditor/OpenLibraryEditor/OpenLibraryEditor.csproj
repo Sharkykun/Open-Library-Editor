@@ -167,7 +167,7 @@
     <Compile Include="Clases\ControladorImagen.cs" />
     <Compile Include="Clases\GoogleBooksController.cs" />
     <Compile Include="Clases\MiMessageBox.cs" />
-    <Compile Include="Clases\ValidarEmail.cs" />
+    <Compile Include="Clases\EnvioEmail.cs" />
     <Compile Include="Clases\VentanaWindowsComun.cs" />
     <Compile Include="Controles\CheckedComboBox.cs" />
     <Compile Include="Controles\DoubleClickButton.cs">
@@ -308,6 +308,12 @@
     <Compile Include="Forms\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmRecuperarContra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRecuperarContra.Designer.cs">
+      <DependentUpon>FrmRecuperarContra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRecuperarContra.resx">
+      <DependentUpon>FrmRecuperarContra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRegistro.resx">
       <DependentUpon>FrmRegistro.cs</DependentUpon>

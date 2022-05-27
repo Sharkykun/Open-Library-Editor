@@ -414,8 +414,12 @@ namespace OpenLibraryEditor.Forms
             //UpdateUsuario(string nombreOriginal, InfoUsuarioBD usuario, string contrasenia)
             try
             {
-                EscrituraBD.UpdateMailUsuario(TxtMailNuevo.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                MiMessageBox.Show("Mail cambiado correctamente");
+                if (MetodosComunes.EsEmailValido(TxtMailNuevo.Text))
+                {
+                    EscrituraBD.UpdateMailUsuario(TxtMailNuevo.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                    VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailCambiadoOk"));
+                }
+                
             }
             catch(Exception ex)
             {

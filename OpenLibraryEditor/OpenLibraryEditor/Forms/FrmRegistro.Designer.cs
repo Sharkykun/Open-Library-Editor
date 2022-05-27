@@ -51,10 +51,10 @@
             this.LblNombreReg = new System.Windows.Forms.Label();
             this.IpcbMostrarContraReg = new FontAwesome.Sharp.IconPictureBox();
             this.IpcbOcultarContraReg = new FontAwesome.Sharp.IconPictureBox();
+            this.KTxtContraReg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.IpcbMostrarContra1Reg = new FontAwesome.Sharp.IconPictureBox();
             this.IpcbOcultarContra1Reg = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtContra1Reg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.KTxtContraReg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TTRegistro = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -145,6 +145,7 @@
             this.PanTexto.Controls.Add(this.IpcbOcultarContra1Reg);
             this.PanTexto.Controls.Add(this.KTxtContra1Reg);
             this.PanTexto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanTexto.ForeColor = System.Drawing.Color.Transparent;
             this.PanTexto.Location = new System.Drawing.Point(0, 40);
             this.PanTexto.Name = "PanTexto";
             this.PanTexto.Size = new System.Drawing.Size(600, 310);
@@ -192,7 +193,8 @@
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel5.ForeColor = System.Drawing.Color.Transparent;
             this.panel5.Location = new System.Drawing.Point(58, 51);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(492, 2);
@@ -203,6 +205,7 @@
             this.LblUrlReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblUrlReg.AutoSize = true;
             this.LblUrlReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUrlReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblUrlReg.Location = new System.Drawing.Point(54, 24);
             this.LblUrlReg.Name = "LblUrlReg";
             this.LblUrlReg.Size = new System.Drawing.Size(39, 23);
@@ -223,7 +226,7 @@
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.panel4.Location = new System.Drawing.Point(58, 210);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(492, 2);
@@ -232,7 +235,7 @@
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.panel3.Location = new System.Drawing.Point(58, 170);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(492, 2);
@@ -241,7 +244,7 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.panel2.Location = new System.Drawing.Point(58, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(492, 2);
@@ -261,7 +264,7 @@
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.Black;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.panel6.Location = new System.Drawing.Point(58, 90);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(492, 2);
@@ -272,6 +275,7 @@
             this.LblContra1Reg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblContra1Reg.AutoSize = true;
             this.LblContra1Reg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContra1Reg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblContra1Reg.Location = new System.Drawing.Point(54, 182);
             this.LblContra1Reg.Name = "LblContra1Reg";
             this.LblContra1Reg.Size = new System.Drawing.Size(166, 23);
@@ -283,6 +287,7 @@
             this.LblContraReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblContraReg.AutoSize = true;
             this.LblContraReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContraReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblContraReg.Location = new System.Drawing.Point(54, 144);
             this.LblContraReg.Name = "LblContraReg";
             this.LblContraReg.Size = new System.Drawing.Size(106, 23);
@@ -294,6 +299,7 @@
             this.LblMailReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblMailReg.AutoSize = true;
             this.LblMailReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMailReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblMailReg.Location = new System.Drawing.Point(54, 104);
             this.LblMailReg.Name = "LblMailReg";
             this.LblMailReg.Size = new System.Drawing.Size(59, 23);
@@ -305,6 +311,7 @@
             this.LblNombreReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblNombreReg.AutoSize = true;
             this.LblNombreReg.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblNombreReg.Location = new System.Drawing.Point(54, 63);
             this.LblNombreReg.Name = "LblNombreReg";
             this.LblNombreReg.Size = new System.Drawing.Size(173, 23);
@@ -316,9 +323,9 @@
             this.IpcbMostrarContraReg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContraReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbMostrarContraReg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContraReg.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraReg.ForeColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContraReg.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContraReg.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContraReg.IconColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContraReg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContraReg.IconSize = 30;
             this.IpcbMostrarContraReg.Location = new System.Drawing.Point(513, 138);
@@ -335,9 +342,9 @@
             this.IpcbOcultarContraReg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContraReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbOcultarContraReg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbOcultarContraReg.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContraReg.ForeColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContraReg.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.IpcbOcultarContraReg.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContraReg.IconColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContraReg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContraReg.IconSize = 30;
             this.IpcbOcultarContraReg.Location = new System.Drawing.Point(513, 138);
@@ -350,14 +357,36 @@
             this.IpcbOcultarContraReg.Visible = false;
             this.IpcbOcultarContraReg.Click += new System.EventHandler(this.IpcbOcultarContraReg_Click);
             // 
+            // KTxtContraReg
+            // 
+            this.KTxtContraReg.Location = new System.Drawing.Point(230, 137);
+            this.KTxtContraReg.Name = "KTxtContraReg";
+            this.KTxtContraReg.PasswordChar = '●';
+            this.KTxtContraReg.Size = new System.Drawing.Size(313, 31);
+            this.KTxtContraReg.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.KTxtContraReg.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.KTxtContraReg.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.KTxtContraReg.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtContraReg.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtContraReg.StateNormal.Back.Color1 = System.Drawing.Color.Gainsboro;
+            this.KTxtContraReg.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
+            this.KTxtContraReg.StateNormal.Border.Color2 = System.Drawing.Color.Transparent;
+            this.KTxtContraReg.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.KTxtContraReg.TabIndex = 3;
+            this.KTxtContraReg.UseSystemPasswordChar = true;
+            // 
             // IpcbMostrarContra1Reg
             // 
             this.IpcbMostrarContra1Reg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContra1Reg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbMostrarContra1Reg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContra1Reg.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContra1Reg.ForeColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContra1Reg.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContra1Reg.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbMostrarContra1Reg.IconColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContra1Reg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContra1Reg.IconSize = 30;
             this.IpcbMostrarContra1Reg.Location = new System.Drawing.Point(513, 178);
@@ -374,9 +403,9 @@
             this.IpcbOcultarContra1Reg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContra1Reg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbOcultarContra1Reg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbOcultarContra1Reg.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContra1Reg.ForeColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContra1Reg.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.IpcbOcultarContra1Reg.IconColor = System.Drawing.SystemColors.ControlText;
+            this.IpcbOcultarContra1Reg.IconColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContra1Reg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContra1Reg.IconSize = 30;
             this.IpcbOcultarContra1Reg.Location = new System.Drawing.Point(513, 178);
@@ -410,28 +439,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtContra1Reg.TabIndex = 4;
             this.KTxtContra1Reg.UseSystemPasswordChar = true;
-            // 
-            // KTxtContraReg
-            // 
-            this.KTxtContraReg.Location = new System.Drawing.Point(230, 137);
-            this.KTxtContraReg.Name = "KTxtContraReg";
-            this.KTxtContraReg.PasswordChar = '●';
-            this.KTxtContraReg.Size = new System.Drawing.Size(313, 31);
-            this.KTxtContraReg.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.KTxtContraReg.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
-            this.KTxtContraReg.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
-            this.KTxtContraReg.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtContraReg.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtContraReg.StateNormal.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtContraReg.StateNormal.Border.Color1 = System.Drawing.Color.Transparent;
-            this.KTxtContraReg.StateNormal.Border.Color2 = System.Drawing.Color.Transparent;
-            this.KTxtContraReg.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtContraReg.TabIndex = 3;
-            this.KTxtContraReg.UseSystemPasswordChar = true;
             // 
             // panel1
             // 

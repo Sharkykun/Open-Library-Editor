@@ -18,6 +18,7 @@ namespace OpenLibraryEditor.DatosLibros
             this.correo = correo;
             this.tipoUsuario = tipoUsuario;
         }
+        public InfoUsuarioBD() { }
 
         public string Nombre { get => nombre; set => nombre = value; }
         public string Correo { get => correo; set => correo = value; }

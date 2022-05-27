@@ -782,6 +782,14 @@ namespace OpenLibraryEditor.BaseDatos
                 SELECT COUNT(*) FROM Usuario WHERE nombreUsuario = '" + usuario.Nombre + "'"),
                 ConexionBD.Conexion);
         }
+        public static MySqlCommand ComprobarMailExiste(string mail)
+        {
+            // Se comprueba primero que el TipoLibro no existe en la bd 
+            return new MySqlCommand(String.Format(@"
+                SELECT COUNT(*) FROM Usuario WHERE correoUsuario = '" + mail + "'"),
+                ConexionBD.Conexion);
+        }
+
         public static void InsertUsuario(InfoUsuarioBD usuario, string contrasenia)
         {
             try 
@@ -813,48 +821,48 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void UpdateUsuario(string nombreOriginal, InfoUsuarioBD usuario, string contrasenia)
+        public static void UpdateUsuario(string nombreOriginal, InfoUsuarioBD usuario)
         {
             try
             {
-                ComprobarFK(false);
-                //Cambiar la referencia en todos los autores
-                MySqlCommand tabla = new MySqlCommand(@"
-                    UPDATE `UsuarioLibro` SET nombreUsuario = '" + usuario.Nombre +
-                    "' WHERE nombreUsuario='" + nombreOriginal + "' ", ConexionBD.Conexion);
-                tabla.ExecuteNonQuery();
-                
-                tabla = new MySqlCommand(String.Format(@"
-                UPDATE `Usuario` SET correoUsuario = '{0}',
-                nombreUsuario = '{1}',
-                tipoUsuario = '{2}' 
-                WHERE nombreUsuario = '" + nombreOriginal + "';",
-                usuario.Correo,
-                usuario.Nombre,
-                usuario.TipoUsuario), ConexionBD.Conexion);
-                tabla.ExecuteNonQuery();
-                ComprobarFK(true);
+                //ComprobarFK(false);
+                ////Cambiar la referencia en todos los autores
+                //MySqlCommand tabla = new MySqlCommand(@"
+                //    UPDATE `UsuarioLibro` SET nombreUsuario = '" + usuario.Nombre +
+                //    "' WHERE nombreUsuario='" + nombreOriginal + "' ", ConexionBD.Conexion);
+                //tabla.ExecuteNonQuery();
 
-                //Quitamos, por si acaso, el usuario con el nuevo nombre si existiera en mysql.user
-                tabla = new MySqlCommand(@"
-                DROP USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD +
-                nombreOriginal + "';",
-                ConexionBD.Conexion);
-                tabla.ExecuteNonQuery();
+                //tabla = new MySqlCommand(String.Format(@"
+                //UPDATE `Usuario` SET correoUsuario = '{0}',
+                //nombreUsuario = '{1}',
+                //tipoUsuario = '{2}' 
+                //WHERE nombreUsuario = '" + nombreOriginal + "';",
+                //usuario.Correo,
+                //usuario.Nombre,
+                //usuario.TipoUsuario), ConexionBD.Conexion);
+                //tabla.ExecuteNonQuery();
+                //ComprobarFK(true);
 
-                //Renombramos el usuario de mysql users
-                tabla = new MySqlCommand(@"
-                RENAME USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD + nombreOriginal +
-                "'@'%' TO '"
-                + ConexionBD.ANTENOMBRE_USUARIO_BD + usuario.Nombre + "'@'%';",
-                ConexionBD.Conexion);
-                tabla.ExecuteNonQuery();
+                ////Quitamos, por si acaso, el usuario con el nuevo nombre si existiera en mysql.user
+                //MySqlCommand tabla = new MySqlCommand(@"
+                //DROP USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD +
+                //nombreOriginal + "';",
+                //ConexionBD.Conexion);
+                //tabla.ExecuteNonQuery();
+
+                ////Renombramos el usuario de mysql users
+                //tabla = new MySqlCommand(@"
+                //RENAME USER '" + ConexionBD.ANTENOMBRE_USUARIO_BD + nombreOriginal +
+                //"'@'%' TO '"
+                //+ ConexionBD.ANTENOMBRE_USUARIO_BD + usuario.Nombre + "'@'%';",
+                //ConexionBD.Conexion);
+                //tabla.ExecuteNonQuery();
 
                 //Modificamos permisos de usuario en mysql
                 if (usuario.TipoUsuario == "Usuario")
-                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, contrasenia, nombreOriginal);
+                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, null, nombreOriginal);
                 else if (usuario.TipoUsuario == "Editor")
-                    ConexionBD.CrearEditorBD(usuario.Nombre, contrasenia, nombreOriginal);
+                    ConexionBD.CrearEditorBD(usuario.Nombre, null, nombreOriginal);
             }
             catch (Exception ex)
             {
@@ -874,6 +882,54 @@ namespace OpenLibraryEditor.BaseDatos
                 tabla.ExecuteNonQuery();
                 ConexionBD.CerrarConexion();
                
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+            }
+        }
+        public static bool UpdatePasswordUsuario(string password, InfoUsuarioBD usuario)
+        {
+            try
+            {
+                //HACER EL UPDATE DE LA TABLA USER
+                //ConexionBD.AbrirConexion();
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla = new MySqlCommand(String.Format(@"
+                ALTER USER '"+ConexionBD.ANTENOMBRE_USUARIO_BD+usuario.Nombre+"'@'%' IDENTIFIED BY '"+password+"';"),
+                ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+                return true;
+                //ConexionBD.CerrarConexion();
+
+            }
+            catch (Exception ex)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
+                return false;
+            }
+        }
+        public static void UpdateTipoUsuario(string tipoNuevo, InfoUsuarioBD usuario)
+        {
+            try
+            {
+                ConexionBD.AbrirConexion();
+                
+                //Cambiar la referencia en todos los autores
+                MySqlCommand tabla = new MySqlCommand(String.Format(@"
+                UPDATE `Usuario` SET tipoUsuario = '{0}'
+                WHERE nombreUsuario = '" + usuario.Nombre + "';",
+                tipoNuevo), ConexionBD.Conexion);
+                tabla.ExecuteNonQuery();
+
+                //Modificamos permisos de usuario en mysql
+                if (usuario.TipoUsuario == "Usuario")
+                    ConexionBD.CrearUsuarioComunBD(usuario.Nombre, null, ConexionBD.ANTENOMBRE_USUARIO_BD + usuario.Nombre);
+                else if (usuario.TipoUsuario == "Editor")
+                    ConexionBD.CrearEditorBD(usuario.Nombre, null, ConexionBD.ANTENOMBRE_USUARIO_BD + usuario.Nombre);
+
+                ConexionBD.CerrarConexion();
+
             }
             catch (Exception ex)
             {
@@ -925,7 +981,7 @@ namespace OpenLibraryEditor.BaseDatos
         #endregion
 
         #region UsuarioLibro
-        // NOTA: Comporbaciones hechas y funcionamiento correcto.
+        // NOTA: Comprobaciones hechas y funcionamiento correcto.
         private static MySqlCommand ComprobarUsuarioLibroExiste(Libro libro, InfoUsuarioBD usuario)
         {
             // Se comprueba primero que el TipoLibro no existe en la bd 

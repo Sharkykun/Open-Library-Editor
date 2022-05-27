@@ -1,6 +1,7 @@
 ﻿using OpenLibraryEditor.BaseDatos;
 using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
+using OpenLibraryEditor.Metodos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,17 @@ namespace OpenLibraryEditor.Forms
             KTxtEmailEditUsu.Text = usuario.Correo;
             this.esEditar = esEditar;
         }
+        public FrmEditarUsuario()
+        {
+            InitializeComponent();
+            
+
+        }
+        private void FrmEditarUsuario_Load(object sender, EventArgs e)
+        {
+            IdiomaTexto();
+            SeleccionarTipoUsuario(usuario);
+        }
 
         private void SeleccionarTipoUsuario(InfoUsuarioBD usuario)
         {
@@ -52,8 +64,9 @@ namespace OpenLibraryEditor.Forms
 
         private void IdiomaTexto()
         {
-            LblTitulo.Text = ControladorIdioma.GetTexto("BD_Titulo");
+            LblTitulo.Text = ControladorIdioma.GetTexto("CrearUsuario");
             KgbDatosEditUsu.Values.Heading = ControladorIdioma.GetTexto("BD_DApp");
+            LblNombreEditUsu.Text = ControladorIdioma.GetTexto("Edit_Nombre");
             LblContraEditUsu.Text = ControladorIdioma.GetTexto("Reg_Contra");
             LblEmailEditUsu.Text = ControladorIdioma.GetTexto("Reg_Email");
             LblTipoEditUsu.Text = ControladorIdioma.GetTexto("Adm_Tipo");
@@ -61,51 +74,55 @@ namespace OpenLibraryEditor.Forms
             GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Editor"));
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Usu"));
-        }
 
-        private void FrmEditarUsuario_Load(object sender, EventArgs e)
-        {
-            IdiomaTexto();
-            SeleccionarTipoUsuario(usuario);
         }
-
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(KTxtNombreEditUsu.Text) &&
                 !String.IsNullOrWhiteSpace(KTxtContraEditUsu.Text) &&
-               !String.IsNullOrWhiteSpace(KTxtEmailEditUsu.Text))
+               !String.IsNullOrWhiteSpace(KTxtEmailEditUsu.Text)
+               && KCmbTipoEditUsu.SelectedIndex != -1)
             {
-                if (ConexionBD.AbrirConexion())
+                if (MetodosComunes.EsEmailValido(KTxtEmailEditUsu.Text))
                 {
-                    if (LecturaBD.SelectUsuarioCorreo(KTxtEmailEditUsu.Text) == 0)
+
+                    if (ConexionBD.AbrirConexion())
                     {
-                        string nombreAntiguo = usuario.Nombre;
-                        usuario.Nombre = KTxtNombreEditUsu.Text;
-                        usuario.Correo = KTxtEmailEditUsu.Text;
-                        if (KCmbTipoEditUsu.SelectedIndex == 0)
-                            usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Editor");
-                        if (KCmbTipoEditUsu.SelectedIndex == 1)
-                            usuario.TipoUsuario = ControladorIdioma.GetTexto("Adm_Usu");
-                        if (esEditar)
+                        if (LecturaBD.SelectUsuarioCorreo(KTxtEmailEditUsu.Text) == 0)
                         {
-                            EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
+                            //usuario = new InfoUsuarioBD();
+                            string nombreAntiguo = usuario.Nombre;
+                            usuario.Nombre = KTxtNombreEditUsu.Text;
+                            usuario.Correo = KTxtEmailEditUsu.Text;
+
+                            if (KCmbTipoEditUsu.SelectedIndex == 0)
+                                usuario.TipoUsuario = "Editor";
+                            if (KCmbTipoEditUsu.SelectedIndex == 1)
+                            {
+                                usuario.TipoUsuario = "Usuario";
+                            }
+
+                            //if (esEditar)
+                            //{
+                            //    EscrituraBD.UpdateUsuario(nombreAntiguo, usuario, KTxtContraEditUsu.Text);
+                            //}
+                            //else
+                            //{
+                            EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
+                            //}
+                            esOk = true;
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
+                            Close();
+                            EnvioEmail.RegistrarUsuario("openlibraryeditor@gmail.com", "oleOLEole", KTxtEmailEditUsu.Text, KTxtNombreEditUsu.Text, KTxtContraEditUsu.Text, usuario.TipoUsuario, UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre + " (" + UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo + ") ");
                         }
                         else
-                        {
-                            EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
-                        }
-                        esOk = true;
-                        VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
-                        Close();
+                            //---------
+                            VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
+                        ConexionBD.CerrarConexion();
                     }
-                    else
-                        //---------
-                        VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
-                    ConexionBD.CerrarConexion();
                 }
                 else
-                    //--------
-                    VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));
             }
             else
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("TodosCamposRellenos"));

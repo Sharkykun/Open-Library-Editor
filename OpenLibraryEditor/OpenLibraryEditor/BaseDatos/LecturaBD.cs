@@ -144,6 +144,24 @@ namespace OpenLibraryEditor.BaseDatos
 				}
 			}
 		}
+		public static InfoUsuarioBD SelectUsuarioSegunMail(string mail)
+		{
+			string query = "SELECT * FROM Usuario WHERE correoUsuario = '" + mail + "'";
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					if (lector.Read())
+					{
+						return ConversorRegistro.RegistroAUsuarioInfo(lector);
+					}
+
+					return null;
+				}
+			}
+		}
 
 		public static int SelectUsuarioCorreo(string correoUsuario)
 		{
@@ -200,6 +218,17 @@ namespace OpenLibraryEditor.BaseDatos
 				nombreUsuario + "' AND idLibro ='" 
 				+ EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido) 
 				+ "'");
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				return int.Parse(comando.ExecuteScalar().ToString());
+			}
+		}
+
+		public static int SelectUsuarioLibroPorUsuario(string nombreUsuario)
+		{
+			string query = String.Format(@"
+                SELECT COUNT(*) FROM UsuarioLibro WHERE nombreUsuario = '" +
+				nombreUsuario + "'");
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
 			{
 				return int.Parse(comando.ExecuteScalar().ToString());

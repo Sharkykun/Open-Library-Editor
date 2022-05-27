@@ -51,7 +51,7 @@ namespace OpenLibraryEditor.Forms
             if (UsuarioDatos.configuracionUsuario.EsAdministrador)
             {
                 MBtnMasUsu.Visible = true;
-                MBtnEditarUsu.Visible = true;
+                //MBtnEditarUsu.Visible = true;
                 MBtnMenosUsu.Visible = true;
             }
 
@@ -69,6 +69,7 @@ namespace OpenLibraryEditor.Forms
             LblBuscarPor.Text= ControladorIdioma.GetTexto("BuscarPor");
             KgbDatosUsuario.Values.Heading = ControladorIdioma.GetTexto("Adm_DatosUsu");
             LblNombreUsu.Text = ControladorIdioma.GetTexto("Adm_NombreUsu");
+            LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Adm");
             LblEmail.Text= ControladorIdioma.GetTexto("Reg_Email");
             LsvUsuariosBD.Columns[0].Text = ControladorIdioma.GetTexto("Au_LsvNombre");
             LsvUsuariosBD.Columns[1].Text = ControladorIdioma.GetTexto("Adm_CmbTipo");
@@ -87,7 +88,6 @@ namespace OpenLibraryEditor.Forms
 
         private void SeleccionarTipoUsuario(InfoUsuarioBD usuario)
         {
-            //Duda si los case cambian según el idioma
             switch(usuario.TipoUsuario)
             {
                 case "Usuario":
@@ -120,7 +120,19 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem AniadirElementoUsuario(InfoUsuarioBD usuario)
         {
             var item = LsvUsuariosBD.Items.Add(usuario.Nombre);
-            item.SubItems.Add(usuario.TipoUsuario);
+            switch(usuario.TipoUsuario)
+            {
+                case "Administrador":
+                    item.SubItems.Add(ControladorIdioma.GetTexto("Adm_Adm"));
+                    break;
+                case "Editor":
+                    item.SubItems.Add(ControladorIdioma.GetTexto("Adm_Editor"));
+                    break;
+                case "Usuario":
+                    item.SubItems.Add(ControladorIdioma.GetTexto("Adm_Usu"));
+                    break;
+            }
+            
             item.SubItems.Add(usuario.Correo);
             item.Tag = usuario;
             return item;
@@ -179,7 +191,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMasUsu_Click(object sender, EventArgs e)
         {
-            FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
+            FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD(),false);
             form.FormBorderStyle = FormBorderStyle.None;
             form.ShowDialog();
             if (form.EsOk)
@@ -187,18 +199,23 @@ namespace OpenLibraryEditor.Forms
                 ObtenerUsuariosBD();
                 ColocarUsuarios(listaUsuarios);
             }
+
+            //FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
+            //form.FormBorderStyle = FormBorderStyle.None;
+            //form.ShowDialog();
+
         }
 
         private void MBtnEditarUsu_Click(object sender, EventArgs e)
         {
-            FrmEditarUsuario form = new FrmEditarUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag, true);
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.ShowDialog();
-            if (form.EsOk)
-            {
-                ObtenerUsuariosBD();
-                ColocarUsuarios(listaUsuarios);
-            }
+            //FrmEditarUsuario form = new FrmEditarUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag, true);
+            //form.FormBorderStyle = FormBorderStyle.None;
+            //form.ShowDialog();
+            //if (form.EsOk)
+            //{
+            //    ObtenerUsuariosBD();
+            //    ColocarUsuarios(listaUsuarios);
+            //}
         }
 
         private void MBtnMenosUsu_Click(object sender, EventArgs e)
@@ -208,12 +225,14 @@ namespace OpenLibraryEditor.Forms
                 if (ConexionBD.AbrirConexion())
                 {
                     //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
-                    EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
+                    if(LecturaBD.SelectUsuarioLibroPorUsuario(usuarioActual.Nombre) > 0)
+                        EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
 
-                    EscrituraBD.DeleteUsuario((InfoUsuarioBD)LsvUsuariosBD.SelectedItems[0].Tag);
+                    EscrituraBD.DeleteUsuario(usuarioActual);
                     ConexionBD.CerrarConexion();
                     ObtenerUsuariosBD();
                     ColocarUsuarios(listaUsuarios);
+                    KgbDatosUsuario.Visible = false;
                 }
             }
         }
@@ -230,6 +249,29 @@ namespace OpenLibraryEditor.Forms
             {
                 MBtnBuscar_Click(sender, e);
             }
+        }
+
+        private void GBtnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            if (KCmbTipoUsu.SelectedIndex == 2)
+            {
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorAdm"));
+            }
+            else
+            {
+                if (KCmbTipoUsu.SelectedIndex == 0)
+                    usuarioActual.TipoUsuario = "Editor";
+                if (KCmbTipoUsu.SelectedIndex == 1)
+                {
+                    usuarioActual.TipoUsuario = "Usuario";
+                }
+
+                EscrituraBD.UpdateTipoUsuario(usuarioActual.TipoUsuario, usuarioActual);
+                ObtenerUsuariosBD();
+                ColocarUsuarios(listaUsuarios);
+                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
+            }
+            
         }
     }
 }

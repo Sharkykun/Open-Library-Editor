@@ -29,6 +29,7 @@ namespace OpenLibraryEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarUsuario));
             this.PanBtn = new System.Windows.Forms.Panel();
             this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
             this.GBtnCancelar = new Guna.UI.WinForms.GunaButton();
@@ -38,7 +39,7 @@ namespace OpenLibraryEditor.Forms
             this.PcbLogoEditUsu = new System.Windows.Forms.PictureBox();
             this.KgbDatosEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.KTxtNombreEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblNombreEditUsu = new System.Windows.Forms.Label();
             this.KCmbTipoEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblTipoEditUsu = new System.Windows.Forms.Label();
             this.KTxtContraEditUsu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -166,6 +167,7 @@ namespace OpenLibraryEditor.Forms
             this.LblTitulo.Size = new System.Drawing.Size(297, 23);
             this.LblTitulo.TabIndex = 4;
             this.LblTitulo.Text = "Open Library Editor - Editar usuario";
+            this.LblTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditUsu_MouseMove);
             // 
             // PcbLogoEditUsu
             // 
@@ -188,7 +190,7 @@ namespace OpenLibraryEditor.Forms
             // KgbDatosEditUsu.Panel
             // 
             this.KgbDatosEditUsu.Panel.Controls.Add(this.KTxtNombreEditUsu);
-            this.KgbDatosEditUsu.Panel.Controls.Add(this.label1);
+            this.KgbDatosEditUsu.Panel.Controls.Add(this.LblNombreEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.KCmbTipoEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.LblTipoEditUsu);
             this.KgbDatosEditUsu.Panel.Controls.Add(this.KTxtContraEditUsu);
@@ -226,18 +228,18 @@ namespace OpenLibraryEditor.Forms
             this.KTxtNombreEditUsu.StateCommon.Border.Width = 2;
             this.KTxtNombreEditUsu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreEditUsu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreEditUsu.TabIndex = 166;
+            this.KTxtNombreEditUsu.TabIndex = 0;
             // 
-            // label1
+            // LblNombreEditUsu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.label1.Location = new System.Drawing.Point(20, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 22);
-            this.label1.TabIndex = 167;
-            this.label1.Text = "Nombre:";
+            this.LblNombreEditUsu.AutoSize = true;
+            this.LblNombreEditUsu.Font = new System.Drawing.Font("Merienda One", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreEditUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblNombreEditUsu.Location = new System.Drawing.Point(20, 9);
+            this.LblNombreEditUsu.Name = "LblNombreEditUsu";
+            this.LblNombreEditUsu.Size = new System.Drawing.Size(73, 22);
+            this.LblNombreEditUsu.TabIndex = 167;
+            this.LblNombreEditUsu.Text = "Nombre:";
             // 
             // KCmbTipoEditUsu
             // 
@@ -259,7 +261,7 @@ namespace OpenLibraryEditor.Forms
             this.KCmbTipoEditUsu.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoEditUsu.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoEditUsu.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbTipoEditUsu.TabIndex = 165;
+            this.KCmbTipoEditUsu.TabIndex = 3;
             // 
             // LblTipoEditUsu
             // 
@@ -357,6 +359,7 @@ namespace OpenLibraryEditor.Forms
             this.Controls.Add(this.KgbDatosEditUsu);
             this.Controls.Add(this.PanBtn);
             this.Controls.Add(this.PanTituloEditUsu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditarUsuario";
@@ -392,7 +395,7 @@ namespace OpenLibraryEditor.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbTipoEditUsu;
         private System.Windows.Forms.Label LblTipoEditUsu;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreEditUsu;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblNombreEditUsu;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel1;
     }

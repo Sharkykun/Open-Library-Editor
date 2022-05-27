@@ -182,13 +182,9 @@ namespace OpenLibraryEditor.BaseDatos
         public static void CrearEditorBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
-            //Borramos el usuario de mysql users
-            MySqlCommand tabla = new MySqlCommand(@"
-                    DROP USER IF EXIST '" + nombreFinal+"';",
-            ConexionBD.Conexion);
-            tabla.ExecuteNonQuery();
-            CrearUsuarioBD(nombreFinal, contrasenia);
-            QuitarPrivilegiosUsuarioBD(nombreAntiguo, true);
+            if (contrasenia != null)
+                CrearUsuarioBD(nombreFinal, contrasenia);
+            QuitarPrivilegiosUsuarioBD(nombreAntiguo, false);
             AplicarPermisosUsuario();
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
@@ -208,8 +204,9 @@ namespace OpenLibraryEditor.BaseDatos
         public static void CrearUsuarioComunBD(string nombreUsuario, string contrasenia, string nombreAntiguo)
         {
             string nombreFinal = ANTENOMBRE_USUARIO_BD + nombreUsuario;
-            CrearUsuarioBD(nombreFinal, contrasenia);
-            QuitarPrivilegiosUsuarioBD(nombreAntiguo, false);
+            if(contrasenia != null)
+                CrearUsuarioBD(nombreFinal, contrasenia);
+            QuitarPrivilegiosUsuarioBD(nombreAntiguo, true);
             AplicarPermisosUsuario();
             ConcederLecturaTabla("Biblioteca", nombreFinal);
             ConcederLecturaTabla("Usuario", nombreFinal);
@@ -328,8 +325,8 @@ namespace OpenLibraryEditor.BaseDatos
                 }
                 else
                 {
-                    MySqlCommand cmd = new MySqlCommand("REVOKE SELECT,INSERT,DELETE,UPDATE ON " +
-                       NOMBRE_BD + ".* FROM '" + nombreUsuario + "'@'%';", Conexion);
+                    MySqlCommand cmd = new MySqlCommand("REVOKE SELECT,INSERT,UPDATE,DELETE ON " +
+                       NOMBRE_BD + "." + tabla +" FROM '" + nombreUsuario + "'@'%';", Conexion);
                     cmd.ExecuteNonQuery();
                 }
             }
