@@ -301,6 +301,69 @@ namespace OpenLibraryEditor.Forms
                             {
                                 File.WriteAllBytes(libro.ImagenPortada, libro.ContraportadaTemp);
                             }
+
+                            //Recuperar listas
+                            if (ConexionBD.AbrirConexion()) {
+                                List<Autor> listaAutor = LecturaBD.SelectAutoresDesdeListaAutor(
+                                        EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido));
+                                foreach (Autor a in listaAutor)
+                                {
+                                    Autor autor = Biblioteca.biblioteca.ListaAutor.Find(p =>
+                                        p.ListaIdCompartido.Contains(a.ListaIdCompartido[0]));
+                                    if (autor != null)
+                                    {
+                                        //Existe en la biblioteca local, así que añadelo
+                                        libro.ListaAutor.Add(autor);
+                                    }
+                                    else
+                                    {
+                                        //No existe en el local, añádelo como nuevo objeto.
+                                        Biblioteca.biblioteca.ListaAutor.Add(a);
+                                       libro.ListaAutor.Add(a);
+                                    }
+                                }
+
+                                List<Genero> listaGenero = LecturaBD.SelectGenerosDesdeListaGenero(
+                                        EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido));
+                                foreach (Genero g in listaGenero)
+                                {
+                                    Genero genero = Biblioteca.biblioteca.ListaGenero.Find(p =>
+                                        p.ListaIdCompartido.Contains(g.ListaIdCompartido[0]));
+                                    if (genero != null)
+                                    {
+                                        //Existe en la biblioteca local, así que añadelo
+                                        libro.ListaGenero.Add(genero);
+                                    }
+                                    else
+                                    {
+                                        //No existe en el local, añádelo como nuevo objeto.
+                                        Biblioteca.biblioteca.ListaGenero.Add(g);
+                                        libro.ListaGenero.Add(g);
+                                    }
+                                }
+
+                                List<Editorial> listaEditorial = LecturaBD.SelectEditorialesDesdeListaEditorial(
+                                        EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido));
+                                foreach (Editorial ed in listaEditorial)
+                                {
+                                    Editorial editorial = Biblioteca.biblioteca.ListaEditorial.Find(p =>
+                                        p.ListaIdCompartido.Contains(ed.ListaIdCompartido[0]));
+                                    if (editorial != null)
+                                    {
+                                        //Existe en la biblioteca local, así que añadelo
+                                        libro.ListaEditorial.Add(editorial);
+                                    }
+                                    else
+                                    {
+                                        //No existe en el local, añádelo como nuevo objeto.
+                                        Biblioteca.biblioteca.ListaEditorial.Add(ed);
+                                        libro.ListaEditorial.Add(ed);
+                                    }
+
+                                    
+                                }
+                                ConexionBD.CerrarConexion();
+                            }
                         }
                         catch (IdRepetidoException)
                         {

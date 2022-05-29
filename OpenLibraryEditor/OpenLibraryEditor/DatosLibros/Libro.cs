@@ -123,7 +123,7 @@ namespace OpenLibraryEditor.DatosLibros
             {
                 idLibro = rnd.Next();
             } while (Biblioteca.biblioteca.ListaLibro.
-                FindIndex(p => idLibro == p.idLibro) != -1);
+                FindIndex(p => p != this && idLibro == p.idLibro) != -1);
         }
 
         public int CompareTo(Libro otro)

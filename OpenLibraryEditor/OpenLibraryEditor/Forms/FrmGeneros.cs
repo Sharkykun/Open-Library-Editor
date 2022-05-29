@@ -82,7 +82,6 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.LblTituloGeneros, ControladorIdioma.GetTexto("Ge_TituloFrm"));
             TTGeneros.SetToolTip(this.LsvGeneroNG, ControladorIdioma.GetTexto("Ge_TTLsv"));
             LsvGeneroNG.Columns[0].Text = ControladorIdioma.GetTexto("Ge_LsvNombre");
-            LsvGeneroNG.Columns[1].Text = ControladorIdioma.GetTexto("Ge_Genero");
             TTGeneros.SetToolTip(this.MBtnMasLsvNG, ControladorIdioma.GetTexto("Ge_TTMas"));
             TTGeneros.SetToolTip(this.MBtnMenosLsvNG, ControladorIdioma.GetTexto("Ge_TTMenos"));
             LblNombreGe.Text = ControladorIdioma.GetTexto("Ge_Nombre");
@@ -204,6 +203,14 @@ namespace OpenLibraryEditor.Forms
                 }
 
                 var item = LsvGeneroNG.SelectedItems[0];
+
+                //Borrar de los libros que tienen referencia al objeto
+                Biblioteca.biblioteca.ListaLibro.ForEach(p =>
+                {
+                    if (p.ListaGenero.Contains(generoActual))
+                        p.ListaGenero.Remove(generoActual);
+                });
+
                 listaGenero.Remove(generoActual);
                 LsvGeneroNG.Items.Remove(item);
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
@@ -214,8 +221,7 @@ namespace OpenLibraryEditor.Forms
         {
             if (PanOpcionesGE.Visible == true)
             {
-                if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text) &&
-                KCmbGeneroPadreGe.SelectedItem != generoActual)
+                if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text))
                 {
                     //Actualizar etiqueta
                     generoActual.Nombre = KTxtNombreGe.Text;
@@ -277,7 +283,6 @@ namespace OpenLibraryEditor.Forms
         {
             //Actualizar listview
             itemActual.Text = KTxtNombreGe.Text;
-            itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
         }
     }
 }
