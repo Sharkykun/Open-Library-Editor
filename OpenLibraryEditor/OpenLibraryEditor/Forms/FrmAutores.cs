@@ -442,8 +442,7 @@ namespace OpenLibraryEditor.Forms
                             ActualizarListView();
                         }
                         else
-                            //----------------------
-                            VentanaWindowsComun.MensajeError("El autor no se encuentra en la BD compartida.");
+                            VentanaWindowsComun.MensajeError("AutorNoExiste");
                     }
                 }
             }

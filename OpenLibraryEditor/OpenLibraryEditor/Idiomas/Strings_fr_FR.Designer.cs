@@ -61,6 +61,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Vous avez besoin d&apos;un chemin de fichier valide et d&apos;un exécutable pour pouvoir enregistrer.
+        /// </summary>
+        internal static string AccionesLibro {
+            get {
+                return ResourceManager.GetString("AccionesLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Accepter.
         /// </summary>
         internal static string Aceptar {
@@ -2437,6 +2446,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a L&apos;ISBN du livre existe déjà à la bibliothèque.
+        /// </summary>
+        internal static string ErrorIdRepetido {
+            get {
+                return ResourceManager.GetString("ErrorIdRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Catégorie.
         /// </summary>
         internal static string Et_Categoria {
@@ -3166,7 +3184,16 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Le courrier a été modifié avec succès.
+        ///   Busca una cadena traducida similar a Le mot de passe a été changé avec succès.
+        /// </summary>
+        internal static string MailActualizarContra {
+            get {
+                return ResourceManager.GetString("MailActualizarContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a E-mail mis à jour avec succès.
         /// </summary>
         internal static string MailCambiadoOk {
             get {
@@ -4845,6 +4872,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string VWC_ErrorImg {
             get {
                 return ResourceManager.GetString("VWC_ErrorImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Le courrier existe déjà dans la base de données partagée.
+        /// </summary>
+        internal static string VWC_ErrorMail {
+            get {
+                return ResourceManager.GetString("VWC_ErrorMail", resourceCulture);
             }
         }
         

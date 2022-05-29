@@ -556,7 +556,7 @@ namespace OpenLibraryEditor.Forms
                     itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
             }
             else
-                VentanaWindowsComun.MensajeInformacion("Necesitas una ruta de fichero válida y un ejecutable para guardar.");
+                VentanaWindowsComun.MensajeError("AccionesLibro");
         }
         private void IbtnFichero_Click(object sender, EventArgs e)
         {

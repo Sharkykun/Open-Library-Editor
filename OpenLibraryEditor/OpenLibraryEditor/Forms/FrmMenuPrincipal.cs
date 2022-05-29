@@ -41,8 +41,6 @@ namespace OpenLibraryEditor.Forms
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-           
-        
             bordeIzqBoton = new Panel();
             bordeIzqBoton.Size = new Size(7, 45);
             PanMenuMain.Controls.Add(bordeIzqBoton);
@@ -57,6 +55,7 @@ namespace OpenLibraryEditor.Forms
             PanVistaDetalles.Visible = false;
             PanVistaMosaico.Visible = true;
             PanVistaMosaico.BringToFront();
+           
         }
          private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {

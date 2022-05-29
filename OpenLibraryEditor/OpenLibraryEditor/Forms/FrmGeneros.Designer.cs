@@ -53,7 +53,6 @@
             this.TTGeneros = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ChGeneroPadre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanTituloGeneros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoGeneros)).BeginInit();
             this.PanBtnGe.SuspendLayout();
@@ -228,8 +227,7 @@
             this.LsvGeneroNG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.LsvGeneroNG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LsvGeneroNG.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ChNombreNG,
-            this.ChGeneroPadre});
+            this.ChNombreNG});
             this.LsvGeneroNG.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvGeneroNG.HideSelection = false;
             this.LsvGeneroNG.Location = new System.Drawing.Point(25, 70);
@@ -404,11 +402,6 @@
             this.panel1.Size = new System.Drawing.Size(3, 414);
             this.panel1.TabIndex = 149;
             // 
-            // ChGeneroPadre
-            // 
-            this.ChGeneroPadre.Text = "Género padre";
-            this.ChGeneroPadre.Width = 113;
-            // 
             // FrmGeneros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +459,5 @@
         private Guna.UI.WinForms.GunaButton GBtnCancelar;
         private Guna.UI.WinForms.GunaButton GBtnActualizar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ColumnHeader ChGeneroPadre;
     }
 }

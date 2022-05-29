@@ -82,7 +82,7 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.LblTituloGeneros, ControladorIdioma.GetTexto("Ge_TituloFrm"));
             TTGeneros.SetToolTip(this.LsvGeneroNG, ControladorIdioma.GetTexto("Ge_TTLsv"));
             LsvGeneroNG.Columns[0].Text = ControladorIdioma.GetTexto("Ge_LsvNombre");
-            LsvGeneroNG.Columns[1].Text = ControladorIdioma.GetTexto("Ge_Genero");
+            //LsvGeneroNG.Columns[1].Text = ControladorIdioma.GetTexto("Ge_Genero");
             TTGeneros.SetToolTip(this.MBtnMasLsvNG, ControladorIdioma.GetTexto("Ge_TTMas"));
             TTGeneros.SetToolTip(this.MBtnMenosLsvNG, ControladorIdioma.GetTexto("Ge_TTMenos"));
             LblNombreGe.Text = ControladorIdioma.GetTexto("Ge_Nombre");
@@ -276,8 +276,8 @@ namespace OpenLibraryEditor.Forms
         private void ActualizarListView()
         {
             //Actualizar listview
-            itemActual.Text = KTxtNombreGe.Text;
-            itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
+            //itemActual.Text = KTxtNombreGe.Text;
+            //itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
         }
     }
 }

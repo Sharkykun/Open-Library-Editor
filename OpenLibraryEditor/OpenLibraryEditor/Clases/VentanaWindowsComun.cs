@@ -30,7 +30,7 @@ namespace OpenLibraryEditor.Clases
         public static DialogResult MensajePregunta(string texto)
         {
             return MiMessageBox.Show(texto, ControladorIdioma.GetTexto("VWC_Informacion"), 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         public static DialogResult MensajeInformacion(string texto)

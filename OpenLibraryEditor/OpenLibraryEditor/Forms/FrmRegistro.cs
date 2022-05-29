@@ -167,8 +167,7 @@ namespace OpenLibraryEditor.Forms
                                 }
                             }
                             else
-                                //-------------
-                                VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));
                         }
                         ConexionBD.CerrarConexion();
                     }

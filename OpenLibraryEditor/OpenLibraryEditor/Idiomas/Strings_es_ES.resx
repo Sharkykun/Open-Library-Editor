@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccionesLibro" xml:space="preserve">
+    <value>Necesitas una ruta de fichero válida y un ejecutable para poder guardar</value>
+  </data>
   <data name="Aceptar" xml:space="preserve">
     <value>Aceptar</value>
   </data>
@@ -885,6 +888,12 @@
   <data name="ErrorConexionBD" xml:space="preserve">
     <value>Error de conexión a base de datos. Error:</value>
   </data>
+  <data name="ErrorGoogleBooks" xml:space="preserve">
+    <value>La busqueda en Google Books falló. Compruebe que su clave privada es correcta y que ha escrito algo para poder buscar</value>
+  </data>
+  <data name="ErrorIdRepetido" xml:space="preserve">
+    <value>El ISBN del libro ya existe en la biblioteca</value>
+  </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>El nombre, extensión y ruta no pueden estar vacíos.</value>
   </data>
@@ -1116,8 +1125,11 @@
   <data name="Log_Url" xml:space="preserve">
     <value>Url base de datos</value>
   </data>
+  <data name="MailActualizarContra" xml:space="preserve">
+    <value>Contraseña modificada correctamente</value>
+  </data>
   <data name="MailCambiadoOk" xml:space="preserve">
-    <value>Mail cambiado correctamente</value>
+    <value>Email actualizado correctamente</value>
   </data>
   <data name="MailNoValido" xml:space="preserve">
     <value>Introduzca un email válido</value>
@@ -1694,6 +1706,9 @@
   </data>
   <data name="VWC_ErrorImg" xml:space="preserve">
     <value>No se cargó la imagen correctamente</value>
+  </data>
+  <data name="VWC_ErrorMail" xml:space="preserve">
+    <value>El correo ya existe en la base de datos compartida</value>
   </data>
   <data name="VWC_Guardado" xml:space="preserve">
     <value>guardado correctamente</value>

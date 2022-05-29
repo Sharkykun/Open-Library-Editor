@@ -61,6 +61,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Necesitas una ruta de fichero válida y un ejecutable para poder guardar.
+        /// </summary>
+        internal static string AccionesLibro {
+            get {
+                return ResourceManager.GetString("AccionesLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Aceptar.
         /// </summary>
         internal static string Aceptar {
@@ -2428,6 +2437,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La busqueda en Google Books falló. Compruebe que su clave privada es correcta y que ha escrito algo para poder buscar.
+        /// </summary>
+        internal static string ErrorGoogleBooks {
+            get {
+                return ResourceManager.GetString("ErrorGoogleBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El ISBN del libro ya existe en la biblioteca.
+        /// </summary>
+        internal static string ErrorIdRepetido {
+            get {
+                return ResourceManager.GetString("ErrorIdRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Categoría.
         /// </summary>
         internal static string Et_Categoria {
@@ -3157,7 +3184,16 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mail cambiado correctamente.
+        ///   Busca una cadena traducida similar a Contraseña modificada correctamente.
+        /// </summary>
+        internal static string MailActualizarContra {
+            get {
+                return ResourceManager.GetString("MailActualizarContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email actualizado correctamente.
         /// </summary>
         internal static string MailCambiadoOk {
             get {
@@ -4791,6 +4827,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string VWC_ErrorImg {
             get {
                 return ResourceManager.GetString("VWC_ErrorImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo ya existe en la base de datos compartida.
+        /// </summary>
+        internal static string VWC_ErrorMail {
+            get {
+                return ResourceManager.GetString("VWC_ErrorMail", resourceCulture);
             }
         }
         
