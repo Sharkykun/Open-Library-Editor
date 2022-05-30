@@ -17,35 +17,29 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmRegistro : Form
     {
-
+        #region atributos
         private bool isOk;
 
         public bool IsOk { get => isOk; set => isOk = value; }
-
-        //private bool mailVerificado;
-
-        
+        #endregion
+        #region constructor y load
         public FrmRegistro()
         {
             InitializeComponent();
         }
-        //public FrmRegistro(bool mailVerificado)
-        //{
-        //    InitializeComponent();
-        //    this.mailVerificado = mailVerificado;
-        //}
-
 
         private void FrmRegistro_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
             TxtUrlReg.Focus();
         }
-
+        #endregion
+        #region idioma
         private void IdiomaTexto()
         {
             TTRegistro.SetToolTip(this.PcbLogoRegistro, ControladorIdioma.GetTexto("Main_TTLogo"));
             LblTituloFrm.Text = ControladorIdioma.GetTexto("Reg_TituloForm");
+            this.Text= ControladorIdioma.GetTexto("Reg_TituloForm");
             TTRegistro.SetToolTip(this.LblTituloFrm, ControladorIdioma.GetTexto("Reg_TituloForm"));
             LblUrlReg.Text = ControladorIdioma.GetTexto("Reg_Url");
             TTRegistro.SetToolTip(this.TxtUrlReg, ControladorIdioma.GetTexto("Reg_TTUrl"));
@@ -65,25 +59,8 @@ namespace OpenLibraryEditor.Forms
             TTRegistro.SetToolTip(this.IpcbOcultarContra1Reg, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
             TTRegistro.SetToolTip(this.MBtnCerrarRegistro, ControladorIdioma.GetTexto("Cerrar"));
         }
-        private void MBtnCerrarRegistro_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void PanTitulo_MouseDown(object sender, MouseEventArgs e)
-        {
-            //Para poder mover el formulario por la pantalla
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
         #endregion
-
+        #region mostrar/ocultar password
         private void IpcbMostrarContraReg_Click(object sender, EventArgs e)
         {
             MetodosComunes.MostrarOcultarContra(KTxtContraReg, true, false, IpcbOcultarContraReg, IpcbMostrarContraReg);
@@ -102,6 +79,8 @@ namespace OpenLibraryEditor.Forms
             MetodosComunes.MostrarOcultarContra(KTxtContra1Reg,false,true,IpcbMostrarContra1Reg,IpcbOcultarContra1Reg);
 
         }
+        #endregion
+        #region registro
         int numero = 0;
         private void GBtnRegistrarme_Click(object sender, EventArgs e)
         {
@@ -172,21 +151,34 @@ namespace OpenLibraryEditor.Forms
                         ConexionBD.CerrarConexion();
                     }
                     else
-                    {
                         VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Reg_ContraNoCoincide"));
-                    }
                 }
                 else
-                {
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));
-                }
-
             }
             else
-            {
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Log_Error4"));
-            }
         }
+#endregion
+        #region cerrar
+        private void MBtnCerrarRegistro_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Para poder mover el formulario por la pantalla
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
     }
-    }
+}
 

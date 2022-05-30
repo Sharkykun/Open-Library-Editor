@@ -12,7 +12,10 @@ namespace OpenLibraryEditor
 {
     public partial class FrmSplashScreen : Form
     {
+        #region atributos
         private int contador = 0;
+        #endregion
+        #region constructor y load
         public FrmSplashScreen()
         {
             InitializeComponent();
@@ -23,8 +26,9 @@ namespace OpenLibraryEditor
             TimEntrada.Start();
             PcbLogo.Width = 0;
             PcbLogo.Height = 0;
-
         }
+        #endregion
+        #region timer entrada y salida
         private void TimEntrada_Tick(object sender, EventArgs e)
         {
             if (this.Opacity < 1)
@@ -40,9 +44,7 @@ namespace OpenLibraryEditor
                 TimEntrada.Stop();
                 TimSalida.Start();
             }
-
         }
-
         private void TimSalida_Tick(object sender, EventArgs e)
         {
             this.Opacity -= 0.05;
@@ -54,7 +56,7 @@ namespace OpenLibraryEditor
                 this.Hide();
             }
         }
+        #endregion
 
-       
     }
 }

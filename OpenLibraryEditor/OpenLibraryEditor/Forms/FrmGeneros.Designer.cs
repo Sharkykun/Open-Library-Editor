@@ -44,8 +44,7 @@
             this.MBtnMasLsvNG = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosLsvNG = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanOpcionesGE = new System.Windows.Forms.Panel();
-            this.KCmbGeneroPadreGe = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.LblGeneroPadreGe = new System.Windows.Forms.Label();
+            this.LblObligatorio = new System.Windows.Forms.Label();
             this.LblNombreGe = new System.Windows.Forms.Label();
             this.KTxtNombreGe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LblComentarioGe = new System.Windows.Forms.Label();
@@ -58,7 +57,6 @@
             this.PanBtnGe.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.PanOpcionesGE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbGeneroPadreGe)).BeginInit();
             this.SuspendLayout();
             // 
             // PanTituloGeneros
@@ -89,7 +87,7 @@
             this.MBtnCerrarGeneros.Name = "MBtnCerrarGeneros";
             this.MBtnCerrarGeneros.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarGeneros.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarGeneros.TabIndex = 28;
+            this.MBtnCerrarGeneros.TabIndex = 0;
             this.MBtnCerrarGeneros.UseVisualStyleBackColor = false;
             this.MBtnCerrarGeneros.Click += new System.EventHandler(this.MBtnCerrarGeneros_Click);
             // 
@@ -103,6 +101,7 @@
             this.LblTituloGeneros.Size = new System.Drawing.Size(295, 23);
             this.LblTituloGeneros.TabIndex = 4;
             this.LblTituloGeneros.Text = "Open Library Editor - Nuevo Género";
+            this.LblTituloGeneros.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloGeneros_MouseDown);
             // 
             // PcbLogoGeneros
             // 
@@ -114,6 +113,7 @@
             this.PcbLogoGeneros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoGeneros.TabIndex = 3;
             this.PcbLogoGeneros.TabStop = false;
+            this.PcbLogoGeneros.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloGeneros_MouseDown);
             // 
             // PanBtnGe
             // 
@@ -160,7 +160,7 @@
             this.GBtnAceptar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnAceptar.Radius = 15;
             this.GBtnAceptar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnAceptar.TabIndex = 5;
+            this.GBtnAceptar.TabIndex = 0;
             this.GBtnAceptar.Text = "Aceptar";
             this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
@@ -188,7 +188,7 @@
             this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnActualizar.Radius = 15;
             this.GBtnActualizar.Size = new System.Drawing.Size(170, 35);
-            this.GBtnActualizar.TabIndex = 6;
+            this.GBtnActualizar.TabIndex = 1;
             this.GBtnActualizar.Text = "Actualizar con BD";
             this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnActualizar.Visible = false;
@@ -217,7 +217,7 @@
             this.GBtnCancelar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnCancelar.Radius = 15;
             this.GBtnCancelar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnCancelar.TabIndex = 4;
+            this.GBtnCancelar.TabIndex = 2;
             this.GBtnCancelar.Text = "Cancelar";
             this.GBtnCancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnCancelar.Click += new System.EventHandler(this.GBtnCancelar_Click);
@@ -234,7 +234,7 @@
             this.LsvGeneroNG.MultiSelect = false;
             this.LsvGeneroNG.Name = "LsvGeneroNG";
             this.LsvGeneroNG.Size = new System.Drawing.Size(283, 313);
-            this.LsvGeneroNG.TabIndex = 127;
+            this.LsvGeneroNG.TabIndex = 0;
             this.LsvGeneroNG.UseCompatibleStateImageBehavior = false;
             this.LsvGeneroNG.View = System.Windows.Forms.View.Details;
             this.LsvGeneroNG.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvGeneroNG_ItemSelectionChanged);
@@ -242,7 +242,7 @@
             // ChNombreNG
             // 
             this.ChNombreNG.Text = "Nombre";
-            this.ChNombreNG.Width = 107;
+            this.ChNombreNG.Width = 193;
             // 
             // MBtnMasLsvNG
             // 
@@ -257,7 +257,7 @@
             this.MBtnMasLsvNG.Name = "MBtnMasLsvNG";
             this.MBtnMasLsvNG.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMasLsvNG.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMasLsvNG.TabIndex = 137;
+            this.MBtnMasLsvNG.TabIndex = 1;
             this.MBtnMasLsvNG.UseVisualStyleBackColor = false;
             this.MBtnMasLsvNG.Click += new System.EventHandler(this.MBtnMasLsvNG_Click);
             // 
@@ -274,14 +274,13 @@
             this.MBtnMenosLsvNG.Name = "MBtnMenosLsvNG";
             this.MBtnMenosLsvNG.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMenosLsvNG.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMenosLsvNG.TabIndex = 138;
+            this.MBtnMenosLsvNG.TabIndex = 2;
             this.MBtnMenosLsvNG.UseVisualStyleBackColor = false;
             this.MBtnMenosLsvNG.Click += new System.EventHandler(this.MBtnMenosLsvNG_Click);
             // 
             // PanOpcionesGE
             // 
-            this.PanOpcionesGE.Controls.Add(this.KCmbGeneroPadreGe);
-            this.PanOpcionesGE.Controls.Add(this.LblGeneroPadreGe);
+            this.PanOpcionesGE.Controls.Add(this.LblObligatorio);
             this.PanOpcionesGE.Controls.Add(this.LblNombreGe);
             this.PanOpcionesGE.Controls.Add(this.KTxtNombreGe);
             this.PanOpcionesGE.Controls.Add(this.LblComentarioGe);
@@ -292,39 +291,17 @@
             this.PanOpcionesGE.TabIndex = 139;
             this.PanOpcionesGE.Visible = false;
             // 
-            // KCmbGeneroPadreGe
+            // LblObligatorio
             // 
-            this.KCmbGeneroPadreGe.DropDownWidth = 228;
-            this.KCmbGeneroPadreGe.Location = new System.Drawing.Point(8, 348);
-            this.KCmbGeneroPadreGe.Name = "KCmbGeneroPadreGe";
-            this.KCmbGeneroPadreGe.Size = new System.Drawing.Size(402, 33);
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Rounding = 10;
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Border.Width = 2;
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbGeneroPadreGe.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.KCmbGeneroPadreGe.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbGeneroPadreGe.TabIndex = 116;
-            this.KCmbGeneroPadreGe.Visible = false;
-            // 
-            // LblGeneroPadreGe
-            // 
-            this.LblGeneroPadreGe.AutoSize = true;
-            this.LblGeneroPadreGe.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGeneroPadreGe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblGeneroPadreGe.Location = new System.Drawing.Point(8, 325);
-            this.LblGeneroPadreGe.Name = "LblGeneroPadreGe";
-            this.LblGeneroPadreGe.Size = new System.Drawing.Size(105, 20);
-            this.LblGeneroPadreGe.TabIndex = 115;
-            this.LblGeneroPadreGe.Text = "Género Padre";
-            this.LblGeneroPadreGe.Visible = false;
+            this.LblObligatorio.AutoSize = true;
+            this.LblObligatorio.BackColor = System.Drawing.Color.Transparent;
+            this.LblObligatorio.Font = new System.Drawing.Font("Merienda One", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblObligatorio.Location = new System.Drawing.Point(15, 344);
+            this.LblObligatorio.Name = "LblObligatorio";
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.TabIndex = 168;
+            this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
             // LblNombreGe
             // 
@@ -352,7 +329,9 @@
             this.KTxtNombreGe.StateCommon.Border.Width = 2;
             this.KTxtNombreGe.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreGe.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreGe.TabIndex = 113;
+            this.KTxtNombreGe.TabIndex = 0;
+            this.KTxtNombreGe.Enter += new System.EventHandler(this.KTxtNombreGe_Enter);
+            this.KTxtNombreGe.Leave += new System.EventHandler(this.KTxtNombreGe_Leave);
             // 
             // LblComentarioGe
             // 
@@ -382,7 +361,7 @@
             this.KTxtComentarioGe.StateCommon.Border.Width = 2;
             this.KTxtComentarioGe.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtComentarioGe.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtComentarioGe.TabIndex = 111;
+            this.KTxtComentarioGe.TabIndex = 1;
             // 
             // panel2
             // 
@@ -429,7 +408,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.PanOpcionesGE.ResumeLayout(false);
             this.PanOpcionesGE.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KCmbGeneroPadreGe)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,8 +424,6 @@
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasLsvNG;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosLsvNG;
         private System.Windows.Forms.Panel PanOpcionesGE;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbGeneroPadreGe;
-        private System.Windows.Forms.Label LblGeneroPadreGe;
         private System.Windows.Forms.Label LblNombreGe;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreGe;
         private System.Windows.Forms.Label LblComentarioGe;
@@ -459,5 +435,6 @@
         private Guna.UI.WinForms.GunaButton GBtnCancelar;
         private Guna.UI.WinForms.GunaButton GBtnActualizar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label LblObligatorio;
     }
 }

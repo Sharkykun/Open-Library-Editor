@@ -95,7 +95,7 @@
             this.MBtnCerrarRegistro.Name = "MBtnCerrarRegistro";
             this.MBtnCerrarRegistro.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarRegistro.Size = new System.Drawing.Size(32, 32);
-            this.MBtnCerrarRegistro.TabIndex = 28;
+            this.MBtnCerrarRegistro.TabIndex = 0;
             this.MBtnCerrarRegistro.UseVisualStyleBackColor = false;
             this.MBtnCerrarRegistro.Click += new System.EventHandler(this.MBtnCerrarRegistro_Click);
             // 
@@ -109,6 +109,7 @@
             this.LblTituloFrm.Size = new System.Drawing.Size(250, 23);
             this.LblTituloFrm.TabIndex = 4;
             this.LblTituloFrm.Text = "Open Library Editor - Registro\r\n";
+            this.LblTituloFrm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // PcbLogoRegistro
             // 
@@ -120,6 +121,7 @@
             this.PcbLogoRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoRegistro.TabIndex = 3;
             this.PcbLogoRegistro.TabStop = false;
+            this.PcbLogoRegistro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // PanTexto
             // 
@@ -323,9 +325,9 @@
             this.IpcbMostrarContraReg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContraReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbMostrarContraReg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContraReg.ForeColor = System.Drawing.Color.Transparent;
+            this.IpcbMostrarContraReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbMostrarContraReg.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContraReg.IconColor = System.Drawing.Color.Transparent;
+            this.IpcbMostrarContraReg.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbMostrarContraReg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContraReg.IconSize = 30;
             this.IpcbMostrarContraReg.Location = new System.Drawing.Point(513, 138);
@@ -342,9 +344,9 @@
             this.IpcbOcultarContraReg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContraReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbOcultarContraReg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbOcultarContraReg.ForeColor = System.Drawing.Color.Transparent;
+            this.IpcbOcultarContraReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbOcultarContraReg.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.IpcbOcultarContraReg.IconColor = System.Drawing.Color.Transparent;
+            this.IpcbOcultarContraReg.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbOcultarContraReg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContraReg.IconSize = 30;
             this.IpcbOcultarContraReg.Location = new System.Drawing.Point(513, 138);
@@ -384,9 +386,9 @@
             this.IpcbMostrarContra1Reg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbMostrarContra1Reg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbMostrarContra1Reg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbMostrarContra1Reg.ForeColor = System.Drawing.Color.Transparent;
+            this.IpcbMostrarContra1Reg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbMostrarContra1Reg.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.IpcbMostrarContra1Reg.IconColor = System.Drawing.Color.Transparent;
+            this.IpcbMostrarContra1Reg.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbMostrarContra1Reg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContra1Reg.IconSize = 30;
             this.IpcbMostrarContra1Reg.Location = new System.Drawing.Point(513, 178);
@@ -403,9 +405,9 @@
             this.IpcbOcultarContra1Reg.BackColor = System.Drawing.Color.Transparent;
             this.IpcbOcultarContra1Reg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.IpcbOcultarContra1Reg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IpcbOcultarContra1Reg.ForeColor = System.Drawing.Color.Transparent;
+            this.IpcbOcultarContra1Reg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbOcultarContra1Reg.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.IpcbOcultarContra1Reg.IconColor = System.Drawing.Color.Transparent;
+            this.IpcbOcultarContra1Reg.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.IpcbOcultarContra1Reg.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContra1Reg.IconSize = 30;
             this.IpcbOcultarContra1Reg.Location = new System.Drawing.Point(513, 178);

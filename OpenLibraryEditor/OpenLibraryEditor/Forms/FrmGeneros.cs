@@ -26,6 +26,7 @@ namespace OpenLibraryEditor.Forms
 
         public Genero GeneroNuevo { get => generoNuevo; set => generoNuevo = value; }
         #endregion
+        #region constructores y load
         public FrmGeneros(bool setNew)
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace OpenLibraryEditor.Forms
 
             //Vincular lista de categorias con Combobox
             generoBinding.DataSource = listaGenero;
-            KCmbGeneroPadreGe.DataSource = generoBinding;
+            //KCmbGeneroPadreGe.DataSource = generoBinding;
 
             if (setNew)
             {
@@ -68,6 +69,7 @@ namespace OpenLibraryEditor.Forms
                 GBtnActualizar.Visible = true;
             }
         }
+        #endregion
         #region metodos propios
         private void EditarGeneroDesdeMain()
         {
@@ -87,15 +89,16 @@ namespace OpenLibraryEditor.Forms
             TTGeneros.SetToolTip(this.MBtnMenosLsvNG, ControladorIdioma.GetTexto("Ge_TTMenos"));
             LblNombreGe.Text = ControladorIdioma.GetTexto("Ge_Nombre");
             TTGeneros.SetToolTip(this.KTxtNombreGe, ControladorIdioma.GetTexto("Ge_TTNombre"));
-            LblGeneroPadreGe.Text = ControladorIdioma.GetTexto("Ge_Genero");
-            TTGeneros.SetToolTip(this.KCmbGeneroPadreGe, ControladorIdioma.GetTexto("Ge_TTGenero"));
             LblComentarioGe.Text = ControladorIdioma.GetTexto("Ge_Comentario");
             TTGeneros.SetToolTip(this.KTxtComentarioGe, ControladorIdioma.GetTexto("Ge_TTComentario"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTGeneros.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
             GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
             TTGeneros.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
-            TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar")); 
+            TTGeneros.SetToolTip(this.MBtnCerrarGeneros, ControladorIdioma.GetTexto("Cerrar"));
+            LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
+            GBtnActualizar.Text = ControladorIdioma.GetTexto("ActualizarConBD");
+            TTGeneros.SetToolTip(this.GBtnActualizar, ControladorIdioma.GetTexto("Au_TTActualizar"));
         }
         
         private ListViewItem AniadirGenero(Genero genero)
@@ -131,30 +134,7 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #endregion
-        private void MBtnCerrarGeneros_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void GBtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void PanTituloGeneros_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-
-        #endregion
-
+        #region añadir/modificar género
         private void LsvGeneroNG_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e == null || !e.IsSelected)
@@ -209,13 +189,28 @@ namespace OpenLibraryEditor.Forms
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
         }
+        private void KTxtNombreGe_Enter(object sender, EventArgs e)
+        {
+            if (KTxtNombreGe.Text.Equals(ControladorIdioma.GetTexto("Ge_NuevoGen")))
+            {
+                KTxtNombreGe.Text = "";
+            }
+        }
 
+        private void KTxtNombreGe_Leave(object sender, EventArgs e)
+        {
+            if (KTxtNombreGe.Text.Equals(""))
+            {
+                KTxtNombreGe.Text = ControladorIdioma.GetTexto("Ge_NuevoGen");
+            }
+        }
+        #endregion
+        #region botones aceptar y actualizar
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (PanOpcionesGE.Visible == true)
             {
-                if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text) &&
-                KCmbGeneroPadreGe.SelectedItem != generoActual)
+                if (!String.IsNullOrWhiteSpace(KTxtNombreGe.Text))
                 {
                     //Actualizar etiqueta
                     generoActual.Nombre = KTxtNombreGe.Text;
@@ -245,10 +240,6 @@ namespace OpenLibraryEditor.Forms
             }
         }
 
-        private void FrmGeneros_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ComprobarGuardado();
-        }
 
         private void GBtnActualizar_Click(object sender, EventArgs e)
         {
@@ -272,12 +263,42 @@ namespace OpenLibraryEditor.Forms
                 }
             }
         }
-
         private void ActualizarListView()
         {
             //Actualizar listview
             //itemActual.Text = KTxtNombreGe.Text;
             //itemActual.SubItems[1].Text = KCmbGeneroPadreGe.Text;
         }
+        #endregion
+        #region cerrar formulario
+
+        private void FrmGeneros_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
+        private void MBtnCerrarGeneros_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTituloGeneros_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
+        #endregion
     }
 }

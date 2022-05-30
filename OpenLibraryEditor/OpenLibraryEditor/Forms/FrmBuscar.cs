@@ -29,18 +29,21 @@ namespace OpenLibraryEditor.Forms
 
         private const string NOMBRE_GOOGLE = "Google Books";
         private int contadorLibros = 0;
-        private ArrayList autores = new ArrayList();
+        private static ArrayList autores = new ArrayList();
         private bool puedeEditar;
 
         public FrmBuscar()
         {
             InitializeComponent();
-            
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
         }
         public FrmBuscar(bool puedeEditar)
         {
             InitializeComponent();
             this.puedeEditar = puedeEditar;
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
         }
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
@@ -50,7 +53,7 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
             KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
-            AniadirAutores();
+
             MbtnAtrasLibro.Enabled = false;
             MBtnAvanzarLibro.Enabled = false;
            
@@ -76,10 +79,7 @@ namespace OpenLibraryEditor.Forms
             else
             {
                 LblTipoUsuarioConectado.Text= ControladorIdioma.GetTexto("ModoSinConexion");
-            }
-
-            Thread th = new Thread(() => ColocarLibrosRecomendados());
-            th.Start();
+            }     
         }
         private void IdiomaTexto()
         {
@@ -88,6 +88,12 @@ namespace OpenLibraryEditor.Forms
             LblRecomendaciones.Text= ControladorIdioma.GetTexto("Bus_Recomendaciones");
             TTBuscar.SetToolTip(this.PanRecomendaciones, ControladorIdioma.GetTexto("Bus_TTDobleClick"));
             TTBuscar.SetToolTip(this.LsvBuscarLibros, ControladorIdioma.GetTexto("Bus_TTDobleClick"));
+            TTBuscar.SetToolTip(this.KCmbServidoresBUS, ControladorIdioma.GetTexto("Bus_BusquedaEn"));
+            TTBuscar.SetToolTip(this.KCmbTipoBusquedaBUS, ControladorIdioma.GetTexto("BusquedaPor"));
+            TTBuscar.SetToolTip(this.TxtBusqueda, ControladorIdioma.GetTexto("TextoBuscar"));
+            TTBuscar.SetToolTip(this.MBtnBuscarBUS, ControladorIdioma.GetTexto("LupaBuscar"));
+            TTBuscar.SetToolTip(this.MbtnAtrasLibro, ControladorIdioma.GetTexto("VerMasLibros"));
+            TTBuscar.SetToolTip(this.MBtnAvanzarLibro, ControladorIdioma.GetTexto("VerMasLibros"));
         }
         private string QueryGoogle()
         {
@@ -340,6 +346,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void ColocarLibrosRecomendados()
         {
+            AniadirAutores();
             int x = 5;
             int y = 5;
             string query = "";
@@ -391,7 +398,7 @@ namespace OpenLibraryEditor.Forms
             }
 
         }
-        private void DobleClickLibro(object sender, EventArgs e)
+        private static void DobleClickLibro(object sender, EventArgs e)
         {
             DoubleClickButton libroSeleccionado = (DoubleClickButton)sender;
             if (VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Bus_libro")) == DialogResult.Yes)

@@ -74,6 +74,7 @@
             this.LblVisuConfi = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.KgbGeneral = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.LblContenidoExpConfi = new System.Windows.Forms.Label();
             this.TxtSubtituloUbicacion = new System.Windows.Forms.TextBox();
             this.LblUbicacion = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             this.TxtUbicacionBBDD = new System.Windows.Forms.TextBox();
             this.TxtSubtituloContenidoExp = new System.Windows.Forms.TextBox();
             this.PanDatosUsu = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             this.KgbDatosUsu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.GBtnModificarPass = new Guna.UI.WinForms.GunaButton();
             this.LblRepetrirContra = new System.Windows.Forms.Label();
@@ -104,9 +106,6 @@
             this.MPcbConfi = new FontAwesome.Sharp.Material.MaterialPictureBox();
             this.TTConfi = new System.Windows.Forms.ToolTip(this.components);
             this.ImlIdiomas = new System.Windows.Forms.ImageList(this.components);
-            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
-            this.LblModoSinConexion = new System.Windows.Forms.Label();
-            this.TBtnContenidoExp = new OpenLibraryEditor.Controles.ToggleButton();
             this.panel1.SuspendLayout();
             this.PanElementos.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -285,7 +284,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel7.Controls.Add(this.KgbServidorWeb);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 1184);
+            this.panel7.Location = new System.Drawing.Point(0, 1132);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(931, 275);
             this.panel7.TabIndex = 8;
@@ -488,7 +487,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel6.Controls.Add(this.KgbDescargasWeb);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 897);
+            this.panel6.Location = new System.Drawing.Point(0, 845);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(931, 287);
             this.panel6.TabIndex = 7;
@@ -643,7 +642,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel5.Controls.Add(this.KgbApariencia);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 587);
+            this.panel5.Location = new System.Drawing.Point(0, 535);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(931, 310);
             this.panel5.TabIndex = 6;
@@ -838,19 +837,18 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.panel3.Controls.Add(this.LblModoSinConexion);
             this.panel3.Controls.Add(this.KgbGeneral);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 331);
+            this.panel3.Location = new System.Drawing.Point(0, 326);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(931, 256);
+            this.panel3.Size = new System.Drawing.Size(931, 209);
             this.panel3.TabIndex = 5;
             // 
             // KgbGeneral
             // 
             this.KgbGeneral.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbGeneral.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbGeneral.Location = new System.Drawing.Point(66, 49);
+            this.KgbGeneral.Location = new System.Drawing.Point(66, 2);
             this.KgbGeneral.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.KgbGeneral.Name = "KgbGeneral";
             // 
@@ -878,6 +876,22 @@
             this.KgbGeneral.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda One", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgbGeneral.TabIndex = 13;
             this.KgbGeneral.Values.Heading = " General";
+            // 
+            // TBtnContenidoExp
+            // 
+            this.TBtnContenidoExp.AutoSize = true;
+            this.TBtnContenidoExp.Checked = true;
+            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TBtnContenidoExp.Location = new System.Drawing.Point(434, 102);
+            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
+            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
+            this.TBtnContenidoExp.TabIndex = 30;
+            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
             // 
             // LblContenidoExpConfi
             // 
@@ -964,25 +978,37 @@
             // 
             this.PanDatosUsu.AutoSize = true;
             this.PanDatosUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.PanDatosUsu.Controls.Add(this.LblTipoUsuarioConectado);
             this.PanDatosUsu.Controls.Add(this.KgbDatosUsu);
             this.PanDatosUsu.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanDatosUsu.Location = new System.Drawing.Point(0, 73);
             this.PanDatosUsu.Name = "PanDatosUsu";
-            this.PanDatosUsu.Size = new System.Drawing.Size(931, 258);
+            this.PanDatosUsu.Size = new System.Drawing.Size(931, 253);
             this.PanDatosUsu.TabIndex = 4;
             this.PanDatosUsu.Visible = false;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblTipoUsuarioConectado.AutoSize = true;
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(52, 12);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(122, 26);
+            this.LblTipoUsuarioConectado.TabIndex = 41;
+            this.LblTipoUsuarioConectado.Text = "Email actual";
             // 
             // KgbDatosUsu
             // 
             this.KgbDatosUsu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbDatosUsu.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbDatosUsu.Location = new System.Drawing.Point(57, 2);
+            this.KgbDatosUsu.Location = new System.Drawing.Point(57, 46);
             this.KgbDatosUsu.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.KgbDatosUsu.Name = "KgbDatosUsu";
             // 
             // KgbDatosUsu.Panel
             // 
-            this.KgbDatosUsu.Panel.Controls.Add(this.LblTipoUsuarioConectado);
             this.KgbDatosUsu.Panel.Controls.Add(this.GBtnModificarPass);
             this.KgbDatosUsu.Panel.Controls.Add(this.LblRepetrirContra);
             this.KgbDatosUsu.Panel.Controls.Add(this.GBtnActualizarMail);
@@ -997,7 +1023,7 @@
             this.KgbDatosUsu.Panel.Controls.Add(this.IpcbMostrarContra1);
             this.KgbDatosUsu.Panel.Controls.Add(this.IpcbOcultarContra1);
             this.KgbDatosUsu.Panel.Controls.Add(this.KTxtRepetirContra);
-            this.KgbDatosUsu.Size = new System.Drawing.Size(802, 241);
+            this.KgbDatosUsu.Size = new System.Drawing.Size(802, 192);
             this.KgbDatosUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosUsu.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -1027,7 +1053,7 @@
             this.GBtnModificarPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnModificarPass.Image = null;
             this.GBtnModificarPass.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnModificarPass.Location = new System.Drawing.Point(653, 151);
+            this.GBtnModificarPass.Location = new System.Drawing.Point(653, 102);
             this.GBtnModificarPass.Name = "GBtnModificarPass";
             this.GBtnModificarPass.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnModificarPass.OnHoverBorderColor = System.Drawing.Color.Empty;
@@ -1046,7 +1072,7 @@
             this.LblRepetrirContra.AutoSize = true;
             this.LblRepetrirContra.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRepetrirContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblRepetrirContra.Location = new System.Drawing.Point(354, 131);
+            this.LblRepetrirContra.Location = new System.Drawing.Point(354, 82);
             this.LblRepetrirContra.Name = "LblRepetrirContra";
             this.LblRepetrirContra.Size = new System.Drawing.Size(182, 26);
             this.LblRepetrirContra.TabIndex = 36;
@@ -1066,7 +1092,7 @@
             this.GBtnActualizarMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnActualizarMail.Image = null;
             this.GBtnActualizarMail.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnActualizarMail.Location = new System.Drawing.Point(653, 82);
+            this.GBtnActualizarMail.Location = new System.Drawing.Point(653, 33);
             this.GBtnActualizarMail.Name = "GBtnActualizarMail";
             this.GBtnActualizarMail.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnActualizarMail.OnHoverBorderColor = System.Drawing.Color.Empty;
@@ -1086,7 +1112,7 @@
             this.TxtMailNuevo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtMailNuevo.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtMailNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.TxtMailNuevo.Location = new System.Drawing.Point(359, 88);
+            this.TxtMailNuevo.Location = new System.Drawing.Point(359, 39);
             this.TxtMailNuevo.Name = "TxtMailNuevo";
             this.TxtMailNuevo.Size = new System.Drawing.Size(276, 25);
             this.TxtMailNuevo.TabIndex = 31;
@@ -1096,7 +1122,7 @@
             this.LblMailNuevo.AutoSize = true;
             this.LblMailNuevo.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMailNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblMailNuevo.Location = new System.Drawing.Point(354, 59);
+            this.LblMailNuevo.Location = new System.Drawing.Point(354, 10);
             this.LblMailNuevo.Name = "LblMailNuevo";
             this.LblMailNuevo.Size = new System.Drawing.Size(119, 26);
             this.LblMailNuevo.TabIndex = 30;
@@ -1107,7 +1133,7 @@
             this.LblNuevaPass.AutoSize = true;
             this.LblNuevaPass.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNuevaPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblNuevaPass.Location = new System.Drawing.Point(17, 131);
+            this.LblNuevaPass.Location = new System.Drawing.Point(17, 82);
             this.LblNuevaPass.Name = "LblNuevaPass";
             this.LblNuevaPass.Size = new System.Drawing.Size(171, 26);
             this.LblNuevaPass.TabIndex = 29;
@@ -1118,7 +1144,7 @@
             this.LblMailActual.AutoSize = true;
             this.LblMailActual.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMailActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblMailActual.Location = new System.Drawing.Point(17, 59);
+            this.LblMailActual.Location = new System.Drawing.Point(17, 10);
             this.LblMailActual.Name = "LblMailActual";
             this.LblMailActual.Size = new System.Drawing.Size(122, 26);
             this.LblMailActual.TabIndex = 23;
@@ -1131,7 +1157,7 @@
             this.TxtMailActual.Enabled = false;
             this.TxtMailActual.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtMailActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.TxtMailActual.Location = new System.Drawing.Point(22, 88);
+            this.TxtMailActual.Location = new System.Drawing.Point(22, 39);
             this.TxtMailActual.Name = "TxtMailActual";
             this.TxtMailActual.Size = new System.Drawing.Size(276, 25);
             this.TxtMailActual.TabIndex = 27;
@@ -1146,7 +1172,7 @@
             this.IpcbMostrarContra.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbMostrarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContra.IconSize = 18;
-            this.IpcbMostrarContra.Location = new System.Drawing.Point(274, 162);
+            this.IpcbMostrarContra.Location = new System.Drawing.Point(274, 113);
             this.IpcbMostrarContra.Name = "IpcbMostrarContra";
             this.IpcbMostrarContra.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
             this.IpcbMostrarContra.Size = new System.Drawing.Size(18, 18);
@@ -1165,7 +1191,7 @@
             this.IpcbOcultarContra.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbOcultarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContra.IconSize = 18;
-            this.IpcbOcultarContra.Location = new System.Drawing.Point(274, 162);
+            this.IpcbOcultarContra.Location = new System.Drawing.Point(274, 113);
             this.IpcbOcultarContra.Name = "IpcbOcultarContra";
             this.IpcbOcultarContra.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
             this.IpcbOcultarContra.Size = new System.Drawing.Size(18, 18);
@@ -1177,7 +1203,7 @@
             // 
             // KTxtContraNueva
             // 
-            this.KTxtContraNueva.Location = new System.Drawing.Point(22, 160);
+            this.KTxtContraNueva.Location = new System.Drawing.Point(22, 111);
             this.KTxtContraNueva.Name = "KTxtContraNueva";
             this.KTxtContraNueva.PasswordChar = '●';
             this.KTxtContraNueva.Size = new System.Drawing.Size(276, 25);
@@ -1209,7 +1235,7 @@
             this.IpcbMostrarContra1.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbMostrarContra1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbMostrarContra1.IconSize = 18;
-            this.IpcbMostrarContra1.Location = new System.Drawing.Point(610, 162);
+            this.IpcbMostrarContra1.Location = new System.Drawing.Point(610, 113);
             this.IpcbMostrarContra1.Name = "IpcbMostrarContra1";
             this.IpcbMostrarContra1.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
             this.IpcbMostrarContra1.Size = new System.Drawing.Size(18, 18);
@@ -1228,7 +1254,7 @@
             this.IpcbOcultarContra1.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbOcultarContra1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.IpcbOcultarContra1.IconSize = 18;
-            this.IpcbOcultarContra1.Location = new System.Drawing.Point(610, 162);
+            this.IpcbOcultarContra1.Location = new System.Drawing.Point(610, 113);
             this.IpcbOcultarContra1.Name = "IpcbOcultarContra1";
             this.IpcbOcultarContra1.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
             this.IpcbOcultarContra1.Size = new System.Drawing.Size(18, 18);
@@ -1240,7 +1266,7 @@
             // 
             // KTxtRepetirContra
             // 
-            this.KTxtRepetirContra.Location = new System.Drawing.Point(359, 160);
+            this.KTxtRepetirContra.Location = new System.Drawing.Point(359, 111);
             this.KTxtRepetirContra.Name = "KTxtRepetirContra";
             this.KTxtRepetirContra.PasswordChar = '●';
             this.KTxtRepetirContra.Size = new System.Drawing.Size(276, 25);
@@ -1340,45 +1366,6 @@
             this.ImlIdiomas.Images.SetKeyName(1, "estados-unidos-de-america.png");
             this.ImlIdiomas.Images.SetKeyName(2, "francia.png");
             // 
-            // LblTipoUsuarioConectado
-            // 
-            this.LblTipoUsuarioConectado.AutoSize = true;
-            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(17, 16);
-            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
-            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(122, 26);
-            this.LblTipoUsuarioConectado.TabIndex = 41;
-            this.LblTipoUsuarioConectado.Text = "Email actual";
-            // 
-            // LblModoSinConexion
-            // 
-            this.LblModoSinConexion.AutoSize = true;
-            this.LblModoSinConexion.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblModoSinConexion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblModoSinConexion.Location = new System.Drawing.Point(53, 12);
-            this.LblModoSinConexion.Name = "LblModoSinConexion";
-            this.LblModoSinConexion.Size = new System.Drawing.Size(122, 26);
-            this.LblModoSinConexion.TabIndex = 42;
-            this.LblModoSinConexion.Text = "Email actual";
-            this.LblModoSinConexion.Visible = false;
-            // 
-            // TBtnContenidoExp
-            // 
-            this.TBtnContenidoExp.AutoSize = true;
-            this.TBtnContenidoExp.Checked = true;
-            this.TBtnContenidoExp.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TBtnContenidoExp.Location = new System.Drawing.Point(434, 102);
-            this.TBtnContenidoExp.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.Name = "TBtnContenidoExp";
-            this.TBtnContenidoExp.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnContenidoExp.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.TabIndex = 30;
-            this.TBtnContenidoExp.UseVisualStyleBackColor = true;
-            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1422,13 +1409,13 @@
             this.GbVisualizacion.ResumeLayout(false);
             this.GbVisualizacion.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral.Panel)).EndInit();
             this.KgbGeneral.Panel.ResumeLayout(false);
             this.KgbGeneral.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).EndInit();
             this.KgbGeneral.ResumeLayout(false);
             this.PanDatosUsu.ResumeLayout(false);
+            this.PanDatosUsu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsu.Panel)).EndInit();
             this.KgbDatosUsu.Panel.ResumeLayout(false);
             this.KgbDatosUsu.Panel.PerformLayout();
@@ -1526,6 +1513,5 @@
         private System.Windows.Forms.ToolTip TTConfi;
         private System.Windows.Forms.ImageList ImlIdiomas;
         private System.Windows.Forms.Label LblTipoUsuarioConectado;
-        private System.Windows.Forms.Label LblModoSinConexion;
     }
 }

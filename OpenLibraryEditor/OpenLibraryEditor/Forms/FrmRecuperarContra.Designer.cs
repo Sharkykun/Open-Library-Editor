@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecuperarContra));
             this.PanTituloEditUsu = new System.Windows.Forms.Panel();
             this.MBtnCerrarEditUsu = new FontAwesome.Sharp.Material.MaterialButton();
@@ -44,6 +45,7 @@
             this.LblMail = new System.Windows.Forms.Label();
             this.LblPuerto = new System.Windows.Forms.Label();
             this.KNudPuerto = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.TTRecuperarContra = new System.Windows.Forms.ToolTip(this.components);
             this.PanTituloEditUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditUsu)).BeginInit();
             this.PanBtn.SuspendLayout();
@@ -77,7 +79,7 @@
             this.MBtnCerrarEditUsu.Name = "MBtnCerrarEditUsu";
             this.MBtnCerrarEditUsu.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarEditUsu.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarEditUsu.TabIndex = 28;
+            this.MBtnCerrarEditUsu.TabIndex = 0;
             this.MBtnCerrarEditUsu.UseVisualStyleBackColor = false;
             this.MBtnCerrarEditUsu.Click += new System.EventHandler(this.MBtnCerrarEditUsu_Click);
             // 
@@ -91,7 +93,7 @@
             this.LblTitulo.Size = new System.Drawing.Size(360, 23);
             this.LblTitulo.TabIndex = 4;
             this.LblTitulo.Text = "Open Library Editor - Recuperar contraseña";
-            this.LblTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditUsu_MouseDown);
+            this.LblTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditUsu_MouseDown);
             // 
             // PcbLogoEditUsu
             // 
@@ -103,6 +105,7 @@
             this.PcbLogoEditUsu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoEditUsu.TabIndex = 3;
             this.PcbLogoEditUsu.TabStop = false;
+            this.PcbLogoEditUsu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditUsu_MouseDown);
             // 
             // PanBtn
             // 
@@ -204,7 +207,7 @@
             this.KTxtMail.StateCommon.Border.Width = 2;
             this.KTxtMail.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtMail.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtMail.TabIndex = 30;
+            this.KTxtMail.TabIndex = 2;
             // 
             // KTxtUrl
             // 
@@ -221,7 +224,7 @@
             this.KTxtUrl.StateCommon.Border.Width = 2;
             this.KTxtUrl.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtUrl.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtUrl.TabIndex = 29;
+            this.KTxtUrl.TabIndex = 0;
             // 
             // LblUrl
             // 
@@ -280,7 +283,7 @@
             this.KNudPuerto.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KNudPuerto.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudPuerto.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
-            this.KNudPuerto.TabIndex = 165;
+            this.KNudPuerto.TabIndex = 1;
             this.KNudPuerto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.KNudPuerto.Value = new decimal(new int[] {
             3306,
@@ -335,5 +338,6 @@
         private System.Windows.Forms.Label LblMail;
         private System.Windows.Forms.Label LblPuerto;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPuerto;
+        private System.Windows.Forms.ToolTip TTRecuperarContra;
     }
 }

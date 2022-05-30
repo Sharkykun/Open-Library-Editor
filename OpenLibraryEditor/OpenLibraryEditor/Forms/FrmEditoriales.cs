@@ -32,6 +32,7 @@ namespace OpenLibraryEditor.Forms
 
         public Editorial EditorialNueva { get => editorialNueva; set => editorialNueva = value; }
         #endregion
+        #region constructores y load
         public FrmEditoriales(bool setNew)
         {
             InitializeComponent();
@@ -50,14 +51,6 @@ namespace OpenLibraryEditor.Forms
             this.editorialActual = editorialActual;
             this.puedeEditar = puedeEditar;
             EditarEditorialDesdeMain();
-        }
-        private void MBtnCerrarEditoriales_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void GBtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
         private void FrmEditoriales_Load(object sender, EventArgs e)
         {
@@ -78,6 +71,7 @@ namespace OpenLibraryEditor.Forms
                 GBtnActualizar.Visible = true;
             }
         }
+        #endregion
         #region metodos propios
         private void EditarEditorialDesdeMain()
         {
@@ -90,6 +84,7 @@ namespace OpenLibraryEditor.Forms
         private void IdiomaTexto()
         {
             LblTituloEditoriales.Text = ControladorIdioma.GetTexto("ED_TituloFrm");
+            this.Text= ControladorIdioma.GetTexto("ED_TituloFrm");
             TTEditorial.SetToolTip(this.LblTituloEditoriales, ControladorIdioma.GetTexto("ED_TituloFrm"));
             TTEditorial.SetToolTip(this.LsvEditorialNE, ControladorIdioma.GetTexto("ED_Lsv"));
             LsvEditorialNE.Columns[0].Text = ControladorIdioma.GetTexto("ED_LsvNombre");
@@ -108,6 +103,9 @@ namespace OpenLibraryEditor.Forms
             GBtnAceptar.Text = ControladorIdioma.GetTexto("Guardar");
             TTEditorial.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Guardar"));
             TTEditorial.SetToolTip(this.MBtnCerrarEditoriales, ControladorIdioma.GetTexto("Cerrar"));
+            LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
+            GBtnActualizar.Text = ControladorIdioma.GetTexto("ActualizarConBD");
+            TTEditorial.SetToolTip(this.GBtnActualizar, ControladorIdioma.GetTexto("Au_TTActualizar"));
         }
         private ListViewItem AniadirEditorial(Editorial editorial)
         {
@@ -158,22 +156,7 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #endregion
-
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void PanTituloEditoriales_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        #endregion
-
-     
-
+        #region añadir/modificar editorial
         private void LsvEditorialNE_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e == null || !e.IsSelected)
@@ -247,6 +230,23 @@ namespace OpenLibraryEditor.Forms
             PcbEditorialesEd.Image = Properties.Resources.libros;
             rutaImagen = null;
         }
+        private void KTxtNombreEd_Enter(object sender, EventArgs e)
+        {
+            if (KTxtNombreEd.Text.Equals(ControladorIdioma.GetTexto("ED_NuevaEdi")))
+            {
+                KTxtNombreEd.Text = "";
+            }
+        }
+
+        private void KTxtNombreEd_Leave(object sender, EventArgs e)
+        {
+            if (KTxtNombreEd.Text.Equals(""))
+            {
+                KTxtNombreEd.Text = ControladorIdioma.GetTexto("ED_NuevaEdi");
+            }
+        }
+        #endregion
+        #region botones aceptar y actualizar
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (PanOpcionesED.Visible == true)
@@ -295,10 +295,7 @@ namespace OpenLibraryEditor.Forms
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
-        private void FrmEditoriales_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ComprobarGuardado();
-        }
+
 
         private void GBtnActualizar_Click(object sender, EventArgs e)
         {
@@ -333,11 +330,38 @@ namespace OpenLibraryEditor.Forms
                 }
             }
         }
-
         private void ActualizarListView()
         {
             //Actualizar listview
             itemActual.Text = KTxtNombreEd.Text;
         }
+        #endregion
+        #region cerrar formulario
+        private void FrmEditoriales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ComprobarGuardado();
+        }
+        private void MBtnCerrarEditoriales_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTituloEditoriales_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+
     }
 }

@@ -20,12 +20,15 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmLogin : Form
     {
+        #region atributos
         private int contador = 0;
+        #endregion
+        #region contructor y load, Cargar metodos iniciales
         public FrmLogin()
         {
             InitializeComponent();
         }
-        #region Cargar metodos iniciales
+        
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             //Cargar configuración local.
@@ -50,6 +53,8 @@ namespace OpenLibraryEditor.Forms
             //}
 
         }
+        #endregion
+        #region aparecer formulario
         private void TimerAparecer_Tick(object sender, EventArgs e)
         {
             if (this.Opacity < 1)
@@ -61,23 +66,6 @@ namespace OpenLibraryEditor.Forms
                 TimerAparecer.Stop();
         }
         #endregion
-        
-        #region Mover formulario por la pantalla
-
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
-        {
-            //Para poder mover el formulario por la pantalla
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        #endregion
-
         #region Metodos propios
         public static void ObtenerInfoBD(string nombreUsuario, string url, int puerto)
         {
@@ -109,6 +97,7 @@ namespace OpenLibraryEditor.Forms
         private void IdiomaTexto()
         {
             TTLogin.SetToolTip(this.PcbLogo, ControladorIdioma.GetTexto("Log_TTLogo"));
+            this.Text=ControladorIdioma.GetTexto("Login");
             BtnSpain.Text = ControladorIdioma.GetTexto("Log_BtnSpain");
             BtnUsa.Text = ControladorIdioma.GetTexto("Log_BtnUSA");
             BtnFrancia.Text = ControladorIdioma.GetTexto("Log_BtnFrancia");
@@ -134,48 +123,7 @@ namespace OpenLibraryEditor.Forms
             TTLogin.SetToolTip(this.IpcbOcultarContra, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
             TTLogin.SetToolTip(this.MBtnCerrarLogin, ControladorIdioma.GetTexto("Main_Salir"));
         }
-        //Quitar el placeHolder de los KryptonTextBox al entrar en ellos
-        private void PlaceholderOff(KryptonTextBox txt, string s)
-        {
-            txt.StateCommon.Back.Color1 = Color.WhiteSmoke;
-
-            if (txt.Text == s || 
-                !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
-            {
-                if (String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
-                    txt.Text = "";
-                txt.StateCommon.Content.Color1 = Color.Black;
-            }
-        }
-        //Quitar el placeHolder de los KryptonTextBox de contraseña al entrar en el
-        private void PlaceholderContraOff(KryptonTextBox txt, string s)
-        {
-            txt.StateCommon.Back.Color1 = Color.WhiteSmoke;
-            IpcbMostrarContra.BackColor = Color.WhiteSmoke;
-            IpcbOcultarContra.BackColor = Color.WhiteSmoke;
-            if (txt.Text == s ||
-                !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
-            {
-                if(String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
-                    txt.Text = "";
-                txt.StateCommon.Content.Color1 = Color.Black;
-                txt.UseSystemPasswordChar = true;
-            }
-        }
-
-        //Volver a poner el placeholder al salir del control
-        private void PlaceholderOn(KryptonTextBox txt, string s)
-        {
-            txt.StateCommon.Back.Color1 = Color.Gainsboro;
-            IpcbMostrarContra.BackColor = Color.Gainsboro;
-            IpcbOcultarContra.BackColor = Color.Gainsboro;
-            if (txt.Text == "")
-            {
-                txt.Text = s;
-                txt.StateCommon.Content.Color1 = Color.DimGray;
-                txt.UseSystemPasswordChar = false;
-            }
-        }
+        
 
         private void MostrarMainEntrar(KryptonTextBox text1, KryptonTextBox text2, KryptonTextBox text3, string s1, string s2, string s3,
           string e1, string e2, string e3, string e4)
@@ -208,8 +156,6 @@ namespace OpenLibraryEditor.Forms
                         //    KTxtNombre.Clear();
                         //    KTxtContra.Clear();
                         //}
-
-
                     }
                     else
                         MsgError(e2);
@@ -225,6 +171,62 @@ namespace OpenLibraryEditor.Forms
             LblError.Text = "     " + msg;
             LblError.Visible = true;
         }
+       
+        #endregion
+        #region Mostrar/Ocultar password
+        private void IpcbOcultarContra_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtContra, false, true, IpcbMostrarContra, IpcbOcultarContra);
+        }
+
+        private void IpcbMostrarContra_Click(object sender, EventArgs e)
+        {
+            MetodosComunes.MostrarOcultarContra(KTxtContra,true,false,IpcbOcultarContra, IpcbMostrarContra);
+        }
+        #endregion
+        #region PlaceHolder KryptonTextBox
+        //Quitar el placeHolder de los KryptonTextBox al entrar en ellos
+        private void PlaceholderOff(KryptonTextBox txt, string s)
+        {
+            txt.StateCommon.Back.Color1 = Color.WhiteSmoke;
+
+            if (txt.Text == s ||
+                !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+            {
+                if (String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+                    txt.Text = "";
+                txt.StateCommon.Content.Color1 = Color.Black;
+            }
+        }
+        //Quitar el placeHolder de los KryptonTextBox de contraseña al entrar en el
+        private void PlaceholderContraOff(KryptonTextBox txt, string s)
+        {
+            txt.StateCommon.Back.Color1 = Color.WhiteSmoke;
+            IpcbMostrarContra.BackColor = Color.WhiteSmoke;
+            IpcbOcultarContra.BackColor = Color.WhiteSmoke;
+            if (txt.Text == s ||
+                !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+            {
+                if (String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+                    txt.Text = "";
+                txt.StateCommon.Content.Color1 = Color.Black;
+                txt.UseSystemPasswordChar = true;
+            }
+        }
+
+        //Volver a poner el placeholder al salir del control
+        private void PlaceholderOn(KryptonTextBox txt, string s)
+        {
+            txt.StateCommon.Back.Color1 = Color.Gainsboro;
+            IpcbMostrarContra.BackColor = Color.Gainsboro;
+            IpcbOcultarContra.BackColor = Color.Gainsboro;
+            if (txt.Text == "")
+            {
+                txt.Text = s;
+                txt.StateCommon.Content.Color1 = Color.DimGray;
+                txt.UseSystemPasswordChar = false;
+            }
+        }
         private void Reset(KryptonTextBox txt1, KryptonTextBox txt2, KryptonTextBox txt3)
         {
             PlaceholderOn(txt1, ControladorIdioma.GetTexto("Log_Url"));
@@ -236,17 +238,33 @@ namespace OpenLibraryEditor.Forms
             txt3.StateCommon.Content.Color1 = Color.DimGray;
             LlblRecuperar.Focus();
         }
-        #endregion
-
-        #region Mostrar/Ocultar password
-        private void IpcbOcultarContra_Click(object sender, EventArgs e)
+        private void KTxtUrl_Enter(object sender, EventArgs e)
         {
-            MetodosComunes.MostrarOcultarContra(KTxtContra, false, true, IpcbMostrarContra, IpcbOcultarContra);
+            PlaceholderOff(KTxtUrl, ControladorIdioma.GetTexto("Log_Url"));
         }
 
-        private void IpcbMostrarContra_Click(object sender, EventArgs e)
+        private void KTxtUrl_Leave(object sender, EventArgs e)
         {
-            MetodosComunes.MostrarOcultarContra(KTxtContra,true,false,IpcbOcultarContra, IpcbMostrarContra);
+            PlaceholderOn(KTxtUrl, ControladorIdioma.GetTexto("Log_Url"));
+        }
+        private void KTxtNombre_Enter(object sender, EventArgs e)
+        {
+            PlaceholderOff(KTxtNombre, ControladorIdioma.GetTexto("Log_Nombre"));
+        }
+
+        private void KTxtNombre_Leave(object sender, EventArgs e)
+        {
+            PlaceholderOn(KTxtNombre, ControladorIdioma.GetTexto("Log_Nombre"));
+        }
+
+        private void KTxtContra_Enter(object sender, EventArgs e)
+        {
+            PlaceholderContraOff(KTxtContra, ControladorIdioma.GetTexto("Log_Contra"));
+        }
+
+        private void KTxtContra_Leave(object sender, EventArgs e)
+        {
+            PlaceholderOn(KTxtContra, ControladorIdioma.GetTexto("Log_Contra"));
         }
         #endregion
         #region botones 
@@ -326,6 +344,13 @@ namespace OpenLibraryEditor.Forms
                 this.Hide();
             }
         }
+
+        private void LlblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRecuperarContra recuperar = new FrmRecuperarContra();
+            recuperar.FormBorderStyle = FormBorderStyle.None;
+            recuperar.ShowDialog();
+        }
         #endregion
         #region Cambiar idioma
         private void BtnSpain_Click(object sender, EventArgs e)
@@ -346,7 +371,6 @@ namespace OpenLibraryEditor.Forms
             RecordarUsuario();
 
         }
-
         private void BtnFrancia_Click(object sender, EventArgs e)
         {
             UsuarioDatos.configuracionUsuario.IdiomaIntefaz = "Strings_fr_FR";
@@ -357,45 +381,12 @@ namespace OpenLibraryEditor.Forms
 
         }
         #endregion
-
-        #region PlaceHolder KryptonTextBox
-        private void KTxtUrl_Enter(object sender, EventArgs e)
-        {
-            PlaceholderOff(KTxtUrl, ControladorIdioma.GetTexto("Log_Url"));
-        }
-
-        private void KTxtUrl_Leave(object sender, EventArgs e)
-        {
-            PlaceholderOn(KTxtUrl, ControladorIdioma.GetTexto("Log_Url"));
-        }
-
-
-        private void KTxtNombre_Enter(object sender, EventArgs e)
-        {
-            PlaceholderOff(KTxtNombre, ControladorIdioma.GetTexto("Log_Nombre"));
-        }
-
-        private void KTxtNombre_Leave(object sender, EventArgs e)
-        {
-            PlaceholderOn(KTxtNombre, ControladorIdioma.GetTexto("Log_Nombre"));
-        }
-
-        private void KTxtContra_Enter(object sender, EventArgs e)
-        {
-            PlaceholderContraOff(KTxtContra, ControladorIdioma.GetTexto("Log_Contra"));
-        }
-
-        private void KTxtContra_Leave(object sender, EventArgs e)
-        {
-            PlaceholderOn(KTxtContra, ControladorIdioma.GetTexto("Log_Contra"));
-        }
-        #endregion
-
+        #region cerrar
         private void MBtnCerrarLogin_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        #endregion
         private void ToggleConectado_CheckedChanged(object sender, EventArgs e)
         {
             //if (ToggleConectado.Checked)
@@ -413,12 +404,21 @@ namespace OpenLibraryEditor.Forms
             
         }
 
-        private void LlblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        #region Mover formulario por la pantalla
+
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+        private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
         {
-            FrmRecuperarContra recuperar=new FrmRecuperarContra();
-            recuperar.FormBorderStyle = FormBorderStyle.None;
-            recuperar.ShowDialog();
+            //Para poder mover el formulario por la pantalla
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        #endregion
     }
 }
 

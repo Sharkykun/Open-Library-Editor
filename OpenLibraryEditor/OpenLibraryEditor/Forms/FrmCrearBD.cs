@@ -17,10 +17,13 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmCrearBD : Form
     {
+        #region atributos
         private bool isOk;
 
         public bool IsOk { get => isOk; set => isOk = value; }
         private int numero = 0;
+        #endregion
+        #region constructor y load
         public FrmCrearBD()
         {
             InitializeComponent();
@@ -30,28 +33,41 @@ namespace OpenLibraryEditor.Forms
         {
             IdiomaTexto();
         }
-
+        #endregion
+        #region idioma
         private void IdiomaTexto()
         {
             LblTitulo.Text = ControladorIdioma.GetTexto("BD_Titulo");
+            this.Text= ControladorIdioma.GetTexto("BD_Titulo");
             KgbDatosServidor.Values.Heading= ControladorIdioma.GetTexto("BD_DServidor");
             LblUrl.Text= ControladorIdioma.GetTexto("BD_Url");
+            TTCrearBD.SetToolTip(this.KTxtUrl, ControladorIdioma.GetTexto("UrlServidor"));
             LblNombreSer.Text= ControladorIdioma.GetTexto("Adm_NombreUsu");
+            TTCrearBD.SetToolTip(this.KTxtNombreUSer, ControladorIdioma.GetTexto("NombreUsuServidor"));
             LblPuerto.Text= ControladorIdioma.GetTexto("BD_Puerto");
+            TTCrearBD.SetToolTip(this.KNudPuerto, ControladorIdioma.GetTexto("NumeroPuerto"));
             LblContraSer.Text= ControladorIdioma.GetTexto("Reg_Contra");
+            TTCrearBD.SetToolTip(this.KTxtCSer, ControladorIdioma.GetTexto("ContraServidor"));
             KgbDatosApp.Values.Heading = ControladorIdioma.GetTexto("BD_DApp");
             LblNombreApp.Text= ControladorIdioma.GetTexto("Adm_NombreUsu");
+            TTCrearBD.SetToolTip(this.KTxtNombreApp, ControladorIdioma.GetTexto("NombreUsuApp"));
             LblContraApp.Text= ControladorIdioma.GetTexto("Reg_Contra");
+            TTCrearBD.SetToolTip(this.KTxtContraApp, ControladorIdioma.GetTexto("ContraUsuApp"));
             LblEmailApp.Text= ControladorIdioma.GetTexto("Reg_Email");
+            TTCrearBD.SetToolTip(this.KTxtEmailApp, ControladorIdioma.GetTexto("EmailUsuApp"));
             GBtnCancelar.Text= ControladorIdioma.GetTexto("Cancelar");
+            TTCrearBD.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
             GBtnCrear.Text = ControladorIdioma.GetTexto("Crear");
-        }
+            TTCrearBD.SetToolTip(this.GBtnCrear, ControladorIdioma.GetTexto("TT_CrearBD"));
+            TTCrearBD.SetToolTip(this.MBtnCerrarAutores, ControladorIdioma.GetTexto("Cerrar"));
 
-        private void MBtnCerrarAutores_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            TTCrearBD.SetToolTip(this.IpcbMostrarContraSer, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTCrearBD.SetToolTip(this.IpcbMostrarContraUsu, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTCrearBD.SetToolTip(this.IpcbOcultarContraSer, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+            TTCrearBD.SetToolTip(this.IpcbOcultarContraUsu, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
         }
-
+        #endregion
+        #region crear bd
         private void GBtnCrear_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrWhiteSpace(KTxtUrl.Text) && !String.IsNullOrWhiteSpace(KTxtNombreUSer.Text)
@@ -76,12 +92,12 @@ namespace OpenLibraryEditor.Forms
                     verificar.ShowDialog();
                     if (verificar.MailVerificado)
                     {
-                        BaseDatos.ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString());
-                        BaseDatos.ConexionBD.AbrirConexion();
-                        BaseDatos.ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
-                        BaseDatos.ConexionBD.CerrarConexion();
+                        ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString());
+                        ConexionBD.AbrirConexion();
+                        ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
+                        ConexionBD.CerrarConexion();
                         FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
-                        BaseDatos.ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD+KTxtNombreApp.Text,
+                        ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD+KTxtNombreApp.Text,
                             KTxtContraApp.Text, KNudPuerto.Value.ToString());
                         isOk = true;
                         Close();
@@ -96,25 +112,6 @@ namespace OpenLibraryEditor.Forms
             {
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorCamposVacios"));
             }
-        }
-
-        private void GBtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #region Mover formulario por la pantalla
-
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        private void PanTituloAutores_MouseDown(object sender, MouseEventArgs e)
-        {
-            //Para poder mover el formulario por la pantalla
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
         #region mostrar/ocultar password
@@ -134,7 +131,34 @@ namespace OpenLibraryEditor.Forms
         {
             MetodosComunes.MostrarOcultarContra(KTxtContraApp, false, true, IpcbMostrarContraUsu, IpcbOcultarContraUsu);
         }
-        #endregion
 
+        #endregion
+        #region cerrar
+        private void MBtnCerrarAutores_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+        #region Mover formulario por la pantalla
+
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTituloAutores_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Para poder mover el formulario por la pantalla
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+       
+
+      
     }
 }

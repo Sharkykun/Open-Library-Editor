@@ -39,6 +39,7 @@ namespace OpenLibraryEditor.Forms
 
         public Autor PersonaNueva { get => personaNueva; set => personaNueva = value; }
         #endregion
+        #region constructores y load
         public FrmAutores(bool setNew)
         {
             InitializeComponent();
@@ -58,29 +59,6 @@ namespace OpenLibraryEditor.Forms
             this.puedeEditar = puedeEditar;
             EditarAutorDesdeMain();
         }
-
-        private void MBtnCerrarAutores_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void GBtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-     
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void PanTituloAutores_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        #endregion
-
         private void FrmAutores_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
@@ -105,9 +83,8 @@ namespace OpenLibraryEditor.Forms
             }
             
         }
-
+        #endregion
         #region metodos propios
-
         private void EditarAutorDesdeMain()
         {
             PanOpcionesNA.Visible = true;
@@ -138,7 +115,6 @@ namespace OpenLibraryEditor.Forms
             LblOcupacionNA.Text = ControladorIdioma.GetTexto("Au_Ocupacion");
             TTAutores.SetToolTip(this.KCmbOcupacionNA, ControladorIdioma.GetTexto("Au_TTOcupacion"));
             TTAutores.SetToolTip(this.MBtnMasOcupacionNA, ControladorIdioma.GetTexto("Au_BtnMasOcu"));
-            TTAutores.SetToolTip(this.MBtnMenosOcupacionNA, ControladorIdioma.GetTexto("Au_BtnMenosOcu"));
             LblNacimientoAu.Text = ControladorIdioma.GetTexto("Au_FNac");
             TTAutores.SetToolTip(this.KMtxtFecNacimientoNA, ControladorIdioma.GetTexto("FormatoFecha"));
             LblDefuncionAu.Text = ControladorIdioma.GetTexto("Au_FDef");
@@ -158,6 +134,7 @@ namespace OpenLibraryEditor.Forms
             TTAutores.SetToolTip(this.TBtnVivo, ControladorIdioma.GetTexto("Au_TTVivo"));
             GBtnActualizar.Text = ControladorIdioma.GetTexto("ActualizarConBD");
             TTAutores.SetToolTip(this.GBtnActualizar,ControladorIdioma.GetTexto("Au_TTActualizar"));
+            LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
         }
         private void ActualizarOcupacion()
         {
@@ -190,6 +167,8 @@ namespace OpenLibraryEditor.Forms
                 return false;
             else
                 return true;
+            
+                
         }
 
         private void CargarImagen(string rutaImagen)
@@ -224,6 +203,7 @@ namespace OpenLibraryEditor.Forms
             }
         }
         #endregion
+        #region añadir/modificar autores
         private void LsvAutoresNA_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e != null && !e.IsSelected)
@@ -287,8 +267,6 @@ namespace OpenLibraryEditor.Forms
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO+ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
         }
-       
-
         private void MBtnMasOcupacionNA_Click(object sender, EventArgs e)
         {
             FrmInputTxt input = new FrmInputTxt(null);
@@ -321,17 +299,6 @@ namespace OpenLibraryEditor.Forms
                 KCmbOcupacionNA.SelectedItem = null;
             }
         }
-
-        private void MBtnMenosOcupacionNA_Click(object sender, EventArgs e)
-        {
-            //if (VentanaWindowsComun.MensajeBorrarObjeto(personaActual.NombreOcupacion) == DialogResult.Yes)
-            //{
-            //    listaOcupacion.Remove((string)KCmbOcupacionNA.SelectedItem);
-            //    ActualizarOcupacion();
-            //    KCmbOcupacionNA.SelectedItem = null;
-            //}
-        }
-
         private void MBtnAniadirImagenAu_Click(object sender, EventArgs e)
         {
             string s = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_IMAGEN);
@@ -347,6 +314,30 @@ namespace OpenLibraryEditor.Forms
             PcbAutorNA.Image = Properties.Resources.silueta;
             rutaImagen = null;
         }
+        private void ActualizarListView()
+        {
+            //Actualizar listview
+            itemActual.Text = KTxtNombreAu.Text;
+            itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+        }
+
+        private void KTxtNombreAu_Enter(object sender, EventArgs e)
+        {
+            if (KTxtNombreAu.Text.Equals(ControladorIdioma.GetTexto("Au_NuevaPersona")))
+            {
+                KTxtNombreAu.Text = "";
+            }
+        }
+
+        private void KTxtNombreAu_Leave(object sender, EventArgs e)
+        {
+            if (KTxtNombreAu.Text.Equals(""))
+            {
+                KTxtNombreAu.Text = ControladorIdioma.GetTexto("Au_NuevaPersona");
+            }
+        }
+        #endregion
+        #region botones aceptar y actualizar
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (PanOpcionesNA.Visible == true)
@@ -395,18 +386,13 @@ namespace OpenLibraryEditor.Forms
 
                     ActualizarListView();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
-                   
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
         }
 
-        private void FrmAutores_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ComprobarGuardado();
-        }
-
+     
         private void GBtnActualizar_Click(object sender, EventArgs e)
         {
             //Actualizar en BD compartida si se puede
@@ -447,12 +433,33 @@ namespace OpenLibraryEditor.Forms
                 }
             }
         }
-
-        private void ActualizarListView()
+        #endregion
+        #region cerrar formulario
+        private void FrmAutores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Actualizar listview
-            itemActual.Text = KTxtNombreAu.Text;
-            itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+            ComprobarGuardado();
         }
+
+        private void MBtnCerrarAutores_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTituloAutores_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
     }
 }

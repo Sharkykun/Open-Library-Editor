@@ -22,13 +22,14 @@ namespace OpenLibraryEditor.Forms
         - Cargar en combobox al editar el tipo de usuario que le corresponde
         - Cambiar la contraseña en UpdateUsuario(), no está hecho.
          */
-
+        #region atributos
         private bool esEditar;
         private InfoUsuarioBD usuario;
         private bool esOk = false;
-
+       
         public bool EsOk { get => esOk; set => esOk = value; }
-
+        #endregion
+        #region constructor y load
         public FrmEditarUsuario(InfoUsuarioBD usuario, bool esEditar)
         {
             InitializeComponent();
@@ -48,7 +49,8 @@ namespace OpenLibraryEditor.Forms
             IdiomaTexto();
             SeleccionarTipoUsuario(usuario);
         }
-
+        #endregion
+        #region seleccionar tipo usuario
         private void SeleccionarTipoUsuario(InfoUsuarioBD usuario)
         {
             switch (usuario.TipoUsuario)
@@ -61,21 +63,32 @@ namespace OpenLibraryEditor.Forms
                     break;
             }
         }
-
+        #endregion
+        #region idioma
         private void IdiomaTexto()
         {
             LblTitulo.Text = ControladorIdioma.GetTexto("CrearUsuario");
+            this.Text= ControladorIdioma.GetTexto("CrearUsuario");
             KgbDatosEditUsu.Values.Heading = ControladorIdioma.GetTexto("BD_DApp");
             LblNombreEditUsu.Text = ControladorIdioma.GetTexto("Edit_Nombre");
+            TTEditarUsu.SetToolTip(this.KTxtNombreEditUsu, ControladorIdioma.GetTexto("NombreUsu"));
             LblContraEditUsu.Text = ControladorIdioma.GetTexto("Reg_Contra");
+            TTEditarUsu.SetToolTip(this.KTxtContraEditUsu, ControladorIdioma.GetTexto("ContraUsu"));
             LblEmailEditUsu.Text = ControladorIdioma.GetTexto("Reg_Email");
+            TTEditarUsu.SetToolTip(this.KTxtEmailEditUsu, ControladorIdioma.GetTexto("EmailUsu"));
             LblTipoEditUsu.Text = ControladorIdioma.GetTexto("Adm_Tipo");
+            TTEditarUsu.SetToolTip(this.KCmbTipoEditUsu, ControladorIdioma.GetTexto("SeleccionarTipoUsu"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTEditarUsu.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
             GBtnAceptar.Text = ControladorIdioma.GetTexto("Aceptar");
+            TTEditarUsu.SetToolTip(this.GBtnAceptar, ControladorIdioma.GetTexto("Aceptar"));
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Editor"));
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Usu"));
+            TTEditarUsu.SetToolTip(this.MBtnCerrarEditUsu, ControladorIdioma.GetTexto("Cerrar"));
 
         }
+        #endregion
+        #region registrar usuario
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(KTxtNombreEditUsu.Text) &&
@@ -116,8 +129,7 @@ namespace OpenLibraryEditor.Forms
                             EnvioEmail.RegistrarUsuario("openlibraryeditor@gmail.com", "oleOLEole", KTxtEmailEditUsu.Text, KTxtNombreEditUsu.Text, KTxtContraEditUsu.Text, usuario.TipoUsuario, UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre + " (" + UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo + ") ");
                         }
                         else
-                            //---------
-                            VentanaWindowsComun.MensajeError("El correo ya existe en la BD compartida.");
+                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));
                         ConexionBD.CerrarConexion();
                     }
                 }
@@ -127,16 +139,18 @@ namespace OpenLibraryEditor.Forms
             else
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("TodosCamposRellenos"));
         }
-
+        #endregion
+        #region cerrar
         private void GBtnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+      
         private void MBtnCerrarEditUsu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
         #region mover formulario
         //Para poder mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -58,39 +58,14 @@ namespace OpenLibraryEditor.Forms
             gunaHScrollBar1.Maximum = 250;
             gunaHScrollBar1.Minimum = -60;
             gunaHScrollBar1.Value = 0;
-           
-
-            if (usuRegistrado)
-            {
-                PanDatosUsu.Visible = true;
-                TxtMailActual.Text = UsuarioActual();
-              
-                if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
-                {
-                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Adm");
-                }
-                else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario"))
-                {
-                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Usu");
-                }
-                else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
-                {
-                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
-                }
-                
-            }
-            else
-            {
-                KgbDatosUsu.Visible = false;
-                LblModoSinConexion.Visible = true;
-                LblModoSinConexion.Text=ControladorIdioma.GetTexto("ModoSinConexion");
-            }
+          
         }
 
         #region metodos propios
         private void IdiomaTexto()
         {
             LblTituloConfi.Text = ControladorIdioma.GetTexto("Con_Titulo");
+            this.Text= ControladorIdioma.GetTexto("Con_Titulo");
             KgbDatosUsu.Values.Heading = ControladorIdioma.GetTexto("Con_DatosUsu");
             LblMailActual.Text = ControladorIdioma.GetTexto("Con_MailActual");
             TTConfi.SetToolTip(this.TxtMailActual, ControladorIdioma.GetTexto("Con_TTMailA"));
@@ -104,6 +79,10 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.GBtnActualizarMail, ControladorIdioma.GetTexto("Con_TTActualizar"));
             GBtnModificarPass.Text = ControladorIdioma.GetTexto("Modificar");
             TTConfi.SetToolTip(this.GBtnModificarPass, ControladorIdioma.GetTexto("Con_TTModificar"));
+            TTConfi.SetToolTip(this.IpcbMostrarContra, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTConfi.SetToolTip(this.IpcbMostrarContra1, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTConfi.SetToolTip(this.IpcbOcultarContra, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+            TTConfi.SetToolTip(this.IpcbOcultarContra1, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
 
             KgbGeneral.Values.Heading = ControladorIdioma.GetTexto("Con_General");
             //LblUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GCargar");
@@ -179,7 +158,9 @@ namespace OpenLibraryEditor.Forms
             CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEjecutar"));
             CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEditar"));
 
-            if (usuRegistrado) { 
+            if (usuRegistrado) {
+                PanDatosUsu.Visible = true;
+                TxtMailActual.Text = UsuarioActual();
                 if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
                 {
                     LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Adm");
@@ -195,7 +176,9 @@ namespace OpenLibraryEditor.Forms
             }
             else
             {
-                LblModoSinConexion.Text = ControladorIdioma.GetTexto("ModoSinConexion");
+                KgbDatosUsu.Visible = false;
+                PanDatosUsu.Visible = true;
+                LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("ModoSinConexion");
             }
 
         }
@@ -508,7 +491,6 @@ namespace OpenLibraryEditor.Forms
             {
                 Console.WriteLine(ex.Message);
             }
-            //UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo = TxtMailNuevo.Text;
         }
 
         private void GBtnModificarPass_Click(object sender, EventArgs e)

@@ -106,7 +106,7 @@
             this.GBtnCrearBD.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.GBtnCrearBD.Radius = 18;
             this.GBtnCrearBD.Size = new System.Drawing.Size(355, 39);
-            this.GBtnCrearBD.TabIndex = 21;
+            this.GBtnCrearBD.TabIndex = 0;
             this.GBtnCrearBD.Text = "Crear base de datos";
             this.GBtnCrearBD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnCrearBD.Click += new System.EventHandler(this.GBtnCrearBD_Click);
@@ -134,7 +134,7 @@
             this.GBtnEntrar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnEntrar.Radius = 18;
             this.GBtnEntrar.Size = new System.Drawing.Size(174, 39);
-            this.GBtnEntrar.TabIndex = 24;
+            this.GBtnEntrar.TabIndex = 6;
             this.GBtnEntrar.Text = "Entrar";
             this.GBtnEntrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnEntrar.Click += new System.EventHandler(this.GBtnEntrar_Click);
@@ -162,7 +162,7 @@
             this.GBtnRegistro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.GBtnRegistro.Radius = 18;
             this.GBtnRegistro.Size = new System.Drawing.Size(174, 39);
-            this.GBtnRegistro.TabIndex = 23;
+            this.GBtnRegistro.TabIndex = 7;
             this.GBtnRegistro.Text = "Registrarse";
             this.GBtnRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnRegistro.Click += new System.EventHandler(this.GBtnRegistro_Click);
@@ -190,7 +190,7 @@
             this.GBtnSinConexion.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnSinConexion.Radius = 18;
             this.GBtnSinConexion.Size = new System.Drawing.Size(355, 39);
-            this.GBtnSinConexion.TabIndex = 22;
+            this.GBtnSinConexion.TabIndex = 8;
             this.GBtnSinConexion.Text = "Modo sin conexión";
             this.GBtnSinConexion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnSinConexion.Click += new System.EventHandler(this.GBtnSinConexion_Click);
@@ -287,7 +287,7 @@
             this.LlblRecuperar.Location = new System.Drawing.Point(42, 206);
             this.LlblRecuperar.Name = "LlblRecuperar";
             this.LlblRecuperar.Size = new System.Drawing.Size(294, 18);
-            this.LlblRecuperar.TabIndex = 0;
+            this.LlblRecuperar.TabIndex = 5;
             this.LlblRecuperar.TabStop = true;
             this.LlblRecuperar.Text = "¿Ha olvidado su contraseña? Haga click aquí";
             this.LlblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblRecuperar_LinkClicked);
@@ -377,7 +377,7 @@
             this.ToolIdiomas.Name = "ToolIdiomas";
             this.ToolIdiomas.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.ToolIdiomas.Size = new System.Drawing.Size(72, 25);
-            this.ToolIdiomas.TabIndex = 15;
+            this.ToolIdiomas.TabIndex = 0;
             this.ToolIdiomas.Text = "Seleccione un idioma";
             // 
             // BtnSpain
@@ -430,7 +430,7 @@
             this.MBtnCerrarLogin.Name = "MBtnCerrarLogin";
             this.MBtnCerrarLogin.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarLogin.Size = new System.Drawing.Size(32, 32);
-            this.MBtnCerrarLogin.TabIndex = 16;
+            this.MBtnCerrarLogin.TabIndex = 1;
             this.MBtnCerrarLogin.UseVisualStyleBackColor = false;
             this.MBtnCerrarLogin.Click += new System.EventHandler(this.MBtnCerrarLogin_Click);
             // 

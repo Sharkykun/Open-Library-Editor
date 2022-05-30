@@ -48,13 +48,13 @@ namespace OpenLibraryEditor.Forms
             ObtenerUsuariosBD();
 
             //Si el usuario es administrador, mostrar botones para editar
-            if (UsuarioDatos.configuracionUsuario.EsAdministrador)
-            {
-                MBtnMasUsu.Visible = true;
-                //MBtnEditarUsu.Visible = true;
-                MBtnMenosUsu.Visible = true;
-            }
-
+            //if (UsuarioDatos.configuracionUsuario.EsAdministrador)
+            //{
+            //    MBtnMasUsu.Visible = true;
+            //    //MBtnEditarUsu.Visible = true;
+            //    MBtnMenosUsu.Visible = true;
+            //}
+            
             //Colocar usuarios por nombre
             listaUsuarios.Sort();
             ColocarUsuarios(listaUsuarios);
@@ -74,6 +74,17 @@ namespace OpenLibraryEditor.Forms
             LsvUsuariosBD.Columns[0].Text = ControladorIdioma.GetTexto("Au_LsvNombre");
             LsvUsuariosBD.Columns[1].Text = ControladorIdioma.GetTexto("Adm_CmbTipo");
             LsvUsuariosBD.Columns[2].Text = ControladorIdioma.GetTexto("Adm_Email");
+            TTAdmin.SetToolTip(this.MBtnOrdenMBI, ControladorIdioma.GetTexto("OrdenUsuarios"));
+            TTAdmin.SetToolTip(this.KCmbBuscarPorUsu, ControladorIdioma.GetTexto("BusquedaPor"));
+            TTAdmin.SetToolTip(this.TxtBusqueda, ControladorIdioma.GetTexto("TextoBuscar"));
+            TTAdmin.SetToolTip(this.MBtnBuscarMBI, ControladorIdioma.GetTexto("LupaBuscar"));
+            TTAdmin.SetToolTip(this.LsvUsuariosBD, ControladorIdioma.GetTexto("Adm_TTLsv"));
+            TTAdmin.SetToolTip(this.MBtnMasUsu, ControladorIdioma.GetTexto("Adm_MasUsu"));
+            TTAdmin.SetToolTip(this.MBtnMenosUsu, ControladorIdioma.GetTexto("Adm_MenosUsu"));
+            GBtnGuardarCambios.Text = ControladorIdioma.GetTexto("Guardar");
+            TTAdmin.SetToolTip(this.GBtnGuardarCambios, ControladorIdioma.GetTexto("Guardar"));
+            TTAdmin.SetToolTip(this.KCmbTipoUsu, ControladorIdioma.GetTexto("CmbAdmUsu"));
+            
             //LblContra.Text= ControladorIdioma.GetTexto("Reg_Contra");
             LblTipoUsu.Text = ControladorIdioma.GetTexto("Adm_Tipo");
             KCmbBuscarPorUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Nombre"));
@@ -135,6 +146,7 @@ namespace OpenLibraryEditor.Forms
             
             item.SubItems.Add(usuario.Correo);
             item.Tag = usuario;
+            LblNumeroLsv.Text = ControladorIdioma.GetTexto("NumUsuarios") + LsvUsuariosBD.Items.Count;
             return item;
         }
 
@@ -199,11 +211,6 @@ namespace OpenLibraryEditor.Forms
                 ObtenerUsuariosBD();
                 ColocarUsuarios(listaUsuarios);
             }
-
-            //FrmEditarUsuario form = new FrmEditarUsuario(new InfoUsuarioBD("Nuevo usuario", "correo@gmail.com", "Usuario"), false);
-            //form.FormBorderStyle = FormBorderStyle.None;
-            //form.ShowDialog();
-
         }
 
         private void MBtnEditarUsu_Click(object sender, EventArgs e)

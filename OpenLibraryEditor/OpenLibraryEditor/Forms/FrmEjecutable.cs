@@ -27,31 +27,11 @@ namespace OpenLibraryEditor.Forms
         private UsuarioEjecutable ejecutableActual;
         private ListViewItem itemActual;
         #endregion
+        #region constructor y load
         public FrmEjecutable(bool setNew)
         {
             InitializeComponent();
             this.setNew = setNew;
-        }
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void PanTituloEjecutables_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        #endregion
-
-        private void MBtnCerrarEjecutable_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void GBtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
         private void FrmEjecutable_Load(object sender, EventArgs e)
         {
@@ -66,11 +46,25 @@ namespace OpenLibraryEditor.Forms
                 MBtnMasLsvEJ_Click(null, null);
 
         }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTituloEjecutables_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
         #region metodos propios
         private void IdiomaTexto()
         {
             TTEjecutable.SetToolTip(this.PcbLogoEjecutable, ControladorIdioma.GetTexto("Main_TTLogo"));
             LblTituloEjecutable.Text = ControladorIdioma.GetTexto("Ej_TituloFrm");
+            this.Text= ControladorIdioma.GetTexto("Ej_TituloFrm");
             TTEjecutable.SetToolTip(this.LblTituloEjecutable, ControladorIdioma.GetTexto("Ej_TituloFrm"));
             TTEjecutable.SetToolTip(this.LsvEjecutable, ControladorIdioma.GetTexto("Ej_TTLsv"));
             LsvEjecutable.Columns[0].Text = ControladorIdioma.GetTexto("Ej_LsvNombre");
@@ -124,6 +118,7 @@ namespace OpenLibraryEditor.Forms
         }
 
         #endregion
+        #region listview
         private void LsvEjecutable_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (!e.IsSelected)
@@ -177,7 +172,8 @@ namespace OpenLibraryEditor.Forms
                 
             }
         }
-
+        #endregion
+        #region ruta ejecutable
         private void IBtnBuscarRutaEJ_Click(object sender, EventArgs e)
         {
             KTxtRutaEJ.Text = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_TODO);
@@ -201,9 +197,20 @@ namespace OpenLibraryEditor.Forms
                 else VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_CamposVacios"));
             }
         }
+        #endregion
+        #region cerrar formulario
+        private void MBtnCerrarEjecutable_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void GBtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void FrmEjecutable_FormClosing(object sender, FormClosingEventArgs e)
         {
             ComprobarGuardado();
         }
+        #endregion
     }
 }

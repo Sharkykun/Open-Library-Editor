@@ -29,6 +29,7 @@ namespace OpenLibraryEditor.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarUsuario));
             this.PanBtn = new System.Windows.Forms.Panel();
             this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
@@ -48,6 +49,7 @@ namespace OpenLibraryEditor.Forms
             this.LblEmailEditUsu = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TTEditarUsu = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtn.SuspendLayout();
             this.PanTituloEditUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditUsu)).BeginInit();
@@ -153,7 +155,7 @@ namespace OpenLibraryEditor.Forms
             this.MBtnCerrarEditUsu.Name = "MBtnCerrarEditUsu";
             this.MBtnCerrarEditUsu.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarEditUsu.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarEditUsu.TabIndex = 28;
+            this.MBtnCerrarEditUsu.TabIndex = 0;
             this.MBtnCerrarEditUsu.UseVisualStyleBackColor = false;
             this.MBtnCerrarEditUsu.Click += new System.EventHandler(this.MBtnCerrarEditUsu_Click);
             // 
@@ -179,6 +181,7 @@ namespace OpenLibraryEditor.Forms
             this.PcbLogoEditUsu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoEditUsu.TabIndex = 3;
             this.PcbLogoEditUsu.TabStop = false;
+            this.PcbLogoEditUsu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditUsu_MouseMove);
             // 
             // KgbDatosEditUsu
             // 
@@ -398,5 +401,6 @@ namespace OpenLibraryEditor.Forms
         private System.Windows.Forms.Label LblNombreEditUsu;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolTip TTEditarUsu;
     }
 }
