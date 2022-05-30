@@ -115,14 +115,16 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = SetRandomId("Libro", "idLibro");
                     byte[] img = ControladorImagen.ImagenAByteArray(libro.ImagenPortada);
                     byte[] img2 = ControladorImagen.ImagenAByteArray(libro.ImagenContraportada);
+                    string fechaPub = libro.FechaPublicacion.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaPublicacion.ToString("yyyy-MM-dd") + "'";
+                    string fechaAdi = libro.FechaAdicionBD.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaAdicionBD.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand insertLibro = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Libro` VALUES ('{0}','{1}',@titulo,@subtitulo,@titAlt,@sinopsis,{2},'{3}',
-                    '{4}',{5},{6},'{7}','{8}','{9}',@portada,@contraportada,{10},{11},{12},@enlace);",
+                    INSERT INTO `Libro` VALUES ('{0}','{1}',@titulo,@subtitulo,@titAlt,@sinopsis,{2},{3},
+                    {4},{5},{6},'{7}','{8}','{9}',@portada,@contraportada,{10},{11},{12},@enlace);",
                     id,
                     libro.Isbn_13,
                     libro.NumeroPaginas,
-                    libro.FechaPublicacion,
-                    libro.FechaAdicionBD,
+                    fechaPub,
+                    fechaAdi,
                     libro.Edicion,
                     libro.NumeroVolumen,
                     libro.Idioma,
@@ -163,6 +165,8 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = GetObjetoIdDeLocal(libro.ListaIdCompartido);
                     byte[] img = ControladorImagen.ImagenAByteArray(libro.ImagenPortada);
                     byte[] img2 = ControladorImagen.ImagenAByteArray(libro.ImagenContraportada);
+                    string fechaPub = libro.FechaPublicacion.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaPublicacion.ToString("yyyy-MM-dd") + "'";
+                    string fechaAdi = libro.FechaAdicionBD.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaAdicionBD.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `Libro` SET isbn13 = '{0}',
                     titulo = @titulo,
@@ -170,8 +174,8 @@ namespace OpenLibraryEditor.BaseDatos
                     tituloAlternativo = @titAlt,
                     sinopsis = @sinopsis,
                     numeroPaginas = {1},
-                    fechaPublicacion = '{2}',
-                    fechaAdicionBD = '{3}',
+                    fechaPublicacion = {2},
+                    fechaAdicionBD = {3},
                     edicion = {4},
                     numeroVolumen = {5},
                     idioma = '{6}',
@@ -186,8 +190,8 @@ namespace OpenLibraryEditor.BaseDatos
                     WHERE idLibro = " + id + ";",
                     libro.Isbn_13,
                     libro.NumeroPaginas,
-                    libro.FechaPublicacion,
-                    libro.FechaAdicionBD,
+                    fechaPub,
+                    fechaAdi,
                     libro.Edicion,
                     libro.NumeroVolumen,
                     libro.Idioma,
@@ -276,12 +280,14 @@ namespace OpenLibraryEditor.BaseDatos
 
                     int id = SetRandomId("Autor", "idAutor");
                     byte[] img = ControladorImagen.ImagenAByteArray(autor.Imagen);
+                    string fechaNac = autor.FechaNacimiento.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaNacimiento.ToString("yyyy-MM-dd") + "'";
+                    string fechaDef = autor.FechaDefuncion.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaDefuncion.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Autor` VALUES ({0},@nombre,@alias,{1},'{2}','{3}',@enlace,@comentario,@imagen);",
+                    INSERT INTO `Autor` VALUES ({0},@nombre,@alias,{1},{2},{3},@enlace,@comentario,@imagen);",
                     id,
                     ocupacion,
-                    autor.FechaNacimiento.ToShortDateString(),
-                    autor.FechaDefuncion.ToShortDateString()),
+                    fechaNac,
+                    fechaDef),
                     ConexionBD.Conexion);
                     tabla.Parameters.AddWithValue("@nombre", autor.Nombre);
                     tabla.Parameters.AddWithValue("@alias", autor.Alias);
@@ -317,19 +323,21 @@ namespace OpenLibraryEditor.BaseDatos
 
                     int id = GetObjetoIdDeLocal(autor.ListaIdCompartido);
                     byte[] img = ControladorImagen.ImagenAByteArray(autor.Imagen);
+                    string fechaNac = autor.FechaNacimiento.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaNacimiento.ToString("yyyy-MM-dd") + "'";
+                    string fechaDef = autor.FechaDefuncion.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaDefuncion.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `Autor` SET nombreAutor = @nombre,
                     alias = @alias,
                     nombreOcupacion = {0},
-                    fechaNacimiento = '{1}',
-                    fechaDefuncion = '{2}',
+                    fechaNacimiento = {1},
+                    fechaDefuncion = {2},
                     enlaceReferencia = @enlace,
                     comentario = @comentario,
                     imagen = @imagen
                     WHERE idAutor = '" + id + "';",
                     String.IsNullOrWhiteSpace(autor.NombreOcupacion) ? "NULL" : "'" + autor.NombreOcupacion + "'",
-                    autor.FechaNacimiento.ToShortDateString(),
-                    autor.FechaDefuncion.ToShortDateString()),
+                    fechaNac,
+                    fechaDef),
                     ConexionBD.Conexion);
                     tabla.Parameters.AddWithValue("@nombre", autor.Nombre);
                     tabla.Parameters.AddWithValue("@alias", autor.Alias);
@@ -996,16 +1004,18 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
+                    string fechaCom = libro.FechaComienzo.Equals(new DateTime()) ? "NULL" : "'"+libro.FechaComienzo.ToString("yyyy-MM-dd") + "'";
+                    string fechaTer = libro.FechaTerminado.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaTerminado.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `UsuarioLibro` VALUES ('{0}',{1},{2},{3},'{4}','{5}','{6}',
+                    INSERT INTO `UsuarioLibro` VALUES ('{0}',{1},{2},{3},'{4}',{5},{6},
                     @comentario,{7},'{8}',{9},{10});",
                     usuario.Nombre,
                     GetObjetoIdDeLocal(libro.ListaIdCompartido),
                     libro.Puntuacion,
                     libro.VecesLeido,
                     libro.TiempoLectura,
-                    libro.FechaComienzo,
-                    libro.FechaTerminado,
+                    fechaCom,
+                    fechaTer,
                     libro.CapituloActual,
                     libro.EstadoLectura,
                     libro.Ocultar,
@@ -1028,6 +1038,8 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
+                    string fechaCom = libro.FechaComienzo.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaComienzo.ToString("yyyy-MM-dd") + "'";
+                    string fechaTer = libro.FechaTerminado.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaTerminado.ToString("yyyy-MM-dd") + "'";
                     int id = GetObjetoIdDeLocal(libro.ListaIdCompartido);
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `UsuarioLibro` SET nombreUsuario = '{0}',
@@ -1035,8 +1047,8 @@ namespace OpenLibraryEditor.BaseDatos
                     puntuacion = {2},
                     vecesLeido = {3},
                     tiempoLectura = '{4}',
-                    fechaComienzo = '{5}',
-                    fechaTerminado = '{6}',
+                    fechaComienzo = {5},
+                    fechaTerminado = {6},
                     comentario = @comentario,
                     capituloActual = {7},
                     estadoLectura = '{8}',
@@ -1049,8 +1061,8 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.Puntuacion,
                     libro.VecesLeido,
                     libro.TiempoLectura,
-                    libro.FechaComienzo,
-                    libro.FechaTerminado,
+                    fechaCom,
+                    fechaTer,
                     libro.CapituloActual,
                     libro.EstadoLectura,
                     libro.Ocultar,

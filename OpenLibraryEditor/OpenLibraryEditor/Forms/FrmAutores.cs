@@ -119,8 +119,10 @@ namespace OpenLibraryEditor.Forms
             KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
             rutaImagen = autorActual.Imagen;
             CargarImagen(rutaImagen);
-            KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
-            KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
+            if (!autorActual.FechaDefuncion.Date.Equals(new DateTime()))
+                KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
+            if (!autorActual.FechaNacimiento.Date.Equals(new DateTime()))
+                KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
         }
         private void IdiomaTexto()
         {
@@ -243,8 +245,10 @@ namespace OpenLibraryEditor.Forms
                 KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
                 rutaImagen = autorActual.Imagen;
                 CargarImagen(rutaImagen);
-                KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
-                KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
+                if (!autorActual.FechaDefuncion.Date.Equals(new DateTime()))
+                    KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
+                if (!autorActual.FechaNacimiento.Date.Equals(new DateTime()))
+                    KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
             }
             else
             {
@@ -367,8 +371,23 @@ namespace OpenLibraryEditor.Forms
                     autorActual.Comentario = KTxtComentarioAu.Text;
                     autorActual.Alias = KtxtAliasAu.Text;
                     autorActual.EnlaceReferencia = KTxtEnlaceAu.Text;
-                    autorActual.FechaDefuncion = DateTime.Parse(KMtxtFecMuerteNA.Text);
-                    autorActual.FechaNacimiento = DateTime.Parse(KMtxtFecNacimientoNA.Text);
+                    if (KMtxtFecMuerteNA.MaskCompleted)
+                    {
+                        DateTime d = new DateTime();
+                        DateTime.TryParse(KMtxtFecMuerteNA.Text, out d);
+                        autorActual.FechaDefuncion = d;
+                    }
+                    else
+                        autorActual.FechaDefuncion = new DateTime();
+                    if (KMtxtFecNacimientoNA.MaskCompleted)
+                    {
+                        DateTime d = new DateTime();
+                        DateTime.TryParse(KMtxtFecNacimientoNA.Text, out d);
+                        autorActual.FechaNacimiento = d;
+                    }
+                    else
+                        autorActual.FechaNacimiento = new DateTime();
+
                     if (rutaImagen != autorActual.Imagen)
                     {
                         //if (File.Exists(autorActual.Imagen))

@@ -14,11 +14,16 @@ namespace OpenLibraryEditor.BaseDatos
     {
         public static Autor RegistroAAutor(MySqlDataReader registro)
         {
+            DateTime fechaNac = registro["fechaNacimiento"].GetType() != typeof(System.DBNull) ?
+                DateTime.Parse(registro["fechaNacimiento"].ToString()) : new DateTime();
+            DateTime fechaDef = registro["fechaDefuncion"].GetType() != typeof(System.DBNull) ?
+                DateTime.Parse(registro["fechaDefuncion"].ToString()) : new DateTime();
+
             Autor a = new Autor(registro["nombreAutor"].ToString(),
                 registro["alias"].ToString(),
                 registro["nombreOcupacion"].ToString(),
-                DateTime.Parse(registro["fechaNacimiento"].ToString()),
-                DateTime.Parse(registro["fechaDefuncion"].ToString()),
+                fechaNac,
+                fechaDef,
                 registro["enlaceReferencia"].ToString(),
                 registro["comentario"].ToString(),
                 null);
@@ -63,8 +68,14 @@ namespace OpenLibraryEditor.BaseDatos
             libro.TituloAlternativo = registro["tituloAlternativo"].ToString();
             libro.Sinopsis = registro["sinopsis"].ToString();
             libro.NumeroPaginas = int.Parse(registro["numeroPaginas"].ToString());
-            libro.FechaPublicacion = DateTime.Parse(registro["fechaPublicacion"].ToString());
-            libro.FechaAdicionBD = DateTime.Parse(registro["fechaAdicionBD"].ToString());
+            if (registro["fechaPublicacion"].GetType() != typeof(System.DBNull))
+                libro.FechaPublicacion = DateTime.Parse(registro["fechaPublicacion"].ToString());
+            else
+                libro.FechaPublicacion = new DateTime();
+            if (registro["fechaAdicionBD"].GetType() != typeof(System.DBNull))
+                libro.FechaAdicionBD = DateTime.Parse(registro["fechaAdicionBD"].ToString());
+            else
+                libro.FechaAdicionBD = new DateTime();
             libro.Edicion = int.Parse(registro["edicion"].ToString());
             libro.NumeroVolumen = double.Parse(registro["numeroVolumen"].ToString());
             libro.Idioma = registro["idioma"].ToString();
@@ -89,8 +100,14 @@ namespace OpenLibraryEditor.BaseDatos
             libro.Puntuacion = Double.Parse(registro["puntuacion"].ToString());
             libro.VecesLeido = int.Parse(registro["vecesLeido"].ToString());
             libro.TiempoLectura = TimeSpan.Parse(registro["tiempoLectura"].ToString());
-            libro.FechaComienzo = DateTime.Parse(registro["fechaComienzo"].ToString());
-            libro.FechaTerminado = DateTime.Parse(registro["fechaTerminado"].ToString());
+            if (registro["fechaComienzo"].GetType() != typeof(System.DBNull))
+                libro.FechaComienzo = DateTime.Parse(registro["fechaComienzo"].ToString());
+            else
+                libro.FechaComienzo = new DateTime();
+            if (registro["fechaTerminado"].GetType() != typeof(System.DBNull))
+                libro.FechaTerminado = DateTime.Parse(registro["fechaTerminado"].ToString());
+            else
+                libro.FechaTerminado = new DateTime();
             libro.Comentario = registro["comentario"].ToString();
             libro.CapituloActual = int.Parse(registro["capituloActual"].ToString());
             libro.EstadoLectura = registro["estadoLectura"].ToString();

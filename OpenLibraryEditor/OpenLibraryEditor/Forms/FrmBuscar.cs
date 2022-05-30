@@ -201,6 +201,8 @@ namespace OpenLibraryEditor.Forms
                             //Recorremos lista para meter en Listview
                             LsvBuscarLibros.SmallImageList = imglist;
                             LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
+                            imglist.ColorDepth = ColorDepth.Depth32Bit;
+                            imglist.ImageSize = new Size(150, 200);
                             foreach (Libro libro in listaLibro)
                             {
                                 if (libro.PortadaTemp != null)
@@ -209,8 +211,6 @@ namespace OpenLibraryEditor.Forms
                                 else
                                     imglist.Images.Add("image",
                                         new Bitmap(Resources.portada));
-                                imglist.ColorDepth = ColorDepth.Depth32Bit;
-                                imglist.ImageSize = new Size(150, 200);
 
                                 ListViewItem lvi =
                                     LsvBuscarLibros.Items.Add(libro.Titulo + "\n" +

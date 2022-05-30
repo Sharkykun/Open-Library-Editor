@@ -17,12 +17,6 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmEditarUsuario : Form
     {
-        /*
-        TODO:
-        - Cargar en combobox al editar el tipo de usuario que le corresponde
-        - Cambiar la contraseña en UpdateUsuario(), no está hecho.
-         */
-
         private bool esEditar;
         private InfoUsuarioBD usuario;
         private bool esOk = false;
@@ -108,6 +102,8 @@ namespace OpenLibraryEditor.Forms
                             //}
                             //else
                             //{
+                            //Evitar error de corrupción de esta tabla
+                            ConexionBD.RepararTablesPriv();
                             EscrituraBD.InsertUsuario(usuario, KTxtContraEditUsu.Text);
                             //}
                             esOk = true;
