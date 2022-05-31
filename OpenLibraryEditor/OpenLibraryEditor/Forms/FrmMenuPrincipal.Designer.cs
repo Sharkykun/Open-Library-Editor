@@ -1517,7 +1517,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(109, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(110, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "prueba de tamaño";
             // 
@@ -2074,6 +2074,7 @@
             this.KNudPagMax.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudPagMax.TabIndex = 129;
             this.KNudPagMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.KNudPagMax.ValueChanged += new System.EventHandler(this.KNudPagMax_ValueChanged);
             // 
             // KNudPagMin
             // 
@@ -2098,6 +2099,7 @@
             this.KNudPagMin.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudPagMin.TabIndex = 127;
             this.KNudPagMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.KNudPagMin.ValueChanged += new System.EventHandler(this.KNudPagMin_ValueChanged);
             // 
             // TxtBusqueda
             // 
@@ -2224,7 +2226,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 

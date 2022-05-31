@@ -110,7 +110,6 @@ namespace OpenLibraryEditor.Forms
                 KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
             if (!libroActual.FechaTerminado.Date.Equals(new DateTime()))
                 KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
-            TBtnOcultarNL.Checked = libroActual.Ocultar;
             TBtnFavNL.Checked = libroActual.Favorito;
             KTxtComentarioUsuarioNL.Text = libroActual.Comentario;
             rutaImagenPortada = libroActual.ImagenPortada;
@@ -194,9 +193,7 @@ namespace OpenLibraryEditor.Forms
             TTnuevoLibro.SetToolTip(this.KMtxtFecFinalNL, ControladorIdioma.GetTexto("FormatoFecha"));
             LblFavoritoNL.Text = ControladorIdioma.GetTexto("Al_DUFav");
             TTnuevoLibro.SetToolTip(this.TBtnFavNL, ControladorIdioma.GetTexto("Al_TTFav"));
-            LblOcultarNL.Text = ControladorIdioma.GetTexto("Al_DUOcultar");
             LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
-            TTnuevoLibro.SetToolTip(this.TBtnOcultarNL, ControladorIdioma.GetTexto("Al_TTOcu"));
             LblComentarioNL.Text = ControladorIdioma.GetTexto("Al_DUComentario");
             TTnuevoLibro.SetToolTip(this.KTxtComentarioUsuarioNL, ControladorIdioma.GetTexto("Al_TTCome"));
 
@@ -629,7 +626,6 @@ namespace OpenLibraryEditor.Forms
                 }
                 else
                     libroActual.FechaTerminado = new DateTime();
-                libroActual.Ocultar = TBtnOcultarNL.Checked;
                 libroActual.Favorito = TBtnFavNL.Checked;
                 libroActual.Comentario = KTxtComentarioUsuarioNL.Text;
                 if (rutaImagenPortada != libroActual.ImagenPortada)

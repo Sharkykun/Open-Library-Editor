@@ -96,7 +96,6 @@
             this.LblFecComiNL = new System.Windows.Forms.Label();
             this.LblTiempoLecNL = new System.Windows.Forms.Label();
             this.KNudPuntuacionNL = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.LblOcultarNL = new System.Windows.Forms.Label();
             this.LblEstadoLecturaNL = new System.Windows.Forms.Label();
             this.LblVecesLeidoNL = new System.Windows.Forms.Label();
             this.LblPuntuacionNL = new System.Windows.Forms.Label();
@@ -135,7 +134,6 @@
             this.KCCGenerosNL = new OpenLibraryEditor.Controles.CheckedComboBox();
             this.KCCPersonasNL = new OpenLibraryEditor.Controles.CheckedComboBox();
             this.KCCEditorialNL = new OpenLibraryEditor.Controles.CheckedComboBox();
-            this.TBtnOcultarNL = new OpenLibraryEditor.Controles.ToggleButton();
             this.TBtnFavNL = new OpenLibraryEditor.Controles.ToggleButton();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosGeneralesNL.Panel)).BeginInit();
@@ -293,7 +291,7 @@
             this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
             this.LblObligatorio.Name = "LblObligatorio";
-            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.Size = new System.Drawing.Size(151, 16);
             this.LblObligatorio.TabIndex = 158;
             this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
@@ -1091,7 +1089,6 @@
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KMtxtFecFinalNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KMtxtFecComienzoNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KMtxtTiempoLecturaNL);
-            this.KGbDatosUsuarioNL.Panel.Controls.Add(this.TBtnOcultarNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblCapituloActualNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KNudVecesLeidoNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblComentarioNL);
@@ -1103,7 +1100,6 @@
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblFecComiNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblTiempoLecNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.KNudPuntuacionNL);
-            this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblOcultarNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblEstadoLecturaNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblVecesLeidoNL);
             this.KGbDatosUsuarioNL.Panel.Controls.Add(this.LblPuntuacionNL);
@@ -1332,6 +1328,7 @@
             // 
             // KNudPuntuacionNL
             // 
+            this.KNudPuntuacionNL.DecimalPlaces = 1;
             this.KNudPuntuacionNL.Location = new System.Drawing.Point(177, 5);
             this.KNudPuntuacionNL.Name = "KNudPuntuacionNL";
             this.KNudPuntuacionNL.Size = new System.Drawing.Size(179, 33);
@@ -1347,18 +1344,6 @@
             this.KNudPuntuacionNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KNudPuntuacionNL.StateCommon.Content.Padding = new System.Windows.Forms.Padding(1);
             this.KNudPuntuacionNL.TabIndex = 0;
-            // 
-            // LblOcultarNL
-            // 
-            this.LblOcultarNL.AutoSize = true;
-            this.LblOcultarNL.BackColor = System.Drawing.Color.Transparent;
-            this.LblOcultarNL.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOcultarNL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.LblOcultarNL.Location = new System.Drawing.Point(15, 325);
-            this.LblOcultarNL.Name = "LblOcultarNL";
-            this.LblOcultarNL.Size = new System.Drawing.Size(60, 20);
-            this.LblOcultarNL.TabIndex = 27;
-            this.LblOcultarNL.Text = "Ocultar";
             // 
             // LblEstadoLecturaNL
             // 
@@ -1586,7 +1571,7 @@
             this.KPageAcciones});
             this.KcellTabs.Palette = this.kryptonPalette1;
             this.KcellTabs.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KcellTabs.SelectedIndex = 0;
+            this.KcellTabs.SelectedIndex = 1;
             this.KcellTabs.StateCommon.CheckButton.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.KcellTabs.StateCommon.CheckButton.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(231)))), ((int)(((byte)(253)))));
             this.KcellTabs.StateCommon.CheckButton.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -2030,21 +2015,6 @@
             this.KCCEditorialNL.TabIndex = 17;
             this.KCCEditorialNL.ValueSeparator = ", ";
             // 
-            // TBtnOcultarNL
-            // 
-            this.TBtnOcultarNL.AutoSize = true;
-            this.TBtnOcultarNL.BackColor = System.Drawing.Color.Transparent;
-            this.TBtnOcultarNL.Location = new System.Drawing.Point(177, 326);
-            this.TBtnOcultarNL.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnOcultarNL.Name = "TBtnOcultarNL";
-            this.TBtnOcultarNL.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnOcultarNL.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnOcultarNL.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnOcultarNL.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnOcultarNL.Size = new System.Drawing.Size(45, 22);
-            this.TBtnOcultarNL.TabIndex = 8;
-            this.TBtnOcultarNL.UseVisualStyleBackColor = false;
-            // 
             // TBtnFavNL
             // 
             this.TBtnFavNL.AutoSize = true;
@@ -2177,7 +2147,6 @@
         private System.Windows.Forms.Label LblImgContraNL;
         private System.Windows.Forms.Label LblImgPortadaNL;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox KGbDatosUsuarioNL;
-        private Controles.ToggleButton TBtnOcultarNL;
         private System.Windows.Forms.Label LblCapituloActualNL;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudVecesLeidoNL;
         private System.Windows.Forms.Label LblComentarioNL;
@@ -2189,7 +2158,6 @@
         private System.Windows.Forms.Label LblFecComiNL;
         private System.Windows.Forms.Label LblTiempoLecNL;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown KNudPuntuacionNL;
-        private System.Windows.Forms.Label LblOcultarNL;
         private System.Windows.Forms.Label LblEstadoLecturaNL;
         private System.Windows.Forms.Label LblVecesLeidoNL;
         private System.Windows.Forms.Label LblPuntuacionNL;

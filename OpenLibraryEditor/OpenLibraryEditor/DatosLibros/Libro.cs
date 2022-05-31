@@ -53,7 +53,6 @@ namespace OpenLibraryEditor.DatosLibros
         private int capituloActual;
         private DateTime fechaComienzo;
         private DateTime fechaTerminado; 
-        private bool ocultar;
         private bool favorito;
 
         public Libro()
@@ -93,7 +92,6 @@ namespace OpenLibraryEditor.DatosLibros
         public int CapituloActual { get => capituloActual; set => capituloActual = value; }
         public DateTime FechaComienzo { get => fechaComienzo; set => fechaComienzo = value; }
         public DateTime FechaTerminado { get => fechaTerminado; set => fechaTerminado = value; }
-        public bool Ocultar { get => ocultar; set => ocultar = value; }
         public bool Favorito { get => favorito; set => favorito = value; }
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
         public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }

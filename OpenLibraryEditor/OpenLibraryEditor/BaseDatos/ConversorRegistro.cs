@@ -111,7 +111,6 @@ namespace OpenLibraryEditor.BaseDatos
             libro.Comentario = registro["comentario"].ToString();
             libro.CapituloActual = int.Parse(registro["capituloActual"].ToString());
             libro.EstadoLectura = registro["estadoLectura"].ToString();
-            libro.Ocultar = bool.Parse(registro["ocultar"].ToString());
             libro.Favorito = bool.Parse(registro["favorito"].ToString());
         }
     }

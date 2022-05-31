@@ -3,6 +3,7 @@ using OpenLibraryEditor.Clases;
 using OpenLibraryEditor.DatosLibros;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,7 +127,7 @@ namespace OpenLibraryEditor.BaseDatos
                     fechaPub,
                     fechaAdi,
                     libro.Edicion,
-                    libro.NumeroVolumen,
+                    libro.NumeroVolumen.ToString(CultureInfo.InvariantCulture),
                     libro.Idioma,
                     libro.IdiomaOriginal,
                     libro.Isbn_10,
@@ -193,7 +194,7 @@ namespace OpenLibraryEditor.BaseDatos
                     fechaPub,
                     fechaAdi,
                     libro.Edicion,
-                    libro.NumeroVolumen,
+                    libro.NumeroVolumen.ToString(CultureInfo.InvariantCulture),
                     libro.Idioma,
                     libro.IdiomaOriginal,
                     libro.Isbn_10,
@@ -1008,17 +1009,16 @@ namespace OpenLibraryEditor.BaseDatos
                     string fechaTer = libro.FechaTerminado.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaTerminado.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     INSERT INTO `UsuarioLibro` VALUES ('{0}',{1},{2},{3},'{4}',{5},{6},
-                    @comentario,{7},'{8}',{9},{10});",
+                    @comentario,{7},'{8}',{9});",
                     usuario.Nombre,
                     GetObjetoIdDeLocal(libro.ListaIdCompartido),
-                    libro.Puntuacion,
+                    libro.Puntuacion.ToString(CultureInfo.InvariantCulture),
                     libro.VecesLeido,
                     libro.TiempoLectura,
                     fechaCom,
                     fechaTer,
                     libro.CapituloActual,
                     libro.EstadoLectura,
-                    libro.Ocultar,
                     libro.Favorito), ConexionBD.Conexion);
                     tabla.Parameters.AddWithValue("@comentario", libro.Comentario);
                     tabla.ExecuteNonQuery();
@@ -1052,20 +1052,18 @@ namespace OpenLibraryEditor.BaseDatos
                     comentario = @comentario,
                     capituloActual = {7},
                     estadoLectura = '{8}',
-                    ocultar = {9},
-                    favorito = {10}
+                    favorito = {9}
                     WHERE nombreUsuario = '" + nombreOriginal + "' and " +
                     "idLibro = " + id + ";",
                     usuario.Nombre,
                     GetObjetoIdDeLocal(libro.ListaIdCompartido),
-                    libro.Puntuacion,
+                    libro.Puntuacion.ToString(CultureInfo.InvariantCulture),
                     libro.VecesLeido,
                     libro.TiempoLectura,
                     fechaCom,
                     fechaTer,
                     libro.CapituloActual,
                     libro.EstadoLectura,
-                    libro.Ocultar,
                     libro.Favorito), ConexionBD.Conexion);
                     tabla.Parameters.AddWithValue("@comentario", libro.Comentario);
                     tabla.ExecuteNonQuery();

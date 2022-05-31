@@ -492,10 +492,6 @@ namespace OpenLibraryEditor.Forms
                 LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_Si");
             else
                 LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_No");
-            if (l.Ocultar == true)
-                LblEscribirOculto.Text = ControladorIdioma.GetTexto("Main_Si");
-            else
-                LblEscribirOculto.Text = ControladorIdioma.GetTexto("Main_No");
 
             TxtEscribirComentario.Text = l.Comentario;
            
@@ -738,6 +734,14 @@ namespace OpenLibraryEditor.Forms
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTipo"));
             //KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Favoritos"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGPag"));
+            //-----------------
+            KCmbBuscarPorMBI.Items.Add("Edición");
+            KCmbBuscarPorMBI.Items.Add("Número Volumen");
+            KCmbBuscarPorMBI.Items.Add("Número Capítulos");
+            KCmbBuscarPorMBI.Items.Add("Puntuación");
+            KCmbBuscarPorMBI.Items.Add("Veces Leido");
+            KCmbBuscarPorMBI.Items.Add("Estado de Lectura");
+            KCmbBuscarPorMBI.Items.Add("Capítulo Actual");
             KCmbBuscarPorMBI.SelectedIndex = 0;
 
             
@@ -1207,7 +1211,6 @@ namespace OpenLibraryEditor.Forms
                                 libroActual.CapituloActual = libro.CapituloActual;
                                 libroActual.FechaComienzo = libro.FechaComienzo;
                                 libroActual.FechaTerminado = libro.FechaTerminado;
-                                libroActual.Ocultar = libro.Ocultar;
                                 libroActual.Favorito = libro.Favorito;
                             }
                         }
@@ -1315,10 +1318,25 @@ namespace OpenLibraryEditor.Forms
             switch (KCmbBuscarPorMBI.SelectedIndex)
             {
                 case 7:
-                    //Buscar por número de páginas
-                    PanNumPaginas.Visible = true;
-                    MBtnBuscarMBI.Visible = true;
-                    TxtBusqueda.Visible = false;
+                    MostrarCajaBusqueda(1);
+                    break;
+                case 8:
+                    MostrarCajaBusqueda(1);
+                    break;
+                case 9:
+                    MostrarCajaBusqueda(1);
+                    break;
+                case 10:
+                    MostrarCajaBusqueda(1);
+                    break;
+                case 11:
+                    MostrarCajaBusqueda(1);
+                    break;
+                case 12:
+                    MostrarCajaBusqueda(1);
+                    break;
+                case 14:
+                    MostrarCajaBusqueda(1);
                     break;
                 default:
                     MostrarCajaBusqueda(0);
@@ -1336,6 +1354,12 @@ namespace OpenLibraryEditor.Forms
                     //Busqueda por texto
                     TxtBusqueda.Visible = true;
                     MBtnBuscarMBI.Visible = true;
+                    break;
+                case 1:
+                    //Buscar por número de páginas
+                    PanNumPaginas.Visible = true;
+                    MBtnBuscarMBI.Visible = true;
+                    TxtBusqueda.Visible = false;
                     break;
             }
         }
@@ -1409,12 +1433,55 @@ namespace OpenLibraryEditor.Forms
                     p.NombreTipo.IndexOf(TxtBusqueda.getTextobuscar(), StringComparison.OrdinalIgnoreCase) > -1
                     : false);
             }
-
             else if (KCmbBuscarPorMBI.Items[7] == KCmbBuscarPorMBI.SelectedItem)
             {
                 //Buscar por número de páginas
                 titulos = titulos.FindAll(p => p.NumeroPaginas >= KNudPagMin.Value
                   && p.NumeroPaginas <= KNudPagMax.Value);
+            }
+            else if (KCmbBuscarPorMBI.Items[8] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por edicion
+                titulos = titulos.FindAll(p => p.Edicion >= KNudPagMin.Value
+                  && p.Edicion <= KNudPagMax.Value);
+            }
+            else if (KCmbBuscarPorMBI.Items[9] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por número de volumen
+                titulos = titulos.FindAll(p => p.NumeroVolumen >= (double)KNudPagMin.Value
+                  && p.NumeroVolumen <= (double)KNudPagMax.Value);
+            }
+            else if (KCmbBuscarPorMBI.Items[10] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por número de capítulos
+                titulos = titulos.FindAll(p => p.NumeroCapitulos >= KNudPagMin.Value
+                  && p.NumeroCapitulos <= KNudPagMax.Value);
+            }
+            else if (KCmbBuscarPorMBI.Items[11] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por puntuacion
+                titulos = titulos.FindAll(p => p.Puntuacion >= (double)KNudPagMin.Value
+                  && p.Puntuacion <= (double)KNudPagMax.Value);
+            }
+            else if (KCmbBuscarPorMBI.Items[12] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por veces leído
+                titulos = titulos.FindAll(p => p.VecesLeido >= KNudPagMin.Value
+                  && p.VecesLeido <= KNudPagMax.Value);
+            }
+            else if (KCmbBuscarPorMBI.Items[13] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por estado de lectura
+                titulos = titulos
+                    .FindAll(p => p.EstadoLectura != null ?
+                    p.EstadoLectura.IndexOf(TxtBusqueda.getTextobuscar(), StringComparison.OrdinalIgnoreCase) > -1
+                    : false);
+            }
+            else if (KCmbBuscarPorMBI.Items[14] == KCmbBuscarPorMBI.SelectedItem)
+            {
+                //Buscar por capitulo actual
+                titulos = titulos.FindAll(p => p.CapituloActual >= KNudPagMin.Value
+                  && p.CapituloActual <= KNudPagMax.Value);
             }
             //if (KTxtBuscarMBI.Visible && !String.IsNullOrWhiteSpace(KTxtBuscarMBI.Text))
             //{
@@ -1601,6 +1668,17 @@ namespace OpenLibraryEditor.Forms
         Rectangle SupIzqda { get { return new Rectangle(0, 0, MARGEN, MARGEN); } }
         Rectangle SupDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, 0, MARGEN, MARGEN); } }
         Rectangle InfIzqda { get { return new Rectangle(0, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
+
+        private void KNudPagMin_ValueChanged(object sender, EventArgs e)
+        {
+            KNudPagMax.Minimum = KNudPagMin.Value;
+        }
+
+        private void KNudPagMax_ValueChanged(object sender, EventArgs e)
+        {
+            KNudPagMin.Maximum = KNudPagMax.Value;
+        }
+
         Rectangle InfDcha { get { return new Rectangle(this.ClientSize.Width - MARGEN, this.ClientSize.Height - MARGEN, MARGEN, MARGEN); } }
         protected override void WndProc(ref Message message)
         {
