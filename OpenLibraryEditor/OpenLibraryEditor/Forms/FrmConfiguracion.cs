@@ -366,7 +366,6 @@ namespace OpenLibraryEditor.Forms
             configuracionUsuario.ListaInfoBD.Clear();
             foreach (InfoBaseDatos info in CmbIP.Items)
                 configuracionUsuario.ListaInfoBD.Add(info);
-            configuracionUsuario.BDActual = (InfoBaseDatos)CmbIP.SelectedItem;
 
             //Guardar datos en json
             configuracionUsuario.GuardarJson();

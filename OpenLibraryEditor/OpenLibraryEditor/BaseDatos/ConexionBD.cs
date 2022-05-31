@@ -77,7 +77,7 @@ namespace OpenLibraryEditor.BaseDatos
         {
             //Iniciar sesion ahora con bd
             string connString = "server=" + servidor + ";database=" + NOMBRE_BD +
-                ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + "; Convert Zero Datetime=True;";
+                ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + ";Convert Zero Datetime=True";
             Conexion = new MySqlConnection(connString);
             
             return true;
@@ -176,6 +176,12 @@ namespace OpenLibraryEditor.BaseDatos
         private static void AplicarPermisosUsuario()
         {
             MySqlCommand cmd = new MySqlCommand("FLUSH PRIVILEGES;", Conexion);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void RepararTablesPriv()
+        {
+            MySqlCommand cmd = new MySqlCommand("REPAIR table tables_priv;", Conexion);
             cmd.ExecuteNonQuery();
         }
 

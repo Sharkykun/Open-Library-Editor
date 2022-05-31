@@ -210,6 +210,14 @@ namespace OpenLibraryEditor.Forms
                 }
 
                 var item = LsvEditorialNE.SelectedItems[0];
+
+                //Borrar de los libros que tienen referencia al objeto
+                Biblioteca.biblioteca.ListaLibro.ForEach(p =>
+                {
+                    if (p.ListaEditorial.Contains(editorialActual))
+                        p.ListaEditorial.Remove(editorialActual);
+                });
+
                 listaEditorial.Remove(editorialActual);
                 LsvEditorialNE.Items.Remove(item);
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));

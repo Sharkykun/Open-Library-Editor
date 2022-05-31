@@ -93,8 +93,10 @@ namespace OpenLibraryEditor.Forms
             KTxtIsbn10.Text = libroActual.Isbn_10;
             KTxtSinopsisNL.Text = libroActual.Sinopsis;
             KTxtIsbn13.Text = libroActual.Isbn_13;
-            KMtxtFecPublicacionNL.Text = libroActual.FechaPublicacion.Date.ToShortDateString();
-            KMtxtInclusionbbddNL.Text = libroActual.FechaAdicionBD.Date.ToShortDateString();
+            if(!libroActual.FechaPublicacion.Date.Equals(new DateTime()))
+                KMtxtFecPublicacionNL.Text = libroActual.FechaPublicacion.Date.ToShortDateString();
+            if (!libroActual.FechaAdicionBD.Date.Equals(new DateTime()))
+                KMtxtInclusionbbddNL.Text = libroActual.FechaAdicionBD.Date.ToShortDateString();
             TBtnMayores18NL.Checked = libroActual.MayorEdad;
             KTxtEnlaceNL.Text = libroActual.EnlaceReferencia;
             KCmbIdiomaOriginalNL.SelectedItem = libroActual.IdiomaOriginal;
@@ -104,8 +106,10 @@ namespace OpenLibraryEditor.Forms
             KCmbEstadoLecturaNL.Text = libroActual.EstadoLectura;
             KMtxtTiempoLecturaNL.Text = libroActual.TiempoLectura.ToString(@"hh\:mm\:ss");
             KNudCapiActualNL.Value = libroActual.CapituloActual;
-            KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
-            KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
+            if (!libroActual.FechaComienzo.Date.Equals(new DateTime()))
+                KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
+            if (!libroActual.FechaTerminado.Date.Equals(new DateTime()))
+                KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
             TBtnOcultarNL.Checked = libroActual.Ocultar;
             TBtnFavNL.Checked = libroActual.Favorito;
             KTxtComentarioUsuarioNL.Text = libroActual.Comentario;
@@ -572,12 +576,20 @@ namespace OpenLibraryEditor.Forms
                 //Comprobar la máscara y validar
                 if (KMtxtFecPublicacionNL.MaskCompleted)
                 {
-                    libroActual.FechaPublicacion = DateTime.Parse(KMtxtFecPublicacionNL.Text);
+                    DateTime d = new DateTime();
+                    DateTime.TryParse(KMtxtFecPublicacionNL.Text, out d);
+                    libroActual.FechaPublicacion = d;
                 }
+                else
+                    libroActual.FechaPublicacion = new DateTime();
                 if (KMtxtInclusionbbddNL.MaskCompleted)
                 {
-                    libroActual.FechaAdicionBD = DateTime.Parse(KMtxtInclusionbbddNL.Text);
+                    DateTime d = new DateTime();
+                    DateTime.TryParse(KMtxtInclusionbbddNL.Text, out d);
+                    libroActual.FechaAdicionBD = d;
                 }
+                else
+                    libroActual.FechaAdicionBD = new DateTime();
                 libroActual.MayorEdad = TBtnMayores18NL.Checked;
                 libroActual.EnlaceReferencia = KTxtEnlaceNL.Text;
                 libroActual.ListaAutor.Clear();
@@ -603,14 +615,20 @@ namespace OpenLibraryEditor.Forms
                 libroActual.CapituloActual = (int)KNudCapiActualNL.Value;
                 if (KMtxtFecComienzoNL.MaskCompleted)
                 {
-                    libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
+                    DateTime d = new DateTime();
+                    DateTime.TryParse(KMtxtFecComienzoNL.Text, out d);
+                    libroActual.FechaComienzo = d;
                 }
+                else
+                    libroActual.FechaComienzo = new DateTime();
                 if (KMtxtFecFinalNL.MaskCompleted)
                 {
-                    libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
+                    DateTime d = new DateTime();
+                    DateTime.TryParse(KMtxtFecFinalNL.Text, out d);
+                    libroActual.FechaTerminado = d;
                 }
-                libroActual.FechaComienzo = DateTime.Parse(KMtxtFecComienzoNL.Text);
-                libroActual.FechaTerminado = DateTime.Parse(KMtxtFecFinalNL.Text);
+                else
+                    libroActual.FechaTerminado = new DateTime();
                 libroActual.Ocultar = TBtnOcultarNL.Checked;
                 libroActual.Favorito = TBtnFavNL.Checked;
                 libroActual.Comentario = KTxtComentarioUsuarioNL.Text;

@@ -4,7 +4,6 @@ E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Edit
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmAdministrarUsuarios.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmAutores.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmBuscar.resources
-E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmConfiguracionViejo.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmCrearBD.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarRelacionSerie.resources
 E:\Mis proyectos\Proyecto final Grado OpenLibraryEditor\Codigo\Open-Library-Editor\OpenLibraryEditor\OpenLibraryEditor\obj\Debug\OpenLibraryEditor.Forms.FrmEditarUsuario.resources

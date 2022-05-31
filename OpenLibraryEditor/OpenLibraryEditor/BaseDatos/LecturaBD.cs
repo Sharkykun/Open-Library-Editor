@@ -68,8 +68,8 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Autor> SelectAutoresDesdeListaAutor(int idLibro)
 		{
-			string query = "SELECT * FROM Autor WHERE idAutor = " +
-				"(SELECT idAutor FROM ListaAutor WHERE idLibro = "+ idLibro+")";
+			string query = "SELECT * FROM Autor t WHERE idAutor = " +
+				"(SELECT idAutor FROM ListaAutor WHERE idLibro = "+ idLibro+ " AND idAutor = t.idAutor)";
 			List<Autor> listaAutores = new List<Autor>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
@@ -237,8 +237,8 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Editorial> SelectEditorialesDesdeListaEditorial(int idLibro)
 		{
-			string query = "SELECT * FROM Editorial WHERE idEditorial = " +
-				"(SELECT idEditorial FROM ListaEditorial WHERE idLibro = " + idLibro + ")";
+			string query = "SELECT * FROM Editorial t WHERE idEditorial = " +
+				"(SELECT idEditorial FROM ListaEditorial WHERE idLibro = " + idLibro + " AND idEditorial = t.idEditorial)";
 			List<Editorial> listaEditorial = new List<Editorial>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
@@ -277,8 +277,8 @@ namespace OpenLibraryEditor.BaseDatos
 
 		public static List<Genero> SelectGenerosDesdeListaGenero(int idLibro)
 		{
-			string query = "SELECT * FROM Genero WHERE idGenero = " +
-				"(SELECT idGenero FROM ListaGenero WHERE idLibro = " + idLibro + ")";
+			string query = "SELECT * FROM Genero t WHERE idGenero = " +
+				"(SELECT idGenero FROM ListaGenero WHERE idLibro = " + idLibro + " AND idGenero = t.idGenero)";
 			List<Genero> listaGeneros = new List<Genero>();
 
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
@@ -355,12 +355,12 @@ namespace OpenLibraryEditor.BaseDatos
 			if (libro != null)
 			{
 				//Recuperar listas
-				libro.ListaAutor.AddRange(SelectAutoresDesdeListaAutor(
-							EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
-				libro.ListaEditorial.AddRange(SelectEditorialesDesdeListaEditorial(
-							EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
-				libro.ListaGenero.AddRange(SelectGenerosDesdeListaGenero(
-							EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
+				//libro.ListaAutor.AddRange(SelectAutoresDesdeListaAutor(
+				//			EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
+				//libro.ListaEditorial.AddRange(SelectEditorialesDesdeListaEditorial(
+				//			EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
+				//libro.ListaGenero.AddRange(SelectGenerosDesdeListaGenero(
+				//			EscrituraBD.GetObjetoIdDeLocal(libro.ListaIdCompartido)));
 				if (usuario != null)
 					LecturaBD.SelectUsuarioLibro(usuario.Nombre,libro);
 			}

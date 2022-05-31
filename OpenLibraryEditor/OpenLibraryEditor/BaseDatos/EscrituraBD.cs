@@ -115,18 +115,16 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = SetRandomId("Libro", "idLibro");
                     byte[] img = ControladorImagen.ImagenAByteArray(libro.ImagenPortada);
                     byte[] img2 = ControladorImagen.ImagenAByteArray(libro.ImagenContraportada);
+                    string fechaPub = libro.FechaPublicacion.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaPublicacion.ToString("yyyy-MM-dd") + "'";
+                    string fechaAdi = libro.FechaAdicionBD.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaAdicionBD.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand insertLibro = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Libro` VALUES ('{0}','{1}','{2}','{3}','{4}','{5}',{6},'{7}',
-                    '{8}',{9},{10},'{11}','{12}','{13}',@portada,@contraportada,{14},{15},{16},'{17}');",
+                    INSERT INTO `Libro` VALUES ('{0}','{1}',@titulo,@subtitulo,@titAlt,@sinopsis,{2},{3},
+                    {4},{5},{6},'{7}','{8}','{9}',@portada,@contraportada,{10},{11},{12},@enlace);",
                     id,
                     libro.Isbn_13,
-                    libro.Titulo,
-                    libro.Subtitulo,
-                    libro.TituloAlternativo,
-                    libro.Sinopsis,
                     libro.NumeroPaginas,
-                    libro.FechaPublicacion,
-                    libro.FechaAdicionBD,
+                    fechaPub,
+                    fechaAdi,
                     libro.Edicion,
                     libro.NumeroVolumen,
                     libro.Idioma,
@@ -134,8 +132,12 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.Isbn_10,
                     String.IsNullOrWhiteSpace(libro.NombreTipo) ? "NULL" : "'" + libro.NombreTipo + "'",
                     libro.MayorEdad,
-                    libro.NumeroCapitulos,
-                    libro.EnlaceReferencia), ConexionBD.Conexion);
+                    libro.NumeroCapitulos), ConexionBD.Conexion);
+                    insertLibro.Parameters.AddWithValue("@titulo", libro.Titulo);
+                    insertLibro.Parameters.AddWithValue("@subtitulo", libro.Subtitulo);
+                    insertLibro.Parameters.AddWithValue("@titAlt", libro.TituloAlternativo);
+                    insertLibro.Parameters.AddWithValue("@sinopsis", libro.Sinopsis);
+                    insertLibro.Parameters.AddWithValue("@enlace", libro.EnlaceReferencia);
                     insertLibro.Parameters.Add("@portada", MySqlDbType.MediumBlob, img == null ? 0 : img.Length).Value = img;
                     insertLibro.Parameters.Add("@contraportada", MySqlDbType.MediumBlob, img2 == null ? 0 : img2.Length).Value = img2;
                     insertLibro.ExecuteNonQuery();
@@ -163,35 +165,33 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = GetObjetoIdDeLocal(libro.ListaIdCompartido);
                     byte[] img = ControladorImagen.ImagenAByteArray(libro.ImagenPortada);
                     byte[] img2 = ControladorImagen.ImagenAByteArray(libro.ImagenContraportada);
+                    string fechaPub = libro.FechaPublicacion.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaPublicacion.ToString("yyyy-MM-dd") + "'";
+                    string fechaAdi = libro.FechaAdicionBD.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaAdicionBD.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `Libro` SET isbn13 = '{0}',
-                    titulo = '{1}',
-                    subtitulo = '{2}',
-                    tituloAlternativo = '{3}',
-                    sinopsis = '{4}',
-                    numeroPaginas = {5},
-                    fechaPublicacion = '{6}',
-                    fechaAdicionBD = '{7}',
-                    edicion = {8},
-                    numeroVolumen = {9},
-                    idioma = '{10}',
-                    idiomaOriginal = '{11}',
-                    isbn10 = '{12}',
+                    titulo = @titulo,
+                    subtitulo = @subtitulo,
+                    tituloAlternativo = @titAlt,
+                    sinopsis = @sinopsis,
+                    numeroPaginas = {1},
+                    fechaPublicacion = {2},
+                    fechaAdicionBD = {3},
+                    edicion = {4},
+                    numeroVolumen = {5},
+                    idioma = '{6}',
+                    idiomaOriginal = '{7}',
+                    isbn10 = '{8}',
                     imagenPortada = @portada,
                     imagenContraportada = @contraportada,
-                    nombreTipoLibro = {13},
-                    mayorEdad = {14},
-                    numeroCapitulos = {15},
-                    enlaceReferencia = '{16}'
+                    nombreTipoLibro = {9},
+                    mayorEdad = {10},
+                    numeroCapitulos = {11},
+                    enlaceReferencia = @enlace
                     WHERE idLibro = " + id + ";",
                     libro.Isbn_13,
-                    libro.Titulo,
-                    libro.Subtitulo,
-                    libro.TituloAlternativo,
-                    libro.Sinopsis,
                     libro.NumeroPaginas,
-                    libro.FechaPublicacion,
-                    libro.FechaAdicionBD,
+                    fechaPub,
+                    fechaAdi,
                     libro.Edicion,
                     libro.NumeroVolumen,
                     libro.Idioma,
@@ -199,8 +199,12 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.Isbn_10,
                     String.IsNullOrWhiteSpace(libro.NombreTipo) ? "NULL" : "'" + libro.NombreTipo + "'",
                     libro.MayorEdad,
-                    libro.NumeroCapitulos,
-                    libro.EnlaceReferencia), ConexionBD.Conexion);
+                    libro.NumeroCapitulos), ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@titulo", libro.Titulo);
+                    tabla.Parameters.AddWithValue("@subtitulo", libro.Subtitulo);
+                    tabla.Parameters.AddWithValue("@titAlt", libro.TituloAlternativo);
+                    tabla.Parameters.AddWithValue("@sinopsis", libro.Sinopsis);
+                    tabla.Parameters.AddWithValue("@enlace", libro.EnlaceReferencia);
                     tabla.Parameters.Add("@portada", MySqlDbType.MediumBlob, img == null ? 0 : img.Length).Value = img;
                     tabla.Parameters.Add("@contraportada", MySqlDbType.MediumBlob, img2 == null ? 0 : img2.Length).Value = img2;
                     tabla.ExecuteNonQuery();
@@ -276,17 +280,19 @@ namespace OpenLibraryEditor.BaseDatos
 
                     int id = SetRandomId("Autor", "idAutor");
                     byte[] img = ControladorImagen.ImagenAByteArray(autor.Imagen);
+                    string fechaNac = autor.FechaNacimiento.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaNacimiento.ToString("yyyy-MM-dd") + "'";
+                    string fechaDef = autor.FechaDefuncion.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaDefuncion.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Autor` VALUES ({0},'{1}','{2}',{3},'{4}','{5}','{6}','{7}',@imagen);",
+                    INSERT INTO `Autor` VALUES ({0},@nombre,@alias,{1},{2},{3},@enlace,@comentario,@imagen);",
                     id,
-                    autor.Nombre,
-                    autor.Alias,
                     ocupacion,
-                    autor.FechaNacimiento.ToShortDateString(),
-                    autor.FechaDefuncion.ToShortDateString(),
-                    autor.EnlaceReferencia,
-                    autor.Comentario),
+                    fechaNac,
+                    fechaDef),
                     ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", autor.Nombre);
+                    tabla.Parameters.AddWithValue("@alias", autor.Alias);
+                    tabla.Parameters.AddWithValue("@enlace", autor.EnlaceReferencia);
+                    tabla.Parameters.AddWithValue("@comentario", autor.Comentario);
                     tabla.Parameters.Add("@imagen", MySqlDbType.MediumBlob, img==null ? 0 : img.Length).Value = img;
                     tabla.ExecuteNonQuery();
                     autor.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
@@ -317,24 +323,26 @@ namespace OpenLibraryEditor.BaseDatos
 
                     int id = GetObjetoIdDeLocal(autor.ListaIdCompartido);
                     byte[] img = ControladorImagen.ImagenAByteArray(autor.Imagen);
+                    string fechaNac = autor.FechaNacimiento.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaNacimiento.ToString("yyyy-MM-dd") + "'";
+                    string fechaDef = autor.FechaDefuncion.Equals(new DateTime()) ? "NULL" : "'" + autor.FechaDefuncion.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    UPDATE `Autor` SET nombreAutor = '{0}',
-                    alias = '{1}',
-                    nombreOcupacion = {2},
-                    fechaNacimiento = '{3}',
-                    fechaDefuncion = '{4}',
-                    enlaceReferencia = '{5}',
-                    comentario = '{6}',
+                    UPDATE `Autor` SET nombreAutor = @nombre,
+                    alias = @alias,
+                    nombreOcupacion = {0},
+                    fechaNacimiento = {1},
+                    fechaDefuncion = {2},
+                    enlaceReferencia = @enlace,
+                    comentario = @comentario,
                     imagen = @imagen
                     WHERE idAutor = '" + id + "';",
-                    autor.Nombre,
-                    autor.Alias,
                     String.IsNullOrWhiteSpace(autor.NombreOcupacion) ? "NULL" : "'" + autor.NombreOcupacion + "'",
-                    autor.FechaNacimiento.ToShortDateString(),
-                    autor.FechaDefuncion.ToShortDateString(),
-                    autor.EnlaceReferencia,
-                    autor.Comentario),
+                    fechaNac,
+                    fechaDef),
                     ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", autor.Nombre);
+                    tabla.Parameters.AddWithValue("@alias", autor.Alias);
+                    tabla.Parameters.AddWithValue("@enlace", autor.EnlaceReferencia);
+                    tabla.Parameters.AddWithValue("@comentario", autor.Comentario);
                     tabla.Parameters.Add("@imagen", MySqlDbType.MediumBlob, img == null ? 0 : img.Length).Value = img;
                     tabla.ExecuteNonQuery();
                 }
@@ -391,14 +399,6 @@ namespace OpenLibraryEditor.BaseDatos
                 ConexionBD.Conexion);
         }
 
-        private static void InsertGeneroPadre(Genero genero)
-        {
-            //Meter al género padre primero si no está
-            if (genero != null && LecturaBD.SelectGenero(
-                GetObjetoIdDeLocal(genero.ListaIdCompartido)) == null)
-                InsertGenero(genero);
-        }
-
         public static void InsertGenero(Genero genero)
         {
             try
@@ -410,10 +410,10 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = SetRandomId("Genero", "idGenero");
                     
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Genero` VALUES ({0},'{1}','{2}');",
-                    id,
-                    genero.Nombre,
-                    genero.Comentario), ConexionBD.Conexion);
+                    INSERT INTO `Genero` VALUES ({0},@nombre,@comentario);",
+                    id), ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", genero.Nombre);
+                    tabla.Parameters.AddWithValue("@comentario", genero.Comentario);
                     tabla.ExecuteNonQuery();
                     genero.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
                 }
@@ -436,12 +436,12 @@ namespace OpenLibraryEditor.BaseDatos
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
                     int id = GetObjetoIdDeLocal(genero.ListaIdCompartido);
-                    MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    UPDATE `Genero` SET nombreGenero = '{0}',
-                    comentario = '{1}'
-                    WHERE idGenero = " + id + ";",
-                    genero.Nombre,
-                    genero.Comentario), ConexionBD.Conexion);
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    UPDATE `Genero` SET nombreGenero = @nombre,
+                    comentario = @comentario
+                    WHERE idGenero = " + id + ";", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", genero.Nombre);
+                    tabla.Parameters.AddWithValue("@comentario", genero.Comentario);
                     tabla.ExecuteNonQuery();
                 }
                 else
@@ -465,14 +465,7 @@ namespace OpenLibraryEditor.BaseDatos
                 {
                     int id = GetObjetoIdDeLocal(genero.ListaIdCompartido);
 
-                    //Quitar referencia de genero a borrar en los hijos
                     MySqlCommand tabla = new MySqlCommand(@"
-                    UPDATE `Genero` SET generoPadre = NULL
-                    WHERE generoPadre = " + id + ";",
-                    ConexionBD.Conexion);
-                    tabla.ExecuteNonQuery();
-
-                    tabla = new MySqlCommand(@"
                     DELETE FROM `Genero` WHERE idGenero = " +
                     id,
                     ConexionBD.Conexion);
@@ -512,12 +505,14 @@ namespace OpenLibraryEditor.BaseDatos
                     int id = SetRandomId("Editorial", "idEditorial");
                     byte[] img = ControladorImagen.ImagenAByteArray(editorial.Imagen);
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `Editorial` VALUES ({0},'{1}','{2}',@imagen);",
+                    INSERT INTO `Editorial` VALUES ({0},@nombre,@comentario,@imagen);",
                     id,
                     editorial.Nombre,
                     editorial.Comentario),
                     ConexionBD.Conexion);
                     tabla.Parameters.Add("@imagen", MySqlDbType.MediumBlob, img == null ? 0 : img.Length).Value = img;
+                    tabla.Parameters.AddWithValue("@nombre", editorial.Nombre);
+                    tabla.Parameters.AddWithValue("@comentario", editorial.Comentario);
                     tabla.ExecuteNonQuery();
                     editorial.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD()+"-"+id.ToString());
                 }
@@ -540,14 +535,14 @@ namespace OpenLibraryEditor.BaseDatos
                 {
                     int id = GetObjetoIdDeLocal(editorial.ListaIdCompartido);
                     byte[] img = ControladorImagen.ImagenAByteArray(editorial.Imagen);
-                    MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    UPDATE `Editorial` SET nombreEditorial = '{0}',
-                    comentario = '{1}',
+                    MySqlCommand tabla = new MySqlCommand(@"
+                    UPDATE `Editorial` SET nombreEditorial = @nombre,
+                    comentario = @comentario,
                     imagen = @imagen
                     WHERE idEditorial = " + id + ";",
-                    editorial.Nombre,
-                    editorial.Comentario),
                     ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", editorial.Nombre);
+                    tabla.Parameters.AddWithValue("@comentario", editorial.Comentario);
                     tabla.Parameters.Add("@imagen", MySqlDbType.MediumBlob, img == null ? 0 : img.Length).Value = img;
                     tabla.ExecuteNonQuery();
                 }
@@ -609,7 +604,8 @@ namespace OpenLibraryEditor.BaseDatos
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
                     MySqlCommand tabla = new MySqlCommand(@"
-                    INSERT INTO `Ocupacion` VALUES ('" + ocupacion + "');", ConexionBD.Conexion);
+                    INSERT INTO `Ocupacion` VALUES (@nombre);", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", ocupacion);
                     tabla.ExecuteNonQuery();
                 }
                 else
@@ -636,11 +632,15 @@ namespace OpenLibraryEditor.BaseDatos
                     ComprobarFK(false);
                     //Cambiar la referencia en todos los autores
                     MySqlCommand tabla = new MySqlCommand(@"
-                    UPDATE `Autor` SET nombreOcupacion = '" + ocupacionNueva + "'  WHERE nombreOcupacion='" + ocupacionOriginal + "' ", ConexionBD.Conexion);
+                    UPDATE `Autor` SET nombreOcupacion = @nombreNue  WHERE nombreOcupacion=@nombreAnt ", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombreAnt", ocupacionOriginal);
+                    tabla.Parameters.AddWithValue("@nombreNue", ocupacionNueva);
                     tabla.ExecuteNonQuery();
 
                     tabla = new MySqlCommand(@"
-                    UPDATE `Ocupacion` SET nombreOcupacion = '" + ocupacionNueva + "' WHERE nombreOcupacion = '" + ocupacionOriginal + "';", ConexionBD.Conexion);
+                    UPDATE `Ocupacion` SET nombreOcupacion = @nombreNue WHERE nombreOcupacion = @nombreAnt;", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombreAnt", ocupacionOriginal);
+                    tabla.Parameters.AddWithValue("@nombreNue", ocupacionNueva);
                     tabla.ExecuteNonQuery();
                     ComprobarFK(true);
                 }
@@ -701,7 +701,8 @@ namespace OpenLibraryEditor.BaseDatos
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
                     MySqlCommand tabla = new MySqlCommand(@"
-                    INSERT INTO `TipoLibro` VALUES ('" + tipoLibro + "');", ConexionBD.Conexion);
+                    INSERT INTO `TipoLibro` VALUES (@nombre);", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombre", tipoLibro);
                     tabla.ExecuteNonQuery();
                 }
                 else
@@ -728,11 +729,15 @@ namespace OpenLibraryEditor.BaseDatos
                     ComprobarFK(false);
                     //Cambiar la referencia en todos los libros
                     MySqlCommand tabla = new MySqlCommand(@"
-                    UPDATE `Libro` SET nombreTipoLibro = '" + tipoLibroNuevo + "'  WHERE nombreTipoLibro='" + tipoLibroOriginal + "' ", ConexionBD.Conexion);
+                    UPDATE `Libro` SET nombreTipoLibro = @nombreNue  WHERE nombreTipoLibro=@nombreAnt ", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombreAnt", tipoLibroOriginal);
+                    tabla.Parameters.AddWithValue("@nombreNue", tipoLibroNuevo);
                     tabla.ExecuteNonQuery();
 
                     tabla = new MySqlCommand(@"
-                    UPDATE `TipoLibro` SET nombreTipoLibro = '" + tipoLibroNuevo + "' WHERE nombreTipoLibro = '" + tipoLibroOriginal + "';", ConexionBD.Conexion);
+                    UPDATE `TipoLibro` SET nombreTipoLibro = @nombreNue WHERE nombreTipoLibro = @nombreAnt;", ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@nombreAnt", tipoLibroOriginal);
+                    tabla.Parameters.AddWithValue("@nombreNue", tipoLibroNuevo);
                     tabla.ExecuteNonQuery();
                     ComprobarFK(true);
                 }
@@ -999,21 +1004,23 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) == 0)
                 {
+                    string fechaCom = libro.FechaComienzo.Equals(new DateTime()) ? "NULL" : "'"+libro.FechaComienzo.ToString("yyyy-MM-dd") + "'";
+                    string fechaTer = libro.FechaTerminado.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaTerminado.ToString("yyyy-MM-dd") + "'";
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
-                    INSERT INTO `UsuarioLibro` VALUES ('{0}',{1},{2},{3},'{4}','{5}','{6}',
-                    '{7}',{8},'{9}',{10},{11});",
+                    INSERT INTO `UsuarioLibro` VALUES ('{0}',{1},{2},{3},'{4}',{5},{6},
+                    @comentario,{7},'{8}',{9},{10});",
                     usuario.Nombre,
                     GetObjetoIdDeLocal(libro.ListaIdCompartido),
                     libro.Puntuacion,
                     libro.VecesLeido,
                     libro.TiempoLectura,
-                    libro.FechaComienzo,
-                    libro.FechaTerminado,
-                    libro.Comentario,
+                    fechaCom,
+                    fechaTer,
                     libro.CapituloActual,
                     libro.EstadoLectura,
                     libro.Ocultar,
                     libro.Favorito), ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@comentario", libro.Comentario);
                     tabla.ExecuteNonQuery();
                 }
             }
@@ -1031,6 +1038,8 @@ namespace OpenLibraryEditor.BaseDatos
 
                 if (int.Parse(comprobacion.ExecuteScalar().ToString()) > 0)
                 {
+                    string fechaCom = libro.FechaComienzo.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaComienzo.ToString("yyyy-MM-dd") + "'";
+                    string fechaTer = libro.FechaTerminado.Equals(new DateTime()) ? "NULL" : "'" + libro.FechaTerminado.ToString("yyyy-MM-dd") + "'";
                     int id = GetObjetoIdDeLocal(libro.ListaIdCompartido);
                     MySqlCommand tabla = new MySqlCommand(String.Format(@"
                     UPDATE `UsuarioLibro` SET nombreUsuario = '{0}',
@@ -1038,13 +1047,13 @@ namespace OpenLibraryEditor.BaseDatos
                     puntuacion = {2},
                     vecesLeido = {3},
                     tiempoLectura = '{4}',
-                    fechaComienzo = '{5}',
-                    fechaTerminado = '{6}',
-                    comentario = '{7}',
-                    capituloActual = {8},
-                    estadoLectura = '{9}',
-                    ocultar = {10},
-                    favorito = {11}
+                    fechaComienzo = {5},
+                    fechaTerminado = {6},
+                    comentario = @comentario,
+                    capituloActual = {7},
+                    estadoLectura = '{8}',
+                    ocultar = {9},
+                    favorito = {10}
                     WHERE nombreUsuario = '" + nombreOriginal + "' and " +
                     "idLibro = " + id + ";",
                     usuario.Nombre,
@@ -1052,13 +1061,13 @@ namespace OpenLibraryEditor.BaseDatos
                     libro.Puntuacion,
                     libro.VecesLeido,
                     libro.TiempoLectura,
-                    libro.FechaComienzo,
-                    libro.FechaTerminado,
-                    libro.Comentario,
+                    fechaCom,
+                    fechaTer,
                     libro.CapituloActual,
                     libro.EstadoLectura,
                     libro.Ocultar,
                     libro.Favorito), ConexionBD.Conexion);
+                    tabla.Parameters.AddWithValue("@comentario", libro.Comentario);
                     tabla.ExecuteNonQuery();
                 }
                 else
