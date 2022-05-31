@@ -404,8 +404,8 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasTipoLibroNL_Click(object sender, EventArgs e)
         {
             FrmInputTxt input = new FrmInputTxt(null);
-            if (KCmbTipoNL.SelectedItem != null) { 
-                input = new FrmInputTxt(KCmbTipoNL.SelectedItem.ToString());
+            if (listaTipoLibro.Contains(KCmbTipoNL.Text)) { 
+                input = new FrmInputTxt(KCmbTipoNL.Text);
             }
             input.FormBorderStyle = FormBorderStyle.None;
             input.Text = "Tipo libro";
@@ -564,7 +564,10 @@ namespace OpenLibraryEditor.Forms
                     libroActual.ListaEditorial.Add((Editorial)(c as CCBoxItem).Item);
                 libroActual.Edicion = (int)KNudEdicionNL.Value;
                 libroActual.NumeroVolumen = (double)KNudVolumenNL.Value;
-                libroActual.NombreTipo = KCmbTipoNL.Text;
+                if (listaTipoLibro.Contains(KCmbTipoNL.Text))
+                    libroActual.NombreTipo = KCmbTipoNL.Text;
+                else
+                    libroActual.NombreTipo = "";
                 libroActual.Sinopsis = KTxtSinopsisNL.Text;
                 libroActual.NumeroCapitulos = (int)KNudNumCapNL.Value;
                 libroActual.NumeroPaginas = (int)KNudNumPagNL.Value;

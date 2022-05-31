@@ -57,7 +57,7 @@ namespace OpenLibraryEditor.Forms
             this.setNew = setNew;
             this.autorActual = autorActual;
             this.puedeEditar = puedeEditar;
-            EditarAutorDesdeMain();
+            
         }
         private void FrmAutores_Load(object sender, EventArgs e)
         {
@@ -90,8 +90,9 @@ namespace OpenLibraryEditor.Forms
             PanOpcionesNA.Visible = true;
             KTxtNombreAu.Text = autorActual.Nombre;
             KTxtComentarioAu.Text = autorActual.Comentario;
-            KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion == "" ?
-                null : autorActual.NombreOcupacion;
+            KCmbOcupacionNA.SelectedItem = String.IsNullOrWhiteSpace(autorActual.NombreOcupacion)
+                    ?
+                    null : autorActual.NombreOcupacion;
             KtxtAliasAu.Text = autorActual.Alias;
             KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
             rutaImagen = autorActual.Imagen;
@@ -157,6 +158,11 @@ namespace OpenLibraryEditor.Forms
 
         private bool EsObjetoCambiado()
         {
+            string a = KMtxtFecMuerteNA.MaskCompleted ? DateTime.Parse(KMtxtFecMuerteNA.Text).Date.ToShortDateString()
+                : new DateTime().Date.ToShortDateString();
+            string b = KMtxtFecNacimientoNA.MaskCompleted ? DateTime.Parse(KMtxtFecNacimientoNA.Text).Date.ToShortDateString()
+                : new DateTime().Date.ToShortDateString();
+
             //Comprobar si el objeto actual tiene algo cambiado
             if (KTxtNombreAu.Text == autorActual.Nombre &&
                 KTxtComentarioAu.Text == autorActual.Comentario &&
@@ -164,8 +170,8 @@ namespace OpenLibraryEditor.Forms
                 KTxtEnlaceAu.Text == autorActual.EnlaceReferencia &&
                 rutaImagen == autorActual.Imagen &&
                 KCmbOcupacionNA.Text == autorActual.NombreOcupacion &&
-                KMtxtFecMuerteNA.Text == autorActual.FechaDefuncion.Date.ToShortDateString() &&
-                KMtxtFecNacimientoNA.Text == autorActual.FechaNacimiento.Date.ToShortDateString())
+                a == autorActual.FechaDefuncion.Date.ToShortDateString() &&
+                b == autorActual.FechaNacimiento.Date.ToShortDateString())
                 return false;
             else
                 return true;
@@ -219,16 +225,29 @@ namespace OpenLibraryEditor.Forms
                 autorActual = (Autor)itemActual.Tag;
                 KTxtNombreAu.Text = autorActual.Nombre;
                 KTxtComentarioAu.Text = autorActual.Comentario;
-                KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion == "" ?
-                    null : autorActual.NombreOcupacion;
+                if (String.IsNullOrWhiteSpace(autorActual.NombreOcupacion))
+                    KCmbOcupacionNA.Text = "";
+                else
+                    KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion;
                 KtxtAliasAu.Text = autorActual.Alias;
                 KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
                 rutaImagen = autorActual.Imagen;
                 CargarImagen(rutaImagen);
                 if (!autorActual.FechaDefuncion.Date.Equals(new DateTime()))
+                {
                     KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
+                    TBtnVivo.Checked = true;
+                }
+                else
+                {
+                    TBtnVivo.Checked = false;
+                    KMtxtFecMuerteNA.Text = "";
+                }
+                TBtnVivo_CheckedChanged(null, null);
                 if (!autorActual.FechaNacimiento.Date.Equals(new DateTime()))
                     KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
+                else
+                    KMtxtFecNacimientoNA.Text = "";
             }
             else
             {
@@ -282,9 +301,9 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasOcupacionNA_Click(object sender, EventArgs e)
         {
             FrmInputTxt input = new FrmInputTxt(null);
-            if (KCmbOcupacionNA.SelectedItem != null)
+            if (listaOcupacion.Contains(KCmbOcupacionNA.Text))
             {
-                input = new FrmInputTxt(KCmbOcupacionNA.SelectedItem.ToString());
+                input = new FrmInputTxt(KCmbOcupacionNA.Text);
             }
             input.FormBorderStyle = FormBorderStyle.None;
             input.Text = "Ocupación";
@@ -358,11 +377,14 @@ namespace OpenLibraryEditor.Forms
                 {
                     //Actualizar persona
                     autorActual.Nombre = KTxtNombreAu.Text;
-                    autorActual.NombreOcupacion = KCmbOcupacionNA.Text;
+                    if (listaOcupacion.Contains(KCmbOcupacionNA.Text))
+                        autorActual.NombreOcupacion = KCmbOcupacionNA.Text;
+                    else
+                        autorActual.NombreOcupacion = "";
                     autorActual.Comentario = KTxtComentarioAu.Text;
                     autorActual.Alias = KtxtAliasAu.Text;
                     autorActual.EnlaceReferencia = KTxtEnlaceAu.Text;
-                    if (KMtxtFecMuerteNA.MaskCompleted)
+                    if (KMtxtFecMuerteNA.MaskCompleted && TBtnVivo.Checked)
                     {
                         DateTime d = new DateTime();
                         DateTime.TryParse(KMtxtFecMuerteNA.Text, out d);
@@ -488,5 +510,11 @@ namespace OpenLibraryEditor.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
+        private void TBtnVivo_CheckedChanged(object sender, EventArgs e)
+        {
+            KMtxtFecMuerteNA.Enabled = TBtnVivo.Checked;
+
+        }
     }
 }

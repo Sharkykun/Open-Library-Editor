@@ -1237,14 +1237,14 @@ namespace OpenLibraryEditor.Forms
             
             if (PuedeEditar)
             {
-                FrmAutores autores = new FrmAutores(true, true);
+                FrmAutores autores = new FrmAutores(false, true);
                 autores.FormBorderStyle = FormBorderStyle.None;
                 autores.ShowDialog();
                 MBtnAutores_Click(MBtnAutores, null);
             }
             else
             {
-                FrmAutores autores = new FrmAutores(true);
+                FrmAutores autores = new FrmAutores(false);
                 autores.FormBorderStyle = FormBorderStyle.None;
                 autores.ShowDialog();
                 MBtnAutores_Click(MBtnAutores, null);
@@ -1257,14 +1257,14 @@ namespace OpenLibraryEditor.Forms
             ResetColores();
             if (PuedeEditar)
             {
-                FrmGeneros generos = new FrmGeneros(true,true);
+                FrmGeneros generos = new FrmGeneros(false, true);
                 generos.FormBorderStyle = FormBorderStyle.None;
                 generos.ShowDialog();
                 MBtnGeneros_Click(MBtnGeneros, null);
             }
             else
             {
-                FrmGeneros generos = new FrmGeneros(true);
+                FrmGeneros generos = new FrmGeneros(false);
                 generos.FormBorderStyle = FormBorderStyle.None;
                 generos.ShowDialog();
                 MBtnGeneros_Click(MBtnGeneros, null);
@@ -1286,14 +1286,14 @@ namespace OpenLibraryEditor.Forms
             ResetColores();
             if (PuedeEditar)
             {
-                FrmEditoriales editoriales = new FrmEditoriales(true, true);
+                FrmEditoriales editoriales = new FrmEditoriales(false, true);
                 editoriales.FormBorderStyle = FormBorderStyle.None;
                 editoriales.ShowDialog();
                 MBtnEditoriales_Click(MBtnEditoriales, null);
             }
             else
             {
-                FrmEditoriales editoriales = new FrmEditoriales(true);
+                FrmEditoriales editoriales = new FrmEditoriales(false);
                 editoriales.FormBorderStyle = FormBorderStyle.None;
                 editoriales.ShowDialog();
                 MBtnEditoriales_Click(MBtnEditoriales, null);
