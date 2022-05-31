@@ -53,7 +53,6 @@
             this.MBtnMiBiblioteca = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanFotoUsuario = new System.Windows.Forms.Panel();
             this.MBtnCambiarFotoPerfil = new FontAwesome.Sharp.Material.MaterialButton();
-            this.materialButton1 = new FontAwesome.Sharp.Material.MaterialButton();
             this.lblNombreUsuConectado = new System.Windows.Forms.Label();
             this.LblBienvenido = new System.Windows.Forms.Label();
             this.AciFotoUsuario = new AfriCircleImage.AfriCircleImage();
@@ -321,6 +320,7 @@
             this.LblTituloMain.Size = new System.Drawing.Size(171, 23);
             this.LblTituloMain.TabIndex = 5;
             this.LblTituloMain.Text = "Open Library Editor ";
+            this.LblTituloMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // PcbLogoMain
             // 
@@ -332,6 +332,7 @@
             this.PcbLogoMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoMain.TabIndex = 4;
             this.PcbLogoMain.TabStop = false;
+            this.PcbLogoMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // PanMenuMain
             // 
@@ -650,7 +651,6 @@
             // 
             this.PanFotoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.PanFotoUsuario.Controls.Add(this.MBtnCambiarFotoPerfil);
-            this.PanFotoUsuario.Controls.Add(this.materialButton1);
             this.PanFotoUsuario.Controls.Add(this.lblNombreUsuConectado);
             this.PanFotoUsuario.Controls.Add(this.LblBienvenido);
             this.PanFotoUsuario.Controls.Add(this.AciFotoUsuario);
@@ -677,23 +677,6 @@
             this.MBtnCambiarFotoPerfil.UseVisualStyleBackColor = true;
             this.MBtnCambiarFotoPerfil.Visible = false;
             this.MBtnCambiarFotoPerfil.Click += new System.EventHandler(this.MBtnCambiarFotoPerfil_Click);
-            // 
-            // materialButton1
-            // 
-            this.materialButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialButton1.FlatAppearance.BorderSize = 0;
-            this.materialButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.materialButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.materialButton1.IconChar = FontAwesome.Sharp.MaterialIcons.ImagePlus;
-            this.materialButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.materialButton1.IconSize = 40;
-            this.materialButton1.Location = new System.Drawing.Point(192, 31);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(15, 3, 20, 3);
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(34, 34);
-            this.materialButton1.TabIndex = 133;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Visible = false;
             // 
             // lblNombreUsuConectado
             // 
@@ -1890,8 +1873,9 @@
             this.MBtncerrarDetallesLibro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.MBtncerrarDetallesLibro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             this.MBtncerrarDetallesLibro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MBtncerrarDetallesLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.MBtncerrarDetallesLibro.IconChar = FontAwesome.Sharp.MaterialIcons.CloseThick;
-            this.MBtncerrarDetallesLibro.IconColor = System.Drawing.Color.Gainsboro;
+            this.MBtncerrarDetallesLibro.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.MBtncerrarDetallesLibro.IconSize = 30;
             this.MBtncerrarDetallesLibro.Location = new System.Drawing.Point(224, 5);
             this.MBtncerrarDetallesLibro.Name = "MBtncerrarDetallesLibro";
@@ -1907,7 +1891,7 @@
             this.TxtAutores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtAutores.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.TxtAutores.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAutores.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtAutores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.TxtAutores.Location = new System.Drawing.Point(21, 164);
             this.TxtAutores.Multiline = true;
             this.TxtAutores.Name = "TxtAutores";
@@ -1922,7 +1906,7 @@
             this.TxtTituloLibro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtTituloLibro.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.TxtTituloLibro.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTituloLibro.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTituloLibro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.TxtTituloLibro.Location = new System.Drawing.Point(125, 32);
             this.TxtTituloLibro.Multiline = true;
             this.TxtTituloLibro.Name = "TxtTituloLibro";
@@ -2490,6 +2474,5 @@
         private System.Windows.Forms.Label LblNumeroLsv;
         private System.Windows.Forms.Panel panel7;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCambiarFotoPerfil;
-        private FontAwesome.Sharp.Material.MaterialButton materialButton1;
     }
 }

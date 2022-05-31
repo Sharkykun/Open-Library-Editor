@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.Forms
        //enlace del codigo: https://rjcodeadvance.com/cuadro-de-mensaje-personalizado-c-winforms/
 
         //Fields
-        private Color primaryColor = Color.Gainsboro;
+        private Color primaryColor = Color.FromArgb(243, 249, 255);
         private int borderSize = 2;
         //Properties
         public Color PrimaryColor

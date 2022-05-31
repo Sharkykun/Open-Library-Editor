@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrearBD));
             this.PanBtn = new System.Windows.Forms.Panel();
             this.GBtnCrear = new Guna.UI.WinForms.GunaButton();
@@ -58,6 +59,7 @@
             this.IpcbMostrarContraUsu = new FontAwesome.Sharp.IconPictureBox();
             this.IpcbOcultarContraUsu = new FontAwesome.Sharp.IconPictureBox();
             this.KTxtContraApp = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TTCrearBD = new System.Windows.Forms.ToolTip(this.components);
             this.PanBtn.SuspendLayout();
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
@@ -188,7 +190,7 @@
             this.MBtnCerrarAutores.Name = "MBtnCerrarAutores";
             this.MBtnCerrarAutores.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarAutores.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarAutores.TabIndex = 28;
+            this.MBtnCerrarAutores.TabIndex = 0;
             this.MBtnCerrarAutores.UseVisualStyleBackColor = false;
             this.MBtnCerrarAutores.Click += new System.EventHandler(this.MBtnCerrarAutores_Click);
             // 
@@ -644,5 +646,6 @@
         private FontAwesome.Sharp.IconPictureBox IpcbOcultarContraSer;
         private FontAwesome.Sharp.IconPictureBox IpcbOcultarContraUsu;
         private FontAwesome.Sharp.IconPictureBox IpcbMostrarContraUsu;
+        private System.Windows.Forms.ToolTip TTCrearBD;
     }
 }

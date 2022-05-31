@@ -20,6 +20,7 @@ namespace OpenLibraryEditor.Forms
     public partial class FrmConfiguracion : Form
     {
         private UsuarioDatos configuracionUsuario = UsuarioDatos.configuracionUsuario;
+        InfoUsuarioBD usuario = new InfoUsuarioBD();
         private List<string> idiomas;
         private string ipAnterior = "0.0.0.0";
 
@@ -57,22 +58,14 @@ namespace OpenLibraryEditor.Forms
             gunaHScrollBar1.Maximum = 250;
             gunaHScrollBar1.Minimum = -60;
             gunaHScrollBar1.Value = 0;
-
-            if (usuRegistrado)
-            {
-                PanDatosUsu.Visible = true;
-                TxtMailActual.Text = UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo;
-            }
-            else
-            {
-                KgbDatosUsu.Visible = false;
-            }
+          
         }
 
         #region metodos propios
         private void IdiomaTexto()
         {
             LblTituloConfi.Text = ControladorIdioma.GetTexto("Con_Titulo");
+            this.Text= ControladorIdioma.GetTexto("Con_Titulo");
             KgbDatosUsu.Values.Heading = ControladorIdioma.GetTexto("Con_DatosUsu");
             LblMailActual.Text = ControladorIdioma.GetTexto("Con_MailActual");
             TTConfi.SetToolTip(this.TxtMailActual, ControladorIdioma.GetTexto("Con_TTMailA"));
@@ -86,6 +79,10 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.GBtnActualizarMail, ControladorIdioma.GetTexto("Con_TTActualizar"));
             GBtnModificarPass.Text = ControladorIdioma.GetTexto("Modificar");
             TTConfi.SetToolTip(this.GBtnModificarPass, ControladorIdioma.GetTexto("Con_TTModificar"));
+            TTConfi.SetToolTip(this.IpcbMostrarContra, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTConfi.SetToolTip(this.IpcbMostrarContra1, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
+            TTConfi.SetToolTip(this.IpcbOcultarContra, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+            TTConfi.SetToolTip(this.IpcbOcultarContra1, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
 
             KgbGeneral.Values.Heading = ControladorIdioma.GetTexto("Con_General");
             //LblUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GCargar");
@@ -161,6 +158,39 @@ namespace OpenLibraryEditor.Forms
             CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEjecutar"));
             CmbDobleClick.Items.Add(ControladorIdioma.GetTexto("Con_CmbDobleEditar"));
 
+            if (usuRegistrado) {
+                PanDatosUsu.Visible = true;
+                TxtMailActual.Text = UsuarioActual();
+                if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
+                {
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Adm");
+                }
+                else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario"))
+                {
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Usu");
+                }
+                else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
+                {
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
+                }
+            }
+            else
+            {
+                KgbDatosUsu.Visible = false;
+                PanDatosUsu.Visible = true;
+                LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("ModoSinConexion");
+            }
+
+        }
+        private string UsuarioActual()
+        {
+            if (ConexionBD.AbrirConexion())
+            {
+                usuario = LecturaBD.SelectUsuario(UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre);
+                ConexionBD.CerrarConexion();
+            }
+           
+            return usuario.Correo;
         }
         private void gunaHScrollBar1_ValueChanged(object sender, EventArgs e)
         {
@@ -410,25 +440,105 @@ namespace OpenLibraryEditor.Forms
         #endregion
         private void GBtnActualizarMail_Click(object sender, EventArgs e)
         {
-            //UpdateUsuario(string nombreOriginal, InfoUsuarioBD usuario, string contrasenia)
             try
             {
                 if (MetodosComunes.EsEmailValido(TxtMailNuevo.Text))
                 {
-                    EscrituraBD.UpdateMailUsuario(TxtMailNuevo.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                    VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailCambiadoOk"));
+                    if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
+                    {
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            if (LecturaBD.SelectUsuarioCorreo(TxtMailNuevo.Text) == 0)
+                            {
+                                EscrituraBD.UpdateMailUsuario(TxtMailNuevo.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                ConexionBD.CerrarConexion();
+                                TxtMailActual.Text = UsuarioActual();
+                                TxtMailNuevo.Text = "";
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailCambiadoOk"));
+                                
+                            }
+                            else
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));
+                        }
+                    }
+                    else
+                    {
+                        ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorIP,
+                        "ole_register", "ole123Ole", UsuarioDatos.configuracionUsuario.BDActual.Puerto.ToString());
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            if (LecturaBD.SelectUsuarioCorreo(TxtMailNuevo.Text) == 0)
+                            {
+                                EscrituraBD.UpdateMailUsuario(TxtMailNuevo.Text, UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                ConexionBD.CerrarConexion();
+                                TxtMailActual.Text = "";
+                                TxtMailActual.Text = UsuarioActual();
+                                TxtMailNuevo.Text = "";
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailCambiadoOk"));
+                            }
+                            else
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));
+                        }
+                    }
                 }
-                
+                else
+                {
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));
+                }
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            //UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo = TxtMailNuevo.Text;
         }
 
         private void GBtnModificarPass_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(KTxtContraNueva.Text) && !String.IsNullOrWhiteSpace(KTxtRepetirContra.Text))
+                {
+                    if (KTxtContraNueva.Text == KTxtRepetirContra.Text)
+                    {
+                        if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Administrador"))
+                        {
+                            if (ConexionBD.AbrirConexion())
+                            {
+                                EscrituraBD.UpdatePasswordUsuario(KTxtContraNueva.Text, usuario);
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailActualizarContra"));
+                                KTxtContraNueva.Text = "";
+                                KTxtRepetirContra.Text = "";
+                                ConexionBD.CerrarConexion();
+                            }
+                        }
+                        else
+                        {
+                            ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorIP,
+                            "ole_register", "ole123Ole", UsuarioDatos.configuracionUsuario.BDActual.Puerto.ToString());
+                            if (ConexionBD.AbrirConexion())
+                            {
+                                EscrituraBD.UpdatePasswordUsuario(KTxtContraNueva.Text, usuario);
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailActualizarContra"));
+                                KTxtContraNueva.Text = "";
+                                KTxtRepetirContra.Text = "";
+                                ConexionBD.CerrarConexion();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Reg_ContraNoCoincide"));
+                    }
+                }
+                else
+                {
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Log_Error4"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
         #endregion

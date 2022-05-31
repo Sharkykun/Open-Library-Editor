@@ -37,6 +37,15 @@ namespace OpenLibraryEditor.Controles
         {
             return LblTituloLibro.Text;
         }
+        public int getTamanioLblTitulo()
+        {
+            return LblTituloLibro.Width;
+        }
+        public void setTamanioMaximoTitulo(int x, int y, bool si)
+        {
+            LblTituloLibro.MaximumSize = new Size(x,y);
+            LblTituloLibro.AutoSize = si;
+        }
         public void setAutores(string personas)
         {
             listaPersonas.Add(personas);
@@ -46,10 +55,23 @@ namespace OpenLibraryEditor.Controles
                 quitarComa += listaPersonas[i] + ", ";
             }
             LblAutores.Text = quitarComa.Substring(0, (quitarComa.LastIndexOf(", ")));
+            if(LblAutores.Text.Length > 57)
+            {
+                LblAutores.Text = LblAutores.Text.Substring(0,57)+"...";
+            }
         }
         public string getAutores()
         {
             return LblAutores.Text;
+        }
+        public int getTamanioLblAutores()
+        {
+            return LblAutores.Width;
+        }
+        public void setTamanioMaximoAutores(int x, int y, bool si)
+        {
+            LblAutores.MaximumSize = new Size(x, y);
+            LblAutores.AutoSize = si;
         }
         public void setEditoriales(string editoriales)
         { 
@@ -59,14 +81,16 @@ namespace OpenLibraryEditor.Controles
         {
             return LblEscribirEditorial.Text;
         }
-        public void setSeries(string series)
+        public int getTamanioLblEditoriales()
         {
-            LblEscribirSeries.Text += series.ToUpper();
+            return LblEscribirEditorial.Width;
         }
-        public string getSeries()
+        public void setTamanioMaximoEditoriales(int x, int y, bool si)
         {
-            return LblEscribirSeries.Text;
+            LblEscribirEditorial.MaximumSize = new Size(x, y);
+            LblEscribirEditorial.AutoSize = si;
         }
+       
         public void setIsbn10(string is10)
         {
             LblEscribirIsbn10.Text = is10.ToUpper();
@@ -145,7 +169,7 @@ namespace OpenLibraryEditor.Controles
         private void IdiomaTexto()
         {
             LblEditorial.Text = ControladorIdioma.GetTexto("Main_Edi");
-            LblSeries.Text = ControladorIdioma.GetTexto("Main_Ser");
+            //LblSeries.Text = ControladorIdioma.GetTexto("Main_Ser");
             LblIsbn10.Text = ControladorIdioma.GetTexto("Main_is10");
             LblIsbn13.Text = ControladorIdioma.GetTexto("Main_is13");
             LblPaginas.Text = ControladorIdioma.GetTexto("Main_Pag");
@@ -154,8 +178,7 @@ namespace OpenLibraryEditor.Controles
             LblFormato.Text = ControladorIdioma.GetTexto("Main_Formato");
         }
 
-        #endregion
 
-        
+        #endregion
     }
 }

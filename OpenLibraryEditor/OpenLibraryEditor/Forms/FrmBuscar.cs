@@ -29,18 +29,21 @@ namespace OpenLibraryEditor.Forms
 
         private const string NOMBRE_GOOGLE = "Google Books";
         private int contadorLibros = 0;
-        private ArrayList autores = new ArrayList();
+        private static ArrayList autores = new ArrayList();
         private bool puedeEditar;
+
         public FrmBuscar()
         {
             InitializeComponent();
-            
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
         }
         public FrmBuscar(bool puedeEditar)
         {
             InitializeComponent();
             this.puedeEditar = puedeEditar;
-
+            Thread th = new Thread(() => ColocarLibrosRecomendados());
+            th.Start();
         }
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
@@ -50,11 +53,10 @@ namespace OpenLibraryEditor.Forms
             UsuarioDatos.configuracionUsuario.ListaInfoBD.ForEach(p => KCmbServidoresBUS.Items.Add(p));
             KCmbServidoresBUS.SelectedIndex = 0;
             IdiomaTexto();
-            AniadirAutores();
+
             MbtnAtrasLibro.Enabled = false;
             MBtnAvanzarLibro.Enabled = false;
-            Thread th = new Thread(() => ColocarLibrosRecomendados());
-            th.Start();
+           
             TxtBusqueda.MbtnBorrar().Click += new EventHandler(MbtnBorrarTxtBuscar_Click);
             TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarBUS_KeyDown;
 
@@ -74,7 +76,10 @@ namespace OpenLibraryEditor.Forms
                     LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
                 }
             }
-            //ponerLibrosRecomendados();
+            else
+            {
+                LblTipoUsuarioConectado.Text= ControladorIdioma.GetTexto("ModoSinConexion");
+            }     
         }
         private void IdiomaTexto()
         {
@@ -83,6 +88,12 @@ namespace OpenLibraryEditor.Forms
             LblRecomendaciones.Text= ControladorIdioma.GetTexto("Bus_Recomendaciones");
             TTBuscar.SetToolTip(this.PanRecomendaciones, ControladorIdioma.GetTexto("Bus_TTDobleClick"));
             TTBuscar.SetToolTip(this.LsvBuscarLibros, ControladorIdioma.GetTexto("Bus_TTDobleClick"));
+            TTBuscar.SetToolTip(this.KCmbServidoresBUS, ControladorIdioma.GetTexto("Bus_BusquedaEn"));
+            TTBuscar.SetToolTip(this.KCmbTipoBusquedaBUS, ControladorIdioma.GetTexto("BusquedaPor"));
+            TTBuscar.SetToolTip(this.TxtBusqueda, ControladorIdioma.GetTexto("TextoBuscar"));
+            TTBuscar.SetToolTip(this.MBtnBuscarBUS, ControladorIdioma.GetTexto("LupaBuscar"));
+            TTBuscar.SetToolTip(this.MbtnAtrasLibro, ControladorIdioma.GetTexto("VerMasLibros"));
+            TTBuscar.SetToolTip(this.MBtnAvanzarLibro, ControladorIdioma.GetTexto("VerMasLibros"));
         }
         private string QueryGoogle()
         {
@@ -250,8 +261,8 @@ namespace OpenLibraryEditor.Forms
                     KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Autor"));
                     KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Editorial"));
                     KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("CmbBuscar_Genero"));
-                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("Etiqueta"));
-                    KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("RS_Serie"));
+                    //KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("Etiqueta"));
+                    //KCmbTipoBusquedaBUS.Items.Add(ControladorIdioma.GetTexto("RS_Serie"));
                     break;
             }
             KCmbTipoBusquedaBUS.SelectedIndex = 0;
@@ -398,6 +409,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void ColocarLibrosRecomendados()
         {
+            AniadirAutores();
             int x = 5;
             int y = 5;
             string query = "";
@@ -433,37 +445,23 @@ namespace OpenLibraryEditor.Forms
                             x = x + 115;
                         }
                         catch (Exception ex) {
-                            Console.WriteLine(ex.Message);
+                           Console.WriteLine(ex.Message);
                         }
-
-
-
                     }
-
-                    //foreach (var libro in gBooks.BookCollection.Items)
-                    //{
-                    //    var info = libro.VolumeInfo;
-                    //    if (info.ImageLinks != null)
-                    //    {
-                    //        //imglist.Images.Add("image",GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                    //        dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                    //        //dcb.ImageList = imglist;
-                    //    }
-                    //    dcb.Tag = libro;
-                    //}
-
                 }
             }
-           try{ 
+            try
+            {
                 Invoke(new Action(() => MbtnAtrasLibro.Enabled = true));
                 Invoke(new Action(() => MBtnAvanzarLibro.Enabled = true));
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
         }
-        private void DobleClickLibro(object sender, EventArgs e)
+        private static void DobleClickLibro(object sender, EventArgs e)
         {
             DoubleClickButton libroSeleccionado = (DoubleClickButton)sender;
             if (VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Bus_libro")) == DialogResult.Yes)
@@ -532,16 +530,6 @@ namespace OpenLibraryEditor.Forms
             }
 
         }
-        //private void ponerLibrosRecomendados()
-        //{
-        //    int contador = 0;
 
-        //    foreach (PictureBox pc in PanLibrosBuscar.Controls)
-        //    {
-        //        pc.BorderStyle = BorderStyle.FixedSingle;
-        //        pc.Image = Image.FromFile(titulos[contador].ImagenPortada);
-        //        contador++;
-        //    }
-        //}
     }
 }

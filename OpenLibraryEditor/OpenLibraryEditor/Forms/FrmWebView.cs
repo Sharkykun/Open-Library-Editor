@@ -10,12 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
+using OpenLibraryEditor.Clases;
 
 namespace OpenLibraryEditor.Forms
 {
     public partial class FrmWebView : Form
     {
+        #region atributos
         private string enlace;
+        #endregion
+        #region constructor y load
         public FrmWebView(string enlacePasado)
         {
             InitializeComponent();
@@ -24,7 +28,19 @@ namespace OpenLibraryEditor.Forms
         private void WebView_Load(object sender, EventArgs e)
         {
             IniciarBrowser();
+            IdiomaTexto();
         }
+        #endregion
+        #region idioma
+        private void IdiomaTexto()
+        {
+            TTWeb.SetToolTip(this.MBtnMaximizar, ControladorIdioma.GetTexto("Main_TTMaximizar"));
+            TTWeb.SetToolTip(this.MBtnMinimizar, ControladorIdioma.GetTexto("Main_TTMinimizar"));
+            TTWeb.SetToolTip(this.MBtnRestaurar, ControladorIdioma.GetTexto("Main_TTRestaurar"));
+            TTWeb.SetToolTip(this.MBtnCerrar, ControladorIdioma.GetTexto("Cerrar"));
+        }
+        #endregion
+        #region iniciar webview
         private async Task Iniciar()
         {
             await webView2Enlace.EnsureCoreWebView2Async(null);
@@ -34,24 +50,7 @@ namespace OpenLibraryEditor.Forms
             await Iniciar();
             webView2Enlace.CoreWebView2.Navigate(enlace);
         }
-        
-       
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-   
-        private void PanTituloTitulos_MouseMove(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-
         #endregion
-
         #region maximizar, minimizar, restaurar y cerrar
         //Para saber el tamaño y la posicion inicial de la pantalla y poder restaurarla en
         //el centro de la pantalla
@@ -82,9 +81,24 @@ namespace OpenLibraryEditor.Forms
             this.Size = new Size(sw, sh);
             this.Location = new Point(lx, ly);
         }
+        #endregion
+        #region cerrar
         private void MBtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+        private void PanTituloTitulos_MouseMove(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
     }

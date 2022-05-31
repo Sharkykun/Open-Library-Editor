@@ -124,7 +124,6 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
         #region metodos propios
-
         private void IdiomaTexto()
         {
             TTnuevoLibro.SetToolTip(this.MBtnCerrarTitulos, ControladorIdioma.GetTexto("Cerrar"));
@@ -171,17 +170,12 @@ namespace OpenLibraryEditor.Forms
             LblGenerosNL.Text = ControladorIdioma.GetTexto("Al_DGGeneros");
             TTnuevoLibro.SetToolTip(this.KCCGenerosNL, ControladorIdioma.GetTexto("Al_TTGeneros"));
             TTnuevoLibro.SetToolTip(this.MBtnMasGenerosNL, ControladorIdioma.GetTexto("Al_TTBtnMasGen"));
-            //LblSerieNL.Text = ControladorIdioma.GetTexto("Al_DGSerie");
-            //TTnuevoLibro.SetToolTip(this.KCCSerieNL, ControladorIdioma.GetTexto("Al_TTSerie"));
-            //TTnuevoLibro.SetToolTip(this.MBtnMasSerieNL, ControladorIdioma.GetTexto("Al_TTBtnMasSer"));
-            //LblEtiquetasNL.Text = ControladorIdioma.GetTexto("Al_DGEtiquetas");
-            //TTnuevoLibro.SetToolTip(this.KCCEtiquetaNL, ControladorIdioma.GetTexto("Al_TTEtiquetas"));
-            //TTnuevoLibro.SetToolTip(this.MBtnMasEtiquetasNL, ControladorIdioma.GetTexto("Al_TTBtnMasEti"));
             LblIdiomaOriginalNL.Text = ControladorIdioma.GetTexto("Al_DGIdiOri");
             TTnuevoLibro.SetToolTip(this.KCmbIdiomaOriginalNL, ControladorIdioma.GetTexto("Al_TTIdiOri"));
             LblIdiomaNL.Text = ControladorIdioma.GetTexto("Al_DGIdioma");
             TTnuevoLibro.SetToolTip(this.KCmbIdiomaNL, ControladorIdioma.GetTexto("Al_TTIdi"));
-            
+            TTnuevoLibro.SetToolTip(this.MBtnMasTipoLibroNL, ControladorIdioma.GetTexto("Al_TTNuevoTipoLibro"));
+
             KPageDatosUsuario.Text = ControladorIdioma.GetTexto("Al_TabDatosUsu");
             KGbDatosUsuarioNL.Values.Heading = ControladorIdioma.GetTexto("Al_TabDatosUsu");
             LblPuntuacionNL.Text = ControladorIdioma.GetTexto("Al_DUPunt");
@@ -345,20 +339,7 @@ namespace OpenLibraryEditor.Forms
         //        if (listaComparador.Contains(p)) KCCSerieNL.SetItemChecked(i, true);
         //    });
         }
-        #endregion
-        #region mover formulario
-        //Para poder mover el formulario por la pantalla
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void PanTituloTitulos_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        #endregion
-      
+        #endregion 
         #region Datos generales
         private void MBtnMasEditorialNL_Click(object sender, EventArgs e)
         {
@@ -453,10 +434,7 @@ namespace OpenLibraryEditor.Forms
                 ActualizarTipoLibro();
                 KCmbTipoNL.SelectedItem = null;
             }
-
-            
         }
-
         private void MBtnMenosTipoLibroNL_Click(object sender, EventArgs e)
         {
             //if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.NombreTipo) == DialogResult.Yes)
@@ -506,7 +484,7 @@ namespace OpenLibraryEditor.Forms
             //Comparar objetos para preguntar si guardar
             if (!e.IsSelected && accionActual != null && EsObjetoCambiado())
             {
-                var result = VentanaWindowsComun.MensajeGuardarObjeto("");
+                var result = VentanaWindowsComun.MensajeGuardarObjeto(ControladorIdioma.GetTexto("Al_ElLibro"));
                 if (result == DialogResult.Yes)
                     GBtnGuardarAccion_Click(null, null);
             }
@@ -560,7 +538,7 @@ namespace OpenLibraryEditor.Forms
                     itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
             }
             else
-                VentanaWindowsComun.MensajeInformacion("Necesitas una ruta de fichero válida y un ejecutable para guardar.");
+                VentanaWindowsComun.MensajeError("AccionesLibro");
         }
         private void IbtnFichero_Click(object sender, EventArgs e)
         {
@@ -575,8 +553,7 @@ namespace OpenLibraryEditor.Forms
             RellenarEjecutable();
         }
         #endregion
-
-        #region guardar y cerrar
+        #region guardar
         private void GBtnGuardarLibro_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(KTxtTituloNL.Text))
@@ -721,7 +698,23 @@ namespace OpenLibraryEditor.Forms
             else
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Libro"));
         }
+        private void KTxtTituloNL_Enter(object sender, EventArgs e)
+        {
+            if (KTxtTituloNL.Text.Equals(ControladorIdioma.GetTexto("NuevoLibro")))
+            {
+                KTxtTituloNL.Text = "";
+            }
+        }
 
+        private void KTxtTituloNL_Leave(object sender, EventArgs e)
+        {
+            if (KTxtTituloNL.Text.Equals(""))
+            {
+                KTxtTituloNL.Text = ControladorIdioma.GetTexto("NuevoLibro");
+            }
+        }
+        #endregion
+        #region cerrar
         private void MBtnCerrarTitulos_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -736,6 +729,18 @@ namespace OpenLibraryEditor.Forms
                 if (result == DialogResult.Yes)
                     GBtnGuardarLibro_Click(null, null);
             }
+        }
+        #endregion
+        #region mover formulario
+        //Para poder mover el formulario por la pantalla
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void PanTituloTitulos_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
 

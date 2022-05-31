@@ -18,7 +18,10 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmRecuperarContra : Form
     {
+        #region atributos
         private InfoUsuarioBD usuario = new InfoUsuarioBD();
+        #endregion
+        #region constructor y load
         public FrmRecuperarContra()
         {
             InitializeComponent();
@@ -27,17 +30,26 @@ namespace OpenLibraryEditor.Forms
         {
             IdiomaTexto();
         }
-
+        #endregion
+        #region idioma
         private void IdiomaTexto()
         {
             LblTitulo.Text = ControladorIdioma.GetTexto("Recu_Titulo");
-            LblMail.Text = ControladorIdioma.GetTexto("Reg_Email");
+            this.Text = ControladorIdioma.GetTexto("Recu_Titulo");
             LblUrl.Text = ControladorIdioma.GetTexto("Reg_Url");
+            TTRecuperarContra.SetToolTip(this.KTxtUrl, ControladorIdioma.GetTexto("UrlServidor"));
+            LblPuerto.Text = ControladorIdioma.GetTexto("BD_Puerto");
+            TTRecuperarContra.SetToolTip(this.KNudPuerto, ControladorIdioma.GetTexto("NumeroPuerto"));
+            LblMail.Text = ControladorIdioma.GetTexto("Reg_Email");
+            TTRecuperarContra.SetToolTip(this.KTxtMail, ControladorIdioma.GetTexto("Recu_TTmail"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
+            TTRecuperarContra.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
             GBtnRecuperar.Text = ControladorIdioma.GetTexto("Recuperar");
+            TTRecuperarContra.SetToolTip(this.GBtnRecuperar, ControladorIdioma.GetTexto("Recuperar"));
         }
-
-       private string PasswordAleatoria()
+        #endregion
+        #region recuperar password
+        private string PasswordAleatoria()
         {
             Random rdn = new Random();
             string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
@@ -94,10 +106,9 @@ namespace OpenLibraryEditor.Forms
             {
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Log_Error4"));
             }
-
-
         }
-
+        #endregion
+        #region cerrar/cancelar
         private void MBtnCerrarEditUsu_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -107,6 +118,7 @@ namespace OpenLibraryEditor.Forms
         {
             this.Close();
         }
+        #endregion
         #region mover formulario
         //Para poder mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

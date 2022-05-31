@@ -49,7 +49,7 @@
             // 
             // PanTitulo
             // 
-            this.PanTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.PanTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.PanTitulo.Controls.Add(this.PcbLogoMain);
             this.PanTitulo.Controls.Add(this.MBtnCerrarDialog);
             this.PanTitulo.Controls.Add(this.LblCaption);

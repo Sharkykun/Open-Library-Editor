@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccionesLibro" xml:space="preserve">
+    <value>You need a valid file path and an executable to be able to save</value>
+  </data>
   <data name="Aceptar" xml:space="preserve">
     <value>Ok</value>
   </data>
@@ -150,6 +153,12 @@
   <data name="Adm_FrmTitulo" xml:space="preserve">
     <value>Users of my database</value>
   </data>
+  <data name="Adm_MasUsu" xml:space="preserve">
+    <value>Click here to add a new user</value>
+  </data>
+  <data name="Adm_MenosUsu" xml:space="preserve">
+    <value>Click here to delete the selected user</value>
+  </data>
   <data name="Adm_Nombre" xml:space="preserve">
     <value>Username</value>
   </data>
@@ -158,6 +167,9 @@
   </data>
   <data name="Adm_Tipo" xml:space="preserve">
     <value>Type of user:</value>
+  </data>
+  <data name="Adm_TTLsv" xml:space="preserve">
+    <value>Select a user's name to edit it</value>
   </data>
   <data name="Adm_Usu" xml:space="preserve">
     <value>User</value>
@@ -402,6 +414,9 @@
   <data name="Al_TTMasEJ" xml:space="preserve">
     <value>Click to add a new executable</value>
   </data>
+  <data name="Al_TTNuevoTipoLibro" xml:space="preserve">
+    <value>Click here to add a new type of book</value>
+  </data>
   <data name="Al_TTOcu" xml:space="preserve">
     <value>Select to hide the book</value>
   </data>
@@ -478,7 +493,7 @@
     <value>Click to remove the image of the person</value>
   </data>
   <data name="Au_Nombre" xml:space="preserve">
-    <value>Full name</value>
+    <value>Full name *</value>
   </data>
   <data name="Au_NuevaPersona" xml:space="preserve">
     <value>New Person</value>
@@ -549,8 +564,14 @@
   <data name="BuscarPor" xml:space="preserve">
     <value>Look for:</value>
   </data>
+  <data name="BusquedaPor" xml:space="preserve">
+    <value>Select the item you want to search for</value>
+  </data>
   <data name="Bus_BuscarEn" xml:space="preserve">
     <value>Search in:</value>
+  </data>
+  <data name="Bus_BusquedaEn" xml:space="preserve">
+    <value>Select the database in which you want to perform the search</value>
   </data>
   <data name="Bus_libro" xml:space="preserve">
     <value>the book</value>
@@ -561,6 +582,9 @@
   <data name="Bus_TTDobleClick" xml:space="preserve">
     <value>Double click on the book to add it to your library</value>
   </data>
+  <data name="CambiarFoto" xml:space="preserve">
+    <value>Click here to change your profile picture</value>
+  </data>
   <data name="CamposObligatorios" xml:space="preserve">
     <value>( * ) Required fields</value>
   </data>
@@ -569,6 +593,12 @@
   </data>
   <data name="Cerrar" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="CerrarDetalles" xml:space="preserve">
+    <value>Click here to close the book details panel</value>
+  </data>
+  <data name="CmbAdmUsu" xml:space="preserve">
+    <value>Select the type of user you want to assign to the selected user</value>
   </data>
   <data name="CmbBuscar_Autor" xml:space="preserve">
     <value>Author</value>
@@ -581,6 +611,15 @@
   </data>
   <data name="CmbBuscar_TituloIsbn" xml:space="preserve">
     <value>Title / ISBN</value>
+  </data>
+  <data name="ContraServidor" xml:space="preserve">
+    <value>Write here the password of your database user (if it does not have it, leave it blank)</value>
+  </data>
+  <data name="ContraUsu" xml:space="preserve">
+    <value>Write here the password of the new user</value>
+  </data>
+  <data name="ContraUsuApp" xml:space="preserve">
+    <value>Write your password here to register in the application</value>
   </data>
   <data name="Con_AClaro" xml:space="preserve">
     <value>Light theme</value>
@@ -799,7 +838,7 @@
     <value>Name</value>
   </data>
   <data name="ED_Nombre" xml:space="preserve">
-    <value>Publisher name</value>
+    <value>Publisher name *</value>
   </data>
   <data name="ED_NuevaEdi" xml:space="preserve">
     <value>New Publisher</value>
@@ -876,6 +915,12 @@
   <data name="Ej_TTRuta" xml:space="preserve">
     <value>Click to find the path of the executable</value>
   </data>
+  <data name="EmailUsu" xml:space="preserve">
+    <value>Write here the email of the new user (we will send you an email with your access data)</value>
+  </data>
+  <data name="EmailUsuApp" xml:space="preserve">
+    <value>Write your email here to register in the application. We will send you a code to verify it.</value>
+  </data>
   <data name="ErrorCamposVacios" xml:space="preserve">
     <value>All fields are required</value>
   </data>
@@ -884,6 +929,9 @@
   </data>
   <data name="ErrorConexionBD" xml:space="preserve">
     <value>Database connection error. Error:</value>
+  </data>
+  <data name="ErrorIdRepetido" xml:space="preserve">
+    <value>The ISBN of the book already exists in the library</value>
   </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>The name, extension and path cannot be empty.</value>
@@ -982,7 +1030,7 @@
     <value>Name</value>
   </data>
   <data name="Ge_Nombre" xml:space="preserve">
-    <value>Genre´s name</value>
+    <value>Genre´s name *</value>
   </data>
   <data name="Ge_NuevoGen" xml:space="preserve">
     <value>New Genre</value>
@@ -1041,11 +1089,17 @@
   <data name="Input_Modificar" xml:space="preserve">
     <value>Modify</value>
   </data>
+  <data name="Input_TT" xml:space="preserve">
+    <value>Write here the element you want to add/modify</value>
+  </data>
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
   </data>
   <data name="LibroRepetido" xml:space="preserve">
     <value>The book is already in the database</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Open Library Editor - Login</value>
   </data>
   <data name="Log_BtnCrearBD" xml:space="preserve">
     <value>Create database</value>
@@ -1102,7 +1156,7 @@
     <value>Logo Open Library Editor</value>
   </data>
   <data name="Log_TTNombre" xml:space="preserve">
-    <value>Write your username or email address</value>
+    <value>Write your username</value>
   </data>
   <data name="Log_TTOlvidado" xml:space="preserve">
     <value>Click here to recover your password</value>
@@ -1116,8 +1170,14 @@
   <data name="Log_Url" xml:space="preserve">
     <value>Database url</value>
   </data>
+  <data name="LupaBuscar" xml:space="preserve">
+    <value>Click here to start the search</value>
+  </data>
+  <data name="MailActualizarContra" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
   <data name="MailCambiadoOk" xml:space="preserve">
-    <value>Mail changed successfully</value>
+    <value>Email updated successfully</value>
   </data>
   <data name="MailNoValido" xml:space="preserve">
     <value>Enter a valid email</value>
@@ -1422,6 +1482,15 @@
   <data name="NoLibros" xml:space="preserve">
     <value>There are no books in your library</value>
   </data>
+  <data name="NombreUsu" xml:space="preserve">
+    <value>Write here the name of the new user</value>
+  </data>
+  <data name="NombreUsuApp" xml:space="preserve">
+    <value>Write your username here to register in the application</value>
+  </data>
+  <data name="NombreUsuServidor" xml:space="preserve">
+    <value>Write here the username of your server (by default root)</value>
+  </data>
   <data name="NoPuedeBorrarLibro" xml:space="preserve">
     <value>The book you are trying to delete does not exist in the database</value>
   </data>
@@ -1437,17 +1506,29 @@
   <data name="NumEditoriales" xml:space="preserve">
     <value>Number of publishers: </value>
   </data>
+  <data name="NumeroPuerto" xml:space="preserve">
+    <value>Select the connection port of your database</value>
+  </data>
   <data name="NumGeneros" xml:space="preserve">
     <value>Number of genres: </value>
   </data>
   <data name="NumLibros" xml:space="preserve">
     <value>Number of books: </value>
   </data>
+  <data name="NumUsuarios" xml:space="preserve">
+    <value>Number of users: </value>
+  </data>
   <data name="OcupacionNoExiste" xml:space="preserve">
     <value>The occupation does not exist in the database</value>
   </data>
   <data name="OcupacionRepetida" xml:space="preserve">
     <value>The occupation already exists in the database</value>
+  </data>
+  <data name="OrdenLibros" xml:space="preserve">
+    <value>Click here to order the books from a-z and vice versa</value>
+  </data>
+  <data name="OrdenUsuarios" xml:space="preserve">
+    <value>Click here to sort users from a-z and vice versa</value>
   </data>
   <data name="Recuperar" xml:space="preserve">
     <value>Recover</value>
@@ -1457,6 +1538,9 @@
   </data>
   <data name="Recu_Titulo" xml:space="preserve">
     <value>Open Library Editor - Recover password</value>
+  </data>
+  <data name="Recu_TTmail" xml:space="preserve">
+    <value>Enter here the email with which you registered to reset your password</value>
   </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>Sign me up</value>
@@ -1539,6 +1623,9 @@
   <data name="RS_TTCmb" xml:space="preserve">
     <value>Select the type of relationship between the series</value>
   </data>
+  <data name="SeleccionarTipoUsu" xml:space="preserve">
+    <value>Select the type of user with which you want to register the user</value>
+  </data>
   <data name="Se_Comentario" xml:space="preserve">
     <value>Commentary</value>
   </data>
@@ -1617,6 +1704,9 @@
   <data name="ShowDialogCerrar" xml:space="preserve">
     <value>Are you sure you want to leave?</value>
   </data>
+  <data name="TextoBuscar" xml:space="preserve">
+    <value>Write here what you want to search</value>
+  </data>
   <data name="TipoLibroNoExiste" xml:space="preserve">
     <value>Book type does not exist in the database</value>
   </data>
@@ -1632,8 +1722,14 @@
   <data name="TodosCamposRellenos" xml:space="preserve">
     <value>You cannot leave empty fields</value>
   </data>
+  <data name="TT_CrearBD" xml:space="preserve">
+    <value>Click here to create the database</value>
+  </data>
+  <data name="UrlServidor" xml:space="preserve">
+    <value>Write here the url of your database</value>
+  </data>
   <data name="UsuarioModificado" xml:space="preserve">
-    <value>User modified successfully</value>
+    <value>User added successfully</value>
   </data>
   <data name="UsuarioRepetido" xml:space="preserve">
     <value>The user already exists in the database</value>
@@ -1655,6 +1751,15 @@
   </data>
   <data name="Verificar_TTMask" xml:space="preserve">
     <value>Write here the code received in your email</value>
+  </data>
+  <data name="VerMasLibros" xml:space="preserve">
+    <value>Click here to see more recommended books</value>
+  </data>
+  <data name="VistaDetalles" xml:space="preserve">
+    <value>Click here to switch to book details view</value>
+  </data>
+  <data name="VistaMosaico" xml:space="preserve">
+    <value>Click here to switch to mosaic view of the books</value>
   </data>
   <data name="VWC_ActualizarAutor" xml:space="preserve">
     <value>Do you want to update this book from the shared database?</value>
@@ -1709,6 +1814,9 @@
   </data>
   <data name="VWC_ErrorImg" xml:space="preserve">
     <value>The image did not load correctly</value>
+  </data>
+  <data name="VWC_ErrorMail" xml:space="preserve">
+    <value>The mail already exists in the shared database</value>
   </data>
   <data name="VWC_Guardado" xml:space="preserve">
     <value>successfully saved</value>

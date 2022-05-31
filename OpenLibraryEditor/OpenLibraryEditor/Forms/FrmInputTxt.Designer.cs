@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GBtnModificar = new Guna.UI.WinForms.GunaButton();
@@ -40,6 +41,7 @@
             this.GBtnGuardar = new Guna.UI.WinForms.GunaButton();
             this.LblNombre = new System.Windows.Forms.Label();
             this.KTxtNombreTipo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TTInput = new System.Windows.Forms.ToolTip(this.components);
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
             this.PanBtn.SuspendLayout();
@@ -119,7 +121,7 @@
             this.MBtnCerrarAutores.Name = "MBtnCerrarAutores";
             this.MBtnCerrarAutores.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarAutores.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarAutores.TabIndex = 28;
+            this.MBtnCerrarAutores.TabIndex = 0;
             this.MBtnCerrarAutores.UseVisualStyleBackColor = false;
             this.MBtnCerrarAutores.Click += new System.EventHandler(this.MBtnCerrarAutores_Click);
             // 
@@ -282,5 +284,6 @@
         private Guna.UI.WinForms.GunaButton GBtnGuardar;
         private System.Windows.Forms.Label LblNombre;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtNombreTipo;
+        private System.Windows.Forms.ToolTip TTInput;
     }
 }

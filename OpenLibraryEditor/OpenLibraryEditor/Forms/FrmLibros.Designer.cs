@@ -293,7 +293,7 @@
             this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblObligatorio.Location = new System.Drawing.Point(15, 539);
             this.LblObligatorio.Name = "LblObligatorio";
-            this.LblObligatorio.Size = new System.Drawing.Size(151, 16);
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
             this.LblObligatorio.TabIndex = 158;
             this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
@@ -525,7 +525,7 @@
             this.KTxtEnlaceNL.StateCommon.Border.Width = 2;
             this.KTxtEnlaceNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtEnlaceNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtEnlaceNL.TabIndex = 0;
+            this.KTxtEnlaceNL.TabIndex = 9;
             // 
             // LblPublicacionNL
             // 
@@ -899,6 +899,8 @@
             this.KTxtTituloNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtTituloNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtTituloNL.TabIndex = 0;
+            this.KTxtTituloNL.Enter += new System.EventHandler(this.KTxtTituloNL_Enter);
+            this.KTxtTituloNL.Leave += new System.EventHandler(this.KTxtTituloNL_Leave);
             // 
             // KTxtSinopsisNL
             // 
@@ -1504,6 +1506,7 @@
             this.LblTituloForm.Size = new System.Drawing.Size(280, 23);
             this.LblTituloForm.TabIndex = 4;
             this.LblTituloForm.Text = "Open Library Editor - Nuevo Libro";
+            this.LblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloTitulos_MouseDown);
             // 
             // PcbLogoTitulos
             // 
@@ -1515,6 +1518,7 @@
             this.PcbLogoTitulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoTitulos.TabIndex = 3;
             this.PcbLogoTitulos.TabStop = false;
+            this.PcbLogoTitulos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloTitulos_MouseDown);
             // 
             // KworkSpaceNuevoLibro
             // 
@@ -1799,7 +1803,7 @@
             this.GBtnGuardarAccion.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnGuardarAccion.Radius = 15;
             this.GBtnGuardarAccion.Size = new System.Drawing.Size(126, 35);
-            this.GBtnGuardarAccion.TabIndex = 14;
+            this.GBtnGuardarAccion.TabIndex = 2;
             this.GBtnGuardarAccion.Text = "Guardar";
             this.GBtnGuardarAccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnGuardarAccion.Click += new System.EventHandler(this.GBtnGuardarAccion_Click);
@@ -1864,7 +1868,7 @@
             this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbEjecutableNL.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbEjecutableNL.TabIndex = 41;
+            this.KCmbEjecutableNL.TabIndex = 1;
             // 
             // KTxtFicheroNL
             // 
@@ -1881,7 +1885,7 @@
             this.KTxtFicheroNL.StateCommon.Border.Width = 2;
             this.KTxtFicheroNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtFicheroNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtFicheroNL.TabIndex = 39;
+            this.KTxtFicheroNL.TabIndex = 0;
             // 
             // LsvAccionesNL
             // 

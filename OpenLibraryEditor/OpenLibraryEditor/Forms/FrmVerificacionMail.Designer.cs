@@ -34,6 +34,7 @@
             this.LblTituloFrm = new System.Windows.Forms.Label();
             this.PcbLogoRegistro = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LblMirarSpam = new System.Windows.Forms.Label();
             this.KMaskTxt = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.Lblcodigo = new System.Windows.Forms.Label();
             this.GBtnVerificar = new Guna.UI.WinForms.GunaButton();
@@ -41,7 +42,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TTVerificar = new System.Windows.Forms.ToolTip(this.components);
-            this.LblMirarSpam = new System.Windows.Forms.Label();
             this.PanTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoRegistro)).BeginInit();
             this.panel1.SuspendLayout();
@@ -58,7 +58,7 @@
             this.PanTitulo.Name = "PanTitulo";
             this.PanTitulo.Size = new System.Drawing.Size(460, 40);
             this.PanTitulo.TabIndex = 1;
-            this.PanTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseMove);
+            this.PanTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // MBtnCerrarRegistro
             // 
@@ -75,7 +75,7 @@
             this.MBtnCerrarRegistro.Name = "MBtnCerrarRegistro";
             this.MBtnCerrarRegistro.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarRegistro.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarRegistro.TabIndex = 28;
+            this.MBtnCerrarRegistro.TabIndex = 0;
             this.MBtnCerrarRegistro.UseVisualStyleBackColor = false;
             this.MBtnCerrarRegistro.Click += new System.EventHandler(this.MBtnCerrarRegistro_Click);
             // 
@@ -89,7 +89,7 @@
             this.LblTituloFrm.Size = new System.Drawing.Size(316, 23);
             this.LblTituloFrm.TabIndex = 4;
             this.LblTituloFrm.Text = "Open Library Editor - Verifica tu email\r\n";
-            this.LblTituloFrm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseMove);
+            this.LblTituloFrm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // PcbLogoRegistro
             // 
@@ -101,7 +101,7 @@
             this.PcbLogoRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoRegistro.TabIndex = 3;
             this.PcbLogoRegistro.TabStop = false;
-            this.PcbLogoRegistro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseMove);
+            this.PcbLogoRegistro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTitulo_MouseDown);
             // 
             // panel1
             // 
@@ -119,6 +119,17 @@
             this.panel1.Size = new System.Drawing.Size(460, 197);
             this.panel1.TabIndex = 2;
             // 
+            // LblMirarSpam
+            // 
+            this.LblMirarSpam.Font = new System.Drawing.Font("Merienda", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMirarSpam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblMirarSpam.Location = new System.Drawing.Point(13, 108);
+            this.LblMirarSpam.Name = "LblMirarSpam";
+            this.LblMirarSpam.Size = new System.Drawing.Size(435, 23);
+            this.LblMirarSpam.TabIndex = 37;
+            this.LblMirarSpam.Text = "Si no ha recibido el email revise su correo no deseado";
+            this.LblMirarSpam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // KMaskTxt
             // 
             this.KMaskTxt.Location = new System.Drawing.Point(164, 71);
@@ -132,7 +143,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KMaskTxt.StateCommon.Border.Width = 2;
             this.KMaskTxt.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KMaskTxt.TabIndex = 36;
+            this.KMaskTxt.TabIndex = 0;
             this.KMaskTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lblcodigo
@@ -169,7 +180,7 @@
             this.GBtnVerificar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnVerificar.Radius = 18;
             this.GBtnVerificar.Size = new System.Drawing.Size(355, 39);
-            this.GBtnVerificar.TabIndex = 34;
+            this.GBtnVerificar.TabIndex = 1;
             this.GBtnVerificar.Text = "Verificar";
             this.GBtnVerificar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnVerificar.Click += new System.EventHandler(this.GBtnVerificar_Click);
@@ -200,17 +211,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(3, 197);
             this.panel2.TabIndex = 31;
-            // 
-            // LblMirarSpam
-            // 
-            this.LblMirarSpam.Font = new System.Drawing.Font("Merienda", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblMirarSpam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.LblMirarSpam.Location = new System.Drawing.Point(13, 108);
-            this.LblMirarSpam.Name = "LblMirarSpam";
-            this.LblMirarSpam.Size = new System.Drawing.Size(435, 23);
-            this.LblMirarSpam.TabIndex = 37;
-            this.LblMirarSpam.Text = "Si no ha recibido el email revise su correo no deseado";
-            this.LblMirarSpam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmVerificacionMail
             // 

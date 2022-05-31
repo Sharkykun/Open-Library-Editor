@@ -94,7 +94,7 @@
             this.GBtnAceptar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnAceptar.Radius = 15;
             this.GBtnAceptar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnAceptar.TabIndex = 5;
+            this.GBtnAceptar.TabIndex = 0;
             this.GBtnAceptar.Text = "Aceptar";
             this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
@@ -121,7 +121,7 @@
             this.GBtnCancelar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnCancelar.Radius = 15;
             this.GBtnCancelar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnCancelar.TabIndex = 4;
+            this.GBtnCancelar.TabIndex = 1;
             this.GBtnCancelar.Text = "Cancelar";
             this.GBtnCancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnCancelar.Click += new System.EventHandler(this.GBtnCancelar_Click);
@@ -154,7 +154,7 @@
             this.MBtnCerrarEjecutable.Name = "MBtnCerrarEjecutable";
             this.MBtnCerrarEjecutable.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarEjecutable.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarEjecutable.TabIndex = 28;
+            this.MBtnCerrarEjecutable.TabIndex = 0;
             this.MBtnCerrarEjecutable.UseVisualStyleBackColor = false;
             this.MBtnCerrarEjecutable.Click += new System.EventHandler(this.MBtnCerrarEjecutable_Click);
             // 
@@ -168,6 +168,7 @@
             this.LblTituloEjecutable.Size = new System.Drawing.Size(267, 23);
             this.LblTituloEjecutable.TabIndex = 4;
             this.LblTituloEjecutable.Text = "Open Library Editor - Ejecutable";
+            this.LblTituloEjecutable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEjecutables_MouseDown);
             // 
             // PcbLogoEjecutable
             // 
@@ -179,6 +180,7 @@
             this.PcbLogoEjecutable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoEjecutable.TabIndex = 3;
             this.PcbLogoEjecutable.TabStop = false;
+            this.PcbLogoEjecutable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEjecutables_MouseDown);
             // 
             // MBtnMasLsvEJ
             // 
@@ -194,7 +196,7 @@
             this.MBtnMasLsvEJ.Name = "MBtnMasLsvEJ";
             this.MBtnMasLsvEJ.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMasLsvEJ.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMasLsvEJ.TabIndex = 142;
+            this.MBtnMasLsvEJ.TabIndex = 1;
             this.MBtnMasLsvEJ.UseVisualStyleBackColor = false;
             this.MBtnMasLsvEJ.Click += new System.EventHandler(this.MBtnMasLsvEJ_Click);
             // 
@@ -212,7 +214,7 @@
             this.MBtnMenosLsvEJ.Name = "MBtnMenosLsvEJ";
             this.MBtnMenosLsvEJ.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMenosLsvEJ.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMenosLsvEJ.TabIndex = 143;
+            this.MBtnMenosLsvEJ.TabIndex = 2;
             this.MBtnMenosLsvEJ.UseVisualStyleBackColor = false;
             this.MBtnMenosLsvEJ.Click += new System.EventHandler(this.MBtnMenosLsvEJ_Click);
             // 
@@ -229,7 +231,7 @@
             this.LsvEjecutable.MultiSelect = false;
             this.LsvEjecutable.Name = "LsvEjecutable";
             this.LsvEjecutable.Size = new System.Drawing.Size(336, 313);
-            this.LsvEjecutable.TabIndex = 141;
+            this.LsvEjecutable.TabIndex = 0;
             this.LsvEjecutable.UseCompatibleStateImageBehavior = false;
             this.LsvEjecutable.View = System.Windows.Forms.View.Details;
             this.LsvEjecutable.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvEjecutable_ItemSelectionChanged);
@@ -276,7 +278,7 @@
             this.IBtnBuscarRutaEJ.Name = "IBtnBuscarRutaEJ";
             this.IBtnBuscarRutaEJ.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.IBtnBuscarRutaEJ.Size = new System.Drawing.Size(30, 30);
-            this.IBtnBuscarRutaEJ.TabIndex = 159;
+            this.IBtnBuscarRutaEJ.TabIndex = 3;
             this.IBtnBuscarRutaEJ.UseVisualStyleBackColor = false;
             this.IBtnBuscarRutaEJ.Click += new System.EventHandler(this.IBtnBuscarRutaEJ_Click);
             // 
@@ -306,7 +308,7 @@
             this.KTxtArgumentosEJ.StateCommon.Border.Width = 2;
             this.KTxtArgumentosEJ.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtArgumentosEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtArgumentosEJ.TabIndex = 157;
+            this.KTxtArgumentosEJ.TabIndex = 2;
             // 
             // LblRutaEJ
             // 
@@ -375,7 +377,7 @@
             this.KTxtNombreEJ.StateCommon.Border.Width = 2;
             this.KTxtNombreEJ.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreEJ.TabIndex = 151;
+            this.KTxtNombreEJ.TabIndex = 0;
             // 
             // KTxtRutaEJ
             // 
@@ -392,7 +394,7 @@
             this.KTxtRutaEJ.StateCommon.Border.Width = 2;
             this.KTxtRutaEJ.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtRutaEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtRutaEJ.TabIndex = 155;
+            this.KTxtRutaEJ.TabIndex = 1;
             // 
             // panel2
             // 

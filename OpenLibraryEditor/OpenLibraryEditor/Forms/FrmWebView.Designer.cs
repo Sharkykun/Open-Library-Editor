@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWebView));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,6 +42,7 @@
             this.LblTituloMain = new System.Windows.Forms.Label();
             this.PcbLogoMain = new System.Windows.Forms.PictureBox();
             this.webView2Enlace = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.TTWeb = new System.Windows.Forms.ToolTip(this.components);
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -183,6 +185,7 @@
             this.LblTituloMain.Size = new System.Drawing.Size(171, 23);
             this.LblTituloMain.TabIndex = 5;
             this.LblTituloMain.Text = "Open Library Editor ";
+            this.LblTituloMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloTitulos_MouseMove);
             // 
             // PcbLogoMain
             // 
@@ -246,5 +249,6 @@
         private System.Windows.Forms.Label LblTituloMain;
         private System.Windows.Forms.PictureBox PcbLogoMain;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView2Enlace;
+        private System.Windows.Forms.ToolTip TTWeb;
     }
 }

@@ -878,14 +878,14 @@ namespace OpenLibraryEditor.BaseDatos
         {
             try
             {
-                ConexionBD.AbrirConexion();
+                //ConexionBD.AbrirConexion();
                 //Cambiar la referencia en todos los autores
                 MySqlCommand tabla =new MySqlCommand(String.Format(@"
                 UPDATE `Usuario` SET correoUsuario = '{0}'
-                WHERE correoUsuario = '" + usuario.Correo + "';",
+                WHERE nombreUsuario = '" + usuario.Nombre + "';",
                 mail), ConexionBD.Conexion);
                 tabla.ExecuteNonQuery();
-                ConexionBD.CerrarConexion();
+                //ConexionBD.CerrarConexion();
                
             }
             catch (Exception ex)

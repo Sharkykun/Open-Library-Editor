@@ -74,7 +74,7 @@ namespace OpenLibraryEditor.Clases
             }
             catch (Google.GoogleApiException)
             {
-                VentanaWindowsComun.MensajeError("La busqueda en Google Books falló.\nCompruebe que su clave privada es correcta\ny que ha escrito algo para poder buscar.");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorGoogleBooks"));
                 bookCollection = null;
             }
         }
@@ -94,7 +94,7 @@ namespace OpenLibraryEditor.Clases
 
             if (Biblioteca.biblioteca.ListaLibro.Any(p => p.Isbn_13 == isbn13))
             {
-                throw new Libro.IdRepetidoException("El ISBN del libro ya existe en la biblioteca.");
+                throw new Libro.IdRepetidoException(ControladorIdioma.GetTexto("ErrorIdRepetido"));
             }
 
             Libro book = new Libro();

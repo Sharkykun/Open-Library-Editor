@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditoriales));
             this.PanBtnEd = new System.Windows.Forms.Panel();
-            this.GBtnActualizar = new Guna.UI.WinForms.GunaButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.GBtnAceptar = new Guna.UI.WinForms.GunaButton();
+            this.GBtnActualizar = new Guna.UI.WinForms.GunaButton();
             this.GBtnCancelar = new Guna.UI.WinForms.GunaButton();
             this.PanTituloEditoriales = new System.Windows.Forms.Panel();
             this.MBtnCerrarEditoriales = new FontAwesome.Sharp.Material.MaterialButton();
@@ -41,6 +42,7 @@
             this.LsvEditorialNE = new System.Windows.Forms.ListView();
             this.ChNombreNE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanOpcionesED = new System.Windows.Forms.Panel();
+            this.LblObligatorio = new System.Windows.Forms.Label();
             this.LblNombreEd = new System.Windows.Forms.Label();
             this.KTxtNombreEd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.MBtnAniadirImagenEd = new FontAwesome.Sharp.Material.MaterialButton();
@@ -53,13 +55,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.MBtnMasLsvNE = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosLsvNE = new FontAwesome.Sharp.Material.MaterialButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.PanBtnEd.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.PanTituloEditoriales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditoriales)).BeginInit();
             this.PanOpcionesED.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbEditorialesEd)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanBtnEd
@@ -72,34 +73,16 @@
             this.PanBtnEd.Size = new System.Drawing.Size(805, 45);
             this.PanBtnEd.TabIndex = 118;
             // 
-            // GBtnActualizar
+            // flowLayoutPanel1
             // 
-            this.GBtnActualizar.AnimationHoverSpeed = 0.07F;
-            this.GBtnActualizar.AnimationSpeed = 0.03F;
-            this.GBtnActualizar.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnActualizar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnActualizar.BorderColor = System.Drawing.Color.Empty;
-            this.GBtnActualizar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnActualizar.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnActualizar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.GBtnActualizar.Image = null;
-            this.GBtnActualizar.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnActualizar.Location = new System.Drawing.Point(180, 5);
-            this.GBtnActualizar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.GBtnActualizar.Name = "GBtnActualizar";
-            this.GBtnActualizar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnActualizar.OnHoverBorderColor = System.Drawing.Color.Empty;
-            this.GBtnActualizar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
-            this.GBtnActualizar.OnHoverImage = null;
-            this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnActualizar.Radius = 15;
-            this.GBtnActualizar.Size = new System.Drawing.Size(170, 35);
-            this.GBtnActualizar.TabIndex = 6;
-            this.GBtnActualizar.Text = "Actualizar con BD";
-            this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnActualizar.Visible = false;
-            this.GBtnActualizar.Click += new System.EventHandler(this.GBtnActualizar_Click);
+            this.flowLayoutPanel1.Controls.Add(this.GBtnAceptar);
+            this.flowLayoutPanel1.Controls.Add(this.GBtnActualizar);
+            this.flowLayoutPanel1.Controls.Add(this.GBtnCancelar);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(315, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(490, 45);
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
             // GBtnAceptar
             // 
@@ -124,10 +107,39 @@
             this.GBtnAceptar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnAceptar.Radius = 15;
             this.GBtnAceptar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnAceptar.TabIndex = 5;
+            this.GBtnAceptar.TabIndex = 0;
             this.GBtnAceptar.Text = "Aceptar";
             this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
+            // 
+            // GBtnActualizar
+            // 
+            this.GBtnActualizar.AnimationHoverSpeed = 0.07F;
+            this.GBtnActualizar.AnimationSpeed = 0.03F;
+            this.GBtnActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnActualizar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnActualizar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnActualizar.Image = null;
+            this.GBtnActualizar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnActualizar.Location = new System.Drawing.Point(180, 5);
+            this.GBtnActualizar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.GBtnActualizar.Name = "GBtnActualizar";
+            this.GBtnActualizar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnActualizar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnActualizar.OnHoverImage = null;
+            this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnActualizar.Radius = 15;
+            this.GBtnActualizar.Size = new System.Drawing.Size(170, 35);
+            this.GBtnActualizar.TabIndex = 1;
+            this.GBtnActualizar.Text = "Actualizar con BD";
+            this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnActualizar.Visible = false;
+            this.GBtnActualizar.Click += new System.EventHandler(this.GBtnActualizar_Click);
             // 
             // GBtnCancelar
             // 
@@ -152,7 +164,7 @@
             this.GBtnCancelar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.GBtnCancelar.Radius = 15;
             this.GBtnCancelar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnCancelar.TabIndex = 4;
+            this.GBtnCancelar.TabIndex = 2;
             this.GBtnCancelar.Text = "Cancelar";
             this.GBtnCancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnCancelar.Click += new System.EventHandler(this.GBtnCancelar_Click);
@@ -185,7 +197,7 @@
             this.MBtnCerrarEditoriales.Name = "MBtnCerrarEditoriales";
             this.MBtnCerrarEditoriales.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarEditoriales.Size = new System.Drawing.Size(32, 40);
-            this.MBtnCerrarEditoriales.TabIndex = 28;
+            this.MBtnCerrarEditoriales.TabIndex = 0;
             this.MBtnCerrarEditoriales.UseVisualStyleBackColor = false;
             this.MBtnCerrarEditoriales.Click += new System.EventHandler(this.MBtnCerrarEditoriales_Click);
             // 
@@ -199,6 +211,7 @@
             this.LblTituloEditoriales.Size = new System.Drawing.Size(307, 23);
             this.LblTituloEditoriales.TabIndex = 4;
             this.LblTituloEditoriales.Text = "Open Library Editor - Nueva Editorial";
+            this.LblTituloEditoriales.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditoriales_MouseDown);
             // 
             // PcbLogoEditoriales
             // 
@@ -210,6 +223,7 @@
             this.PcbLogoEditoriales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogoEditoriales.TabIndex = 3;
             this.PcbLogoEditoriales.TabStop = false;
+            this.PcbLogoEditoriales.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanTituloEditoriales_MouseDown);
             // 
             // LsvEditorialNE
             // 
@@ -224,7 +238,7 @@
             this.LsvEditorialNE.MultiSelect = false;
             this.LsvEditorialNE.Name = "LsvEditorialNE";
             this.LsvEditorialNE.Size = new System.Drawing.Size(215, 313);
-            this.LsvEditorialNE.TabIndex = 126;
+            this.LsvEditorialNE.TabIndex = 0;
             this.LsvEditorialNE.UseCompatibleStateImageBehavior = false;
             this.LsvEditorialNE.View = System.Windows.Forms.View.Details;
             this.LsvEditorialNE.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvEditorialNE_ItemSelectionChanged);
@@ -236,6 +250,7 @@
             // 
             // PanOpcionesED
             // 
+            this.PanOpcionesED.Controls.Add(this.LblObligatorio);
             this.PanOpcionesED.Controls.Add(this.LblNombreEd);
             this.PanOpcionesED.Controls.Add(this.KTxtNombreEd);
             this.PanOpcionesED.Controls.Add(this.MBtnAniadirImagenEd);
@@ -245,9 +260,21 @@
             this.PanOpcionesED.Controls.Add(this.PcbEditorialesEd);
             this.PanOpcionesED.Location = new System.Drawing.Point(251, 60);
             this.PanOpcionesED.Name = "PanOpcionesED";
-            this.PanOpcionesED.Size = new System.Drawing.Size(542, 348);
+            this.PanOpcionesED.Size = new System.Drawing.Size(542, 374);
             this.PanOpcionesED.TabIndex = 137;
             this.PanOpcionesED.Visible = false;
+            // 
+            // LblObligatorio
+            // 
+            this.LblObligatorio.AutoSize = true;
+            this.LblObligatorio.BackColor = System.Drawing.Color.Transparent;
+            this.LblObligatorio.Font = new System.Drawing.Font("Merienda One", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblObligatorio.Location = new System.Drawing.Point(26, 344);
+            this.LblObligatorio.Name = "LblObligatorio";
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.TabIndex = 167;
+            this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
             // LblNombreEd
             // 
@@ -275,7 +302,9 @@
             this.KTxtNombreEd.StateCommon.Border.Width = 2;
             this.KTxtNombreEd.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreEd.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreEd.TabIndex = 131;
+            this.KTxtNombreEd.TabIndex = 0;
+            this.KTxtNombreEd.Enter += new System.EventHandler(this.KTxtNombreEd_Enter);
+            this.KTxtNombreEd.Leave += new System.EventHandler(this.KTxtNombreEd_Leave);
             // 
             // MBtnAniadirImagenEd
             // 
@@ -288,7 +317,7 @@
             this.MBtnAniadirImagenEd.Location = new System.Drawing.Point(400, 238);
             this.MBtnAniadirImagenEd.Name = "MBtnAniadirImagenEd";
             this.MBtnAniadirImagenEd.Size = new System.Drawing.Size(30, 30);
-            this.MBtnAniadirImagenEd.TabIndex = 127;
+            this.MBtnAniadirImagenEd.TabIndex = 2;
             this.MBtnAniadirImagenEd.UseVisualStyleBackColor = true;
             this.MBtnAniadirImagenEd.Click += new System.EventHandler(this.MBtnAniadirImagenEd_Click);
             // 
@@ -303,7 +332,7 @@
             this.MBtnBorrarImagenEd.Location = new System.Drawing.Point(440, 238);
             this.MBtnBorrarImagenEd.Name = "MBtnBorrarImagenEd";
             this.MBtnBorrarImagenEd.Size = new System.Drawing.Size(30, 30);
-            this.MBtnBorrarImagenEd.TabIndex = 128;
+            this.MBtnBorrarImagenEd.TabIndex = 3;
             this.MBtnBorrarImagenEd.UseVisualStyleBackColor = true;
             this.MBtnBorrarImagenEd.Click += new System.EventHandler(this.MBtnBorrarImagenEd_Click);
             // 
@@ -335,7 +364,7 @@
             this.KTxtComentarioEd.StateCommon.Border.Width = 2;
             this.KTxtComentarioEd.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtComentarioEd.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtComentarioEd.TabIndex = 129;
+            this.KTxtComentarioEd.TabIndex = 1;
             // 
             // PcbEditorialesEd
             // 
@@ -379,7 +408,7 @@
             this.MBtnMasLsvNE.Name = "MBtnMasLsvNE";
             this.MBtnMasLsvNE.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMasLsvNE.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMasLsvNE.TabIndex = 135;
+            this.MBtnMasLsvNE.TabIndex = 1;
             this.MBtnMasLsvNE.UseVisualStyleBackColor = false;
             this.MBtnMasLsvNE.Click += new System.EventHandler(this.MBtnMasLsvNE_Click);
             // 
@@ -397,20 +426,9 @@
             this.MBtnMenosLsvNE.Name = "MBtnMenosLsvNE";
             this.MBtnMenosLsvNE.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMenosLsvNE.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMenosLsvNE.TabIndex = 136;
+            this.MBtnMenosLsvNE.TabIndex = 2;
             this.MBtnMenosLsvNE.UseVisualStyleBackColor = false;
             this.MBtnMenosLsvNE.Click += new System.EventHandler(this.MBtnMenosLsvNE_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.GBtnAceptar);
-            this.flowLayoutPanel1.Controls.Add(this.GBtnActualizar);
-            this.flowLayoutPanel1.Controls.Add(this.GBtnCancelar);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(315, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(490, 45);
-            this.flowLayoutPanel1.TabIndex = 7;
             // 
             // FrmEditoriales
             // 
@@ -433,13 +451,13 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEditoriales_FormClosing);
             this.Load += new System.EventHandler(this.FrmEditoriales_Load);
             this.PanBtnEd.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.PanTituloEditoriales.ResumeLayout(false);
             this.PanTituloEditoriales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoEditoriales)).EndInit();
             this.PanOpcionesED.ResumeLayout(false);
             this.PanOpcionesED.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbEditorialesEd)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -469,5 +487,6 @@
         private Guna.UI.WinForms.GunaButton GBtnCancelar;
         private Guna.UI.WinForms.GunaButton GBtnActualizar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label LblObligatorio;
     }
 }

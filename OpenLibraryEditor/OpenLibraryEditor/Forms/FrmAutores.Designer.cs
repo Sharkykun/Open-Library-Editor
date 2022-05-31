@@ -45,12 +45,12 @@
             this.MBtnMasLsvNA = new FontAwesome.Sharp.Material.MaterialButton();
             this.MBtnMenosLsvNA = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanOpcionesNA = new System.Windows.Forms.Panel();
+            this.LblObligatorio = new System.Windows.Forms.Label();
             this.TBtnVivo = new OpenLibraryEditor.Controles.ToggleButton();
             this.LblSigueVivo = new System.Windows.Forms.Label();
             this.LblOcupacionNA = new System.Windows.Forms.Label();
             this.KCmbOcupacionNA = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.MBtnMasOcupacionNA = new FontAwesome.Sharp.Material.MaterialButton();
-            this.MBtnMenosOcupacionNA = new FontAwesome.Sharp.Material.MaterialButton();
             this.KMtxtFecMuerteNA = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.KMtxtFecNacimientoNA = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.MBtnAniadirImagenAu = new FontAwesome.Sharp.Material.MaterialButton();
@@ -180,7 +180,7 @@
             this.GBtnAceptar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnAceptar.Radius = 15;
             this.GBtnAceptar.Size = new System.Drawing.Size(126, 35);
-            this.GBtnAceptar.TabIndex = 3;
+            this.GBtnAceptar.TabIndex = 0;
             this.GBtnAceptar.Text = "Aceptar";
             this.GBtnAceptar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnAceptar.Click += new System.EventHandler(this.GBtnAceptar_Click);
@@ -209,7 +209,7 @@
             this.GBtnActualizar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnActualizar.Radius = 15;
             this.GBtnActualizar.Size = new System.Drawing.Size(170, 35);
-            this.GBtnActualizar.TabIndex = 4;
+            this.GBtnActualizar.TabIndex = 1;
             this.GBtnActualizar.Text = "Actualizar con BD";
             this.GBtnActualizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnActualizar.Visible = false;
@@ -258,7 +258,7 @@
             this.LsvAutoresNA.MultiSelect = false;
             this.LsvAutoresNA.Name = "LsvAutoresNA";
             this.LsvAutoresNA.Size = new System.Drawing.Size(221, 313);
-            this.LsvAutoresNA.TabIndex = 131;
+            this.LsvAutoresNA.TabIndex = 0;
             this.LsvAutoresNA.UseCompatibleStateImageBehavior = false;
             this.LsvAutoresNA.View = System.Windows.Forms.View.Details;
             this.LsvAutoresNA.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LsvAutoresNA_ItemSelectionChanged);
@@ -286,7 +286,7 @@
             this.MBtnMasLsvNA.Name = "MBtnMasLsvNA";
             this.MBtnMasLsvNA.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMasLsvNA.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMasLsvNA.TabIndex = 139;
+            this.MBtnMasLsvNA.TabIndex = 1;
             this.MBtnMasLsvNA.UseVisualStyleBackColor = false;
             this.MBtnMasLsvNA.Click += new System.EventHandler(this.MBtnMasLsvNA_Click);
             // 
@@ -303,18 +303,18 @@
             this.MBtnMenosLsvNA.Name = "MBtnMenosLsvNA";
             this.MBtnMenosLsvNA.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.MBtnMenosLsvNA.Size = new System.Drawing.Size(45, 45);
-            this.MBtnMenosLsvNA.TabIndex = 140;
+            this.MBtnMenosLsvNA.TabIndex = 2;
             this.MBtnMenosLsvNA.UseVisualStyleBackColor = false;
             this.MBtnMenosLsvNA.Click += new System.EventHandler(this.MBtnMenosLsvNA_Click);
             // 
             // PanOpcionesNA
             // 
+            this.PanOpcionesNA.Controls.Add(this.LblObligatorio);
             this.PanOpcionesNA.Controls.Add(this.TBtnVivo);
             this.PanOpcionesNA.Controls.Add(this.LblSigueVivo);
             this.PanOpcionesNA.Controls.Add(this.LblOcupacionNA);
             this.PanOpcionesNA.Controls.Add(this.KCmbOcupacionNA);
             this.PanOpcionesNA.Controls.Add(this.MBtnMasOcupacionNA);
-            this.PanOpcionesNA.Controls.Add(this.MBtnMenosOcupacionNA);
             this.PanOpcionesNA.Controls.Add(this.KMtxtFecMuerteNA);
             this.PanOpcionesNA.Controls.Add(this.KMtxtFecNacimientoNA);
             this.PanOpcionesNA.Controls.Add(this.MBtnAniadirImagenAu);
@@ -332,9 +332,21 @@
             this.PanOpcionesNA.Controls.Add(this.PcbAutorNA);
             this.PanOpcionesNA.Location = new System.Drawing.Point(240, 46);
             this.PanOpcionesNA.Name = "PanOpcionesNA";
-            this.PanOpcionesNA.Size = new System.Drawing.Size(556, 388);
+            this.PanOpcionesNA.Size = new System.Drawing.Size(556, 405);
             this.PanOpcionesNA.TabIndex = 145;
             this.PanOpcionesNA.Visible = false;
+            // 
+            // LblObligatorio
+            // 
+            this.LblObligatorio.AutoSize = true;
+            this.LblObligatorio.BackColor = System.Drawing.Color.Transparent;
+            this.LblObligatorio.Font = new System.Drawing.Font("Merienda One", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.LblObligatorio.Location = new System.Drawing.Point(4, 384);
+            this.LblObligatorio.Name = "LblObligatorio";
+            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.TabIndex = 166;
+            this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
             // TBtnVivo
             // 
@@ -347,7 +359,7 @@
             this.TBtnVivo.OnBackColor = System.Drawing.Color.LimeGreen;
             this.TBtnVivo.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.TBtnVivo.Size = new System.Drawing.Size(45, 22);
-            this.TBtnVivo.TabIndex = 165;
+            this.TBtnVivo.TabIndex = 4;
             this.TBtnVivo.UseVisualStyleBackColor = true;
             // 
             // LblSigueVivo
@@ -391,7 +403,7 @@
             this.KCmbOcupacionNA.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbOcupacionNA.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbOcupacionNA.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbOcupacionNA.TabIndex = 162;
+            this.KCmbOcupacionNA.TabIndex = 2;
             // 
             // MBtnMasOcupacionNA
             // 
@@ -407,22 +419,6 @@
             this.MBtnMasOcupacionNA.TabIndex = 160;
             this.MBtnMasOcupacionNA.UseVisualStyleBackColor = true;
             this.MBtnMasOcupacionNA.Click += new System.EventHandler(this.MBtnMasOcupacionNA_Click);
-            // 
-            // MBtnMenosOcupacionNA
-            // 
-            this.MBtnMenosOcupacionNA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MBtnMenosOcupacionNA.FlatAppearance.BorderSize = 0;
-            this.MBtnMenosOcupacionNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MBtnMenosOcupacionNA.IconChar = FontAwesome.Sharp.MaterialIcons.MinusCircleOutline;
-            this.MBtnMenosOcupacionNA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
-            this.MBtnMenosOcupacionNA.IconSize = 40;
-            this.MBtnMenosOcupacionNA.Location = new System.Drawing.Point(377, 135);
-            this.MBtnMenosOcupacionNA.Name = "MBtnMenosOcupacionNA";
-            this.MBtnMenosOcupacionNA.Size = new System.Drawing.Size(30, 30);
-            this.MBtnMenosOcupacionNA.TabIndex = 161;
-            this.MBtnMenosOcupacionNA.UseVisualStyleBackColor = true;
-            this.MBtnMenosOcupacionNA.Visible = false;
-            this.MBtnMenosOcupacionNA.Click += new System.EventHandler(this.MBtnMenosOcupacionNA_Click);
             // 
             // KMtxtFecMuerteNA
             // 
@@ -440,7 +436,7 @@
             this.KMtxtFecMuerteNA.StateCommon.Border.Width = 2;
             this.KMtxtFecMuerteNA.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecMuerteNA.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KMtxtFecMuerteNA.TabIndex = 159;
+            this.KMtxtFecMuerteNA.TabIndex = 5;
             this.KMtxtFecMuerteNA.Text = "  /  /";
             // 
             // KMtxtFecNacimientoNA
@@ -459,7 +455,7 @@
             this.KMtxtFecNacimientoNA.StateCommon.Border.Width = 2;
             this.KMtxtFecNacimientoNA.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecNacimientoNA.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KMtxtFecNacimientoNA.TabIndex = 158;
+            this.KMtxtFecNacimientoNA.TabIndex = 3;
             this.KMtxtFecNacimientoNA.Text = "  /  /";
             // 
             // MBtnAniadirImagenAu
@@ -472,7 +468,7 @@
             this.MBtnAniadirImagenAu.Location = new System.Drawing.Point(455, 164);
             this.MBtnAniadirImagenAu.Name = "MBtnAniadirImagenAu";
             this.MBtnAniadirImagenAu.Size = new System.Drawing.Size(30, 30);
-            this.MBtnAniadirImagenAu.TabIndex = 149;
+            this.MBtnAniadirImagenAu.TabIndex = 8;
             this.MBtnAniadirImagenAu.UseVisualStyleBackColor = true;
             this.MBtnAniadirImagenAu.Click += new System.EventHandler(this.MBtnAniadirImagenAu_Click);
             // 
@@ -486,7 +482,7 @@
             this.MBtnBorrarImagenAu.Location = new System.Drawing.Point(495, 164);
             this.MBtnBorrarImagenAu.Name = "MBtnBorrarImagenAu";
             this.MBtnBorrarImagenAu.Size = new System.Drawing.Size(30, 30);
-            this.MBtnBorrarImagenAu.TabIndex = 150;
+            this.MBtnBorrarImagenAu.TabIndex = 9;
             this.MBtnBorrarImagenAu.UseVisualStyleBackColor = true;
             this.MBtnBorrarImagenAu.Click += new System.EventHandler(this.MBtnBorrarImagenAu_Click);
             // 
@@ -518,7 +514,7 @@
             this.KTxtComentarioAu.StateCommon.Border.Width = 2;
             this.KTxtComentarioAu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtComentarioAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtComentarioAu.TabIndex = 151;
+            this.KTxtComentarioAu.TabIndex = 7;
             // 
             // LblEnlaceAu
             // 
@@ -546,7 +542,7 @@
             this.KTxtEnlaceAu.StateCommon.Border.Width = 2;
             this.KTxtEnlaceAu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtEnlaceAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtEnlaceAu.TabIndex = 148;
+            this.KTxtEnlaceAu.TabIndex = 6;
             // 
             // LblDefuncionAu
             // 
@@ -585,7 +581,7 @@
             this.KtxtAliasAu.StateCommon.Border.Width = 2;
             this.KtxtAliasAu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KtxtAliasAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KtxtAliasAu.TabIndex = 147;
+            this.KtxtAliasAu.TabIndex = 1;
             // 
             // LblNacimientoAu
             // 
@@ -624,7 +620,9 @@
             this.KTxtNombreAu.StateCommon.Border.Width = 2;
             this.KTxtNombreAu.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreAu.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTxtNombreAu.TabIndex = 145;
+            this.KTxtNombreAu.TabIndex = 0;
+            this.KTxtNombreAu.Enter += new System.EventHandler(this.KTxtNombreAu_Enter);
+            this.KTxtNombreAu.Leave += new System.EventHandler(this.KTxtNombreAu_Leave);
             // 
             // PcbAutorNA
             // 
@@ -703,7 +701,6 @@
         private System.Windows.Forms.Label LblOcupacionNA;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox KCmbOcupacionNA;
         private FontAwesome.Sharp.Material.MaterialButton MBtnMasOcupacionNA;
-        private FontAwesome.Sharp.Material.MaterialButton MBtnMenosOcupacionNA;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox KMtxtFecMuerteNA;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox KMtxtFecNacimientoNA;
         private FontAwesome.Sharp.Material.MaterialButton MBtnAniadirImagenAu;
@@ -728,5 +725,6 @@
         private System.Windows.Forms.Panel panel2;
         private Guna.UI.WinForms.GunaButton GBtnActualizar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label LblObligatorio;
     }
 }

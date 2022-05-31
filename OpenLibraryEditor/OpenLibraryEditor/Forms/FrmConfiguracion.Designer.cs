@@ -82,6 +82,7 @@
             this.TxtUbicacionBBDD = new System.Windows.Forms.TextBox();
             this.TxtSubtituloContenidoExp = new System.Windows.Forms.TextBox();
             this.PanDatosUsu = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             this.KgbDatosUsu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.GBtnModificarPass = new Guna.UI.WinForms.GunaButton();
             this.LblRepetrirContra = new System.Windows.Forms.Label();
@@ -283,7 +284,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel7.Controls.Add(this.KgbServidorWeb);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 1091);
+            this.panel7.Location = new System.Drawing.Point(0, 1132);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(931, 275);
             this.panel7.TabIndex = 8;
@@ -486,7 +487,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel6.Controls.Add(this.KgbDescargasWeb);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 804);
+            this.panel6.Location = new System.Drawing.Point(0, 845);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(931, 287);
             this.panel6.TabIndex = 7;
@@ -641,7 +642,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel5.Controls.Add(this.KgbApariencia);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 494);
+            this.panel5.Location = new System.Drawing.Point(0, 535);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(931, 310);
             this.panel5.TabIndex = 6;
@@ -838,7 +839,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.panel3.Controls.Add(this.KgbGeneral);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 285);
+            this.panel3.Location = new System.Drawing.Point(0, 326);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(931, 209);
             this.panel3.TabIndex = 5;
@@ -977,19 +978,32 @@
             // 
             this.PanDatosUsu.AutoSize = true;
             this.PanDatosUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.PanDatosUsu.Controls.Add(this.LblTipoUsuarioConectado);
             this.PanDatosUsu.Controls.Add(this.KgbDatosUsu);
             this.PanDatosUsu.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanDatosUsu.Location = new System.Drawing.Point(0, 73);
             this.PanDatosUsu.Name = "PanDatosUsu";
-            this.PanDatosUsu.Size = new System.Drawing.Size(931, 212);
+            this.PanDatosUsu.Size = new System.Drawing.Size(931, 253);
             this.PanDatosUsu.TabIndex = 4;
             this.PanDatosUsu.Visible = false;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblTipoUsuarioConectado.AutoSize = true;
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(52, 12);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(122, 26);
+            this.LblTipoUsuarioConectado.TabIndex = 41;
+            this.LblTipoUsuarioConectado.Text = "Email actual";
             // 
             // KgbDatosUsu
             // 
             this.KgbDatosUsu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KgbDatosUsu.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.KgbDatosUsu.Location = new System.Drawing.Point(57, 2);
+            this.KgbDatosUsu.Location = new System.Drawing.Point(57, 46);
             this.KgbDatosUsu.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.KgbDatosUsu.Name = "KgbDatosUsu";
             // 
@@ -1009,7 +1023,7 @@
             this.KgbDatosUsu.Panel.Controls.Add(this.IpcbMostrarContra1);
             this.KgbDatosUsu.Panel.Controls.Add(this.IpcbOcultarContra1);
             this.KgbDatosUsu.Panel.Controls.Add(this.KTxtRepetirContra);
-            this.KgbDatosUsu.Size = new System.Drawing.Size(802, 195);
+            this.KgbDatosUsu.Size = new System.Drawing.Size(802, 192);
             this.KgbDatosUsu.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosUsu.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
             this.KgbDatosUsu.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
@@ -1401,6 +1415,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.KgbGeneral)).EndInit();
             this.KgbGeneral.ResumeLayout(false);
             this.PanDatosUsu.ResumeLayout(false);
+            this.PanDatosUsu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsu.Panel)).EndInit();
             this.KgbDatosUsu.Panel.ResumeLayout(false);
             this.KgbDatosUsu.Panel.PerformLayout();
@@ -1497,5 +1512,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox KTxtContraNueva;
         private System.Windows.Forms.ToolTip TTConfi;
         private System.Windows.Forms.ImageList ImlIdiomas;
+        private System.Windows.Forms.Label LblTipoUsuarioConectado;
     }
 }

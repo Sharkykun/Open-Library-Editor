@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrarUsuarios));
             this.PanTituloFormAbierto = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -35,8 +36,11 @@
             this.MPcbTituloFrm = new FontAwesome.Sharp.Material.MaterialPictureBox();
             this.KCmbBuscarPorUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.PanPiePagina = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.KgbDatosUsuario = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.GBtnGuardarCambios = new Guna.UI.WinForms.GunaButton();
             this.MBtnEditarUsu = new FontAwesome.Sharp.Material.MaterialButton();
             this.KCmbTipoUsu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblEscribirEmail = new System.Windows.Forms.Label();
@@ -48,7 +52,6 @@
             this.FlPanBuscar = new System.Windows.Forms.FlowLayoutPanel();
             this.MBtnOrdenMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.LblBuscarPor = new System.Windows.Forms.Label();
-            this.MbtnBorrarTxtBuscar = new FontAwesome.Sharp.Material.MaterialButton();
             this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanListViewsOpciones = new System.Windows.Forms.Panel();
@@ -57,13 +60,14 @@
             this.ColNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColTipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColCorreo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
-            this.GBtnGuardarCambios = new Guna.UI.WinForms.GunaButton();
+            this.TTAdmin = new System.Windows.Forms.ToolTip(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.LblNumeroLsv = new System.Windows.Forms.Label();
             this.PanTituloFormAbierto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbTituloFrm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbBuscarPorUsu)).BeginInit();
             this.PanPiePagina.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsuario.Panel)).BeginInit();
             this.KgbDatosUsuario.Panel.SuspendLayout();
@@ -71,7 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoUsu)).BeginInit();
             this.FlPanBuscar.SuspendLayout();
             this.PanListViewsOpciones.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanTituloFormAbierto
@@ -138,7 +142,7 @@
             this.KCmbBuscarPorUsu.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbBuscarPorUsu.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbBuscarPorUsu.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbBuscarPorUsu.TabIndex = 108;
+            this.KCmbBuscarPorUsu.TabIndex = 0;
             // 
             // PanPiePagina
             // 
@@ -150,6 +154,26 @@
             this.PanPiePagina.Name = "PanPiePagina";
             this.PanPiePagina.Size = new System.Drawing.Size(948, 47);
             this.PanPiePagina.TabIndex = 142;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.LblTipoUsuarioConectado);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(550, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(398, 43);
+            this.panel5.TabIndex = 5;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 13);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
+            this.LblTipoUsuarioConectado.TabIndex = 2;
+            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
+            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel1
             // 
@@ -194,6 +218,35 @@
             this.KgbDatosUsuario.Values.Heading = "Datos del usuario";
             this.KgbDatosUsuario.Visible = false;
             // 
+            // GBtnGuardarCambios
+            // 
+            this.GBtnGuardarCambios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GBtnGuardarCambios.AnimationHoverSpeed = 0.07F;
+            this.GBtnGuardarCambios.AnimationSpeed = 0.03F;
+            this.GBtnGuardarCambios.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnGuardarCambios.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarCambios.BorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarCambios.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnGuardarCambios.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarCambios.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnGuardarCambios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnGuardarCambios.Image = null;
+            this.GBtnGuardarCambios.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnGuardarCambios.Location = new System.Drawing.Point(282, 170);
+            this.GBtnGuardarCambios.Margin = new System.Windows.Forms.Padding(3, 5, 8, 3);
+            this.GBtnGuardarCambios.Name = "GBtnGuardarCambios";
+            this.GBtnGuardarCambios.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarCambios.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.GBtnGuardarCambios.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnGuardarCambios.OnHoverImage = null;
+            this.GBtnGuardarCambios.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnGuardarCambios.Radius = 15;
+            this.GBtnGuardarCambios.Size = new System.Drawing.Size(126, 35);
+            this.GBtnGuardarCambios.TabIndex = 1;
+            this.GBtnGuardarCambios.Text = "Guardar";
+            this.GBtnGuardarCambios.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnGuardarCambios.Click += new System.EventHandler(this.GBtnGuardarCambios_Click);
+            // 
             // MBtnEditarUsu
             // 
             this.MBtnEditarUsu.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -230,7 +283,7 @@
             this.KCmbTipoUsu.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoUsu.StateCommon.Item.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoUsu.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KCmbTipoUsu.TabIndex = 163;
+            this.KCmbTipoUsu.TabIndex = 0;
             // 
             // LblEscribirEmail
             // 
@@ -302,7 +355,6 @@
             this.MBtnMenosUsu.Size = new System.Drawing.Size(30, 30);
             this.MBtnMenosUsu.TabIndex = 165;
             this.MBtnMenosUsu.UseVisualStyleBackColor = false;
-            this.MBtnMenosUsu.Visible = false;
             this.MBtnMenosUsu.Click += new System.EventHandler(this.MBtnMenosUsu_Click);
             // 
             // FlPanBuscar
@@ -313,7 +365,6 @@
             this.FlPanBuscar.Controls.Add(this.MBtnOrdenMBI);
             this.FlPanBuscar.Controls.Add(this.LblBuscarPor);
             this.FlPanBuscar.Controls.Add(this.KCmbBuscarPorUsu);
-            this.FlPanBuscar.Controls.Add(this.MbtnBorrarTxtBuscar);
             this.FlPanBuscar.Controls.Add(this.TxtBusqueda);
             this.FlPanBuscar.Controls.Add(this.MBtnBuscarMBI);
             this.FlPanBuscar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -335,7 +386,7 @@
             this.MBtnOrdenMBI.Margin = new System.Windows.Forms.Padding(15, 3, 25, 3);
             this.MBtnOrdenMBI.Name = "MBtnOrdenMBI";
             this.MBtnOrdenMBI.Size = new System.Drawing.Size(34, 34);
-            this.MBtnOrdenMBI.TabIndex = 132;
+            this.MBtnOrdenMBI.TabIndex = 3;
             this.MBtnOrdenMBI.UseVisualStyleBackColor = true;
             this.MBtnOrdenMBI.Click += new System.EventHandler(this.MBtnOrden_Click);
             // 
@@ -351,32 +402,13 @@
             this.LblBuscarPor.TabIndex = 133;
             this.LblBuscarPor.Text = "Buscar por:";
             // 
-            // MbtnBorrarTxtBuscar
-            // 
-            this.MbtnBorrarTxtBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MbtnBorrarTxtBuscar.FlatAppearance.BorderSize = 0;
-            this.MbtnBorrarTxtBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MbtnBorrarTxtBuscar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.MbtnBorrarTxtBuscar.IconChar = FontAwesome.Sharp.MaterialIcons.Close;
-            this.MbtnBorrarTxtBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.MbtnBorrarTxtBuscar.IconSize = 35;
-            this.MbtnBorrarTxtBuscar.Location = new System.Drawing.Point(376, 8);
-            this.MbtnBorrarTxtBuscar.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.MbtnBorrarTxtBuscar.Name = "MbtnBorrarTxtBuscar";
-            this.MbtnBorrarTxtBuscar.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.MbtnBorrarTxtBuscar.Size = new System.Drawing.Size(22, 24);
-            this.MbtnBorrarTxtBuscar.TabIndex = 134;
-            this.MbtnBorrarTxtBuscar.UseVisualStyleBackColor = true;
-            this.MbtnBorrarTxtBuscar.Visible = false;
-            this.MbtnBorrarTxtBuscar.Click += new System.EventHandler(this.MbtnBorrarTxtBuscar_Click);
-            // 
             // TxtBusqueda
             // 
             this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.TxtBusqueda.Location = new System.Drawing.Point(401, 3);
+            this.TxtBusqueda.Location = new System.Drawing.Point(379, 3);
             this.TxtBusqueda.Name = "TxtBusqueda";
             this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
-            this.TxtBusqueda.TabIndex = 135;
+            this.TxtBusqueda.TabIndex = 1;
             this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarUsu_KeyDown);
             // 
             // MBtnBuscarMBI
@@ -388,17 +420,18 @@
             this.MBtnBuscarMBI.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarMBI.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnBuscarMBI.IconSize = 45;
-            this.MBtnBuscarMBI.Location = new System.Drawing.Point(670, 3);
+            this.MBtnBuscarMBI.Location = new System.Drawing.Point(648, 3);
             this.MBtnBuscarMBI.Name = "MBtnBuscarMBI";
             this.MBtnBuscarMBI.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarMBI.Size = new System.Drawing.Size(34, 34);
-            this.MBtnBuscarMBI.TabIndex = 131;
+            this.MBtnBuscarMBI.TabIndex = 2;
             this.MBtnBuscarMBI.UseVisualStyleBackColor = true;
             this.MBtnBuscarMBI.Click += new System.EventHandler(this.MBtnBuscar_Click);
             // 
             // PanListViewsOpciones
             // 
             this.PanListViewsOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.PanListViewsOpciones.Controls.Add(this.panel7);
             this.PanListViewsOpciones.Controls.Add(this.MBtnMasUsu);
             this.PanListViewsOpciones.Controls.Add(this.LsvUsuariosBD);
             this.PanListViewsOpciones.Controls.Add(this.MBtnMenosUsu);
@@ -423,7 +456,6 @@
             this.MBtnMasUsu.Size = new System.Drawing.Size(30, 30);
             this.MBtnMasUsu.TabIndex = 168;
             this.MBtnMasUsu.UseVisualStyleBackColor = false;
-            this.MBtnMasUsu.Visible = false;
             this.MBtnMasUsu.Click += new System.EventHandler(this.MBtnMasUsu_Click);
             // 
             // LsvUsuariosBD
@@ -443,7 +475,7 @@
             this.LsvUsuariosBD.Location = new System.Drawing.Point(10, 10);
             this.LsvUsuariosBD.MultiSelect = false;
             this.LsvUsuariosBD.Name = "LsvUsuariosBD";
-            this.LsvUsuariosBD.Size = new System.Drawing.Size(382, 520);
+            this.LsvUsuariosBD.Size = new System.Drawing.Size(382, 476);
             this.LsvUsuariosBD.TabIndex = 0;
             this.LsvUsuariosBD.UseCompatibleStateImageBehavior = false;
             this.LsvUsuariosBD.View = System.Windows.Forms.View.Details;
@@ -464,54 +496,26 @@
             this.ColCorreo.Text = "Email";
             this.ColCorreo.Width = 132;
             // 
-            // panel5
+            // panel7
             // 
-            this.panel5.Controls.Add(this.LblTipoUsuarioConectado);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(550, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(398, 43);
-            this.panel5.TabIndex = 5;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.panel7.Controls.Add(this.LblNumeroLsv);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 492);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(440, 48);
+            this.panel7.TabIndex = 169;
             // 
-            // LblTipoUsuarioConectado
+            // LblNumeroLsv
             // 
-            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 13);
-            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
-            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
-            this.LblTipoUsuarioConectado.TabIndex = 2;
-            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
-            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GBtnGuardarCambios
-            // 
-            this.GBtnGuardarCambios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.GBtnGuardarCambios.AnimationHoverSpeed = 0.07F;
-            this.GBtnGuardarCambios.AnimationSpeed = 0.03F;
-            this.GBtnGuardarCambios.BackColor = System.Drawing.Color.Transparent;
-            this.GBtnGuardarCambios.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnGuardarCambios.BorderColor = System.Drawing.Color.Empty;
-            this.GBtnGuardarCambios.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.GBtnGuardarCambios.FocusedColor = System.Drawing.Color.Empty;
-            this.GBtnGuardarCambios.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBtnGuardarCambios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.GBtnGuardarCambios.Image = null;
-            this.GBtnGuardarCambios.ImageSize = new System.Drawing.Size(20, 20);
-            this.GBtnGuardarCambios.Location = new System.Drawing.Point(282, 170);
-            this.GBtnGuardarCambios.Margin = new System.Windows.Forms.Padding(3, 5, 8, 3);
-            this.GBtnGuardarCambios.Name = "GBtnGuardarCambios";
-            this.GBtnGuardarCambios.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnGuardarCambios.OnHoverBorderColor = System.Drawing.Color.Empty;
-            this.GBtnGuardarCambios.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.GBtnGuardarCambios.OnHoverImage = null;
-            this.GBtnGuardarCambios.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.GBtnGuardarCambios.Radius = 15;
-            this.GBtnGuardarCambios.Size = new System.Drawing.Size(126, 35);
-            this.GBtnGuardarCambios.TabIndex = 167;
-            this.GBtnGuardarCambios.Text = "Guardar";
-            this.GBtnGuardarCambios.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.GBtnGuardarCambios.Click += new System.EventHandler(this.GBtnGuardarCambios_Click);
+            this.LblNumeroLsv.AutoSize = true;
+            this.LblNumeroLsv.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNumeroLsv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblNumeroLsv.Location = new System.Drawing.Point(11, 15);
+            this.LblNumeroLsv.Name = "LblNumeroLsv";
+            this.LblNumeroLsv.Size = new System.Drawing.Size(135, 20);
+            this.LblNumeroLsv.TabIndex = 2;
+            this.LblNumeroLsv.Text = "Número de libros:";
             // 
             // FrmAdministrarUsuarios
             // 
@@ -533,6 +537,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MPcbTituloFrm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbBuscarPorUsu)).EndInit();
             this.PanPiePagina.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.KgbDatosUsuario.Panel)).EndInit();
             this.KgbDatosUsuario.Panel.ResumeLayout(false);
             this.KgbDatosUsuario.Panel.PerformLayout();
@@ -542,7 +547,8 @@
             this.FlPanBuscar.ResumeLayout(false);
             this.FlPanBuscar.PerformLayout();
             this.PanListViewsOpciones.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,7 +575,6 @@
         private System.Windows.Forms.FlowLayoutPanel FlPanBuscar;
         private FontAwesome.Sharp.Material.MaterialButton MBtnOrdenMBI;
         private System.Windows.Forms.Label LblBuscarPor;
-        private FontAwesome.Sharp.Material.MaterialButton MbtnBorrarTxtBuscar;
         private FontAwesome.Sharp.Material.MaterialButton MBtnBuscarMBI;
         private System.Windows.Forms.Panel PanListViewsOpciones;
         private System.Windows.Forms.ListView LsvUsuariosBD;
@@ -581,5 +586,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label LblTipoUsuarioConectado;
         private Guna.UI.WinForms.GunaButton GBtnGuardarCambios;
+        private System.Windows.Forms.ToolTip TTAdmin;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label LblNumeroLsv;
     }
 }
