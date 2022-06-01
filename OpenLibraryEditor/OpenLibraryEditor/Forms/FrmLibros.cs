@@ -110,7 +110,6 @@ namespace OpenLibraryEditor.Forms
                 KMtxtFecComienzoNL.Text = libroActual.FechaComienzo.Date.ToShortDateString();
             if (!libroActual.FechaTerminado.Date.Equals(new DateTime()))
                 KMtxtFecFinalNL.Text = libroActual.FechaTerminado.Date.ToShortDateString();
-            TBtnOcultarNL.Checked = libroActual.Ocultar;
             TBtnFavNL.Checked = libroActual.Favorito;
             KTxtComentarioUsuarioNL.Text = libroActual.Comentario;
             rutaImagenPortada = libroActual.ImagenPortada;
@@ -194,9 +193,7 @@ namespace OpenLibraryEditor.Forms
             TTnuevoLibro.SetToolTip(this.KMtxtFecFinalNL, ControladorIdioma.GetTexto("FormatoFecha"));
             LblFavoritoNL.Text = ControladorIdioma.GetTexto("Al_DUFav");
             TTnuevoLibro.SetToolTip(this.TBtnFavNL, ControladorIdioma.GetTexto("Al_TTFav"));
-            LblOcultarNL.Text = ControladorIdioma.GetTexto("Al_DUOcultar");
             LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
-            TTnuevoLibro.SetToolTip(this.TBtnOcultarNL, ControladorIdioma.GetTexto("Al_TTOcu"));
             LblComentarioNL.Text = ControladorIdioma.GetTexto("Al_DUComentario");
             TTnuevoLibro.SetToolTip(this.KTxtComentarioUsuarioNL, ControladorIdioma.GetTexto("Al_TTCome"));
 
@@ -407,8 +404,8 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasTipoLibroNL_Click(object sender, EventArgs e)
         {
             FrmInputTxt input = new FrmInputTxt(null);
-            if (KCmbTipoNL.SelectedItem != null) { 
-                input = new FrmInputTxt(KCmbTipoNL.SelectedItem.ToString());
+            if (listaTipoLibro.Contains(KCmbTipoNL.Text)) { 
+                input = new FrmInputTxt(KCmbTipoNL.Text);
             }
             input.FormBorderStyle = FormBorderStyle.None;
             input.Text = "Tipo libro";
@@ -567,7 +564,10 @@ namespace OpenLibraryEditor.Forms
                     libroActual.ListaEditorial.Add((Editorial)(c as CCBoxItem).Item);
                 libroActual.Edicion = (int)KNudEdicionNL.Value;
                 libroActual.NumeroVolumen = (double)KNudVolumenNL.Value;
-                libroActual.NombreTipo = KCmbTipoNL.Text;
+                if (listaTipoLibro.Contains(KCmbTipoNL.Text))
+                    libroActual.NombreTipo = KCmbTipoNL.Text;
+                else
+                    libroActual.NombreTipo = "";
                 libroActual.Sinopsis = KTxtSinopsisNL.Text;
                 libroActual.NumeroCapitulos = (int)KNudNumCapNL.Value;
                 libroActual.NumeroPaginas = (int)KNudNumPagNL.Value;
@@ -629,7 +629,6 @@ namespace OpenLibraryEditor.Forms
                 }
                 else
                     libroActual.FechaTerminado = new DateTime();
-                libroActual.Ocultar = TBtnOcultarNL.Checked;
                 libroActual.Favorito = TBtnFavNL.Checked;
                 libroActual.Comentario = KTxtComentarioUsuarioNL.Text;
                 if (rutaImagenPortada != libroActual.ImagenPortada)

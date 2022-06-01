@@ -136,11 +136,11 @@ namespace OpenLibraryEditor.Forms
         #region añadir/modificar género
         private void LsvGeneroNG_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (e == null || !e.IsSelected)
+            if (e != null && !e.IsSelected)
                 ComprobarGuardado();
 
             //Comprobar selección item
-            if (e == null || (e.IsSelected && LsvGeneroNG.SelectedItems.Count == 1))
+            if ((e == null || e.IsSelected) && LsvGeneroNG.SelectedItems.Count == 1)
             {
                 PanOpcionesGE.Visible = true;
                 itemActual = LsvGeneroNG.SelectedItems[0];
@@ -160,6 +160,7 @@ namespace OpenLibraryEditor.Forms
             listaGenero.Add(gen);
             var item = AniadirGenero(gen);
             item.Selected = true;
+            Biblioteca.biblioteca.GuardarJson();
         }
 
         private void MBtnMenosLsvNG_Click(object sender, EventArgs e)
@@ -178,6 +179,8 @@ namespace OpenLibraryEditor.Forms
                         {
                             generoActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Se ha borrado correctamente de la base de datos.");
                         }
                     }
                 }
@@ -193,8 +196,12 @@ namespace OpenLibraryEditor.Forms
 
                 listaGenero.Remove(generoActual);
                 LsvGeneroNG.Items.Remove(item);
+                Biblioteca.biblioteca.GuardarJson();
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un género de la lista para realizar esta operación.");
         }
         private void KTxtNombreGe_Enter(object sender, EventArgs e)
         {
@@ -234,41 +241,56 @@ namespace OpenLibraryEditor.Forms
                             {
                                generoActual.MeterEnBDCompartida();
                                 ConexionBD.CerrarConexion();
+                                //---------------
+                                VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente en la base de datos.");
                             }
                         }
                     }
 
                     ActualizarListView();
+                    Biblioteca.biblioteca.GuardarJson();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
 
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Genero"));
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un género de la lista para realizar esta operación.");
         }
 
 
         private void GBtnActualizar_Click(object sender, EventArgs e)
         {
-            //Actualizar en BD compartida si se puede
-            if (ConexionBD.Conexion != null)
+            if (PanOpcionesGE.Visible == true)
             {
-
-                if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarGeneroBD"))
-                    == DialogResult.Yes)
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null)
                 {
-                    if (ConexionBD.AbrirConexion())
+
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarGeneroBD"))
+                        == DialogResult.Yes)
                     {
-                        Genero genero = LecturaBD.SelectGenero(EscrituraBD.GetObjetoIdDeLocal(
-                            generoActual.ListaIdCompartido));
-                        ConexionBD.CerrarConexion();
-                        generoActual.Comentario = genero.Comentario;
-                        generoActual.Nombre = genero.Nombre;
-                        LsvGeneroNG_ItemSelectionChanged(null, null);
-                        ActualizarListView();
+                        if (ConexionBD.AbrirConexion())
+                        {
+                            Genero genero = LecturaBD.SelectGenero(EscrituraBD.GetObjetoIdDeLocal(
+                                generoActual.ListaIdCompartido));
+                            ConexionBD.CerrarConexion();
+                            generoActual.Comentario = genero.Comentario;
+                            generoActual.Nombre = genero.Nombre;
+                            LsvGeneroNG_ItemSelectionChanged(null, null);
+                            ActualizarListView();
+                            Biblioteca.biblioteca.GuardarJson();
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Se ha descargado correctamente de la base de datos.");
+                        }
                     }
                 }
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un género de la lista para realizar esta operación.");
         }
         private void ActualizarListView()
         {

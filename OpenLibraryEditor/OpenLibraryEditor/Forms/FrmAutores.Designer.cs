@@ -344,7 +344,7 @@
             this.LblObligatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.LblObligatorio.Location = new System.Drawing.Point(4, 384);
             this.LblObligatorio.Name = "LblObligatorio";
-            this.LblObligatorio.Size = new System.Drawing.Size(150, 16);
+            this.LblObligatorio.Size = new System.Drawing.Size(151, 16);
             this.LblObligatorio.TabIndex = 166;
             this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
@@ -361,6 +361,7 @@
             this.TBtnVivo.Size = new System.Drawing.Size(45, 22);
             this.TBtnVivo.TabIndex = 4;
             this.TBtnVivo.UseVisualStyleBackColor = true;
+            this.TBtnVivo.CheckedChanged += new System.EventHandler(this.TBtnVivo_CheckedChanged);
             // 
             // LblSigueVivo
             // 
@@ -436,6 +437,7 @@
             this.KMtxtFecMuerteNA.StateCommon.Border.Width = 2;
             this.KMtxtFecMuerteNA.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecMuerteNA.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KMtxtFecMuerteNA.StateDisabled.Back.Color1 = System.Drawing.Color.Silver;
             this.KMtxtFecMuerteNA.TabIndex = 5;
             this.KMtxtFecMuerteNA.Text = "  /  /";
             // 

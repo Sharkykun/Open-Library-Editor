@@ -57,7 +57,7 @@ namespace OpenLibraryEditor.Forms
             this.setNew = setNew;
             this.autorActual = autorActual;
             this.puedeEditar = puedeEditar;
-            EditarAutorDesdeMain();
+            
         }
         private void FrmAutores_Load(object sender, EventArgs e)
         {
@@ -69,6 +69,8 @@ namespace OpenLibraryEditor.Forms
             }
 
             //Vincular lista de ocupacion con Combobox
+            //Limpiar objetos nulos o vacios si se cuela alguno
+            listaOcupacion.RemoveAll(p => String.IsNullOrWhiteSpace(p));
             ocupacionBinding.DataSource = listaOcupacion;
             KCmbOcupacionNA.DataSource = ocupacionBinding;
 
@@ -81,26 +83,27 @@ namespace OpenLibraryEditor.Forms
             {
                 GBtnActualizar.Visible = true;
             }
-            
+            LsvAutoresNA_ItemSelectionChanged(null, null);
         }
         #endregion
         #region metodos propios
-        private void EditarAutorDesdeMain()
-        {
-            PanOpcionesNA.Visible = true;
-            KTxtNombreAu.Text = autorActual.Nombre;
-            KTxtComentarioAu.Text = autorActual.Comentario;
-            KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion == "" ?
-                null : autorActual.NombreOcupacion;
-            KtxtAliasAu.Text = autorActual.Alias;
-            KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
-            rutaImagen = autorActual.Imagen;
-            CargarImagen(rutaImagen);
-            if (!autorActual.FechaDefuncion.Date.Equals(new DateTime()))
-                KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
-            if (!autorActual.FechaNacimiento.Date.Equals(new DateTime()))
-                KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
-        }
+        //private void EditarAutorDesdeMain()
+        //{
+        //    PanOpcionesNA.Visible = true;
+        //    KTxtNombreAu.Text = autorActual.Nombre;
+        //    KTxtComentarioAu.Text = autorActual.Comentario;
+        //    KCmbOcupacionNA.SelectedItem = String.IsNullOrWhiteSpace(autorActual.NombreOcupacion)
+        //            ?
+        //            null : autorActual.NombreOcupacion;
+        //    KtxtAliasAu.Text = autorActual.Alias;
+        //    KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
+        //    rutaImagen = autorActual.Imagen;
+        //    CargarImagen(rutaImagen);
+        //    if (!autorActual.FechaDefuncion.Date.Equals(new DateTime()))
+        //        KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
+        //    if (!autorActual.FechaNacimiento.Date.Equals(new DateTime()))
+        //        KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
+        //}
         private void IdiomaTexto()
         {
             LblTituloAutores.Text = ControladorIdioma.GetTexto("Au_TituloFrm");
@@ -157,15 +160,22 @@ namespace OpenLibraryEditor.Forms
 
         private bool EsObjetoCambiado()
         {
+            string a = KMtxtFecMuerteNA.MaskCompleted ? KMtxtFecMuerteNA.Text
+                : new DateTime().Date.ToShortDateString();
+            string b = KMtxtFecNacimientoNA.MaskCompleted ? KMtxtFecNacimientoNA.Text
+                : new DateTime().Date.ToShortDateString();
+            string c = autorActual.NombreOcupacion == null ? ""
+                : autorActual.NombreOcupacion;
+
             //Comprobar si el objeto actual tiene algo cambiado
             if (KTxtNombreAu.Text == autorActual.Nombre &&
                 KTxtComentarioAu.Text == autorActual.Comentario &&
                 KtxtAliasAu.Text == autorActual.Alias &&
                 KTxtEnlaceAu.Text == autorActual.EnlaceReferencia &&
                 rutaImagen == autorActual.Imagen &&
-                KCmbOcupacionNA.Text == autorActual.NombreOcupacion &&
-                KMtxtFecMuerteNA.Text == autorActual.FechaDefuncion.Date.ToShortDateString() &&
-                KMtxtFecNacimientoNA.Text == autorActual.FechaNacimiento.Date.ToShortDateString())
+                KCmbOcupacionNA.Text == c &&
+                a == autorActual.FechaDefuncion.Date.ToShortDateString() &&
+                b == autorActual.FechaNacimiento.Date.ToShortDateString())
                 return false;
             else
                 return true;
@@ -212,23 +222,42 @@ namespace OpenLibraryEditor.Forms
                 ComprobarGuardado();
 
             //Comprobar selección item
-            if (e == null || (e.IsSelected && LsvAutoresNA.SelectedItems.Count == 1))
+            if ((e == null || e.IsSelected) && LsvAutoresNA.SelectedItems.Count == 1)
             {
                 PanOpcionesNA.Visible = true;
                 itemActual = LsvAutoresNA.SelectedItems[0];
                 autorActual = (Autor)itemActual.Tag;
                 KTxtNombreAu.Text = autorActual.Nombre;
                 KTxtComentarioAu.Text = autorActual.Comentario;
-                KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion == "" ?
-                    null : autorActual.NombreOcupacion;
+                if (String.IsNullOrWhiteSpace(autorActual.NombreOcupacion))
+                {
+                    KCmbOcupacionNA.SelectedItem = null;
+                    KCmbOcupacionNA.Text = "";
+                }
+                else
+                {
+                    KCmbOcupacionNA.SelectedItem = autorActual.NombreOcupacion;
+                    KCmbOcupacionNA.Text = autorActual.NombreOcupacion;
+                }
                 KtxtAliasAu.Text = autorActual.Alias;
                 KTxtEnlaceAu.Text = autorActual.EnlaceReferencia;
                 rutaImagen = autorActual.Imagen;
                 CargarImagen(rutaImagen);
                 if (!autorActual.FechaDefuncion.Date.Equals(new DateTime()))
+                {
                     KMtxtFecMuerteNA.Text = autorActual.FechaDefuncion.Date.ToShortDateString();
+                    TBtnVivo.Checked = false;
+                }
+                else
+                {
+                    TBtnVivo.Checked = true;
+                    KMtxtFecMuerteNA.Text = "";
+                }
+                TBtnVivo_CheckedChanged(null, null);
                 if (!autorActual.FechaNacimiento.Date.Equals(new DateTime()))
                     KMtxtFecNacimientoNA.Text = autorActual.FechaNacimiento.Date.ToShortDateString();
+                else
+                    KMtxtFecNacimientoNA.Text = "";
             }
             else
             {
@@ -243,6 +272,7 @@ namespace OpenLibraryEditor.Forms
             listaPersona.Add(p);
             var item = AniadirPersona(p);
             item.Selected = true;
+            Biblioteca.biblioteca.GuardarJson();
         }
 
         private void MBtnMenosLsvNA_Click(object sender, EventArgs e)
@@ -261,6 +291,8 @@ namespace OpenLibraryEditor.Forms
                         {
                             autorActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Se ha borrado correctamente de la base de datos.");
                         }
                     }
                 }
@@ -276,15 +308,19 @@ namespace OpenLibraryEditor.Forms
 
                 listaPersona.Remove(autorActual);
                 LsvAutoresNA.Items.Remove(item);
+                Biblioteca.biblioteca.GuardarJson();
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO+ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un autor de la lista para realizar esta operación.");
         }
         private void MBtnMasOcupacionNA_Click(object sender, EventArgs e)
         {
             FrmInputTxt input = new FrmInputTxt(null);
-            if (KCmbOcupacionNA.SelectedItem != null)
+            if (listaOcupacion.Contains(KCmbOcupacionNA.Text))
             {
-                input = new FrmInputTxt(KCmbOcupacionNA.SelectedItem.ToString());
+                input = new FrmInputTxt(KCmbOcupacionNA.Text);
             }
             input.FormBorderStyle = FormBorderStyle.None;
             input.Text = "Ocupación";
@@ -307,8 +343,19 @@ namespace OpenLibraryEditor.Forms
             else if (x == null)
             {
                 listaOcupacion.Remove((string)KCmbOcupacionNA.SelectedItem);
+                listaPersona.ForEach(p =>
+                {
+                    if (p.NombreOcupacion == KCmbOcupacionNA.Text)
+                        p.NombreOcupacion = "";
+                });
+                foreach (ListViewItem item in LsvAutoresNA.Items)
+                {
+                    if (item.SubItems[1].Text == KCmbOcupacionNA.Text)
+                        item.SubItems[1].Text = "";
+                }
                 ActualizarOcupacion();
                 KCmbOcupacionNA.SelectedItem = null;
+                KCmbOcupacionNA.Text = "";
             }
         }
         private void MBtnAniadirImagenAu_Click(object sender, EventArgs e)
@@ -329,8 +376,8 @@ namespace OpenLibraryEditor.Forms
         private void ActualizarListView()
         {
             //Actualizar listview
-            itemActual.Text = KTxtNombreAu.Text;
-            itemActual.SubItems[1].Text = KCmbOcupacionNA.Text;
+            itemActual.Text = autorActual.Nombre;
+            itemActual.SubItems[1].Text = autorActual.NombreOcupacion;
         }
 
         private void KTxtNombreAu_Enter(object sender, EventArgs e)
@@ -358,11 +405,14 @@ namespace OpenLibraryEditor.Forms
                 {
                     //Actualizar persona
                     autorActual.Nombre = KTxtNombreAu.Text;
-                    autorActual.NombreOcupacion = KCmbOcupacionNA.Text;
+                    if (listaOcupacion.Contains(KCmbOcupacionNA.Text))
+                        autorActual.NombreOcupacion = KCmbOcupacionNA.Text;
+                    else
+                        autorActual.NombreOcupacion = "";
                     autorActual.Comentario = KTxtComentarioAu.Text;
                     autorActual.Alias = KtxtAliasAu.Text;
                     autorActual.EnlaceReferencia = KTxtEnlaceAu.Text;
-                    if (KMtxtFecMuerteNA.MaskCompleted)
+                    if (KMtxtFecMuerteNA.MaskCompleted && !TBtnVivo.Checked)
                     {
                         DateTime d = new DateTime();
                         DateTime.TryParse(KMtxtFecMuerteNA.Text, out d);
@@ -407,58 +457,77 @@ namespace OpenLibraryEditor.Forms
                             {
                                 autorActual.MeterEnBDCompartida();
                                 ConexionBD.CerrarConexion();
+                                //---------------
+                                VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente en la base de datos.");
                             }
                         }
                     }
 
                     ActualizarListView();
+                    Biblioteca.biblioteca.GuardarJson();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un autor de la lista para realizar esta operación.");
         }
 
      
         private void GBtnActualizar_Click(object sender, EventArgs e)
         {
-            //Actualizar en BD compartida si se puede
-            if (ConexionBD.Conexion != null)
+            if (PanOpcionesNA.Visible == true)
             {
-                if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarAutorBD"))
-                    == DialogResult.Yes)
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null)
                 {
-                    if (ConexionBD.AbrirConexion())
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarAutorBD"))
+                        == DialogResult.Yes)
                     {
-                        Autor autor = LecturaBD.SelectAutor(EscrituraBD.GetObjetoIdDeLocal(
-                            autorActual.ListaIdCompartido));
-                        ConexionBD.CerrarConexion();
-                        if (autor != null)
+                        if (ConexionBD.AbrirConexion())
                         {
-                            autorActual.Nombre = autor.Nombre;
-                            autorActual.Alias = autor.Alias;
-                            autorActual.Comentario = autor.Comentario;
-                            autorActual.EnlaceReferencia = autor.EnlaceReferencia;
-                            autorActual.FechaDefuncion = autor.FechaDefuncion;
-                            autorActual.FechaNacimiento = autor.FechaNacimiento;
-                            autorActual.Imagen = autor.ImagenTemp == null ? null :
-                                ControladorImagen.RUTA_PERSONA + autorActual.IdAutor;
-                            autorActual.NombreOcupacion = autor.NombreOcupacion;
-                            if (autorActual.Imagen != null)
+                            Autor autor = LecturaBD.SelectAutor(EscrituraBD.GetObjetoIdDeLocal(
+                                autorActual.ListaIdCompartido));
+                            ConexionBD.CerrarConexion();
+                            if (autor != null)
                             {
-                                //Thread.Sleep(10);
-                                File.Delete(autorActual.Imagen);
-                                File.WriteAllBytes(autorActual.Imagen, autor.ImagenTemp);
-                                CargarImagen(autorActual.Imagen);
+                                autorActual.Nombre = autor.Nombre;
+                                autorActual.Alias = autor.Alias;
+                                autorActual.Comentario = autor.Comentario;
+                                autorActual.EnlaceReferencia = autor.EnlaceReferencia;
+                                autorActual.FechaDefuncion = autor.FechaDefuncion;
+                                autorActual.FechaNacimiento = autor.FechaNacimiento;
+                                autorActual.Imagen = autor.ImagenTemp == null ? null :
+                                    ControladorImagen.RUTA_PERSONA + autorActual.IdAutor;
+                                if (!String.IsNullOrWhiteSpace(autor.NombreOcupacion) &&
+                                    !listaOcupacion.Contains(autor.NombreOcupacion))
+                                    listaOcupacion.Add(autor.NombreOcupacion);
+                                autorActual.NombreOcupacion = autor.NombreOcupacion;
+                                if (autorActual.Imagen != null)
+                                {
+                                    //Thread.Sleep(10);
+                                    File.Delete(autorActual.Imagen);
+                                    File.WriteAllBytes(autorActual.Imagen, autor.ImagenTemp);
+                                    CargarImagen(autorActual.Imagen);
+                                }
+                                ActualizarOcupacion();
+                                LsvAutoresNA_ItemSelectionChanged(null, null);
+                                ActualizarListView();
+                                Biblioteca.biblioteca.GuardarJson();
+                                //---------------
+                                VentanaWindowsComun.MensajeInformacion("Se ha descargado correctamente de la base de datos.");
                             }
-                            LsvAutoresNA_ItemSelectionChanged(null, null);
-                            ActualizarListView();
+                            else
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AutorNoExiste"));
                         }
-                        else
-                            VentanaWindowsComun.MensajeError("AutorNoExiste");
                     }
                 }
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un autor de la lista para realizar esta operación.");
         }
         #endregion
         #region cerrar formulario
@@ -488,5 +557,10 @@ namespace OpenLibraryEditor.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
+        private void TBtnVivo_CheckedChanged(object sender, EventArgs e)
+        {
+            KMtxtFecMuerteNA.Enabled = !TBtnVivo.Checked;
+        }
     }
 }

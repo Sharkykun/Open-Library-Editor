@@ -57,7 +57,27 @@ namespace OpenLibraryEditor.BaseDatos
 			}
 		}
 
-        public static int SelectOcupacionCantidadPorAutor(string nombreOcupacion)
+		public static List<string> SelectListaOcupacion()
+		{
+			string query = "SELECT * FROM Ocupacion";
+			List<string> lista = new List<string>();
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					if (lector.Read())
+					{
+						string datos = lector["nombreOcupacion"].ToString();
+						lista.Add(datos);
+					}
+				}
+			}
+			return lista;
+		}
+
+		public static int SelectOcupacionCantidadPorAutor(string nombreOcupacion)
         {
 			string query = "SELECt COUNT(*) FROM Autor WHERE nombreOcupacion = '" + nombreOcupacion+"'";
 			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
@@ -386,6 +406,26 @@ namespace OpenLibraryEditor.BaseDatos
 					return null;
 				}
 			}
+		}
+
+		public static List<string> SelectListaTipoLibro()
+		{
+			string query = "SELECT * FROM TipoLibro";
+			List<string> lista = new List<string>();
+
+			using (MySqlCommand comando = new MySqlCommand(query, ConexionBD.Conexion))
+			{
+				using (MySqlDataReader lector = comando.ExecuteReader())
+				{
+
+					if (lector.Read())
+					{
+						string datos = lector["nombreTipoLibro"].ToString();
+						lista.Add(datos);
+					}
+				}
+			}
+			return lista;
 		}
 
 		public static int SelectTipoLibroCantidadPorLibro(string tipoLibro)

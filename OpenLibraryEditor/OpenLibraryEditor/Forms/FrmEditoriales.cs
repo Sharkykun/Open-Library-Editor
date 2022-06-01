@@ -159,11 +159,11 @@ namespace OpenLibraryEditor.Forms
         #region añadir/modificar editorial
         private void LsvEditorialNE_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (e == null || !e.IsSelected)
+            if (e != null && !e.IsSelected)
                 ComprobarGuardado();
 
             //Comprobar selección item
-            if (e == null || (e.IsSelected && LsvEditorialNE.SelectedItems.Count == 1))
+            if ((e == null || e.IsSelected) && LsvEditorialNE.SelectedItems.Count == 1)
             {
                 PanOpcionesED.Visible = true;
                 itemActual = LsvEditorialNE.SelectedItems[0];
@@ -187,6 +187,7 @@ namespace OpenLibraryEditor.Forms
             listaEditorial.Add(p);
             var item = AniadirEditorial(p);
             item.Selected = true;
+            Biblioteca.biblioteca.GuardarJson();
         }
 
         private void MBtnMenosLsvNE_Click(object sender, EventArgs e)
@@ -205,6 +206,8 @@ namespace OpenLibraryEditor.Forms
                         {
                             editorialActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Se ha borrado correctamente de la base de datos.");
                         }
                     }
                 }
@@ -220,8 +223,12 @@ namespace OpenLibraryEditor.Forms
 
                 listaEditorial.Remove(editorialActual);
                 LsvEditorialNE.Items.Remove(item);
+                Biblioteca.biblioteca.GuardarJson();
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar una editorial de la lista para realizar esta operación.");
         }
 
         private void MBtnAniadirImagenEd_Click(object sender, EventArgs e)
@@ -292,51 +299,66 @@ namespace OpenLibraryEditor.Forms
                             {
                                 editorialActual.MeterEnBDCompartida();
                                 ConexionBD.CerrarConexion();
+                                //---------------
+                                VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente en la base de datos.");
                             }
                         }
                     }
 
                     ActualizarListView();
+                    Biblioteca.biblioteca.GuardarJson();
                     VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar una editorial de la lista para realizar esta operación.");
         }
 
 
         private void GBtnActualizar_Click(object sender, EventArgs e)
         {
-            //Actualizar en BD compartida si se puede
-            if (ConexionBD.Conexion != null)
+            if (PanOpcionesED.Visible == true)
             {
-
-                if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarEditorialBD"))
-                    == DialogResult.Yes)
+                //Actualizar en BD compartida si se puede
+                if (ConexionBD.Conexion != null)
                 {
-                    if (ConexionBD.AbrirConexion())
+
+                    if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ActualizarEditorialBD"))
+                        == DialogResult.Yes)
                     {
-                        Editorial editorial = LecturaBD.SelectEditorial(EscrituraBD.GetObjetoIdDeLocal(
-                            editorialActual.ListaIdCompartido));
-                        ConexionBD.CerrarConexion();
-                        editorialActual.Nombre = editorial.Nombre;
-                        editorialActual.Comentario = editorial.Nombre;
-                        editorialActual.Imagen = editorial.ImagenTemp == null ? null :
-                                ControladorImagen.RUTA_EDITORIAL + editorialActual.IdEditorial;
-                        if (editorialActual.Imagen != null)
+                        if (ConexionBD.AbrirConexion())
                         {
-                            PcbEditorialesEd.Image.Dispose();
-                            //PcbAutorNA.Image = null;
-                            //Thread.Sleep(10);
-                            File.Delete(editorialActual.Imagen);
-                            File.WriteAllBytes(editorialActual.Imagen, editorial.ImagenTemp);
-                            //CargarImagen(autorActual.Imagen);
+                            Editorial editorial = LecturaBD.SelectEditorial(EscrituraBD.GetObjetoIdDeLocal(
+                                editorialActual.ListaIdCompartido));
+                            ConexionBD.CerrarConexion();
+                            editorialActual.Nombre = editorial.Nombre;
+                            editorialActual.Comentario = editorial.Comentario;
+                            editorialActual.Imagen = editorial.ImagenTemp == null ? null :
+                                    ControladorImagen.RUTA_EDITORIAL + editorialActual.IdEditorial;
+                            if (editorialActual.Imagen != null)
+                            {
+                                PcbEditorialesEd.Image.Dispose();
+                                //PcbAutorNA.Image = null;
+                                //Thread.Sleep(10);
+                                File.Delete(editorialActual.Imagen);
+                                File.WriteAllBytes(editorialActual.Imagen, editorial.ImagenTemp);
+                                //CargarImagen(autorActual.Imagen);
+                            }
+                            LsvEditorialNE_ItemSelectionChanged(null, null);
+                            ActualizarListView();
+                            Biblioteca.biblioteca.GuardarJson();
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Se ha descargado correctamente de la base de datos.");
                         }
-                        LsvEditorialNE_ItemSelectionChanged(null, null);
-                        ActualizarListView();
                     }
                 }
             }
+            else
+                //------------
+                VentanaWindowsComun.MensajeInformacion("Debes seleccionar una editorial de la lista para realizar esta operación.");
         }
         private void ActualizarListView()
         {
