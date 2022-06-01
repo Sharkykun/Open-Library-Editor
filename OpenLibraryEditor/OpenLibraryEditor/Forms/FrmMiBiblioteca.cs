@@ -25,6 +25,30 @@ namespace OpenLibraryEditor.Forms
         private void FrmMiBiblioteca_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
+            string tipoUsu;
+            if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual != null) { 
+                switch (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario)
+                {
+                    case "Administrador":
+                        tipoUsu = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Adm");
+                        break;
+                    case "Usuario":
+                        tipoUsu = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Usu");
+                        break;
+                    case "Editor":
+                        tipoUsu = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
+                        break;
+                    default:
+                        tipoUsu = ControladorIdioma.GetTexto("ModoSinConexion");
+                        break;
+                }
+                LblTipoUsuarioConectado.Text = tipoUsu;
+            }
+            else
+            {
+                LblTipoUsuarioConectado.Text= ControladorIdioma.GetTexto("ModoSinConexion");
+            }
+            
         }
 
         private void IdiomaTexto()

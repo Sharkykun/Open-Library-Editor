@@ -35,7 +35,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.LblNoLibros = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogo)).BeginInit();
+            this.PanBtnAu.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // PcbLogo
@@ -53,6 +57,7 @@
             // PanBtnAu
             // 
             this.PanBtnAu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.PanBtnAu.Controls.Add(this.panel5);
             this.PanBtnAu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PanBtnAu.Location = new System.Drawing.Point(0, 650);
             this.PanBtnAu.Name = "PanBtnAu";
@@ -105,6 +110,26 @@
             this.LblNoLibros.Text = "Il n\'y a pas de livres dans votre bibliothèque";
             this.LblNoLibros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.LblTipoUsuarioConectado);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(550, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(398, 43);
+            this.panel5.TabIndex = 5;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 13);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
+            this.LblTipoUsuarioConectado.TabIndex = 2;
+            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
+            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmMiBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,6 +147,8 @@
             this.Text = "FrmBiblioteca";
             this.Load += new System.EventHandler(this.FrmMiBiblioteca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogo)).EndInit();
+            this.PanBtnAu.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +161,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label LblNoLibros;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label LblTipoUsuarioConectado;
     }
 }
