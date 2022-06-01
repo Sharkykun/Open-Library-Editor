@@ -20,7 +20,10 @@ namespace OpenLibraryEditor.Clases
             return MiMessageBox.Show(ControladorIdioma.GetTexto("VWC_Borrar") +" "+ objetoNombre+"?",
                 ControladorIdioma.GetTexto("VWC_Advertencia"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
-
+        public static DialogResult MensajeWarning(string texto)
+        {
+            return MiMessageBox.Show(texto, ControladorIdioma.GetTexto("VWC_Advertencia"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
         public static DialogResult MensajeGuardarObjeto(string objetoNombre)
         {
             return MiMessageBox.Show(ControladorIdioma.GetTexto("VWC_Guardar") +" "+ objetoNombre + "?",

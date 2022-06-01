@@ -178,9 +178,7 @@ namespace OpenLibraryEditor.Forms
                 b == autorActual.FechaNacimiento.Date.ToShortDateString())
                 return false;
             else
-                return true;
-            
-                
+                return true;    
         }
 
         private void CargarImagen(string rutaImagen)
@@ -291,8 +289,7 @@ namespace OpenLibraryEditor.Forms
                         {
                             autorActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
-                            //---------------
-                            VentanaWindowsComun.MensajeInformacion("Se ha borrado correctamente de la base de datos.");
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
                         }
                     }
                 }
@@ -312,8 +309,7 @@ namespace OpenLibraryEditor.Forms
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO+ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un autor de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaAutor"));
         }
         private void MBtnMasOcupacionNA_Click(object sender, EventArgs e)
         {
@@ -395,6 +391,10 @@ namespace OpenLibraryEditor.Forms
                 KTxtNombreAu.Text = ControladorIdioma.GetTexto("Au_NuevaPersona");
             }
         }
+        private void TBtnVivo_CheckedChanged(object sender, EventArgs e)
+        {
+            KMtxtFecMuerteNA.Enabled = !TBtnVivo.Checked;
+        }
         #endregion
         #region botones aceptar y actualizar
         private void GBtnAceptar_Click(object sender, EventArgs e)
@@ -457,8 +457,7 @@ namespace OpenLibraryEditor.Forms
                             {
                                 autorActual.MeterEnBDCompartida();
                                 ConexionBD.CerrarConexion();
-                                //---------------
-                                VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente en la base de datos.");
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("GuardadoOK"));
                             }
                         }
                     }
@@ -471,8 +470,7 @@ namespace OpenLibraryEditor.Forms
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un autor de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaAutor"));
         }
 
      
@@ -516,8 +514,7 @@ namespace OpenLibraryEditor.Forms
                                 LsvAutoresNA_ItemSelectionChanged(null, null);
                                 ActualizarListView();
                                 Biblioteca.biblioteca.GuardarJson();
-                                //---------------
-                                VentanaWindowsComun.MensajeInformacion("Se ha descargado correctamente de la base de datos.");
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("DescargaOK"));
                             }
                             else
                                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AutorNoExiste"));
@@ -526,8 +523,7 @@ namespace OpenLibraryEditor.Forms
                 }
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un autor de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaAutor"));
         }
         #endregion
         #region cerrar formulario
@@ -558,9 +554,6 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
 
-        private void TBtnVivo_CheckedChanged(object sender, EventArgs e)
-        {
-            KMtxtFecMuerteNA.Enabled = !TBtnVivo.Checked;
-        }
+      
     }
 }

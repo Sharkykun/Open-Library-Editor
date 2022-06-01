@@ -206,8 +206,7 @@ namespace OpenLibraryEditor.Forms
                         {
                             editorialActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
-                            //---------------
-                            VentanaWindowsComun.MensajeInformacion("Se ha borrado correctamente de la base de datos.");
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
                         }
                     }
                 }
@@ -227,8 +226,7 @@ namespace OpenLibraryEditor.Forms
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar una editorial de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaEditorial"));
         }
 
         private void MBtnAniadirImagenEd_Click(object sender, EventArgs e)
@@ -299,8 +297,7 @@ namespace OpenLibraryEditor.Forms
                             {
                                 editorialActual.MeterEnBDCompartida();
                                 ConexionBD.CerrarConexion();
-                                //---------------
-                                VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente en la base de datos.");
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("GuardadoOK"));
                             }
                         }
                     }
@@ -313,8 +310,7 @@ namespace OpenLibraryEditor.Forms
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NombreVacio"));
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar una editorial de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaEditorial"));
         }
 
 
@@ -350,15 +346,13 @@ namespace OpenLibraryEditor.Forms
                             LsvEditorialNE_ItemSelectionChanged(null, null);
                             ActualizarListView();
                             Biblioteca.biblioteca.GuardarJson();
-                            //---------------
-                            VentanaWindowsComun.MensajeInformacion("Se ha descargado correctamente de la base de datos.");
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("DescargaOK"));
                         }
                     }
                 }
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar una editorial de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaEditorial"));
         }
         private void ActualizarListView()
         {

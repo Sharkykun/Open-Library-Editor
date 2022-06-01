@@ -561,6 +561,9 @@
   <data name="BorradoCorrectamente" xml:space="preserve">
     <value> was successfully deleted</value>
   </data>
+  <data name="BorradoOK" xml:space="preserve">
+    <value>Successfully deleted from the database</value>
+  </data>
   <data name="BuscarPor" xml:space="preserve">
     <value>Look for:</value>
   </data>
@@ -816,6 +819,9 @@
   <data name="CrearUsuario" xml:space="preserve">
     <value>Open Library Editor - Create users</value>
   </data>
+  <data name="DescargaOK" xml:space="preserve">
+    <value>Successfully downloaded from the database</value>
+  </data>
   <data name="EditorialNoExiste" xml:space="preserve">
     <value>The publisher does not exist in the database</value>
   </data>
@@ -1058,6 +1064,9 @@
   </data>
   <data name="GuardadoCorrectamente" xml:space="preserve">
     <value> has been saved successfully</value>
+  </data>
+  <data name="GuardadoOK" xml:space="preserve">
+    <value>Successfully saved to database</value>
   </data>
   <data name="Guardar" xml:space="preserve">
     <value>Save</value>
@@ -1622,6 +1631,15 @@
   </data>
   <data name="RS_TTCmb" xml:space="preserve">
     <value>Select the type of relationship between the series</value>
+  </data>
+  <data name="SeleccionaAutor" xml:space="preserve">
+    <value>You must select an author from the list to perform this operation</value>
+  </data>
+  <data name="SeleccionaEditorial" xml:space="preserve">
+    <value>You must select a publisher from the list to perform this operation</value>
+  </data>
+  <data name="SeleccionaGenero" xml:space="preserve">
+    <value>You must select a genre from the list to perform this operation</value>
   </data>
   <data name="SeleccionarTipoUsu" xml:space="preserve">
     <value>Select the type of user with which you want to register the user</value>

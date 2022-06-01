@@ -564,6 +564,9 @@
   <data name="BorradoCorrectamente" xml:space="preserve">
     <value> a été supprimé avec succès</value>
   </data>
+  <data name="BorradoOK" xml:space="preserve">
+    <value>Supprimé avec succès de la base de données</value>
+  </data>
   <data name="BuscarPor" xml:space="preserve">
     <value>Chercher:</value>
   </data>
@@ -819,6 +822,9 @@
   <data name="CrearUsuario" xml:space="preserve">
     <value>Open Library Editor - Créer des utilisateurs</value>
   </data>
+  <data name="DescargaOK" xml:space="preserve">
+    <value>Téléchargé avec succès depuis la base de données</value>
+  </data>
   <data name="EditorialNoExiste" xml:space="preserve">
     <value>L'éditeur n'existe pas dans la base de données</value>
   </data>
@@ -1061,6 +1067,9 @@
   </data>
   <data name="GuardadoCorrectamente" xml:space="preserve">
     <value> a été enregistré avec succès</value>
+  </data>
+  <data name="GuardadoOK" xml:space="preserve">
+    <value>Enregistré avec succès dans la base de données</value>
   </data>
   <data name="Guardar" xml:space="preserve">
     <value>Garder</value>
@@ -1625,6 +1634,15 @@
   </data>
   <data name="RS_TTCmb" xml:space="preserve">
     <value>Sélectionnez le type de relation entre les séries</value>
+  </data>
+  <data name="SeleccionaAutor" xml:space="preserve">
+    <value>Vous devez sélectionner un auteur dans la liste pour effectuer cette opération</value>
+  </data>
+  <data name="SeleccionaEditorial" xml:space="preserve">
+    <value>Vous devez sélectionner un éditeur dans la liste pour effectuer cette opération</value>
+  </data>
+  <data name="SeleccionaGenero" xml:space="preserve">
+    <value>Vous devez sélectionner un genre dans la liste pour effectuer cette opération</value>
   </data>
   <data name="SeleccionarTipoUsu" xml:space="preserve">
     <value>Sélectionnez le type d'utilisateur avec lequel vous souhaitez enregistrer l'utilisateur</value>

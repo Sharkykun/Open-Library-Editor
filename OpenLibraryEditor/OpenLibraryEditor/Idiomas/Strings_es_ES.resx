@@ -561,6 +561,9 @@
   <data name="BorradoCorrectamente" xml:space="preserve">
     <value> fue borrado correctamente</value>
   </data>
+  <data name="BorradoOK" xml:space="preserve">
+    <value>Se ha borrado correctamente de la base de datos</value>
+  </data>
   <data name="BuscarPor" xml:space="preserve">
     <value>Buscar por:</value>
   </data>
@@ -816,6 +819,9 @@
   <data name="CrearUsuario" xml:space="preserve">
     <value>Open Library Editor - Crear usuarios</value>
   </data>
+  <data name="DescargaOK" xml:space="preserve">
+    <value>Se ha descargado correctamente de la base de datos</value>
+  </data>
   <data name="EditorialNoExiste" xml:space="preserve">
     <value>La editorial no existe en la base de datos</value>
   </data>
@@ -1061,6 +1067,9 @@
   </data>
   <data name="GuardadoCorrectamente" xml:space="preserve">
     <value> se ha guardado correctamente</value>
+  </data>
+  <data name="GuardadoOK" xml:space="preserve">
+    <value>Se ha guardado correctamente en la base de datos</value>
   </data>
   <data name="Guardar" xml:space="preserve">
     <value>Guardar</value>
@@ -1610,6 +1619,15 @@
   </data>
   <data name="RS_TTCmb" xml:space="preserve">
     <value>Selecciona el tipo de relación entre las series</value>
+  </data>
+  <data name="SeleccionaAutor" xml:space="preserve">
+    <value>Debes seleccionar un autor de la lista para realizar esta operación</value>
+  </data>
+  <data name="SeleccionaEditorial" xml:space="preserve">
+    <value>Debes seleccionar una editorial de la lista para realizar esta operación</value>
+  </data>
+  <data name="SeleccionaGenero" xml:space="preserve">
+    <value>Debes seleccionar un género de la lista para realizar esta operación</value>
   </data>
   <data name="SeleccionarTipoUsu" xml:space="preserve">
     <value>Selecciona el tipo de usuario con el que deseas registrar al usuario</value>

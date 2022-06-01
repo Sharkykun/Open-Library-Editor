@@ -1393,6 +1393,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Successfully deleted from the database.
+        /// </summary>
+        internal static string BorradoOK {
+            get {
+                return ResourceManager.GetString("BorradoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Search in:.
         /// </summary>
         internal static string Bus_BuscarEn {
@@ -2158,6 +2167,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Successfully downloaded from the database.
+        /// </summary>
+        internal static string DescargaOK {
+            get {
+                return ResourceManager.GetString("DescargaOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Commentary.
         /// </summary>
         internal static string ED_Comentario {
@@ -2883,6 +2901,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string GuardadoCorrectamente {
             get {
                 return ResourceManager.GetString("GuardadoCorrectamente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Successfully saved to database.
+        /// </summary>
+        internal static string GuardadoOK {
+            get {
+                return ResourceManager.GetString("GuardadoOK", resourceCulture);
             }
         }
         
@@ -4800,6 +4827,33 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Se_TTPcb {
             get {
                 return ResourceManager.GetString("Se_TTPcb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select an author from the list to perform this operation.
+        /// </summary>
+        internal static string SeleccionaAutor {
+            get {
+                return ResourceManager.GetString("SeleccionaAutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select a publisher from the list to perform this operation.
+        /// </summary>
+        internal static string SeleccionaEditorial {
+            get {
+                return ResourceManager.GetString("SeleccionaEditorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select a genre from the list to perform this operation.
+        /// </summary>
+        internal static string SeleccionaGenero {
+            get {
+                return ResourceManager.GetString("SeleccionaGenero", resourceCulture);
             }
         }
         

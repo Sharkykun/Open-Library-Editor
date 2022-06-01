@@ -179,8 +179,7 @@ namespace OpenLibraryEditor.Forms
                         {
                             generoActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
-                            //---------------
-                            VentanaWindowsComun.MensajeInformacion("Se ha borrado correctamente de la base de datos.");
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
                         }
                     }
                 }
@@ -200,8 +199,7 @@ namespace OpenLibraryEditor.Forms
                 VentanaWindowsComun.MensajeInformacion(NOMBRE_OBJETO + ControladorIdioma.GetTexto("BorradoCorrectamente"));
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un género de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("SeleccionaGenero"));
         }
         private void KTxtNombreGe_Enter(object sender, EventArgs e)
         {
@@ -241,8 +239,7 @@ namespace OpenLibraryEditor.Forms
                             {
                                generoActual.MeterEnBDCompartida();
                                 ConexionBD.CerrarConexion();
-                                //---------------
-                                VentanaWindowsComun.MensajeInformacion("Se ha guardado correctamente en la base de datos.");
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("GuardadoOK"));
                             }
                         }
                     }
@@ -256,8 +253,7 @@ namespace OpenLibraryEditor.Forms
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_Genero"));
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un género de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaGenero"));
         }
 
 
@@ -282,15 +278,13 @@ namespace OpenLibraryEditor.Forms
                             LsvGeneroNG_ItemSelectionChanged(null, null);
                             ActualizarListView();
                             Biblioteca.biblioteca.GuardarJson();
-                            //---------------
-                            VentanaWindowsComun.MensajeInformacion("Se ha descargado correctamente de la base de datos.");
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("DescargaOK"));
                         }
                     }
                 }
             }
             else
-                //------------
-                VentanaWindowsComun.MensajeInformacion("Debes seleccionar un género de la lista para realizar esta operación.");
+                VentanaWindowsComun.MensajeWarning(ControladorIdioma.GetTexto("SeleccionaGenero"));
         }
         private void ActualizarListView()
         {
