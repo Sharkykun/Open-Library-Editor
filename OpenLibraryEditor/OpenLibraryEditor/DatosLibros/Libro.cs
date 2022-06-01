@@ -194,6 +194,13 @@ namespace OpenLibraryEditor.DatosLibros
                 EscrituraBD.DeleteTipoLibro(nombreTipo);
 
             EscrituraBD.DeleteLibro(this);
+
+            //Limpiar ocupaciones no utilizadas, si las hay
+            foreach (string ocupacion in LecturaBD.SelectListaOcupacion())
+            {
+                if (LecturaBD.SelectOcupacionCantidadPorAutor(ocupacion) == 0)
+                    EscrituraBD.DeleteOcupacion(ocupacion);
+            }
         }
 
         private void LimpiadoDeListasBDCompartida()

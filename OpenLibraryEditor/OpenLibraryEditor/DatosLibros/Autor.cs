@@ -114,6 +114,14 @@ namespace OpenLibraryEditor.DatosLibros
                 EscrituraBD.DeleteOcupacion(this.NombreOcupacion);
 
             EscrituraBD.DeleteAutor(this);
+
+            //Limpiar ocupaciones no utilizadas, si las hay
+            foreach (string ocupacion in LecturaBD.SelectListaOcupacion())
+            {
+                if (LecturaBD.SelectOcupacionCantidadPorAutor(ocupacion) == 0)
+                    EscrituraBD.DeleteOcupacion(ocupacion);
+            }
+
             ConexionBD.CerrarConexion();
         }
     }

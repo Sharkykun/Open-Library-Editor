@@ -46,6 +46,7 @@
             this.MBtnMenosLsvNA = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanOpcionesNA = new System.Windows.Forms.Panel();
             this.LblObligatorio = new System.Windows.Forms.Label();
+            this.TBtnVivo = new OpenLibraryEditor.Controles.ToggleButton();
             this.LblSigueVivo = new System.Windows.Forms.Label();
             this.LblOcupacionNA = new System.Windows.Forms.Label();
             this.KCmbOcupacionNA = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -68,7 +69,6 @@
             this.TTAutores = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.TBtnVivo = new OpenLibraryEditor.Controles.ToggleButton();
             this.PanTituloAutores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoAutores)).BeginInit();
             this.PanBtnAu.SuspendLayout();
@@ -348,6 +348,21 @@
             this.LblObligatorio.TabIndex = 166;
             this.LblObligatorio.Text = "( * ) Campos obligatorios";
             // 
+            // TBtnVivo
+            // 
+            this.TBtnVivo.AutoSize = true;
+            this.TBtnVivo.Location = new System.Drawing.Point(172, 180);
+            this.TBtnVivo.MinimumSize = new System.Drawing.Size(45, 22);
+            this.TBtnVivo.Name = "TBtnVivo";
+            this.TBtnVivo.OffBackColor = System.Drawing.Color.DarkGray;
+            this.TBtnVivo.OffToggleColor = System.Drawing.Color.Black;
+            this.TBtnVivo.OnBackColor = System.Drawing.Color.LimeGreen;
+            this.TBtnVivo.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TBtnVivo.Size = new System.Drawing.Size(45, 22);
+            this.TBtnVivo.TabIndex = 4;
+            this.TBtnVivo.UseVisualStyleBackColor = true;
+            this.TBtnVivo.CheckedChanged += new System.EventHandler(this.TBtnVivo_CheckedChanged);
+            // 
             // LblSigueVivo
             // 
             this.LblSigueVivo.AutoSize = true;
@@ -422,6 +437,7 @@
             this.KMtxtFecMuerteNA.StateCommon.Border.Width = 2;
             this.KMtxtFecMuerteNA.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KMtxtFecMuerteNA.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KMtxtFecMuerteNA.StateDisabled.Back.Color1 = System.Drawing.Color.Silver;
             this.KMtxtFecMuerteNA.TabIndex = 5;
             this.KMtxtFecMuerteNA.Text = "  /  /";
             // 
@@ -637,21 +653,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(3, 414);
             this.panel2.TabIndex = 147;
-            // 
-            // TBtnVivo
-            // 
-            this.TBtnVivo.AutoSize = true;
-            this.TBtnVivo.Location = new System.Drawing.Point(172, 180);
-            this.TBtnVivo.MinimumSize = new System.Drawing.Size(45, 22);
-            this.TBtnVivo.Name = "TBtnVivo";
-            this.TBtnVivo.OffBackColor = System.Drawing.Color.DarkGray;
-            this.TBtnVivo.OffToggleColor = System.Drawing.Color.Black;
-            this.TBtnVivo.OnBackColor = System.Drawing.Color.LimeGreen;
-            this.TBtnVivo.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TBtnVivo.Size = new System.Drawing.Size(45, 22);
-            this.TBtnVivo.TabIndex = 4;
-            this.TBtnVivo.UseVisualStyleBackColor = true;
-            this.TBtnVivo.CheckedChanged += new System.EventHandler(this.TBtnVivo_CheckedChanged);
             // 
             // FrmAutores
             // 
