@@ -199,16 +199,12 @@
     </Compile>
     <Compile Include="DatosLibros\Biblioteca.cs" />
     <Compile Include="DatosLibros\Editorial.cs" />
-    <Compile Include="DatosLibros\Etiqueta.cs" />
     <Compile Include="DatosLibros\Genero.cs" />
-    <Compile Include="DatosLibros\Idioma.cs" />
     <Compile Include="DatosLibros\InfoBaseDatos.cs" />
     <Compile Include="DatosLibros\InfoUsuarioBD.cs" />
     <Compile Include="DatosLibros\IOperacionesBD.cs" />
     <Compile Include="DatosLibros\Libro.cs" />
     <Compile Include="DatosLibros\Autor.cs" />
-    <Compile Include="DatosLibros\RelacionSerie.cs" />
-    <Compile Include="DatosLibros\Serie.cs" />
     <Compile Include="DatosLibros\UsuarioAccion.cs" />
     <Compile Include="DatosLibros\UsuarioDatos.cs" />
     <Compile Include="DatosLibros\UsuarioEjecutable.cs" />
@@ -235,12 +231,6 @@
     </Compile>
     <Compile Include="Forms\FrmCrearBD.Designer.cs">
       <DependentUpon>FrmCrearBD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmEditarRelacionSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmEditarRelacionSerie.Designer.cs">
-      <DependentUpon>FrmEditarRelacionSerie.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmEditarUsuario.cs">
       <SubType>Form</SubType>
@@ -314,23 +304,11 @@
     <Compile Include="Forms\FrmRegistro.Designer.cs">
       <DependentUpon>FrmRegistro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmSeries.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmSeries.Designer.cs">
-      <DependentUpon>FrmSeries.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmSplashScreen.Designer.cs">
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmTags.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmTags.Designer.cs">
-      <DependentUpon>FrmTags.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmLibros.cs">
       <SubType>Form</SubType>
@@ -389,9 +367,6 @@
     <EmbeddedResource Include="Forms\FrmCrearBD.resx">
       <DependentUpon>FrmCrearBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmEditarRelacionSerie.resx">
-      <DependentUpon>FrmEditarRelacionSerie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditarUsuario.resx">
       <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,14 +403,8 @@
     <EmbeddedResource Include="Forms\FrmRegistro.resx">
       <DependentUpon>FrmRegistro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmSeries.resx">
-      <DependentUpon>FrmSeries.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSplashScreen.resx">
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmTags.resx">
-      <DependentUpon>FrmTags.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLibros.resx">
       <DependentUpon>FrmLibros.cs</DependentUpon>

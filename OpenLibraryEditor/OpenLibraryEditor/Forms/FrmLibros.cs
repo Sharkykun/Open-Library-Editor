@@ -34,9 +34,6 @@ namespace OpenLibraryEditor.Forms
         private List<Editorial> listaEditorial = Biblioteca.biblioteca.ListaEditorial;
         private List<Genero> listaGenero = Biblioteca.biblioteca.ListaGenero;
         private List<Autor> listaPersona = Biblioteca.biblioteca.ListaAutor;
-        private List<Serie> listaSerie = Biblioteca.biblioteca.ListaSerie;
-        private List<Etiqueta> listaEtiqueta = Biblioteca.biblioteca.ListaEtiqueta;
-        private List<Idioma> listaIdioma = Biblioteca.biblioteca.ListaIdioma;
         private List<UsuarioEjecutable> listaEjecutable = Biblioteca.biblioteca.ListaEjecutable;
         private List<UsuarioAccion> listaAccion = new List<UsuarioAccion>();
         private UsuarioAccion accionActual = new UsuarioAccion();
@@ -68,13 +65,11 @@ namespace OpenLibraryEditor.Forms
             //Agregar valores de listas
             RellenarEditorial(libroActual.ListaEditorial);
             RellenarEjecutable();
-            RellenarEtiqueta(libroActual.ListaEtiqueta);
             RellenarGenero(libroActual.ListaGenero);
-            RellenarSerie(libroActual.ListaSerie);
-            listaIdioma.ForEach(p => {
-                AgregarComboItem(KCmbIdiomaNL, p);
-                AgregarComboItem(KCmbIdiomaOriginalNL, p);
-            });
+            //listaIdioma.ForEach(p => {
+            //    AgregarComboItem(KCmbIdiomaNL, p);
+            //    AgregarComboItem(KCmbIdiomaOriginalNL, p);
+            //});
             RellenarPersona(libroActual.ListaAutor);
 
             //Vincular lista de tipo libro con Combobox
@@ -307,16 +302,6 @@ namespace OpenLibraryEditor.Forms
                 KCmbEjecutableNL.SelectedItem = (LsvAccionesNL.SelectedItems[0].Tag as UsuarioAccion).Ejecutable;
         }
 
-        private void RellenarEtiqueta(List<Etiqueta> listaComparador)
-        {
-            //KCCEtiquetaNL.Items.Clear();
-            //listaEtiqueta.ForEach(p =>
-            //{
-            //    int i = AgregarComboCheckItem(KCCEtiquetaNL, p);
-            //    if (listaComparador.Contains(p)) KCCEtiquetaNL.SetItemChecked(i, true);
-            //});
-        }
-
         private void RellenarGenero(List<Genero> listaComparador)
         {
             KCCGenerosNL.Items.Clear();
@@ -325,16 +310,6 @@ namespace OpenLibraryEditor.Forms
                 int i = AgregarComboCheckItem(KCCGenerosNL, p);
                 if (listaComparador.Contains(p)) KCCGenerosNL.SetItemChecked(i, true);
             });
-        }
-
-        private void RellenarSerie(List<Serie> listaComparador)
-        {
-        //    KCCSerieNL.Items.Clear();
-        //    listaSerie.ForEach(p =>
-        //    {
-        //        int i = AgregarComboCheckItem(KCCSerieNL, p);
-        //        if (listaComparador.Contains(p)) KCCSerieNL.SetItemChecked(i, true);
-        //    });
         }
         #endregion 
         #region Datos generales
@@ -420,14 +395,24 @@ namespace OpenLibraryEditor.Forms
             }
             else if(!String.IsNullOrWhiteSpace(x) && input.editable)
             {
-                int i = listaTipoLibro.IndexOf(KCmbTipoNL.SelectedItem.ToString());
+                int i = listaTipoLibro.IndexOf(KCmbTipoNL.Text);
                 listaTipoLibro[i] = x;
+                Biblioteca.biblioteca.ListaLibro.ForEach(p =>
+                {
+                    if (p.NombreTipo == KCmbTipoNL.Text)
+                        p.NombreTipo = x;
+                });
                 ActualizarTipoLibro();
                 KCmbTipoNL.SelectedItem = x;
             }
             else if(x==null)
             {
-                listaTipoLibro.Remove((string)KCmbTipoNL.SelectedItem);
+                listaTipoLibro.Remove(KCmbTipoNL.Text);
+                Biblioteca.biblioteca.ListaLibro.ForEach(p =>
+                {
+                    if (p.NombreTipo == KCmbTipoNL.Text)
+                        p.NombreTipo = "";
+                });
                 ActualizarTipoLibro();
                 KCmbTipoNL.SelectedItem = null;
             }
@@ -535,7 +520,7 @@ namespace OpenLibraryEditor.Forms
                     itemActual.SubItems[1].Text = accionActual.Ejecutable.ToString();
             }
             else
-                VentanaWindowsComun.MensajeError("AccionesLibro");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AccionesLibro"));
         }
         private void IbtnFichero_Click(object sender, EventArgs e)
         {
@@ -598,12 +583,6 @@ namespace OpenLibraryEditor.Forms
                 libroActual.ListaGenero.Clear();
                 foreach (var c in KCCGenerosNL.CheckedItems)
                     libroActual.ListaGenero.Add((Genero)(c as CCBoxItem).Item);
-                libroActual.ListaEtiqueta.Clear();
-                //foreach (var c in KCCEtiquetaNL.CheckedItems)
-                //    libroActual.ListaEtiqueta.Add((Etiqueta)(c as CCBoxItem).Item);
-                //libroActual.ListaSerie.Clear();
-                //foreach (var c in KCCSerieNL.CheckedItems)
-                //    libroActual.ListaSerie.Add((Serie)(c as CCBoxItem).Item);
                 if (KCmbIdiomaOriginalNL.SelectedIndex != -1)
                     libroActual.IdiomaOriginal = KCmbIdiomaOriginalNL.SelectedItem.ToString();
                 if (KCmbIdiomaNL.SelectedIndex != -1)
@@ -633,6 +612,8 @@ namespace OpenLibraryEditor.Forms
                 libroActual.Comentario = KTxtComentarioUsuarioNL.Text;
                 if (rutaImagenPortada != libroActual.ImagenPortada)
                 {
+                    if (File.Exists(libroActual.ImagenPortada))
+                        File.Delete(libroActual.ImagenPortada);
                     libroActual.ImagenPortada = ControladorImagen.GuardarImagen(rutaImagenPortada,
                         ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_c");
                     rutaImagenPortada = libroActual.ImagenPortada;
@@ -646,6 +627,8 @@ namespace OpenLibraryEditor.Forms
                 }
                 if (rutaImagenContraportada != libroActual.ImagenContraportada)
                 {
+                    if (File.Exists(libroActual.ImagenContraportada))
+                        File.Delete(libroActual.ImagenContraportada);
                     libroActual.ImagenContraportada = ControladorImagen.GuardarImagen(rutaImagenContraportada,
                         ControladorImagen.RUTA_LIBRO, libroActual.IdLibro + "_b");
                     rutaImagenContraportada = libroActual.ImagenContraportada;
@@ -686,11 +669,14 @@ namespace OpenLibraryEditor.Forms
                         == DialogResult.Yes)
                     {
                         libroActual.MeterUsuarioLibroEnBDCompartida();
+                        //-------------------
+                        VentanaWindowsComun.MensajeInformacion("Se ha guardado la información del libro correctamente en la base de datos.");
                     }
                     ConexionBD.CerrarConexion();
                 }
 
                 esOk = true;
+                Biblioteca.biblioteca.GuardarJson();
                 VentanaWindowsComun.MensajeInformacion(libroActual.Titulo +" " +ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 Close();
             }

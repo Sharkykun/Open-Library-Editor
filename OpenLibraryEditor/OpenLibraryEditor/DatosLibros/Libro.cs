@@ -26,7 +26,6 @@ namespace OpenLibraryEditor.DatosLibros
         private DateTime fechaPublicacion;
         private DateTime fechaAdicionBD; //Fecha de inclusión en base de datos local
         private int edicion;
-        private List<Serie> listaSerie = new List<Serie>();
         private double numeroVolumen; //Para series de múltiples volúmenes
         private string idioma;
         private string isbn_10;
@@ -36,7 +35,6 @@ namespace OpenLibraryEditor.DatosLibros
         private string imagenContraportada;
         private byte[] portadaTemp;
         private byte[] contraportadaTemp;
-        private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
         private string nombreTipo; //novela, manga, novela web...
         private bool mayorEdad;
         private int numeroCapitulos;
@@ -94,12 +92,10 @@ namespace OpenLibraryEditor.DatosLibros
         public DateTime FechaTerminado { get => fechaTerminado; set => fechaTerminado = value; }
         public bool Favorito { get => favorito; set => favorito = value; }
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
-        public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
         public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
         public List<Autor> ListaAutor { get => listaAutor; set => listaAutor = value; }
         public string ImagenPortada { get => imagenPortada; set => imagenPortada = value; }
         public string ImagenContraportada { get => imagenContraportada; set => imagenContraportada = value; }
-        public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
         public List<UsuarioAccion> ListaAccion { get => listaAccion; set => listaAccion = value; }
         public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
         public int IdLibro { get => idLibro; set => idLibro = value; }

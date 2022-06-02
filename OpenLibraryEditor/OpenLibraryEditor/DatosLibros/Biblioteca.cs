@@ -19,9 +19,6 @@ namespace OpenLibraryEditor.DatosLibros
         private List<Editorial> listaEditorial = new List<Editorial>();
         private List<Genero> listaGenero = new List<Genero>();
         private List<Autor> listaAutor = new List<Autor>();
-        private List<Serie> listaSerie = new List<Serie>();
-        private List<Etiqueta> listaEtiqueta = new List<Etiqueta>();
-        private List<Idioma> listaIdioma = new List<Idioma>();
         private List<UsuarioEjecutable> listaEjecutable = new List<UsuarioEjecutable>();
         private List<Libro> listaLibro = new List<Libro>();
 
@@ -32,13 +29,9 @@ namespace OpenLibraryEditor.DatosLibros
         public List<string> ListaOcupacion { get => listaOcupacion; set => listaOcupacion = value; }
         public List<string> ListaCategoria { get => listaCategoria; set => listaCategoria = value; }
         public List<string> ListaTipoRelacion { get => listaTipoRelacion; set => listaTipoRelacion = value; }
-        public List<Idioma> ListaIdioma { get => listaIdioma; set => listaIdioma = value; }
-
         public List<Editorial> ListaEditorial { get => listaEditorial; set => listaEditorial = value; }
         public List<Genero> ListaGenero { get => listaGenero; set => listaGenero = value; }
         public List<Autor> ListaAutor { get => listaAutor; set => listaAutor = value; }
-        public List<Serie> ListaSerie { get => listaSerie; set => listaSerie = value; }
-        public List<Etiqueta> ListaEtiqueta { get => listaEtiqueta; set => listaEtiqueta = value; }
         public List<UsuarioEjecutable> ListaEjecutable { get => listaEjecutable; set => listaEjecutable = value; }
         public List<Libro> ListaLibro { get => listaLibro; set => listaLibro = value; }
         

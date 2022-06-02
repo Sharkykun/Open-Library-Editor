@@ -285,8 +285,8 @@ namespace OpenLibraryEditor.Forms
 
                     if (!String.IsNullOrWhiteSpace(libro.NombreTipo))
                         vista.setFormato(libro.NombreTipo);
-
-                    if (!String.IsNullOrWhiteSpace(libro.FechaPublicacion.ToShortDateString()))
+                    
+                    if (!libro.FechaPublicacion.Equals(new DateTime()))
                         vista.setFecha(libro.FechaPublicacion.ToShortDateString());
 
                     if (String.IsNullOrWhiteSpace(libro.Isbn_10))
@@ -341,7 +341,7 @@ namespace OpenLibraryEditor.Forms
                     if (!String.IsNullOrWhiteSpace(libro.NombreTipo))
                         vista.setFormato(libro.NombreTipo);
 
-                    if (!String.IsNullOrWhiteSpace(libro.FechaPublicacion.ToShortDateString()))
+                    if (!libro.FechaPublicacion.Equals(new DateTime()))
                         vista.setFecha(libro.FechaPublicacion.ToShortDateString());
 
                     if (String.IsNullOrWhiteSpace(libro.Isbn_10))
@@ -480,14 +480,17 @@ namespace OpenLibraryEditor.Forms
                 LblEscribirIdiOri.Text = l.IdiomaOriginal.ToUpper();
             if (l.NombreTipo != null)
                 LblEscribirTipoLibro.Text = l.NombreTipo.ToUpper();
-            LblEscribirFechaPub.Text = l.FechaPublicacion.ToShortDateString();
+            if(!l.FechaPublicacion.Equals(new DateTime()))
+                LblEscribirFechaPub.Text = l.FechaPublicacion.ToShortDateString();
             LblEscribirPuntuacion.Text = l.Puntuacion.ToString();
             LblEscribirVecesLeido.Text = l.VecesLeido.ToString();
             LblEscribirEstadoLectura.Text = l.EstadoLectura;
             LblEscribirTiempoLec.Text = l.TiempoLectura.ToString(@"hh\:mm\:ss");
             LblEscribirCapiAct.Text = l.CapituloActual.ToString();
-            LblEscribirFecComienzo.Text = l.FechaComienzo.ToShortDateString();
-            LblEscribirFecFin.Text = l.FechaTerminado.ToShortDateString();
+            if (!l.FechaComienzo.Equals(new DateTime()))
+                LblEscribirFecComienzo.Text = l.FechaComienzo.ToShortDateString();
+            if (!l.FechaTerminado.Equals(new DateTime()))
+                LblEscribirFecFin.Text = l.FechaTerminado.ToShortDateString();
             if (l.Favorito == true)
                 LblEscribirFavorito.Text = ControladorIdioma.GetTexto("Main_Si");
             else
@@ -1063,7 +1066,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            ResetColores();
+            //ResetColores();
             Libro nuevoLibro = new Libro(ControladorIdioma.GetTexto("NuevoLibro"));
             FrmLibros al = new FrmLibros(nuevoLibro);
             al.FormBorderStyle=FormBorderStyle.None;
@@ -1074,32 +1077,52 @@ namespace OpenLibraryEditor.Forms
             if (al.EsOk)
             {
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
-                MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
-            }
-                
+                //MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
 
-            //BotonActivoTool(sender,Colores.colorBiblioteca);
-            
-            RecolocarLibros(false);
+                //BotonActivoTool(sender,Colores.colorBiblioteca);
+                
+                RecolocarLibros(false);
+            }
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            ResetColores();
+            //ResetColores();
+            Libro l = libroActual;
             FrmLibros al = new FrmLibros(libroActual);
             al.FormBorderStyle = FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Modificar");
             al.ShowDialog();
-            if (LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
+            if (al.EsOk)
             {
-                MBtnFavoritos_Click(MBtnFavoritos, null);
+                if (LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
+                {
+                    MBtnFavoritos_Click(MBtnFavoritos, null);
+                }
+                //MBtncerrarDetallesLibro_Click(sender, e);
+                //BotonActivoTool(sender, Colores.colorBiblioteca);
+                RecolocarLibros(false);
+                //Seleccionar libro
+                if (PanVistaMosaico.Visible)
+                {
+                    foreach (DoubleClickButton btn in PanVistaMosaico.Controls.OfType<DoubleClickButton>())
+                    {
+                        if (btn.Tag == libroActual)
+                            ManejadorLibro_Click(btn, null);
+                    }
+                }
+                else
+                {
+                    foreach (VistaDetallesV btn in PanVistaDetalles.Controls.OfType<VistaDetallesV>())
+                    {
+                        if (btn.Tag == libroActual)
+                            ManejadorLibroDet_Click(btn, null);
+                    }
+                }
             }
-            MBtncerrarDetallesLibro_Click(sender, e);
-            //BotonActivoTool(sender, Colores.colorBiblioteca);
-            RecolocarLibros(false);
         }
         private void BtnBorrarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            ResetColores();
+            //ResetColores();
             //BotonActivoTool(sender,Colores.colorBiblioteca);
             if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.Titulo) == DialogResult.Yes)
             {
@@ -1139,7 +1162,7 @@ namespace OpenLibraryEditor.Forms
                 }
 
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
-                MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
+                //MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
                 RecolocarLibros(false);
                 MBtncerrarDetallesLibro_Click(sender,e);
             }
@@ -1147,7 +1170,7 @@ namespace OpenLibraryEditor.Forms
 
         private void BtnActualizarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            ResetColores();
+            //ResetColores();
             //Actualizar en BD compartida si se puede
             if (ConexionBD.Conexion != null)
             {
@@ -1194,8 +1217,8 @@ namespace OpenLibraryEditor.Forms
                             }
                             if (libroActual.ImagenContraportada != null)
                             {
-                                File.Delete(libroActual.ImagenPortada);
-                                File.WriteAllBytes(libroActual.ImagenPortada, libro.ContraportadaTemp);
+                                File.Delete(libroActual.ImagenContraportada);
+                                File.WriteAllBytes(libroActual.ImagenContraportada, libro.ContraportadaTemp);
                             }
 
                             //obtener info usuariolibro si existe
@@ -1213,6 +1236,9 @@ namespace OpenLibraryEditor.Forms
                                 libroActual.FechaTerminado = libro.FechaTerminado;
                                 libroActual.Favorito = libro.Favorito;
                             }
+                            Biblioteca.biblioteca.GuardarJson();
+                            //-------------------
+                            VentanaWindowsComun.MensajeInformacion("Se ha descargado la información del libro correctamente.");
                         }
                         ConexionBD.CerrarConexion();
                         RecolocarLibros(false);

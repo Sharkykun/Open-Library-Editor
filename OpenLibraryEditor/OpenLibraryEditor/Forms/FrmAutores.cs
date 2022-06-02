@@ -333,6 +333,16 @@ namespace OpenLibraryEditor.Forms
             {
                 int i = listaOcupacion.IndexOf(KCmbOcupacionNA.SelectedItem.ToString());
                 listaOcupacion[i] = x;
+                listaPersona.ForEach(p =>
+                {
+                    if (p.NombreOcupacion == KCmbOcupacionNA.Text)
+                        p.NombreOcupacion = x;
+                });
+                foreach (ListViewItem item in LsvAutoresNA.Items)
+                {
+                    if (item.SubItems[1].Text == KCmbOcupacionNA.Text)
+                        item.SubItems[1].Text = x;
+                }
                 ActualizarOcupacion();
                 KCmbOcupacionNA.SelectedItem = x;
             }
