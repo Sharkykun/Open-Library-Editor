@@ -103,7 +103,7 @@ namespace OpenLibraryEditor.Clases
             }
             catch (Exception)
             {
-                VentanaWindowsComun.MensajeError("Mail_Error");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Mail_Error"));
             }
             return numero;
         }
@@ -200,7 +200,7 @@ namespace OpenLibraryEditor.Clases
             }
             catch (Exception)
             {
-                VentanaWindowsComun.MensajeError("Mail_Error");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Mail_Error"));
             }
         }
         public static void RecuperarPassword(string emisor, string password, string receptor, string contraNueva, string nombreUsuario)
@@ -293,7 +293,7 @@ namespace OpenLibraryEditor.Clases
             }
             catch (Exception)
             {
-                VentanaWindowsComun.MensajeError("Mail_Error");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Mail_Error"));
             }
         }
     }

@@ -89,7 +89,7 @@ namespace OpenLibraryEditor.Forms
                         {
                             if(EscrituraBD.UpdatePasswordUsuario(contraNueva, usuario))
                             {
-                                EnvioEmail.RecuperarPassword("openlibraryeditor@gmail.com", "oleOLEole", KTxtMail.Text, contraNueva, usuario.Nombre);
+                                EnvioEmail.RecuperarPassword("openlibraryeditor@gmail.com", "bjsxjerndlfahkqe", KTxtMail.Text, contraNueva, usuario.Nombre);
                                 ConexionBD.CerrarConexion();
                                 VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("MailNuevaContra"));
                                 this.Close();

@@ -123,7 +123,7 @@ namespace OpenLibraryEditor.Forms
                             esOk = true;
                             VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
                             Close();
-                            EnvioEmail.RegistrarUsuario("openlibraryeditor@gmail.com", "oleOLEole", KTxtEmailEditUsu.Text, KTxtNombreEditUsu.Text, KTxtContraEditUsu.Text, usuario.TipoUsuario, UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre + " (" + UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo + ") ");
+                            EnvioEmail.RegistrarUsuario("openlibraryeditor@gmail.com", "bjsxjerndlfahkqe", KTxtEmailEditUsu.Text, KTxtNombreEditUsu.Text, KTxtContraEditUsu.Text, usuario.TipoUsuario, UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre + " (" + UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Correo + ") ");
                         }
                         else
                             VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));

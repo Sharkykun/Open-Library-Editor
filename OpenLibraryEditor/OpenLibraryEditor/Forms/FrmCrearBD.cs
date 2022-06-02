@@ -80,7 +80,7 @@ namespace OpenLibraryEditor.Forms
                     do
                     {
                         EnvioEmail mail = new EnvioEmail();
-                        numero = mail.Send("openlibraryeditor@gmail.com", "oleOLEole", KTxtEmailApp.Text);
+                        numero = mail.Send("openlibraryeditor@gmail.com", "bjsx jern dlfa hkqe", KTxtEmailApp.Text);
 
                         if (numero == 0)
                         {

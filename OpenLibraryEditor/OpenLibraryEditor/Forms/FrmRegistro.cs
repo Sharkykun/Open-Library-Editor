@@ -111,7 +111,7 @@ namespace OpenLibraryEditor.Forms
                                 do
                                 {
                                     EnvioEmail mail = new EnvioEmail();
-                                    numero = mail.Send("openlibraryeditor@gmail.com", "oleOLEole", TxtMailReg.Text);
+                                    numero = mail.Send("openlibraryeditor@gmail.com", "bjsxjerndlfahkqe", TxtMailReg.Text);
 
                                     if (numero == 0)
                                     {
