@@ -1240,8 +1240,7 @@ namespace OpenLibraryEditor.Forms
                                 libroActual.Favorito = libro.Favorito;
                             }
                             Biblioteca.biblioteca.GuardarJson();
-                            //-------------------
-                            VentanaWindowsComun.MensajeInformacion("Se ha descargado la información del libro correctamente.");
+                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("DescargaInfoLibroOK"));
                         }
                         ConexionBD.CerrarConexion();
                         RecolocarLibros(false);

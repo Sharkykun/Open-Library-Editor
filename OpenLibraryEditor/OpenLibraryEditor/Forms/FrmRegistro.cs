@@ -144,8 +144,7 @@ namespace OpenLibraryEditor.Forms
                                         this.Close();
                                     }
                                     else
-                                        //-----------------
-                                        VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos con el usuario registrado.");
+                                        VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorLogin"));
                                 }
                             }
                             else

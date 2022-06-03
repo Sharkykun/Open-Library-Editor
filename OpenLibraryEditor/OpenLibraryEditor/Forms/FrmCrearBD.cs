@@ -42,18 +42,18 @@ namespace OpenLibraryEditor.Forms
             KgbDatosServidor.Values.Heading= ControladorIdioma.GetTexto("BD_DServidor");
             LblUrl.Text= ControladorIdioma.GetTexto("BD_Url");
             TTCrearBD.SetToolTip(this.KTxtUrl, ControladorIdioma.GetTexto("UrlServidor"));
-            LblNombreSer.Text= ControladorIdioma.GetTexto("Adm_NombreUsu");
+            LblNombreSer.Text= ControladorIdioma.GetTexto("NombreObligatorio");
             TTCrearBD.SetToolTip(this.KTxtNombreUSer, ControladorIdioma.GetTexto("NombreUsuServidor"));
             LblPuerto.Text= ControladorIdioma.GetTexto("BD_Puerto");
             TTCrearBD.SetToolTip(this.KNudPuerto, ControladorIdioma.GetTexto("NumeroPuerto"));
             LblContraSer.Text= ControladorIdioma.GetTexto("Reg_Contra");
             TTCrearBD.SetToolTip(this.KTxtCSer, ControladorIdioma.GetTexto("ContraServidor"));
             KgbDatosApp.Values.Heading = ControladorIdioma.GetTexto("BD_DApp");
-            LblNombreApp.Text= ControladorIdioma.GetTexto("Adm_NombreUsu");
+            LblNombreApp.Text= ControladorIdioma.GetTexto("NombreObligatorio");
             TTCrearBD.SetToolTip(this.KTxtNombreApp, ControladorIdioma.GetTexto("NombreUsuApp"));
-            LblContraApp.Text= ControladorIdioma.GetTexto("Reg_Contra");
+            LblContraApp.Text= ControladorIdioma.GetTexto("ContraObligatoria");
             TTCrearBD.SetToolTip(this.KTxtContraApp, ControladorIdioma.GetTexto("ContraUsuApp"));
-            LblEmailApp.Text= ControladorIdioma.GetTexto("Reg_Email");
+            LblEmailApp.Text= ControladorIdioma.GetTexto("EmailObligatorio");
             TTCrearBD.SetToolTip(this.KTxtEmailApp, ControladorIdioma.GetTexto("EmailUsuApp"));
             GBtnCancelar.Text= ControladorIdioma.GetTexto("Cancelar");
             TTCrearBD.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
@@ -65,6 +65,8 @@ namespace OpenLibraryEditor.Forms
             TTCrearBD.SetToolTip(this.IpcbMostrarContraUsu, ControladorIdioma.GetTexto("Reg_TTMostrarContra"));
             TTCrearBD.SetToolTip(this.IpcbOcultarContraSer, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
             TTCrearBD.SetToolTip(this.IpcbOcultarContraUsu, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
+
+            LblObligatorio.Text = ControladorIdioma.GetTexto("CamposObligatorios");
         }
         #endregion
         #region crear bd

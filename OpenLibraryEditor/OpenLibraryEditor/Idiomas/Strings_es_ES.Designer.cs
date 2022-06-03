@@ -1348,7 +1348,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Puerto:.
+        ///   Busca una cadena traducida similar a Puerto: *.
         /// </summary>
         internal static string BD_Puerto {
             get {
@@ -1366,7 +1366,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Url:.
+        ///   Busca una cadena traducida similar a Url: *.
         /// </summary>
         internal static string BD_Url {
             get {
@@ -2122,6 +2122,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña: *.
+        /// </summary>
+        internal static string ContraObligatoria {
+            get {
+                return ResourceManager.GetString("ContraObligatoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Escribe aquí la contraseña de tu usuario de la base de datos (si no tiene dejar en blanco).
         /// </summary>
         internal static string ContraServidor {
@@ -2163,6 +2172,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string CrearUsuario {
             get {
                 return ResourceManager.GetString("CrearUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha descargado la información del libro correctamente.
+        /// </summary>
+        internal static string DescargaInfoLibroOK {
+            get {
+                return ResourceManager.GetString("DescargaInfoLibroOK", resourceCulture);
             }
         }
         
@@ -2302,7 +2320,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nombre:.
+        ///   Busca una cadena traducida similar a Nombre: *.
         /// </summary>
         internal static string Edit_Nombre {
             get {
@@ -2473,6 +2491,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Email: *.
+        /// </summary>
+        internal static string EmailObligatorio {
+            get {
+                return ResourceManager.GetString("EmailObligatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Escribe aquí el email del nuevo usuario (le enviaremos un email con sus datos de acceso).
         /// </summary>
         internal static string EmailUsu {
@@ -2595,6 +2622,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string ErrorIdRepetido {
             get {
                 return ResourceManager.GetString("ErrorIdRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo conectar a la base de datos con el usuario registrado.
+        /// </summary>
+        internal static string ErrorLogin {
+            get {
+                return ResourceManager.GetString("ErrorLogin", resourceCulture);
             }
         }
         
@@ -4147,6 +4183,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de usuario: *.
+        /// </summary>
+        internal static string NombreObligatorio {
+            get {
+                return ResourceManager.GetString("NombreObligatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Escribe aquí el nombre del nuevo usuario.
         /// </summary>
         internal static string NombreUsu {
@@ -4863,6 +4908,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string TipoLibroRepetido {
             get {
                 return ResourceManager.GetString("TipoLibroRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo de usuario: *.
+        /// </summary>
+        internal static string TipoObligatorio {
+            get {
+                return ResourceManager.GetString("TipoObligatorio", resourceCulture);
             }
         }
         

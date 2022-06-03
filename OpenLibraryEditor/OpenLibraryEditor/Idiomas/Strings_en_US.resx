@@ -547,13 +547,13 @@
     <value>Server data</value>
   </data>
   <data name="BD_Puerto" xml:space="preserve">
-    <value>Port:</value>
+    <value>Port: *</value>
   </data>
   <data name="BD_Titulo" xml:space="preserve">
     <value>Open Library Editor - Create database</value>
   </data>
   <data name="BD_Url" xml:space="preserve">
-    <value>Url:</value>
+    <value>Url: *</value>
   </data>
   <data name="Bienvenido" xml:space="preserve">
     <value>Welcome to Open Library Editor</value>
@@ -614,6 +614,9 @@
   </data>
   <data name="CmbBuscar_TituloIsbn" xml:space="preserve">
     <value>Title / ISBN</value>
+  </data>
+  <data name="ContraObligatoria" xml:space="preserve">
+    <value>Password: *</value>
   </data>
   <data name="ContraServidor" xml:space="preserve">
     <value>Write here the password of your database user (if it does not have it, leave it blank)</value>
@@ -819,6 +822,9 @@
   <data name="CrearUsuario" xml:space="preserve">
     <value>Open Library Editor - Create users</value>
   </data>
+  <data name="DescargaInfoLibroOK" xml:space="preserve">
+    <value>The book information has been downloaded successfully</value>
+  </data>
   <data name="DescargaOK" xml:space="preserve">
     <value>Successfully downloaded from the database</value>
   </data>
@@ -829,7 +835,7 @@
     <value>The publisher already exists in the database</value>
   </data>
   <data name="Edit_Nombre" xml:space="preserve">
-    <value>Name:</value>
+    <value>Name: *</value>
   </data>
   <data name="ED_Comentario" xml:space="preserve">
     <value>Commentary</value>
@@ -921,6 +927,9 @@
   <data name="Ej_TTRuta" xml:space="preserve">
     <value>Click to find the path of the executable</value>
   </data>
+  <data name="EmailObligatorio" xml:space="preserve">
+    <value>Email: *</value>
+  </data>
   <data name="EmailUsu" xml:space="preserve">
     <value>Write here the email of the new user (we will send you an email with your access data)</value>
   </data>
@@ -938,6 +947,9 @@
   </data>
   <data name="ErrorIdRepetido" xml:space="preserve">
     <value>The ISBN of the book already exists in the library</value>
+  </data>
+  <data name="ErrorLogin" xml:space="preserve">
+    <value>Could not connect to database with logged in user</value>
   </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>The name, extension and path cannot be empty.</value>
@@ -1491,6 +1503,9 @@
   <data name="NoLibros" xml:space="preserve">
     <value>There are no books in your library</value>
   </data>
+  <data name="NombreObligatorio" xml:space="preserve">
+    <value>Username: *</value>
+  </data>
   <data name="NombreUsu" xml:space="preserve">
     <value>Write here the name of the new user</value>
   </data>
@@ -1730,6 +1745,9 @@
   </data>
   <data name="TipoLibroRepetido" xml:space="preserve">
     <value>The book type already exists in the database</value>
+  </data>
+  <data name="TipoObligatorio" xml:space="preserve">
+    <value>Type of user: *</value>
   </data>
   <data name="TipoUsuario" xml:space="preserve">
     <value>Connected user type: </value>

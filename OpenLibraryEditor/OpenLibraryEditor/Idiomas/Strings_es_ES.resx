@@ -547,13 +547,13 @@
     <value>Datos del servidor</value>
   </data>
   <data name="BD_Puerto" xml:space="preserve">
-    <value>Puerto:</value>
+    <value>Puerto: *</value>
   </data>
   <data name="BD_Titulo" xml:space="preserve">
     <value>Open Library Editor - Crear base de datos</value>
   </data>
   <data name="BD_Url" xml:space="preserve">
-    <value>Url:</value>
+    <value>Url: *</value>
   </data>
   <data name="Bienvenido" xml:space="preserve">
     <value>Bienvenid@ a Open Library Editor</value>
@@ -614,6 +614,9 @@
   </data>
   <data name="CmbBuscar_TituloIsbn" xml:space="preserve">
     <value>Título / ISBN</value>
+  </data>
+  <data name="ContraObligatoria" xml:space="preserve">
+    <value>Contraseña: *</value>
   </data>
   <data name="ContraServidor" xml:space="preserve">
     <value>Escribe aquí la contraseña de tu usuario de la base de datos (si no tiene dejar en blanco)</value>
@@ -819,6 +822,9 @@
   <data name="CrearUsuario" xml:space="preserve">
     <value>Open Library Editor - Crear usuarios</value>
   </data>
+  <data name="DescargaInfoLibroOK" xml:space="preserve">
+    <value>Se ha descargado la información del libro correctamente</value>
+  </data>
   <data name="DescargaOK" xml:space="preserve">
     <value>Se ha descargado correctamente de la base de datos</value>
   </data>
@@ -829,7 +835,7 @@
     <value>La editorial ya existe en la base de datos</value>
   </data>
   <data name="Edit_Nombre" xml:space="preserve">
-    <value>Nombre:</value>
+    <value>Nombre: *</value>
   </data>
   <data name="ED_Comentario" xml:space="preserve">
     <value>Comentario</value>
@@ -921,6 +927,9 @@
   <data name="Ej_TTRuta" xml:space="preserve">
     <value>Haz click para buscar la ruta del ejecutable</value>
   </data>
+  <data name="EmailObligatorio" xml:space="preserve">
+    <value>Email: *</value>
+  </data>
   <data name="EmailUsu" xml:space="preserve">
     <value>Escribe aquí el email del nuevo usuario (le enviaremos un email con sus datos de acceso)</value>
   </data>
@@ -941,6 +950,9 @@
   </data>
   <data name="ErrorIdRepetido" xml:space="preserve">
     <value>El ISBN del libro ya existe en la biblioteca</value>
+  </data>
+  <data name="ErrorLogin" xml:space="preserve">
+    <value>No se pudo conectar a la base de datos con el usuario registrado</value>
   </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>El nombre, extensión y ruta no pueden estar vacíos.</value>
@@ -1479,6 +1491,9 @@
   <data name="NoLibros" xml:space="preserve">
     <value>No hay ningún libro en tu biblioteca</value>
   </data>
+  <data name="NombreObligatorio" xml:space="preserve">
+    <value>Nombre de usuario: *</value>
+  </data>
   <data name="NombreUsu" xml:space="preserve">
     <value>Escribe aquí el nombre del nuevo usuario</value>
   </data>
@@ -1718,6 +1733,9 @@
   </data>
   <data name="TipoLibroRepetido" xml:space="preserve">
     <value>El tipo de libro ya existe en la base de datos</value>
+  </data>
+  <data name="TipoObligatorio" xml:space="preserve">
+    <value>Tipo de usuario: *</value>
   </data>
   <data name="TipoUsuario" xml:space="preserve">
     <value>Tipo de usuario conectado: </value>

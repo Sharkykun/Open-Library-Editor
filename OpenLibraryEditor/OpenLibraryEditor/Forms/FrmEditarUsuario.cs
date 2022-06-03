@@ -67,11 +67,11 @@ namespace OpenLibraryEditor.Forms
             KgbDatosEditUsu.Values.Heading = ControladorIdioma.GetTexto("BD_DApp");
             LblNombreEditUsu.Text = ControladorIdioma.GetTexto("Edit_Nombre");
             TTEditarUsu.SetToolTip(this.KTxtNombreEditUsu, ControladorIdioma.GetTexto("NombreUsu"));
-            LblContraEditUsu.Text = ControladorIdioma.GetTexto("Reg_Contra");
+            LblContraEditUsu.Text = ControladorIdioma.GetTexto("ContraObligatoria");
             TTEditarUsu.SetToolTip(this.KTxtContraEditUsu, ControladorIdioma.GetTexto("ContraUsu"));
-            LblEmailEditUsu.Text = ControladorIdioma.GetTexto("Reg_Email");
+            LblEmailEditUsu.Text = ControladorIdioma.GetTexto("EmailObligatorio");
             TTEditarUsu.SetToolTip(this.KTxtEmailEditUsu, ControladorIdioma.GetTexto("EmailUsu"));
-            LblTipoEditUsu.Text = ControladorIdioma.GetTexto("Adm_Tipo");
+            LblTipoEditUsu.Text = ControladorIdioma.GetTexto("TipoObligatorio");
             TTEditarUsu.SetToolTip(this.KCmbTipoEditUsu, ControladorIdioma.GetTexto("SeleccionarTipoUsu"));
             GBtnCancelar.Text = ControladorIdioma.GetTexto("Cancelar");
             TTEditarUsu.SetToolTip(this.GBtnCancelar, ControladorIdioma.GetTexto("Cancelar"));
@@ -80,6 +80,7 @@ namespace OpenLibraryEditor.Forms
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Editor"));
             KCmbTipoEditUsu.Items.Add(ControladorIdioma.GetTexto("Adm_Usu"));
             TTEditarUsu.SetToolTip(this.MBtnCerrarEditUsu, ControladorIdioma.GetTexto("Cerrar"));
+            LblObligatorio.Text= ControladorIdioma.GetTexto("CamposObligatorios");
 
         }
         #endregion
