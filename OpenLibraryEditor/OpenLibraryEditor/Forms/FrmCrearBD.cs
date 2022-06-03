@@ -92,15 +92,19 @@ namespace OpenLibraryEditor.Forms
                     verificar.ShowDialog();
                     if (verificar.MailVerificado)
                     {
-                        ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString());
-                        ConexionBD.AbrirConexion();
-                        ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
-                        ConexionBD.CerrarConexion();
-                        FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
-                        ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD+KTxtNombreApp.Text,
-                            KTxtContraApp.Text, KNudPuerto.Value.ToString());
-                        isOk = true;
-                        Close();
+                        if (ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString()))
+                        {
+                            ConexionBD.AbrirConexion();
+                            ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
+                            ConexionBD.CerrarConexion();
+                            FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
+                            ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD + KTxtNombreApp.Text,
+                                KTxtContraApp.Text, KNudPuerto.Value.ToString());
+                            isOk = true;
+                            Close();
+                        }
+                        else
+                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
                     }
                 }
                 else

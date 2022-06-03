@@ -388,7 +388,6 @@ namespace OpenLibraryEditor.Forms
             LblEscribirTiempoLec.Text = "";
             LblEscribirTipoLibro.Text = "";
             LblEscribirVecesLeido.Text = "";
-            LblFin.Text = "";
         }
         private void ManejadorLibro_Click(object sender, EventArgs e)
         {
@@ -557,6 +556,7 @@ namespace OpenLibraryEditor.Forms
                     
                     if (libroActual.ListaAccion.Count > 0)
                     {
+                        Hide();
                         List<Process> listaProcesos = new List<Process>();
                         //Ocultar ventana y bloquear
                         Cursor.Current = Cursors.WaitCursor;
@@ -573,6 +573,7 @@ namespace OpenLibraryEditor.Forms
                             }
                         }
                         EsperarHastaFinDeProcesos(listaProcesos);
+                        Show();
                     }
                     
                     break;
@@ -942,7 +943,9 @@ namespace OpenLibraryEditor.Forms
             //Añadir generos a la listview
             LsvOpciones.Items.Clear();
             LsvOpciones.Columns.Clear();
-            LsvOpciones.SmallImageList = null;
+            ImageList imglist = new ImageList();
+            imglist.ImageSize = new Size(1, 20);
+            LsvOpciones.SmallImageList = imglist;
             var col = LsvOpciones.Columns.Add(ControladorIdioma.GetTexto("Se_LsvNombre"));
             col.Width = 200;
             foreach (Genero genero in Biblioteca.biblioteca.ListaGenero)
@@ -1242,6 +1245,22 @@ namespace OpenLibraryEditor.Forms
                         }
                         ConexionBD.CerrarConexion();
                         RecolocarLibros(false);
+                        if (PanVistaMosaico.Visible)
+                        {
+                            foreach (DoubleClickButton btn in PanVistaMosaico.Controls.OfType<DoubleClickButton>())
+                            {
+                                if (btn.Tag == libroActual)
+                                    ManejadorLibro_Click(btn, null);
+                            }
+                        }
+                        else
+                        {
+                            foreach (VistaDetallesV btn in PanVistaDetalles.Controls.OfType<VistaDetallesV>())
+                            {
+                                if (btn.Tag == libroActual)
+                                    ManejadorLibroDet_Click(btn, null);
+                            }
+                        }
                     }
                 }
             }
@@ -1263,14 +1282,14 @@ namespace OpenLibraryEditor.Forms
             
             if (PuedeEditar)
             {
-                FrmAutores autores = new FrmAutores(false, true);
+                FrmAutores autores = new FrmAutores(true, true);
                 autores.FormBorderStyle = FormBorderStyle.None;
                 autores.ShowDialog();
                 MBtnAutores_Click(MBtnAutores, null);
             }
             else
             {
-                FrmAutores autores = new FrmAutores(false);
+                FrmAutores autores = new FrmAutores(true);
                 autores.FormBorderStyle = FormBorderStyle.None;
                 autores.ShowDialog();
                 MBtnAutores_Click(MBtnAutores, null);
@@ -1283,14 +1302,14 @@ namespace OpenLibraryEditor.Forms
             ResetColores();
             if (PuedeEditar)
             {
-                FrmGeneros generos = new FrmGeneros(false, true);
+                FrmGeneros generos = new FrmGeneros(true, true);
                 generos.FormBorderStyle = FormBorderStyle.None;
                 generos.ShowDialog();
                 MBtnGeneros_Click(MBtnGeneros, null);
             }
             else
             {
-                FrmGeneros generos = new FrmGeneros(false);
+                FrmGeneros generos = new FrmGeneros(true);
                 generos.FormBorderStyle = FormBorderStyle.None;
                 generos.ShowDialog();
                 MBtnGeneros_Click(MBtnGeneros, null);

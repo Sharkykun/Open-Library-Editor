@@ -82,11 +82,12 @@ namespace OpenLibraryEditor.Forms
             if (!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
             {
                 KTxtUrl.Text = UsuarioDatos.configuracionUsuario.RecordarUrl;
-                KTxtUrl_Enter(null, null);
                 KTxtNombre.Text = UsuarioDatos.configuracionUsuario.RecordarUsuario;
-                KTxtNombre_Enter(null, null);
                 KTxtContra.Text = UsuarioDatos.configuracionUsuario.RecordarContr;
-                KTxtContra_Enter(null, null);
+                IpcbOcultarContra_Click(null, null);
+                KTxtNombre.StateCommon.Content.Color1 = Color.Black;
+                KTxtContra.StateCommon.Content.Color1 = Color.Black;
+                KTxtUrl.StateCommon.Content.Color1 = Color.Black;
                 ToggleConectado.Checked = true;
             }
             else
@@ -193,7 +194,7 @@ namespace OpenLibraryEditor.Forms
             if (txt.Text == s ||
                 !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
             {
-                if (String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+                if (txt.Text == s)
                     txt.Text = "";
                 txt.StateCommon.Content.Color1 = Color.Black;
             }
@@ -207,7 +208,7 @@ namespace OpenLibraryEditor.Forms
             if (txt.Text == s ||
                 !String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
             {
-                if (String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
+                if (txt.Text == s)
                     txt.Text = "";
                 txt.StateCommon.Content.Color1 = Color.Black;
                 txt.UseSystemPasswordChar = true;

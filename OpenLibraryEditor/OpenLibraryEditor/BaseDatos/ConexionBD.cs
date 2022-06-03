@@ -16,7 +16,7 @@ namespace OpenLibraryEditor.BaseDatos
         public const string NOMBRE_BD = "open_library_editor";
         public const string ANTENOMBRE_USUARIO_BD = "ole_";
 
-        public static void CrearBD(string servidor, string usuario, string contrasena, string puerto)
+        public static bool CrearBD(string servidor, string usuario, string contrasena, string puerto)
         {
             BorrarBD(servidor, usuario, contrasena, puerto);
 
@@ -30,8 +30,14 @@ namespace OpenLibraryEditor.BaseDatos
 
                 //Crear base de datos si no existe
                 MySqlCommand cmd = new MySqlCommand("create database if not exists " + NOMBRE_BD, Conexion);
-                cmd.ExecuteNonQuery();
-
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (InvalidOperationException)
+                {
+                    return false;
+                }
                 CerrarConexion();
 
                 //Cerramos y abrimos de nuevo la conexion pero con la BD creada
@@ -64,6 +70,7 @@ namespace OpenLibraryEditor.BaseDatos
             IdBD = LecturaBD.SelectObtenerIdBD();
 
             CerrarConexion();
+            return true;
         }
 
         private static void EstablecerConexionNueva(string servidor, string usuario, string contrasena, string puerto)
@@ -363,7 +370,7 @@ namespace OpenLibraryEditor.BaseDatos
             MySqlCommand tabla = new MySqlCommand(@"
             CREATE TABLE `Libro` (
                 `idLibro` INT NOT NULL,
-	            `isbn13` varchar(13) NOT NULL,
+	            `isbn13` varchar(13),
 	            `titulo` varchar(150) NOT NULL,
                 `subtitulo` varchar(150),
 	            `tituloAlternativo` varchar(150),

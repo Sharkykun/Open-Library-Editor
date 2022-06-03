@@ -154,7 +154,6 @@
             this.LblPaginasEntre = new System.Windows.Forms.Label();
             this.KNudPagMax = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.KNudPagMin = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanVistaDetalles = new System.Windows.Forms.Panel();
             this.PanPiePagina = new System.Windows.Forms.Panel();
@@ -170,6 +169,7 @@
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanHijos = new System.Windows.Forms.Panel();
             this.TimeRedimensionar = new System.Windows.Forms.Timer(this.components);
+            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -1101,7 +1101,7 @@
             this.KpUsuario});
             this.KTabDetalles.Palette = this.kryptonPalette1;
             this.KTabDetalles.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.KTabDetalles.SelectedIndex = 0;
+            this.KTabDetalles.SelectedIndex = 1;
             this.KTabDetalles.Size = new System.Drawing.Size(250, 280);
             this.KTabDetalles.TabIndex = 0;
             // 
@@ -1588,7 +1588,7 @@
             this.KpUsuario.LastVisibleSet = true;
             this.KpUsuario.MinimumSize = new System.Drawing.Size(50, 50);
             this.KpUsuario.Name = "KpUsuario";
-            this.KpUsuario.Size = new System.Drawing.Size(248, 296);
+            this.KpUsuario.Size = new System.Drawing.Size(248, 254);
             this.KpUsuario.StateCommon.Page.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KpUsuario.StateCommon.Page.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KpUsuario.Text = "Detalles usuario";
@@ -2101,15 +2101,6 @@
             this.KNudPagMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.KNudPagMin.ValueChanged += new System.EventHandler(this.KNudPagMin_ValueChanged);
             // 
-            // TxtBusqueda
-            // 
-            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.TxtBusqueda.Location = new System.Drawing.Point(681, 3);
-            this.TxtBusqueda.Name = "TxtBusqueda";
-            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
-            this.TxtBusqueda.TabIndex = 135;
-            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
-            // 
             // MBtnBuscarMBI
             // 
             this.MBtnBuscarMBI.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2254,6 +2245,15 @@
             this.PanHijos.Name = "PanHijos";
             this.PanHijos.Size = new System.Drawing.Size(949, 693);
             this.PanHijos.TabIndex = 5;
+            // 
+            // TxtBusqueda
+            // 
+            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.TxtBusqueda.Location = new System.Drawing.Point(681, 3);
+            this.TxtBusqueda.Name = "TxtBusqueda";
+            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
+            this.TxtBusqueda.TabIndex = 135;
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
             // 
             // FrmMenuPrincipal
             // 

@@ -129,6 +129,8 @@ namespace OpenLibraryEditor.Forms
                             VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));
                         ConexionBD.CerrarConexion();
                     }
+                    else
+                        VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));

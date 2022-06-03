@@ -143,11 +143,16 @@ namespace OpenLibraryEditor.Forms
                                         isOk = true;
                                         this.Close();
                                     }
+                                    else
+                                        //-----------------
+                                        VentanaWindowsComun.MensajeError("No se pudo conectar a la base de datos con el usuario registrado.");
                                 }
                             }
                             else
                                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("VWC_ErrorMail"));
                         }
+                        else
+                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
                         ConexionBD.CerrarConexion();
                     }
                     else
