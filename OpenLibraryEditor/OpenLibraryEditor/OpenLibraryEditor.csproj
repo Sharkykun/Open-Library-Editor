@@ -185,12 +185,6 @@
     <Compile Include="Controles\TxtBusqueda.Designer.cs">
       <DependentUpon>TxtBusqueda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\VistaDetallesH.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\VistaDetallesH.Designer.cs">
-      <DependentUpon>VistaDetallesH.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\VistaDetallesV.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -343,14 +337,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings_es_ES.resx</DependentUpon>
     </Compile>
-    <Compile Include="Metodos\MetodosComunes.cs" />
+    <Compile Include="Clases\MetodosComunes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controles\TxtBusqueda.resx">
       <DependentUpon>TxtBusqueda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\VistaDetallesH.resx">
-      <DependentUpon>VistaDetallesH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\VistaDetallesV.resx">
       <DependentUpon>VistaDetallesV.cs</DependentUpon>
@@ -458,9 +449,6 @@
     <None Include="Resources\libroAzulTexturaBookMark.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cerrar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\error1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -471,12 +459,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\francia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maximizar1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\restaurar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\desconocido.png" />
@@ -511,6 +493,7 @@
   <ItemGroup>
     <None Include="Resources\libros.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
