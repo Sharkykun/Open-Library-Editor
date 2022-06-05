@@ -134,12 +134,19 @@ namespace OpenLibraryEditor.Forms
         {
             if (ConexionBD.AbrirConexion())
             {
-                Image img = ControladorImagen.ObtenerImagenStream(LecturaBD.SelectUsuarioFotoPerfil(
-                    UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre));
-                if (img != null)
-                    AciFotoUsuario.Image = img;
-                else
+                try
+                {
+                    Image img = ControladorImagen.ObtenerImagenStream(LecturaBD.SelectUsuarioFotoPerfil(
+                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual.Nombre));
+                    if (img != null)
+                        AciFotoUsuario.Image = img;
+                    else
+                        AciFotoUsuario.Image = Properties.Resources.desconocido;
+                }
+                catch (ArgumentException)
+                {
                     AciFotoUsuario.Image = Properties.Resources.desconocido;
+                }
                 ConexionBD.CerrarConexion();
             }
         }
