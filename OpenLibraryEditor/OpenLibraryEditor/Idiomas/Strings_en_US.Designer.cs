@@ -3058,6 +3058,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The book information has been successfully saved in the database.
+        /// </summary>
+        internal static string LibroGuardadoOK {
+            get {
+                return ResourceManager.GetString("LibroGuardadoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The book is already in the database.
         /// </summary>
         internal static string LibroRepetido {

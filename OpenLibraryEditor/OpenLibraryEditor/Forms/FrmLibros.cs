@@ -54,22 +54,14 @@ namespace OpenLibraryEditor.Forms
         {
             IdiomaTexto();
             if (this.Text.Equals(ControladorIdioma.GetTexto("Al_Titulo")))
-            {
                 LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Titulo");
-            }
             else
-            {
                 LblTituloForm.Text = ControladorIdioma.GetTexto("Al_Modificar");
-            }
             KcellTabs.SelectedPage = KpageDatosGenerales;
             //Agregar valores de listas
             RellenarEditorial(libroActual.ListaEditorial);
             RellenarEjecutable();
             RellenarGenero(libroActual.ListaGenero);
-            //listaIdioma.ForEach(p => {
-            //    AgregarComboItem(KCmbIdiomaNL, p);
-            //    AgregarComboItem(KCmbIdiomaOriginalNL, p);
-            //});
             RellenarPersona(libroActual.ListaAutor);
 
             //Vincular lista de tipo libro con Combobox
@@ -470,7 +462,6 @@ namespace OpenLibraryEditor.Forms
                 if (result == DialogResult.Yes)
                     GBtnGuardarAccion_Click(null, null);
             }
-
             //Comprobar selección item
             if (e.IsSelected && LsvAccionesNL.SelectedItems.Count == 1)
             {
@@ -525,7 +516,6 @@ namespace OpenLibraryEditor.Forms
         private void IbtnFichero_Click(object sender, EventArgs e)
         {
             KTxtFicheroNL.Text = VentanaWindowsComun.GetRutaFichero(VentanaWindowsComun.FILTRO_TODO);
-
         }
         private void MBtnMasEjecutableNL_Click(object sender, EventArgs e)
         {
@@ -669,15 +659,15 @@ namespace OpenLibraryEditor.Forms
                         == DialogResult.Yes)
                     {
                         libroActual.MeterUsuarioLibroEnBDCompartida();
-                        //-------------------
-                        VentanaWindowsComun.MensajeInformacion("Se ha guardado la información del libro correctamente en la base de datos.");
+                        VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("LibroGuardadoOK"));
                     }
                     ConexionBD.CerrarConexion();
                 }
 
                 esOk = true;
                 Biblioteca.biblioteca.GuardarJson();
-                VentanaWindowsComun.MensajeInformacion(libroActual.Titulo +" " +ControladorIdioma.GetTexto("GuardadoCorrectamente"));
+                VentanaWindowsComun.MensajeInformacion(libroActual.Titulo +" " +
+                    ControladorIdioma.GetTexto("GuardadoCorrectamente"));
                 Close();
             }
             else

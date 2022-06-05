@@ -36,7 +36,6 @@ namespace OpenLibraryEditor
                 this.Opacity += 0.02;
                 PcbLogo.Width += 10;
                 PcbLogo.Height += 10;
-
             }
             contador += 1;
             if (contador == 100)

@@ -13,6 +13,5 @@ namespace OpenLibraryEditor.Controles
         {
             SetStyle(ControlStyles.StandardClick | ControlStyles.StandardDoubleClick, true);
         }
-
     }
 }

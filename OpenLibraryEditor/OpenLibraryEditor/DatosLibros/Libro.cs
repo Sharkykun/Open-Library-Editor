@@ -211,13 +211,9 @@ namespace OpenLibraryEditor.DatosLibros
         {
             var usuario = UsuarioDatos.configuracionUsuario.InfoUsuarioActual;
             if (LecturaBD.SelectUsuarioLibroExiste(usuario.Nombre, this) > 0)
-            {
                 EscrituraBD.UpdateUsuarioLibro(usuario.Nombre, this, usuario);
-            }
             else
-            {
                 EscrituraBD.InsertUsuarioLibro(this, usuario);
-            }
         }
 
         public void BorrarUsuarioLibroEnBDCompartida()

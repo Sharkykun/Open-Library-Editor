@@ -83,7 +83,8 @@ namespace OpenLibraryEditor.Forms
                     MBtnAdminUsuarios.Visible = true;
                     BtnActualizarLibroMsb.Visible = true;
                     puedeEditar = true;
-                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario")+ ControladorIdioma.GetTexto("Adm_Adm");
+                    LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario")+ 
+                        ControladorIdioma.GetTexto("Adm_Adm");
                     MBtnCambiarFotoPerfil.Visible = true;
                     CargarFotoUsuarioBD();
                 }
@@ -99,11 +100,13 @@ namespace OpenLibraryEditor.Forms
                     puedeEditar = true;
                     if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Usuario"))
                     {
-                        LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Usu");
+                        LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + 
+                            ControladorIdioma.GetTexto("Adm_Usu");
                     }
                     else if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario.Equals("Editor"))
                     {
-                        LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + ControladorIdioma.GetTexto("Adm_Editor");
+                        LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("TipoUsuario") + 
+                            ControladorIdioma.GetTexto("Adm_Editor");
                     }
                 }
             }
@@ -196,9 +199,6 @@ namespace OpenLibraryEditor.Forms
         }
         private void ColocarLibrosMosaico()
         {
-            //PanVistaMosaico.BringToFront();
-            //PanVistaMosaico.Visible = true;
-            //PanVistaDetalles.Visible = false;
             PanVistaMosaico.Controls.Clear();
             int tamPanel = PanVistaMosaico.Width;
             int altoPanel = PanVistaMosaico.Height;
@@ -241,9 +241,6 @@ namespace OpenLibraryEditor.Forms
         private void ColocarLibrosDetalles()
         {
             PanVistaDetalles.Controls.Clear();
-            //PanVistaDetalles.BringToFront();
-            //PanVistaDetalles.Visible = true;
-            //PanVistaMosaico.Visible = false;
             int tamPanel = PanVistaDetalles.Width;
             int altoPanel = PanVistaDetalles.Height;
 
@@ -894,7 +891,6 @@ namespace OpenLibraryEditor.Forms
         private void MBtnAutores_Click(object sender, EventArgs e)
         {
             TxtBusqueda.setTextobuscar("");
-            //AbrirFormularios(new FrmMisAutores());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = true;
             MBtncerrarDetallesLibro_Click(sender, e);
@@ -1069,7 +1065,6 @@ namespace OpenLibraryEditor.Forms
         }
         private void BtnAniadirLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            //ResetColores();
             Libro nuevoLibro = new Libro(ControladorIdioma.GetTexto("NuevoLibro"));
             FrmLibros al = new FrmLibros(nuevoLibro);
             al.FormBorderStyle=FormBorderStyle.None;
@@ -1080,17 +1075,11 @@ namespace OpenLibraryEditor.Forms
             if (al.EsOk)
             {
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
-                //MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
-
-                //BotonActivoTool(sender,Colores.colorBiblioteca);
-                
                 RecolocarLibros(false);
             }
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            //ResetColores();
-            Libro l = libroActual;
             FrmLibros al = new FrmLibros(libroActual);
             al.FormBorderStyle = FormBorderStyle.None;
             al.Text = ControladorIdioma.GetTexto("Al_Modificar");
@@ -1101,8 +1090,6 @@ namespace OpenLibraryEditor.Forms
                 {
                     MBtnFavoritos_Click(MBtnFavoritos, null);
                 }
-                //MBtncerrarDetallesLibro_Click(sender, e);
-                //BotonActivoTool(sender, Colores.colorBiblioteca);
                 RecolocarLibros(false);
                 //Seleccionar libro
                 if (PanVistaMosaico.Visible)
@@ -1125,8 +1112,6 @@ namespace OpenLibraryEditor.Forms
         }
         private void BtnBorrarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            //ResetColores();
-            //BotonActivoTool(sender,Colores.colorBiblioteca);
             if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.Titulo) == DialogResult.Yes)
             {
                 //Actualizar en BD compartida si se puede
@@ -1141,10 +1126,8 @@ namespace OpenLibraryEditor.Forms
                             libroActual.BorraDeBDCompartida();
                             ConexionBD.CerrarConexion();
                         }
-                        
                     }
                 }
-
                 //Actualizar en BD compartida si se puede
                 if (ConexionBD.Conexion != null &&
                     UsuarioDatos.configuracionUsuario.InfoUsuarioActual.TipoUsuario != null)
@@ -1155,17 +1138,11 @@ namespace OpenLibraryEditor.Forms
                     {
                         if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarDatosUsu"))
                         == DialogResult.Yes)
-                        {
                                 libroActual.BorrarUsuarioLibroEnBDCompartida();   
-                        }
-                        
                     }
                     ConexionBD.CerrarConexion();
-
                 }
-
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
-                //MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
                 RecolocarLibros(false);
                 MBtncerrarDetallesLibro_Click(sender,e);
             }
@@ -1173,7 +1150,6 @@ namespace OpenLibraryEditor.Forms
 
         private void BtnActualizarLibroMsb_ButtonClick(object sender, EventArgs e)
         {
-            //ResetColores();
             //Actualizar en BD compartida si se puede
             if (ConexionBD.Conexion != null)
             {
@@ -1608,7 +1584,6 @@ namespace OpenLibraryEditor.Forms
                         au.ShowDialog();
                         MBtnAutores_Click(MBtnAutores, null);
                     }
-                    
                 }
                 else if (obj.GetType() == typeof(Genero))
                 {

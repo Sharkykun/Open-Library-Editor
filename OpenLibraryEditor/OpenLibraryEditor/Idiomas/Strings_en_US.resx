@@ -1116,6 +1116,9 @@
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
   </data>
+  <data name="LibroGuardadoOK" xml:space="preserve">
+    <value>The book information has been successfully saved in the database</value>
+  </data>
   <data name="LibroRepetido" xml:space="preserve">
     <value>The book is already in the database</value>
   </data>

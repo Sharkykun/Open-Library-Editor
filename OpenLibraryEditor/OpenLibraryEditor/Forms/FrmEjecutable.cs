@@ -68,7 +68,7 @@ namespace OpenLibraryEditor.Forms
             TTEjecutable.SetToolTip(this.LblTituloEjecutable, ControladorIdioma.GetTexto("Ej_TituloFrm"));
             TTEjecutable.SetToolTip(this.LsvEjecutable, ControladorIdioma.GetTexto("Ej_TTLsv"));
             LsvEjecutable.Columns[0].Text = ControladorIdioma.GetTexto("Ej_LsvNombre");
-            LsvEjecutable.Columns[1].Text = ControladorIdioma.GetTexto("Ej_LsvExtension");
+            //LsvEjecutable.Columns[1].Text = ControladorIdioma.GetTexto("Ej_LsvExtension");
             TTEjecutable.SetToolTip(this.MBtnMasLsvEJ, ControladorIdioma.GetTexto("Ej_TTMas"));
             TTEjecutable.SetToolTip(this.MBtnMenosLsvEJ, ControladorIdioma.GetTexto("Ej_TTMenos"));
             LblNombreEJ.Text = ControladorIdioma.GetTexto("Ej_Nombre");

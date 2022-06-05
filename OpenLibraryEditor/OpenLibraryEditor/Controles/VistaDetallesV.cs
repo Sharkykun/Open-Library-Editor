@@ -146,12 +146,10 @@ namespace OpenLibraryEditor.Controles
         {
             PanDatos.BackColor = Color.FromArgb(80, 137,205, 250);
         }
-
         private void PanBorde_MouseLeave(object sender, EventArgs e)
         {
             PanDatos.BackColor = Color.FromArgb(243, 249, 255);
         }
-
         private void PanBorde_Click(object sender, EventArgs e)
         {
             this.OnClick(e);

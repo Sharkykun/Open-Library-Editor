@@ -41,7 +41,6 @@
             this.MBtnMenosLsvEJ = new FontAwesome.Sharp.Material.MaterialButton();
             this.LsvEjecutable = new System.Windows.Forms.ListView();
             this.ChNombreEJ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChExtensionEJ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanOpcionesEJ = new System.Windows.Forms.Panel();
             this.IBtnBuscarRutaEJ = new FontAwesome.Sharp.IconButton();
             this.LblArgumentosEJ = new System.Windows.Forms.Label();
@@ -223,8 +222,7 @@
             this.LsvEjecutable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.LsvEjecutable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LsvEjecutable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ChNombreEJ,
-            this.ChExtensionEJ});
+            this.ChNombreEJ});
             this.LsvEjecutable.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsvEjecutable.HideSelection = false;
             this.LsvEjecutable.Location = new System.Drawing.Point(25, 70);
@@ -239,12 +237,7 @@
             // ChNombreEJ
             // 
             this.ChNombreEJ.Text = "Nombre";
-            this.ChNombreEJ.Width = 127;
-            // 
-            // ChExtensionEJ
-            // 
-            this.ChExtensionEJ.Text = "Extensión";
-            this.ChExtensionEJ.Width = 196;
+            this.ChNombreEJ.Width = 297;
             // 
             // PanOpcionesEJ
             // 
@@ -455,7 +448,6 @@
         private FontAwesome.Sharp.Material.MaterialButton MBtnMenosLsvEJ;
         private System.Windows.Forms.ListView LsvEjecutable;
         private System.Windows.Forms.ColumnHeader ChNombreEJ;
-        private System.Windows.Forms.ColumnHeader ChExtensionEJ;
         private System.Windows.Forms.Panel PanOpcionesEJ;
         private FontAwesome.Sharp.IconButton IBtnBuscarRutaEJ;
         private System.Windows.Forms.Label LblArgumentosEJ;

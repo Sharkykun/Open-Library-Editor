@@ -361,7 +361,6 @@ namespace OpenLibraryEditor.Forms
             ControladorIdioma.idioma = "Strings_es_ES";
             IdiomaTexto();
             RecordarUsuario();
-
         }
         private void BtnUsa_Click(object sender, EventArgs e)
         {
@@ -370,7 +369,6 @@ namespace OpenLibraryEditor.Forms
             ControladorIdioma.idioma = "Strings_en_US";
             IdiomaTexto();
             RecordarUsuario();
-
         }
         private void BtnFrancia_Click(object sender, EventArgs e)
         {
@@ -379,7 +377,6 @@ namespace OpenLibraryEditor.Forms
             ControladorIdioma.idioma = "Strings_fr_FR";
             IdiomaTexto();
             RecordarUsuario();
-
         }
         #endregion
         #region cerrar

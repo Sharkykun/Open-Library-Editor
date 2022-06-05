@@ -58,8 +58,6 @@ namespace OpenLibraryEditor.Controles
         protected override void OnPaint(PaintEventArgs pevent)
         {
             pevent.Graphics.SmoothingMode = SmoothingMode.None;
-            //Button surface
-            //this.Region = new Region(rectSurface);
             //Button border
             if (tamBorde >= 1)
             {
@@ -69,7 +67,6 @@ namespace OpenLibraryEditor.Controles
                     pevent.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - 1, this.Height - 1);
                 }
             }
-           // ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.Navy, ButtonBorderStyle.Solid);
         }
         protected override void OnResize(EventArgs e)
         {
@@ -77,9 +74,7 @@ namespace OpenLibraryEditor.Controles
         }
         protected override void OnPaintBackground(PaintEventArgs e)
         {
-            //e.Graphics.DrawLines(pen,points);
-            //Pen p = new Pen(Color.Navy); // Esto puede venir de una variable si necesitas un color cambiante
-            //e.Graphics.DrawRectangle(p, this.Left - 1, this.Top - 1, this.Width + 1, this.Height + 1);
+            
         }
     }
 }
