@@ -945,6 +945,9 @@
   <data name="ErrorConexionBD" xml:space="preserve">
     <value>Database connection error. Error:</value>
   </data>
+  <data name="ErrorCredencialesBD" xml:space="preserve">
+    <value>Could not connect to server. Check that the server URL is correct, and that the username and password are from a root user or equivalent</value>
+  </data>
   <data name="ErrorIdRepetido" xml:space="preserve">
     <value>The ISBN of the book already exists in the library</value>
   </data>
@@ -1112,6 +1115,9 @@
   </data>
   <data name="Input_TT" xml:space="preserve">
     <value>Write here the element you want to add/modify</value>
+  </data>
+  <data name="InterrupcionInternet" xml:space="preserve">
+    <value>The connection to the server has been interrupted. Check if you have internet connection</value>
   </data>
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
@@ -1499,6 +1505,9 @@
   </data>
   <data name="Ms_Si" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="NoConexionInternet" xml:space="preserve">
+    <value>The connection to the server could not be established. Check if you have internet connection</value>
   </data>
   <data name="NoExisteLibro" xml:space="preserve">
     <value>The book you are trying to update does not exist in the database</value>

@@ -266,13 +266,11 @@ namespace OpenLibraryEditor.Forms
                 }
                 catch (HttpRequestException)
                 {
-                    //-------------
-                    VentanaWindowsComun.MensajeError("Se ha interrumpido la conexión con el servidor.\nCompruebe si tiene conexión a internet.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("InterrupcionInternet"));
                 }
             }
             else
-                //--------------
-                VentanaWindowsComun.MensajeError("No se ha podido establecer la conexión con el servidor.\nCompruebe si tiene conexión a internet.");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoConexionInternet"));
         }
 
         private void KCmbServidoresBUS_SelectedIndexChanged(object sender, EventArgs e)
@@ -503,8 +501,7 @@ namespace OpenLibraryEditor.Forms
                 }
             }
             else
-                //--------------
-                VentanaWindowsComun.MensajeError("No se pudo realizar ping con el servidor.\nCompruebe si tiene conexión a internet.");
+                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoConexionInternet"));
         }
         private static void DobleClickLibro(object sender, EventArgs e)
         {

@@ -945,6 +945,9 @@
   <data name="ErrorConexionBD" xml:space="preserve">
     <value>Error de conexión a base de datos. Error:</value>
   </data>
+  <data name="ErrorCredencialesBD" xml:space="preserve">
+    <value>No se pudo conectar al servidor. Revise que la URL del servidor es correcta, y que el usuario y contraseña son de un usuario root o equivalente</value>
+  </data>
   <data name="ErrorGoogleBooks" xml:space="preserve">
     <value>La busqueda en Google Books falló. Compruebe que su clave privada es correcta y que ha escrito algo para poder buscar</value>
   </data>
@@ -1115,6 +1118,9 @@
   </data>
   <data name="Input_TT" xml:space="preserve">
     <value>Escribe aquí el elemento que quieras añadir/modificar</value>
+  </data>
+  <data name="InterrupcionInternet" xml:space="preserve">
+    <value>Se ha interrumpido la conexión con el servidor. Compruebe si tiene conexión a internet</value>
   </data>
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
@@ -1487,6 +1493,9 @@
   </data>
   <data name="Ms_Si" xml:space="preserve">
     <value>Si</value>
+  </data>
+  <data name="NoConexionInternet" xml:space="preserve">
+    <value>No se ha podido establecer la conexión con el servidor. Compruebe si tiene conexión a internet</value>
   </data>
   <data name="NoExisteLibro" xml:space="preserve">
     <value>El libro que intenta actualizar no existe en la base de datos</value>
