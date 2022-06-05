@@ -76,43 +76,50 @@ namespace OpenLibraryEditor.Forms
               && !String.IsNullOrWhiteSpace(KNudPuerto.ToString()) && !String.IsNullOrWhiteSpace(KTxtNombreApp.Text)
               && !String.IsNullOrWhiteSpace(KTxtEmailApp.Text) && !String.IsNullOrWhiteSpace(KTxtContraApp.Text)) 
             {
-                if (MetodosComunes.EsEmailValido(KTxtEmailApp.Text))
+                if (ConexionBD.TestConexionServidor(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString()))
                 {
-                    DialogResult result = DialogResult.No;
-                    do
+                    if (MetodosComunes.EsEmailValido(KTxtEmailApp.Text))
                     {
-                        EnvioEmail mail = new EnvioEmail();
-                        numero = mail.Send("openlibraryeditor@gmail.com", "bjsx jern dlfa hkqe", KTxtEmailApp.Text);
+                        DialogResult result = DialogResult.No;
+                        do
+                        {
+                            EnvioEmail mail = new EnvioEmail();
+                            numero = mail.Send("openlibraryeditor@gmail.com", "bjsx jern dlfa hkqe", KTxtEmailApp.Text);
 
-                        if (numero == 0)
+                            if (numero == 0)
+                            {
+                                VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ReenviarMail"));
+                            }
+                        } while (result == DialogResult.Yes);
+                        FrmVerificacionMail verificar = new FrmVerificacionMail(numero);
+                        verificar.FormBorderStyle = FormBorderStyle.None;
+                        verificar.ShowDialog();
+                        if (verificar.MailVerificado)
                         {
-                            VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_ReenviarMail"));
+                            if (ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString()))
+                            {
+                                ConexionBD.AbrirConexion();
+                                ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
+                                ConexionBD.CerrarConexion();
+                                FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
+                                ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD + KTxtNombreApp.Text,
+                                    KTxtContraApp.Text, KNudPuerto.Value.ToString());
+                                isOk = true;
+                                Close();
+                            }
+                            else
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
                         }
-                    } while (result == DialogResult.Yes);
-                    FrmVerificacionMail verificar = new FrmVerificacionMail(numero);
-                    verificar.FormBorderStyle = FormBorderStyle.None;
-                    verificar.ShowDialog();
-                    if (verificar.MailVerificado)
+                    }
+                    else
                     {
-                        if (ConexionBD.CrearBD(KTxtUrl.Text, KTxtNombreUSer.Text, KTxtCSer.Text, KNudPuerto.Value.ToString()))
-                        {
-                            ConexionBD.AbrirConexion();
-                            ConexionBD.CrearAdminBD(KTxtNombreApp.Text, KTxtContraApp.Text, KTxtEmailApp.Text);
-                            ConexionBD.CerrarConexion();
-                            FrmLogin.ObtenerInfoBD(KTxtNombreApp.Text, KTxtUrl.Text, (int)KNudPuerto.Value);
-                            ConexionBD.EstablecerConexion(KTxtUrl.Text, ConexionBD.ANTENOMBRE_USUARIO_BD + KTxtNombreApp.Text,
-                                KTxtContraApp.Text, KNudPuerto.Value.ToString());
-                            isOk = true;
-                            Close();
-                        }
-                        else
-                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexion"));
+                        VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));
                     }
                 }
                 else
-                {
-                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("MailNoValido"));
-                }
+                    //---------------
+                    VentanaWindowsComun.MensajeError("No se pudo conectar al servidor.\nRevise que la URL del servidor es correcta, \n" +
+                        "y que el usuario y contraseña son de un usuario root o equivalente.");
             }
             else
             {

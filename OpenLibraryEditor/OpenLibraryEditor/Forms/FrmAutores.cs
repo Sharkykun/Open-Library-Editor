@@ -19,10 +19,6 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmAutores : Form
     {
-        /*
-         ToDo
-         */
-
         #region atributos
         //private const string NOMBRE_OBJETO = "el autor";
         private string NOMBRE_OBJETO = ControladorIdioma.GetTexto("Au_ElAutor");
@@ -287,9 +283,11 @@ namespace OpenLibraryEditor.Forms
                     {
                         if (ConexionBD.AbrirConexion())
                         {
-                            autorActual.BorraDeBDCompartida();
+                            if (autorActual.BorraDeBDCompartida())
+                            {
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
+                            }
                             ConexionBD.CerrarConexion();
-                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
                         }
                     }
                 }

@@ -220,7 +220,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteLibro(Libro libro)
+        public static bool DeleteLibro(Libro libro)
         {
             try
             {
@@ -237,6 +237,7 @@ namespace OpenLibraryEditor.BaseDatos
 
                     tabla.ExecuteNonQuery();
                     libro.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
+                    return true;
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoPuedeBorrarLibro"));
@@ -246,9 +247,7 @@ namespace OpenLibraryEditor.BaseDatos
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
 
             }
-
-
-
+            return false;
         }
         #endregion
 
@@ -358,7 +357,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteAutor(Autor autor)
+        public static bool DeleteAutor(Autor autor)
         {
             try
             {
@@ -375,6 +374,7 @@ namespace OpenLibraryEditor.BaseDatos
                     id, ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                     autor.ListaIdCompartido.Add(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
+                    return true;
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("AutorNoExiste"));
@@ -385,6 +385,7 @@ namespace OpenLibraryEditor.BaseDatos
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
 
             }
+            return false;
         }
         #endregion
 
@@ -456,7 +457,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteGenero(Genero genero)
+        public static bool DeleteGenero(Genero genero)
         {
             try
             {
@@ -472,6 +473,7 @@ namespace OpenLibraryEditor.BaseDatos
                     ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                     genero.ListaIdCompartido.Remove(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
+                    return true;
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("GeneroNoExiste"));
@@ -481,6 +483,7 @@ namespace OpenLibraryEditor.BaseDatos
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
 
             }
+            return false;
         }
         #endregion
 
@@ -557,7 +560,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteEditorial(Editorial editorial)
+        public static bool DeleteEditorial(Editorial editorial)
         {
             try
             {
@@ -572,6 +575,7 @@ namespace OpenLibraryEditor.BaseDatos
                     ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
                     editorial.ListaIdCompartido.Remove(LecturaBD.SelectObtenerIdBD() + "-" + id.ToString());
+                    return true;
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("EditorialNoExiste"));
@@ -582,7 +586,7 @@ namespace OpenLibraryEditor.BaseDatos
 
             }
 
-
+            return false;
         }
         #endregion
 
@@ -1078,7 +1082,7 @@ namespace OpenLibraryEditor.BaseDatos
             }
         }
 
-        public static void DeleteUsuarioLibro(Libro libro, InfoUsuarioBD usuario)
+        public static bool DeleteUsuarioLibro(Libro libro, InfoUsuarioBD usuario)
         {
             try
             {
@@ -1091,6 +1095,7 @@ namespace OpenLibraryEditor.BaseDatos
                     "idLibro = " + GetObjetoIdDeLocal(libro.ListaIdCompartido),
                     ConexionBD.Conexion);
                     tabla.ExecuteNonQuery();
+                    return true;
                 }
                 else
                     VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("NoRegistroUsuarioLibro"));
@@ -1101,6 +1106,7 @@ namespace OpenLibraryEditor.BaseDatos
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorConexionBD") + ex.Message);
 
             }
+            return false;
         }
 
         public static void DeleteUsuarioLibroDesdeLibro(Libro libro)

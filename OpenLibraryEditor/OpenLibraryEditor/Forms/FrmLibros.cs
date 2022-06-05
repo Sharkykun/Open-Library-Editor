@@ -343,31 +343,6 @@ namespace OpenLibraryEditor.Forms
             RellenarGenero(temp);
         }
 
-        private void MBtnMasSerieNL_Click(object sender, EventArgs e)
-        {
-            //FrmSeries series = new FrmSeries(true);
-            //series.FormBorderStyle = FormBorderStyle.None;
-            //series.ShowDialog();
-            //List<Serie> temp = new List<Serie>();
-            //foreach (CCBoxItem p in KCCSerieNL.CheckedItems)
-            //{
-            //    temp.Add((Serie)p.Item);
-            //}
-            //RellenarSerie(temp);
-        }
-
-        private void MBtnMasEtiquetasNL_Click(object sender, EventArgs e)
-        {
-            //FrmTags tags = new FrmTags(true);
-            //tags.FormBorderStyle = FormBorderStyle.None;
-            //tags.ShowDialog();
-            //List<Etiqueta> temp = new List<Etiqueta>();
-            //foreach (CCBoxItem p in KCCEtiquetaNL.CheckedItems)
-            //{
-            //    temp.Add((Etiqueta)p.Item);
-            //}
-            //RellenarEtiqueta(temp);
-        }
         private void MBtnMasTipoLibroNL_Click(object sender, EventArgs e)
         {
             FrmInputTxt input = new FrmInputTxt(null);
@@ -409,6 +384,7 @@ namespace OpenLibraryEditor.Forms
                 KCmbTipoNL.SelectedItem = null;
             }
         }
+
         private void MBtnMenosTipoLibroNL_Click(object sender, EventArgs e)
         {
             //if (VentanaWindowsComun.MensajeBorrarObjeto(libroActual.NombreTipo) == DialogResult.Yes)

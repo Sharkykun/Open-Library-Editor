@@ -90,6 +90,21 @@ namespace OpenLibraryEditor.BaseDatos
             return true;
         }
 
+        public static bool TestConexionServidor(string servidor, string usuario, string contrasena, string puerto)
+        {
+            string connString = "server=" + servidor + ";uid=" + usuario + ";pwd=" + contrasena + ";port=" + puerto + ";";
+            MySqlConnection con = new MySqlConnection(connString);
+            try
+            {
+                con.Open();
+                con.Close();
+                con.Dispose();
+                return true;
+            }
+            catch (MySqlException) { }
+            return false;
+        }
+
         public static bool AbrirConexion()
         {
             //No poner mensaje de error en ventana aquí

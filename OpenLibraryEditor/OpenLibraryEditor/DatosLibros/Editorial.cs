@@ -81,12 +81,12 @@ namespace OpenLibraryEditor.DatosLibros
             }
         }
 
-        public void BorraDeBDCompartida()
+        public bool BorraDeBDCompartida()
         {
             //Borrar referencia con libros, si existe
             EscrituraBD.DeleteListaEditorialDesdeEditorial(this);
 
-            EscrituraBD.DeleteEditorial(this);
+            return EscrituraBD.DeleteEditorial(this);
         }
     }
 }

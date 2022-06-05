@@ -103,7 +103,7 @@ namespace OpenLibraryEditor.DatosLibros
             }
         }
 
-        public void BorraDeBDCompartida()
+        public bool BorraDeBDCompartida()
         {
             //Borrar referencia con libros, si existe
             EscrituraBD.DeleteListaAutorDesdeAutor(this);
@@ -113,7 +113,7 @@ namespace OpenLibraryEditor.DatosLibros
                 LecturaBD.SelectOcupacionCantidadPorAutor(this.NombreOcupacion) == 0)
                 EscrituraBD.DeleteOcupacion(this.NombreOcupacion);
 
-            EscrituraBD.DeleteAutor(this);
+            bool b = EscrituraBD.DeleteAutor(this);
 
             //Limpiar ocupaciones no utilizadas, si las hay
             foreach (string ocupacion in LecturaBD.SelectListaOcupacion())
@@ -123,6 +123,7 @@ namespace OpenLibraryEditor.DatosLibros
             }
 
             ConexionBD.CerrarConexion();
+            return b;
         }
     }
 }

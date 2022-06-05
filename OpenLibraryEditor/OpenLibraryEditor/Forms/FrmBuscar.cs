@@ -13,6 +13,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -29,7 +31,7 @@ namespace OpenLibraryEditor.Forms
 
         private const string NOMBRE_GOOGLE = "Google Books";
         private int contadorLibros = 0;
-        private static ArrayList autores = new ArrayList();
+        private ArrayList autores = new ArrayList();
         private bool puedeEditar;
 
         public FrmBuscar()
@@ -81,6 +83,21 @@ namespace OpenLibraryEditor.Forms
                 LblTipoUsuarioConectado.Text= ControladorIdioma.GetTexto("ModoSinConexion");
             }     
         }
+
+        public bool PingAGoogle()
+        {
+            try
+            {
+                Uri host = new Uri("http://www.google.es/");
+                Ping p = new Ping();
+                PingReply respuesta = p.Send(host.Host, 3000);
+                if (respuesta.Status == IPStatus.Success)
+                    return true;
+            }
+            catch (Exception) { }
+            return false;
+        }
+
         private void IdiomaTexto()
         {
             LblTituloBuscar.Text = ControladorIdioma.GetTexto("Main_Buscar");
@@ -128,118 +145,134 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnBuscarBUS_Click(object sender, EventArgs e)
         {
-            string query;
-            ImageList imglist = new ImageList();
-            LsvBuscarLibros.Items.Clear();
-
-            switch (KCmbServidoresBUS.SelectedItem)
+            if (PingAGoogle())
             {
-                case NOMBRE_GOOGLE:
-                    query = QueryGoogle();
-                    //Iniciar API
-                    GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
-                        UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
-                    //Realizar Query
-                    gBooks.SearchBook(query, 10, UsuarioDatos.configuracionUsuario.ContenidoExplicito);
-                    //Listar libros
-                    if (gBooks.BookCollection != null)
+                string query;
+                ImageList imglist = new ImageList();
+                LsvBuscarLibros.Items.Clear();
+
+                try
+                {
+                    switch (KCmbServidoresBUS.SelectedItem)
                     {
-                        foreach (var libro in gBooks.BookCollection.Items)
-                        {
-                            var info = libro.VolumeInfo;
-                            if (info.ImageLinks != null)
-                                imglist.Images.Add("image",
-                                    GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                        case NOMBRE_GOOGLE:
+                            query = QueryGoogle();
+                            //Iniciar API
+                            GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
+                                UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
+                            //Realizar Query
+                            if (gBooks.SearchBook(query, 10, UsuarioDatos.configuracionUsuario.ContenidoExplicito))
+                            {
+                                //Listar libros
+                                if (gBooks.BookCollection != null)
+                                {
+                                    foreach (var libro in gBooks.BookCollection.Items)
+                                    {
+                                        var info = libro.VolumeInfo;
+                                        if (info.ImageLinks != null)
+                                            imglist.Images.Add("image",
+                                                GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                                        else
+                                            imglist.Images.Add("image",
+                                                Resources.portada);
+                                        imglist.ColorDepth = ColorDepth.Depth32Bit;
+                                        imglist.ImageSize = new Size(150, 200);
+
+                                        LsvBuscarLibros.SmallImageList = imglist;
+                                        LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
+                                        ListViewItem lvi =
+                                            LsvBuscarLibros.Items.Add(info.Title + "\n" +
+                                            info.PublishedDate + "\n" + info.Description,
+                                            imglist.Images.Count - 1);
+                                        lvi.Tag = libro;
+
+                                    }
+                                }
+                            }
                             else
-                                imglist.Images.Add("image",
-                                    Resources.portada);
-                            imglist.ColorDepth = ColorDepth.Depth32Bit;
-                            imglist.ImageSize = new Size(150, 200);
-
-                            LsvBuscarLibros.SmallImageList = imglist;
-                            LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
-                            ListViewItem lvi =
-                                LsvBuscarLibros.Items.Add(info.Title + "\n" +
-                                info.PublishedDate + "\n" + info.Description,
-                                imglist.Images.Count - 1);
-                            lvi.Tag = libro;
-
-                        }
-                    }
-                    break;
-                default:
-                    if (KCmbServidoresBUS.SelectedItem != null)
-                    {
-                        //Lanzar sentencia SQL adecuada según el Combo de tipo
-                        //Respaldar conexión actual
-                        MySqlConnection conexionCopia = ConexionBD.Conexion;
-
-                        //Establecer conexión en anonimo a la BD compartida elegida
-                        InfoBaseDatos bdInfo = (InfoBaseDatos)KCmbServidoresBUS.SelectedItem;
-                        ConexionBD.EstablecerConexion(bdInfo.ServidorIP, "ole_anon", "", bdInfo.Puerto.ToString());
-
-                        //Conectarse y sacar libros según el criterio de busqueda
-                        List<Libro> listaLibro = new List<Libro>();
-                        if (ConexionBD.AbrirConexion())
-                        {
-                            switch (KCmbTipoBusquedaBUS.SelectedIndex)
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorGoogleBooks"));
+                            break;
+                        default:
+                            if (KCmbServidoresBUS.SelectedItem != null)
                             {
-                                case 0:
-                                    listaLibro = LecturaBD.SelectBuscarLibro(
-                                        "titulo",TxtBusqueda.getTextobuscar(), UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                                    break;
-                                case 1:
-                                    listaLibro = LecturaBD.SelectBuscarLibro(
-                                        "isbn13", TxtBusqueda.getTextobuscar(), UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                                    break;
-                                case 2:
-                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(TxtBusqueda.getTextobuscar(), "Autor",
-                                        "idAutor", "nombreAutor",
-                                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                                    break;
-                                case 3:
-                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
-                                        TxtBusqueda.getTextobuscar(), "Editorial", "idEditorial", "nombreEditorial",
-                                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                                    break;
-                                case 4:
-                                    listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
-                                        TxtBusqueda.getTextobuscar(), "Genero", "idGenero", "nombreGenero",
-                                        UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                                    break;
+                                //Lanzar sentencia SQL adecuada según el Combo de tipo
+                                //Respaldar conexión actual
+                                MySqlConnection conexionCopia = ConexionBD.Conexion;
+
+                                //Establecer conexión en anonimo a la BD compartida elegida
+                                InfoBaseDatos bdInfo = (InfoBaseDatos)KCmbServidoresBUS.SelectedItem;
+                                ConexionBD.EstablecerConexion(bdInfo.ServidorIP, "ole_anon", "", bdInfo.Puerto.ToString());
+
+                                //Conectarse y sacar libros según el criterio de busqueda
+                                List<Libro> listaLibro = new List<Libro>();
+                                if (ConexionBD.AbrirConexion())
+                                {
+                                    switch (KCmbTipoBusquedaBUS.SelectedIndex)
+                                    {
+                                        case 0:
+                                            listaLibro = LecturaBD.SelectBuscarLibro(
+                                                "titulo", TxtBusqueda.getTextobuscar(), UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                            break;
+                                        case 1:
+                                            listaLibro = LecturaBD.SelectBuscarLibro(
+                                                "isbn13", TxtBusqueda.getTextobuscar(), UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                            break;
+                                        case 2:
+                                            listaLibro = LecturaBD.SelectBuscarElementoPorNombre(TxtBusqueda.getTextobuscar(), "Autor",
+                                                "idAutor", "nombreAutor",
+                                                UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                            break;
+                                        case 3:
+                                            listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
+                                                TxtBusqueda.getTextobuscar(), "Editorial", "idEditorial", "nombreEditorial",
+                                                UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                            break;
+                                        case 4:
+                                            listaLibro = LecturaBD.SelectBuscarElementoPorNombre(
+                                                TxtBusqueda.getTextobuscar(), "Genero", "idGenero", "nombreGenero",
+                                                UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
+                                            break;
+                                    }
+
+                                    //Recorremos lista para meter en Listview
+                                    LsvBuscarLibros.SmallImageList = imglist;
+                                    LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
+                                    imglist.ColorDepth = ColorDepth.Depth32Bit;
+                                    imglist.ImageSize = new Size(150, 200);
+                                    foreach (Libro libro in listaLibro)
+                                    {
+                                        if (libro.PortadaTemp != null)
+                                            imglist.Images.Add("image",
+                                                ControladorImagen.ObtenerImagenStream(libro.PortadaTemp));
+                                        else
+                                            imglist.Images.Add("image",
+                                                new Bitmap(Resources.portada));
+
+                                        ListViewItem lvi =
+                                            LsvBuscarLibros.Items.Add(libro.Titulo + "\n" +
+                                            libro.FechaPublicacion.Date.ToShortDateString()
+                                            + "\n" + libro.Sinopsis, imglist.Images.Count - 1);
+                                        lvi.Tag = libro;
+                                    }
+
+                                    ConexionBD.CerrarConexion();
+                                }
+
+                                //Recuperar conexión con nuestra BD
+                                ConexionBD.Conexion = conexionCopia;
                             }
-
-                            //Recorremos lista para meter en Listview
-                            LsvBuscarLibros.SmallImageList = imglist;
-                            LsvBuscarLibros.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
-                            imglist.ColorDepth = ColorDepth.Depth32Bit;
-                            imglist.ImageSize = new Size(150, 200);
-                            foreach (Libro libro in listaLibro)
-                            {
-                                if (libro.PortadaTemp != null)
-                                    imglist.Images.Add("image",
-                                        ControladorImagen.ObtenerImagenStream(libro.PortadaTemp));
-                                else
-                                    imglist.Images.Add("image",
-                                        new Bitmap(Resources.portada));
-
-                                ListViewItem lvi =
-                                    LsvBuscarLibros.Items.Add(libro.Titulo + "\n" +
-                                    libro.FechaPublicacion.Date.ToShortDateString()
-                                    + "\n" + libro.Sinopsis, imglist.Images.Count - 1);
-                                lvi.Tag = libro;
-                            }
-
-                            ConexionBD.CerrarConexion();
-                        }
-
-                        //Recuperar conexión con nuestra BD
-                        ConexionBD.Conexion = conexionCopia;
+                            break;
                     }
-                    break;
+                }
+                catch (HttpRequestException)
+                {
+                    //-------------
+                    VentanaWindowsComun.MensajeError("Se ha interrumpido la conexión con el servidor.\nCompruebe si tiene conexión a internet.");
+                }
             }
-
-
+            else
+                //--------------
+                VentanaWindowsComun.MensajeError("No se ha podido establecer la conexión con el servidor.\nCompruebe si tiene conexión a internet.");
         }
 
         private void KCmbServidoresBUS_SelectedIndexChanged(object sender, EventArgs e)
@@ -409,57 +442,69 @@ namespace OpenLibraryEditor.Forms
         }
         private void ColocarLibrosRecomendados()
         {
-            AniadirAutores();
-            int x = 5;
-            int y = 5;
-            string query = "";
-            for (int i = 0; i < autores.Count; i++)
+            if (PingAGoogle())
             {
-                query = "inauthor:\"" + autores[i] + "\"";
-
-                ImageList imglist = new ImageList();
                 GoogleBooksController gBooks = new GoogleBooksController("OpenLibraryEditor",
-                       UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
-                //Realizar Query
-                gBooks.SearchBook(query, 1, UsuarioDatos.configuracionUsuario.ContenidoExplicito);
-                //Listar libros
-                if (gBooks.BookCollection != null)
+                           UsuarioDatos.configuracionUsuario.GoogleBooksApiKey);
+                
+                AniadirAutores();
+                int x = 5;
+                int y = 5;
+                string query = "";
+                for (int i = 0; i < autores.Count; i++)
                 {
-                    var libro = gBooks.BookCollection.Items[0];
+                    query = "inauthor:\"" + autores[i] + "\"";
 
-                    var info = libro.VolumeInfo;
-                    if (info.ImageLinks != null) {
-                        DoubleClickButton dcb = new DoubleClickButton();
-                        dcb.Size = new Size(105, 135);
-                        dcb.Location = new Point(x, y);
-                        dcb.BackgroundImageLayout = ImageLayout.Stretch;
-                        //imglist.Images.Add("image",GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                        dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
-                        //dcb.ImageList = imglist;
-                        dcb.Tag = libro;
-                        try
+                    ImageList imglist = new ImageList();
+                    if (gBooks.SearchBook(query, 1, UsuarioDatos.configuracionUsuario.ContenidoExplicito))
+                    {
+                        //Listar libros
+                        if (gBooks.BookCollection != null)
                         {
-                            Invoke(new Action(() => PanLibrosBuscar.Controls.Add(dcb)));
-                            Invoke(new Action(() => dcb.Visible = true));
-                            Invoke(new Action(() => dcb.DoubleClick += new EventHandler(DobleClickLibro)));
-                            x = x + 115;
-                        }
-                        catch (Exception ex) {
-                           Console.WriteLine(ex.Message);
+                            var libro = gBooks.BookCollection.Items[0];
+
+                            var info = libro.VolumeInfo;
+                            if (info.ImageLinks != null)
+                            {
+                                DoubleClickButton dcb = new DoubleClickButton();
+                                dcb.Size = new Size(105, 135);
+                                dcb.Location = new Point(x, y);
+                                dcb.BackgroundImageLayout = ImageLayout.Stretch;
+                                //imglist.Images.Add("image",GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                                dcb.BackgroundImage = (GoogleBooksController.SaveImageFromURL(info.ImageLinks.Thumbnail));
+                                //dcb.ImageList = imglist;
+                                dcb.Tag = libro;
+                                try
+                                {
+                                    Invoke(new Action(() => PanLibrosBuscar.Controls.Add(dcb)));
+                                    Invoke(new Action(() => dcb.Visible = true));
+                                    Invoke(new Action(() => dcb.DoubleClick += new EventHandler(DobleClickLibro)));
+                                    x = x + 115;
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex.Message);
+                                }
+                            }
                         }
                     }
                 }
+                try
+                {
+                    if (PanLibrosBuscar.Controls.Count > 0)
+                    {
+                        Invoke(new Action(() => MbtnAtrasLibro.Enabled = true));
+                        Invoke(new Action(() => MBtnAvanzarLibro.Enabled = true));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
-            try
-            {
-                Invoke(new Action(() => MbtnAtrasLibro.Enabled = true));
-                Invoke(new Action(() => MBtnAvanzarLibro.Enabled = true));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
+            else
+                //--------------
+                VentanaWindowsComun.MensajeError("No se pudo realizar ping con el servidor.\nCompruebe si tiene conexión a internet.");
         }
         private static void DobleClickLibro(object sender, EventArgs e)
         {

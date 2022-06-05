@@ -177,9 +177,11 @@ namespace OpenLibraryEditor.Forms
                     {
                         if (ConexionBD.AbrirConexion())
                         {
-                            generoActual.BorraDeBDCompartida();
+                            if (generoActual.BorraDeBDCompartida())
+                            {
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
+                            }
                             ConexionBD.CerrarConexion();
-                            VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("BorradoOK"));
                         }
                     }
                 }

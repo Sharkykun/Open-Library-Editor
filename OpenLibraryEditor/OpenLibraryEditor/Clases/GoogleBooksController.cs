@@ -18,7 +18,7 @@ namespace OpenLibraryEditor.Clases
      */
     public class GoogleBooksController
     {
-        private BooksService service;
+        public BooksService service;
 
         private const int MAX_QUERY_RESULT = 40;
 
@@ -54,7 +54,7 @@ namespace OpenLibraryEditor.Clases
         /// <param name="bookName">Nombre o ISBN del libro a buscar.</param>
         /// <param name="count">Número de libros máximos a buscar. Si -1, recogerá el máximo permitido por la API.</param>
         /// <param name="matureBooks">Marca si debe buscar o no libros para mayores de edad.</param>
-        public void SearchBook(string bookName, int count, bool matureBooks)
+        public bool SearchBook(string bookName, int count, bool matureBooks)
         {
             try
             {
@@ -71,11 +71,12 @@ namespace OpenLibraryEditor.Clases
                 }
                 else
                     bookCollection = null;
+                return true;
             }
             catch (Google.GoogleApiException)
             {
-                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorGoogleBooks"));
                 bookCollection = null;
+                return false;
             }
         }
 

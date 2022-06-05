@@ -1123,7 +1123,11 @@ namespace OpenLibraryEditor.Forms
                     {
                         if (ConexionBD.AbrirConexion())
                         {
-                            libroActual.BorraDeBDCompartida();
+                            if(libroActual.BorraDeBDCompartida())
+                            {
+                                //-------------------
+                                VentanaWindowsComun.MensajeError("El libro se ha borrado correctamente de la base de datos.");
+                            }
                             ConexionBD.CerrarConexion();
                         }
                     }
@@ -1138,7 +1142,13 @@ namespace OpenLibraryEditor.Forms
                     {
                         if (VentanaWindowsComun.MensajePregunta(ControladorIdioma.GetTexto("VWC_BorrarDatosUsu"))
                         == DialogResult.Yes)
-                                libroActual.BorrarUsuarioLibroEnBDCompartida();   
+                        {
+                            if (libroActual.BorrarUsuarioLibroEnBDCompartida())
+                            {
+                                //-------------------
+                                VentanaWindowsComun.MensajeError("La información de usuario de este libro se ha borrado correctamente\nde la base de datos.");
+                            }
+                        }
                     }
                     ConexionBD.CerrarConexion();
                 }
@@ -1544,7 +1554,7 @@ namespace OpenLibraryEditor.Forms
         private void LsvOpciones_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
            if (LsvOpciones.SelectedItems.Count == 1)
-            {
+           {
                 titulos = SacarListaLibro();
                 object obj = LsvOpciones.SelectedItems[0].Tag;
                 if (obj.GetType() == typeof(Autor))
@@ -1557,7 +1567,7 @@ namespace OpenLibraryEditor.Forms
                 //truco para que no pinte al usar la busqueda con las categorias
                 if (sender != null)
                     RecolocarLibros(false);
-            }
+           }
         }
         private void LsvOpciones_MouseDoubleClick(object sender, MouseEventArgs e)
         {

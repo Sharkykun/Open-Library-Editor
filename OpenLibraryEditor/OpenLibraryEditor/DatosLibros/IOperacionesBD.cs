@@ -9,6 +9,6 @@ namespace OpenLibraryEditor.DatosLibros
     public interface IOperacionesBD
     {
         void MeterEnBDCompartida();
-        void BorraDeBDCompartida();
+        bool BorraDeBDCompartida();
     }
 }
