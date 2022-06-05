@@ -948,6 +948,9 @@
   <data name="ErrorConexionBD" xml:space="preserve">
     <value>Erreur de connexion à la base de données. Erreur:</value>
   </data>
+  <data name="ErrorCredencialesBD" xml:space="preserve">
+    <value>N'a pas pu se connecter au serveur. Vérifiez que l'URL du serveur est correcte et que le nom d'utilisateur et le mot de passe proviennent d'un utilisateur root ou équivalent</value>
+  </data>
   <data name="ErrorIdRepetido" xml:space="preserve">
     <value>L'ISBN du livre existe déjà à la bibliothèque</value>
   </data>
@@ -1115,6 +1118,9 @@
   </data>
   <data name="Input_TT" xml:space="preserve">
     <value>Écrivez ici l'élément que vous souhaitez ajouter/modifier</value>
+  </data>
+  <data name="InterrupcionInternet" xml:space="preserve">
+    <value>La connexion au serveur a été interrompue. Vérifiez si vous avez une connexion Internet</value>
   </data>
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
@@ -1502,6 +1508,9 @@
   </data>
   <data name="Ms_Si" xml:space="preserve">
     <value>Oui</value>
+  </data>
+  <data name="NoConexionInternet" xml:space="preserve">
+    <value>La connexion au serveur n'a pas pu être établie. Vérifiez si vous avez une connexion Internet</value>
   </data>
   <data name="NoExisteLibro" xml:space="preserve">
     <value>Le livre que vous essayez de mettre à jour n'existe pas dans la base de données</value>

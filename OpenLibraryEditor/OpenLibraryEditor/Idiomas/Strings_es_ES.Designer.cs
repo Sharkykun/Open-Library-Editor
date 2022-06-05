@@ -2608,6 +2608,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo conectar al servidor. Revise que la URL del servidor es correcta, y que el usuario y contraseña son de un usuario root o equivalente.
+        /// </summary>
+        internal static string ErrorCredencialesBD {
+            get {
+                return ResourceManager.GetString("ErrorCredencialesBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La busqueda en Google Books falló. Compruebe que su clave privada es correcta y que ha escrito algo para poder buscar.
         /// </summary>
         internal static string ErrorGoogleBooks {
@@ -3054,6 +3063,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string InputL_Titulo {
             get {
                 return ResourceManager.GetString("InputL_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha interrumpido la conexión con el servidor. Compruebe si tiene conexión a internet.
+        /// </summary>
+        internal static string InterrupcionInternet {
+            get {
+                return ResourceManager.GetString("InterrupcionInternet", resourceCulture);
             }
         }
         
@@ -4170,6 +4188,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Ms_Si {
             get {
                 return ResourceManager.GetString("Ms_Si", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha podido establecer la conexión con el servidor. Compruebe si tiene conexión a internet.
+        /// </summary>
+        internal static string NoConexionInternet {
+            get {
+                return ResourceManager.GetString("NoConexionInternet", resourceCulture);
             }
         }
         

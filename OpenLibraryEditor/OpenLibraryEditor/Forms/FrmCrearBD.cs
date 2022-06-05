@@ -117,9 +117,7 @@ namespace OpenLibraryEditor.Forms
                     }
                 }
                 else
-                    //---------------
-                    VentanaWindowsComun.MensajeError("No se pudo conectar al servidor.\nRevise que la URL del servidor es correcta, \n" +
-                        "y que el usuario y contraseña son de un usuario root o equivalente.");
+                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("ErrorCredencialesBD"));
             }
             else
             {

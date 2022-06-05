@@ -2608,6 +2608,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Could not connect to server. Check that the server URL is correct, and that the username and password are from a root user or equivalent.
+        /// </summary>
+        internal static string ErrorCredencialesBD {
+            get {
+                return ResourceManager.GetString("ErrorCredencialesBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The ISBN of the book already exists in the library.
         /// </summary>
         internal static string ErrorIdRepetido {
@@ -3045,6 +3054,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string InputL_Titulo {
             get {
                 return ResourceManager.GetString("InputL_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The connection to the server has been interrupted. Check if you have internet connection.
+        /// </summary>
+        internal static string InterrupcionInternet {
+            get {
+                return ResourceManager.GetString("InterrupcionInternet", resourceCulture);
             }
         }
         
@@ -4206,6 +4224,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Ms_Si {
             get {
                 return ResourceManager.GetString("Ms_Si", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The connection to the server could not be established. Check if you have internet connection.
+        /// </summary>
+        internal static string NoConexionInternet {
+            get {
+                return ResourceManager.GetString("NoConexionInternet", resourceCulture);
             }
         }
         
