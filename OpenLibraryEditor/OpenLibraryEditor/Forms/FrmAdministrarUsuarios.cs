@@ -247,7 +247,6 @@ namespace OpenLibraryEditor.Forms
         private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
         {
             TxtBusqueda.setTextobuscar("");
-            MBtnBuscar_Click(sender, e);
         }
 
         private void KTxtBuscarUsu_KeyDown(object sender, KeyEventArgs e)

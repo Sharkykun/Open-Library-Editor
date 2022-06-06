@@ -28,7 +28,7 @@ namespace OpenLibraryEditor.DatosLibros
 
         private bool esAdministrador = false;
         private InfoUsuarioBD infoUsuarioActual;
-        private string googleBooksApiKey = "AIzaSyC9BJTVe8BN8bZGsf7dF4We3Bsz9lL6mPc";
+        private string googleBooksApiKey = "";
 
         private string recordarUrl;
         private string recordarUsuario;
