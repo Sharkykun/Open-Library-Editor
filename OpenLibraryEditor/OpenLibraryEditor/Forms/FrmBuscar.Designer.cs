@@ -38,6 +38,8 @@
             this.LsvBuscarLibros = new System.Windows.Forms.ListView();
             this.ChPortada = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PanPiePagina = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.KCmbServidoresBUS = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.LblBuscarPorBUS = new System.Windows.Forms.Label();
@@ -54,12 +56,11 @@
             this.MbtnAtrasLibro = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanLsvBusqueda = new System.Windows.Forms.Panel();
             this.TTBuscar = new System.Windows.Forms.ToolTip(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.LblTipoUsuarioConectado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbTipoBusquedaBUS)).BeginInit();
             this.PanTituloBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbBuscar)).BeginInit();
             this.PanPiePagina.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KCmbServidoresBUS)).BeginInit();
             this.FlPanBuscar.SuspendLayout();
             this.PanRecomendaciones.SuspendLayout();
@@ -67,16 +68,15 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.PanLsvBusqueda.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // KCmbTipoBusquedaBUS
             // 
             this.KCmbTipoBusquedaBUS.DropDownWidth = 160;
-            this.KCmbTipoBusquedaBUS.Location = new System.Drawing.Point(282, 4);
+            this.KCmbTipoBusquedaBUS.Location = new System.Drawing.Point(310, 4);
             this.KCmbTipoBusquedaBUS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.KCmbTipoBusquedaBUS.Name = "KCmbTipoBusquedaBUS";
-            this.KCmbTipoBusquedaBUS.Size = new System.Drawing.Size(161, 33);
+            this.KCmbTipoBusquedaBUS.Size = new System.Drawing.Size(185, 33);
             this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbTipoBusquedaBUS.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -174,6 +174,26 @@
             this.PanPiePagina.Size = new System.Drawing.Size(948, 47);
             this.PanPiePagina.TabIndex = 141;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.LblTipoUsuarioConectado);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(550, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(398, 43);
+            this.panel4.TabIndex = 5;
+            // 
+            // LblTipoUsuarioConectado
+            // 
+            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 12);
+            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
+            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
+            this.LblTipoUsuarioConectado.TabIndex = 2;
+            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
+            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -189,7 +209,7 @@
             this.KCmbServidoresBUS.Location = new System.Drawing.Point(115, 4);
             this.KCmbServidoresBUS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.KCmbServidoresBUS.Name = "KCmbServidoresBUS";
-            this.KCmbServidoresBUS.Size = new System.Drawing.Size(161, 33);
+            this.KCmbServidoresBUS.Size = new System.Drawing.Size(189, 33);
             this.KCmbServidoresBUS.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.KCmbServidoresBUS.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KCmbServidoresBUS.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
@@ -237,7 +257,7 @@
             // TxtBusqueda
             // 
             this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.TxtBusqueda.Location = new System.Drawing.Point(449, 3);
+            this.TxtBusqueda.Location = new System.Drawing.Point(501, 3);
             this.TxtBusqueda.Name = "TxtBusqueda";
             this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
             this.TxtBusqueda.TabIndex = 128;
@@ -252,7 +272,7 @@
             this.MBtnBuscarBUS.IconChar = FontAwesome.Sharp.MaterialIcons.Magnify;
             this.MBtnBuscarBUS.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.MBtnBuscarBUS.IconSize = 45;
-            this.MBtnBuscarBUS.Location = new System.Drawing.Point(718, 3);
+            this.MBtnBuscarBUS.Location = new System.Drawing.Point(770, 3);
             this.MBtnBuscarBUS.Name = "MBtnBuscarBUS";
             this.MBtnBuscarBUS.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.MBtnBuscarBUS.Size = new System.Drawing.Size(34, 34);
@@ -365,26 +385,6 @@
             this.PanLsvBusqueda.Size = new System.Drawing.Size(948, 326);
             this.PanLsvBusqueda.TabIndex = 145;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.LblTipoUsuarioConectado);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(550, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(398, 43);
-            this.panel4.TabIndex = 5;
-            // 
-            // LblTipoUsuarioConectado
-            // 
-            this.LblTipoUsuarioConectado.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTipoUsuarioConectado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.LblTipoUsuarioConectado.Location = new System.Drawing.Point(27, 12);
-            this.LblTipoUsuarioConectado.Name = "LblTipoUsuarioConectado";
-            this.LblTipoUsuarioConectado.Size = new System.Drawing.Size(360, 20);
-            this.LblTipoUsuarioConectado.TabIndex = 2;
-            this.LblTipoUsuarioConectado.Text = "Estás en modo sin conexión";
-            this.LblTipoUsuarioConectado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // FrmBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,6 +405,7 @@
             this.PanTituloBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MPcbBuscar)).EndInit();
             this.PanPiePagina.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.KCmbServidoresBUS)).EndInit();
             this.FlPanBuscar.ResumeLayout(false);
             this.FlPanBuscar.PerformLayout();
@@ -415,7 +416,6 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.PanLsvBusqueda.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

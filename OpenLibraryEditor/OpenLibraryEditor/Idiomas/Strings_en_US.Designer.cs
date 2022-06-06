@@ -1996,7 +1996,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Select the IP of the web server.
+        ///   Busca una cadena traducida similar a Select the Url of the web server.
         /// </summary>
         internal static string Con_SWCmbIP {
             get {
@@ -2014,7 +2014,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Web server IP saved.
+        ///   Busca una cadena traducida similar a Saved addresses.
         /// </summary>
         internal static string Con_SWIP {
             get {
@@ -5025,6 +5025,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string TT_CrearBD {
             get {
                 return ResourceManager.GetString("TT_CrearBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a URL.
+        /// </summary>
+        internal static string Url {
+            get {
+                return ResourceManager.GetString("Url", resourceCulture);
             }
         }
         

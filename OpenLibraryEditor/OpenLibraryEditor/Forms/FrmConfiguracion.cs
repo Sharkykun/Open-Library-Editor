@@ -85,9 +85,6 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.IpcbOcultarContra1, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
 
             KgbGeneral.Values.Heading = ControladorIdioma.GetTexto("Con_General");
-            //LblUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GCargar");
-            //TxtSubtituloUltimaBBDD.Text = ControladorIdioma.GetTexto("Con_GRecordar");
-            //TTConfi.SetToolTip(this.TBtnUltimaBBDD, ControladorIdioma.GetTexto("Con_GTTCargar"));
             LblUbicacion.Text = ControladorIdioma.GetTexto("Con_GUbicacion");
             TxtSubtituloUbicacion.Text = ControladorIdioma.GetTexto("Con_Gruta");
             TTConfi.SetToolTip(this.IBtnOpenFile, ControladorIdioma.GetTexto("Con_GTTRuta"));
@@ -108,12 +105,6 @@ namespace OpenLibraryEditor.Forms
             LblDobleClick.Text = ControladorIdioma.GetTexto("Con_ADoble");
             TxtSubtituloDobleClick.Text = ControladorIdioma.GetTexto("Con_AConfiDoble");
             TTConfi.SetToolTip(this.CmbDobleClick, ControladorIdioma.GetTexto("Con_ATTCmbDoble"));
-            //LblTema.Text = ControladorIdioma.GetTexto("Con_ATema");
-            //TxtSubtituloTema.Text = ControladorIdioma.GetTexto("Con_AEstTema");
-            //RbtnClaro.Text = ControladorIdioma.GetTexto("Con_AClaro");
-            //TTConfi.SetToolTip(this.RbtnClaro, ControladorIdioma.GetTexto("Con_AClaro"));
-            //RbtnOscuro.Text = ControladorIdioma.GetTexto("Con_AOscuro");
-            //TTConfi.SetToolTip(this.RbtnOscuro, ControladorIdioma.GetTexto("Con_AOscuro"));
 
             KgbDescargasWeb.Values.Heading = ControladorIdioma.GetTexto("Con_Descargas");
             LblCamposActualizar.Text = ControladorIdioma.GetTexto("Con_DWSelecciona");
@@ -122,19 +113,8 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.ChkAutores, ControladorIdioma.GetTexto("Con_DWAutores"));
             ChkGeneros.Text = ControladorIdioma.GetTexto("Con_DWGeneros");
             TTConfi.SetToolTip(this.ChkGeneros, ControladorIdioma.GetTexto("Con_DWGeneros"));
-            //ChkSeries.Text = ControladorIdioma.GetTexto("Con_DWSeries");
-            //TTConfi.SetToolTip(this.ChkSeries, ControladorIdioma.GetTexto("Con_DWSeries"));
             ChkEditoriales.Text = ControladorIdioma.GetTexto("Con_DWEditoriales");
             TTConfi.SetToolTip(this.ChkEditoriales, ControladorIdioma.GetTexto("Con_DWEditoriales"));
-            //ChkTags.Text = ControladorIdioma.GetTexto("Con_DWEtiquetas");
-            //TTConfi.SetToolTip(this.ChkTags, ControladorIdioma.GetTexto("Con_DWEtiquetas"));
-            //KgbImagenesLibro.Values.Heading = ControladorIdioma.GetTexto("Con_DWTam");
-            //RbtnMiniatura.Text = ControladorIdioma.GetTexto("Con_DWMini");
-            //TTConfi.SetToolTip(this.RbtnMiniatura, ControladorIdioma.GetTexto("Con_DWMini"));
-            //RbtnMediana.Text = ControladorIdioma.GetTexto("Con_DWMedi");
-            //TTConfi.SetToolTip(this.RbtnMediana, ControladorIdioma.GetTexto("Con_DWMedi"));
-            //RbtnGrande.Text = ControladorIdioma.GetTexto("Con_DWGrande");
-            //TTConfi.SetToolTip(this.RbtnGrande, ControladorIdioma.GetTexto("Con_DWGrande"));
 
             KgbServidorWeb.Values.Heading = ControladorIdioma.GetTexto("Con_Servidor");
             LblTituloServidorWeb.Text = ControladorIdioma.GetTexto("Con_SWTitulo");
@@ -142,6 +122,7 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.TxtTituloServidorWeb, ControladorIdioma.GetTexto("Con_SWTTTitulo"));
             LblIpServidor.Text = ControladorIdioma.GetTexto("Con_SWIP");
             TTConfi.SetToolTip(this.CmbIP, ControladorIdioma.GetTexto("Con_SWCmbIP"));
+            LblIp.Text = ControladorIdioma.GetTexto("Url");
             LblPuertoServidor.Text = ControladorIdioma.GetTexto("Con_SWPuerto");
             TTConfi.SetToolTip(this.NudPuerto, ControladorIdioma.GetTexto("Con_SWTTPuerto"));
 
@@ -204,9 +185,6 @@ namespace OpenLibraryEditor.Forms
                     KgbApariencia.Location = new Point(-gunaHScrollBar1.Value, KgbApariencia.Location.Y);
                     KgbDescargasWeb.Location = new Point(-gunaHScrollBar1.Value, KgbDescargasWeb.Location.Y);
                     KgbServidorWeb.Location = new Point(-gunaHScrollBar1.Value, KgbServidorWeb.Location.Y);
-                    //GBtnRestaurar.Location = new Point(-gunaHScrollBar1.Value, GBtnRestaurar.Location.Y);
-                    //GBtnAceptar.Location = new Point(-gunaHScrollBar1.Value + 355 + GBtnCancelar.Width + GBtnRestaurar.Width, GBtnAceptar.Location.Y);
-                    //GBtnCancelar.Location = new Point(-gunaHScrollBar1.Value + 350 + GBtnRestaurar.Width, GBtnCancelar.Location.Y);
                 }
         }
 
@@ -262,7 +240,6 @@ namespace OpenLibraryEditor.Forms
         private void CargarConfiguracion()
         {
             //Cargar datos de usuario local
-            //TBtnUltimaBBDD.Checked = configuracionUsuario.CargaUltimaBD;
             TxtUbicacionBBDD.Text = configuracionUsuario.UbicacionBD;
             TBtnContenidoExp.Checked = configuracionUsuario.ContenidoExplicito;
             CmbIdiomaConfi.SelectedItem = CargarIdioma(configuracionUsuario.IdiomaIntefaz);
@@ -272,27 +249,10 @@ namespace OpenLibraryEditor.Forms
                 RbtnDetalles.Checked = true;
             if (configuracionUsuario.AccionDobleClick < CmbDobleClick.Items.Count)
                 CmbDobleClick.SelectedIndex = configuracionUsuario.AccionDobleClick;
-            //if (configuracionUsuario.TemaOscuro)
-            //    RbtnOscuro.Checked = true;
-            //else
-            //    RbtnClaro.Checked = true;
+
             ChkAutores.Checked = configuracionUsuario.DescargaDetallesLibro[0];
             ChkGeneros.Checked = configuracionUsuario.DescargaDetallesLibro[1];
-            //ChkSeries.Checked = configuracionUsuario.DescargaDetallesLibro[2];
             ChkEditoriales.Checked = configuracionUsuario.DescargaDetallesLibro[3];
-            //ChkTags.Checked = configuracionUsuario.DescargaDetallesLibro[4];
-            //switch (configuracionUsuario.TamanioImagenLibro)
-            //{
-            //    case 0:
-            //        RbtnMiniatura.Checked = true;
-            //        break;
-            //    case 1:
-            //        RbtnMediana.Checked = true;
-            //        break;
-            //    case 2:
-            //        RbtnGrande.Checked = true;
-            //        break;
-            //}
             TxtGoogleBooksClave.Text = configuracionUsuario.GoogleBooksApiKey;
         }
         private void GBtnRestaurar_Click(object sender, EventArgs e)

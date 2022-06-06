@@ -775,13 +775,13 @@
     <value>Establece la clave privada de Google Books</value>
   </data>
   <data name="Con_SWCmbIP" xml:space="preserve">
-    <value>Selecciona la IP del servidor web</value>
+    <value>Selecciona la Url del servidor web</value>
   </data>
   <data name="Con_SWEstTit" xml:space="preserve">
     <value>Establece el título de tu servidor web</value>
   </data>
   <data name="Con_SWIP" xml:space="preserve">
-    <value>IP del servidor web guardadas</value>
+    <value>Direcciones guardadas</value>
   </data>
   <data name="Con_SWPuerto" xml:space="preserve">
     <value>Puerto</value>
@@ -1760,6 +1760,9 @@
   </data>
   <data name="TT_CrearBD" xml:space="preserve">
     <value>Haz click aquí para crear la base de datos</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>URL</value>
   </data>
   <data name="UrlServidor" xml:space="preserve">
     <value>Escribe aquí la url de tu base de datos</value>
