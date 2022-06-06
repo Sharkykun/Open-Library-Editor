@@ -1773,6 +1773,9 @@
   <data name="UsuarioRepetido" xml:space="preserve">
     <value>El usuario ya existe en la base de datos</value>
   </data>
+  <data name="UsuModificado" xml:space="preserve">
+    <value>Usuario modificado correctamente</value>
+  </data>
   <data name="Verificar_btn" xml:space="preserve">
     <value>Verificar</value>
   </data>

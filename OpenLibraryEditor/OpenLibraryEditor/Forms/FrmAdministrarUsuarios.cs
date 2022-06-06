@@ -275,7 +275,7 @@ namespace OpenLibraryEditor.Forms
                 EscrituraBD.UpdateTipoUsuario(usuarioActual.TipoUsuario, usuarioActual);
                 ObtenerUsuariosBD();
                 ColocarUsuarios(listaUsuarios);
-                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuarioModificado"));
+                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuModificado"));
             }
             
         }

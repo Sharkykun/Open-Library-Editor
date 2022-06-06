@@ -5029,6 +5029,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Usuario modificado correctamente.
+        /// </summary>
+        internal static string UsuModificado {
+            get {
+                return ResourceManager.GetString("UsuModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Verificar.
         /// </summary>
         internal static string Verificar_btn {
