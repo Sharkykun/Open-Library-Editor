@@ -11,15 +11,12 @@ namespace OpenLibraryEditor.DatosLibros
 {
     public class UsuarioDatos
     {
-        private bool cargaUltimaBD = true;
         private string ubicacionBD;
         private bool contenidoExplicito = true;
         private string idiomaIntefaz = ControladorIdioma.IDIOMA_ESPANOL;
         private int tipoVista;
         private int accionDobleClick;
-        private bool temaOscuro;
         private bool[] descargaDetallesLibro = { true, true, true, true, true };
-        private int tamanioImagenLibro = 0;
         private List<InfoBaseDatos> listaInfoBD = new List<InfoBaseDatos>();
         private InfoBaseDatos bDActual;
 
@@ -50,15 +47,12 @@ namespace OpenLibraryEditor.DatosLibros
         }
 
         public string GoogleBooksApiKey { get => googleBooksApiKey; set => googleBooksApiKey = value; }
-        public bool CargaUltimaBD { get => cargaUltimaBD; set => cargaUltimaBD = value; }
         public string UbicacionBD { get => ubicacionBD; set => ubicacionBD = value; }
         public bool ContenidoExplicito { get => contenidoExplicito; set => contenidoExplicito = value; }
         public string IdiomaIntefaz { get => idiomaIntefaz; set => idiomaIntefaz = value; }
         public int TipoVista { get => tipoVista; set => tipoVista = value; }
         public int AccionDobleClick { get => accionDobleClick; set => accionDobleClick = value; }
-        public bool TemaOscuro { get => temaOscuro; set => temaOscuro = value; }
         public bool[] DescargaDetallesLibro { get => descargaDetallesLibro; set => descargaDetallesLibro = value; }
-        public int TamanioImagenLibro { get => tamanioImagenLibro; set => tamanioImagenLibro = value; }
         public List<InfoBaseDatos> ListaInfoBD { get => listaInfoBD; set => listaInfoBD = value; }
         [JsonIgnore]
         public InfoBaseDatos BDActual { get => bDActual; set => bDActual = value; }

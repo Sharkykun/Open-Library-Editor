@@ -9,7 +9,6 @@ namespace OpenLibraryEditor.DatosLibros
     public class UsuarioEjecutable
     {
         private string nombreEjecutable = "";
-        private string extensionFichero = "";
         private string rutaEjecutable = "";
         private string argumentos = "";
 
@@ -21,7 +20,6 @@ namespace OpenLibraryEditor.DatosLibros
         }
 
         public string NombreEjecutable { get => nombreEjecutable; set => nombreEjecutable = value; }
-        public string ExtensionFichero { get => extensionFichero; set => extensionFichero = value; }
         public string RutaEjecutable { get => rutaEjecutable; set => rutaEjecutable = value; }
         public string Argumentos { get => argumentos; set => argumentos = value; }
 

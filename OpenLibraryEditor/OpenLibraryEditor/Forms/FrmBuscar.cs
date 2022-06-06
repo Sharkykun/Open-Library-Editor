@@ -201,7 +201,7 @@ namespace OpenLibraryEditor.Forms
 
                                 //Establecer conexión en anonimo a la BD compartida elegida
                                 InfoBaseDatos bdInfo = (InfoBaseDatos)KCmbServidoresBUS.SelectedItem;
-                                ConexionBD.EstablecerConexion(bdInfo.ServidorIP, "ole_anon", "", bdInfo.Puerto.ToString());
+                                ConexionBD.EstablecerConexion(bdInfo.ServidorUrl, "ole_anon", "", bdInfo.Puerto.ToString());
 
                                 //Conectarse y sacar libros según el criterio de busqueda
                                 List<Libro> listaLibro = new List<Libro>();

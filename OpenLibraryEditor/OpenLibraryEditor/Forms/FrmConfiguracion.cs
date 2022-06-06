@@ -52,8 +52,8 @@ namespace OpenLibraryEditor.Forms
             CmbIdiomaConfi.Items.AddRange(idiomas.ToArray());
             CargarConfiguracion();
             CmbIP.Items.AddRange(configuracionUsuario.ListaInfoBD.ToArray());
-            //Seleccionar BD si el usuario ha entrado en alguna al iniciar sesion
-            CmbIP.SelectedItem = configuracionUsuario.BDActual;
+            if (CmbIP.Items.Count > 0)
+                CmbIP.SelectedIndex = 0;
             
             gunaHScrollBar1.Maximum = 250;
             gunaHScrollBar1.Minimum = -60;
@@ -335,13 +335,12 @@ namespace OpenLibraryEditor.Forms
                 InfoBaseDatos info = (InfoBaseDatos)CmbIP.SelectedItem;
                 TxtTituloServidorWeb.Text = info.Nombre;
                 NudPuerto.Value = info.Puerto;
-                TxtIP.Text = info.ServidorIP;
+                TxtIP.Text = info.ServidorUrl;
             }
         }
         private void GBtnAceptar_Click(object sender, EventArgs e)
         {
             //Guardar datos en objeto
-            //configuracionUsuario.CargaUltimaBD = TBtnUltimaBBDD.Checked;
             configuracionUsuario.UbicacionBD = TxtUbicacionBBDD.Text;
             configuracionUsuario.ContenidoExplicito = TBtnContenidoExp.Checked;
             configuracionUsuario.IdiomaIntefaz = GuardarIdioma(CmbIdiomaConfi.SelectedItem.ToString());
@@ -350,18 +349,9 @@ namespace OpenLibraryEditor.Forms
             else
                 configuracionUsuario.TipoVista = 1;
             configuracionUsuario.AccionDobleClick = CmbDobleClick.SelectedIndex;
-            //configuracionUsuario.TemaOscuro = RbtnOscuro.Checked;
             configuracionUsuario.DescargaDetallesLibro[0] = ChkAutores.Checked;
             configuracionUsuario.DescargaDetallesLibro[1] = ChkGeneros.Checked;
-            //configuracionUsuario.DescargaDetallesLibro[2] = ChkSeries.Checked;
             configuracionUsuario.DescargaDetallesLibro[3] = ChkEditoriales.Checked;
-            //configuracionUsuario.DescargaDetallesLibro[4] = ChkTags.Checked;
-            //if (RbtnMiniatura.Checked)
-            //    configuracionUsuario.TamanioImagenLibro = 0;
-            //else if (RbtnGrande.Checked)
-            //    configuracionUsuario.TamanioImagenLibro = 2;
-            //else
-                configuracionUsuario.TamanioImagenLibro = 1;
             configuracionUsuario.GoogleBooksApiKey = TxtGoogleBooksClave.Text;
             configuracionUsuario.ListaInfoBD.Clear();
             foreach (InfoBaseDatos info in CmbIP.Items)
@@ -397,21 +387,7 @@ namespace OpenLibraryEditor.Forms
         private void TxtIP_Leave(object sender, EventArgs e)
         {
             if (CmbIP.SelectedIndex != -1)
-            {
-                string patronIP = @"^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|
-                25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$";
-                bool esCorrecto = Regex.Match(TxtIP.Text, patronIP).Success;
-                if (!esCorrecto && !String.IsNullOrWhiteSpace(TxtIP.Text))
-                {
-                    VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_IP"));
-                    TxtIP.Text = ipAnterior;
-                }
-                else
-                {
-                    ipAnterior = TxtIP.Text;
-                    (CmbIP.SelectedItem as InfoBaseDatos).ServidorIP = TxtIP.Text;
-                }
-            }
+                (CmbIP.SelectedItem as InfoBaseDatos).ServidorUrl = TxtIP.Text;
         }
         #endregion
 
@@ -463,7 +439,7 @@ namespace OpenLibraryEditor.Forms
                     }
                     else
                     {
-                        ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorIP,
+                        ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorUrl,
                         "ole_register", "ole123Ole", UsuarioDatos.configuracionUsuario.BDActual.Puerto.ToString());
                         if (ConexionBD.AbrirConexion())
                         {
@@ -513,7 +489,7 @@ namespace OpenLibraryEditor.Forms
                         }
                         else
                         {
-                            ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorIP,
+                            ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorUrl,
                             "ole_register", "ole123Ole", UsuarioDatos.configuracionUsuario.BDActual.Puerto.ToString());
                             if (ConexionBD.AbrirConexion())
                             {

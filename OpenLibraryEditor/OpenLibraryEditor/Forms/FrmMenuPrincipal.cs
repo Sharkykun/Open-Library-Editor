@@ -848,7 +848,7 @@ namespace OpenLibraryEditor.Forms
                 rutaImagen = s;
                 CargarImagen(rutaImagen);
                 MySql.Data.MySqlClient.MySqlConnection conCopia = ConexionBD.Conexion;
-                ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorIP, 
+                ConexionBD.EstablecerConexion(UsuarioDatos.configuracionUsuario.BDActual.ServidorUrl, 
                     "ole_register", "ole123Ole", UsuarioDatos.configuracionUsuario.BDActual.Puerto.ToString());
                 if (ConexionBD.AbrirConexion())
                 {

@@ -398,7 +398,7 @@
             this.NudPuerto.TabIndex = 32;
             this.NudPuerto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NudPuerto.Value = new decimal(new int[] {
-            80,
+            3306,
             0,
             0,
             0});
@@ -1328,7 +1328,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.label1.Location = new System.Drawing.Point(373, -15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 32);
+            this.label1.Size = new System.Drawing.Size(185, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Configuración";
             // 
@@ -1340,7 +1340,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloConfi.Location = new System.Drawing.Point(104, 33);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
             this.LblTituloConfi.TabIndex = 7;
             this.LblTituloConfi.Text = "Configuración";
             // 

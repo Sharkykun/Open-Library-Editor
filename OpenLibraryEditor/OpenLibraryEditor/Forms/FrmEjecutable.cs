@@ -13,11 +13,6 @@ using System.Windows.Forms;
 
 namespace OpenLibraryEditor.Forms
 {
-    /*
-     TODO:
-    - Añadir tooltip para argumentos, en el que explique que si usa "{file}" sirve para cargar el fichero en esa posición.
-    Ej.:     -f {file} -b
-     */
     public partial class FrmEjecutable : Form
     {
         #region atributos
@@ -73,8 +68,6 @@ namespace OpenLibraryEditor.Forms
             TTEjecutable.SetToolTip(this.MBtnMenosLsvEJ, ControladorIdioma.GetTexto("Ej_TTMenos"));
             LblNombreEJ.Text = ControladorIdioma.GetTexto("Ej_Nombre");
             TTEjecutable.SetToolTip(this.KTxtNombreEJ, ControladorIdioma.GetTexto("Ej_TTNombre"));
-            LblExtensionEJ.Text = ControladorIdioma.GetTexto("Ej_Extension");
-            TTEjecutable.SetToolTip(this.KTxtExtensionEJ, ControladorIdioma.GetTexto("Ej_TTExtension"));
             LblRutaEJ.Text = ControladorIdioma.GetTexto("Ej_Ruta");
             TTEjecutable.SetToolTip(this.IBtnBuscarRutaEJ, ControladorIdioma.GetTexto("Ej_TTRuta"));
             LblArgumentosEJ.Text = ControladorIdioma.GetTexto("Ej_Argumentos");
@@ -88,7 +81,6 @@ namespace OpenLibraryEditor.Forms
         private ListViewItem AniadirEjecutable(UsuarioEjecutable ejecutable)
         {
             var item = LsvEjecutable.Items.Add(ejecutable.NombreEjecutable);
-            item.SubItems.Add(ejecutable.ExtensionFichero);
             item.Tag = ejecutable;
             if (ejecutableActual == ejecutable) item.Selected = true;
             return item;
@@ -98,7 +90,6 @@ namespace OpenLibraryEditor.Forms
         {
             //Comprobar si el objeto actual tiene algo cambiado
             if (KTxtNombreEJ.Text == ejecutableActual.NombreEjecutable &&
-                KTxtExtensionEJ.Text == ejecutableActual.ExtensionFichero &&
                 KTxtRutaEJ.Text == ejecutableActual.RutaEjecutable &&
                 KTxtArgumentosEJ.Text == ejecutableActual.Argumentos)
                 return false;
@@ -131,7 +122,6 @@ namespace OpenLibraryEditor.Forms
                 itemActual = LsvEjecutable.SelectedItems[0];
                 ejecutableActual = (UsuarioEjecutable)itemActual.Tag;
                 KTxtNombreEJ.Text = ejecutableActual.NombreEjecutable;
-                KTxtExtensionEJ.Text = ejecutableActual.ExtensionFichero;
                 KTxtRutaEJ.Text = ejecutableActual.RutaEjecutable;
                 KTxtArgumentosEJ.Text = ejecutableActual.Argumentos;
             }
@@ -186,13 +176,11 @@ namespace OpenLibraryEditor.Forms
                 {
                     //Actualizar etiqueta
                     ejecutableActual.NombreEjecutable = KTxtNombreEJ.Text;
-                    ejecutableActual.ExtensionFichero = KTxtExtensionEJ.Text;
                     ejecutableActual.RutaEjecutable = KTxtRutaEJ.Text;
                     ejecutableActual.Argumentos = KTxtArgumentosEJ.Text;
 
                     //Actualizar listview
                     itemActual.Text = KTxtNombreEJ.Text;
-                    itemActual.SubItems[1].Text = KTxtExtensionEJ.Text;
                 }
                 else VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_CamposVacios"));
             }
