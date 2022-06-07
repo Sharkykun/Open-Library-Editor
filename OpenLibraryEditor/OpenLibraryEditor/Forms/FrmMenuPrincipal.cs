@@ -1131,7 +1131,7 @@ namespace OpenLibraryEditor.Forms
                         Libro libro = LecturaBD.SelectLibro(EscrituraBD.GetObjetoIdDeLocal(
                             libroActual.ListaIdCompartido),
                             UsuarioDatos.configuracionUsuario.InfoUsuarioActual);
-                        
+
                         if (libro != null)
                         {
                             //info comun
@@ -1156,7 +1156,7 @@ namespace OpenLibraryEditor.Forms
                             libroActual.NumeroCapitulos = libro.NumeroCapitulos;
                             libroActual.EnlaceReferencia = libro.EnlaceReferencia;
                             libroActual.ImagenPortada = libro.PortadaTemp == null ? null :
-                                ControladorImagen.RUTA_LIBRO + libroActual.IdLibro+"_c";
+                                ControladorImagen.RUTA_LIBRO + libroActual.IdLibro + "_c";
                             libroActual.ImagenContraportada = libro.ContraportadaTemp == null ? null :
                                 ControladorImagen.RUTA_LIBRO + libroActual.IdLibro + "_b";
                             if (libroActual.ImagenPortada != null)
@@ -1188,6 +1188,10 @@ namespace OpenLibraryEditor.Forms
                             Biblioteca.biblioteca.GuardarJson();
                             VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("DescargaInfoLibroOK"));
                         }
+                        else
+                            //-----------
+                            VentanaWindowsComun.MensajeError("Este libro no existe en la base de datos.");
+                        
                         ConexionBD.CerrarConexion();
                         RecolocarLibros(false);
                         if (PanVistaMosaico.Visible)
