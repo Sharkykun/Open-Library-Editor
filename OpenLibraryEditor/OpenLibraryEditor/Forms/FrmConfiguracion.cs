@@ -84,6 +84,9 @@ namespace OpenLibraryEditor.Forms
             TTConfi.SetToolTip(this.IpcbOcultarContra, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
             TTConfi.SetToolTip(this.IpcbOcultarContra1, ControladorIdioma.GetTexto("Reg_TTOcultarContra"));
 
+            TTConfi.SetToolTip(this.MBtnMasIP, ControladorIdioma.GetTexto("Con_TTMasUrl"));
+            TTConfi.SetToolTip(this.MBtnMenosIP, ControladorIdioma.GetTexto("Con_TTMenosUrl"));
+
             KgbGeneral.Values.Heading = ControladorIdioma.GetTexto("Con_General");
             LblUbicacion.Text = ControladorIdioma.GetTexto("Con_GUbicacion");
             TxtSubtituloUbicacion.Text = ControladorIdioma.GetTexto("Con_Gruta");

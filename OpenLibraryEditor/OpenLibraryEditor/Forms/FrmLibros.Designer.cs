@@ -1985,6 +1985,8 @@
             this.KTxtFicheroNL.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtFicheroNL.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtFicheroNL.TabIndex = 0;
+            this.KTxtFicheroNL.Enter += new System.EventHandler(this.KTxtFicheroNL_Enter);
+            this.KTxtFicheroNL.Leave += new System.EventHandler(this.KTxtFicheroNL_Leave);
             // 
             // LsvAccionesNL
             // 

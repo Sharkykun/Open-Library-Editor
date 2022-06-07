@@ -107,6 +107,21 @@ namespace OpenLibraryEditor.Forms
                     GBtnAceptar_Click(null, null);
             }
         }
+        private void KTxtNombreEJ_Enter(object sender, EventArgs e)
+        {
+            if (KTxtNombreEJ.Text.Equals(ControladorIdioma.GetTexto("Ej_NuevoEjecutable")))
+            {
+                KTxtNombreEJ.Text = "";
+            }
+        }
+
+        private void KTxtNombreEJ_Leave(object sender, EventArgs e)
+        {
+            if (KTxtNombreEJ.Text.Equals(""))
+            {
+                KTxtNombreEJ.Text = ControladorIdioma.GetTexto("Ej_NuevoEjecutable");
+            }
+        }
 
         #endregion
         #region listview
@@ -200,5 +215,7 @@ namespace OpenLibraryEditor.Forms
             ComprobarGuardado();
         }
         #endregion
+
+     
     }
 }

@@ -2104,6 +2104,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Haz click aquí para añadir una nueva URL.
+        /// </summary>
+        internal static string Con_TTMasUrl {
+            get {
+                return ResourceManager.GetString("Con_TTMasUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Haz click aquí para eliminar la URL seleccionada.
+        /// </summary>
+        internal static string Con_TTMenosUrl {
+            get {
+                return ResourceManager.GetString("Con_TTMenosUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Haz click aquí para modificar tu contraseña de acceso a la aplicación.
         /// </summary>
         internal static string Con_TTModificar {
@@ -4309,6 +4327,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Número de volumen.
+        /// </summary>
+        internal static string NumeroVolumen {
+            get {
+                return ResourceManager.GetString("NumeroVolumen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Número de géneros: .
         /// </summary>
         internal static string NumGeneros {
@@ -5025,6 +5052,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string UsuarioRepetido {
             get {
                 return ResourceManager.GetString("UsuarioRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario modificado correctamente.
+        /// </summary>
+        internal static string UsuModificado {
+            get {
+                return ResourceManager.GetString("UsuModificado", resourceCulture);
             }
         }
         

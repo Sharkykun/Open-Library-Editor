@@ -55,9 +55,6 @@ namespace OpenLibraryEditor.Forms
             PanVistaDetalles.Visible = false;
             PanVistaMosaico.Visible = true;
             PanVistaMosaico.BringToFront();
-            //FrmBuscar buscar = new FrmBuscar();
-            //buscar.AniadirAutores();
-            //buscar.ColocarLibrosRecomendados();
            
         }
          private void FrmMenuPrincipal_Load(object sender, EventArgs e)
@@ -71,7 +68,6 @@ namespace OpenLibraryEditor.Forms
             {
                 //Dejar marcado mi biblioteca como opción inicial
                 MBtnMiBiblioteca_Click(MBtnMiBiblioteca, null);
-            
             }
             if (UsuarioDatos.configuracionUsuario.InfoUsuarioActual != null) { 
 
@@ -120,14 +116,10 @@ namespace OpenLibraryEditor.Forms
                 puedeEditar = false;
                 LblTipoUsuarioConectado.Text = ControladorIdioma.GetTexto("ModoSinConexion");
             }
-
-            //TitulosPrueba();
-            //RecolocarLibros(false);
             SeleccionarVista();
             IdiomaTexto();
             TxtBusqueda.MbtnBorrar().Click += MbtnBorrarTxtBuscar_Click;
-            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarMBI_KeyDown;
-            
+            TxtBusqueda.TxtBuscar().KeyDown += KTxtBuscarMBI_KeyDown; 
         }
 
         private void CargarFotoUsuarioBD()
@@ -386,7 +378,6 @@ namespace OpenLibraryEditor.Forms
             LblEscribirIdiOri.Text = "";
             LblEscribirIs10.Text = "";
             LblEscribirIs13.Text = "";
-            LblEscribirOculto.Text = "";
             LblEscribirPag.Text = "";
             LblEscribirPuntuacion.Text = "";
             LblEscribirTiempoLec.Text = "";
@@ -414,7 +405,7 @@ namespace OpenLibraryEditor.Forms
             BtnBorrarLibroMsb.Enabled = true;
             BtnModificarLibroMsb.Enabled = true;
             BtnActualizarLibroMsb.Enabled = true;
-            //PanVistaMosaico_Resize(null,null);
+            KTabDetalles.SelectedPage = KpDetalles;
 
             if (File.Exists(l.ImagenPortada))
                 PcbLibro.Image = ControladorImagen.ObtenerImagenStream(l.ImagenPortada);
@@ -468,15 +459,6 @@ namespace OpenLibraryEditor.Forms
                 }
                     
             }
-            //foreach (Etiqueta et in libro.ListaEtiqueta)
-            //{
-            //    LblEscribirEtiquetas.AutoSize = true;
-            //    LblEscribirEtiquetas.MaximumSize = new Size(109, 0);
-            //    if (libro.ListaEtiqueta.Count > 1 || LblEscribirEtiquetas.Width > 109)
-            //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper() + "\r\n";
-            //    else
-            //        LblEscribirEtiquetas.Text += et.Nombre.ToUpper();
-            //}
             if (!String.IsNullOrWhiteSpace(l.Idioma))
                 LblEscribirIdioma.Text = l.Idioma.ToUpper();
             if (!String.IsNullOrWhiteSpace(l.IdiomaOriginal))
@@ -595,39 +577,12 @@ namespace OpenLibraryEditor.Forms
                 FrmWebView wv = new FrmWebView(libroActual.EnlaceReferencia);
                 wv.FormBorderStyle = FormBorderStyle.None;
                 wv.ShowDialog();
-                //Process.Start(libroActual.EnlaceReferencia);
             }
 
             else
                 VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_NoEnlace"));
         }
 
-        private void TitulosPrueba()
-        {
-            if (titulos.Count == 0)
-            {
-                titulos.Add(new Libro("Caballero Luna"));
-                titulos.Add(new Libro("Spiderman Homecoming"));
-                titulos.Add(new Libro("Thor"));
-                //titulos.Add(new Libro("Capitán América"));
-                //titulos.Add(new Libro("Los Vengadores"));
-                //titulos.Add(new Libro("Iron Man"));
-                //titulos.Add(new Libro("Viuda negra"));
-                //titulos.Add(new Libro("Black Panther"));
-                //titulos.Add(new Libro("Guardianes de la Galaxia"));
-                //titulos.Add(new Libro("Wanda y Visión"));
-                //titulos.Add(new Libro("Ojo de Halcón"));
-                //titulos.Add(new Libro("Loki"));
-                //titulos.Add(new Libro("Bruja Escarlata"));
-                //titulos.Add(new Libro("Capitana Marvel"));
-                //titulos.Add(new Libro("Shan-Chi la leyenda de los 10 anillos"));
-                //titulos.Add(new Libro("Ant-Man"));
-                //titulos.Add(new Libro("Eternals"));
-                //titulos.Add(new Libro("Doctor Strange"));
-                //titulos.Add(new Libro("Hulk"));
-                //titulos.Add(new Libro("Falcon y el Soldado de invierno"));
-            }
-        }
         private void MBtnVistaDetallesMBI_Click(object sender, EventArgs e)
         {
             UsuarioDatos.configuracionUsuario.TipoVista = 1;
@@ -729,7 +684,7 @@ namespace OpenLibraryEditor.Forms
             LblComienzo.Text = ControladorIdioma.GetTexto("Main_Comienzo");
             LblFin.Text = ControladorIdioma.GetTexto("Main_Fin");
             LblFavorito.Text = ControladorIdioma.GetTexto("Main_Fav");
-            LblOculto.Text = ControladorIdioma.GetTexto("Main_Ocu");
+
             LblComentario.Text = ControladorIdioma.GetTexto("Main_Com");
             KCmbBuscarPorMBI.Items.Clear();
             //Agregar filtros de libro
@@ -742,17 +697,15 @@ namespace OpenLibraryEditor.Forms
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGTipo"));
             //KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Favoritos"));
             KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGPag"));
-            //-----------------
-            KCmbBuscarPorMBI.Items.Add("Edición");
-            KCmbBuscarPorMBI.Items.Add("Número Volumen");
-            KCmbBuscarPorMBI.Items.Add("Número Capítulos");
-            KCmbBuscarPorMBI.Items.Add("Puntuación");
-            KCmbBuscarPorMBI.Items.Add("Veces Leido");
-            KCmbBuscarPorMBI.Items.Add("Estado de Lectura");
-            KCmbBuscarPorMBI.Items.Add("Capítulo Actual");
-            KCmbBuscarPorMBI.SelectedIndex = 0;
 
-            
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGEdicion"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("NumeroVolumen"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DGCapi"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DUPunt"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DUleido"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DUEstado"));
+            KCmbBuscarPorMBI.Items.Add(ControladorIdioma.GetTexto("Al_DUCap"));
+            KCmbBuscarPorMBI.SelectedIndex = 0;
         }
         #endregion
         #region Colores boton seleccionado
