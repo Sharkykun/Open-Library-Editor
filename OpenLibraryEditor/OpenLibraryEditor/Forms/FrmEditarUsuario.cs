@@ -42,21 +42,7 @@ namespace OpenLibraryEditor.Forms
         private void FrmEditarUsuario_Load(object sender, EventArgs e)
         {
             IdiomaTexto();
-            SeleccionarTipoUsuario(usuario);
-        }
-        #endregion
-        #region seleccionar tipo usuario
-        private void SeleccionarTipoUsuario(InfoUsuarioBD usuario)
-        {
-            switch (usuario.TipoUsuario)
-            {
-                case "Usuario":
-                    KCmbTipoEditUsu.SelectedIndex = 1;
-                    break;
-                case "Editor":
-                    KCmbTipoEditUsu.SelectedIndex = 0;
-                    break;
-            }
+            KCmbTipoEditUsu.SelectedIndex = 1;
         }
         #endregion
         #region idioma

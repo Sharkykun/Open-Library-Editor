@@ -153,6 +153,11 @@ namespace OpenLibraryEditor.Forms
             else
                 libro = Biblioteca.biblioteca.ListaLibro.FindAll(
                     p => !p.MayorEdad);
+
+            if(LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
+                libro = libro.FindAll(p => p.Favorito);
+
+
             return libro;
         }
         private void SeleccionarVista()
@@ -839,8 +844,8 @@ namespace OpenLibraryEditor.Forms
             //AbrirFormularios(new FrmMiBiblioteca());
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = false;
-            titulos = SacarListaLibro();
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_MiBiblioteca");
+            titulos = SacarListaLibro();
             MPcbTituloFrm.IconChar = MaterialIcons.BookOpenPageVariant;
             LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
             LblNumLibros.Visible = true;
@@ -976,10 +981,9 @@ namespace OpenLibraryEditor.Forms
             PanFormHijos.BringToFront();
             PanListViewsOpciones.Visible = false;
             MBtncerrarDetallesLibro_Click(sender, e);
-            titulos = SacarListaLibro();
-            titulos = titulos.FindAll(p => p.Favorito);
-            RecolocarLibros(false);
             LblTituloFormAbierto.Text = ControladorIdioma.GetTexto("Main_Favoritos");
+            titulos = SacarListaLibro();
+            RecolocarLibros(false);
             MPcbTituloFrm.IconChar = MaterialIcons.StarCircle;
             LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
             LblNumLibros.Visible = true;
@@ -988,6 +992,7 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnBuscar_Click(object sender, EventArgs e)
         {
+            MBtncerrarDetallesLibro_Click(sender, e);
             if (puedeEditar)
                 AbrirFormularios(new FrmBuscar(true));
             else
@@ -997,6 +1002,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnConfiguracion_Click(object sender, EventArgs e)
         {
+            MBtncerrarDetallesLibro_Click(sender, e);
             if (PuedeEditar)
                 AbrirFormularios(new FrmConfiguracion(true));
             else
@@ -1007,6 +1013,7 @@ namespace OpenLibraryEditor.Forms
         }
         private void MBtnAdminUsuarios_Click(object sender, EventArgs e)
         {
+            MBtncerrarDetallesLibro_Click(sender, e);
             AbrirFormularios(new FrmAdministrarUsuarios());
             BotonActivo(sender, Colores.colorAdmin);
         }
@@ -1036,6 +1043,9 @@ namespace OpenLibraryEditor.Forms
             {
                 Biblioteca.biblioteca.ListaLibro.Add(nuevoLibro);
                 RecolocarLibros(false);
+                if(formHijoActual.GetType() == typeof(FrmMiBiblioteca))
+                    MBtnMiBiblioteca_Click(MBtnMiBiblioteca, e);
+                LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
             }
         }
         private void BtnModificarLibroMsb_ButtonClick(object sender, EventArgs e)
@@ -1113,6 +1123,10 @@ namespace OpenLibraryEditor.Forms
                     ConexionBD.CerrarConexion();
                 }
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
+                Biblioteca.biblioteca.GuardarJson();
+                //-------------------
+                VentanaWindowsComun.MensajeInformacion("Libro borrado correctamente.");
+                LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
                 RecolocarLibros(false);
                 MBtncerrarDetallesLibro_Click(sender,e);
             }
@@ -1361,7 +1375,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnBuscarMBI_Click(object sender, EventArgs e)
         {
             //Filtrar por categoría si se está usando, si no por la lista completa
-            if (PanListViewsOpciones.Visible == true || LblTituloFormAbierto.Text.Equals(ControladorIdioma.GetTexto("Main_Favoritos")))
+            if (PanListViewsOpciones.Visible == true)
                 LsvOpciones_ItemSelectionChanged(null, null);
             else
                 titulos = SacarListaLibro();
