@@ -335,7 +335,7 @@
             this.TxtIP.Location = new System.Drawing.Point(434, 90);
             this.TxtIP.Name = "TxtIP";
             this.TxtIP.Size = new System.Drawing.Size(286, 25);
-            this.TxtIP.TabIndex = 164;
+            this.TxtIP.TabIndex = 2;
             this.TxtIP.Leave += new System.EventHandler(this.TxtIP_Leave);
             // 
             // LblIp
@@ -361,7 +361,7 @@
             this.MBtnMenosIP.Location = new System.Drawing.Point(731, 149);
             this.MBtnMenosIP.Name = "MBtnMenosIP";
             this.MBtnMenosIP.Size = new System.Drawing.Size(30, 30);
-            this.MBtnMenosIP.TabIndex = 162;
+            this.MBtnMenosIP.TabIndex = 5;
             this.MBtnMenosIP.UseVisualStyleBackColor = true;
             this.MBtnMenosIP.Click += new System.EventHandler(this.MBtnMenosIP_Click);
             // 
@@ -377,7 +377,7 @@
             this.MBtnMasIP.Location = new System.Drawing.Point(731, 89);
             this.MBtnMasIP.Name = "MBtnMasIP";
             this.MBtnMasIP.Size = new System.Drawing.Size(30, 30);
-            this.MBtnMasIP.TabIndex = 161;
+            this.MBtnMasIP.TabIndex = 3;
             this.MBtnMasIP.UseVisualStyleBackColor = true;
             this.MBtnMasIP.Click += new System.EventHandler(this.MBtnMasIP_Click);
             // 
@@ -395,7 +395,7 @@
             0});
             this.NudPuerto.Name = "NudPuerto";
             this.NudPuerto.Size = new System.Drawing.Size(98, 27);
-            this.NudPuerto.TabIndex = 32;
+            this.NudPuerto.TabIndex = 1;
             this.NudPuerto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NudPuerto.Value = new decimal(new int[] {
             3306,
@@ -418,7 +418,7 @@
             this.CmbIP.Location = new System.Drawing.Point(434, 151);
             this.CmbIP.Name = "CmbIP";
             this.CmbIP.Size = new System.Drawing.Size(286, 26);
-            this.CmbIP.TabIndex = 31;
+            this.CmbIP.TabIndex = 4;
             this.CmbIP.SelectedIndexChanged += new System.EventHandler(this.CmbIP_SelectedIndexChanged);
             // 
             // LblPuertoServidor
@@ -452,7 +452,7 @@
             this.TxtTituloServidorWeb.Location = new System.Drawing.Point(434, 27);
             this.TxtTituloServidorWeb.Name = "TxtTituloServidorWeb";
             this.TxtTituloServidorWeb.Size = new System.Drawing.Size(329, 25);
-            this.TxtTituloServidorWeb.TabIndex = 28;
+            this.TxtTituloServidorWeb.TabIndex = 0;
             this.TxtTituloServidorWeb.TextChanged += new System.EventHandler(this.TxtTituloServidorWeb_TextChanged);
             // 
             // TxtSubtituloServidor
@@ -532,7 +532,7 @@
             this.TxtGoogleBooksClave.Location = new System.Drawing.Point(434, 182);
             this.TxtGoogleBooksClave.Name = "TxtGoogleBooksClave";
             this.TxtGoogleBooksClave.Size = new System.Drawing.Size(329, 25);
-            this.TxtGoogleBooksClave.TabIndex = 31;
+            this.TxtGoogleBooksClave.TabIndex = 0;
             // 
             // TxtSubtituloGoogleBooksClave
             // 
@@ -595,7 +595,7 @@
             this.ChkEditoriales.Location = new System.Drawing.Point(301, 20);
             this.ChkEditoriales.Name = "ChkEditoriales";
             this.ChkEditoriales.Size = new System.Drawing.Size(80, 24);
-            this.ChkEditoriales.TabIndex = 8;
+            this.ChkEditoriales.TabIndex = 2;
             this.ChkEditoriales.Text = "Autores";
             this.ChkEditoriales.UseVisualStyleBackColor = false;
             // 
@@ -608,7 +608,7 @@
             this.ChkGeneros.Location = new System.Drawing.Point(159, 20);
             this.ChkGeneros.Name = "ChkGeneros";
             this.ChkGeneros.Size = new System.Drawing.Size(80, 24);
-            this.ChkGeneros.TabIndex = 6;
+            this.ChkGeneros.TabIndex = 1;
             this.ChkGeneros.Text = "Autores";
             this.ChkGeneros.UseVisualStyleBackColor = false;
             // 
@@ -621,7 +621,7 @@
             this.ChkAutores.Location = new System.Drawing.Point(27, 20);
             this.ChkAutores.Name = "ChkAutores";
             this.ChkAutores.Size = new System.Drawing.Size(80, 24);
-            this.ChkAutores.TabIndex = 5;
+            this.ChkAutores.TabIndex = 0;
             this.ChkAutores.Text = "Autores";
             this.ChkAutores.UseVisualStyleBackColor = false;
             // 
@@ -694,7 +694,7 @@
             this.CmbDobleClick.Location = new System.Drawing.Point(434, 203);
             this.CmbDobleClick.Name = "CmbDobleClick";
             this.CmbDobleClick.Size = new System.Drawing.Size(329, 26);
-            this.CmbDobleClick.TabIndex = 17;
+            this.CmbDobleClick.TabIndex = 1;
             // 
             // TxtSubtituloDobleClick
             // 
@@ -763,7 +763,7 @@
             this.CmbIdiomaConfi.Location = new System.Drawing.Point(434, 44);
             this.CmbIdiomaConfi.Name = "CmbIdiomaConfi";
             this.CmbIdiomaConfi.Size = new System.Drawing.Size(329, 30);
-            this.CmbIdiomaConfi.TabIndex = 7;
+            this.CmbIdiomaConfi.TabIndex = 0;
             this.CmbIdiomaConfi.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.CmbIdiomaConfi_DrawItem);
             // 
             // GbVisualizacion
@@ -804,7 +804,7 @@
             this.RbtnDetalles.Location = new System.Drawing.Point(417, 55);
             this.RbtnDetalles.Name = "RbtnDetalles";
             this.RbtnDetalles.Size = new System.Drawing.Size(119, 24);
-            this.RbtnDetalles.TabIndex = 3;
+            this.RbtnDetalles.TabIndex = 1;
             this.RbtnDetalles.TabStop = true;
             this.RbtnDetalles.Text = "Lista detalles";
             this.RbtnDetalles.UseVisualStyleBackColor = true;
@@ -817,7 +817,7 @@
             this.RbtnMosaico.Location = new System.Drawing.Point(417, 25);
             this.RbtnMosaico.Name = "RbtnMosaico";
             this.RbtnMosaico.Size = new System.Drawing.Size(86, 24);
-            this.RbtnMosaico.TabIndex = 2;
+            this.RbtnMosaico.TabIndex = 0;
             this.RbtnMosaico.TabStop = true;
             this.RbtnMosaico.Text = "Mosaico";
             this.RbtnMosaico.UseVisualStyleBackColor = true;
@@ -890,7 +890,7 @@
             this.TBtnContenidoExp.OnBackColor = System.Drawing.Color.LimeGreen;
             this.TBtnContenidoExp.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.TBtnContenidoExp.Size = new System.Drawing.Size(45, 22);
-            this.TBtnContenidoExp.TabIndex = 30;
+            this.TBtnContenidoExp.TabIndex = 1;
             this.TBtnContenidoExp.UseVisualStyleBackColor = true;
             // 
             // LblContenidoExpConfi
@@ -957,7 +957,7 @@
             this.TxtUbicacionBBDD.Location = new System.Drawing.Point(434, 23);
             this.TxtUbicacionBBDD.Name = "TxtUbicacionBBDD";
             this.TxtUbicacionBBDD.Size = new System.Drawing.Size(329, 25);
-            this.TxtUbicacionBBDD.TabIndex = 27;
+            this.TxtUbicacionBBDD.TabIndex = 0;
             // 
             // TxtSubtituloContenidoExp
             // 
@@ -1062,7 +1062,7 @@
             this.GBtnModificarPass.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnModificarPass.Radius = 15;
             this.GBtnModificarPass.Size = new System.Drawing.Size(126, 35);
-            this.GBtnModificarPass.TabIndex = 38;
+            this.GBtnModificarPass.TabIndex = 4;
             this.GBtnModificarPass.Text = "Modificar";
             this.GBtnModificarPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnModificarPass.Click += new System.EventHandler(this.GBtnModificarPass_Click);
@@ -1101,7 +1101,7 @@
             this.GBtnActualizarMail.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
             this.GBtnActualizarMail.Radius = 15;
             this.GBtnActualizarMail.Size = new System.Drawing.Size(126, 35);
-            this.GBtnActualizarMail.TabIndex = 32;
+            this.GBtnActualizarMail.TabIndex = 1;
             this.GBtnActualizarMail.Text = "Actualizar";
             this.GBtnActualizarMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GBtnActualizarMail.Click += new System.EventHandler(this.GBtnActualizarMail_Click);
@@ -1115,7 +1115,7 @@
             this.TxtMailNuevo.Location = new System.Drawing.Point(359, 39);
             this.TxtMailNuevo.Name = "TxtMailNuevo";
             this.TxtMailNuevo.Size = new System.Drawing.Size(276, 25);
-            this.TxtMailNuevo.TabIndex = 31;
+            this.TxtMailNuevo.TabIndex = 0;
             // 
             // LblMailNuevo
             // 
@@ -1160,7 +1160,7 @@
             this.TxtMailActual.Location = new System.Drawing.Point(22, 39);
             this.TxtMailActual.Name = "TxtMailActual";
             this.TxtMailActual.Size = new System.Drawing.Size(276, 25);
-            this.TxtMailActual.TabIndex = 27;
+            this.TxtMailActual.TabIndex = 0;
             // 
             // IpcbMostrarContra
             // 
@@ -1222,7 +1222,7 @@
             this.KTxtContraNueva.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtContraNueva.TabIndex = 33;
+            this.KTxtContraNueva.TabIndex = 2;
             this.KTxtContraNueva.UseSystemPasswordChar = true;
             // 
             // IpcbMostrarContra1
@@ -1285,7 +1285,7 @@
             this.KTxtRepetirContra.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.KTxtRepetirContra.TabIndex = 37;
+            this.KTxtRepetirContra.TabIndex = 3;
             this.KTxtRepetirContra.UseSystemPasswordChar = true;
             // 
             // PanDatosGenerales
@@ -1328,7 +1328,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.label1.Location = new System.Drawing.Point(373, -15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 32);
+            this.label1.Size = new System.Drawing.Size(184, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Configuración";
             // 
@@ -1340,7 +1340,7 @@
             this.LblTituloConfi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloConfi.Location = new System.Drawing.Point(104, 33);
             this.LblTituloConfi.Name = "LblTituloConfi";
-            this.LblTituloConfi.Size = new System.Drawing.Size(185, 32);
+            this.LblTituloConfi.Size = new System.Drawing.Size(184, 32);
             this.LblTituloConfi.TabIndex = 7;
             this.LblTituloConfi.Text = "Configuración";
             // 

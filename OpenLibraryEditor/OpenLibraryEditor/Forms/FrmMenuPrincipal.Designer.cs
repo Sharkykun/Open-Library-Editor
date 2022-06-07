@@ -120,8 +120,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtEscribirComentario = new System.Windows.Forms.TextBox();
             this.LblComentario = new System.Windows.Forms.Label();
-            this.LblOculto = new System.Windows.Forms.Label();
-            this.LblEscribirOculto = new System.Windows.Forms.Label();
             this.LblFavorito = new System.Windows.Forms.Label();
             this.LblEscribirFavorito = new System.Windows.Forms.Label();
             this.LblFin = new System.Windows.Forms.Label();
@@ -154,6 +152,7 @@
             this.LblPaginasEntre = new System.Windows.Forms.Label();
             this.KNudPagMax = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.KNudPagMin = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.MBtnBuscarMBI = new FontAwesome.Sharp.Material.MaterialButton();
             this.PanVistaDetalles = new System.Windows.Forms.Panel();
             this.PanPiePagina = new System.Windows.Forms.Panel();
@@ -169,7 +168,6 @@
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.PanHijos = new System.Windows.Forms.Panel();
             this.TimeRedimensionar = new System.Windows.Forms.Timer(this.components);
-            this.TxtBusqueda = new OpenLibraryEditor.Controles.TxtBusqueda();
             this.PanTitulo.SuspendLayout();
             this.PanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbLogoMain)).BeginInit();
@@ -1517,7 +1515,7 @@
             this.LblEscribirEditorial.ForeColor = System.Drawing.Color.White;
             this.LblEscribirEditorial.Location = new System.Drawing.Point(118, 7);
             this.LblEscribirEditorial.Name = "LblEscribirEditorial";
-            this.LblEscribirEditorial.Size = new System.Drawing.Size(110, 16);
+            this.LblEscribirEditorial.Size = new System.Drawing.Size(109, 16);
             this.LblEscribirEditorial.TabIndex = 32;
             this.LblEscribirEditorial.Text = "prueba de tamaño";
             // 
@@ -1566,8 +1564,6 @@
             this.KpUsuario.Controls.Add(this.label2);
             this.KpUsuario.Controls.Add(this.TxtEscribirComentario);
             this.KpUsuario.Controls.Add(this.LblComentario);
-            this.KpUsuario.Controls.Add(this.LblOculto);
-            this.KpUsuario.Controls.Add(this.LblEscribirOculto);
             this.KpUsuario.Controls.Add(this.LblFavorito);
             this.KpUsuario.Controls.Add(this.LblEscribirFavorito);
             this.KpUsuario.Controls.Add(this.LblFin);
@@ -1611,7 +1607,7 @@
             this.TxtEscribirComentario.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.TxtEscribirComentario.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEscribirComentario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
-            this.TxtEscribirComentario.Location = new System.Drawing.Point(15, 264);
+            this.TxtEscribirComentario.Location = new System.Drawing.Point(15, 242);
             this.TxtEscribirComentario.Multiline = true;
             this.TxtEscribirComentario.Name = "TxtEscribirComentario";
             this.TxtEscribirComentario.ReadOnly = true;
@@ -1624,34 +1620,11 @@
             this.LblComentario.BackColor = System.Drawing.Color.Transparent;
             this.LblComentario.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblComentario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.LblComentario.Location = new System.Drawing.Point(12, 241);
+            this.LblComentario.Location = new System.Drawing.Point(12, 216);
             this.LblComentario.Name = "LblComentario";
             this.LblComentario.Size = new System.Drawing.Size(93, 17);
             this.LblComentario.TabIndex = 39;
             this.LblComentario.Text = "Comentario:";
-            // 
-            // LblOculto
-            // 
-            this.LblOculto.AutoSize = true;
-            this.LblOculto.BackColor = System.Drawing.Color.Transparent;
-            this.LblOculto.Font = new System.Drawing.Font("Merienda One", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOculto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.LblOculto.Location = new System.Drawing.Point(12, 216);
-            this.LblOculto.Name = "LblOculto";
-            this.LblOculto.Size = new System.Drawing.Size(58, 17);
-            this.LblOculto.TabIndex = 38;
-            this.LblOculto.Text = "Oculto:";
-            // 
-            // LblEscribirOculto
-            // 
-            this.LblEscribirOculto.AutoSize = true;
-            this.LblEscribirOculto.BackColor = System.Drawing.Color.Transparent;
-            this.LblEscribirOculto.Font = new System.Drawing.Font("Merienda", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEscribirOculto.ForeColor = System.Drawing.Color.White;
-            this.LblEscribirOculto.Location = new System.Drawing.Point(150, 216);
-            this.LblEscribirOculto.Name = "LblEscribirOculto";
-            this.LblEscribirOculto.Size = new System.Drawing.Size(0, 16);
-            this.LblEscribirOculto.TabIndex = 37;
             // 
             // LblFavorito
             // 
@@ -2101,6 +2074,15 @@
             this.KNudPagMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.KNudPagMin.ValueChanged += new System.EventHandler(this.KNudPagMin_ValueChanged);
             // 
+            // TxtBusqueda
+            // 
+            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.TxtBusqueda.Location = new System.Drawing.Point(681, 3);
+            this.TxtBusqueda.Name = "TxtBusqueda";
+            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
+            this.TxtBusqueda.TabIndex = 135;
+            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
+            // 
             // MBtnBuscarMBI
             // 
             this.MBtnBuscarMBI.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2217,7 +2199,7 @@
             this.LblTituloFormAbierto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.LblTituloFormAbierto.Location = new System.Drawing.Point(75, 18);
             this.LblTituloFormAbierto.Name = "LblTituloFormAbierto";
-            this.LblTituloFormAbierto.Size = new System.Drawing.Size(172, 32);
+            this.LblTituloFormAbierto.Size = new System.Drawing.Size(171, 32);
             this.LblTituloFormAbierto.TabIndex = 10;
             this.LblTituloFormAbierto.Text = "Mi Biblioteca";
             // 
@@ -2245,15 +2227,6 @@
             this.PanHijos.Name = "PanHijos";
             this.PanHijos.Size = new System.Drawing.Size(949, 693);
             this.PanHijos.TabIndex = 5;
-            // 
-            // TxtBusqueda
-            // 
-            this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
-            this.TxtBusqueda.Location = new System.Drawing.Point(681, 3);
-            this.TxtBusqueda.Name = "TxtBusqueda";
-            this.TxtBusqueda.Size = new System.Drawing.Size(263, 36);
-            this.TxtBusqueda.TabIndex = 135;
-            this.TxtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KTxtBuscarMBI_KeyDown);
             // 
             // FrmMenuPrincipal
             // 
@@ -2399,8 +2372,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtEscribirComentario;
         private System.Windows.Forms.Label LblComentario;
-        private System.Windows.Forms.Label LblOculto;
-        private System.Windows.Forms.Label LblEscribirOculto;
         private System.Windows.Forms.Label LblFavorito;
         private System.Windows.Forms.Label LblEscribirFavorito;
         private System.Windows.Forms.Label LblFin;

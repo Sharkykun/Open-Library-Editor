@@ -810,6 +810,12 @@
   <data name="Con_TTMailN" xml:space="preserve">
     <value>Escribe aquí tu nuevo email</value>
   </data>
+  <data name="Con_TTMasUrl" xml:space="preserve">
+    <value>Haz click aquí para añadir una nueva URL</value>
+  </data>
+  <data name="Con_TTMenosUrl" xml:space="preserve">
+    <value>Haz click aquí para eliminar la URL seleccionada</value>
+  </data>
   <data name="Con_TTModificar" xml:space="preserve">
     <value>Haz click aquí para modificar tu contraseña de acceso a la aplicación</value>
   </data>
@@ -1532,6 +1538,9 @@
   </data>
   <data name="NumeroPuerto" xml:space="preserve">
     <value>Selecciona el puerto de conexión de tu base de datos</value>
+  </data>
+  <data name="NumeroVolumen" xml:space="preserve">
+    <value>Número de volumen</value>
   </data>
   <data name="NumGeneros" xml:space="preserve">
     <value>Número de géneros: </value>

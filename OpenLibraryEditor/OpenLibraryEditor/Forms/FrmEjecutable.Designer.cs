@@ -337,6 +337,8 @@
             this.KTxtNombreEJ.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
             this.KTxtNombreEJ.StateCommon.Content.Font = new System.Drawing.Font("Merienda", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombreEJ.TabIndex = 0;
+            this.KTxtNombreEJ.Enter += new System.EventHandler(this.KTxtNombreEJ_Enter);
+            this.KTxtNombreEJ.Leave += new System.EventHandler(this.KTxtNombreEJ_Leave);
             // 
             // KTxtRutaEJ
             // 

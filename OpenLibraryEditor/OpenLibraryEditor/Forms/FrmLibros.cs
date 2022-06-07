@@ -208,6 +208,7 @@ namespace OpenLibraryEditor.Forms
 
             GBtnGuardarLibro.Text = ControladorIdioma.GetTexto("Al_Guardar");
             TTnuevoLibro.SetToolTip(this.GBtnGuardarLibro, ControladorIdioma.GetTexto("Al_Guardar"));
+            //KTxtFicheroNL.Text = ControladorIdioma.GetTexto("Al_RutaFicAqui");
         }
         private int AgregarComboCheckItem(CheckedComboBox checkedCombo, object item)
         {
@@ -500,6 +501,21 @@ namespace OpenLibraryEditor.Forms
             ejecutable.ShowDialog();
             RellenarEjecutable();
         }
+        private void KTxtFicheroNL_Enter(object sender, EventArgs e)
+        {
+            if (KTxtFicheroNL.Text.Equals(ControladorIdioma.GetTexto("Al_RutaFicAqui")))
+            {
+                KTxtFicheroNL.Text = "";
+            }
+        }
+
+        private void KTxtFicheroNL_Leave(object sender, EventArgs e)
+        {
+            if (KTxtFicheroNL.Text.Equals(""))
+            {
+                KTxtFicheroNL.Text = ControladorIdioma.GetTexto("Al_RutaFicAqui");
+            }
+        }
         #endregion
         #region guardar
         private void GBtnGuardarLibro_Click(object sender, EventArgs e)
@@ -695,5 +711,6 @@ namespace OpenLibraryEditor.Forms
         }
         #endregion
 
+       
     }
 }

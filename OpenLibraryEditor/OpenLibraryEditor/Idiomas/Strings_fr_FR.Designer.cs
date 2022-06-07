@@ -2113,6 +2113,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cliquez ici pour ajouter une nouvelle URL.
+        /// </summary>
+        internal static string Con_TTMasUrl {
+            get {
+                return ResourceManager.GetString("Con_TTMasUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cliquez ici pour supprimer l&apos;URL sélectionnée.
+        /// </summary>
+        internal static string Con_TTMenosUrl {
+            get {
+                return ResourceManager.GetString("Con_TTMenosUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cliquez ici pour modifier votre mot de passe pour accéder à l&apos;application.
         /// </summary>
         internal static string Con_TTModificar {
@@ -4350,6 +4368,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string NumeroPuerto {
             get {
                 return ResourceManager.GetString("NumeroPuerto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tome.
+        /// </summary>
+        internal static string NumeroVolumen {
+            get {
+                return ResourceManager.GetString("NumeroVolumen", resourceCulture);
             }
         }
         
