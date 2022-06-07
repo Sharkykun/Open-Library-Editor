@@ -59,7 +59,7 @@ namespace OpenLibraryEditor.DatosLibros
                     cmd += ejecutable.Argumentos;
                 }
 
-                if (File.Exists(ejecutable.RutaEjecutable))
+                if (File.Exists(ejecutable.RutaEjecutable) && File.Exists(rutaFichero))
                 {
                     //Lanzar proceso
                     Process p = Process.Start(exe, cmd);

@@ -272,7 +272,7 @@ namespace OpenLibraryEditor.Forms
         private void MBtnMasIP_Click(object sender, EventArgs e)
         {
             //Falta mensaje de error si campos vacios
-            InfoBaseDatos info = new InfoBaseDatos("Nuevo Servidor", "0.0.0.0", 3306);
+            InfoBaseDatos info = new InfoBaseDatos("Nuevo Servidor", "Ruta Servidor", 3306);
             CmbIP.Items.Add(info);
             CmbIP.SelectedItem = info;
         }
