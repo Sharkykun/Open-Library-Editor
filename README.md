@@ -1,6 +1,6 @@
 Para un correcto uso de la aplicación es necesario tener instaladas en el ordenador unas fuentes concretas, disponibles gratuitamente en Google Fonts:
-	- Fuente Merienda: https://fonts.google.com/specimen/Merienda?query=Merienda
-	- Fuente Merienda One: https://fonts.google.com/specimen/Merienda+One?query=Merienda
+- Fuente Merienda: https://fonts.google.com/specimen/Merienda?query=Merienda
+- Fuente Merienda One: https://fonts.google.com/specimen/Merienda+One?query=Merienda
 
 Pero si se desea se puede utilizar la aplicación instalándola a través del setup incluido en el proyecto, el cuál ya instalará las fuentes anteriores en tu ordenador 
 directamente.
