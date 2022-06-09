@@ -453,6 +453,9 @@
   <data name="Al_TTVolumen" xml:space="preserve">
     <value>Establece el volumen del libro</value>
   </data>
+  <data name="AniadidoOK" xml:space="preserve">
+    <value>Libro añadido correctamente</value>
+  </data>
   <data name="AutorNoExiste" xml:space="preserve">
     <value>El autor no existe en la base de datos</value>
   </data>
@@ -885,6 +888,12 @@
   <data name="ED_TTPcb" xml:space="preserve">
     <value>Imagen de la editorial</value>
   </data>
+  <data name="EjecutableBorradoOK" xml:space="preserve">
+    <value>Ejecutable borrado correctamente</value>
+  </data>
+  <data name="EjecutableGuardadoOK" xml:space="preserve">
+    <value>Ejecutable guardado correctamente</value>
+  </data>
   <data name="Ej_Argumentos" xml:space="preserve">
     <value>Argumentos</value>
   </data>
@@ -963,6 +972,9 @@
   <data name="ErrorLogin" xml:space="preserve">
     <value>No se pudo conectar a la base de datos con el usuario registrado</value>
   </data>
+  <data name="Error_AdminNoBorrar" xml:space="preserve">
+    <value>Un administrador no se puede borrar de la base de datos</value>
+  </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>El nombre y la ruta no pueden estar vacíos.</value>
   </data>
@@ -977,6 +989,9 @@
   </data>
   <data name="Error_LibroExiste" xml:space="preserve">
     <value>No se puede añadir el libro porque ya existe en la biblioteca</value>
+  </data>
+  <data name="Error_NoCambioPermisos" xml:space="preserve">
+    <value>Un administrador no se puede cambiar los permisos de la base de datos</value>
   </data>
   <data name="Error_NoEnlace" xml:space="preserve">
     <value>No hay ningún enlace guardado</value>
@@ -1095,6 +1110,9 @@
   <data name="Guardar" xml:space="preserve">
     <value>Guardar</value>
   </data>
+  <data name="Info_BorradoOk" xml:space="preserve">
+    <value>La información de usuario de este libro se ha borrado correctamente de la base de datos</value>
+  </data>
   <data name="Info_GuardadoOk" xml:space="preserve">
     <value>Se ha guardado correctamente.</value>
   </data>
@@ -1131,8 +1149,14 @@
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
   </data>
+  <data name="LibroBorradoOk" xml:space="preserve">
+    <value>Libro borrado correctamente</value>
+  </data>
   <data name="LibroGuardadoOK" xml:space="preserve">
     <value>Se ha guardado la información del libro correctamente en la base de datos</value>
+  </data>
+  <data name="LibroNoExiste" xml:space="preserve">
+    <value>Este libro no existe en la base de datos</value>
   </data>
   <data name="LibroRepetido" xml:space="preserve">
     <value>El libro ya se encuentra en la base de datos</value>
