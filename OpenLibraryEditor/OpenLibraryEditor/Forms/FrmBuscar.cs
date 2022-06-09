@@ -317,6 +317,8 @@ namespace OpenLibraryEditor.Forms
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Libro añadido correctamente.");
                         }
                         catch (IdRepetidoException)
                         {
@@ -407,6 +409,9 @@ namespace OpenLibraryEditor.Forms
 
                                     
                                 }
+                                //---------------
+                                VentanaWindowsComun.MensajeInformacion("Libro añadido correctamente.");
+
                                 ConexionBD.CerrarConexion();
                             }
                         }
@@ -517,6 +522,9 @@ namespace OpenLibraryEditor.Forms
                                  UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
                                  UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
                                  UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+
+                    //---------------
+                    VentanaWindowsComun.MensajeInformacion("Libro añadido correctamente.");
                 }
                 catch (IdRepetidoException)
                 {

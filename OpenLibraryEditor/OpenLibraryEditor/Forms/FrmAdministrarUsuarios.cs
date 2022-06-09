@@ -15,12 +15,6 @@ namespace OpenLibraryEditor.Forms
 {
     public partial class FrmAdministrarUsuarios : Form
     {
-        /*TODO:
-        - Añadir texto de idioma al boton editar.
-        - Cargar usuarios reales desde BD compartida.
-        - Hacer comprobaciones con la BD compartida para verificar si mostrar 
-        el boton editar (ver si eres administrador o no). Aplicar para que el usuario conectado pueda editarse a si mismo la contraseña, pero no el tipo.
-         */
         private List<InfoUsuarioBD> listaUsuarios = new List<InfoUsuarioBD>();
         private List<InfoUsuarioBD> listaUsuariosFiltrada;
         private InfoUsuarioBD usuarioActual;
@@ -227,21 +221,27 @@ namespace OpenLibraryEditor.Forms
 
         private void MBtnMenosUsu_Click(object sender, EventArgs e)
         {
-            if (VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Adm_EsteUsu")) == DialogResult.Yes)
+            if (usuarioActual.TipoUsuario != "Administrador")
             {
-                if (ConexionBD.AbrirConexion())
+                if (VentanaWindowsComun.MensajeBorrarObjeto(ControladorIdioma.GetTexto("Adm_EsteUsu")) == DialogResult.Yes)
                 {
-                    //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
-                    if(LecturaBD.SelectUsuarioLibroPorUsuario(usuarioActual.Nombre) > 0)
-                        EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
+                    if (ConexionBD.AbrirConexion())
+                    {
+                        //Borrar de UsuarioLibro todas las relaciones con info de usuarios con ese libro
+                        if (LecturaBD.SelectUsuarioLibroPorUsuario(usuarioActual.Nombre) > 0)
+                            EscrituraBD.DeleteUsuarioLibroDesdeUsuario(usuarioActual);
 
-                    EscrituraBD.DeleteUsuario(usuarioActual);
-                    ConexionBD.CerrarConexion();
-                    ObtenerUsuariosBD();
-                    ColocarUsuarios(listaUsuarios);
-                    KgbDatosUsuario.Visible = false;
+                        EscrituraBD.DeleteUsuario(usuarioActual);
+                        ConexionBD.CerrarConexion();
+                        ObtenerUsuariosBD();
+                        ColocarUsuarios(listaUsuarios);
+                        KgbDatosUsuario.Visible = false;
+                    }
                 }
             }
+            else
+                //---------------
+                VentanaWindowsComun.MensajeInformacion("Un administrador no se puede borrar de la base de datos.");
         }
 
         private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
@@ -265,17 +265,23 @@ namespace OpenLibraryEditor.Forms
             }
             else
             {
-                if (KCmbTipoUsu.SelectedIndex == 0)
-                    usuarioActual.TipoUsuario = "Editor";
-                if (KCmbTipoUsu.SelectedIndex == 1)
+                if (usuarioActual.TipoUsuario != "Administrador")
                 {
-                    usuarioActual.TipoUsuario = "Usuario";
-                }
+                    if (KCmbTipoUsu.SelectedIndex == 0)
+                        usuarioActual.TipoUsuario = "Editor";
+                    if (KCmbTipoUsu.SelectedIndex == 1)
+                    {
+                        usuarioActual.TipoUsuario = "Usuario";
+                    }
 
-                EscrituraBD.UpdateTipoUsuario(usuarioActual.TipoUsuario, usuarioActual);
-                ObtenerUsuariosBD();
-                ColocarUsuarios(listaUsuarios);
-                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuModificado"));
+                    EscrituraBD.UpdateTipoUsuario(usuarioActual.TipoUsuario, usuarioActual);
+                    ObtenerUsuariosBD();
+                    ColocarUsuarios(listaUsuarios);
+                    VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("UsuModificado"));
+                }
+                else
+                    //---------------
+                    VentanaWindowsComun.MensajeInformacion("Un administrador no se puede cambiar los permisos de la base de datos.");
             }
             
         }
