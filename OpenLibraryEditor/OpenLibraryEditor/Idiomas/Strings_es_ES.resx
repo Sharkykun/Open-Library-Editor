@@ -117,6 +117,1056 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccionesLibro" xml:space="preserve">
+    <value>Necesitas una ruta de fichero válida y un ejecutable para poder guardar</value>
+  </data>
+  <data name="Aceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="Actualizar" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="ActualizarConBD" xml:space="preserve">
+    <value>Actualizar con BD</value>
+  </data>
+  <data name="Adm_Adm" xml:space="preserve">
+    <value>Administrador</value>
+  </data>
+  <data name="Adm_Administrar" xml:space="preserve">
+    <value>Administrar usuarios</value>
+  </data>
+  <data name="Adm_CmbTipo" xml:space="preserve">
+    <value>Tipo de usuario</value>
+  </data>
+  <data name="Adm_DatosUsu" xml:space="preserve">
+    <value>Datos del usuario</value>
+  </data>
+  <data name="Adm_Editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Adm_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Adm_EsteUsu" xml:space="preserve">
+    <value>este usuario</value>
+  </data>
+  <data name="Adm_FrmTitulo" xml:space="preserve">
+    <value>Usuarios de mi base de datos</value>
+  </data>
+  <data name="Adm_MasUsu" xml:space="preserve">
+    <value>Haz click aquí para añadir un nuevo usuario</value>
+  </data>
+  <data name="Adm_MenosUsu" xml:space="preserve">
+    <value>Haz click aquí para eliminar al usuario seleccionado</value>
+  </data>
+  <data name="Adm_Nombre" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Adm_NombreUsu" xml:space="preserve">
+    <value>Nombre usuario:</value>
+  </data>
+  <data name="Adm_Tipo" xml:space="preserve">
+    <value>Tipo de usuario:</value>
+  </data>
+  <data name="Adm_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de un usuario para editarlo</value>
+  </data>
+  <data name="Adm_Usu" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Al_Accion" xml:space="preserve">
+    <value>la acción</value>
+  </data>
+  <data name="Al_ACEje" xml:space="preserve">
+    <value>Ejecutable</value>
+  </data>
+  <data name="Al_ACFic" xml:space="preserve">
+    <value>Fichero</value>
+  </data>
+  <data name="Al_DG10" xml:space="preserve">
+    <value>ISBN 10</value>
+  </data>
+  <data name="Al_DG13" xml:space="preserve">
+    <value>ISBN 13</value>
+  </data>
+  <data name="Al_DG18" xml:space="preserve">
+    <value>Solo para 18+</value>
+  </data>
+  <data name="Al_DGCapi" xml:space="preserve">
+    <value>Número de capítulos</value>
+  </data>
+  <data name="Al_DGEdicion" xml:space="preserve">
+    <value>Edición</value>
+  </data>
+  <data name="Al_DGEditorial" xml:space="preserve">
+    <value>Editorial</value>
+  </data>
+  <data name="Al_DGEnlace" xml:space="preserve">
+    <value>Enlace de referencia</value>
+  </data>
+  <data name="Al_DGEtiquetas" xml:space="preserve">
+    <value>Etiquetas</value>
+  </data>
+  <data name="Al_DGGeneros" xml:space="preserve">
+    <value>Géneros</value>
+  </data>
+  <data name="Al_DGIdioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Al_DGIdiOri" xml:space="preserve">
+    <value>Idioma original</value>
+  </data>
+  <data name="Al_DGInclusion" xml:space="preserve">
+    <value>Inclusión en BBDD</value>
+  </data>
+  <data name="Al_DGPag" xml:space="preserve">
+    <value>Número de páginas</value>
+  </data>
+  <data name="Al_DGPersonas" xml:space="preserve">
+    <value>Personas</value>
+  </data>
+  <data name="Al_DGPub" xml:space="preserve">
+    <value>Fecha publicación</value>
+  </data>
+  <data name="Al_DGSerie" xml:space="preserve">
+    <value>Serie</value>
+  </data>
+  <data name="Al_DGSinopsis" xml:space="preserve">
+    <value>Sinopsis</value>
+  </data>
+  <data name="Al_DGSubtitulo" xml:space="preserve">
+    <value>Subtítulo</value>
+  </data>
+  <data name="Al_DGTipo" xml:space="preserve">
+    <value>Tipo de libro</value>
+  </data>
+  <data name="Al_DGTituAlt" xml:space="preserve">
+    <value>Título alternativo</value>
+  </data>
+  <data name="Al_DGTitulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Al_DGVolumen" xml:space="preserve">
+    <value>Volumen</value>
+  </data>
+  <data name="Al_DUCap" xml:space="preserve">
+    <value>Capítulo actual</value>
+  </data>
+  <data name="Al_DUComentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Al_DUComienzo" xml:space="preserve">
+    <value>Fecha de comienzo</value>
+  </data>
+  <data name="Al_DUEstado" xml:space="preserve">
+    <value>Estado de lectura</value>
+  </data>
+  <data name="Al_DUFav" xml:space="preserve">
+    <value>Favorito</value>
+  </data>
+  <data name="Al_DUFin" xml:space="preserve">
+    <value>Fecha de finalización</value>
+  </data>
+  <data name="Al_DUleido" xml:space="preserve">
+    <value>Veces leído</value>
+  </data>
+  <data name="Al_DUOcultar" xml:space="preserve">
+    <value>Ocultar</value>
+  </data>
+  <data name="Al_DUPunt" xml:space="preserve">
+    <value>Puntuación</value>
+  </data>
+  <data name="Al_DUTiempoLec" xml:space="preserve">
+    <value>Tiempo de lectura</value>
+  </data>
+  <data name="Al_ElLibro" xml:space="preserve">
+    <value>el libro</value>
+  </data>
+  <data name="Al_Guardar" xml:space="preserve">
+    <value>Guardar libro</value>
+  </data>
+  <data name="Al_IMContra" xml:space="preserve">
+    <value>Seleccionar contraportada</value>
+  </data>
+  <data name="Al_IMPortada" xml:space="preserve">
+    <value>Seleccionar portada</value>
+  </data>
+  <data name="Al_Modificar" xml:space="preserve">
+    <value>Open Library Editor - Modificar libro</value>
+  </data>
+  <data name="Al_RutaFicAqui" xml:space="preserve">
+    <value>Ruta fichero aquí</value>
+  </data>
+  <data name="Al_TabAcciones" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Al_TabDatosGen" xml:space="preserve">
+    <value>Datos generales</value>
+  </data>
+  <data name="Al_TabDatosUsu" xml:space="preserve">
+    <value>Datos usuario</value>
+  </data>
+  <data name="Al_TabImg" xml:space="preserve">
+    <value>Imágenes</value>
+  </data>
+  <data name="Al_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Nuevo Libro</value>
+  </data>
+  <data name="Al_TT10" xml:space="preserve">
+    <value>Escribe aquí el ISBN 10 del libro (si tuviera)</value>
+  </data>
+  <data name="Al_TT13" xml:space="preserve">
+    <value>Escribe aquí el ISBN 13 del libro </value>
+  </data>
+  <data name="Al_TT18" xml:space="preserve">
+    <value>Libro apto solo para mayores de 18 años</value>
+  </data>
+  <data name="Al_TTBorrarContra" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de la contraportada del libro</value>
+  </data>
+  <data name="Al_TTBorrarPortada" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de portada del libro</value>
+  </data>
+  <data name="Al_TTBtnBuscarFichero" xml:space="preserve">
+    <value>Haz click para buscar la ruta del fichero</value>
+  </data>
+  <data name="Al_TTBtnContra" xml:space="preserve">
+    <value>Haz click para seleccionar la imagen de contraportada del libro</value>
+  </data>
+  <data name="Al_TTBtnGuardar" xml:space="preserve">
+    <value>Guarda la nueva acción</value>
+  </data>
+  <data name="Al_TTBtnMasAcc" xml:space="preserve">
+    <value>Haz click para añadir una nueva acción</value>
+  </data>
+  <data name="Al_TTBtnMasEdi" xml:space="preserve">
+    <value>Haz click para añadir una nueva editorial</value>
+  </data>
+  <data name="Al_TTBtnMasEti" xml:space="preserve">
+    <value>Haz click para añadir una nueva etiqueta</value>
+  </data>
+  <data name="Al_TTBtnMasGen" xml:space="preserve">
+    <value>Haz click para añadir un nuevo género</value>
+  </data>
+  <data name="Al_TTBtnMasPer" xml:space="preserve">
+    <value>Haz click para añadir una nueva persona</value>
+  </data>
+  <data name="Al_TTBtnMasSer" xml:space="preserve">
+    <value>Haz click para añadir una nueva serie</value>
+  </data>
+  <data name="Al_TTBtnMasTipo" xml:space="preserve">
+    <value>Haz click para añadir un nuevo tipo de libro</value>
+  </data>
+  <data name="Al_TTBtnMenosAcc" xml:space="preserve">
+    <value>Haz click para eliminar la acción seleccionada</value>
+  </data>
+  <data name="Al_TTBtnMenosTipo" xml:space="preserve">
+    <value>Haz click para eliminar el tipo de libro seleccionado</value>
+  </data>
+  <data name="Al_TTBtnPortada" xml:space="preserve">
+    <value>Haz click para seleccionar la imagen de portada del libro</value>
+  </data>
+  <data name="Al_TTCapi" xml:space="preserve">
+    <value>Establece el número de capítulos del libro</value>
+  </data>
+  <data name="Al_TTCapiActual" xml:space="preserve">
+    <value>Establece el capítulo del libro en el que te encuentras</value>
+  </data>
+  <data name="Al_TTCmbEdi" xml:space="preserve">
+    <value>Selecciona la editorial del libro</value>
+  </data>
+  <data name="Al_TTCmbEj" xml:space="preserve">
+    <value>Selecciona el ejecutable con el que abrir el libro</value>
+  </data>
+  <data name="Al_TTCmbTipo" xml:space="preserve">
+    <value>Selecciona el tipo de libro</value>
+  </data>
+  <data name="Al_TTCome" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre el libro</value>
+  </data>
+  <data name="Al_TTEdicion" xml:space="preserve">
+    <value>Establece la edición del libro</value>
+  </data>
+  <data name="Al_TTEnlace" xml:space="preserve">
+    <value>Enlace de referencia del libro</value>
+  </data>
+  <data name="Al_TTEstado" xml:space="preserve">
+    <value>Selecciona el estado de lectura del libro</value>
+  </data>
+  <data name="Al_TTEtiquetas" xml:space="preserve">
+    <value>Selecciona las etiquetas que le pondrías al libro</value>
+  </data>
+  <data name="Al_TTFav" xml:space="preserve">
+    <value>Seleccciona para añadir el libro a tus favoritos</value>
+  </data>
+  <data name="Al_TTGeneros" xml:space="preserve">
+    <value>Selecciona el género al que pertenece el libro</value>
+  </data>
+  <data name="Al_TTIdi" xml:space="preserve">
+    <value>Selecciona el idioma de lectura del libro</value>
+  </data>
+  <data name="Al_TTIdiOri" xml:space="preserve">
+    <value>Selecciona el idioma original del libro</value>
+  </data>
+  <data name="Al_TTLsvAcciones" xml:space="preserve">
+    <value>Selecciona un fichero para editarlo</value>
+  </data>
+  <data name="Al_TTMasEJ" xml:space="preserve">
+    <value>Haz click para añadir un nuevo ejecutable</value>
+  </data>
+  <data name="Al_TTNuevoTipoLibro" xml:space="preserve">
+    <value>Haz click aquí para añadir un nuevo tipo de libro</value>
+  </data>
+  <data name="Al_TTOcu" xml:space="preserve">
+    <value>Seleccciona para ocultar el libro</value>
+  </data>
+  <data name="Al_TTPag" xml:space="preserve">
+    <value>Establece el número de páginas del libro</value>
+  </data>
+  <data name="Al_TTPersonas" xml:space="preserve">
+    <value>Selecciona las personas creadoras del libro</value>
+  </data>
+  <data name="Al_TTPunt" xml:space="preserve">
+    <value>Establece la puntuación que le otorgas al libro</value>
+  </data>
+  <data name="Al_TTSerie" xml:space="preserve">
+    <value>Selecciona la serie a la que pertenece el libro</value>
+  </data>
+  <data name="Al_TTSinopsis" xml:space="preserve">
+    <value>Escribe la sinopsis del libro</value>
+  </data>
+  <data name="Al_TTTiempo" xml:space="preserve">
+    <value>Formato HH:MM:SS</value>
+  </data>
+  <data name="Al_TTTxtSubti" xml:space="preserve">
+    <value>Escribe aquí el subtítulo del libro</value>
+  </data>
+  <data name="Al_TTTxtTAlt" xml:space="preserve">
+    <value>Escribe aquí el título alternativo del libro</value>
+  </data>
+  <data name="Al_TTTxtTitulo" xml:space="preserve">
+    <value>Escribe aquí el título del libro</value>
+  </data>
+  <data name="Al_TTVecLeido" xml:space="preserve">
+    <value>Establece las veces que has leído el libro</value>
+  </data>
+  <data name="Al_TTVolumen" xml:space="preserve">
+    <value>Establece el volumen del libro</value>
+  </data>
+  <data name="AniadidoOK" xml:space="preserve">
+    <value>Libro añadido correctamente</value>
+  </data>
+  <data name="AutorNoExiste" xml:space="preserve">
+    <value>El autor no existe en la base de datos</value>
+  </data>
+  <data name="AutorRepetido" xml:space="preserve">
+    <value>El autor ya existe en la base de datos</value>
+  </data>
+  <data name="Au_Alias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="Au_BtnMasOcu" xml:space="preserve">
+    <value>Haz click para añadir una nueva ocupación</value>
+  </data>
+  <data name="Au_BtnMenosOcu" xml:space="preserve">
+    <value>Haz click para eliminar la ocupación seleccionada</value>
+  </data>
+  <data name="Au_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Au_ElAutor" xml:space="preserve">
+    <value>el autor</value>
+  </data>
+  <data name="Au_Enlace" xml:space="preserve">
+    <value>Enlace de referencia</value>
+  </data>
+  <data name="Au_FDef" xml:space="preserve">
+    <value>Fecha de defunción</value>
+  </data>
+  <data name="Au_FNac" xml:space="preserve">
+    <value>Fecha de nacimiento</value>
+  </data>
+  <data name="Au_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Au_MasImg" xml:space="preserve">
+    <value>Haz click para añadir una imagen de la persona</value>
+  </data>
+  <data name="Au_MenosImg" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de la persona</value>
+  </data>
+  <data name="Au_Nombre" xml:space="preserve">
+    <value>Nombre completo *</value>
+  </data>
+  <data name="Au_NuevaPersona" xml:space="preserve">
+    <value>Nueva Persona</value>
+  </data>
+  <data name="Au_Ocupacion" xml:space="preserve">
+    <value>Ocupación</value>
+  </data>
+  <data name="Au_Pcb" xml:space="preserve">
+    <value>Imagen de la persona</value>
+  </data>
+  <data name="Au_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Autores</value>
+  </data>
+  <data name="Au_TTActualizar" xml:space="preserve">
+    <value>Haz click para actualizar con la base datos</value>
+  </data>
+  <data name="Au_TTAlias" xml:space="preserve">
+    <value>Escribe el alias de la persona (si tuviera)</value>
+  </data>
+  <data name="Au_TTBtnMasLsv" xml:space="preserve">
+    <value>Haz click para añadir una nueva persona</value>
+  </data>
+  <data name="Au_TTBtnMenosLsv" xml:space="preserve">
+    <value>Haz click para eliminar a la persona seleccionada</value>
+  </data>
+  <data name="Au_TTComentario" xml:space="preserve">
+    <value>Escribe tus comentarios sobre la persona</value>
+  </data>
+  <data name="Au_TTEnlace" xml:space="preserve">
+    <value>Enlace de referencia de la persona</value>
+  </data>
+  <data name="Au_TTLsv" xml:space="preserve">
+    <value>Selecciona un nombre para ver/modificar</value>
+  </data>
+  <data name="Au_TTNombre" xml:space="preserve">
+    <value>Escribe el nombre y apellidos de la persona</value>
+  </data>
+  <data name="Au_TTOcupacion" xml:space="preserve">
+    <value>Selecciona la ocupación de la persona</value>
+  </data>
+  <data name="Au_TTVivo" xml:space="preserve">
+    <value>Selecciona si el autor sigue vivo</value>
+  </data>
+  <data name="Au_Vivo" xml:space="preserve">
+    <value>Está vivo:</value>
+  </data>
+  <data name="BD_DApp" xml:space="preserve">
+    <value>Datos para registrarse en la aplicación</value>
+  </data>
+  <data name="BD_DServidor" xml:space="preserve">
+    <value>Datos del servidor</value>
+  </data>
+  <data name="BD_Puerto" xml:space="preserve">
+    <value>Puerto: *</value>
+  </data>
+  <data name="BD_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Crear base de datos</value>
+  </data>
+  <data name="BD_Url" xml:space="preserve">
+    <value>Url: *</value>
+  </data>
+  <data name="Bienvenido" xml:space="preserve">
+    <value>Bienvenid@ a Open Library Editor</value>
+  </data>
+  <data name="BorradoCorrectamente" xml:space="preserve">
+    <value> fue borrado correctamente</value>
+  </data>
+  <data name="BorradoOK" xml:space="preserve">
+    <value>Se ha borrado correctamente de la base de datos</value>
+  </data>
+  <data name="BuscarPor" xml:space="preserve">
+    <value>Buscar por:</value>
+  </data>
+  <data name="BusquedaPor" xml:space="preserve">
+    <value>Selecciona el elemento por el que quieres realizar la búsqueda</value>
+  </data>
+  <data name="Bus_BuscarEn" xml:space="preserve">
+    <value>Buscar en:</value>
+  </data>
+  <data name="Bus_BusquedaEn" xml:space="preserve">
+    <value>Selecciona la base de datos en la que quieres realizar la búsqueda</value>
+  </data>
+  <data name="Bus_libro" xml:space="preserve">
+    <value>el libro</value>
+  </data>
+  <data name="Bus_Recomendaciones" xml:space="preserve">
+    <value>Recomendaciones</value>
+  </data>
+  <data name="Bus_TTDobleClick" xml:space="preserve">
+    <value>Haz doble click sobre el libro para añadirlo a tu biblioteca</value>
+  </data>
+  <data name="CambiarFoto" xml:space="preserve">
+    <value>Haz click aquí para cambiar tu foto de perfil</value>
+  </data>
+  <data name="CamposObligatorios" xml:space="preserve">
+    <value>( * ) Campos obligatorios </value>
+  </data>
+  <data name="Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Cerrar" xml:space="preserve">
+    <value>Cerrar </value>
+  </data>
+  <data name="CerrarDetalles" xml:space="preserve">
+    <value>Haz click aquí para cerrar el panel de detalles del libro</value>
+  </data>
+  <data name="CmbAdmUsu" xml:space="preserve">
+    <value>Selecciona el tipo de usuario que quieres asignarle al usuario seleccionado</value>
+  </data>
+  <data name="CmbBuscar_Autor" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="CmbBuscar_Editorial" xml:space="preserve">
+    <value>Editorial</value>
+  </data>
+  <data name="CmbBuscar_Genero" xml:space="preserve">
+    <value>Género</value>
+  </data>
+  <data name="CmbBuscar_TituloIsbn" xml:space="preserve">
+    <value>Título / ISBN</value>
+  </data>
+  <data name="ContraObligatoria" xml:space="preserve">
+    <value>Contraseña: *</value>
+  </data>
+  <data name="ContraServidor" xml:space="preserve">
+    <value>Escribe aquí la contraseña de tu usuario de la base de datos (si no tiene dejar en blanco)</value>
+  </data>
+  <data name="ContraUsu" xml:space="preserve">
+    <value>Escribe aquí la contraseña del nuevo usuario</value>
+  </data>
+  <data name="ContraUsuApp" xml:space="preserve">
+    <value>Escribe aquí tu contraseña para registrarte en la aplicación</value>
+  </data>
+  <data name="Con_AClaro" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="Con_AConfiDoble" xml:space="preserve">
+    <value>Configurar la funcionalidad al hacer doble click sobre un libro</value>
+  </data>
+  <data name="Con_ADetalles" xml:space="preserve">
+    <value>Lista detalles</value>
+  </data>
+  <data name="Con_ADoble" xml:space="preserve">
+    <value>Doble click</value>
+  </data>
+  <data name="Con_AEligeIdi" xml:space="preserve">
+    <value>Elige tu idioma. Los cambios se aplicarán tras reiniciar la aplicación</value>
+  </data>
+  <data name="Con_AEstTema" xml:space="preserve">
+    <value>Establece el tema predeterminado de la aplicación. Se aplicará al reiniciar la aplicación</value>
+  </data>
+  <data name="Con_AEstVisu" xml:space="preserve">
+    <value>Establece la visualización por defecto de tu biblioteca al iniciar la aplicación</value>
+  </data>
+  <data name="Con_AIdioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Con_AMosaico" xml:space="preserve">
+    <value>Mosaico</value>
+  </data>
+  <data name="Con_AOscuro" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="Con_Apariencia" xml:space="preserve">
+    <value>Apariencia</value>
+  </data>
+  <data name="Con_ATema" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Con_ATTCmbDoble" xml:space="preserve">
+    <value>Selecciona la funcionalidad al hacer doble click</value>
+  </data>
+  <data name="Con_ATTComboId" xml:space="preserve">
+    <value>Selecciona tu idioma</value>
+  </data>
+  <data name="Con_AVisu" xml:space="preserve">
+    <value>Visualización biblioteca</value>
+  </data>
+  <data name="Con_BtnRestaurar" xml:space="preserve">
+    <value>Restaurar valores</value>
+  </data>
+  <data name="Con_CmbDobleEditar" xml:space="preserve">
+    <value>Editar Información Libro</value>
+  </data>
+  <data name="Con_CmbDobleEjecutar" xml:space="preserve">
+    <value>Ejecutar Libro</value>
+  </data>
+  <data name="Con_ContraNueva" xml:space="preserve">
+    <value>Contraseña nueva</value>
+  </data>
+  <data name="Con_DatosUsu" xml:space="preserve">
+    <value>Modificar datos de acceso</value>
+  </data>
+  <data name="Con_Descargas" xml:space="preserve">
+    <value>Descargas web</value>
+  </data>
+  <data name="Con_DWAutores" xml:space="preserve">
+    <value>Autores</value>
+  </data>
+  <data name="Con_DWDetalles" xml:space="preserve">
+    <value>Detalles del libro</value>
+  </data>
+  <data name="Con_DWEditoriales" xml:space="preserve">
+    <value>Editoriales</value>
+  </data>
+  <data name="Con_DWEtiquetas" xml:space="preserve">
+    <value>Etiquetas</value>
+  </data>
+  <data name="Con_DWGeneros" xml:space="preserve">
+    <value>Géneros</value>
+  </data>
+  <data name="Con_DWGrande" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="Con_DWMedi" xml:space="preserve">
+    <value>Mediana</value>
+  </data>
+  <data name="Con_DWMini" xml:space="preserve">
+    <value>Miniatura</value>
+  </data>
+  <data name="Con_DWSelecciona" xml:space="preserve">
+    <value>Selecciona los campos que quieras actualizar desde la web</value>
+  </data>
+  <data name="Con_DWSeries" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="Con_DWTam" xml:space="preserve">
+    <value>Tamaño imagen libro</value>
+  </data>
+  <data name="Con_GCargar" xml:space="preserve">
+    <value>Cargar la última base de datos abierta</value>
+  </data>
+  <data name="Con_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Con_GExplicito" xml:space="preserve">
+    <value>Contenido explícito</value>
+  </data>
+  <data name="Con_Google" xml:space="preserve">
+    <value>Clave Google Books</value>
+  </data>
+  <data name="Con_GPermitir" xml:space="preserve">
+    <value>Permitir la visualización de contenidos clasificados como explícitos</value>
+  </data>
+  <data name="Con_GRecordar" xml:space="preserve">
+    <value>Recordar la última base de datos abierta y cargarla automáticamente al iniciar la aplicación</value>
+  </data>
+  <data name="Con_Gruta" xml:space="preserve">
+    <value>Establecer la ruta de la base de datos local</value>
+  </data>
+  <data name="Con_GTTCargar" xml:space="preserve">
+    <value>Selecciona para recordar la base de datos</value>
+  </data>
+  <data name="Con_GTTExp" xml:space="preserve">
+    <value>Selecciona para permitir contenido explícito</value>
+  </data>
+  <data name="Con_GTTRuta" xml:space="preserve">
+    <value>Haz click para seleccionar la ruta</value>
+  </data>
+  <data name="Con_GUbicacion" xml:space="preserve">
+    <value>Ubicación base de datos local</value>
+  </data>
+  <data name="Con_InfoServidor" xml:space="preserve">
+    <value>la información del servidor</value>
+  </data>
+  <data name="Con_MailActual" xml:space="preserve">
+    <value>Email actual</value>
+  </data>
+  <data name="Con_MailNuevo" xml:space="preserve">
+    <value>Email nuevo</value>
+  </data>
+  <data name="Con_RepetirContra" xml:space="preserve">
+    <value>Repetir contraseña</value>
+  </data>
+  <data name="Con_Servidor" xml:space="preserve">
+    <value>Servidor web</value>
+  </data>
+  <data name="Con_SubGoogle" xml:space="preserve">
+    <value>Establece la clave privada de Google Books</value>
+  </data>
+  <data name="Con_SWCmbIP" xml:space="preserve">
+    <value>Selecciona la Url del servidor web</value>
+  </data>
+  <data name="Con_SWEstTit" xml:space="preserve">
+    <value>Establece el título de tu servidor web</value>
+  </data>
+  <data name="Con_SWIP" xml:space="preserve">
+    <value>Direcciones guardadas</value>
+  </data>
+  <data name="Con_SWPuerto" xml:space="preserve">
+    <value>Puerto</value>
+  </data>
+  <data name="Con_SWTitulo" xml:space="preserve">
+    <value>Título del servidor web</value>
+  </data>
+  <data name="Con_SWTTPuerto" xml:space="preserve">
+    <value>Establece el puerto por defecto del servidor web</value>
+  </data>
+  <data name="Con_SWTTTitulo" xml:space="preserve">
+    <value>Escribe aquí el título de tu servidor web</value>
+  </data>
+  <data name="Con_Titulo" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Con_TTActualizar" xml:space="preserve">
+    <value>Haz click para actualizar tu email en la base de datos</value>
+  </data>
+  <data name="Con_TTContraNueva" xml:space="preserve">
+    <value>Escribe aquí tu nueva contraseña</value>
+  </data>
+  <data name="Con_TTMailA" xml:space="preserve">
+    <value>Este es tu email actual guardado en la base de datos</value>
+  </data>
+  <data name="Con_TTMailN" xml:space="preserve">
+    <value>Escribe aquí tu nuevo email</value>
+  </data>
+  <data name="Con_TTMasUrl" xml:space="preserve">
+    <value>Haz click aquí para añadir una nueva URL</value>
+  </data>
+  <data name="Con_TTMenosUrl" xml:space="preserve">
+    <value>Haz click aquí para eliminar la URL seleccionada</value>
+  </data>
+  <data name="Con_TTModificar" xml:space="preserve">
+    <value>Haz click aquí para modificar tu contraseña de acceso a la aplicación</value>
+  </data>
+  <data name="Con_TTRepetirContra" xml:space="preserve">
+    <value>Vuelve a escribir tu nueva contraseña aquí</value>
+  </data>
+  <data name="Crear" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="CrearUsuario" xml:space="preserve">
+    <value>Open Library Editor - Crear usuarios</value>
+  </data>
+  <data name="DescargaInfoLibroOK" xml:space="preserve">
+    <value>Se ha descargado la información del libro correctamente</value>
+  </data>
+  <data name="DescargaOK" xml:space="preserve">
+    <value>Se ha descargado correctamente de la base de datos</value>
+  </data>
+  <data name="EditorialNoExiste" xml:space="preserve">
+    <value>La editorial no existe en la base de datos</value>
+  </data>
+  <data name="EditorialRepetida" xml:space="preserve">
+    <value>La editorial ya existe en la base de datos</value>
+  </data>
+  <data name="Edit_Nombre" xml:space="preserve">
+    <value>Nombre: *</value>
+  </data>
+  <data name="ED_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="ED_LaEditorial" xml:space="preserve">
+    <value>la editorial</value>
+  </data>
+  <data name="ED_Lsv" xml:space="preserve">
+    <value>Selecciona el nombre de una editorial para editarla</value>
+  </data>
+  <data name="ED_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="ED_Nombre" xml:space="preserve">
+    <value>Nombre editorial *</value>
+  </data>
+  <data name="ED_NuevaEdi" xml:space="preserve">
+    <value>Nueva Editorial</value>
+  </data>
+  <data name="ED_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Editoriales</value>
+  </data>
+  <data name="ED_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre la editorial</value>
+  </data>
+  <data name="ED_TTLsvMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva editorial</value>
+  </data>
+  <data name="ED_TTLsvMenos" xml:space="preserve">
+    <value>Haz click para eliminar la editorial seleccionada</value>
+  </data>
+  <data name="ED_TTMasImg" xml:space="preserve">
+    <value>Haz click para añadir una imagen para la editorial</value>
+  </data>
+  <data name="ED_TTMenosImg" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de la editorial</value>
+  </data>
+  <data name="ED_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre de la editorial</value>
+  </data>
+  <data name="ED_TTPcb" xml:space="preserve">
+    <value>Imagen de la editorial</value>
+  </data>
+  <data name="EjecutableBorradoOK" xml:space="preserve">
+    <value>Ejecutable borrado correctamente</value>
+  </data>
+  <data name="EjecutableGuardadoOK" xml:space="preserve">
+    <value>Ejecutable guardado correctamente</value>
+  </data>
+  <data name="Ej_Argumentos" xml:space="preserve">
+    <value>Argumentos</value>
+  </data>
+  <data name="Ej_ElEjecutable" xml:space="preserve">
+    <value>el ejecutable</value>
+  </data>
+  <data name="Ej_Extension" xml:space="preserve">
+    <value>Extensión asociada</value>
+  </data>
+  <data name="Ej_LsvExtension" xml:space="preserve">
+    <value>Extensión</value>
+  </data>
+  <data name="Ej_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Ej_Nombre" xml:space="preserve">
+    <value>Nombre ejecutable</value>
+  </data>
+  <data name="Ej_NuevoEjecutable" xml:space="preserve">
+    <value>Nuevo Ejecutable</value>
+  </data>
+  <data name="Ej_Ruta" xml:space="preserve">
+    <value>Ruta del ejecutable</value>
+  </data>
+  <data name="Ej_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Ejecutable</value>
+  </data>
+  <data name="Ej_TTArgumentos" xml:space="preserve">
+    <value>Escribe aquí los argumentos del ejecutable. Ej: -f {file} -b ({file} sirve para cargar el fichero en esa posición)</value>
+  </data>
+  <data name="Ej_TTExtension" xml:space="preserve">
+    <value>Escribe aquí la extensión asociada al libro (pdf, epub...)</value>
+  </data>
+  <data name="Ej_TTLsv" xml:space="preserve">
+    <value>Selecciona un nombre para editarlo</value>
+  </data>
+  <data name="Ej_TTMas" xml:space="preserve">
+    <value>Haz click para añadir un nuevo ejecutable</value>
+  </data>
+  <data name="Ej_TTMenos" xml:space="preserve">
+    <value>Haz click para eliminar el ejecutable seleccionado</value>
+  </data>
+  <data name="Ej_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre del ejecutable</value>
+  </data>
+  <data name="Ej_TTRuta" xml:space="preserve">
+    <value>Haz click para buscar la ruta del ejecutable</value>
+  </data>
+  <data name="EmailObligatorio" xml:space="preserve">
+    <value>Email: *</value>
+  </data>
+  <data name="EmailUsu" xml:space="preserve">
+    <value>Escribe aquí el email del nuevo usuario (le enviaremos un email con sus datos de acceso)</value>
+  </data>
+  <data name="EmailUsuApp" xml:space="preserve">
+    <value>Escribe aquí tu email para registrarte en la aplicación. Te enviaremos un código para verificar el mismo.</value>
+  </data>
+  <data name="ErrorCamposVacios" xml:space="preserve">
+    <value>Todos los campos son obligatorios</value>
+  </data>
+  <data name="ErrorConexion" xml:space="preserve">
+    <value>No se pudo conectar a la base de datos. Compruebe que todos los campos son correctos y que el servidor está funcionando</value>
+  </data>
+  <data name="ErrorConexionBD" xml:space="preserve">
+    <value>Error de conexión a base de datos. Error:</value>
+  </data>
+  <data name="ErrorCredencialesBD" xml:space="preserve">
+    <value>No se pudo conectar al servidor. Revise que la URL del servidor es correcta, y que el usuario y contraseña son de un usuario root o equivalente</value>
+  </data>
+  <data name="ErrorGoogleBooks" xml:space="preserve">
+    <value>La busqueda en Google Books falló. Compruebe que su clave privada es correcta y que ha escrito algo para poder buscar</value>
+  </data>
+  <data name="ErrorIdRepetido" xml:space="preserve">
+    <value>El ISBN del libro ya existe en la biblioteca</value>
+  </data>
+  <data name="ErrorLogin" xml:space="preserve">
+    <value>No se pudo conectar a la base de datos con el usuario registrado</value>
+  </data>
+  <data name="Error_AdminNoBorrar" xml:space="preserve">
+    <value>Un administrador no se puede borrar de la base de datos</value>
+  </data>
+  <data name="Error_CamposVacios" xml:space="preserve">
+    <value>El nombre y la ruta no pueden estar vacíos.</value>
+  </data>
+  <data name="Error_Genero" xml:space="preserve">
+    <value>El nombre no puede estar vacío. El género no puede ser el mismo que el actualmente seleccionado.</value>
+  </data>
+  <data name="Error_IP" xml:space="preserve">
+    <value>La IP no tiene el formato correcto.</value>
+  </data>
+  <data name="Error_Libro" xml:space="preserve">
+    <value>El título y el ISBN no pueden estar vacíos. Tampoco puede estar el ISBN repetido</value>
+  </data>
+  <data name="Error_LibroExiste" xml:space="preserve">
+    <value>No se puede añadir el libro porque ya existe en la biblioteca</value>
+  </data>
+  <data name="Error_NoCambioPermisos" xml:space="preserve">
+    <value>Un administrador no se puede cambiar los permisos de la base de datos</value>
+  </data>
+  <data name="Error_NoEnlace" xml:space="preserve">
+    <value>No hay ningún enlace guardado</value>
+  </data>
+  <data name="Error_NombreVacio" xml:space="preserve">
+    <value>El nombre no puede estar vacío.</value>
+  </data>
+  <data name="Etiqueta" xml:space="preserve">
+    <value>Etiqueta</value>
+  </data>
+  <data name="Et_Categoria" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Et_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Et_LaCategoria" xml:space="preserve">
+    <value>la categoría</value>
+  </data>
+  <data name="Et_LaEtiqueta" xml:space="preserve">
+    <value>la etiqueta</value>
+  </data>
+  <data name="Et_LsvMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva etiqueta</value>
+  </data>
+  <data name="Et_LsvMenos" xml:space="preserve">
+    <value>Haz click para eliminar la etiqueta seleccionada</value>
+  </data>
+  <data name="Et_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Et_MasCat" xml:space="preserve">
+    <value>Haz click para añadir una nueva categoría</value>
+  </data>
+  <data name="Et_MenosCat" xml:space="preserve">
+    <value>Haz click para eliminar la categoría seleccionada</value>
+  </data>
+  <data name="Et_Nombre" xml:space="preserve">
+    <value>Nombre etiqueta</value>
+  </data>
+  <data name="Et_NuevaEti" xml:space="preserve">
+    <value>Nueva Etiqueta</value>
+  </data>
+  <data name="Et_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Etiquetas</value>
+  </data>
+  <data name="Et_TTCategoria" xml:space="preserve">
+    <value>Selecciona una categoría</value>
+  </data>
+  <data name="Et_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre la etiqueta</value>
+  </data>
+  <data name="Et_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de una etiqueta para editarla</value>
+  </data>
+  <data name="Et_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre de la etiqueta</value>
+  </data>
+  <data name="Favoritos" xml:space="preserve">
+    <value>Favoritos</value>
+  </data>
+  <data name="FormatoFecha" xml:space="preserve">
+    <value>Formato DD/MM/YYYY</value>
+  </data>
+  <data name="GeneroNoExiste" xml:space="preserve">
+    <value>El género no existe en la base de datos</value>
+  </data>
+  <data name="GeneroRepetido" xml:space="preserve">
+    <value>El género ya existe en la base de datos</value>
+  </data>
+  <data name="Ge_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Ge_Gen" xml:space="preserve">
+    <value>el género</value>
+  </data>
+  <data name="Ge_Genero" xml:space="preserve">
+    <value>Género Padre</value>
+  </data>
+  <data name="Ge_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Ge_Nombre" xml:space="preserve">
+    <value>Nombre género *</value>
+  </data>
+  <data name="Ge_NuevoGen" xml:space="preserve">
+    <value>Nuevo Género</value>
+  </data>
+  <data name="Ge_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Géneros</value>
+  </data>
+  <data name="Ge_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre el género</value>
+  </data>
+  <data name="Ge_TTGenero" xml:space="preserve">
+    <value>Selecciona el género padre del género</value>
+  </data>
+  <data name="Ge_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de un género para editarlo</value>
+  </data>
+  <data name="Ge_TTMas" xml:space="preserve">
+    <value>Haz click para añadir un nuevo género</value>
+  </data>
+  <data name="Ge_TTMenos" xml:space="preserve">
+    <value>Haz click para eliminar el género seleccionado</value>
+  </data>
+  <data name="Ge_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre del género</value>
+  </data>
+  <data name="GuardadoCorrectamente" xml:space="preserve">
+    <value> se ha guardado correctamente</value>
+  </data>
+  <data name="GuardadoOK" xml:space="preserve">
+    <value>Se ha guardado correctamente en la base de datos</value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Info_BorradoOk" xml:space="preserve">
+    <value>La información de usuario de este libro se ha borrado correctamente de la base de datos</value>
+  </data>
+  <data name="Info_GuardadoOk" xml:space="preserve">
+    <value>Se ha guardado correctamente.</value>
+  </data>
+  <data name="InputA_Texto" xml:space="preserve">
+    <value>Escribe el nombre de la ocupación</value>
+  </data>
+  <data name="InputA_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Ocupación autor</value>
+  </data>
+  <data name="InputC_Texto" xml:space="preserve">
+    <value>Escribe el nombre del servidor</value>
+  </data>
+  <data name="InputC_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Servidor</value>
+  </data>
+  <data name="InputL_Texto" xml:space="preserve">
+    <value>Escribe el nombre del tipo de libro</value>
+  </data>
+  <data name="InputL_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Tipo de libro</value>
+  </data>
+  <data name="Input_Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Input_Modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="Input_TT" xml:space="preserve">
+    <value>Escribe aquí el elemento que quieras añadir/modificar</value>
+  </data>
+  <data name="InterrupcionInternet" xml:space="preserve">
+    <value>Se ha interrumpido la conexión con el servidor. Compruebe si tiene conexión a internet</value>
+  </data>
+  <data name="Isbn" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="LibroBorradoOk" xml:space="preserve">
+    <value>Libro borrado correctamente</value>
+  </data>
+  <data name="LibroGuardadoOK" xml:space="preserve">
+    <value>Se ha guardado la información del libro correctamente en la base de datos</value>
+  </data>
+  <data name="LibroNoExiste" xml:space="preserve">
+    <value>Este libro no existe en la base de datos</value>
+  </data>
+  <data name="LibroRepetido" xml:space="preserve">
+    <value>El libro ya se encuentra en la base de datos</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Open Library Editor - Login</value>
+  </data>
+  <data name="Log_BtnCrearBD" xml:space="preserve">
+    <value>Crear base de datos</value>
+  </data>
   <data name="Log_BtnEntrar" xml:space="preserve">
     <value>Entrar</value>
   </data>
@@ -124,13 +1174,16 @@
     <value>Francés</value>
   </data>
   <data name="Log_BtnInvitado" xml:space="preserve">
-    <value>Acceso invitado</value>
+    <value>Modo sin conexión</value>
   </data>
   <data name="Log_BtnRegistrarse" xml:space="preserve">
     <value>Registrarse</value>
   </data>
   <data name="Log_BtnSpain" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Log_BtnTTCrearBD" xml:space="preserve">
+    <value>Haz click para crear tu base de datos</value>
   </data>
   <data name="Log_BtnUSA" xml:space="preserve">
     <value>Inglés</value>
@@ -157,19 +1210,115 @@
     <value>¿Ha olvidado su contraseña? Haga click aquí</value>
   </data>
   <data name="Log_Nombre" xml:space="preserve">
-    <value>Nombre de Usuario o Email</value>
+    <value>Nombre de Usuario</value>
+  </data>
+  <data name="Log_TTContra" xml:space="preserve">
+    <value>Escribe tu contraseña</value>
+  </data>
+  <data name="Log_TTLogo" xml:space="preserve">
+    <value>Logo Open Library Editor</value>
+  </data>
+  <data name="Log_TTNombre" xml:space="preserve">
+    <value>Escribe tu nombre de usuario</value>
+  </data>
+  <data name="Log_TTOlvidado" xml:space="preserve">
+    <value>Haz click aquí para recuperar tu contraseña</value>
+  </data>
+  <data name="Log_TTSesion" xml:space="preserve">
+    <value>Selecciona si quieres mantener la sesión iniciada al cerrar la aplicación</value>
+  </data>
+  <data name="Log_TTUrl" xml:space="preserve">
+    <value>Escribe la dirección de la base de datos a la que quieres conectarte</value>
   </data>
   <data name="Log_Url" xml:space="preserve">
     <value>Url base de datos</value>
   </data>
+  <data name="LupaBuscar" xml:space="preserve">
+    <value>Haz click aquí para iniciar la búsqueda</value>
+  </data>
+  <data name="MailActualizarContra" xml:space="preserve">
+    <value>Contraseña modificada correctamente</value>
+  </data>
+  <data name="MailCambiadoOk" xml:space="preserve">
+    <value>Email actualizado correctamente</value>
+  </data>
+  <data name="MailNoValido" xml:space="preserve">
+    <value>Introduzca un email válido</value>
+  </data>
+  <data name="MailNuevaContra" xml:space="preserve">
+    <value>Le hemos enviado un email con su nueva contraseña</value>
+  </data>
+  <data name="Mail_Bienvenido" xml:space="preserve">
+    <value>Bienvenido a</value>
+  </data>
+  <data name="Mail_Body" xml:space="preserve">
+    <value>Su código de verificación es: </value>
+  </data>
+  <data name="Mail_CambieContra" xml:space="preserve">
+    <value>Por seguridad cambie su contraseña en el primer inicio de sesión</value>
+  </data>
+  <data name="Mail_DatosAcceso" xml:space="preserve">
+    <value>Sus datos de acceso a la aplicación son:</value>
+  </data>
+  <data name="Mail_Error" xml:space="preserve">
+    <value>No se pudo enviar el correo</value>
+  </data>
+  <data name="Mail_foot" xml:space="preserve">
+    <value>Aplicación realizada por 3 estudiantes de DAM como proyecto final de grado</value>
+  </data>
+  <data name="Mail_NuevaContra" xml:space="preserve">
+    <value>Tu nueva contraseña es:</value>
+  </data>
+  <data name="Mail_PerRegistradora" xml:space="preserve">
+    <value>Le ha registrado en Open Library Editor</value>
+  </data>
+  <data name="Mail_Recuperar" xml:space="preserve">
+    <value>Recuperacion contraseña</value>
+  </data>
+  <data name="Mail_saludo" xml:space="preserve">
+    <value>Hola</value>
+  </data>
+  <data name="Mail_Subject" xml:space="preserve">
+    <value>Correo de verificación</value>
+  </data>
+  <data name="Main_Actualizar" xml:space="preserve">
+    <value>Actualizar libro</value>
+  </data>
   <data name="Main_Autores" xml:space="preserve">
     <value>Autores</value>
+  </data>
+  <data name="Main_Bienvenido" xml:space="preserve">
+    <value>Bienvenid@</value>
   </data>
   <data name="Main_Buscar" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="Main_CapAct" xml:space="preserve">
+    <value>Capítulo actual:</value>
+  </data>
+  <data name="Main_Capi" xml:space="preserve">
+    <value>Capítulos:</value>
+  </data>
+  <data name="Main_Com" xml:space="preserve">
+    <value>Comentario:</value>
+  </data>
+  <data name="Main_Comienzo" xml:space="preserve">
+    <value>Fecha comienzo:</value>
+  </data>
   <data name="Main_Confi" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="Main_DetallesGenerales" xml:space="preserve">
+    <value>Detalles generales</value>
+  </data>
+  <data name="Main_DetallesUsuario" xml:space="preserve">
+    <value>Detalles usuario</value>
+  </data>
+  <data name="Main_Edi" xml:space="preserve">
+    <value>Editoriales:</value>
+  </data>
+  <data name="Main_Editorial" xml:space="preserve">
+    <value>Editorial:</value>
   </data>
   <data name="Main_Editoriales" xml:space="preserve">
     <value>Editoriales</value>
@@ -177,11 +1326,62 @@
   <data name="Main_Eliminar" xml:space="preserve">
     <value>Eliminar libro</value>
   </data>
+  <data name="Main_Enlace" xml:space="preserve">
+    <value>Enlace de referencia del libro</value>
+  </data>
+  <data name="Main_EstadoLec" xml:space="preserve">
+    <value>Estado lectura:</value>
+  </data>
+  <data name="Main_Eti" xml:space="preserve">
+    <value>Etiquetas:</value>
+  </data>
+  <data name="Main_Fav" xml:space="preserve">
+    <value>Favorito:</value>
+  </data>
+  <data name="Main_Favoritos" xml:space="preserve">
+    <value>Mis Favoritos</value>
+  </data>
+  <data name="Main_Fin" xml:space="preserve">
+    <value>Fecha fin:</value>
+  </data>
+  <data name="Main_Formato" xml:space="preserve">
+    <value>Formato:</value>
+  </data>
+  <data name="Main_Gen" xml:space="preserve">
+    <value>Géneros:</value>
+  </data>
   <data name="Main_Generos" xml:space="preserve">
     <value>Géneros</value>
   </data>
+  <data name="Main_Idioma" xml:space="preserve">
+    <value>Idioma:</value>
+  </data>
+  <data name="Main_IdiOri" xml:space="preserve">
+    <value>Idioma original:</value>
+  </data>
+  <data name="Main_is10" xml:space="preserve">
+    <value>ISBN 10:</value>
+  </data>
+  <data name="Main_is13" xml:space="preserve">
+    <value>ISBN 13:</value>
+  </data>
   <data name="Main_LinkSesion" xml:space="preserve">
     <value>Iniciar sesión</value>
+  </data>
+  <data name="Main_MasAutor" xml:space="preserve">
+    <value>Añadir Autor</value>
+  </data>
+  <data name="Main_MasEdi" xml:space="preserve">
+    <value>Añadir Editorial</value>
+  </data>
+  <data name="Main_MasEtiqueta" xml:space="preserve">
+    <value>Añadir Etiqueta</value>
+  </data>
+  <data name="Main_MasGenero" xml:space="preserve">
+    <value>Añadir Género</value>
+  </data>
+  <data name="Main_MasSerie" xml:space="preserve">
+    <value>Añadir Serie</value>
   </data>
   <data name="Main_MiBiblioteca" xml:space="preserve">
     <value>Mi Biblioteca</value>
@@ -189,23 +1389,59 @@
   <data name="Main_Modificar" xml:space="preserve">
     <value>Modificar libro</value>
   </data>
+  <data name="Main_No" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="Main_NoDis" xml:space="preserve">
+    <value>NO DISPONIBLE</value>
+  </data>
   <data name="Main_NuevoLibro" xml:space="preserve">
-    <value>Añadir nuevo libro</value>
+    <value>Añadir libro</value>
+  </data>
+  <data name="Main_Ocu" xml:space="preserve">
+    <value>Oculto:</value>
+  </data>
+  <data name="Main_Pag" xml:space="preserve">
+    <value>Páginas:</value>
+  </data>
+  <data name="Main_PagEntre" xml:space="preserve">
+    <value>Entre:</value>
+  </data>
+  <data name="Main_Publicado" xml:space="preserve">
+    <value>Publicado:</value>
+  </data>
+  <data name="Main_Punt" xml:space="preserve">
+    <value>Puntuación:</value>
   </data>
   <data name="Main_Salir" xml:space="preserve">
     <value>Salir</value>
   </data>
+  <data name="Main_Ser" xml:space="preserve">
+    <value>Series:</value>
+  </data>
   <data name="Main_Series" xml:space="preserve">
     <value>Series</value>
   </data>
+  <data name="Main_Si" xml:space="preserve">
+    <value>SI</value>
+  </data>
+  <data name="Main_Sinopsis" xml:space="preserve">
+    <value>Sinopsis:</value>
+  </data>
   <data name="Main_Tags" xml:space="preserve">
-    <value>Tags</value>
+    <value>Etiquetas</value>
+  </data>
+  <data name="Main_TiempoLec" xml:space="preserve">
+    <value>Tiempo lectura:</value>
+  </data>
+  <data name="Main_TipoLibro" xml:space="preserve">
+    <value>Tipo libro:</value>
   </data>
   <data name="Main_Titulos" xml:space="preserve">
     <value>Títulos</value>
   </data>
   <data name="Main_TTAutores" xml:space="preserve">
-    <value>Mis autores</value>
+    <value>Mis Autores</value>
   </data>
   <data name="Main_TTBuscar" xml:space="preserve">
     <value>Buscar libros</value>
@@ -217,7 +1453,7 @@
     <value>Configurar aplicación</value>
   </data>
   <data name="Main_TTEditoriales" xml:space="preserve">
-    <value>Mis editoriales</value>
+    <value>Mis Editoriales</value>
   </data>
   <data name="Main_TTFormTitulo" xml:space="preserve">
     <value>Open Library Editor</value>
@@ -226,7 +1462,7 @@
     <value>Imagen usuario</value>
   </data>
   <data name="Main_TTGeneros" xml:space="preserve">
-    <value>Mis géneros</value>
+    <value>Mis Géneros</value>
   </data>
   <data name="Main_TTLink" xml:space="preserve">
     <value>Click para iniciar sesión</value>
@@ -247,13 +1483,121 @@
     <value>Salir</value>
   </data>
   <data name="Main_TTSeries" xml:space="preserve">
-    <value>Mis series</value>
+    <value>Mis Series</value>
   </data>
   <data name="Main_TTTags" xml:space="preserve">
-    <value>Mis tags</value>
+    <value>Mis Etiquetas</value>
   </data>
   <data name="Main_TTTitulos" xml:space="preserve">
-    <value>Mis títulos</value>
+    <value>Mis Títulos</value>
+  </data>
+  <data name="Main_VecesLeido" xml:space="preserve">
+    <value>Veces leído:</value>
+  </data>
+  <data name="Modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="ModoSinConexion" xml:space="preserve">
+    <value>Estás en modo sin conexión</value>
+  </data>
+  <data name="Ms_Abortar" xml:space="preserve">
+    <value>Abortar</value>
+  </data>
+  <data name="Ms_Aceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="Ms_Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Ms_Ignorar" xml:space="preserve">
+    <value>Ignorar</value>
+  </data>
+  <data name="Ms_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Ms_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Ms_Reintentar" xml:space="preserve">
+    <value>Reintentar</value>
+  </data>
+  <data name="Ms_Si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="NoConexionInternet" xml:space="preserve">
+    <value>No se ha podido establecer la conexión con el servidor. Compruebe si tiene conexión a internet</value>
+  </data>
+  <data name="NoExisteLibro" xml:space="preserve">
+    <value>El libro que intenta actualizar no existe en la base de datos</value>
+  </data>
+  <data name="NoLibros" xml:space="preserve">
+    <value>No hay ningún libro en tu biblioteca</value>
+  </data>
+  <data name="NombreObligatorio" xml:space="preserve">
+    <value>Nombre de usuario: *</value>
+  </data>
+  <data name="NombreUsu" xml:space="preserve">
+    <value>Escribe aquí el nombre del nuevo usuario</value>
+  </data>
+  <data name="NombreUsuApp" xml:space="preserve">
+    <value>Escribe aquí tu nombre de usuario para registrarte en la aplicación</value>
+  </data>
+  <data name="NombreUsuServidor" xml:space="preserve">
+    <value>Escribe aquí el nombre de usuario de tu servidor (por defecto root)</value>
+  </data>
+  <data name="NoPuedeBorrarLibro" xml:space="preserve">
+    <value>El libro que intenta borrar no existe en la base de datos</value>
+  </data>
+  <data name="NoRegistroUsuarioLibro" xml:space="preserve">
+    <value>No existe el registro usuario libro en la base de datos</value>
+  </data>
+  <data name="NuevoLibro" xml:space="preserve">
+    <value>Nuevo libro</value>
+  </data>
+  <data name="NumAutores" xml:space="preserve">
+    <value>Número de autores: </value>
+  </data>
+  <data name="NumEditoriales" xml:space="preserve">
+    <value>Número de editoriales: </value>
+  </data>
+  <data name="NumeroPuerto" xml:space="preserve">
+    <value>Selecciona el puerto de conexión de tu base de datos</value>
+  </data>
+  <data name="NumeroVolumen" xml:space="preserve">
+    <value>Número de volumen</value>
+  </data>
+  <data name="NumGeneros" xml:space="preserve">
+    <value>Número de géneros: </value>
+  </data>
+  <data name="NumLibros" xml:space="preserve">
+    <value>Número de libros: </value>
+  </data>
+  <data name="NumUsuarios" xml:space="preserve">
+    <value>Número de usuarios: </value>
+  </data>
+  <data name="OcupacionNoExiste" xml:space="preserve">
+    <value>La ocupación no existe en la base de datos</value>
+  </data>
+  <data name="OcupacionRepetida" xml:space="preserve">
+    <value>La ocupación ya existe en la base de datos</value>
+  </data>
+  <data name="OrdenLibros" xml:space="preserve">
+    <value>Haz click aquí para ordenar los libros de la a-z y viceversa</value>
+  </data>
+  <data name="OrdenUsuarios" xml:space="preserve">
+    <value>Haz click aquí para ordenar los usuarios de la a-z y viceversa</value>
+  </data>
+  <data name="Recuperar" xml:space="preserve">
+    <value>Recuperar</value>
+  </data>
+  <data name="Recu_Error" xml:space="preserve">
+    <value>El email introducido no está registrado en la base de datos</value>
+  </data>
+  <data name="Recu_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Recuperar contraseña</value>
+  </data>
+  <data name="Recu_TTmail" xml:space="preserve">
+    <value>Introduce aquí el email con el que te registraste para restablecer tu contraseña</value>
   </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>Registrarme</value>
@@ -264,16 +1608,325 @@
   <data name="Reg_Contra1" xml:space="preserve">
     <value>Repetir contraseña:</value>
   </data>
+  <data name="Reg_ContraNoCoincide" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="Reg_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
   <data name="Reg_Nombre" xml:space="preserve">
     <value>Nombre de usuari@:</value>
   </data>
   <data name="Reg_TituloForm" xml:space="preserve">
     <value>Open Library Editor - Registro</value>
   </data>
+  <data name="Reg_TTContra" xml:space="preserve">
+    <value>Escribe tu contraseña</value>
+  </data>
+  <data name="Reg_TTContra1" xml:space="preserve">
+    <value>Vuelve a escribir tu contraseña</value>
+  </data>
+  <data name="Reg_TTEmail" xml:space="preserve">
+    <value>Escribe tu email</value>
+  </data>
+  <data name="Reg_TTMostrarContra" xml:space="preserve">
+    <value>Haz click para ver la contraseña</value>
+  </data>
+  <data name="Reg_TTNombre" xml:space="preserve">
+    <value>Escribe tu nombre de usuario</value>
+  </data>
+  <data name="Reg_TTOcultarContra" xml:space="preserve">
+    <value>Haz click para ocultar la contraseña</value>
+  </data>
+  <data name="Reg_TTUrl" xml:space="preserve">
+    <value>Escribe la url de la base de datos</value>
+  </data>
   <data name="Reg_Url" xml:space="preserve">
     <value>Url base de datos:</value>
   </data>
+  <data name="RS_BtnMenosImg" xml:space="preserve">
+    <value>Haz click para eliminar la imagen</value>
+  </data>
+  <data name="RS_Lsv" xml:space="preserve">
+    <value>Selecciona sobre el nombre de la serie para editarla</value>
+  </data>
+  <data name="RS_LsvEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="RS_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="RS_Pcb" xml:space="preserve">
+    <value>Imagen del tipo de relación</value>
+  </data>
+  <data name="RS_Serie" xml:space="preserve">
+    <value>Serie</value>
+  </data>
+  <data name="RS_Tipo" xml:space="preserve">
+    <value>Tipo de relación</value>
+  </data>
+  <data name="RS_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Editar relación entre series</value>
+  </data>
+  <data name="RS_TTBtnMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva relación</value>
+  </data>
+  <data name="RS_TTBtnMasImg" xml:space="preserve">
+    <value>Haz click para añadir una imagen</value>
+  </data>
+  <data name="RS_TTBtnMenos" xml:space="preserve">
+    <value>Haz click para eliminar el tipo de relación seleccionada</value>
+  </data>
+  <data name="RS_TTCmb" xml:space="preserve">
+    <value>Selecciona el tipo de relación entre las series</value>
+  </data>
+  <data name="SeleccionaAutor" xml:space="preserve">
+    <value>Debes seleccionar un autor de la lista para realizar esta operación</value>
+  </data>
+  <data name="SeleccionaEditorial" xml:space="preserve">
+    <value>Debes seleccionar una editorial de la lista para realizar esta operación</value>
+  </data>
+  <data name="SeleccionaGenero" xml:space="preserve">
+    <value>Debes seleccionar un género de la lista para realizar esta operación</value>
+  </data>
+  <data name="SeleccionarTipoUsu" xml:space="preserve">
+    <value>Selecciona el tipo de usuario con el que deseas registrar al usuario</value>
+  </data>
+  <data name="Se_Comentario" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Se_Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Se_Imagen" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="Se_LaRelacion" xml:space="preserve">
+    <value>la relación</value>
+  </data>
+  <data name="Se_LaSerie" xml:space="preserve">
+    <value>la serie</value>
+  </data>
+  <data name="Se_LsvNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Se_Nombre" xml:space="preserve">
+    <value>Nombre serie</value>
+  </data>
+  <data name="Se_NuevaSerie" xml:space="preserve">
+    <value>Nueva Serie</value>
+  </data>
+  <data name="Se_REditar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Se_Relaciones" xml:space="preserve">
+    <value>Relaciones</value>
+  </data>
+  <data name="Se_RLsvSerie" xml:space="preserve">
+    <value>Serie</value>
+  </data>
+  <data name="Se_RLsvTipo" xml:space="preserve">
+    <value>Tipo relación</value>
+  </data>
+  <data name="Se_RMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva relación entre series</value>
+  </data>
+  <data name="Se_RMenos" xml:space="preserve">
+    <value>Haz click para eliminar la relación entre series seleccionada</value>
+  </data>
+  <data name="Se_RTTEditar" xml:space="preserve">
+    <value>Haz click para editar la relación entre series</value>
+  </data>
+  <data name="Se_TituloFrm" xml:space="preserve">
+    <value>Open Library Editor - Series</value>
+  </data>
+  <data name="Se_TTComentario" xml:space="preserve">
+    <value>Escribe aquí tus comentarios sobre la serie</value>
+  </data>
+  <data name="Se_TTEstado" xml:space="preserve">
+    <value>Selecciona el estado de la serie</value>
+  </data>
+  <data name="Se_TTLsv" xml:space="preserve">
+    <value>Selecciona el nombre de una serie para editarla</value>
+  </data>
+  <data name="Se_TTLsvMas" xml:space="preserve">
+    <value>Haz click para añadir una nueva serie</value>
+  </data>
+  <data name="Se_TTLsvMenos" xml:space="preserve">
+    <value>Haz click para eliminar la serie seleccionada</value>
+  </data>
+  <data name="Se_TTMasImg" xml:space="preserve">
+    <value>Haz click para añadir una imagen para la serie</value>
+  </data>
+  <data name="Se_TTMenosImg" xml:space="preserve">
+    <value>Haz click para eliminar la imagen de la serie</value>
+  </data>
+  <data name="Se_TTNombre" xml:space="preserve">
+    <value>Escribe aquí el nombre de la serie</value>
+  </data>
+  <data name="Se_TTPcb" xml:space="preserve">
+    <value>Imagen de la serie</value>
+  </data>
   <data name="ShowDialogCerrar" xml:space="preserve">
     <value>¿Seguro qué deseas salir?</value>
+  </data>
+  <data name="TextoBuscar" xml:space="preserve">
+    <value>Escribe aquí lo que quieras buscar</value>
+  </data>
+  <data name="TipoLibroNoExiste" xml:space="preserve">
+    <value>El tipo de libro no existe en la base de datos</value>
+  </data>
+  <data name="TipoLibroRepetido" xml:space="preserve">
+    <value>El tipo de libro ya existe en la base de datos</value>
+  </data>
+  <data name="TipoObligatorio" xml:space="preserve">
+    <value>Tipo de usuario: *</value>
+  </data>
+  <data name="TipoUsuario" xml:space="preserve">
+    <value>Tipo de usuario conectado: </value>
+  </data>
+  <data name="TituloObli" xml:space="preserve">
+    <value>Título *</value>
+  </data>
+  <data name="TodosCamposRellenos" xml:space="preserve">
+    <value>No puede dejar campos vacíos</value>
+  </data>
+  <data name="TT_CrearBD" xml:space="preserve">
+    <value>Haz click aquí para crear la base de datos</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="UrlServidor" xml:space="preserve">
+    <value>Escribe aquí la url de tu base de datos</value>
+  </data>
+  <data name="UsuarioModificado" xml:space="preserve">
+    <value>Usuario añadido correctamente</value>
+  </data>
+  <data name="UsuarioRepetido" xml:space="preserve">
+    <value>El usuario ya existe en la base de datos</value>
+  </data>
+  <data name="UsuModificado" xml:space="preserve">
+    <value>Usuario modificado correctamente</value>
+  </data>
+  <data name="Verificar_btn" xml:space="preserve">
+    <value>Verificar</value>
+  </data>
+  <data name="Verificar_lbl" xml:space="preserve">
+    <value>Introduzca el código que le hemos enviado</value>
+  </data>
+  <data name="Verificar_Spam" xml:space="preserve">
+    <value>Si no ha recibido el email revise su correo no deseado</value>
+  </data>
+  <data name="Verificar_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Verifica tu email</value>
+  </data>
+  <data name="Verificar_TTbtn" xml:space="preserve">
+    <value>Haz click para verificar tu email</value>
+  </data>
+  <data name="Verificar_TTMask" xml:space="preserve">
+    <value>Escribe aquí el código recibido en su email</value>
+  </data>
+  <data name="VerMasLibros" xml:space="preserve">
+    <value>Haz click aquí para ver más libros recomendados</value>
+  </data>
+  <data name="VistaDetalles" xml:space="preserve">
+    <value>Haz click aquí para cambiar a vista detalles de los libros</value>
+  </data>
+  <data name="VistaMosaico" xml:space="preserve">
+    <value>Haz click aquí para cambiar a vista mosaico de los libros</value>
+  </data>
+  <data name="VWC_ActualizarAutor" xml:space="preserve">
+    <value>¿Quieres actualizar desde la base de datos compartida este libro?</value>
+  </data>
+  <data name="VWC_ActualizarAutorBD" xml:space="preserve">
+    <value>¿Quieres actualizar desde la base de datos compartida este autor?</value>
+  </data>
+  <data name="VWC_ActualizarEditorialBD" xml:space="preserve">
+    <value>¿Quieres actualizar desde la base de datos compartida esta editorial?</value>
+  </data>
+  <data name="VWC_ActualizarGeneroBD" xml:space="preserve">
+    <value>¿Quieres actualizar desde la base de datos compartida este género?</value>
+  </data>
+  <data name="VWC_Advertencia" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="VWC_Bienvenido" xml:space="preserve">
+    <value>Bienvenido a Open Library Editor</value>
+  </data>
+  <data name="VWC_Borrado" xml:space="preserve">
+    <value>borrado correctamente.</value>
+  </data>
+  <data name="VWC_Borrar" xml:space="preserve">
+    <value>¿Quieres borrar</value>
+  </data>
+  <data name="VWC_BorrarAutorBD" xml:space="preserve">
+    <value>¿Quieres borrar este autor de la base de datos compartida?</value>
+  </data>
+  <data name="VWC_BorrarDatosUsu" xml:space="preserve">
+    <value>¿Quieres borrar tus detalles de usuario del libro en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_BorrarEditorialBD" xml:space="preserve">
+    <value>¿Quieres borrar esta editorial en la base de datos?</value>
+  </data>
+  <data name="VWC_BorrarGeneroBD" xml:space="preserve">
+    <value>¿Quieres borrar este género en la base de datos?</value>
+  </data>
+  <data name="VWC_BorrarLibroBdCompartida" xml:space="preserve">
+    <value>¿Quieres borrar este libro en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_CaracteresMal" xml:space="preserve">
+    <value>Los caracteres introducidos no son válidos</value>
+  </data>
+  <data name="VWC_CodigoMal" xml:space="preserve">
+    <value>El código introducido no es correcto</value>
+  </data>
+  <data name="VWC_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="VWC_ErrorAdm" xml:space="preserve">
+    <value>Solo puede haber un administrador</value>
+  </data>
+  <data name="VWC_ErrorImg" xml:space="preserve">
+    <value>No se cargó la imagen correctamente</value>
+  </data>
+  <data name="VWC_ErrorMail" xml:space="preserve">
+    <value>El correo ya existe en la base de datos compartida</value>
+  </data>
+  <data name="VWC_Guardado" xml:space="preserve">
+    <value>guardado correctamente</value>
+  </data>
+  <data name="VWC_Guardar" xml:space="preserve">
+    <value>¿Quieres guardar</value>
+  </data>
+  <data name="VWC_GuardarAutorBD" xml:space="preserve">
+    <value>¿Quieres guardar este autor en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_GuardarDetallesBD" xml:space="preserve">
+    <value>¿Quieres guardar tus detalles de usuario de este libro en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_GuardarEditorialBD" xml:space="preserve">
+    <value>¿Quieres guardar esta editorial en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_GuardarGeneroBD" xml:space="preserve">
+    <value>¿Quieres guardar este género en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_GuardarLibroBD" xml:space="preserve">
+    <value>¿Quieres guardar este libro en la base de datos compartida?</value>
+  </data>
+  <data name="VWC_Informacion" xml:space="preserve">
+    <value>Información</value>
+  </data>
+  <data name="VWC_Modificado" xml:space="preserve">
+    <value> modificado correctamente</value>
+  </data>
+  <data name="VWC_NoEjecutar" xml:space="preserve">
+    <value>No se pudo ejecutar. Compruebe que la ruta del fichero y el ejecutable son correctas.</value>
+  </data>
+  <data name="VWC_Pregunta" xml:space="preserve">
+    <value>Open Library Editor</value>
+  </data>
+  <data name="VWC_ReenviarMail" xml:space="preserve">
+    <value>¿Desea reenviar el correo?</value>
   </data>
 </root>
