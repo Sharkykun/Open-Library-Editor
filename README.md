@@ -11,3 +11,5 @@ utilizando como plataforma de destino del proyecto la versión .Net Framework 4.
 
 Añadir que el primer próposito y para lo que se pensó inicialmente la aplicación era para ser utilizada como biblioteca personal de una persona en local. Posteriormente se añadio la posibilidad de poder crear una base de datos en un servidor propio con mysql y compartir así la información con familiares o amigos, pero para ello es necesario disponer de un servidor propio que permita acceder a la tabla USER de MySQL, por eso la aplicación si se desea utilizar de este modo está orientada a una persona con ciertos conocimientos en la creación y utilización de servidores personales.
 A partir de la creación del servidor ya se podría crear la base de datos desde la aplicación y el administrador de la aplicación y de la base de datos podría compartir la dirección de su servidor para que sus contactos se puedan registrar en ella a través de la propia aplicación.
+
+Esta aplicación ha sido desarrollada como proyecto final de tres estudiantes del Grado Superior de Desarrollo de Aplicaciones Multiplataforma.
