@@ -964,7 +964,7 @@
     <value>Impossible de se connecter à la base de données avec l'utilisateur connecté</value>
   </data>
   <data name="Error_CamposVacios" xml:space="preserve">
-    <value>Le nom, l'extension et le chemin ne peuvent pas être vides.</value>
+    <value>Le nom et le chemin ne peuvent pas être vides.</value>
   </data>
   <data name="Error_Genero" xml:space="preserve">
     <value>Le nom ne peut pas être vide. Le sexe ne peut pas être le même que celui actuellement sélectionné.</value>

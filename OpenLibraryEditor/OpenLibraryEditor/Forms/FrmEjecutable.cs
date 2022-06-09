@@ -174,7 +174,8 @@ namespace OpenLibraryEditor.Forms
                 var item = LsvEjecutable.SelectedItems[0];
                 listaEjecutable.Remove(ejecutableActual);
                 LsvEjecutable.Items.Remove(item);
-                
+                //--------------
+                VentanaWindowsComun.MensajeInformacion("Ejecutable borrado correctamente.");
             }
         }
         #endregion
@@ -196,6 +197,9 @@ namespace OpenLibraryEditor.Forms
 
                     //Actualizar listview
                     itemActual.Text = KTxtNombreEJ.Text;
+
+                    //--------------
+                    VentanaWindowsComun.MensajeInformacion("Ejecutable guardado correctamente.");
                 }
                 else VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("Error_CamposVacios"));
             }

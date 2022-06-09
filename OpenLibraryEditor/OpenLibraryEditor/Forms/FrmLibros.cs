@@ -63,6 +63,7 @@ namespace OpenLibraryEditor.Forms
             RellenarEjecutable();
             RellenarGenero(libroActual.ListaGenero);
             RellenarPersona(libroActual.ListaAutor);
+            RellenarIdiomas();
 
             //Vincular lista de tipo libro con Combobox
             tipoBinding.DataSource = listaTipoLibro;
@@ -303,6 +304,17 @@ namespace OpenLibraryEditor.Forms
                 int i = AgregarComboCheckItem(KCCGenerosNL, p);
                 if (listaComparador.Contains(p)) KCCGenerosNL.SetItemChecked(i, true);
             });
+        }
+
+        public void RellenarIdiomas()
+        {
+            CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
+
+            foreach (CultureInfo cul in cinfo)
+            {
+                KCmbIdiomaNL.Items.Add(cul.DisplayName);
+                KCmbIdiomaOriginalNL.Items.Add(cul.DisplayName);
+            }
         }
         #endregion 
         #region Datos generales
