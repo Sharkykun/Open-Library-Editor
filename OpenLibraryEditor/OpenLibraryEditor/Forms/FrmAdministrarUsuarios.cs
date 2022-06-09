@@ -241,7 +241,7 @@ namespace OpenLibraryEditor.Forms
             }
             else
                 //---------------
-                VentanaWindowsComun.MensajeInformacion("Un administrador no se puede borrar de la base de datos.");
+                VentanaWindowsComun.MensajeError("Un administrador no se puede borrar de la base de datos.");
         }
 
         private void MbtnBorrarTxtBuscar_Click(object sender, EventArgs e)
@@ -281,7 +281,7 @@ namespace OpenLibraryEditor.Forms
                 }
                 else
                     //---------------
-                    VentanaWindowsComun.MensajeInformacion("Un administrador no se puede cambiar los permisos de la base de datos.");
+                    VentanaWindowsComun.MensajeError("Un administrador no se puede cambiar los permisos de la base de datos.");
             }
             
         }
