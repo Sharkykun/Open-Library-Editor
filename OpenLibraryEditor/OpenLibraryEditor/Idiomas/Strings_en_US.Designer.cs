@@ -61,11 +61,182 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You need a valid file path and an executable to be able to save.
+        /// </summary>
+        internal static string AccionesLibro {
+            get {
+                return ResourceManager.GetString("AccionesLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ok.
         /// </summary>
         internal static string Aceptar {
             get {
                 return ResourceManager.GetString("Aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update.
+        /// </summary>
+        internal static string Actualizar {
+            get {
+                return ResourceManager.GetString("Actualizar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update with DB.
+        /// </summary>
+        internal static string ActualizarConBD {
+            get {
+                return ResourceManager.GetString("ActualizarConBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Administrator.
+        /// </summary>
+        internal static string Adm_Adm {
+            get {
+                return ResourceManager.GetString("Adm_Adm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Manage users.
+        /// </summary>
+        internal static string Adm_Administrar {
+            get {
+                return ResourceManager.GetString("Adm_Administrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type of user.
+        /// </summary>
+        internal static string Adm_CmbTipo {
+            get {
+                return ResourceManager.GetString("Adm_CmbTipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User data.
+        /// </summary>
+        internal static string Adm_DatosUsu {
+            get {
+                return ResourceManager.GetString("Adm_DatosUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editor.
+        /// </summary>
+        internal static string Adm_Editor {
+            get {
+                return ResourceManager.GetString("Adm_Editor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a E-mail.
+        /// </summary>
+        internal static string Adm_Email {
+            get {
+                return ResourceManager.GetString("Adm_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a this user.
+        /// </summary>
+        internal static string Adm_EsteUsu {
+            get {
+                return ResourceManager.GetString("Adm_EsteUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Users of my database.
+        /// </summary>
+        internal static string Adm_FrmTitulo {
+            get {
+                return ResourceManager.GetString("Adm_FrmTitulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to add a new user.
+        /// </summary>
+        internal static string Adm_MasUsu {
+            get {
+                return ResourceManager.GetString("Adm_MasUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to delete the selected user.
+        /// </summary>
+        internal static string Adm_MenosUsu {
+            get {
+                return ResourceManager.GetString("Adm_MenosUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Username.
+        /// </summary>
+        internal static string Adm_Nombre {
+            get {
+                return ResourceManager.GetString("Adm_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Username:.
+        /// </summary>
+        internal static string Adm_NombreUsu {
+            get {
+                return ResourceManager.GetString("Adm_NombreUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type of user:.
+        /// </summary>
+        internal static string Adm_Tipo {
+            get {
+                return ResourceManager.GetString("Adm_Tipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select a user&apos;s name to edit it.
+        /// </summary>
+        internal static string Adm_TTLsv {
+            get {
+                return ResourceManager.GetString("Adm_TTLsv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User.
+        /// </summary>
+        internal static string Adm_Usu {
+            get {
+                return ResourceManager.GetString("Adm_Usu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the action.
+        /// </summary>
+        internal static string Al_Accion {
+            get {
+                return ResourceManager.GetString("Al_Accion", resourceCulture);
             }
         }
         
@@ -84,15 +255,6 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Al_ACFic {
             get {
                 return ResourceManager.GetString("Al_ACFic", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Save.
-        /// </summary>
-        internal static string Al_ACGuardar {
-            get {
-                return ResourceManager.GetString("Al_ACGuardar", resourceCulture);
             }
         }
         
@@ -385,6 +547,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a the book.
+        /// </summary>
+        internal static string Al_ElLibro {
+            get {
+                return ResourceManager.GetString("Al_ElLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Save book.
         /// </summary>
         internal static string Al_Guardar {
@@ -408,6 +579,24 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Al_IMPortada {
             get {
                 return ResourceManager.GetString("Al_IMPortada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Update book.
+        /// </summary>
+        internal static string Al_Modificar {
+            get {
+                return ResourceManager.GetString("Al_Modificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a File path here.
+        /// </summary>
+        internal static string Al_RutaFicAqui {
+            get {
+                return ResourceManager.GetString("Al_RutaFicAqui", resourceCulture);
             }
         }
         
@@ -480,6 +669,24 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Al_TT18 {
             get {
                 return ResourceManager.GetString("Al_TT18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click to remove the image from the back cover of the book.
+        /// </summary>
+        internal static string Al_TTBorrarContra {
+            get {
+                return ResourceManager.GetString("Al_TTBorrarContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click to remove the book cover image.
+        /// </summary>
+        internal static string Al_TTBorrarPortada {
+            get {
+                return ResourceManager.GetString("Al_TTBorrarPortada", resourceCulture);
             }
         }
         
@@ -745,6 +952,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Click here to add a new type of book.
+        /// </summary>
+        internal static string Al_TTNuevoTipoLibro {
+            get {
+                return ResourceManager.GetString("Al_TTNuevoTipoLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select to hide the book.
         /// </summary>
         internal static string Al_TTOcu {
@@ -853,6 +1069,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Book added successfully.
+        /// </summary>
+        internal static string AniadidoOK {
+            get {
+                return ResourceManager.GetString("AniadidoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Alias.
         /// </summary>
         internal static string Au_Alias {
@@ -885,6 +1110,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Au_Comentario {
             get {
                 return ResourceManager.GetString("Au_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the author.
+        /// </summary>
+        internal static string Au_ElAutor {
+            get {
+                return ResourceManager.GetString("Au_ElAutor", resourceCulture);
             }
         }
         
@@ -943,11 +1177,20 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Full name.
+        ///   Busca una cadena traducida similar a Full name *.
         /// </summary>
         internal static string Au_Nombre {
             get {
                 return ResourceManager.GetString("Au_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New Person.
+        /// </summary>
+        internal static string Au_NuevaPersona {
+            get {
+                return ResourceManager.GetString("Au_NuevaPersona", resourceCulture);
             }
         }
         
@@ -975,6 +1218,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Au_TituloFrm {
             get {
                 return ResourceManager.GetString("Au_TituloFrm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click to update with the database.
+        /// </summary>
+        internal static string Au_TTActualizar {
+            get {
+                return ResourceManager.GetString("Au_TTActualizar", resourceCulture);
             }
         }
         
@@ -1051,6 +1303,195 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select if the author is still alive.
+        /// </summary>
+        internal static string Au_TTVivo {
+            get {
+                return ResourceManager.GetString("Au_TTVivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Its alive:.
+        /// </summary>
+        internal static string Au_Vivo {
+            get {
+                return ResourceManager.GetString("Au_Vivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The author does not exist in the database.
+        /// </summary>
+        internal static string AutorNoExiste {
+            get {
+                return ResourceManager.GetString("AutorNoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The author already exists in the database.
+        /// </summary>
+        internal static string AutorRepetido {
+            get {
+                return ResourceManager.GetString("AutorRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Data to register in the application.
+        /// </summary>
+        internal static string BD_DApp {
+            get {
+                return ResourceManager.GetString("BD_DApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Server data.
+        /// </summary>
+        internal static string BD_DServidor {
+            get {
+                return ResourceManager.GetString("BD_DServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Port: *.
+        /// </summary>
+        internal static string BD_Puerto {
+            get {
+                return ResourceManager.GetString("BD_Puerto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Create database.
+        /// </summary>
+        internal static string BD_Titulo {
+            get {
+                return ResourceManager.GetString("BD_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Url: *.
+        /// </summary>
+        internal static string BD_Url {
+            get {
+                return ResourceManager.GetString("BD_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome to Open Library Editor.
+        /// </summary>
+        internal static string Bienvenido {
+            get {
+                return ResourceManager.GetString("Bienvenido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  was successfully deleted.
+        /// </summary>
+        internal static string BorradoCorrectamente {
+            get {
+                return ResourceManager.GetString("BorradoCorrectamente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Successfully deleted from the database.
+        /// </summary>
+        internal static string BorradoOK {
+            get {
+                return ResourceManager.GetString("BorradoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Search in:.
+        /// </summary>
+        internal static string Bus_BuscarEn {
+            get {
+                return ResourceManager.GetString("Bus_BuscarEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select the database in which you want to perform the search.
+        /// </summary>
+        internal static string Bus_BusquedaEn {
+            get {
+                return ResourceManager.GetString("Bus_BusquedaEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the book.
+        /// </summary>
+        internal static string Bus_libro {
+            get {
+                return ResourceManager.GetString("Bus_libro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Recommendations.
+        /// </summary>
+        internal static string Bus_Recomendaciones {
+            get {
+                return ResourceManager.GetString("Bus_Recomendaciones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Double click on the book to add it to your library.
+        /// </summary>
+        internal static string Bus_TTDobleClick {
+            get {
+                return ResourceManager.GetString("Bus_TTDobleClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Look for:.
+        /// </summary>
+        internal static string BuscarPor {
+            get {
+                return ResourceManager.GetString("BuscarPor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select the item you want to search for.
+        /// </summary>
+        internal static string BusquedaPor {
+            get {
+                return ResourceManager.GetString("BusquedaPor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to change your profile picture.
+        /// </summary>
+        internal static string CambiarFoto {
+            get {
+                return ResourceManager.GetString("CambiarFoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ( * ) Required fields.
+        /// </summary>
+        internal static string CamposObligatorios {
+            get {
+                return ResourceManager.GetString("CamposObligatorios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cancel.
         /// </summary>
         internal static string Cancelar {
@@ -1065,6 +1506,60 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Cerrar {
             get {
                 return ResourceManager.GetString("Cerrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to close the book details panel.
+        /// </summary>
+        internal static string CerrarDetalles {
+            get {
+                return ResourceManager.GetString("CerrarDetalles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select the type of user you want to assign to the selected user.
+        /// </summary>
+        internal static string CmbAdmUsu {
+            get {
+                return ResourceManager.GetString("CmbAdmUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Author.
+        /// </summary>
+        internal static string CmbBuscar_Autor {
+            get {
+                return ResourceManager.GetString("CmbBuscar_Autor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Publisher.
+        /// </summary>
+        internal static string CmbBuscar_Editorial {
+            get {
+                return ResourceManager.GetString("CmbBuscar_Editorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Genre.
+        /// </summary>
+        internal static string CmbBuscar_Genero {
+            get {
+                return ResourceManager.GetString("CmbBuscar_Genero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Title / ISBN.
+        /// </summary>
+        internal static string CmbBuscar_TituloIsbn {
+            get {
+                return ResourceManager.GetString("CmbBuscar_TituloIsbn", resourceCulture);
             }
         }
         
@@ -1213,6 +1708,42 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Edit Book´s information.
+        /// </summary>
+        internal static string Con_CmbDobleEditar {
+            get {
+                return ResourceManager.GetString("Con_CmbDobleEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Execute Book.
+        /// </summary>
+        internal static string Con_CmbDobleEjecutar {
+            get {
+                return ResourceManager.GetString("Con_CmbDobleEjecutar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New password.
+        /// </summary>
+        internal static string Con_ContraNueva {
+            get {
+                return ResourceManager.GetString("Con_ContraNueva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modify access data.
+        /// </summary>
+        internal static string Con_DatosUsu {
+            get {
+                return ResourceManager.GetString("Con_DatosUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Web downloads.
         /// </summary>
         internal static string Con_Descargas {
@@ -1348,6 +1879,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Google Books´s key.
+        /// </summary>
+        internal static string Con_Google {
+            get {
+                return ResourceManager.GetString("Con_Google", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Allow the display of content classified as explicit.
         /// </summary>
         internal static string Con_GPermitir {
@@ -1411,6 +1951,42 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a the server information.
+        /// </summary>
+        internal static string Con_InfoServidor {
+            get {
+                return ResourceManager.GetString("Con_InfoServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Current email.
+        /// </summary>
+        internal static string Con_MailActual {
+            get {
+                return ResourceManager.GetString("Con_MailActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New email.
+        /// </summary>
+        internal static string Con_MailNuevo {
+            get {
+                return ResourceManager.GetString("Con_MailNuevo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Repeat password.
+        /// </summary>
+        internal static string Con_RepetirContra {
+            get {
+                return ResourceManager.GetString("Con_RepetirContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Web server.
         /// </summary>
         internal static string Con_Servidor {
@@ -1420,7 +1996,16 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Select the IP of the web server.
+        ///   Busca una cadena traducida similar a Set the Google Books private key.
+        /// </summary>
+        internal static string Con_SubGoogle {
+            get {
+                return ResourceManager.GetString("Con_SubGoogle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select the Url of the web server.
         /// </summary>
         internal static string Con_SWCmbIP {
             get {
@@ -1438,7 +2023,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Web server IP.
+        ///   Busca una cadena traducida similar a Saved addresses.
         /// </summary>
         internal static string Con_SWIP {
             get {
@@ -1492,11 +2077,164 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Click to update your email in the database.
+        /// </summary>
+        internal static string Con_TTActualizar {
+            get {
+                return ResourceManager.GetString("Con_TTActualizar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write your new password here.
+        /// </summary>
+        internal static string Con_TTContraNueva {
+            get {
+                return ResourceManager.GetString("Con_TTContraNueva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This is your current email saved in the database.
+        /// </summary>
+        internal static string Con_TTMailA {
+            get {
+                return ResourceManager.GetString("Con_TTMailA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write your new email here.
+        /// </summary>
+        internal static string Con_TTMailN {
+            get {
+                return ResourceManager.GetString("Con_TTMailN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to add a new URL.
+        /// </summary>
+        internal static string Con_TTMasUrl {
+            get {
+                return ResourceManager.GetString("Con_TTMasUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to remove the selected URL.
+        /// </summary>
+        internal static string Con_TTMenosUrl {
+            get {
+                return ResourceManager.GetString("Con_TTMenosUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to modify your password to access the application.
+        /// </summary>
+        internal static string Con_TTModificar {
+            get {
+                return ResourceManager.GetString("Con_TTModificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Retype your new password here.
+        /// </summary>
+        internal static string Con_TTRepetirContra {
+            get {
+                return ResourceManager.GetString("Con_TTRepetirContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password: *.
+        /// </summary>
+        internal static string ContraObligatoria {
+            get {
+                return ResourceManager.GetString("ContraObligatoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the password of your database user (if it does not have it, leave it blank).
+        /// </summary>
+        internal static string ContraServidor {
+            get {
+                return ResourceManager.GetString("ContraServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the password of the new user.
+        /// </summary>
+        internal static string ContraUsu {
+            get {
+                return ResourceManager.GetString("ContraUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write your password here to register in the application.
+        /// </summary>
+        internal static string ContraUsuApp {
+            get {
+                return ResourceManager.GetString("ContraUsuApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Create.
+        /// </summary>
+        internal static string Crear {
+            get {
+                return ResourceManager.GetString("Crear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Create users.
+        /// </summary>
+        internal static string CrearUsuario {
+            get {
+                return ResourceManager.GetString("CrearUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book information has been downloaded successfully.
+        /// </summary>
+        internal static string DescargaInfoLibroOK {
+            get {
+                return ResourceManager.GetString("DescargaInfoLibroOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Successfully downloaded from the database.
+        /// </summary>
+        internal static string DescargaOK {
+            get {
+                return ResourceManager.GetString("DescargaOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Commentary.
         /// </summary>
         internal static string ED_Comentario {
             get {
                 return ResourceManager.GetString("ED_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the publisher.
+        /// </summary>
+        internal static string ED_LaEditorial {
+            get {
+                return ResourceManager.GetString("ED_LaEditorial", resourceCulture);
             }
         }
         
@@ -1519,11 +2257,20 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Publisher name.
+        ///   Busca una cadena traducida similar a Publisher name *.
         /// </summary>
         internal static string ED_Nombre {
             get {
                 return ResourceManager.GetString("ED_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New Publisher.
+        /// </summary>
+        internal static string ED_NuevaEdi {
+            get {
+                return ResourceManager.GetString("ED_NuevaEdi", resourceCulture);
             }
         }
         
@@ -1600,11 +2347,47 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Name: *.
+        /// </summary>
+        internal static string Edit_Nombre {
+            get {
+                return ResourceManager.GetString("Edit_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The publisher does not exist in the database.
+        /// </summary>
+        internal static string EditorialNoExiste {
+            get {
+                return ResourceManager.GetString("EditorialNoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The publisher already exists in the database.
+        /// </summary>
+        internal static string EditorialRepetida {
+            get {
+                return ResourceManager.GetString("EditorialRepetida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Arguments.
         /// </summary>
         internal static string Ej_Argumentos {
             get {
                 return ResourceManager.GetString("Ej_Argumentos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the executable.
+        /// </summary>
+        internal static string Ej_ElEjecutable {
+            get {
+                return ResourceManager.GetString("Ej_ElEjecutable", resourceCulture);
             }
         }
         
@@ -1645,6 +2428,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a New Executable.
+        /// </summary>
+        internal static string Ej_NuevoEjecutable {
+            get {
+                return ResourceManager.GetString("Ej_NuevoEjecutable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Executable path.
         /// </summary>
         internal static string Ej_Ruta {
@@ -1663,7 +2455,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Write the executable arguments here.
+        ///   Busca una cadena traducida similar a Write the executable arguments here. Example: -f {file} -b ({file} it is used to load the file in that position).
         /// </summary>
         internal static string Ej_TTArgumentos {
             get {
@@ -1726,6 +2518,186 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Executable deleted successfully.
+        /// </summary>
+        internal static string EjecutableBorradoOK {
+            get {
+                return ResourceManager.GetString("EjecutableBorradoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Executable saved successfully.
+        /// </summary>
+        internal static string EjecutableGuardadoOK {
+            get {
+                return ResourceManager.GetString("EjecutableGuardadoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email: *.
+        /// </summary>
+        internal static string EmailObligatorio {
+            get {
+                return ResourceManager.GetString("EmailObligatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the email of the new user (we will send you an email with your access data).
+        /// </summary>
+        internal static string EmailUsu {
+            get {
+                return ResourceManager.GetString("EmailUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write your email here to register in the application. We will send you a code to verify it..
+        /// </summary>
+        internal static string EmailUsuApp {
+            get {
+                return ResourceManager.GetString("EmailUsuApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a An administrator cannot be deleted from the database.
+        /// </summary>
+        internal static string Error_AdminNoBorrar {
+            get {
+                return ResourceManager.GetString("Error_AdminNoBorrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The name and path cannot be empty..
+        /// </summary>
+        internal static string Error_CamposVacios {
+            get {
+                return ResourceManager.GetString("Error_CamposVacios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The name cannot be empty. The genre cannot be the same as the one currently selected..
+        /// </summary>
+        internal static string Error_Genero {
+            get {
+                return ResourceManager.GetString("Error_Genero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The IP is not in the correct format..
+        /// </summary>
+        internal static string Error_IP {
+            get {
+                return ResourceManager.GetString("Error_IP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The title and ISBN cannot be empty. Nor can the ISBN be repeated.
+        /// </summary>
+        internal static string Error_Libro {
+            get {
+                return ResourceManager.GetString("Error_Libro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book cannot be added because it already exists in the library.
+        /// </summary>
+        internal static string Error_LibroExiste {
+            get {
+                return ResourceManager.GetString("Error_LibroExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a An administrator cannot change database permissions.
+        /// </summary>
+        internal static string Error_NoCambioPermisos {
+            get {
+                return ResourceManager.GetString("Error_NoCambioPermisos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a There is no saved link.
+        /// </summary>
+        internal static string Error_NoEnlace {
+            get {
+                return ResourceManager.GetString("Error_NoEnlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name can´t be empty.
+        /// </summary>
+        internal static string Error_NombreVacio {
+            get {
+                return ResourceManager.GetString("Error_NombreVacio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a All fields are required.
+        /// </summary>
+        internal static string ErrorCamposVacios {
+            get {
+                return ResourceManager.GetString("ErrorCamposVacios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Could not connect to the database. Check that all fields are correct and that the server is up and running.
+        /// </summary>
+        internal static string ErrorConexion {
+            get {
+                return ResourceManager.GetString("ErrorConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Database connection error. Error:.
+        /// </summary>
+        internal static string ErrorConexionBD {
+            get {
+                return ResourceManager.GetString("ErrorConexionBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Could not connect to server. Check that the server URL is correct, and that the username and password are from a root user or equivalent.
+        /// </summary>
+        internal static string ErrorCredencialesBD {
+            get {
+                return ResourceManager.GetString("ErrorCredencialesBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The ISBN of the book already exists in the library.
+        /// </summary>
+        internal static string ErrorIdRepetido {
+            get {
+                return ResourceManager.GetString("ErrorIdRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Could not connect to database with logged in user.
+        /// </summary>
+        internal static string ErrorLogin {
+            get {
+                return ResourceManager.GetString("ErrorLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Category.
         /// </summary>
         internal static string Et_Categoria {
@@ -1740,6 +2712,24 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Et_Comentario {
             get {
                 return ResourceManager.GetString("Et_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the category.
+        /// </summary>
+        internal static string Et_LaCategoria {
+            get {
+                return ResourceManager.GetString("Et_LaCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the tag.
+        /// </summary>
+        internal static string Et_LaEtiqueta {
+            get {
+                return ResourceManager.GetString("Et_LaEtiqueta", resourceCulture);
             }
         }
         
@@ -1798,6 +2788,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a New Tag.
+        /// </summary>
+        internal static string Et_NuevaEti {
+            get {
+                return ResourceManager.GetString("Et_NuevaEti", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Open Library Editor - Tags.
         /// </summary>
         internal static string Et_TituloFrm {
@@ -1843,6 +2842,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Tag.
+        /// </summary>
+        internal static string Etiqueta {
+            get {
+                return ResourceManager.GetString("Etiqueta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Favorites.
+        /// </summary>
+        internal static string Favoritos {
+            get {
+                return ResourceManager.GetString("Favoritos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Format DD/MM/YYYY.
         /// </summary>
         internal static string FormatoFecha {
@@ -1857,6 +2874,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Ge_Comentario {
             get {
                 return ResourceManager.GetString("Ge_Comentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the genre.
+        /// </summary>
+        internal static string Ge_Gen {
+            get {
+                return ResourceManager.GetString("Ge_Gen", resourceCulture);
             }
         }
         
@@ -1879,11 +2905,20 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Genre´s name.
+        ///   Busca una cadena traducida similar a Genre´s name *.
         /// </summary>
         internal static string Ge_Nombre {
             get {
                 return ResourceManager.GetString("Ge_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New Genre.
+        /// </summary>
+        internal static string Ge_NuevoGen {
+            get {
+                return ResourceManager.GetString("Ge_NuevoGen", resourceCulture);
             }
         }
         
@@ -1951,6 +2986,213 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The genre does not exist in the database.
+        /// </summary>
+        internal static string GeneroNoExiste {
+            get {
+                return ResourceManager.GetString("GeneroNoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The genre already exists in the database.
+        /// </summary>
+        internal static string GeneroRepetido {
+            get {
+                return ResourceManager.GetString("GeneroRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  has been saved successfully.
+        /// </summary>
+        internal static string GuardadoCorrectamente {
+            get {
+                return ResourceManager.GetString("GuardadoCorrectamente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Successfully saved to database.
+        /// </summary>
+        internal static string GuardadoOK {
+            get {
+                return ResourceManager.GetString("GuardadoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Save.
+        /// </summary>
+        internal static string Guardar {
+            get {
+                return ResourceManager.GetString("Guardar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User information for this book has been successfully deleted from the database.
+        /// </summary>
+        internal static string Info_BorradoOk {
+            get {
+                return ResourceManager.GetString("Info_BorradoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a It has been saved successfully..
+        /// </summary>
+        internal static string Info_GuardadoOk {
+            get {
+                return ResourceManager.GetString("Info_GuardadoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Remove.
+        /// </summary>
+        internal static string Input_Eliminar {
+            get {
+                return ResourceManager.GetString("Input_Eliminar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modify.
+        /// </summary>
+        internal static string Input_Modificar {
+            get {
+                return ResourceManager.GetString("Input_Modificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the element you want to add/modify.
+        /// </summary>
+        internal static string Input_TT {
+            get {
+                return ResourceManager.GetString("Input_TT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write the name of the occupation.
+        /// </summary>
+        internal static string InputA_Texto {
+            get {
+                return ResourceManager.GetString("InputA_Texto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Author occupation.
+        /// </summary>
+        internal static string InputA_Titulo {
+            get {
+                return ResourceManager.GetString("InputA_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write the server´s name.
+        /// </summary>
+        internal static string InputC_Texto {
+            get {
+                return ResourceManager.GetString("InputC_Texto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Server.
+        /// </summary>
+        internal static string InputC_Titulo {
+            get {
+                return ResourceManager.GetString("InputC_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write the name of the type of book.
+        /// </summary>
+        internal static string InputL_Texto {
+            get {
+                return ResourceManager.GetString("InputL_Texto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Book type.
+        /// </summary>
+        internal static string InputL_Titulo {
+            get {
+                return ResourceManager.GetString("InputL_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The connection to the server has been interrupted. Check if you have internet connection.
+        /// </summary>
+        internal static string InterrupcionInternet {
+            get {
+                return ResourceManager.GetString("InterrupcionInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN.
+        /// </summary>
+        internal static string Isbn {
+            get {
+                return ResourceManager.GetString("Isbn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Book deleted successfully.
+        /// </summary>
+        internal static string LibroBorradoOk {
+            get {
+                return ResourceManager.GetString("LibroBorradoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book information has been successfully saved in the database.
+        /// </summary>
+        internal static string LibroGuardadoOK {
+            get {
+                return ResourceManager.GetString("LibroGuardadoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This book does not exist in the database.
+        /// </summary>
+        internal static string LibroNoExiste {
+            get {
+                return ResourceManager.GetString("LibroNoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book is already in the database.
+        /// </summary>
+        internal static string LibroRepetido {
+            get {
+                return ResourceManager.GetString("LibroRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Create database.
+        /// </summary>
+        internal static string Log_BtnCrearBD {
+            get {
+                return ResourceManager.GetString("Log_BtnCrearBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Enter.
         /// </summary>
         internal static string Log_BtnEntrar {
@@ -1969,7 +3211,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Guest access.
+        ///   Busca una cadena traducida similar a Offline mode.
         /// </summary>
         internal static string Log_BtnInvitado {
             get {
@@ -1992,6 +3234,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Log_BtnSpain {
             get {
                 return ResourceManager.GetString("Log_BtnSpain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to create your database.
+        /// </summary>
+        internal static string Log_BtnTTCrearBD {
+            get {
+                return ResourceManager.GetString("Log_BtnTTCrearBD", resourceCulture);
             }
         }
         
@@ -2068,7 +3319,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Username or Email address.
+        ///   Busca una cadena traducida similar a Username.
         /// </summary>
         internal static string Log_Nombre {
             get {
@@ -2095,7 +3346,7 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Write your username or email address.
+        ///   Busca una cadena traducida similar a Write your username.
         /// </summary>
         internal static string Log_TTNombre {
             get {
@@ -2140,11 +3391,182 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Login.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to start the search.
+        /// </summary>
+        internal static string LupaBuscar {
+            get {
+                return ResourceManager.GetString("LupaBuscar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome to.
+        /// </summary>
+        internal static string Mail_Bienvenido {
+            get {
+                return ResourceManager.GetString("Mail_Bienvenido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Your verification code is:.
+        /// </summary>
+        internal static string Mail_Body {
+            get {
+                return ResourceManager.GetString("Mail_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a For security change your password at the first login.
+        /// </summary>
+        internal static string Mail_CambieContra {
+            get {
+                return ResourceManager.GetString("Mail_CambieContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Your access data to the application are:.
+        /// </summary>
+        internal static string Mail_DatosAcceso {
+            get {
+                return ResourceManager.GetString("Mail_DatosAcceso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The mail could not be sent.
+        /// </summary>
+        internal static string Mail_Error {
+            get {
+                return ResourceManager.GetString("Mail_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Application made by 3 DAM students as a final degree project.
+        /// </summary>
+        internal static string Mail_foot {
+            get {
+                return ResourceManager.GetString("Mail_foot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Your new password is:.
+        /// </summary>
+        internal static string Mail_NuevaContra {
+            get {
+                return ResourceManager.GetString("Mail_NuevaContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You have been registered in Open Library Editor.
+        /// </summary>
+        internal static string Mail_PerRegistradora {
+            get {
+                return ResourceManager.GetString("Mail_PerRegistradora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password recovery.
+        /// </summary>
+        internal static string Mail_Recuperar {
+            get {
+                return ResourceManager.GetString("Mail_Recuperar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hello.
+        /// </summary>
+        internal static string Mail_saludo {
+            get {
+                return ResourceManager.GetString("Mail_saludo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verification email.
+        /// </summary>
+        internal static string Mail_Subject {
+            get {
+                return ResourceManager.GetString("Mail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password changed successfully.
+        /// </summary>
+        internal static string MailActualizarContra {
+            get {
+                return ResourceManager.GetString("MailActualizarContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email updated successfully.
+        /// </summary>
+        internal static string MailCambiadoOk {
+            get {
+                return ResourceManager.GetString("MailCambiadoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter a valid email.
+        /// </summary>
+        internal static string MailNoValido {
+            get {
+                return ResourceManager.GetString("MailNoValido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a We have sent you an email with your new password.
+        /// </summary>
+        internal static string MailNuevaContra {
+            get {
+                return ResourceManager.GetString("MailNuevaContra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update book.
+        /// </summary>
+        internal static string Main_Actualizar {
+            get {
+                return ResourceManager.GetString("Main_Actualizar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Authors.
         /// </summary>
         internal static string Main_Autores {
             get {
                 return ResourceManager.GetString("Main_Autores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome.
+        /// </summary>
+        internal static string Main_Bienvenido {
+            get {
+                return ResourceManager.GetString("Main_Bienvenido", resourceCulture);
             }
         }
         
@@ -2158,11 +3580,83 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Current chapter:.
+        /// </summary>
+        internal static string Main_CapAct {
+            get {
+                return ResourceManager.GetString("Main_CapAct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Chapters:.
+        /// </summary>
+        internal static string Main_Capi {
+            get {
+                return ResourceManager.GetString("Main_Capi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Commentary:.
+        /// </summary>
+        internal static string Main_Com {
+            get {
+                return ResourceManager.GetString("Main_Com", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Start date:.
+        /// </summary>
+        internal static string Main_Comienzo {
+            get {
+                return ResourceManager.GetString("Main_Comienzo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Setting.
         /// </summary>
         internal static string Main_Confi {
             get {
                 return ResourceManager.GetString("Main_Confi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a General details.
+        /// </summary>
+        internal static string Main_DetallesGenerales {
+            get {
+                return ResourceManager.GetString("Main_DetallesGenerales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User details.
+        /// </summary>
+        internal static string Main_DetallesUsuario {
+            get {
+                return ResourceManager.GetString("Main_DetallesUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Publishers:.
+        /// </summary>
+        internal static string Main_Edi {
+            get {
+                return ResourceManager.GetString("Main_Edi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Publisher:.
+        /// </summary>
+        internal static string Main_Editorial {
+            get {
+                return ResourceManager.GetString("Main_Editorial", resourceCulture);
             }
         }
         
@@ -2185,6 +3679,78 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a book reference link.
+        /// </summary>
+        internal static string Main_Enlace {
+            get {
+                return ResourceManager.GetString("Main_Enlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Reading status:.
+        /// </summary>
+        internal static string Main_EstadoLec {
+            get {
+                return ResourceManager.GetString("Main_EstadoLec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tags:.
+        /// </summary>
+        internal static string Main_Eti {
+            get {
+                return ResourceManager.GetString("Main_Eti", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Favorite:.
+        /// </summary>
+        internal static string Main_Fav {
+            get {
+                return ResourceManager.GetString("Main_Fav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a My Favorites.
+        /// </summary>
+        internal static string Main_Favoritos {
+            get {
+                return ResourceManager.GetString("Main_Favoritos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a End date:.
+        /// </summary>
+        internal static string Main_Fin {
+            get {
+                return ResourceManager.GetString("Main_Fin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Format:.
+        /// </summary>
+        internal static string Main_Formato {
+            get {
+                return ResourceManager.GetString("Main_Formato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Genres:.
+        /// </summary>
+        internal static string Main_Gen {
+            get {
+                return ResourceManager.GetString("Main_Gen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Genres.
         /// </summary>
         internal static string Main_Generos {
@@ -2194,11 +3760,119 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Language:.
+        /// </summary>
+        internal static string Main_Idioma {
+            get {
+                return ResourceManager.GetString("Main_Idioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Language:.
+        /// </summary>
+        internal static string Main_Idioma1 {
+            get {
+                return ResourceManager.GetString("Main_Idioma1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Original language:.
+        /// </summary>
+        internal static string Main_IdiOri {
+            get {
+                return ResourceManager.GetString("Main_IdiOri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN 10:.
+        /// </summary>
+        internal static string Main_is10 {
+            get {
+                return ResourceManager.GetString("Main_is10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN 10:.
+        /// </summary>
+        internal static string Main_is101 {
+            get {
+                return ResourceManager.GetString("Main_is101", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN 13:.
+        /// </summary>
+        internal static string Main_is13 {
+            get {
+                return ResourceManager.GetString("Main_is13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN 13:.
+        /// </summary>
+        internal static string Main_is131 {
+            get {
+                return ResourceManager.GetString("Main_is131", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Sign in.
         /// </summary>
         internal static string Main_LinkSesion {
             get {
                 return ResourceManager.GetString("Main_LinkSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Add Author.
+        /// </summary>
+        internal static string Main_MasAutor {
+            get {
+                return ResourceManager.GetString("Main_MasAutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Add Publisher.
+        /// </summary>
+        internal static string Main_MasEdi {
+            get {
+                return ResourceManager.GetString("Main_MasEdi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Add Tag.
+        /// </summary>
+        internal static string Main_MasEtiqueta {
+            get {
+                return ResourceManager.GetString("Main_MasEtiqueta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Add Genre.
+        /// </summary>
+        internal static string Main_MasGenero {
+            get {
+                return ResourceManager.GetString("Main_MasGenero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Add Serie.
+        /// </summary>
+        internal static string Main_MasSerie {
+            get {
+                return ResourceManager.GetString("Main_MasSerie", resourceCulture);
             }
         }
         
@@ -2221,11 +3895,92 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add new book.
+        ///   Busca una cadena traducida similar a NO.
+        /// </summary>
+        internal static string Main_No {
+            get {
+                return ResourceManager.GetString("Main_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a NOT AVAILABLE.
+        /// </summary>
+        internal static string Main_NoDis {
+            get {
+                return ResourceManager.GetString("Main_NoDis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Add book.
         /// </summary>
         internal static string Main_NuevoLibro {
             get {
                 return ResourceManager.GetString("Main_NuevoLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hide:.
+        /// </summary>
+        internal static string Main_Ocu {
+            get {
+                return ResourceManager.GetString("Main_Ocu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pages:.
+        /// </summary>
+        internal static string Main_Pag {
+            get {
+                return ResourceManager.GetString("Main_Pag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pages:.
+        /// </summary>
+        internal static string Main_Pag1 {
+            get {
+                return ResourceManager.GetString("Main_Pag1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Between:.
+        /// </summary>
+        internal static string Main_PagEntre {
+            get {
+                return ResourceManager.GetString("Main_PagEntre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Published:.
+        /// </summary>
+        internal static string Main_Publicado {
+            get {
+                return ResourceManager.GetString("Main_Publicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Published:.
+        /// </summary>
+        internal static string Main_Publicado1 {
+            get {
+                return ResourceManager.GetString("Main_Publicado1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Score;.
+        /// </summary>
+        internal static string Main_Punt {
+            get {
+                return ResourceManager.GetString("Main_Punt", resourceCulture);
             }
         }
         
@@ -2239,6 +3994,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Series:.
+        /// </summary>
+        internal static string Main_Ser {
+            get {
+                return ResourceManager.GetString("Main_Ser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Series.
         /// </summary>
         internal static string Main_Series {
@@ -2248,11 +4012,47 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a YES.
+        /// </summary>
+        internal static string Main_Si {
+            get {
+                return ResourceManager.GetString("Main_Si", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Synopsis:.
+        /// </summary>
+        internal static string Main_Sinopsis {
+            get {
+                return ResourceManager.GetString("Main_Sinopsis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Tags.
         /// </summary>
         internal static string Main_Tags {
             get {
                 return ResourceManager.GetString("Main_Tags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Reading time:.
+        /// </summary>
+        internal static string Main_TiempoLec {
+            get {
+                return ResourceManager.GetString("Main_TiempoLec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Boook´s type.
+        /// </summary>
+        internal static string Main_TipoLibro {
+            get {
+                return ResourceManager.GetString("Main_TipoLibro", resourceCulture);
             }
         }
         
@@ -2419,6 +4219,330 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Times read:.
+        /// </summary>
+        internal static string Main_VecesLeido {
+            get {
+                return ResourceManager.GetString("Main_VecesLeido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modify.
+        /// </summary>
+        internal static string Modificar {
+            get {
+                return ResourceManager.GetString("Modificar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You are in offline mode.
+        /// </summary>
+        internal static string ModoSinConexion {
+            get {
+                return ResourceManager.GetString("ModoSinConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Abort.
+        /// </summary>
+        internal static string Ms_Abortar {
+            get {
+                return ResourceManager.GetString("Ms_Abortar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Accept.
+        /// </summary>
+        internal static string Ms_Aceptar {
+            get {
+                return ResourceManager.GetString("Ms_Aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancel.
+        /// </summary>
+        internal static string Ms_Cancelar {
+            get {
+                return ResourceManager.GetString("Ms_Cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ignore.
+        /// </summary>
+        internal static string Ms_Ignorar {
+            get {
+                return ResourceManager.GetString("Ms_Ignorar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No.
+        /// </summary>
+        internal static string Ms_No {
+            get {
+                return ResourceManager.GetString("Ms_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ok.
+        /// </summary>
+        internal static string Ms_Ok {
+            get {
+                return ResourceManager.GetString("Ms_Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Retry.
+        /// </summary>
+        internal static string Ms_Reintentar {
+            get {
+                return ResourceManager.GetString("Ms_Reintentar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Yes.
+        /// </summary>
+        internal static string Ms_Si {
+            get {
+                return ResourceManager.GetString("Ms_Si", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The connection to the server could not be established. Check if you have internet connection.
+        /// </summary>
+        internal static string NoConexionInternet {
+            get {
+                return ResourceManager.GetString("NoConexionInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book you are trying to update does not exist in the database.
+        /// </summary>
+        internal static string NoExisteLibro {
+            get {
+                return ResourceManager.GetString("NoExisteLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a There are no books in your library.
+        /// </summary>
+        internal static string NoLibros {
+            get {
+                return ResourceManager.GetString("NoLibros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Username: *.
+        /// </summary>
+        internal static string NombreObligatorio {
+            get {
+                return ResourceManager.GetString("NombreObligatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the name of the new user.
+        /// </summary>
+        internal static string NombreUsu {
+            get {
+                return ResourceManager.GetString("NombreUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write your username here to register in the application.
+        /// </summary>
+        internal static string NombreUsuApp {
+            get {
+                return ResourceManager.GetString("NombreUsuApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the username of your server (by default root).
+        /// </summary>
+        internal static string NombreUsuServidor {
+            get {
+                return ResourceManager.GetString("NombreUsuServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book you are trying to delete does not exist in the database.
+        /// </summary>
+        internal static string NoPuedeBorrarLibro {
+            get {
+                return ResourceManager.GetString("NoPuedeBorrarLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book user record does not exist in the database.
+        /// </summary>
+        internal static string NoRegistroUsuarioLibro {
+            get {
+                return ResourceManager.GetString("NoRegistroUsuarioLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New Book.
+        /// </summary>
+        internal static string NuevoLibro {
+            get {
+                return ResourceManager.GetString("NuevoLibro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Number of authors: .
+        /// </summary>
+        internal static string NumAutores {
+            get {
+                return ResourceManager.GetString("NumAutores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Number of publishers: .
+        /// </summary>
+        internal static string NumEditoriales {
+            get {
+                return ResourceManager.GetString("NumEditoriales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select the connection port of your database.
+        /// </summary>
+        internal static string NumeroPuerto {
+            get {
+                return ResourceManager.GetString("NumeroPuerto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Volume number.
+        /// </summary>
+        internal static string NumeroVolumen {
+            get {
+                return ResourceManager.GetString("NumeroVolumen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Number of genres: .
+        /// </summary>
+        internal static string NumGeneros {
+            get {
+                return ResourceManager.GetString("NumGeneros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Number of books: .
+        /// </summary>
+        internal static string NumLibros {
+            get {
+                return ResourceManager.GetString("NumLibros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Number of users: .
+        /// </summary>
+        internal static string NumUsuarios {
+            get {
+                return ResourceManager.GetString("NumUsuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The occupation does not exist in the database.
+        /// </summary>
+        internal static string OcupacionNoExiste {
+            get {
+                return ResourceManager.GetString("OcupacionNoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The occupation already exists in the database.
+        /// </summary>
+        internal static string OcupacionRepetida {
+            get {
+                return ResourceManager.GetString("OcupacionRepetida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to order the books from a-z and vice versa.
+        /// </summary>
+        internal static string OrdenLibros {
+            get {
+                return ResourceManager.GetString("OrdenLibros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to sort users from a-z and vice versa.
+        /// </summary>
+        internal static string OrdenUsuarios {
+            get {
+                return ResourceManager.GetString("OrdenUsuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The entered email is not registered in the database.
+        /// </summary>
+        internal static string Recu_Error {
+            get {
+                return ResourceManager.GetString("Recu_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Recover password.
+        /// </summary>
+        internal static string Recu_Titulo {
+            get {
+                return ResourceManager.GetString("Recu_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter here the email with which you registered to reset your password.
+        /// </summary>
+        internal static string Recu_TTmail {
+            get {
+                return ResourceManager.GetString("Recu_TTmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Recover.
+        /// </summary>
+        internal static string Recuperar {
+            get {
+                return ResourceManager.GetString("Recuperar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Sign me up.
         /// </summary>
         internal static string Reg_BtnRegistro {
@@ -2442,6 +4566,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Reg_Contra1 {
             get {
                 return ResourceManager.GetString("Reg_Contra1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Passwords do not match.
+        /// </summary>
+        internal static string Reg_ContraNoCoincide {
+            get {
+                return ResourceManager.GetString("Reg_ContraNoCoincide", resourceCulture);
             }
         }
         
@@ -2680,6 +4813,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a the relationship.
+        /// </summary>
+        internal static string Se_LaRelacion {
+            get {
+                return ResourceManager.GetString("Se_LaRelacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a the serie.
+        /// </summary>
+        internal static string Se_LaSerie {
+            get {
+                return ResourceManager.GetString("Se_LaSerie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Name.
         /// </summary>
         internal static string Se_LsvNombre {
@@ -2694,6 +4845,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Se_Nombre {
             get {
                 return ResourceManager.GetString("Se_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a New Serie.
+        /// </summary>
+        internal static string Se_NuevaSerie {
+            get {
+                return ResourceManager.GetString("Se_NuevaSerie", resourceCulture);
             }
         }
         
@@ -2851,11 +5011,506 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must select an author from the list to perform this operation.
+        /// </summary>
+        internal static string SeleccionaAutor {
+            get {
+                return ResourceManager.GetString("SeleccionaAutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select a publisher from the list to perform this operation.
+        /// </summary>
+        internal static string SeleccionaEditorial {
+            get {
+                return ResourceManager.GetString("SeleccionaEditorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select a genre from the list to perform this operation.
+        /// </summary>
+        internal static string SeleccionaGenero {
+            get {
+                return ResourceManager.GetString("SeleccionaGenero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select the type of user with which you want to register the user.
+        /// </summary>
+        internal static string SeleccionarTipoUsu {
+            get {
+                return ResourceManager.GetString("SeleccionarTipoUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Are you sure you want to leave?.
         /// </summary>
         internal static string ShowDialogCerrar {
             get {
                 return ResourceManager.GetString("ShowDialogCerrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here what you want to search.
+        /// </summary>
+        internal static string TextoBuscar {
+            get {
+                return ResourceManager.GetString("TextoBuscar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Book type does not exist in the database.
+        /// </summary>
+        internal static string TipoLibroNoExiste {
+            get {
+                return ResourceManager.GetString("TipoLibroNoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The book type already exists in the database.
+        /// </summary>
+        internal static string TipoLibroRepetido {
+            get {
+                return ResourceManager.GetString("TipoLibroRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type of user: *.
+        /// </summary>
+        internal static string TipoObligatorio {
+            get {
+                return ResourceManager.GetString("TipoObligatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Connected user type: .
+        /// </summary>
+        internal static string TipoUsuario {
+            get {
+                return ResourceManager.GetString("TipoUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Títle *.
+        /// </summary>
+        internal static string TituloObli {
+            get {
+                return ResourceManager.GetString("TituloObli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You cannot leave empty fields.
+        /// </summary>
+        internal static string TodosCamposRellenos {
+            get {
+                return ResourceManager.GetString("TodosCamposRellenos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to create the database.
+        /// </summary>
+        internal static string TT_CrearBD {
+            get {
+                return ResourceManager.GetString("TT_CrearBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a URL.
+        /// </summary>
+        internal static string Url {
+            get {
+                return ResourceManager.GetString("Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the url of your database.
+        /// </summary>
+        internal static string UrlServidor {
+            get {
+                return ResourceManager.GetString("UrlServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User added successfully.
+        /// </summary>
+        internal static string UsuarioModificado {
+            get {
+                return ResourceManager.GetString("UsuarioModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The user already exists in the database.
+        /// </summary>
+        internal static string UsuarioRepetido {
+            get {
+                return ResourceManager.GetString("UsuarioRepetido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User modified successfully.
+        /// </summary>
+        internal static string UsuModificado {
+            get {
+                return ResourceManager.GetString("UsuModificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verify.
+        /// </summary>
+        internal static string Verificar_btn {
+            get {
+                return ResourceManager.GetString("Verificar_btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter the code we have sent you.
+        /// </summary>
+        internal static string Verificar_lbl {
+            get {
+                return ResourceManager.GetString("Verificar_lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a If you have not received the email, check your spam.
+        /// </summary>
+        internal static string Verificar_Spam {
+            get {
+                return ResourceManager.GetString("Verificar_Spam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor - Verify your email.
+        /// </summary>
+        internal static string Verificar_Titulo {
+            get {
+                return ResourceManager.GetString("Verificar_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click to verify your email.
+        /// </summary>
+        internal static string Verificar_TTbtn {
+            get {
+                return ResourceManager.GetString("Verificar_TTbtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Write here the code received in your email.
+        /// </summary>
+        internal static string Verificar_TTMask {
+            get {
+                return ResourceManager.GetString("Verificar_TTMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to see more recommended books.
+        /// </summary>
+        internal static string VerMasLibros {
+            get {
+                return ResourceManager.GetString("VerMasLibros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to switch to book details view.
+        /// </summary>
+        internal static string VistaDetalles {
+            get {
+                return ResourceManager.GetString("VistaDetalles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Click here to switch to mosaic view of the books.
+        /// </summary>
+        internal static string VistaMosaico {
+            get {
+                return ResourceManager.GetString("VistaMosaico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this book from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarAutor {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarAutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this author from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarAutorBD {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarAutorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this editorial from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarEditorialBD {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarEditorialBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to update this genre from the shared database?.
+        /// </summary>
+        internal static string VWC_ActualizarGeneroBD {
+            get {
+                return ResourceManager.GetString("VWC_ActualizarGeneroBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Warning.
+        /// </summary>
+        internal static string VWC_Advertencia {
+            get {
+                return ResourceManager.GetString("VWC_Advertencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome to Open Library Editor.
+        /// </summary>
+        internal static string VWC_Bienvenido {
+            get {
+                return ResourceManager.GetString("VWC_Bienvenido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Erased successfully..
+        /// </summary>
+        internal static string VWC_Borrado {
+            get {
+                return ResourceManager.GetString("VWC_Borrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete.
+        /// </summary>
+        internal static string VWC_Borrar {
+            get {
+                return ResourceManager.GetString("VWC_Borrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this author from the shared database?.
+        /// </summary>
+        internal static string VWC_BorrarAutorBD {
+            get {
+                return ResourceManager.GetString("VWC_BorrarAutorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete your book user details in the shared database?.
+        /// </summary>
+        internal static string VWC_BorrarDatosUsu {
+            get {
+                return ResourceManager.GetString("VWC_BorrarDatosUsu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this editorial in the database?.
+        /// </summary>
+        internal static string VWC_BorrarEditorialBD {
+            get {
+                return ResourceManager.GetString("VWC_BorrarEditorialBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this genre in the database?.
+        /// </summary>
+        internal static string VWC_BorrarGeneroBD {
+            get {
+                return ResourceManager.GetString("VWC_BorrarGeneroBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to delete this book in the shared database?.
+        /// </summary>
+        internal static string VWC_BorrarLibroBdCompartida {
+            get {
+                return ResourceManager.GetString("VWC_BorrarLibroBdCompartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The characters entered are not valid.
+        /// </summary>
+        internal static string VWC_CaracteresMal {
+            get {
+                return ResourceManager.GetString("VWC_CaracteresMal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The entered code is not correct.
+        /// </summary>
+        internal static string VWC_CodigoMal {
+            get {
+                return ResourceManager.GetString("VWC_CodigoMal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error.
+        /// </summary>
+        internal static string VWC_Error {
+            get {
+                return ResourceManager.GetString("VWC_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a There can only be one administrator.
+        /// </summary>
+        internal static string VWC_ErrorAdm {
+            get {
+                return ResourceManager.GetString("VWC_ErrorAdm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The image did not load correctly.
+        /// </summary>
+        internal static string VWC_ErrorImg {
+            get {
+                return ResourceManager.GetString("VWC_ErrorImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The mail already exists in the shared database.
+        /// </summary>
+        internal static string VWC_ErrorMail {
+            get {
+                return ResourceManager.GetString("VWC_ErrorMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a successfully saved.
+        /// </summary>
+        internal static string VWC_Guardado {
+            get {
+                return ResourceManager.GetString("VWC_Guardado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save.
+        /// </summary>
+        internal static string VWC_Guardar {
+            get {
+                return ResourceManager.GetString("VWC_Guardar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save this author in the shared database?.
+        /// </summary>
+        internal static string VWC_GuardarAutorBD {
+            get {
+                return ResourceManager.GetString("VWC_GuardarAutorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save this editorial in the shared database?.
+        /// </summary>
+        internal static string VWC_GuardarEditorialBD {
+            get {
+                return ResourceManager.GetString("VWC_GuardarEditorialBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to save this genre in the shared database?.
+        /// </summary>
+        internal static string VWC_GuardarGeneroBD {
+            get {
+                return ResourceManager.GetString("VWC_GuardarGeneroBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Information.
+        /// </summary>
+        internal static string VWC_Informacion {
+            get {
+                return ResourceManager.GetString("VWC_Informacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  successfully modified.
+        /// </summary>
+        internal static string VWC_Modificado {
+            get {
+                return ResourceManager.GetString("VWC_Modificado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Could not execute. Check that the path of the file and the executable are correct..
+        /// </summary>
+        internal static string VWC_NoEjecutar {
+            get {
+                return ResourceManager.GetString("VWC_NoEjecutar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Open Library Editor.
+        /// </summary>
+        internal static string VWC_Pregunta {
+            get {
+                return ResourceManager.GetString("VWC_Pregunta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Do you want to resend the mail?.
+        /// </summary>
+        internal static string VWC_ReenviarMail {
+            get {
+                return ResourceManager.GetString("VWC_ReenviarMail", resourceCulture);
             }
         }
     }

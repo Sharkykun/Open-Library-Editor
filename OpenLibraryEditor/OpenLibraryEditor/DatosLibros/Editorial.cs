@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using OpenLibraryEditor.BaseDatos;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace OpenLibraryEditor.DatosLibros
 {
-    public class Editorial : IComparable<Editorial>
+    public class Editorial : IComparable<Editorial>, IOperacionesBD
     {
+        private List<string> listaIdCompartido = new List<string>();
         private int idEditorial;
         private string nombre = "";
         private string comentario = "";
         private string imagen = "";
+        private byte[] imagenTemp;
 
         public Editorial()
         {
@@ -20,11 +25,21 @@ namespace OpenLibraryEditor.DatosLibros
             this.nombre = nombre;
         }
 
+        public Editorial(string nombre, string comentario, string imagen)
+        {
+            this.nombre = nombre;
+            this.comentario = comentario;
+            this.imagen = imagen;
+        }
+
         #region Get y Set
         public int IdEditorial { get => idEditorial; set => idEditorial = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Comentario { get => comentario; set => comentario = value; }
         public string Imagen { get => imagen; set => imagen = value; }
+        public List<string> ListaIdCompartido { get => listaIdCompartido; set => listaIdCompartido = value; }
+        [JsonIgnore]
+        public byte[] ImagenTemp { get => imagenTemp; set => imagenTemp = value; }
         #endregion
 
         private void SetRandomId()
@@ -33,7 +48,7 @@ namespace OpenLibraryEditor.DatosLibros
             do
             {
                 idEditorial = rnd.Next();
-            } while (UsuarioDatos.listaEditorial.
+            } while (Biblioteca.biblioteca.ListaEditorial.
                 FindIndex(p => idEditorial == p.idEditorial) != -1);
         }
 
@@ -52,6 +67,26 @@ namespace OpenLibraryEditor.DatosLibros
         override public string ToString()
         {
             return nombre;
+        }
+
+        public void MeterEnBDCompartida()
+        {
+            if (EscrituraBD.GetObjetoIdDeLocal(listaIdCompartido) > 0)
+            {
+                EscrituraBD.UpdateEditorial(this);
+            }
+            else
+            {
+                EscrituraBD.InsertEditorial(this);
+            }
+        }
+
+        public bool BorraDeBDCompartida()
+        {
+            //Borrar referencia con libros, si existe
+            EscrituraBD.DeleteListaEditorialDesdeEditorial(this);
+
+            return EscrituraBD.DeleteEditorial(this);
         }
     }
 }

@@ -117,17 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccionesLibro" xml:space="preserve">
+    <value>Vous avez besoin d'un chemin de fichier valide et d'un exécutable pour pouvoir enregistrer</value>
+  </data>
   <data name="Aceptar" xml:space="preserve">
     <value>Accepter</value>
+  </data>
+  <data name="Actualizar" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="ActualizarConBD" xml:space="preserve">
+    <value>Actualiser avec BD</value>
+  </data>
+  <data name="Adm_Adm" xml:space="preserve">
+    <value>Administrateur</value>
+  </data>
+  <data name="Adm_Administrar" xml:space="preserve">
+    <value>Gérer les utilisateurs</value>
+  </data>
+  <data name="Adm_CmbTipo" xml:space="preserve">
+    <value>Type d'utilisateur</value>
+  </data>
+  <data name="Adm_DatosUsu" xml:space="preserve">
+    <value>Données d'utilisateur</value>
+  </data>
+  <data name="Adm_Editor" xml:space="preserve">
+    <value>Éditeur</value>
+  </data>
+  <data name="Adm_Editor1" xml:space="preserve">
+    <value>Éditeur</value>
+  </data>
+  <data name="Adm_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Adm_EsteUsu" xml:space="preserve">
+    <value>cet utilisateur</value>
+  </data>
+  <data name="Adm_FrmTitulo" xml:space="preserve">
+    <value>Utilisateurs de ma base de données</value>
+  </data>
+  <data name="Adm_MasUsu" xml:space="preserve">
+    <value>Cliquez ici pour ajouter un nouvel utilisateur</value>
+  </data>
+  <data name="Adm_MenosUsu" xml:space="preserve">
+    <value>Cliquez ici pour supprimer l'utilisateur sélectionné</value>
+  </data>
+  <data name="Adm_Nombre" xml:space="preserve">
+    <value>Nom d'utilisateur</value>
+  </data>
+  <data name="Adm_NombreUsu" xml:space="preserve">
+    <value>Nom d'utilisateur:</value>
+  </data>
+  <data name="Adm_Tipo" xml:space="preserve">
+    <value>Type d'utilisateur:</value>
+  </data>
+  <data name="Adm_TTLsv" xml:space="preserve">
+    <value>Sélectionnez le nom d'un utilisateur pour le modifier</value>
+  </data>
+  <data name="Adm_Usu" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="Al_Accion" xml:space="preserve">
+    <value>l'action</value>
   </data>
   <data name="Al_ACEje" xml:space="preserve">
     <value>Exécutable</value>
   </data>
   <data name="Al_ACFic" xml:space="preserve">
     <value>Dossier</value>
-  </data>
-  <data name="Al_ACGuardar" xml:space="preserve">
-    <value>Garder</value>
   </data>
   <data name="Al_DG10" xml:space="preserve">
     <value>ISBN 10</value>
@@ -225,6 +282,9 @@
   <data name="Al_DUTiempoLec" xml:space="preserve">
     <value>Temps de lecture</value>
   </data>
+  <data name="Al_ElLibro" xml:space="preserve">
+    <value>le livre</value>
+  </data>
   <data name="Al_Guardar" xml:space="preserve">
     <value>Garder le livre</value>
   </data>
@@ -233,6 +293,12 @@
   </data>
   <data name="Al_IMPortada" xml:space="preserve">
     <value>Sélectionnez la couverture</value>
+  </data>
+  <data name="Al_Modificar" xml:space="preserve">
+    <value>Open Library Editor - Modifier le livre</value>
+  </data>
+  <data name="Al_RutaFicAqui" xml:space="preserve">
+    <value>Chemin du fichier ici</value>
   </data>
   <data name="Al_TabAcciones" xml:space="preserve">
     <value>Actions</value>
@@ -257,6 +323,12 @@
   </data>
   <data name="Al_TT18" xml:space="preserve">
     <value>Livre adapté uniquement aux plus de 18 ans</value>
+  </data>
+  <data name="Al_TTBorrarContra" xml:space="preserve">
+    <value>Cliquez pour supprimer l'image de la couverture arrière du livre</value>
+  </data>
+  <data name="Al_TTBorrarPortada" xml:space="preserve">
+    <value>Cliquez pour supprimer l'image de couverture du livre</value>
   </data>
   <data name="Al_TTBtnBuscarFichero" xml:space="preserve">
     <value>Cliquez pour parcourir le chemin du fichier</value>
@@ -345,6 +417,9 @@
   <data name="Al_TTMasEJ" xml:space="preserve">
     <value>Cliquez pour ajouter un nouvel exécutable</value>
   </data>
+  <data name="Al_TTNuevoTipoLibro" xml:space="preserve">
+    <value>Cliquez ici pour ajouter un nouveau type de livre</value>
+  </data>
   <data name="Al_TTOcu" xml:space="preserve">
     <value>Sélectionnez pour masquer le livre</value>
   </data>
@@ -381,6 +456,15 @@
   <data name="Al_TTVolumen" xml:space="preserve">
     <value>Définit le volume du livre</value>
   </data>
+  <data name="AniadidoOK" xml:space="preserve">
+    <value>Livre ajouté avec succès</value>
+  </data>
+  <data name="AutorNoExiste" xml:space="preserve">
+    <value>L'auteur n'existe pas dans la base de données</value>
+  </data>
+  <data name="AutorRepetido" xml:space="preserve">
+    <value>L'auteur existe déjà dans la base de données</value>
+  </data>
   <data name="Au_Alias" xml:space="preserve">
     <value>Alias</value>
   </data>
@@ -392,6 +476,9 @@
   </data>
   <data name="Au_Comentario" xml:space="preserve">
     <value>Commentaire</value>
+  </data>
+  <data name="Au_ElAutor" xml:space="preserve">
+    <value>l'auteur</value>
   </data>
   <data name="Au_Enlace" xml:space="preserve">
     <value>Lien de référence</value>
@@ -412,7 +499,10 @@
     <value>Cliquez pour supprimer l'image de la personne</value>
   </data>
   <data name="Au_Nombre" xml:space="preserve">
-    <value>Nom complet</value>
+    <value>Nom complet *</value>
+  </data>
+  <data name="Au_NuevaPersona" xml:space="preserve">
+    <value>Nouvelle personne</value>
   </data>
   <data name="Au_Ocupacion" xml:space="preserve">
     <value>Profession</value>
@@ -422,6 +512,9 @@
   </data>
   <data name="Au_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Auteurs</value>
+  </data>
+  <data name="Au_TTActualizar" xml:space="preserve">
+    <value>Cliquez pour mettre à jour avec la base de données</value>
   </data>
   <data name="Au_TTAlias" xml:space="preserve">
     <value>Écrivez le pseudonyme de la personne (le cas échéant)</value>
@@ -447,11 +540,98 @@
   <data name="Au_TTOcupacion" xml:space="preserve">
     <value>Sélectionnez la profession de la personne</value>
   </data>
+  <data name="Au_TTVivo" xml:space="preserve">
+    <value>Sélectionnez si l'auteur est toujours en vie</value>
+  </data>
+  <data name="Au_Vivo" xml:space="preserve">
+    <value>Il est vivant:</value>
+  </data>
+  <data name="BD_DApp" xml:space="preserve">
+    <value>Données à enregistrer dans l'application</value>
+  </data>
+  <data name="BD_DServidor" xml:space="preserve">
+    <value>Données du serveur</value>
+  </data>
+  <data name="BD_Puerto" xml:space="preserve">
+    <value>Port: *</value>
+  </data>
+  <data name="BD_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Créer une base de données</value>
+  </data>
+  <data name="BD_Url" xml:space="preserve">
+    <value>Url: *</value>
+  </data>
+  <data name="Bienvenido" xml:space="preserve">
+    <value>Bienvenue à Open Library Editor</value>
+  </data>
+  <data name="BorradoCorrectamente" xml:space="preserve">
+    <value> a été supprimé avec succès</value>
+  </data>
+  <data name="BorradoOK" xml:space="preserve">
+    <value>Supprimé avec succès de la base de données</value>
+  </data>
+  <data name="BuscarPor" xml:space="preserve">
+    <value>Chercher:</value>
+  </data>
+  <data name="BusquedaPor" xml:space="preserve">
+    <value>Sélectionnez l'élément que vous souhaitez rechercher</value>
+  </data>
+  <data name="Bus_BuscarEn" xml:space="preserve">
+    <value>Rechercher dans:</value>
+  </data>
+  <data name="Bus_BusquedaEn" xml:space="preserve">
+    <value>Sélectionnez la base de données dans laquelle vous souhaitez effectuer la recherche</value>
+  </data>
+  <data name="Bus_libro" xml:space="preserve">
+    <value>le livre</value>
+  </data>
+  <data name="Bus_Recomendaciones" xml:space="preserve">
+    <value>Recommandations</value>
+  </data>
+  <data name="Bus_TTDobleClick" xml:space="preserve">
+    <value>Double-cliquez sur le livre pour l'ajouter à votre bibliothèque</value>
+  </data>
+  <data name="CambiarFoto" xml:space="preserve">
+    <value>Cliquez ici pour changer votre photo de profil</value>
+  </data>
+  <data name="CamposObligatorios" xml:space="preserve">
+    <value>( * ) Les champs obligatoires</value>
+  </data>
   <data name="Cancelar" xml:space="preserve">
     <value>Annuler</value>
   </data>
   <data name="Cerrar" xml:space="preserve">
     <value>Fermer</value>
+  </data>
+  <data name="CerrarDetalles" xml:space="preserve">
+    <value>Cliquez ici pour fermer le panneau des détails du livre</value>
+  </data>
+  <data name="CmbAdmUsu" xml:space="preserve">
+    <value>Sélectionnez le type d'utilisateur que vous souhaitez attribuer à l'utilisateur sélectionné</value>
+  </data>
+  <data name="CmbBuscar_Autor" xml:space="preserve">
+    <value>Auteur</value>
+  </data>
+  <data name="CmbBuscar_Editorial" xml:space="preserve">
+    <value>Éditorial</value>
+  </data>
+  <data name="CmbBuscar_Genero" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="CmbBuscar_TituloIsbn" xml:space="preserve">
+    <value>Titres / ISBN</value>
+  </data>
+  <data name="ContraObligatoria" xml:space="preserve">
+    <value>Mot de passe: *</value>
+  </data>
+  <data name="ContraServidor" xml:space="preserve">
+    <value>Écrivez ici le mot de passe de l'utilisateur de votre base de données (s'il ne l'a pas, laissez-le vide)</value>
+  </data>
+  <data name="ContraUsu" xml:space="preserve">
+    <value>Écrivez ici le mot de passe du nouvel utilisateur</value>
+  </data>
+  <data name="ContraUsuApp" xml:space="preserve">
+    <value>Écrivez votre mot de passe ici pour vous inscrire à l'application</value>
   </data>
   <data name="Con_AClaro" xml:space="preserve">
     <value>Clair</value>
@@ -501,6 +681,18 @@
   <data name="Con_BtnRestaurar" xml:space="preserve">
     <value>Restaurer les valeurs</value>
   </data>
+  <data name="Con_CmbDobleEditar" xml:space="preserve">
+    <value>Modifier les informations sur le livre</value>
+  </data>
+  <data name="Con_CmbDobleEjecutar" xml:space="preserve">
+    <value>Exécutez le livre</value>
+  </data>
+  <data name="Con_ContraNueva" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="Con_DatosUsu" xml:space="preserve">
+    <value>Modifier les données d'accès</value>
+  </data>
   <data name="Con_Descargas" xml:space="preserve">
     <value>Téléchargements Web</value>
   </data>
@@ -546,6 +738,9 @@
   <data name="Con_GExplicito" xml:space="preserve">
     <value>Contenu explicite</value>
   </data>
+  <data name="Con_Google" xml:space="preserve">
+    <value>Clé Google Livres</value>
+  </data>
   <data name="Con_GPermitir" xml:space="preserve">
     <value>Autoriser l'affichage de contenus classés comme explicites</value>
   </data>
@@ -567,17 +762,32 @@
   <data name="Con_GUbicacion" xml:space="preserve">
     <value>Emplacement de la base de données locale</value>
   </data>
+  <data name="Con_InfoServidor" xml:space="preserve">
+    <value>les informations du serveur</value>
+  </data>
+  <data name="Con_MailActual" xml:space="preserve">
+    <value>Email actuel</value>
+  </data>
+  <data name="Con_MailNuevo" xml:space="preserve">
+    <value>Nouveau email</value>
+  </data>
+  <data name="Con_RepetirContra" xml:space="preserve">
+    <value>Répéter le mot de passe</value>
+  </data>
   <data name="Con_Servidor" xml:space="preserve">
     <value>Serveur Web</value>
   </data>
+  <data name="Con_SubGoogle" xml:space="preserve">
+    <value>Définir la clé privée Google Livres</value>
+  </data>
   <data name="Con_SWCmbIP" xml:space="preserve">
-    <value>Sélectionnez l'adresse IP du serveur Web</value>
+    <value>Sélectionnez l'adresse du serveur Web</value>
   </data>
   <data name="Con_SWEstTit" xml:space="preserve">
     <value>Définissez le titre de votre serveur Web</value>
   </data>
   <data name="Con_SWIP" xml:space="preserve">
-    <value>IP du serveur Web</value>
+    <value>Adresses enregistrées</value>
   </data>
   <data name="Con_SWPuerto" xml:space="preserve">
     <value>Port</value>
@@ -594,8 +804,56 @@
   <data name="Con_Titulo" xml:space="preserve">
     <value>Configuration</value>
   </data>
+  <data name="Con_TTActualizar" xml:space="preserve">
+    <value>Cliquez pour mettre à jour votre email dans la base de données</value>
+  </data>
+  <data name="Con_TTContraNueva" xml:space="preserve">
+    <value>Écrivez votre nouveau mot de passe ici</value>
+  </data>
+  <data name="Con_TTMailA" xml:space="preserve">
+    <value>Ceci est votre email actuel enregistré dans la base de données</value>
+  </data>
+  <data name="Con_TTMailN" xml:space="preserve">
+    <value>Écrivez votre nouvel e-mail ici</value>
+  </data>
+  <data name="Con_TTMasUrl" xml:space="preserve">
+    <value>Cliquez ici pour ajouter une nouvelle URL</value>
+  </data>
+  <data name="Con_TTMenosUrl" xml:space="preserve">
+    <value>Cliquez ici pour supprimer l'URL sélectionnée</value>
+  </data>
+  <data name="Con_TTModificar" xml:space="preserve">
+    <value>Cliquez ici pour modifier votre mot de passe pour accéder à l'application</value>
+  </data>
+  <data name="Con_TTRepetirContra" xml:space="preserve">
+    <value>Retapez votre nouveau mot de passe ici</value>
+  </data>
+  <data name="Crear" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="CrearUsuario" xml:space="preserve">
+    <value>Open Library Editor - Créer des utilisateurs</value>
+  </data>
+  <data name="DescargaInfoLibroOK" xml:space="preserve">
+    <value>Les informations sur le livre ont été téléchargées avec succès</value>
+  </data>
+  <data name="DescargaOK" xml:space="preserve">
+    <value>Téléchargé avec succès depuis la base de données</value>
+  </data>
+  <data name="EditorialNoExiste" xml:space="preserve">
+    <value>L'éditeur n'existe pas dans la base de données</value>
+  </data>
+  <data name="EditorialRepetida" xml:space="preserve">
+    <value>L'éditeur existe déjà dans la base de données</value>
+  </data>
+  <data name="Edit_Nombre" xml:space="preserve">
+    <value>Nom: *</value>
+  </data>
   <data name="ED_Comentario" xml:space="preserve">
     <value>Commentaire</value>
+  </data>
+  <data name="ED_LaEditorial" xml:space="preserve">
+    <value>l'éditorial</value>
   </data>
   <data name="ED_Lsv" xml:space="preserve">
     <value>Sélectionnez le nom d'un éditeur pour le modifier</value>
@@ -604,7 +862,10 @@
     <value>Nom</value>
   </data>
   <data name="ED_Nombre" xml:space="preserve">
-    <value>Nom de l'éditeur</value>
+    <value>Nom de l'éditeur *</value>
+  </data>
+  <data name="ED_NuevaEdi" xml:space="preserve">
+    <value>Nouvel Éditeur</value>
   </data>
   <data name="ED_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Éditoriaux</value>
@@ -630,8 +891,17 @@
   <data name="ED_TTPcb" xml:space="preserve">
     <value>Image éditoriale</value>
   </data>
+  <data name="EjecutableBorradoOK" xml:space="preserve">
+    <value>Exécutable supprimé avec succès</value>
+  </data>
+  <data name="EjecutableGuardadoOK" xml:space="preserve">
+    <value>Exécutable enregistré avec succès</value>
+  </data>
   <data name="Ej_Argumentos" xml:space="preserve">
     <value>Arguments</value>
+  </data>
+  <data name="Ej_ElEjecutable" xml:space="preserve">
+    <value>l'exécutable</value>
   </data>
   <data name="Ej_Extension" xml:space="preserve">
     <value>Extension associée</value>
@@ -645,6 +915,9 @@
   <data name="Ej_Nombre" xml:space="preserve">
     <value>Nom de l'exécutable</value>
   </data>
+  <data name="Ej_NuevoEjecutable" xml:space="preserve">
+    <value>Nouvel Exécutable</value>
+  </data>
   <data name="Ej_Ruta" xml:space="preserve">
     <value>Chemin exécutable</value>
   </data>
@@ -652,7 +925,7 @@
     <value>Open Library Editor - Exécutable</value>
   </data>
   <data name="Ej_TTArgumentos" xml:space="preserve">
-    <value>Écrivez ici les arguments exécutables</value>
+    <value>Écrivez ici les arguments exécutables. Exemple: -f {file} -b ({file} il est utilisé pour charger le fichier dans cette position)</value>
   </data>
   <data name="Ej_TTExtension" xml:space="preserve">
     <value>Écrivez ici l'extension associée au livre (pdf, epub...)</value>
@@ -672,11 +945,74 @@
   <data name="Ej_TTRuta" xml:space="preserve">
     <value>Cliquez pour trouver le chemin de l'exécutable</value>
   </data>
+  <data name="EmailObligatorio" xml:space="preserve">
+    <value>E-mail: *</value>
+  </data>
+  <data name="EmailUsu" xml:space="preserve">
+    <value>Écrivez ici l'e-mail du nouvel utilisateur (nous vous enverrons un e-mail avec vos données d'accès)</value>
+  </data>
+  <data name="EmailUsuApp" xml:space="preserve">
+    <value>Écrivez votre email ici pour vous inscrire à l'application. Nous vous enverrons un code pour le vérifier.</value>
+  </data>
+  <data name="ErrorCamposVacios" xml:space="preserve">
+    <value>Tous les champs sont requis</value>
+  </data>
+  <data name="ErrorConexion" xml:space="preserve">
+    <value>Impossible de se connecter à la base de données. Vérifiez que tous les champs sont corrects et que le serveur est opérationnel</value>
+  </data>
+  <data name="ErrorConexionBD" xml:space="preserve">
+    <value>Erreur de connexion à la base de données. Erreur:</value>
+  </data>
+  <data name="ErrorCredencialesBD" xml:space="preserve">
+    <value>N'a pas pu se connecter au serveur. Vérifiez que l'URL du serveur est correcte et que le nom d'utilisateur et le mot de passe proviennent d'un utilisateur root ou équivalent</value>
+  </data>
+  <data name="ErrorIdRepetido" xml:space="preserve">
+    <value>L'ISBN du livre existe déjà à la bibliothèque</value>
+  </data>
+  <data name="ErrorLogin" xml:space="preserve">
+    <value>Impossible de se connecter à la base de données avec l'utilisateur connecté</value>
+  </data>
+  <data name="Error_AdminNoBorrar" xml:space="preserve">
+    <value>Un administrateur ne peut pas être supprimé de la base de données</value>
+  </data>
+  <data name="Error_CamposVacios" xml:space="preserve">
+    <value>Le nom et le chemin ne peuvent pas être vides.</value>
+  </data>
+  <data name="Error_Genero" xml:space="preserve">
+    <value>Le nom ne peut pas être vide. Le sexe ne peut pas être le même que celui actuellement sélectionné.</value>
+  </data>
+  <data name="Error_IP" xml:space="preserve">
+    <value>L'IP n'est pas au bon format.</value>
+  </data>
+  <data name="Error_Libro" xml:space="preserve">
+    <value>Le titre et l'ISBN ne peuvent pas être vides. L'ISBN ne peut pas non plus être répété</value>
+  </data>
+  <data name="Error_LibroExiste" xml:space="preserve">
+    <value>Le livre ne peut pas être ajouté car il existe déjà dans la bibliothèque</value>
+  </data>
+  <data name="Error_NoCambioPermisos" xml:space="preserve">
+    <value>Un administrateur ne peut pas modifier les autorisations de la base de données</value>
+  </data>
+  <data name="Error_NoEnlace" xml:space="preserve">
+    <value>Il n'y a pas de lien enregistré</value>
+  </data>
+  <data name="Error_NombreVacio" xml:space="preserve">
+    <value>Le nom ne peut pas être vide.</value>
+  </data>
+  <data name="Etiqueta" xml:space="preserve">
+    <value>Étiquette</value>
+  </data>
   <data name="Et_Categoria" xml:space="preserve">
     <value>Catégorie</value>
   </data>
   <data name="Et_Comentario" xml:space="preserve">
     <value>Commentaire</value>
+  </data>
+  <data name="Et_LaCategoria" xml:space="preserve">
+    <value>la catégorie</value>
+  </data>
+  <data name="Et_LaEtiqueta" xml:space="preserve">
+    <value>l'étiquette</value>
   </data>
   <data name="Et_LsvMas" xml:space="preserve">
     <value>Cliquez pour ajouter une nouvelle étiquette</value>
@@ -696,6 +1032,9 @@
   <data name="Et_Nombre" xml:space="preserve">
     <value>Étiquette de nom</value>
   </data>
+  <data name="Et_NuevaEti" xml:space="preserve">
+    <value>Nouvelle étiquette</value>
+  </data>
   <data name="Et_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Étiquette</value>
   </data>
@@ -711,11 +1050,23 @@
   <data name="Et_TTNombre" xml:space="preserve">
     <value>Écrivez le nom de la balise ici</value>
   </data>
+  <data name="Favoritos" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
   <data name="FormatoFecha" xml:space="preserve">
     <value>Format DD/MM/YYYY</value>
   </data>
+  <data name="GeneroNoExiste" xml:space="preserve">
+    <value>Le genre n'existe pas dans la base de données</value>
+  </data>
+  <data name="GeneroRepetido" xml:space="preserve">
+    <value>Le genre existe déjà dans la base de données</value>
+  </data>
   <data name="Ge_Comentario" xml:space="preserve">
     <value>Commentaire</value>
+  </data>
+  <data name="Ge_Gen" xml:space="preserve">
+    <value>le genre</value>
   </data>
   <data name="Ge_Genero" xml:space="preserve">
     <value>Genre Père</value>
@@ -724,7 +1075,10 @@
     <value>Nom</value>
   </data>
   <data name="Ge_Nombre" xml:space="preserve">
-    <value>Nom genre</value>
+    <value>Nom genre *</value>
+  </data>
+  <data name="Ge_NuevoGen" xml:space="preserve">
+    <value>Nouveau genre</value>
   </data>
   <data name="Ge_TituloFrm" xml:space="preserve">
     <value>Open Library Editor - Genre</value>
@@ -747,6 +1101,72 @@
   <data name="Ge_TTNombre" xml:space="preserve">
     <value>Écrivez ici le nom du genre</value>
   </data>
+  <data name="GuardadoCorrectamente" xml:space="preserve">
+    <value> a été enregistré avec succès</value>
+  </data>
+  <data name="GuardadoOK" xml:space="preserve">
+    <value>Enregistré avec succès dans la base de données</value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Garder</value>
+  </data>
+  <data name="Info_BorradoOk" xml:space="preserve">
+    <value>Les informations utilisateur de ce livre ont été supprimées avec succès de la base de données</value>
+  </data>
+  <data name="Info_GuardadoOk" xml:space="preserve">
+    <value>Il a été enregistré avec succès.</value>
+  </data>
+  <data name="InputA_Texto" xml:space="preserve">
+    <value>Écrivez le nom de la profession</value>
+  </data>
+  <data name="InputA_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Métier d'auteur</value>
+  </data>
+  <data name="InputC_Texto" xml:space="preserve">
+    <value>Écrivez le nom du serveur</value>
+  </data>
+  <data name="InputC_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Serveur</value>
+  </data>
+  <data name="InputL_Texto" xml:space="preserve">
+    <value>Écrivez le nom du type de livre</value>
+  </data>
+  <data name="InputL_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Type de livre</value>
+  </data>
+  <data name="Input_Eliminar" xml:space="preserve">
+    <value>Éliminer</value>
+  </data>
+  <data name="Input_Modificar" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Input_TT" xml:space="preserve">
+    <value>Écrivez ici l'élément que vous souhaitez ajouter/modifier</value>
+  </data>
+  <data name="InterrupcionInternet" xml:space="preserve">
+    <value>La connexion au serveur a été interrompue. Vérifiez si vous avez une connexion Internet</value>
+  </data>
+  <data name="Isbn" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="LibroBorradoOk" xml:space="preserve">
+    <value>Livre supprimé avec succès</value>
+  </data>
+  <data name="LibroGuardadoOK" xml:space="preserve">
+    <value>Les informations sur le livre ont été enregistrées avec succès dans la base de données</value>
+  </data>
+  <data name="LibroNoExiste" xml:space="preserve">
+    <value>Ce livre n'existe pas dans la base de données</value>
+  </data>
+  <data name="LibroRepetido" xml:space="preserve">
+    <value>Le livre est déjà dans la base de données</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Open Library Editor - Login</value>
+  </data>
+  <data name="Log_BtnCrearBD" xml:space="preserve">
+    <value>Créer une base de données</value>
+  </data>
   <data name="Log_BtnEntrar" xml:space="preserve">
     <value>Entrer</value>
   </data>
@@ -754,13 +1174,16 @@
     <value>Français</value>
   </data>
   <data name="Log_BtnInvitado" xml:space="preserve">
-    <value>Accès invité</value>
+    <value>Mode hors-ligne</value>
   </data>
   <data name="Log_BtnRegistrarse" xml:space="preserve">
     <value>Enregistrer</value>
   </data>
   <data name="Log_BtnSpain" xml:space="preserve">
     <value>Espagnol</value>
+  </data>
+  <data name="Log_BtnTTCrearBD" xml:space="preserve">
+    <value>Cliquez pour créer votre base de données</value>
   </data>
   <data name="Log_BtnUSA" xml:space="preserve">
     <value>Anglais</value>
@@ -787,7 +1210,7 @@
     <value>Avez-vous oublié votre mot de passe? Cliquez ici</value>
   </data>
   <data name="Log_Nombre" xml:space="preserve">
-    <value>Nom d'utilisateur ou email</value>
+    <value>Nom d'utilisateur</value>
   </data>
   <data name="Log_TTContra" xml:space="preserve">
     <value>Tapez votre mot de passe</value>
@@ -796,7 +1219,7 @@
     <value>Logo Open Library Editor</value>
   </data>
   <data name="Log_TTNombre" xml:space="preserve">
-    <value>Écrivez votre nom d'utilisateur ou votre e-mail</value>
+    <value>Écrivez votre nom d'utilisateur</value>
   </data>
   <data name="Log_TTOlvidado" xml:space="preserve">
     <value>Cliquez ici pour récupérer votre mot de passe</value>
@@ -810,14 +1233,92 @@
   <data name="Log_Url" xml:space="preserve">
     <value>URL de la base de données</value>
   </data>
+  <data name="LupaBuscar" xml:space="preserve">
+    <value>Cliquez ici pour lancer la recherche</value>
+  </data>
+  <data name="MailActualizarContra" xml:space="preserve">
+    <value>Le mot de passe a été changé avec succès</value>
+  </data>
+  <data name="MailCambiadoOk" xml:space="preserve">
+    <value>E-mail mis à jour avec succès</value>
+  </data>
+  <data name="MailNoValido" xml:space="preserve">
+    <value>Entrer un email valide</value>
+  </data>
+  <data name="MailNuevaContra" xml:space="preserve">
+    <value>Nous vous avons envoyé un email avec votre nouveau mot de passe</value>
+  </data>
+  <data name="Mail_Bienvenido" xml:space="preserve">
+    <value>Bienvenue à</value>
+  </data>
+  <data name="Mail_Body" xml:space="preserve">
+    <value>Votre code de vérification est :</value>
+  </data>
+  <data name="Mail_CambieContra" xml:space="preserve">
+    <value>Par sécurité changez votre mot de passe à la première connexion</value>
+  </data>
+  <data name="Mail_DatosAcceso" xml:space="preserve">
+    <value>Vos données d'accès à l'application sont:</value>
+  </data>
+  <data name="Mail_Error" xml:space="preserve">
+    <value>Le courrier n'a pas pu être envoyé</value>
+  </data>
+  <data name="Mail_foot" xml:space="preserve">
+    <value>App faite par 3 étudiants DAM en projet de fin d'études</value>
+  </data>
+  <data name="Mail_NuevaContra" xml:space="preserve">
+    <value>Votre nouveau mot de passe est:</value>
+  </data>
+  <data name="Mail_PerRegistradora" xml:space="preserve">
+    <value>Vous avez été enregistré dans Open Library Editor</value>
+  </data>
+  <data name="Mail_Recuperar" xml:space="preserve">
+    <value>Récupération de mot de passe</value>
+  </data>
+  <data name="Mail_saludo" xml:space="preserve">
+    <value>Salut</value>
+  </data>
+  <data name="Mail_Subject" xml:space="preserve">
+    <value>Courriel de vérification</value>
+  </data>
+  <data name="Main_Actualizar" xml:space="preserve">
+    <value>Actualiser Livre</value>
+  </data>
   <data name="Main_Autores" xml:space="preserve">
     <value>Auteurs</value>
+  </data>
+  <data name="Main_Bienvenido" xml:space="preserve">
+    <value>Bienvenue</value>
   </data>
   <data name="Main_Buscar" xml:space="preserve">
     <value>Chercher</value>
   </data>
+  <data name="Main_CapAct" xml:space="preserve">
+    <value>Chapitre en cours:</value>
+  </data>
+  <data name="Main_Capi" xml:space="preserve">
+    <value>Chapitres:</value>
+  </data>
+  <data name="Main_Com" xml:space="preserve">
+    <value>Commentaire:</value>
+  </data>
+  <data name="Main_Comienzo" xml:space="preserve">
+    <value>Date de début:</value>
+  </data>
   <data name="Main_Confi" xml:space="preserve">
     <value>Configuration</value>
+  </data>
+  <data name="Main_DetallesGenerales" xml:space="preserve">
+    <value>Détails Généraux</value>
+  </data>
+  <data name="Main_DetallesUsuario" xml:space="preserve">
+    <value>Détails de l'utilisateur</value>
+  </data>
+  <data name="Main_Edi" xml:space="preserve">
+    <value>Éditoriaux:</value>
+  </data>
+  <data name="Main_Editorial" xml:space="preserve">
+    <value>Éditorial:</value>
   </data>
   <data name="Main_Editoriales" xml:space="preserve">
     <value>Éditoriaux</value>
@@ -825,11 +1326,71 @@
   <data name="Main_Eliminar" xml:space="preserve">
     <value>Supprimer le livre</value>
   </data>
+  <data name="Main_Enlace" xml:space="preserve">
+    <value>Lien de référence du livre:</value>
+  </data>
+  <data name="Main_EstadoLec" xml:space="preserve">
+    <value>Statut de lecture:</value>
+  </data>
+  <data name="Main_Eti" xml:space="preserve">
+    <value>Mots clés:</value>
+  </data>
+  <data name="Main_Fav" xml:space="preserve">
+    <value>Favori:</value>
+  </data>
+  <data name="Main_Favoritos" xml:space="preserve">
+    <value>Mes Favoris</value>
+  </data>
+  <data name="Main_Fin" xml:space="preserve">
+    <value>Date de fin:</value>
+  </data>
+  <data name="Main_Formato" xml:space="preserve">
+    <value>Format:</value>
+  </data>
+  <data name="Main_Gen" xml:space="preserve">
+    <value>Genres:</value>
+  </data>
   <data name="Main_Generos" xml:space="preserve">
     <value>Genres</value>
   </data>
+  <data name="Main_Idioma" xml:space="preserve">
+    <value>Langage:</value>
+  </data>
+  <data name="Main_Idioma1" xml:space="preserve">
+    <value>Langage:</value>
+  </data>
+  <data name="Main_IdiOri" xml:space="preserve">
+    <value>Langue originale:</value>
+  </data>
+  <data name="Main_is10" xml:space="preserve">
+    <value>ISBN 10:</value>
+  </data>
+  <data name="Main_is101" xml:space="preserve">
+    <value>ISBN 10:</value>
+  </data>
+  <data name="Main_is13" xml:space="preserve">
+    <value>ISBN 13:</value>
+  </data>
+  <data name="Main_is131" xml:space="preserve">
+    <value>ISBN 13:</value>
+  </data>
   <data name="Main_LinkSesion" xml:space="preserve">
     <value>Commencer la session</value>
+  </data>
+  <data name="Main_MasAutor" xml:space="preserve">
+    <value>Ajouter Auteur</value>
+  </data>
+  <data name="Main_MasEdi" xml:space="preserve">
+    <value>Ajouter Éditorial</value>
+  </data>
+  <data name="Main_MasEtiqueta" xml:space="preserve">
+    <value>Ajouter Étiqueter</value>
+  </data>
+  <data name="Main_MasGenero" xml:space="preserve">
+    <value>Ajouter Genre</value>
+  </data>
+  <data name="Main_MasSerie" xml:space="preserve">
+    <value>Ajouter Série</value>
   </data>
   <data name="Main_MiBiblioteca" xml:space="preserve">
     <value>Ma bibliothèque</value>
@@ -837,17 +1398,59 @@
   <data name="Main_Modificar" xml:space="preserve">
     <value>Modifier le livre</value>
   </data>
+  <data name="Main_No" xml:space="preserve">
+    <value>NON</value>
+  </data>
+  <data name="Main_NoDis" xml:space="preserve">
+    <value>NON DISPONIBLE</value>
+  </data>
   <data name="Main_NuevoLibro" xml:space="preserve">
-    <value>Nouveau livre</value>
+    <value>Ajouter livre</value>
+  </data>
+  <data name="Main_Ocu" xml:space="preserve">
+    <value>Caché:</value>
+  </data>
+  <data name="Main_Pag" xml:space="preserve">
+    <value>Pages:</value>
+  </data>
+  <data name="Main_Pag1" xml:space="preserve">
+    <value>Pages:</value>
+  </data>
+  <data name="Main_PagEntre" xml:space="preserve">
+    <value>Entre:</value>
+  </data>
+  <data name="Main_Publicado" xml:space="preserve">
+    <value>Publié:</value>
+  </data>
+  <data name="Main_Publicado1" xml:space="preserve">
+    <value>Publié:</value>
+  </data>
+  <data name="Main_Punt" xml:space="preserve">
+    <value>Ponctuation:</value>
   </data>
   <data name="Main_Salir" xml:space="preserve">
     <value>Sortir</value>
   </data>
+  <data name="Main_Ser" xml:space="preserve">
+    <value>Séries:</value>
+  </data>
   <data name="Main_Series" xml:space="preserve">
     <value>Série</value>
   </data>
+  <data name="Main_Si" xml:space="preserve">
+    <value>OUI</value>
+  </data>
+  <data name="Main_Sinopsis" xml:space="preserve">
+    <value>Synopsis:</value>
+  </data>
   <data name="Main_Tags" xml:space="preserve">
     <value>Étiquette</value>
+  </data>
+  <data name="Main_TiempoLec" xml:space="preserve">
+    <value>Temps de lecture:</value>
+  </data>
+  <data name="Main_TipoLibro" xml:space="preserve">
+    <value>Genre de livre:</value>
   </data>
   <data name="Main_Titulos" xml:space="preserve">
     <value>Titres</value>
@@ -903,6 +1506,114 @@
   <data name="Main_TTTitulos" xml:space="preserve">
     <value>Mes titres</value>
   </data>
+  <data name="Main_VecesLeido" xml:space="preserve">
+    <value>Fois lire:</value>
+  </data>
+  <data name="Modificar" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="ModoSinConexion" xml:space="preserve">
+    <value>Vous êtes en mode déconnecté</value>
+  </data>
+  <data name="Ms_Abortar" xml:space="preserve">
+    <value>Avorter</value>
+  </data>
+  <data name="Ms_Aceptar" xml:space="preserve">
+    <value>Accepter</value>
+  </data>
+  <data name="Ms_Cancelar" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Ms_Ignorar" xml:space="preserve">
+    <value>Ignorer</value>
+  </data>
+  <data name="Ms_No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="Ms_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Ms_Reintentar" xml:space="preserve">
+    <value>Retenter</value>
+  </data>
+  <data name="Ms_Si" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="NoConexionInternet" xml:space="preserve">
+    <value>La connexion au serveur n'a pas pu être établie. Vérifiez si vous avez une connexion Internet</value>
+  </data>
+  <data name="NoExisteLibro" xml:space="preserve">
+    <value>Le livre que vous essayez de mettre à jour n'existe pas dans la base de données</value>
+  </data>
+  <data name="NoLibros" xml:space="preserve">
+    <value>Il n'y a pas de livres dans votre bibliothèque</value>
+  </data>
+  <data name="NombreObligatorio" xml:space="preserve">
+    <value>Nom d'utilisateur: *</value>
+  </data>
+  <data name="NombreUsu" xml:space="preserve">
+    <value>Écrivez ici le nom du nouvel utilisateur</value>
+  </data>
+  <data name="NombreUsuApp" xml:space="preserve">
+    <value>Écrivez votre nom d'utilisateur ici pour vous inscrire à l'application</value>
+  </data>
+  <data name="NombreUsuServidor" xml:space="preserve">
+    <value>Écrivez ici le nom d'utilisateur de votre serveur (par défaut root)</value>
+  </data>
+  <data name="NoPuedeBorrarLibro" xml:space="preserve">
+    <value>Le livre que vous essayez de supprimer n'existe pas dans la base de données</value>
+  </data>
+  <data name="NoRegistroUsuarioLibro" xml:space="preserve">
+    <value>L'enregistrement de l'utilisateur du livre n'existe pas dans la base de données</value>
+  </data>
+  <data name="NuevoLibro" xml:space="preserve">
+    <value>Nouvelle Livre</value>
+  </data>
+  <data name="NumAutores" xml:space="preserve">
+    <value>Nombre d'auteurs: </value>
+  </data>
+  <data name="NumEditoriales" xml:space="preserve">
+    <value>Nombre d'éditeurs: </value>
+  </data>
+  <data name="NumeroPuerto" xml:space="preserve">
+    <value>Sélectionnez le port de connexion de votre base de données</value>
+  </data>
+  <data name="NumeroVolumen" xml:space="preserve">
+    <value>Tome</value>
+  </data>
+  <data name="NumGeneros" xml:space="preserve">
+    <value>Nombre de genres: </value>
+  </data>
+  <data name="NumLibros" xml:space="preserve">
+    <value>Nombre de livres: </value>
+  </data>
+  <data name="NumUsuarios" xml:space="preserve">
+    <value>Nombre d'utilisateurs: </value>
+  </data>
+  <data name="OcupacionNoExiste" xml:space="preserve">
+    <value>La profession n'existe pas dans la base de données</value>
+  </data>
+  <data name="OcupacionRepetida" xml:space="preserve">
+    <value>La profession existe déjà dans la base de données</value>
+  </data>
+  <data name="OrdenLibros" xml:space="preserve">
+    <value>Cliquez ici pour commander les livres de a à z et vice versa</value>
+  </data>
+  <data name="OrdenUsuarios" xml:space="preserve">
+    <value>Cliquez ici pour trier les utilisateurs de A à Z et vice versa</value>
+  </data>
+  <data name="Recuperar" xml:space="preserve">
+    <value>Récupérer</value>
+  </data>
+  <data name="Recu_Error" xml:space="preserve">
+    <value>L'email saisi n'est pas enregistré dans la base de données</value>
+  </data>
+  <data name="Recu_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Récupérer le mot de passe</value>
+  </data>
+  <data name="Recu_TTmail" xml:space="preserve">
+    <value>Entrez ici l'email avec lequel vous vous êtes inscrit pour réinitialiser votre mot de passe</value>
+  </data>
   <data name="Reg_BtnRegistro" xml:space="preserve">
     <value>S'inscrire</value>
   </data>
@@ -911,6 +1622,9 @@
   </data>
   <data name="Reg_Contra1" xml:space="preserve">
     <value>Répéter le mot de passe:</value>
+  </data>
+  <data name="Reg_ContraNoCoincide" xml:space="preserve">
+    <value>Les mots de passe ne correspondent pas</value>
   </data>
   <data name="Reg_Email" xml:space="preserve">
     <value>E-mail:</value>
@@ -981,6 +1695,18 @@
   <data name="RS_TTCmb" xml:space="preserve">
     <value>Sélectionnez le type de relation entre les séries</value>
   </data>
+  <data name="SeleccionaAutor" xml:space="preserve">
+    <value>Vous devez sélectionner un auteur dans la liste pour effectuer cette opération</value>
+  </data>
+  <data name="SeleccionaEditorial" xml:space="preserve">
+    <value>Vous devez sélectionner un éditeur dans la liste pour effectuer cette opération</value>
+  </data>
+  <data name="SeleccionaGenero" xml:space="preserve">
+    <value>Vous devez sélectionner un genre dans la liste pour effectuer cette opération</value>
+  </data>
+  <data name="SeleccionarTipoUsu" xml:space="preserve">
+    <value>Sélectionnez le type d'utilisateur avec lequel vous souhaitez enregistrer l'utilisateur</value>
+  </data>
   <data name="Se_Comentario" xml:space="preserve">
     <value>Commentaire</value>
   </data>
@@ -990,11 +1716,20 @@
   <data name="Se_Imagen" xml:space="preserve">
     <value>Image</value>
   </data>
+  <data name="Se_LaRelacion" xml:space="preserve">
+    <value>la relation</value>
+  </data>
+  <data name="Se_LaSerie" xml:space="preserve">
+    <value>la série</value>
+  </data>
   <data name="Se_LsvNombre" xml:space="preserve">
     <value>Nom</value>
   </data>
   <data name="Se_Nombre" xml:space="preserve">
     <value>Nom de la série</value>
+  </data>
+  <data name="Se_NuevaSerie" xml:space="preserve">
+    <value>Nouvelle série</value>
   </data>
   <data name="Se_REditar" xml:space="preserve">
     <value>Modifier</value>
@@ -1049,5 +1784,158 @@
   </data>
   <data name="ShowDialogCerrar" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir sortir?</value>
+  </data>
+  <data name="TextoBuscar" xml:space="preserve">
+    <value>Écrivez ici ce que vous voulez rechercher</value>
+  </data>
+  <data name="TipoLibroNoExiste" xml:space="preserve">
+    <value>Le type de livre n'existe pas dans la base de données</value>
+  </data>
+  <data name="TipoLibroRepetido" xml:space="preserve">
+    <value>Le type de livre existe déjà dans la base de données</value>
+  </data>
+  <data name="TipoObligatorio" xml:space="preserve">
+    <value>Type d'utilisateur: *</value>
+  </data>
+  <data name="TipoUsuario" xml:space="preserve">
+    <value>Type d'utilisateur connecté: </value>
+  </data>
+  <data name="TituloObli" xml:space="preserve">
+    <value>Titre *</value>
+  </data>
+  <data name="TodosCamposRellenos" xml:space="preserve">
+    <value>Vous ne pouvez pas laisser de champs vides</value>
+  </data>
+  <data name="TT_CrearBD" xml:space="preserve">
+    <value>Cliquez ici pour créer la base de données</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="UrlServidor" xml:space="preserve">
+    <value>Écrivez ici l'url de votre base de données</value>
+  </data>
+  <data name="UsuarioModificado" xml:space="preserve">
+    <value>Utilisateur ajouté avec succès</value>
+  </data>
+  <data name="UsuarioRepetido" xml:space="preserve">
+    <value>L'utilisateur existe déjà dans la base de données</value>
+  </data>
+  <data name="UsuModificado" xml:space="preserve">
+    <value>L'utilisateur a été modifié avec succès</value>
+  </data>
+  <data name="Verificar_btn" xml:space="preserve">
+    <value>Vérifier</value>
+  </data>
+  <data name="Verificar_lbl" xml:space="preserve">
+    <value>Entrez le code que nous vous avons envoyé</value>
+  </data>
+  <data name="Verificar_Spam" xml:space="preserve">
+    <value>Si vous n'avez pas reçu l'e-mail, vérifiez vos spams</value>
+  </data>
+  <data name="Verificar_Titulo" xml:space="preserve">
+    <value>Open Library Editor - Vérifiez votre adresse e-mail</value>
+  </data>
+  <data name="Verificar_TTbtn" xml:space="preserve">
+    <value>Cliquez pour vérifier votre email</value>
+  </data>
+  <data name="Verificar_TTMask" xml:space="preserve">
+    <value>Écrivez ici le code reçu dans votre email</value>
+  </data>
+  <data name="VerMasLibros" xml:space="preserve">
+    <value>Cliquez ici pour voir plus de livres recommandés</value>
+  </data>
+  <data name="VistaDetalles" xml:space="preserve">
+    <value>Cliquez ici pour passer à la vue des détails du livre</value>
+  </data>
+  <data name="VistaMosaico" xml:space="preserve">
+    <value>Cliquez ici pour passer à la vue mosaïque des livres</value>
+  </data>
+  <data name="VWC_ActualizarAutor" xml:space="preserve">
+    <value>Voulez-vous mettre à jour cet livre à partir de la base de données partagée?</value>
+  </data>
+  <data name="VWC_ActualizarAutorBD" xml:space="preserve">
+    <value>Voulez-vous mettre à jour cet auteur à partir de la base de données partagée?</value>
+  </data>
+  <data name="VWC_ActualizarEditorialBD" xml:space="preserve">
+    <value>Vous souhaitez mettre à jour cet éditorial depuis la base de données partagée?</value>
+  </data>
+  <data name="VWC_ActualizarGeneroBD" xml:space="preserve">
+    <value>Voulez-vous mettre à jour ce genre depuis la base de données partagée?</value>
+  </data>
+  <data name="VWC_Advertencia" xml:space="preserve">
+    <value>Caveat</value>
+  </data>
+  <data name="VWC_Bienvenido" xml:space="preserve">
+    <value>Bienvenue dans Open Library Editor</value>
+  </data>
+  <data name="VWC_Borrado" xml:space="preserve">
+    <value>Effacé avec succès.</value>
+  </data>
+  <data name="VWC_Borrar" xml:space="preserve">
+    <value>Voulez-vous supprimer</value>
+  </data>
+  <data name="VWC_BorrarAutorBD" xml:space="preserve">
+    <value>Voulez-vous supprimer cet auteur de la base de données partagée?</value>
+  </data>
+  <data name="VWC_BorrarDatosUsu" xml:space="preserve">
+    <value>Voulez-vous supprimer les détails de l'utilisateur de votre livre dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_BorrarEditorialBD" xml:space="preserve">
+    <value>Voulez-vous supprimer cet éditorial de la base de données?</value>
+  </data>
+  <data name="VWC_BorrarGeneroBD" xml:space="preserve">
+    <value>Voulez-vous supprimer ce genre dans la base de données?</value>
+  </data>
+  <data name="VWC_BorrarLibroBdCompartida" xml:space="preserve">
+    <value>Voulez-vous supprimer ce livre de la base de données partagée?</value>
+  </data>
+  <data name="VWC_CaracteresMal" xml:space="preserve">
+    <value>Les caractères saisis ne sont pas valides</value>
+  </data>
+  <data name="VWC_CodigoMal" xml:space="preserve">
+    <value>Le code saisi n'est pas correct</value>
+  </data>
+  <data name="VWC_Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="VWC_ErrorAdm" xml:space="preserve">
+    <value>Il ne peut y avoir qu'un seul administrateur</value>
+  </data>
+  <data name="VWC_ErrorImg" xml:space="preserve">
+    <value>L'image ne s'est pas chargée correctement</value>
+  </data>
+  <data name="VWC_ErrorMail" xml:space="preserve">
+    <value>Le courrier existe déjà dans la base de données partagée</value>
+  </data>
+  <data name="VWC_Guardado" xml:space="preserve">
+    <value>enregistré correctement</value>
+  </data>
+  <data name="VWC_Guardar" xml:space="preserve">
+    <value>Voulez-vous économiser</value>
+  </data>
+  <data name="VWC_GuardarAutorBD" xml:space="preserve">
+    <value>Voulez-vous enregistrer cet auteur dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_GuardarEditorialBD" xml:space="preserve">
+    <value>Souhaitez-vous enregistrer cet éditorial dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_GuardarGeneroBD" xml:space="preserve">
+    <value>Voulez-vous enregistrer ce genre dans la base de données partagée?</value>
+  </data>
+  <data name="VWC_Informacion" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="VWC_Modificado" xml:space="preserve">
+    <value> modifié avec succès</value>
+  </data>
+  <data name="VWC_NoEjecutar" xml:space="preserve">
+    <value>Impossible d'exécuter. Vérifiez que le chemin du fichier et l'exécutable sont corrects.</value>
+  </data>
+  <data name="VWC_Pregunta" xml:space="preserve">
+    <value>Open Library Editor</value>
+  </data>
+  <data name="VWC_ReenviarMail" xml:space="preserve">
+    <value>Voulez-vous renvoyer l'e-mail ?</value>
   </data>
 </root>

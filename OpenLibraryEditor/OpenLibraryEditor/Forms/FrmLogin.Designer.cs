@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.PanLogin = new System.Windows.Forms.Panel();
-            this.BtnInvitado = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.BtnEntrar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.BtnRegistrarse = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.GBtnCrearBD = new Guna.UI.WinForms.GunaButton();
+            this.GBtnEntrar = new Guna.UI.WinForms.GunaButton();
+            this.GBtnRegistro = new Guna.UI.WinForms.GunaButton();
+            this.GBtnSinConexion = new Guna.UI.WinForms.GunaButton();
             this.LblError = new System.Windows.Forms.Label();
             this.LblSesionIniciada = new System.Windows.Forms.Label();
             this.ToggleConectado = new OpenLibraryEditor.Controles.ToggleButton();
@@ -63,9 +64,10 @@
             this.PanLogin.BackColor = System.Drawing.Color.Gainsboro;
             this.PanLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PanLogin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PanLogin.Controls.Add(this.BtnInvitado);
-            this.PanLogin.Controls.Add(this.BtnEntrar);
-            this.PanLogin.Controls.Add(this.BtnRegistrarse);
+            this.PanLogin.Controls.Add(this.GBtnCrearBD);
+            this.PanLogin.Controls.Add(this.GBtnEntrar);
+            this.PanLogin.Controls.Add(this.GBtnRegistro);
+            this.PanLogin.Controls.Add(this.GBtnSinConexion);
             this.PanLogin.Controls.Add(this.LblError);
             this.PanLogin.Controls.Add(this.LblSesionIniciada);
             this.PanLogin.Controls.Add(this.ToggleConectado);
@@ -75,252 +77,123 @@
             this.PanLogin.Controls.Add(this.IpcbMostrarContra);
             this.PanLogin.Controls.Add(this.IpcbOcultarContra);
             this.PanLogin.Controls.Add(this.KTxtContra);
-            this.PanLogin.Location = new System.Drawing.Point(661, 179);
+            this.PanLogin.Location = new System.Drawing.Point(664, 179);
             this.PanLogin.Margin = new System.Windows.Forms.Padding(2);
             this.PanLogin.Name = "PanLogin";
-            this.PanLogin.Size = new System.Drawing.Size(385, 350);
+            this.PanLogin.Size = new System.Drawing.Size(385, 375);
             this.PanLogin.TabIndex = 11;
             // 
-            // BtnInvitado
+            // GBtnCrearBD
             // 
-            this.BtnInvitado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnInvitado.Location = new System.Drawing.Point(14, 297);
-            this.BtnInvitado.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnInvitado.Name = "BtnInvitado";
-            this.BtnInvitado.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnInvitado.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnInvitado.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnInvitado.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnInvitado.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnInvitado.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnInvitado.OverrideDefault.Border.Rounding = 30;
-            this.BtnInvitado.OverrideDefault.Border.Width = 2;
-            this.BtnInvitado.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnInvitado.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnInvitado.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnInvitado.Size = new System.Drawing.Size(354, 44);
-            this.BtnInvitado.StateCommon.Back.Color1 = System.Drawing.Color.Navy;
-            this.BtnInvitado.StateCommon.Back.Color2 = System.Drawing.Color.Navy;
-            this.BtnInvitado.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnInvitado.StateCommon.Border.Color1 = System.Drawing.Color.Navy;
-            this.BtnInvitado.StateCommon.Border.Color2 = System.Drawing.Color.Navy;
-            this.BtnInvitado.StateCommon.Border.ColorAngle = 0F;
-            this.BtnInvitado.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnInvitado.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnInvitado.StateCommon.Border.Rounding = 30;
-            this.BtnInvitado.StateCommon.Border.Width = 2;
-            this.BtnInvitado.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.BtnInvitado.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnInvitado.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnInvitado.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.BtnInvitado.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnInvitado.StateNormal.Back.Color1 = System.Drawing.Color.Navy;
-            this.BtnInvitado.StateNormal.Back.Color2 = System.Drawing.Color.Navy;
-            this.BtnInvitado.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnInvitado.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnInvitado.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnInvitado.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnInvitado.StateNormal.Border.Rounding = 30;
-            this.BtnInvitado.StateNormal.Border.Width = 2;
-            this.BtnInvitado.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnInvitado.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnInvitado.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnInvitado.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.BtnInvitado.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.BtnInvitado.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnInvitado.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnInvitado.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnInvitado.StatePressed.Border.Rounding = 30;
-            this.BtnInvitado.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.BtnInvitado.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.BtnInvitado.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.BtnInvitado.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.BtnInvitado.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnInvitado.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnInvitado.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnInvitado.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnInvitado.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnInvitado.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnInvitado.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnInvitado.TabIndex = 7;
-            this.BtnInvitado.Values.Text = "Acceso invitado";
-            this.BtnInvitado.Click += new System.EventHandler(this.BtnInvitado_Click);
+            this.GBtnCrearBD.AnimationHoverSpeed = 0.07F;
+            this.GBtnCrearBD.AnimationSpeed = 0.03F;
+            this.GBtnCrearBD.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnCrearBD.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnCrearBD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnCrearBD.BorderSize = 2;
+            this.GBtnCrearBD.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnCrearBD.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnCrearBD.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnCrearBD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnCrearBD.Image = null;
+            this.GBtnCrearBD.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnCrearBD.Location = new System.Drawing.Point(15, 5);
+            this.GBtnCrearBD.Name = "GBtnCrearBD";
+            this.GBtnCrearBD.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnCrearBD.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnCrearBD.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnCrearBD.OnHoverImage = null;
+            this.GBtnCrearBD.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnCrearBD.Radius = 18;
+            this.GBtnCrearBD.Size = new System.Drawing.Size(355, 39);
+            this.GBtnCrearBD.TabIndex = 0;
+            this.GBtnCrearBD.Text = "Crear base de datos";
+            this.GBtnCrearBD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnCrearBD.Click += new System.EventHandler(this.GBtnCrearBD_Click);
             // 
-            // BtnEntrar
+            // GBtnEntrar
             // 
-            this.BtnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEntrar.Location = new System.Drawing.Point(196, 248);
-            this.BtnEntrar.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnEntrar.Name = "BtnEntrar";
-            this.BtnEntrar.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnEntrar.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnEntrar.OverrideDefault.Border.Rounding = 30;
-            this.BtnEntrar.OverrideDefault.Border.Width = 2;
-            this.BtnEntrar.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnEntrar.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnEntrar.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEntrar.Size = new System.Drawing.Size(172, 44);
-            this.BtnEntrar.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnEntrar.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateCommon.Border.ColorAngle = 0F;
-            this.BtnEntrar.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnEntrar.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnEntrar.StateCommon.Border.Rounding = 30;
-            this.BtnEntrar.StateCommon.Border.Width = 2;
-            this.BtnEntrar.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.BtnEntrar.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnEntrar.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnEntrar.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.BtnEntrar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEntrar.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnEntrar.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnEntrar.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnEntrar.StateNormal.Border.Rounding = 30;
-            this.BtnEntrar.StateNormal.Border.Width = 2;
-            this.BtnEntrar.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnEntrar.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnEntrar.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEntrar.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.BtnEntrar.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.BtnEntrar.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnEntrar.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnEntrar.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnEntrar.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.BtnEntrar.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.BtnEntrar.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.BtnEntrar.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.BtnEntrar.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnEntrar.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnEntrar.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnEntrar.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnEntrar.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnEntrar.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnEntrar.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnEntrar.TabIndex = 6;
-            this.BtnEntrar.Values.Text = "Entrar";
-            this.BtnEntrar.Click += new System.EventHandler(this.BtnEntrar_Click);
+            this.GBtnEntrar.AnimationHoverSpeed = 0.07F;
+            this.GBtnEntrar.AnimationSpeed = 0.03F;
+            this.GBtnEntrar.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnEntrar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnEntrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnEntrar.BorderSize = 2;
+            this.GBtnEntrar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnEntrar.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnEntrar.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnEntrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnEntrar.Image = null;
+            this.GBtnEntrar.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnEntrar.Location = new System.Drawing.Point(196, 282);
+            this.GBtnEntrar.Name = "GBtnEntrar";
+            this.GBtnEntrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnEntrar.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnEntrar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.GBtnEntrar.OnHoverImage = null;
+            this.GBtnEntrar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(137)))), ((int)(((byte)(205)))), ((int)(((byte)(250)))));
+            this.GBtnEntrar.Radius = 18;
+            this.GBtnEntrar.Size = new System.Drawing.Size(174, 39);
+            this.GBtnEntrar.TabIndex = 6;
+            this.GBtnEntrar.Text = "Entrar";
+            this.GBtnEntrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnEntrar.Click += new System.EventHandler(this.GBtnEntrar_Click);
             // 
-            // BtnRegistrarse
+            // GBtnRegistro
             // 
-            this.BtnRegistrarse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRegistrarse.Location = new System.Drawing.Point(14, 248);
-            this.BtnRegistrarse.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnRegistrarse.Name = "BtnRegistrarse";
-            this.BtnRegistrarse.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRegistrarse.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRegistrarse.OverrideDefault.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.OverrideDefault.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarse.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarse.OverrideDefault.Border.Rounding = 30;
-            this.BtnRegistrarse.OverrideDefault.Border.Width = 2;
-            this.BtnRegistrarse.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.OverrideDefault.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.OverrideDefault.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarse.Size = new System.Drawing.Size(172, 44);
-            this.BtnRegistrarse.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRegistrarse.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRegistrarse.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.StateCommon.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarse.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateCommon.Border.ColorAngle = 0F;
-            this.BtnRegistrarse.StateCommon.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarse.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarse.StateCommon.Border.Rounding = 30;
-            this.BtnRegistrarse.StateCommon.Border.Width = 2;
-            this.BtnRegistrarse.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-5);
-            this.BtnRegistrarse.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateCommon.Content.ShortText.ColorAngle = 36F;
-            this.BtnRegistrarse.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarse.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRegistrarse.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRegistrarse.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.StateNormal.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarse.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarse.StateNormal.Border.Rounding = 30;
-            this.BtnRegistrarse.StateNormal.Border.Width = 2;
-            this.BtnRegistrarse.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.BtnRegistrarse.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnRegistrarse.StatePressed.Back.Color1 = System.Drawing.Color.Silver;
-            this.BtnRegistrarse.StatePressed.Back.Color2 = System.Drawing.Color.Silver;
-            this.BtnRegistrarse.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.StatePressed.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StatePressed.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarse.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StateTracking.Back.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StateTracking.Back.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StateTracking.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
-            this.BtnRegistrarse.StateTracking.Back.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.BtnRegistrarse.StateTracking.Border.Color1 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StateTracking.Border.Color2 = System.Drawing.Color.Black;
-            this.BtnRegistrarse.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.BtnRegistrarse.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.BtnRegistrarse.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.BtnRegistrarse.TabIndex = 5;
-            this.BtnRegistrarse.Values.Text = "Registrarse";
-            this.BtnRegistrarse.Click += new System.EventHandler(this.BtnRegistrarse_Click);
+            this.GBtnRegistro.AnimationHoverSpeed = 0.07F;
+            this.GBtnRegistro.AnimationSpeed = 0.03F;
+            this.GBtnRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnRegistro.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.BorderSize = 2;
+            this.GBtnRegistro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnRegistro.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnRegistro.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.Image = null;
+            this.GBtnRegistro.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnRegistro.Location = new System.Drawing.Point(15, 282);
+            this.GBtnRegistro.Name = "GBtnRegistro";
+            this.GBtnRegistro.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnRegistro.OnHoverImage = null;
+            this.GBtnRegistro.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.GBtnRegistro.Radius = 18;
+            this.GBtnRegistro.Size = new System.Drawing.Size(174, 39);
+            this.GBtnRegistro.TabIndex = 7;
+            this.GBtnRegistro.Text = "Registrarse";
+            this.GBtnRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnRegistro.Click += new System.EventHandler(this.GBtnRegistro_Click);
+            // 
+            // GBtnSinConexion
+            // 
+            this.GBtnSinConexion.AnimationHoverSpeed = 0.07F;
+            this.GBtnSinConexion.AnimationSpeed = 0.03F;
+            this.GBtnSinConexion.BackColor = System.Drawing.Color.Transparent;
+            this.GBtnSinConexion.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnSinConexion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnSinConexion.BorderSize = 2;
+            this.GBtnSinConexion.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.GBtnSinConexion.FocusedColor = System.Drawing.Color.Empty;
+            this.GBtnSinConexion.Font = new System.Drawing.Font("Merienda", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBtnSinConexion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnSinConexion.Image = null;
+            this.GBtnSinConexion.ImageSize = new System.Drawing.Size(20, 20);
+            this.GBtnSinConexion.Location = new System.Drawing.Point(15, 326);
+            this.GBtnSinConexion.Name = "GBtnSinConexion";
+            this.GBtnSinConexion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnSinConexion.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnSinConexion.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.GBtnSinConexion.OnHoverImage = null;
+            this.GBtnSinConexion.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(243)))), ((int)(((byte)(254)))));
+            this.GBtnSinConexion.Radius = 18;
+            this.GBtnSinConexion.Size = new System.Drawing.Size(355, 39);
+            this.GBtnSinConexion.TabIndex = 8;
+            this.GBtnSinConexion.Text = "Modo sin conexión";
+            this.GBtnSinConexion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GBtnSinConexion.Click += new System.EventHandler(this.GBtnSinConexion_Click);
             // 
             // LblError
             // 
@@ -330,7 +203,7 @@
             this.LblError.ForeColor = System.Drawing.Color.Black;
             this.LblError.Image = global::OpenLibraryEditor.Properties.Resources.error1;
             this.LblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LblError.Location = new System.Drawing.Point(14, 208);
+            this.LblError.Location = new System.Drawing.Point(14, 232);
             this.LblError.Name = "LblError";
             this.LblError.Size = new System.Drawing.Size(32, 18);
             this.LblError.TabIndex = 20;
@@ -340,20 +213,20 @@
             // LblSesionIniciada
             // 
             this.LblSesionIniciada.AutoSize = true;
-            this.LblSesionIniciada.Font = new System.Drawing.Font("Merienda One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSesionIniciada.ForeColor = System.Drawing.Color.Navy;
-            this.LblSesionIniciada.Location = new System.Drawing.Point(50, 158);
+            this.LblSesionIniciada.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSesionIniciada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(100)))));
+            this.LblSesionIniciada.Location = new System.Drawing.Point(50, 182);
             this.LblSesionIniciada.Name = "LblSesionIniciada";
-            this.LblSesionIniciada.Size = new System.Drawing.Size(199, 22);
+            this.LblSesionIniciada.Size = new System.Drawing.Size(186, 20);
             this.LblSesionIniciada.TabIndex = 8;
             this.LblSesionIniciada.Text = "Mantener sesión iniciada";
             // 
             // ToggleConectado
             // 
             this.ToggleConectado.AutoSize = true;
-            this.ToggleConectado.BackColor = System.Drawing.Color.Transparent;
+            this.ToggleConectado.BackColor = System.Drawing.Color.Gainsboro;
             this.ToggleConectado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ToggleConectado.Location = new System.Drawing.Point(261, 158);
+            this.ToggleConectado.Location = new System.Drawing.Point(251, 182);
             this.ToggleConectado.MinimumSize = new System.Drawing.Size(45, 22);
             this.ToggleConectado.Name = "ToggleConectado";
             this.ToggleConectado.OffBackColor = System.Drawing.Color.DarkGray;
@@ -363,22 +236,23 @@
             this.ToggleConectado.Size = new System.Drawing.Size(45, 22);
             this.ToggleConectado.TabIndex = 4;
             this.ToggleConectado.UseVisualStyleBackColor = false;
+            this.ToggleConectado.CheckedChanged += new System.EventHandler(this.ToggleConectado_CheckedChanged);
             // 
             // KTxtNombre
             // 
-            this.KTxtNombre.Location = new System.Drawing.Point(14, 57);
+            this.KTxtNombre.Location = new System.Drawing.Point(15, 94);
             this.KTxtNombre.Name = "KTxtNombre";
-            this.KTxtNombre.Size = new System.Drawing.Size(354, 41);
+            this.KTxtNombre.Size = new System.Drawing.Size(355, 39);
             this.KTxtNombre.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtNombre.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtNombre.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtNombre.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtNombre.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtNombre.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtNombre.StateCommon.Border.Rounding = 15;
-            this.KTxtNombre.StateCommon.Border.Width = 3;
+            this.KTxtNombre.StateCommon.Border.Width = 2;
             this.KTxtNombre.StateCommon.Content.Color1 = System.Drawing.Color.DimGray;
-            this.KTxtNombre.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtNombre.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtNombre.TabIndex = 2;
             this.KTxtNombre.Text = "Nombre de Usuario o Email";
             this.KTxtNombre.Enter += new System.EventHandler(this.KTxtNombre_Enter);
@@ -386,19 +260,19 @@
             // 
             // KTxtUrl
             // 
-            this.KTxtUrl.Location = new System.Drawing.Point(14, 6);
+            this.KTxtUrl.Location = new System.Drawing.Point(15, 50);
             this.KTxtUrl.Name = "KTxtUrl";
-            this.KTxtUrl.Size = new System.Drawing.Size(354, 41);
+            this.KTxtUrl.Size = new System.Drawing.Size(355, 39);
             this.KTxtUrl.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtUrl.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtUrl.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtUrl.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtUrl.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtUrl.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtUrl.StateCommon.Border.Rounding = 15;
-            this.KTxtUrl.StateCommon.Border.Width = 3;
+            this.KTxtUrl.StateCommon.Border.Width = 2;
             this.KTxtUrl.StateCommon.Content.Color1 = System.Drawing.Color.DimGray;
-            this.KTxtUrl.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtUrl.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtUrl.TabIndex = 1;
             this.KTxtUrl.Text = "Url base de datos";
             this.KTxtUrl.Enter += new System.EventHandler(this.KTxtUrl_Enter);
@@ -410,12 +284,13 @@
             this.LlblRecuperar.BackColor = System.Drawing.Color.Transparent;
             this.LlblRecuperar.Font = new System.Drawing.Font("Merienda", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LlblRecuperar.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.LlblRecuperar.Location = new System.Drawing.Point(42, 182);
+            this.LlblRecuperar.Location = new System.Drawing.Point(42, 206);
             this.LlblRecuperar.Name = "LlblRecuperar";
             this.LlblRecuperar.Size = new System.Drawing.Size(294, 18);
-            this.LlblRecuperar.TabIndex = 0;
+            this.LlblRecuperar.TabIndex = 5;
             this.LlblRecuperar.TabStop = true;
             this.LlblRecuperar.Text = "¿Ha olvidado su contraseña? Haga click aquí";
+            this.LlblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblRecuperar_LinkClicked);
             // 
             // IpcbMostrarContra
             // 
@@ -426,11 +301,11 @@
             this.IpcbMostrarContra.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.IpcbMostrarContra.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbMostrarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbMostrarContra.IconSize = 30;
-            this.IpcbMostrarContra.Location = new System.Drawing.Point(323, 113);
+            this.IpcbMostrarContra.IconSize = 27;
+            this.IpcbMostrarContra.Location = new System.Drawing.Point(326, 144);
             this.IpcbMostrarContra.Name = "IpcbMostrarContra";
             this.IpcbMostrarContra.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
-            this.IpcbMostrarContra.Size = new System.Drawing.Size(30, 30);
+            this.IpcbMostrarContra.Size = new System.Drawing.Size(27, 27);
             this.IpcbMostrarContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.IpcbMostrarContra.TabIndex = 13;
             this.IpcbMostrarContra.TabStop = false;
@@ -445,11 +320,11 @@
             this.IpcbOcultarContra.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.IpcbOcultarContra.IconColor = System.Drawing.SystemColors.ControlText;
             this.IpcbOcultarContra.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.IpcbOcultarContra.IconSize = 30;
-            this.IpcbOcultarContra.Location = new System.Drawing.Point(323, 113);
+            this.IpcbOcultarContra.IconSize = 27;
+            this.IpcbOcultarContra.Location = new System.Drawing.Point(326, 144);
             this.IpcbOcultarContra.Name = "IpcbOcultarContra";
             this.IpcbOcultarContra.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
-            this.IpcbOcultarContra.Size = new System.Drawing.Size(30, 30);
+            this.IpcbOcultarContra.Size = new System.Drawing.Size(27, 27);
             this.IpcbOcultarContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.IpcbOcultarContra.TabIndex = 14;
             this.IpcbOcultarContra.TabStop = false;
@@ -458,19 +333,19 @@
             // 
             // KTxtContra
             // 
-            this.KTxtContra.Location = new System.Drawing.Point(14, 108);
+            this.KTxtContra.Location = new System.Drawing.Point(15, 138);
             this.KTxtContra.Name = "KTxtContra";
-            this.KTxtContra.Size = new System.Drawing.Size(354, 41);
+            this.KTxtContra.Size = new System.Drawing.Size(355, 39);
             this.KTxtContra.StateCommon.Back.Color1 = System.Drawing.Color.Gainsboro;
-            this.KTxtContra.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
-            this.KTxtContra.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(214)))));
+            this.KTxtContra.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
+            this.KTxtContra.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(150)))));
             this.KTxtContra.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.KTxtContra.StateCommon.Border.Rounding = 15;
-            this.KTxtContra.StateCommon.Border.Width = 3;
+            this.KTxtContra.StateCommon.Border.Width = 2;
             this.KTxtContra.StateCommon.Content.Color1 = System.Drawing.Color.DimGray;
-            this.KTxtContra.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KTxtContra.StateCommon.Content.Font = new System.Drawing.Font("Merienda One", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KTxtContra.TabIndex = 3;
             this.KTxtContra.Text = "Contraseña";
             this.KTxtContra.Enter += new System.EventHandler(this.KTxtContra_Enter);
@@ -480,10 +355,10 @@
             // 
             this.PcbLogo.BackColor = System.Drawing.Color.Transparent;
             this.PcbLogo.Image = global::OpenLibraryEditor.Properties.Resources.LogoFinal;
-            this.PcbLogo.Location = new System.Drawing.Point(182, 179);
+            this.PcbLogo.Location = new System.Drawing.Point(162, 179);
             this.PcbLogo.Margin = new System.Windows.Forms.Padding(2);
             this.PcbLogo.Name = "PcbLogo";
-            this.PcbLogo.Size = new System.Drawing.Size(350, 350);
+            this.PcbLogo.Size = new System.Drawing.Size(375, 375);
             this.PcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbLogo.TabIndex = 14;
             this.PcbLogo.TabStop = false;
@@ -502,7 +377,7 @@
             this.ToolIdiomas.Name = "ToolIdiomas";
             this.ToolIdiomas.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.ToolIdiomas.Size = new System.Drawing.Size(72, 25);
-            this.ToolIdiomas.TabIndex = 15;
+            this.ToolIdiomas.TabIndex = 0;
             this.ToolIdiomas.Text = "Seleccione un idioma";
             // 
             // BtnSpain
@@ -555,7 +430,7 @@
             this.MBtnCerrarLogin.Name = "MBtnCerrarLogin";
             this.MBtnCerrarLogin.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.MBtnCerrarLogin.Size = new System.Drawing.Size(32, 32);
-            this.MBtnCerrarLogin.TabIndex = 16;
+            this.MBtnCerrarLogin.TabIndex = 1;
             this.MBtnCerrarLogin.UseVisualStyleBackColor = false;
             this.MBtnCerrarLogin.Click += new System.EventHandler(this.MBtnCerrarLogin_Click);
             // 
@@ -606,9 +481,6 @@
         private System.Windows.Forms.Label LblSesionIniciada;
         private Controles.ToggleButton ToggleConectado;
         private System.Windows.Forms.Label LblError;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnInvitado;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnEntrar;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnRegistrarse;
         private System.Windows.Forms.ToolStrip ToolIdiomas;
         private System.Windows.Forms.ToolStripButton BtnSpain;
         private System.Windows.Forms.ToolStripButton BtnUsa;
@@ -616,5 +488,9 @@
         private System.Windows.Forms.Timer TimerAparecer;
         private FontAwesome.Sharp.Material.MaterialButton MBtnCerrarLogin;
         private System.Windows.Forms.ToolTip TTLogin;
+        private Guna.UI.WinForms.GunaButton GBtnCrearBD;
+        private Guna.UI.WinForms.GunaButton GBtnEntrar;
+        private Guna.UI.WinForms.GunaButton GBtnRegistro;
+        private Guna.UI.WinForms.GunaButton GBtnSinConexion;
     }
 }
