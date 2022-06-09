@@ -4,7 +4,7 @@ Para un correcto uso de la aplicación es necesario tener instaladas en el orden
 
 Pero si se desea se puede utilizar la aplicación instalándola a través del setup incluido en el proyecto, el cuál ya instalará las fuentes anteriores en tu ordenador 
 directamente.
-IMPORTANTE no instalar la aplicación en la ruta por defecto c:\Program files . Pues en esa ruta no se tienen permisos de escritura y para que la aplicación funcionara se necesitaría ejecutarla como Administrador, para evitar esto recomendamos instalar en c:\OpenLibraryEditor.
+<strong>IMPORTANTE</strong> no instalar la aplicación en la ruta por defecto c:\Program files . Pues en esa ruta no se tienen permisos de escritura y para que la aplicación funcionara se necesitaría ejecutarla como Administrador, para evitar esto recomendamos instalar en c:\OpenLibraryEditor.
 
 Destacar que la en la aplicación se han utilizado los frameworks de Guna y de Krypton Suite, por lo que si se descarga el código y se trata de ejecutar en Visual Studio,
 dará errores de compilación si no se tienen estos frameworks instalados en el IDE. También añadir que para poder usar Krypton se ha tenido que desarrollar la aplicación
