@@ -14,8 +14,6 @@ namespace OpenLibraryEditor.Clases
         public const string RUTA_BASE = ".\\img\\";
         public const string RUTA_LIBRO = RUTA_BASE + "book\\";
         public const string RUTA_PERSONA = RUTA_BASE + "people\\";
-        public const string RUTA_IDIOMA = RUTA_BASE + "language\\";
-        public const string RUTA_SERIE = RUTA_BASE + "serie\\";
         public const string RUTA_EDITORIAL = RUTA_BASE + "editorial\\";
 
         public static string GuardarImagen(string ficheroOrigen, string carpetaDestino, string nuevoNombreFichero)

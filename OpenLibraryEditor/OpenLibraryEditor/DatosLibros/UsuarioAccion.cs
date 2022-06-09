@@ -45,13 +45,12 @@ namespace OpenLibraryEditor.DatosLibros
             {
                 string exe = "\"" + ejecutable.RutaEjecutable + "\"";
                 string cmd = "";
-                //Si la constante "file" aparece en los argumentos, coloar ruta fichero ahí
+                //Si la constante "file" aparece en los argumentos, colocar ruta fichero ahí
                 //Si no, crear estructura por defecto, exe + fichero + argumentos.
                 if (ejecutable.Argumentos.Contains(UsuarioEjecutable.CLAVE_FICHERO))
                 {
-                    string copia = ejecutable.Argumentos;
-                    copia.Replace(UsuarioEjecutable.CLAVE_FICHERO, "\"" + rutaFichero + "\"");
-                    cmd += " " + ejecutable.Argumentos;
+                    string copia = ejecutable.Argumentos.Replace(UsuarioEjecutable.CLAVE_FICHERO, "\"" + rutaFichero + "\"");
+                    cmd += " " + copia;
                 }
                 else
                 {

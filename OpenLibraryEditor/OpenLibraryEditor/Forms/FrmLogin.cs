@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -37,21 +38,15 @@ namespace OpenLibraryEditor.Forms
             Biblioteca.biblioteca = Biblioteca.CargarJson();
             ControladorIdioma.idioma = UsuarioDatos.configuracionUsuario.IdiomaIntefaz;
 
+            //Generar carpetas si no existen
+            Directory.CreateDirectory(ControladorImagen.RUTA_LIBRO);
+            Directory.CreateDirectory(ControladorImagen.RUTA_EDITORIAL);
+            Directory.CreateDirectory(ControladorImagen.RUTA_PERSONA);
+
             TimerAparecer.Start();
             this.Opacity = 0.0;
             IdiomaTexto();
             RecordarUsuario();
-            //if (!String.IsNullOrWhiteSpace(UsuarioDatos.configuracionUsuario.RecordarUrl))
-            //{
-            //    KTxtUrl.Text = UsuarioDatos.configuracionUsuario.RecordarUrl;
-            //    KTxtUrl_Enter(null, null);
-            //    KTxtNombre.Text = UsuarioDatos.configuracionUsuario.RecordarUsuario;
-            //    KTxtNombre_Enter(null, null);
-            //    KTxtContra.Text = UsuarioDatos.configuracionUsuario.RecordarContr;
-            //    KTxtContra_Enter(null, null);
-            //    ToggleConectado.Checked = true;
-            //}
-
         }
         #endregion
         #region aparecer formulario

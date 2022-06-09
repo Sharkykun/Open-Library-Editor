@@ -961,7 +961,7 @@
     <value>Could not connect to database with logged in user</value>
   </data>
   <data name="Error_CamposVacios" xml:space="preserve">
-    <value>The name, extension and path cannot be empty.</value>
+    <value>The name and path cannot be empty.</value>
   </data>
   <data name="Error_Genero" xml:space="preserve">
     <value>The name cannot be empty. The genre cannot be the same as the one currently selected.</value>

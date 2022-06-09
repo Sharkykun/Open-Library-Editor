@@ -248,9 +248,12 @@ namespace OpenLibraryEditor.Forms
                                             imglist.Images.Add("image",
                                                 new Bitmap(Resources.portada));
 
+                                        string fecha = !libro.FechaPublicacion.Equals(new DateTime()) ?
+                                            libro.FechaPublicacion.ToShortDateString() : "";
+
                                         ListViewItem lvi =
                                             LsvBuscarLibros.Items.Add(libro.Titulo + "\n" +
-                                            libro.FechaPublicacion.Date.ToShortDateString()
+                                            fecha
                                             + "\n" + libro.Sinopsis, imglist.Images.Count - 1);
                                         lvi.Tag = libro;
                                     }
@@ -314,6 +317,8 @@ namespace OpenLibraryEditor.Forms
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
                                 UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+                            //---------------
+                            VentanaWindowsComun.MensajeInformacion("Libro añadido correctamente.");
                         }
                         catch (IdRepetidoException)
                         {
@@ -404,6 +409,9 @@ namespace OpenLibraryEditor.Forms
 
                                     
                                 }
+                                //---------------
+                                VentanaWindowsComun.MensajeInformacion("Libro añadido correctamente.");
+
                                 ConexionBD.CerrarConexion();
                             }
                         }
@@ -514,6 +522,9 @@ namespace OpenLibraryEditor.Forms
                                  UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[0],
                                  UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[3],
                                  UsuarioDatos.configuracionUsuario.DescargaDetallesLibro[1]));
+
+                    //---------------
+                    VentanaWindowsComun.MensajeInformacion("Libro añadido correctamente.");
                 }
                 catch (IdRepetidoException)
                 {
