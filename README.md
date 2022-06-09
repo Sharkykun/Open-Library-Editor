@@ -3,7 +3,7 @@ Para un correcto uso de la aplicación es necesario tener instaladas en el orden
 - Fuente Merienda One: https://fonts.google.com/specimen/Merienda+One?query=Merienda
 
 Pero si se desea se puede utilizar la aplicación instalándola a través del setup incluido en el proyecto, el cuál ya instalará las fuentes anteriores en tu ordenador 
-directamente.
+directamente.</br>
 <strong>IMPORTANTE</strong> no instalar la aplicación en la ruta por defecto c:\Program files . Pues en esa ruta no se tienen permisos de escritura y para que la aplicación funcionara se necesitaría ejecutarla como Administrador, para evitar esto recomendamos instalar en c:\OpenLibraryEditor.
 
 Destacar que la en la aplicación se han utilizado los frameworks de Guna y de Krypton Suite, por lo que si se descarga el código y se trata de ejecutar en Visual Studio,
