@@ -1095,8 +1095,7 @@ namespace OpenLibraryEditor.Forms
                         {
                             if(libroActual.BorraDeBDCompartida())
                             {
-                                //-------------------
-                                VentanaWindowsComun.MensajeError("El libro se ha borrado correctamente de la base de datos.");
+                                VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("BorradoOK"));
                             }
                             ConexionBD.CerrarConexion();
                         }
@@ -1115,8 +1114,7 @@ namespace OpenLibraryEditor.Forms
                         {
                             if (libroActual.BorrarUsuarioLibroEnBDCompartida())
                             {
-                                //-------------------
-                                VentanaWindowsComun.MensajeError("La información de usuario de este libro se ha borrado correctamente\nde la base de datos.");
+                                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("Info_BorradoOk"));
                             }
                         }
                     }
@@ -1124,8 +1122,7 @@ namespace OpenLibraryEditor.Forms
                 }
                 Biblioteca.biblioteca.ListaLibro.Remove(libroActual);
                 Biblioteca.biblioteca.GuardarJson();
-                //-------------------
-                VentanaWindowsComun.MensajeInformacion("Libro borrado correctamente.");
+                VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("LibroBorradoOk"));
                 LblNumLibros.Text = ControladorIdioma.GetTexto("NumLibros") + titulos.Count;
                 RecolocarLibros(false);
                 MBtncerrarDetallesLibro_Click(sender,e);
@@ -1203,8 +1200,7 @@ namespace OpenLibraryEditor.Forms
                             VentanaWindowsComun.MensajeInformacion(ControladorIdioma.GetTexto("DescargaInfoLibroOK"));
                         }
                         else
-                            //-----------
-                            VentanaWindowsComun.MensajeError("Este libro no existe en la base de datos.");
+                            VentanaWindowsComun.MensajeError(ControladorIdioma.GetTexto("LibroNoExiste"));
                         
                         ConexionBD.CerrarConexion();
                         RecolocarLibros(false);

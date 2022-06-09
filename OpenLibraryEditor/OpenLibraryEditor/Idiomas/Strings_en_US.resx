@@ -453,6 +453,9 @@
   <data name="Al_TTVolumen" xml:space="preserve">
     <value>Sets the volume of the book</value>
   </data>
+  <data name="AniadidoOK" xml:space="preserve">
+    <value>Book added successfully</value>
+  </data>
   <data name="AutorNoExiste" xml:space="preserve">
     <value>The author does not exist in the database</value>
   </data>
@@ -885,6 +888,12 @@
   <data name="ED_TTPcb" xml:space="preserve">
     <value>Publisher image</value>
   </data>
+  <data name="EjecutableBorradoOK" xml:space="preserve">
+    <value>Executable deleted successfully</value>
+  </data>
+  <data name="EjecutableGuardadoOK" xml:space="preserve">
+    <value>Executable saved successfully</value>
+  </data>
   <data name="Ej_Argumentos" xml:space="preserve">
     <value>Arguments</value>
   </data>
@@ -960,6 +969,9 @@
   <data name="ErrorLogin" xml:space="preserve">
     <value>Could not connect to database with logged in user</value>
   </data>
+  <data name="Error_AdminNoBorrar" xml:space="preserve">
+    <value>An administrator cannot be deleted from the database</value>
+  </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>The name and path cannot be empty.</value>
   </data>
@@ -974,6 +986,9 @@
   </data>
   <data name="Error_LibroExiste" xml:space="preserve">
     <value>The book cannot be added because it already exists in the library</value>
+  </data>
+  <data name="Error_NoCambioPermisos" xml:space="preserve">
+    <value>An administrator cannot change database permissions</value>
   </data>
   <data name="Error_NoEnlace" xml:space="preserve">
     <value>There is no saved link</value>
@@ -1092,6 +1107,9 @@
   <data name="Guardar" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Info_BorradoOk" xml:space="preserve">
+    <value>User information for this book has been successfully deleted from the database</value>
+  </data>
   <data name="Info_GuardadoOk" xml:space="preserve">
     <value>It has been saved successfully.</value>
   </data>
@@ -1128,8 +1146,14 @@
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
   </data>
+  <data name="LibroBorradoOk" xml:space="preserve">
+    <value>Book deleted successfully</value>
+  </data>
   <data name="LibroGuardadoOK" xml:space="preserve">
     <value>The book information has been successfully saved in the database</value>
+  </data>
+  <data name="LibroNoExiste" xml:space="preserve">
+    <value>This book does not exist in the database</value>
   </data>
   <data name="LibroRepetido" xml:space="preserve">
     <value>The book is already in the database</value>

@@ -19,7 +19,7 @@ namespace OpenLibraryEditor.Idiomas {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings_fr_FR {
@@ -1074,6 +1074,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Al_TTVolumen {
             get {
                 return ResourceManager.GetString("Al_TTVolumen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Livre ajouté avec succès.
+        /// </summary>
+        internal static string AniadidoOK {
+            get {
+                return ResourceManager.GetString("AniadidoOK", resourceCulture);
             }
         }
         
@@ -2518,6 +2527,24 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Exécutable supprimé avec succès.
+        /// </summary>
+        internal static string EjecutableBorradoOK {
+            get {
+                return ResourceManager.GetString("EjecutableBorradoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exécutable enregistré avec succès.
+        /// </summary>
+        internal static string EjecutableGuardadoOK {
+            get {
+                return ResourceManager.GetString("EjecutableGuardadoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a E-mail: *.
         /// </summary>
         internal static string EmailObligatorio {
@@ -2541,6 +2568,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string EmailUsuApp {
             get {
                 return ResourceManager.GetString("EmailUsuApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Un administrateur ne peut pas être supprimé de la base de données.
+        /// </summary>
+        internal static string Error_AdminNoBorrar {
+            get {
+                return ResourceManager.GetString("Error_AdminNoBorrar", resourceCulture);
             }
         }
         
@@ -2586,6 +2622,15 @@ namespace OpenLibraryEditor.Idiomas {
         internal static string Error_LibroExiste {
             get {
                 return ResourceManager.GetString("Error_LibroExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Un administrateur ne peut pas modifier les autorisations de la base de données.
+        /// </summary>
+        internal static string Error_NoCambioPermisos {
+            get {
+                return ResourceManager.GetString("Error_NoCambioPermisos", resourceCulture);
             }
         }
         
@@ -2995,6 +3040,15 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Les informations utilisateur de ce livre ont été supprimées avec succès de la base de données.
+        /// </summary>
+        internal static string Info_BorradoOk {
+            get {
+                return ResourceManager.GetString("Info_BorradoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Il a été enregistré avec succès..
         /// </summary>
         internal static string Info_GuardadoOk {
@@ -3103,11 +3157,29 @@ namespace OpenLibraryEditor.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Livre supprimé avec succès.
+        /// </summary>
+        internal static string LibroBorradoOk {
+            get {
+                return ResourceManager.GetString("LibroBorradoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Les informations sur le livre ont été enregistrées avec succès dans la base de données.
         /// </summary>
         internal static string LibroGuardadoOK {
             get {
                 return ResourceManager.GetString("LibroGuardadoOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ce livre n&apos;existe pas dans la base de données.
+        /// </summary>
+        internal static string LibroNoExiste {
+            get {
+                return ResourceManager.GetString("LibroNoExiste", resourceCulture);
             }
         }
         

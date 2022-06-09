@@ -456,6 +456,9 @@
   <data name="Al_TTVolumen" xml:space="preserve">
     <value>Définit le volume du livre</value>
   </data>
+  <data name="AniadidoOK" xml:space="preserve">
+    <value>Livre ajouté avec succès</value>
+  </data>
   <data name="AutorNoExiste" xml:space="preserve">
     <value>L'auteur n'existe pas dans la base de données</value>
   </data>
@@ -888,6 +891,12 @@
   <data name="ED_TTPcb" xml:space="preserve">
     <value>Image éditoriale</value>
   </data>
+  <data name="EjecutableBorradoOK" xml:space="preserve">
+    <value>Exécutable supprimé avec succès</value>
+  </data>
+  <data name="EjecutableGuardadoOK" xml:space="preserve">
+    <value>Exécutable enregistré avec succès</value>
+  </data>
   <data name="Ej_Argumentos" xml:space="preserve">
     <value>Arguments</value>
   </data>
@@ -963,6 +972,9 @@
   <data name="ErrorLogin" xml:space="preserve">
     <value>Impossible de se connecter à la base de données avec l'utilisateur connecté</value>
   </data>
+  <data name="Error_AdminNoBorrar" xml:space="preserve">
+    <value>Un administrateur ne peut pas être supprimé de la base de données</value>
+  </data>
   <data name="Error_CamposVacios" xml:space="preserve">
     <value>Le nom et le chemin ne peuvent pas être vides.</value>
   </data>
@@ -977,6 +989,9 @@
   </data>
   <data name="Error_LibroExiste" xml:space="preserve">
     <value>Le livre ne peut pas être ajouté car il existe déjà dans la bibliothèque</value>
+  </data>
+  <data name="Error_NoCambioPermisos" xml:space="preserve">
+    <value>Un administrateur ne peut pas modifier les autorisations de la base de données</value>
   </data>
   <data name="Error_NoEnlace" xml:space="preserve">
     <value>Il n'y a pas de lien enregistré</value>
@@ -1095,6 +1110,9 @@
   <data name="Guardar" xml:space="preserve">
     <value>Garder</value>
   </data>
+  <data name="Info_BorradoOk" xml:space="preserve">
+    <value>Les informations utilisateur de ce livre ont été supprimées avec succès de la base de données</value>
+  </data>
   <data name="Info_GuardadoOk" xml:space="preserve">
     <value>Il a été enregistré avec succès.</value>
   </data>
@@ -1131,8 +1149,14 @@
   <data name="Isbn" xml:space="preserve">
     <value>ISBN</value>
   </data>
+  <data name="LibroBorradoOk" xml:space="preserve">
+    <value>Livre supprimé avec succès</value>
+  </data>
   <data name="LibroGuardadoOK" xml:space="preserve">
     <value>Les informations sur le livre ont été enregistrées avec succès dans la base de données</value>
+  </data>
+  <data name="LibroNoExiste" xml:space="preserve">
+    <value>Ce livre n'existe pas dans la base de données</value>
   </data>
   <data name="LibroRepetido" xml:space="preserve">
     <value>Le livre est déjà dans la base de données</value>
